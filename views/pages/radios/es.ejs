@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spain Radio Player</title>
+    <meta name="viewport" content="width=1280">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        :root { --bg-dark: #0f0f0f; --accent: #00f2ff; --glass: rgba(255, 255, 255, 0.05); }
+        body { 
+            margin: 0; padding: 0; width: 1280px; height: 720px; 
+            background-color: var(--bg-dark); color: white; font-family: sans-serif; 
+            display: flex; flex-direction: column; overflow: hidden;
+            background-size: cover; background-position: center;
+        }
+        #header { padding: 30px 50px; }
+        #header h1 { margin: 0; font-size: 32px; letter-spacing: 4px; text-transform: uppercase; }
+        .container { display: flex; padding: 0 50px; gap: 30px; height: 500px; }
+        
+        /* Left Player */
+        #player-card { 
+            flex: 0 0 350px; background: rgba(0,0,0,0.6); backdrop-filter: blur(15px);
+            border-radius: 20px; padding: 40px; border: 1px solid rgba(255,255,255,0.1);
+            text-align: center; display: flex; flex-direction: column; align-items: center;
+        }
+        #current-logo { width: 180px; height: 180px; object-fit: contain; margin-bottom: 20px; background: white; border-radius: 10px; padding: 10px; }
+        #current-name { font-size: 24px; color: var(--accent); margin-bottom: 20px; }
+        .play-btn { background: var(--accent); border: none; padding: 15px 50px; border-radius: 30px; font-weight: bold; cursor: pointer; }
+
+        /* Right Grid */
+        #station-grid { 
+            flex: 1; display: grid; grid-template-columns: repeat(5, 1fr); 
+            gap: 15px; overflow-y: auto; list-style: none; padding: 0; margin: 0;
+        }
+        .station-item { 
+            background: var(--glass); border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            aspect-ratio: 1.4; transition: 0.2s;
+        }
+        .station-item:hover { background: var(--accent); transform: scale(1.05); }
+        .station-item img { max-width: 70%; max-height: 70%; pointer-events: none; }
+
+        #bback { position: absolute; bottom: 30px; left: 50px; padding: 10px 30px; background: rgba(255,255,255,0.1); border: 1px solid white; color: white; cursor: pointer; border-radius: 20px; }
+    </style>
+</head>
+<body>
+
+    <div id="header"><h1>Radios de España</h1></div>
+
+    <div class="container">
+        <div id="player-card">
+            <img id="current-logo" src="https://cdn.webrad.io/images/logos/emisora-org-es/los-40-principales.png">
+            <div id="current-name">Selecciona una Radio</div>
+            <button class="play-btn" id="play-toggle">PLAY</button>
+            <audio id="radio-audio"></audio>
+        </div>
+
+        <ul id="station-grid">
+            <li class="station-item" data-name="Los 40" data-url="https://live.los40.com/streaming/los40/64/mp3" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/los-40-principales.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/los-40-principales.png">
+            </li>
+            <li class="station-item" data-name="Onda Cero" data-url="https://icecast-streaming.nice2stream.com/ondacero" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/onda-cero.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/onda-cero.png">
+            </li>
+            <li class="station-item" data-name="Flaixbac" data-url="https://streaming.enantena.com:8004/flaixbac.mp3" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/flaixbac.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/flaixbac.png">
+            </li>
+            <li class="station-item" data-name="Los 40 Classic" data-url="https://live.los40.com/streaming/los40classic/64/mp3" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/los-40-classic.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/los-40-classic.png">
+            </li>
+            <li class="station-item" data-name="Cadena 100" data-url="https://shoutcast.cope.es:8000/cadena100.mp3" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/cadena-100.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/cadena-100.png">
+            </li>
+            <li class="station-item" data-name="Europa FM" data-url="https://icecast-streaming.nice2stream.com/europafm" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/europa-fm.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/europa-fm.png">
+            </li>
+            <li class="station-item" data-name="Kiss FM" data-url="https://asv.kissfm.es/kissfm.mp3" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/kiss.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/kiss.png">
+            </li>
+            <li class="station-item" data-name="Radiolé" data-url="https://live.radiole.com/streaming/radiole/64/mp3" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/radiole.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/radiole.png">
+            </li>
+             <li class="station-item" data-name="Rock FM" data-url="https://shoutcast.cope.es:8000/rockfm.mp3" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/rock-fm.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/rock-fm.png">
+            </li>
+            <li class="station-item" data-name="Cadena Dial" data-url="https://live.cadenadial.com/streaming/cadenadial/64/mp3" data-img="https://cdn.webrad.io/images/logos/emisora-org-es/cadena-dial.png">
+                <img src="https://cdn.webrad.io/images/logos/emisora-org-es/cadena-dial.png">
+            </li>
+        </ul>
+    </div>
+
+    <button id="bback" onclick="window.history.back()">BACK</button>
+
+    <script>
+        const audio = document.getElementById('radio-audio');
+        const playBtn = document.getElementById('play-toggle');
+        const stationNameDisplay = document.getElementById('current-name');
+        const logoDisplay = document.getElementById('current-logo');
+
+        // Apply background if saved
+        const savedPic = localStorage.getItem("pic");
+        if(savedPic) document.body.style.backgroundImage = `url(${savedPic})`;
+
+        $('.station-item').on('click', function() {
+            const url = $(this).data('url');
+            const name = $(this).data('name');
+            const img = $(this).data('img');
+
+            stationNameDisplay.innerText = name;
+            logoDisplay.src = img;
+            
+            audio.src = url;
+            audio.play();
+            playBtn.innerText = "STOP";
+        });
+
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerText = "STOP";
+            } else {
+                audio.pause();
+                playBtn.innerText = "PLAY";
+            }
+        });
+    </script>
+</body>
+</html>

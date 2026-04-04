@@ -1,0 +1,102 @@
+<style>
+    /* Scope styles to the overlay to prevent bleeding into the main grid */
+    #xxx-container-wrapper {
+        width: 1280px;
+        height: 720px;
+        position: relative;
+        color: #fff;
+        font-family: 'Fira Sans', sans-serif;
+    }
+
+    #xxx-title {
+        position: absolute;
+        top: 30px;
+        left: 340px;
+        width: 600px;
+        padding: 10px;
+        font-size: 1.8em;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 60px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .xxx-scroll-area {
+        display: block;
+        position: absolute;
+        top: 130px;
+        left: 290px;
+        width: 700px;
+        height: 460px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow-y: auto; /* Changed to auto for better sync handling */
+    }
+
+    .xxx-btn {
+        display: block;
+        width: 580px;
+        margin: 15px auto;
+        padding: 18px;
+        font-size: 28px;
+        text-align: center;
+        color: #ffa260;
+        background: rgba(0, 0, 0, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .xxx-btn:hover {
+        background: #2ecc71;
+        color: #fff;
+    }
+
+    #xxx-back {
+        position: absolute;
+        top: 610px;
+        left: 340px;
+        width: 600px;
+        border-color: #bd4d82;
+        color: #bd4d82;
+    }
+</style>
+
+<div id="xxx-container-wrapper">
+    <p id='xxx-title'>XXX Menu</p> 
+
+    <div class="xxx-scroll-area conteiner">
+        <div onclick="goToX('xvideos')" class="xxx-btn">Xvideos</div>  
+        <div onclick="goToX('eporner')" class="xxx-btn">Eporner</div>
+        <div onclick="goToX('eroticMovies')" class="xxx-btn">Erotic Movies</div> 
+        
+        <div onclick="handleNav('./xxx/redbust/redbust')" class="xxx-btn">Erotic Pics</div> 
+        <div onclick="handleNav('./voypics/voypics')" class="xxx-btn">Voy Pics</div> 
+        <div onclick="handleNav('./voyhd/black/black')" class="xxx-btn">Black & White</div> 
+        <div onclick="handleNav('./xxx-browsers')" class="xxx-btn">Porn Links</div> 
+    </div>
+
+    <div id="xxx-back" onclick="closeSubMenu();" class="xxx-btn">Back to Main Menu</div>
+</div>
+
+<script>
+    function goToX(mode) {
+        let path = '';
+        
+        // Match these exactly to the keys in your NAV_CONFIG.menus
+        if(mode === "xvideos") path = 'xvideos'; 
+        if(mode === "eporner") path = 'eporner'; 
+        
+        // This calls the global handleNav which uses AJAX
+        if (typeof handleNav === 'function') {
+            handleNav(path);
+        }
+    }
+</script>

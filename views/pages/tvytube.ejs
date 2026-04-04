@@ -1,0 +1,241 @@
+
+<style>
+    #player-wrapper {
+        position: fixed;
+        top: 0px; left: 0px;
+        width: 1280px; height: 720px;
+        background: black;
+        overflow: hidden;
+        z-index: 2000;
+    }
+    #player-container { width: 100%; height: 100%; }
+
+    .player-controls {
+        position: absolute;
+        top: 420px;
+        left: 668px;
+        z-index: 2100;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
+
+
+    .backBut {
+ position: absolute;
+        top: -10px;
+        right: 0px;
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.3);
+        border: 2px solid #ff6300; /* Music Accent Color */
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 110;
+        transition: all 0.2s ease;
+        outline: none;
+    }
+
+    .backBut:hover { 
+        background: rgba(0, 0, 0, 0.6);
+        color:red;
+        scale: 1.2;
+         }
+</style>
+
+<div id="player-wrapper">
+    <div id="player-container"></div>
+    <div class="player-controls">
+       
+        <button class="backBut" onclick="goToYoutubeGrid()" tabindex="50">
+        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </button>
+       
+    </div>
+</div>
+
+
+<script>
+
+function goToYoutubeGrid() {
+    console.log("Exiting player...");
+    
+// 1. Informar o servidor IMEDIATAMENTE que o vídeo parou (limpa o lobbyState.videoId)
+    if (typeof socket !== 'undefined') {
+        socket.emit('report_current_time', {
+            videoId: null, // CRÍTICO: Define como null para o servidor saber que acabou
+            time: 0,
+            paused: true 
+        });
+    }
+
+    if (window.ytPlayerInstance) {
+        try {
+            if (typeof window.ytPlayerInstance.stopVideo === 'function') window.ytPlayerInstance.stopVideo();
+            if (typeof window.ytPlayerInstance.destroy === 'function') window.ytPlayerInstance.destroy();
+        } catch(e) { console.warn("Cleanup error", e); }
+        window.ytPlayerInstance = null;
+    }
+
+    // Capture the data originally passed into this page's EJS tags
+    const bID = "<%= (typeof targetID !== 'undefined') ? targetID : 'concerts' %>";
+    const bMode = "<%= (typeof targetMode !== 'undefined') ? targetMode : 'mix' %>";
+    const bScroll = "<%= (typeof scrollPos !== 'undefined') ? scrollPos : '0' %>";
+console.log(bScroll)
+    // Use handleNav to return to the menu, injecting the scrollPos back into the URL
+    handleNav(`/youtube?id=${bID}&mode=${bMode}&scrollPos=${bScroll}`); 
+}
+
+(function() {
+    // 1. Setup local variables
+    const video_id = "<%= (typeof videoId !== 'undefined') ? videoId : '' %>";
+    let isRemoteCommand = false;
+    let emitTimer = null;
+
+    // 2. The Cleanup Function (Crucial for AJAX)
+    function purgePriorPlayer() {
+        if (window.ytPlayerInstance) {
+            try {
+                window.ytPlayerInstance.stopVideo();
+                window.ytPlayerInstance.destroy();
+            } catch (e) { console.warn("Cleanup ignored:", e); }
+            window.ytPlayerInstance = null;
+        }
+        if (window.heartbeatInterval) {
+            clearInterval(window.heartbeatInterval);
+            window.heartbeatInterval = null;
+        }
+    }
+
+    // 3. The Actual Builder
+    window.renderYTPlayer = function() {
+        if (!video_id || !document.getElementById('player-container')) return;
+        
+        purgePriorPlayer();
+
+        console.log("Building player for:", video_id);
+        window.ytPlayerInstance = new YT.Player('player-container', {
+            videoId: video_id,
+playerVars: { 
+    'autoplay': 1,      // keep — starts video on load
+    'controls': 1,      // keep — but consider your use case (see below)
+    'rel': 0,           // keep — prevents related videos hijacking the player
+    'disablekb': 0,     // disable keyboard shortcuts — prevents local-only seeks
+    'fs': 0,            // disable fullscreen button — keeps layout consistent for all viewers
+    'modestbranding': 1, // removes YouTube logo clutter
+    'iv_load_policy': 3, // hides video annotations
+    'cc_load_policy': 0, // no forced captions
+    'loop': 1,
+
+},
+            events: {
+'onReady': (event) => {
+    console.log("Player Ready");
+
+    // ← ADD THIS: seek to sync time if a new arrival
+    console.log("Player Ready");
+    console.log("syncTargetTime:", window.syncTargetTime); // ← ADD
+    console.log("syncIsPaused:", window.syncIsPaused);     // ← ADD
+
+    if (window.syncTargetTime && window.syncTargetTime > 0) {
+        console.log("Seeking to sync time:", window.syncTargetTime);
+        event.target.seekTo(window.syncTargetTime, true);
+        if (window.syncIsPaused) {
+            event.target.pauseVideo();
+        } else {
+            event.target.playVideo();
+        }
+        window.syncTargetTime = null;
+        window.syncIsPaused = null;
+    }
+
+    // Heartbeat logic
+    window.heartbeatInterval = setInterval(() => {
+        if (window.ytPlayerInstance && window.ytPlayerInstance.getCurrentTime) {
+            socket.emit('report_current_time', {
+                time: window.ytPlayerInstance.getCurrentTime(),
+                paused: window.ytPlayerInstance.getPlayerState() !== YT.PlayerState.PLAYING,
+                videoId: video_id 
+            });
+        }
+    }, 1000);
+},
+                'onStateChange': (event) => {
+
+    if (event.data === YT.PlayerState.UNSTARTED) {
+        console.warn("Video unavailable or invalid ID:", video_id);
+        // Show the back button so the user can escape
+        const controls = document.querySelector('.player-controls');
+        if (controls) {
+            controls.style.opacity = '1';
+            controls.style.pointerEvents = 'auto';
+        }
+        return;
+    }
+
+                    // Show BACK when paused/stopped/ended, hide when playing
+                    const controls = document.querySelector('.player-controls');
+                    if (controls) {
+                        const playing = event.data === YT.PlayerState.PLAYING;
+                        controls.style.opacity = playing ? '0' : '1';
+                        controls.style.pointerEvents = playing ? 'none' : 'auto';
+                    }
+
+                    if (isRemoteCommand) return;
+                    clearTimeout(emitTimer);
+                    emitTimer = setTimeout(() => {
+                        const currentTime = window.ytPlayerInstance.getCurrentTime();
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            socket.emit('toPlay', currentTime);
+                        } else if (event.data === YT.PlayerState.PAUSED) {
+                            socket.emit('toPause', currentTime);
+                        }
+                    }, 200);
+                }
+            }
+        });
+    };
+
+    // 4. Execution Trigger
+    // Check if YT is already loaded globally
+    if (window.YT && window.YT.Player) {
+        // Give AJAX 50ms to finish painting the div to the screen
+        setTimeout(window.renderYTPlayer, 50);
+    } else {
+        // First time loading the site? Load the script.
+        window.onYouTubeIframeAPIReady = window.renderYTPlayer;
+        if (!$('script[src*="youtube.com/iframe_api"]').length) {
+            $.getScript("https://www.youtube.com/iframe_api");
+        }
+    }
+
+    // 5. Socket Listeners (Fresh start)
+    if (typeof socket !== 'undefined') {
+        socket.off('Play').off('Pause');
+        socket.on('Play', (time) => {
+            window.ytPlayerInstance.pauseVideo();
+            isRemoteCommand = true;
+            window.ytPlayerInstance.seekTo(time, true);
+            window.ytPlayerInstance.playVideo();
+            setTimeout(() => isRemoteCommand = false, 1000);
+        });
+        socket.on('Pause', (time) => {
+            isRemoteCommand = true;
+            window.ytPlayerInstance.pauseVideo();
+            window.ytPlayerInstance.seekTo(time, true);
+            setTimeout(() => isRemoteCommand = false, 1000);
+        });
+    }
+
+
+    ///////////////////////////////////////77
+    
+})();
+</script>

@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta name="viewport" content="width=1280">
+<meta name="mobile-web-app-capable" content="yes">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Unite Gallery - Source Files</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/myScripts.js"></script>
+
+	<script type='text/javascript' src='./../unitegallery/js/jquery-11.0.min.js'></script>	
+	
+	<script type='text/javascript' src='./../unitegallery/js/ug-common-libraries.js'></script>	
+	<script type='text/javascript' src='./../unitegallery/js/ug-functions.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-thumbsgeneral.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-thumbsstrip.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-touchthumbs.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-panelsbase.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-strippanel.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-gridpanel.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-thumbsgrid.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-tiles.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-tiledesign.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-avia.js'></script>
+	
+	<script type='text/javascript' src='./../unitegallery/js/ug-slider.js'></script>
+	
+	<script type='text/javascript' src='./../unitegallery/js/ug-sliderassets.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-touchslider.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-zoomslider.js'></script>	
+	<script type='text/javascript' src='./../unitegallery/js/ug-video.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-gallery.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-lightbox.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-carousel.js'></script>
+	<script type='text/javascript' src='./../unitegallery/js/ug-api.js'></script>
+
+	<link rel='stylesheet' href='./../unitegallery/css/unite-gallery.css' type='text/css' />
+	
+    <script type='text/javascript' src='./../unitegallery/themes/compact/ug-theme-compact.js'></script>
+	<script type='text/javascript' src='./../unitegallery/themes/default/ug-theme-default.js'></script>
+    <script type='text/javascript' src='./../unitegallery/themes/slider/ug-theme-slider.js'></script>
+    <script type='text/javascript' src='./../unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js'></script>
+    <link rel='stylesheet'         href='./../unitegallery/skins/alexis/alexis.css' type='text/css' />		
+	<link rel='stylesheet' 		   href='./../unitegallery/themes/default/ug-theme-default.css' type='text/css' />
+
+   <script src='./../unitegallery/themes/tiles/ug-theme-tiles.js' type='text/javascript'></script>
+
+	
+
+	
+<style>
+
+
+
+
+
+
+body{
+   
+     background: #191c17;
+  
+    width:1280px;
+    font-family: Charcoal, Charcoal, sans-serif;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+p{
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      text-align: center;
+      font-size:46px;
+      left:0%;
+      opacity: 1.0;
+      color:white;
+      line-height:200%;
+}
+#header{
+          position:fixed;
+          top:43px;
+          left:37px;
+          width:1200px;
+          height:625px;
+          border: 3px solid white;
+          background: rgba(50, 50, 50, 0.6);
+          z-index:10000;
+}
+
+.btn {
+    
+             background:#0b5b5b;
+             border: 3px solid yellowgreen;
+   
+             color: white;
+             border-radius: 12px;
+             padding: 10px 20px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 22px;
+             cursor:pointer;
+             margin:5px;
+             z-index:1000000000;
+}
+.btn:hover {
+               background:yellowgreen;
+}
+
+#topics{
+            display:none;
+            position:fixed;
+            top:220px;
+            left:40px;
+            width:1200px;
+            height:400px;
+            font-size:20px;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            z-index:1000;
+            overflow-y: auto;
+    
+}
+#topic:hover{
+            background:yellowgreen;
+            color:yellow;
+}
+
+.buinfo{
+
+         background:DarkSlateGray;
+         border: 3px solid yellowgreen;
+         color:white;
+         pointer-events: none;
+      
+}
+
+.subbut{
+             color: white;
+             border-radius: 12px;
+             border: 2px solid white;
+             padding: 10px 20px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 22px;
+             cursor:pointer;
+             margin:5px;
+             z-index:1000000000;
+                 background:#2f9e28;
+}
+.subbut:hover{
+         background:yellowgreen;
+         color:DarkSlateGray;
+         border-color:DarkSlateGray;
+}
+
+
+
+#userBut{
+          position:fixed;
+          top:250px;
+          font-size:40px;
+}
+#groupBut{
+          position:fixed;
+          top:360px;
+          font-size:40px;
+}
+#tagBut{
+          position:fixed;
+          top:470px;
+          font-size:40px;
+}
+#infoBut{
+            display:none;
+            position:fixed;
+            top:220px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 890px;
+            font-size:30px;
+            cursor:context-menu;
+            padding: 10px 40px;
+}
+#infoBut:focus {outline:0;}
+
+#orderBut{
+          display:none;
+          position:fixed;
+          top:370px;
+          left:255px;
+          font-size:30px;
+          width:180px;
+          padding:6px ;
+          color:white;
+}
+#orderBut:focus {outline:0;}
+
+#dateBut{
+          display:none;
+          position:fixed;
+          top:370px;
+          left:455px;
+          font-size:30px;
+          width:180px;
+           padding:6px ;
+           color:white;
+}
+#dateBut:focus {outline:0;}
+
+#durationBut{   
+          display:none;
+          position:fixed;
+          top:370px;
+          left:655px;
+          font-size:27px;
+          width:180px;
+           padding:6px ;
+           color:white;
+}
+#durationBut:focus {outline:0;}
+
+#hdBut{   
+          display:none;
+          position:fixed;
+          top:370px;
+          left:855px;
+          font-size:30px;
+          width:180px;
+           padding:6px ;
+           color:white;
+}
+#hdBut:focus {outline:0;}
+
+#orderBut:hover, #dateBut:hover, #durationBut:hover, #hdBut:hover{
+      
+         background:yellowgreen;
+         border: 3px solid DarkSlateGray;
+}
+.filter{
+             display:none;
+             color:yellow;
+             background:#619561;
+             border: 3px solid #d3d33f;
+             border-radius:12px;
+   
+             color: white;
+            font-size:22px;
+           
+            cursor:pointer;
+         
+}
+.filter1{
+            color:yellow;
+            border: 3px solid transparent;
+            background:transparent;
+            font-size:22px;
+            margin:0px;
+            position:fixed;
+            top:340px;
+            cursor:pointer;
+         
+}
+
+#tag{
+          display:none;  
+          position:fixed;
+          height:50px;
+          top:508px;
+          left:370px;
+          font-size:28px;
+          border: 3px solid DarkSlateGray;
+          border-radius: 12px;
+          background:#a9d8c0;
+          z-index:1000000;
+
+}
+#submit{
+          display:none;
+          position:fixed;
+          top:500px;
+          left:725px;
+          font-size:33px;
+          background:#5ab565;
+}
+#sugestBut{
+          display:none;
+          position:fixed;
+          top:500px;
+          left:890px;
+          font-size:33px;
+}
+#own{
+          display:none;
+          position:fixed;
+           width:280px;
+          top:515px;
+          left:350px;
+          font-size:33px;
+
+}
+#fav{
+          display:none;
+          position:fixed;
+          width:280px;
+          top:515px;
+          left:650px;
+          font-size:33px;
+
+}
+#group{
+          display:none;
+          position:fixed;
+          width:280px;
+          top:500px;
+          left:500px;
+          font-size:33px;
+
+}
+.userbu{
+          display:none;
+          width: 500px;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+         
+}
+
+.mainbu{
+          width: 500px;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          background:DarkSlateGray;
+          border: 3px solid yellowgreen;
+          border-radius:12px;
+          color:#e8f1e4;
+        
+}
+.mainbu:hover{
+         background:ForestGreen;
+         border: 3px solid yellow;
+         color:white;
+}
+
+.groupbu{
+          display:none;
+          width: 500px;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+       
+}
+
+#conteiner{
+   
+        position:fixed;
+        top:47px;
+        left:25px;
+        width:1237px;
+        height:620px;
+        background:transparent;
+         overflow: scroll;
+        overflow-x: hidden;
+}
+#output{
+        
+        position:relative;
+        top:0px;
+        left:15px;
+        width:1200px;
+        height:510px;
+        background:transparent;
+
+}
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: yellowgreen; 
+}
+
+/* PAGE UP DW AND DISPLAY */
+#pageup{
+          display:none;
+          position:fixed;
+          top:680px;
+          left:667px;
+          font-size:18px;
+          width:100px;
+          background:#2a2525;
+          border: 2px solid white;
+          border-radius: 12px;
+          color:yellow;
+          padding:2px;
+}
+#pagedw{
+          display:none;
+          position:fixed;
+          top:680px;
+          left:505px;
+          font-size:18px;
+          width:100px;
+          background:#2a2525;
+          border: 2px solid white;
+          border-radius: 12px;
+          color:yellow;
+           padding:2px;
+}
+#pageup:hover, #pagedw:hover{
+         background:yellowgreen;
+         border: 2px solid grey;
+         color:black;
+}
+#page{
+          display:none;
+          position:fixed;
+          top:675px;
+          left:620px;
+          font-size:23px;
+          width:30px;
+          padding:2px;
+          background:#2a2525;
+          border: 2px solid white;
+
+}
+#infodw{ 
+          display:none;
+          position:fixed;
+          top:678px;
+          left:100px;
+          font-size:18px;
+          width:300px;
+          background:#2a2525;
+          border: 2px solid white;
+          border-radius: 12px;
+          color:yellow;
+          padding:2px;
+}
+#title{
+          display:none;  
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+          text-align: center;
+          padding:0px;
+           left:0%;
+          opacity: 1.0;
+          color:white;
+          background:#2a2525;
+          color:yellow;
+          border: 2px solid white;
+          top:7px;
+          left:200px;
+          font-size:21px;
+          width:900px;
+          height:30px;
+          pointer-events:none;
+       
+}
+.backBut{
+              position:fixed;
+              top:680px;
+              left:10px;
+              border: 2px solid white;
+              border-radius:8px;
+              text-align: center;
+              text-decoration: none;
+            
+              font-size: 20px;
+              width:120px;
+           
+              background: #2a2525;
+              color:yellow;
+              cursor:pointer;
+}
+.backBut:hover{
+            background:yellowgreen;
+            color:black;
+}
+
+#back:hover{
+            background:grey;
+            color:yellow;
+}
+
+.backBut:focus {
+              outline:0;
+}
+/* FILTER DROP MENUS */
+#favList1{
+            z-index:10000;
+            position:fixed;
+            top:425px;
+            left:260px;
+            width:170px;
+            height:30px;
+            font-size:21px;
+            background: yellowgreen;
+            
+}
+#favList2{
+            z-index:10000;
+            position:fixed;
+            top:425px;
+            left:460px;
+            width:170px;
+            height:30px;
+            font-size:21px;
+            background: yellowgreen;
+}
+
+#favList3{
+            z-index:10000;
+            position:fixed;
+            top:425px;
+            left:660px;
+            width:170px;
+            height:30px;
+            font-size:21px;
+            background: yellowgreen;
+}
+#favList4{
+            z-index:10000;
+            position:fixed;
+            top:425px;
+            left:860px;
+            width:170px;
+            height:30px;
+            font-size:21px;
+            background: yellowgreen;
+}
+
+#catBack{
+          background:DarkSlateGray;
+          color:white;
+           border: 3px solid white;
+}
+#catBack:hover{
+          background:green;
+          color:yellow;
+}
+#stepback{
+          display:none;   
+          position:fixed;
+          top:610px;
+          left:580px;
+          font-size:27px;
+          width:130px;
+          padding:7px;
+          background:#2a2525;
+          border: 2px solid white;
+          border-radius:12px;
+          color:white;
+          z-index:1000000;
+
+}
+#stepback:hover{
+             background:yellowgreen;
+             color:black;
+             border-color:white;
+}
+
+
+</style>	
+</head>
+
+<body>
+ 
+	<div id="header" >
+        
+ <!-- MAIN TITLE -->
+ <p style="position:fixed;top:50px;left:400px;font-size:55px;color:gold;margin-top:0px;"    >Flickr Public Photos</p>
+ <p style="position:fixed;top:100px;left:240px;font-size:28px;">the Photos on this slideshow are provide by the public Flickr feed</p>
+
+<!-- MAIN BUTTONS + INFO BUTTONS -->       
+ <input id="userBut"   onclick="openSub('userPhotos');" type="button"  class="btn mainbu" value="User´s Search" />
+ <input id="groupBut"  onclick="openSub('groupPhotos')" type="button"  class="btn mainbu" value="Group´s Search" />
+ <input id="tagBut"    onclick="openSub('tag');"        type="button"  class="btn mainbu" value="Tag´s Search" />
+
+
+
+<!-- ORDER BUTTONS and TXT HEADERS -->
+ <div id="orderTxt"    class="filter filter1"  style="left:262px;">QUERY ORDER</div>
+ <div id="dateTxt"     class="filter filter1"  style="left:482px;">POST DATE</div>
+ <div id="durationTxt" class="filter filter1"  style="left:662px;">ASPECT RATIO</div>
+ <div id="qualityTxt"  class="filter filter1"  style="left:870px;">QUERY TYPE</div>
+      
+ <input  id="orderBut"    onclick="myFunction1();" type="button" class="filter" value="relevance" />
+ <input  id="dateBut"     onclick="myFunction2();" type="button" class="filter" value="all" />
+ <input  id="durationBut" onclick="myFunction3();" type="button" class="filter" value="all" />
+ <input  id="hdBut"       onclick="myFunction4();" type="button" class="filter" value="text" />
+
+<!-- INFO TXT FIELD -->
+ <input id="infoBut"   type="button"  class="btn buinfo" value="please select a order and submit your tags" />
+
+<!-- TOPICS DIV DINAMIC -->  
+ <div id="topics"> </div>
+
+<!-- INPUT AND SUBMITE FIELD -->
+ <input id="tag" type="text" name="query" class="sub " onfocus="this.placeholder=''" placeholder=""  />
+ <input id="submit" onclick="submit();"  type="button" value="Submit" class=" sub subbut" />
+       
+ <input id="sugestBut" onclick="openSub('userSugest');"           type="button"  class="  sub subbut" value="Suggested users" />
+ <input id="own"       onclick="callMode='userPhotos';submit2();" type="button"  class="  sub subbut" value="User Photos" />
+ <input id="fav"       onclick="openSub('favoritePhotos');"       type="button"  class="  sub subbut" value="User Favorites" />
+ <input id="group"     onclick="submit2();"                       type="button"  class="  sub subbut" value="Start Search" /> 
+ <input id="stepback"  onclick="stepBack();"                      type="button"  class=" " value="BACK" />
+     
+       
+        </div>
+<!-- OVERPAGE TXT INFO -->    
+ <input id="title" class="backBut"  />
+
+                    
+     
+<!-- SEARCH AND EXIT BUTTONS -->            
+ <div id="search" style="left:960px;"          onclick="toggle_off()"  class="backBut ">Menu</div> 
+ <div id="sed" style="left:1145px;width:80px;" onclick="back()"        class="backBut">Exit</div> 
+
+<!-- PAGE UP AND DOWN -->       
+ <input  id="page"   value="1" class="backBut" type="text" />
+ <div id="pageup" value="0" class="backBut" onclick="page_up()" >page up</div>
+ <div id="pagedw" value="0" class="backBut" onclick="page_dw()" >page dw</div>
+      
+ <input id="infodw"  type="button"  class="backbut" value="photos not found" />
+             
+<!-- GALLERY DISPLAY DIV DINAMIC -->    
+ <div id="conteiner">
+ <div id="output" >
+ </div>
+           
+<!-- HTML END -->
+
+
+      
+<script>
+
+
+var apiKey="c90dea5c7207bea531ac489747938f44";        
+var apii; // used to access galeery methodes
+var rnd; // flag to use on the slider shuffle settings
+var step;
+var stepg;
+
+var callMode;
+
+
+var mode;
+var orderMode;
+clear();           // makes aclear at starup
+
+
+function back(){
+                    window.open("./?"+return_url, "_self");
+
+}
+
+function stepBack(){  
+                           
+                     if(step===1 && callMode==="userPhotos") {setPage("main"); step=0}
+                     if(step===2 && callMode==="userPhotos") {setPage("user1"); step=1;}
+                     
+                     if(step===1 && callMode==="groupPhotos") {setPage("main"); step=0}
+                     if(step===2 && callMode==="groupPhotos") {setPage("group1"); step=1;}
+
+                     if(step===1 && callMode==="tag") {setPage("main"); step=0}
+                     if(step===2 && callMode==="tag") {setPage("tags1"); step=1;}
+                   
+                     if(step===1 && callMode==="favoritePhotos") {setPage("main"); step=0}
+                     if(step===2 && callMode==="favoritePhotos") {setPage("user1"); step=1;}
+                      
+                    
+}
+function setPage(page){
+
+                 if(page==="main") {
+                                     $('#infoBut').hide();
+                                     $('.filter').hide();
+                                     $('.sub').hide();
+                                     $('#stepback').hide();
+                                     $('.mainbu').show();
+                                     $('#group').hide();
+                                   }  
+                
+                if(page==="user1") {
+                                     $('#infoBut').show();
+                                     $('.filter').hide();
+                                     $('.sub').show();
+                                     $('#stepback').show();
+                                     $('.mainbu').hide();
+                                     $('#own').hide();
+                                     $('#fav').hide();
+                                     $('#group').hide();
+                                     
+                                     $('#infoBut').val('submit a valid Username / User Id or pickup a suggested one'); 
+                                     $('#tag').attr("placeholder", " insert username or id ");
+                                     $('#tag').val("");
+                                     $("#sugestBut").val('Suggested Users');
+              
+                                     $("#infoBut").  css({ top: 270 });
+                                     $("#tag").      css({ top: 410, left: 230});
+                                     $("#submit").   css({ top: 400, left: 580});
+                                     $("#sugestBut").css({ top: 400, left: 745});
+                                    
+                                       step=1;
+                                   }  
+            
+            if(page==="user2") {
+                                     $('#infoBut').show();
+                                     $('.filter').show();
+                                     $('.sub').hide();
+                                     $('#stepback').show();
+                                     $('.mainbu').hide();
+                                     $('#own').show();
+                                     $('#fav').show();
+                                     
+                                     $('#infoBut').val('check filters and select the user photos or his favorites');  
+                                     $("#infoBut").  css({ top: 230 });
+                                    
+                                       step=2;
+                                   }     
+               
+               
+               if(page==="suggest") {
+                                     $('#infoBut').hide();
+                                     $('.filter').hide();
+                                     $('.sub').hide();
+                                     $('#stepback').hide();
+                                     $('.mainbu').hide();
+                                     $('#own').hide();
+                                     $('#fav').hide();
+                                   }                                  
+                                   
+               if(page==="group1") {
+                                     $('#infoBut').show();
+                                     $('.filter').hide();
+                                     $('.sub').show();
+                                     $('#stepback').show();
+                                     $('.mainbu').hide();
+                                     $('#own').hide();
+                                     $('#fav').hide();
+                                     $('#group').hide();
+               
+                                     $('#infoBut').val('submit a valid Group Name / Id or pickup a suggested one');   // show info button
+                                   
+                                     $('#tag').attr("placeholder", " insert groupname or id ");
+                                     $('#tag').val("");
+              
+                                     $("#infoBut").  css({ top: 270 });
+                                     $("#tag").      css({ top: 410, left: 230});
+                                     $("#submit").   css({ top: 400, left: 580});
+                                     $("#sugestBut").css({ top: 400, left: 745});
+                                     $("#sugestBut").val('Suggested Groups');
+                                  
+                                       step=1;
+                                    }     
+                if(page==="group2") {               
+                                     $('#stepback').show();
+                                      $('#infoBut').show();
+                                     $('.filter').show();
+                                     $('.sub').hide();
+                                     $('#own').hide();
+                                     $('#fav').hide();
+                                     $('#group').show();
+                                     $('#infoBut').val('check filters and select start search');  
+                                     $("#infoBut").  css({ top: 230 });
+                                     step=2;
+                                    }
+                if(page==="tags1") {               
+                                     $('#infoBut').show();
+                                     $('.filter').hide();
+                                     $('.sub').show();
+                                     $('#stepback').show();
+                                     $('.mainbu').hide();
+                                     $('#own').hide();
+                                     $('#fav').hide();
+                                     $('#group').hide();
+
+                                     $('#infoBut').val('submit your tags or pickup a suggested one'); 
+                                    
+                                     $('#tag').attr("placeholder", " insert tag words");
+                                     $('#tag').val("");
+                                     $("#sugestBut").val('Suggested Tags');
+                                     $("#infoBut").  css({ top: 270 });
+                                     $("#tag").      css({ top: 410, left: 230});
+                                     $("#submit").   css({ top: 400, left: 580});
+                                     $("#sugestBut").css({ top: 400, left: 745});
+                                     step=1;
+                                    }
+                if(page==="tags2") {               
+                                    
+                                     $('#stepback').show();
+                                     $('#infoBut').show();
+                                     $('.filter').show();
+                                     $('.sub').hide();
+                                     $('#own').hide();
+                                     $('#fav').hide();
+                                     $('#group').show();
+                                     $('#infoBut').val('check filters and select start search');  
+                                     $("#infoBut").  css({ top: 230 });
+                                   
+                                     step=2;
+                                    }
+                if(page==="favorites") {               
+                                    
+                                        $('.sub').hide();       // show submit
+                                       $('#fav').show();       // show submit
+                                        $('#own').show();       // show submit
+                                   
+                                     step=2;
+                                    }
+                 
+}
+///////////////////////////////////////////////////////////////////////////////////////
+function page_up(){
+   
+     var query=$("#tag").val();
+     var page = $('#page').val();
+     page++;
+     if(page>numPages) page=numPages;
+     else{
+     if(callMode=="tag"){ tagSearch(query, page);}
+     if(callMode=="userPhotos"){ userSearch (callMode,query,page);}
+     if(callMode=="favoritePhotos"){ userSearch (callMode,query,page);}
+     if(callMode=="groupPhotos"){ userSearch (callMode,query,page);}
+      }
+     $('#page').val(page);
+}
+///////////////////////////////////////////////////////////////////////////////////////
+function page_dw(){
+    
+    var query=$("#tag").val();
+     var page = $('#page').val();
+     page--;
+     if(page<1) page=1;
+     else {
+     if(callMode=="tag"){ tagSearch(query, page);}
+     if(callMode=="userPhotos"){ userSearch (callMode,query,page);}
+     if(callMode=="favoritePhotos"){ userSearch (callMode,query,page);}
+     if(callMode=="groupPhotos"){ userSearch (callMode,query,page);}
+     }
+     $('#page').val(page); 
+}    
+    
+// SEVEREAL START UP VARIABLES  //////////////////////////////////////
+
+
+$('#infoBut').hide();    // hide info txt
+$('.userbu').hide();     // hide user sub menu
+$('.groupbu').hide();    // hide group sub menu
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+function toggle_off(){
+               
+               $("#header").toggle();
+               $('#title').toggle();
+               $('#pagedw').toggle();
+               $('#pageup').toggle();
+               $('#page').toggle();
+               $('#infodw').toggle();
+          
+           //  clear();
+      
+}
+
+// OPEN SUBMIT FIELD /////////////////////////////////////////////
+function openSub(type){ 
+               
+               $('.sub').show();
+               $('#page').val(1);
+               var sugestMode;
+            
+                            
+              
+                        
+             
+     if(type==="favoritePhotos")   {
+                                     callMode="favoritePhotos";
+                                     setPage("favorites");                                  
+                                     submit2();
+                                    }              
+      
+         if(type==="userSugest")   {
+                                     setPage("suggest");
+                                    
+                                     if(callMode==="userPhotos")
+                                     addSearchBtns('userFav');
+                                     if(callMode==="groupPhotos")
+                                     addSearchBtns('groupFav');
+                                     if(callMode==="tag")
+                                     addSearchBtns('tagFav');
+                                      $("#topics").show();
+                                   }                                         
+       
+      
+        if(type==="tag")           {
+                                     callMode="tag";
+                                     setPage("tags1");
+                                   }
+       
+        if(type==="userPhotos")    {
+                                     callMode="userPhotos";
+                                     setPage("user1");
+                                   }        
+           
+        if(type==="groupPhotos")   {
+                                     callMode="groupPhotos";
+                                     setPage("group1");
+                                   }                    
+   
+}// opensub() end
+
+
+
+
+
+
+// EXECUTE THE SUBMIT DATA /////////////////////////////////////////
+function submit(){
+                     console.log(callMode);
+                    if(callMode==="userPhotos" || callMode==="favoritePhotos")
+                     {
+                        setPage("user2");
+                     }
+                     
+                    if(callMode==="tag")
+                     {
+                        setPage("tags2");
+                     }
+                     if(callMode==="groupPhotos")
+                     {
+                        setPage("group2");
+                     }
+ }                    
+ 
+ callMode="startPage";
+ submit2()
+ 
+function submit2(){
+                   console.log(callMode);
+                    var query=$("#tag").val();
+                   
+                    array2=[];
+                    count=0;
+                    pageCount=0;
+                    $("#header").hide();
+               
+                   if(callMode==="tag" && query)   { tagSearch  (query,1);}
+                   if(callMode==="userPhotos" && query)  { userSearch (callMode,query,1);}
+                   if(callMode==="favoritePhotos" && query)  { userSearch (callMode,query,1);}
+                   if(callMode==="groupPhotos" && query) { userSearch (callMode,query,1);}   
+                   
+                   if(callMode==="startPage" )  { userSearch ("userPhotos",'Dido Haas, visit Nitroglobus Roof Gallery',1);}
+                                   
+}// submit() end
+
+
+
+
+
+ /* Cache the tag input. */
+var pageField = document.getElementById("tag");
+var pageField2 = document.getElementById("page");
+
+/* Call 'tag' when the 'Enter' key is released. */
+   pageField.onkeyup = function (e) {
+   if (e.which == 13)
+   {
+    if(callMode=="tag") { submit();} // searck tag at enter key
+    if(callMode=="userPhotos") {   submit();}
+    if(callMode=="groupPhotos") {   submit();}
+    if(callMode=="favoritePhotos") {   submit();}
+    }
+};
+pageField2.onkeyup = function (e) {
+   if (e.which == 13)
+   {
+    if(callMode=="tag") { tagSearch  ($('#tag').val(),$('#page').val());} // searck tag at enter key
+    if(callMode=="userPhotos") {  userSearch (callMode,$('#tag').val(),$('#page').val());}
+    if(callMode=="groupPhotos") {  userSearch (callMode,$('#tag').val(),$('#page').val());}
+    if(callMode=="favoritePhotos") {  userSearch (callMode,$('#tag').val(),$('#page').val());}
+    }
+    
+};
+
+/* Prevent the form from submitting. */
+pageField.parentElement.onsubmit = function () {
+   return false;
+};
+
+// RESETS THE SEARCH VIEW /////////////////////////////////////////////
+function clear(){
+
+              
+                $('#infoBut').hide();          // hide info txt
+                $('.sub').hide();              // hide submit
+                $('.buinfo').hide();           // hide order buttons 
+                $('.filter').hide();           // hide order buttons 
+                $('.mainbu').show();               // show buttons
+                $('.userbu').hide();           // show user sub menu
+                $('.groupbu').hide();    // hide group sub menu
+                 $('#pageup').hide();    // hide group sub menu
+                  $('#pagedw').hide();    // hide group sub menu
+                   $('#page').hide();    // hide group sub menu
+                      $('#infodw').hide();    // hide group sub menu
+                      $('#title').hide();    // hide group sub menu
+}// clear() end
+
+
+
+// SHOW THE TOPICS BUTTONS DINAMIC /////////////////////////////////////
+function addSearchBtns(mode) {
+
+              
+              if(mode==="userFav")
+              var topic=['Tutsy. Navarathna','Bryn Oh','Dido Haas, visit Nitroglobus Roof Gallery','Eupalinos Ugajin','Cica Ghost','CapCat Ragu','Mareea_Farrasco','❉ Serena Seetra ❉',
+                                              'Sina Souza','SL Senna','maloe vansant slow and lazy','∞ √allys√aLiƒε ∞','123839917@N06','şαяε','Anita Witt','76146824@N07','Milena Carbone',
+                                              'ManuelaCafune','likaCameo','Madoka Kawabata','Chioma Namiboo SL','Serena Marabana'] ;
+               if(mode==="groupFav")                               
+                var topic=['24837978@N00','2686833@N25','2602989@N20','347276@N23','2932332@N23','42097308@N00','71332142@N00','16978849@N00',
+                                              '1752359@N21','41425956@N00'] ;    
+               if(mode==="tagFav")                               
+                var topic=['nature','dogs', 'cats'];
+
+               $("#topics").empty();
+               $('#topics').show();
+              
+          for (i = 0; i < topic.length; i++) {
+                     var but = "butx"+i;
+                     var $button = $("<input type='button' class='btn bt' />");
+                     $button.val(topic[i]);
+                     $("#topics").append($button);
+                     $button.attr('id',but); 
+                     $("#topics").append($button);
+                  }
+                  
+                       $button.attr('id',"catBack"); 
+                       $button.val("BACK");
+                       $("#buttons").append($button);
+
+}// addSearchBtns() end
+
+
+
+ $(document).on("click", ".bt", function() {
+
+      if ($(this).hasClass("bt")) {
+          var query = $(this).val();
+       
+          $("#tag").val(query);
+          
+       
+          $("#topics").hide();
+          
+          if(query==="BACK" && callMode==="userPhotos") openSub('userPhotos');
+          else if(query==="BACK" && callMode==="groupPhotos") openSub('groupPhotos');
+          else if(query==="BACK" && callMode==="tag") openSub('tag');
+          else if(query==="BACK" && callMode==="favoritePhotos") openSub('favoritePhotos');
+          else
+          submit();
+          
+       
+}
+
+
+ });
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var proc= function(numPhotos, photo) {
+                                  
+                                       $("#output").empty();
+                                
+                                       $.each( photo, function( index, item ){
+                                       
+                                                var thumb=item.url_m;
+                                                var pic=item.url_l;
+                                                var title=item.title;
+                                                var username=item.ownername;
+                                                
+                                                if(pic==null) pic=thumb;
+
+                                       if(pic!=null){
+                                       
+                                                var $a = $("<a href='#'></a>").append(
+                                                    $("<img />").attr('src', thumb)
+                                                    .attr("alt", title)                   // title
+                                                    .attr("title", username)            // description vai o owner id 
+                                                    .attr("data-image", pic)              // 
+                                                    .attr("data-description", "data")
+                                                    );
+                                
+                                                    $("#output").append($a);
+                                                    }
+                             
+                                        });
+                            
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                       
+                                  
+     apii = $("#output").unitegallery({
+                                       // gallery_theme: "tilesgrid",
+                                       // tiles_type:"nested",
+                                        gallery_theme: "tiles",
+                                        tiles_type:"justified",
+    tiles_justified_row_height: 280,                                    
+    tile_enable_shadow:false,
+	//tile_enable_border:true,
+	tiles_space_between_cols:1,
+	tiles_justified_space_between:12,
+	tiles_col_width:30,
+	//tile_border_color: "#000000",
+	tile_outline_color: "#ffffff",
+	tile_enable_outline:true,
+	
+	
+	tile_enable_textpanel:true,
+    tile_textpanel_title_text_align: "center",
+                                        
+                                        
+                                    gallery_play_interval: 4000,	
+                                    lightbox_slider_enable_play_button: true,
+                                    slider_play_button_skin: "",				
+				    slider_play_button_align_hor:"center",    
+				    slider_play_button_align_vert:"top",      
+				    slider_play_button_offset_hor:0,	       	
+				    slider_play_button_offset_vert:8,	   		
+                                  
+                                    slider_enable_progress_indicator: true,		 
+				    slider_progress_indicator_type: "pie",	
+				    slider_progress_indicator_align_hor:"right",
+				    slider_progress_indicator_align_vert:"top", 
+				    slider_progress_indicator_offset_hor:16,	
+				    slider_progress_indicator_offset_vert:16,	
+                                  
+                                  
+                                  
+                                  
+                                  
+                                        
+                                        lightbox_type: "compact",
+                                        gallery_width:"100%",
+                                        gallery_play_interval: 4000,	
+                                        gallery_enable_cache: true,					  //enable caching items
+                                      	gallery_images_preload_type:"minimal",
+                                        gallery_carousel:true,
+                                        gallery_pause_on_mouseover: false,
+
+                                gallery_shuffle:rnd,		
+                        //        theme_auto_open:10,//picStart,
+                                 
+                                        grid_num_rows: 3,
+                                        tile_width: 25,
+                                        tile_height: 185,
+                                        grid_padding: 10,
+                                     
+			                lightbox_textpanel_padding_top:3,
+                                        lightbox_textpanel_title_font_size:"18",
+                                        lightbox_textpanel_title_color:null,
+                                        lightbox_numbers_padding_top:3,
+                                        lightbox_numbers_size: "18",
+                                        lightbox_numbers_color: "gold",
+                                   
+                                        slider_scale_mode: "down",
+                                      //  slider_control_zoom:true,
+                            
+                                  //    gallery_background_color: "#191c17;",
+                                        theme_bullets_color: "green",	
+                                        theme_bullets_margin_top: 10,			//the space to bullets
+				        bullets_space_between: 10
+                                   
+                                        
+                                       
+                                                                     
+    });
+                   // ON GALLERY CHANGE    
+                     apii.on("item_change",function(num, data){	//on item change, get item number and item data
+			                             
+                                                 console.log("data: " + data.urlImage + "  num:" + num);
+                                                   
+                                                 var fotoInfo =apii.getItem(num);  // GET DA PHOTO
+                                                 var owner=fotoInfo.description;   // GET DO ATRIBUTO DESCRIPTION
+                                                 var title=fotoInfo.title;
+                                                 var url=fotoInfo.urlImage;
+                                                 console.log ("Photo n: " + num );
+                                                 console.log ("Owner Id: " + owner );
+                                                 console.log ("Title: " + title );
+                                                 console.log ("imageUrl: " + url );
+
+                                                 $('.but').hide();
+                      apii.on("open_lightbox",function(num, data){ $('.backBut').hide(); $('#title').hide(); $('#infodw').hide(); });                          
+                      apii.on("close_lightbox",function(num, data){ $('.backBut').show(); $('#title').show(); $('#infodw').show();apii.stop(); });
+                                                           
+                                                                             
+		                             	});
+};
+//// FIM DA FUNÇAO PROC  ////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+     
+
+
+/// TAGS SEARCH  ///////////////////////////////////////////////////////////////////////////////// 
+var rnd=0;
+var tagSearch = function(tag, page) {
+
+     var d = new Date();
+     var strDate =   (d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear();
+     console.log(strDate);
+    
+     var dateActual = Date.parse(strDate)/1000;
+     var max_upload_date = dateActual + 86400;
+     var min_upload_date  ;
+
+                    rnd=0; // reset rnd flag 
+
+                var orderMode = $('#orderBut').val();
+                    if( orderMode === "recent") orderMode="date-posted-desc";
+                    if( orderMode === "interesting") orderMode="interestingness-desc";
+                    if( orderMode === "random") {orderMode="interestingness-desc"; rnd=1;}//set rnd flag
+                    
+                    var orientation = $('#durationBut').val();
+                   
+                var dateMode= $('#dateBut').val();
+                    if( dateMode === "today")   min_upload_date = dateActual ;
+                    if( dateMode === "3day")    min_upload_date = dateActual - 172800;
+                    if( dateMode === "week")    min_upload_date = dateActual - 518400;  //604800
+                    if( dateMode === "month")   min_upload_date = dateActual - 2073600; //2160000
+                    if( dateMode === "3month")  min_upload_date = dateActual - 6220800; //172800
+                    
+                var tagMode=$('#hdBut').val(); 
+                    if( tagMode==="text") var insert ="&text=";
+                    if( tagMode==="tags") var insert ="&tags=";
+                
+       console.log("rnd: "+ rnd);
+                           
+                            var req = "&api_key=" + apiKey +
+                                      "&page=" + page +
+                                      "&per_page=" + 150 +
+                                      insert + tag +
+                                      "&tag_mode=" + "all" +
+                                      "&extras=owner_name,url_m,url_l" + 
+                                      "&sort=" + orderMode +
+                                      "&orientation=" + orientation +
+                                      "&min_upload_date=" + min_upload_date +
+                                      "&max_upload_date=" + max_upload_date +
+                                      "&format=json&nojsoncallback=1";
+           
+                            var api = "https://www.flickr.com/services/rest/?method=flickr.photos.search" + req;
+                       
+                            $.getJSON(api,function(data) {
+                                                 
+                                        //    console.log(data);                       // IMPRIME DATA (PHOTOS)
+                                        photo=data.photos.photo;                 // GET DA PHOTO DO ARRAY PHOTOS
+                                        console.log(photo);                      // IMPRIME ARRAY PHOTO
+                                        numPhotos= data.photos.photo.length;     // GET NUMBER OF PHOTOS POR PAGINA
+                                        totalPhotos=data.photos.total;           // GET NUMBER TOTAL OF PHOTOS
+                                        numPages=data.photos.pages;              // GET NUMBER OF PAGES  
+                                        console.log("Num Photos: " + numPhotos);
+                                        console.log("Total: " + totalPhotos); 
+                                        console.log("Pages: " + numPages);
+
+                                                                      
+                                        var msg = "found " + totalPhotos + " photos for tags: " + tag + " in " +orderMode +" order" ;   
+                                        $("#title").val(msg); // INSERE A MSG NO HTML 
+                                        $("#title").show();
+                                        
+                                        proc(numPhotos,photo);
+                                        
+                                        $('#pageup').show();   
+                                        $('#pagedw').show();   
+                                        $('#page').show();
+                                        $('#infodw').val(numPages+" pages found");
+                                        $('#infodw').show();
+                                            
+                                        });
+};
+
+// FIM TAGS SEARCH /////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// USER SEARCH ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function userSearch (mode, user, page) {
+                                              
+                            var user_id="";
+                            var stat;
+                            var photo;
+                            var numPhotos;
+                       
+
+                            if(mode==="userPhotos") var username=user;
+                            if(mode==="favoritePhotos") var username=$("#tag").val();
+                            if(mode==="groupPhotos") var username=$("#tag").val();
+                        
+
+                             var res = username.substring(username.length - 4, username.length-2);
+
+                             if(res!="@N") // SE NAO FOR UM ID CALL API TO GET THE USERNAME
+                             {                           
+
+/// METODO FIND PEOPLE BY USER NAME 
+
+                    var id_api= "https://www.flickr.com/services/rest/?method=flickr.people.findByUsername&api_key=c90dea5c7207bea531ac489747938f44&username="+username+"&format=json&nojsoncallback=1";
+   
+                              $.getJSON(id_api,function(data) {
+                                                   user_id=data.user.id;                // GET USER ID 
+                                                   stat=data.stat;                      // GET STAT   
+                                                   console.log(data);                   // IMPRIME DATA (USER) 
+                                                   console.log("State: " + stat);       // IMPRIME STAT
+                                                   console.log("User Id: " + user_id);  // IMPRIME USER ID
+                                                       
+
+ /// METODO PARA CARREGAR 500 FOTOS DO USER  /////////////////////////////////////////////// 
+     var d = new Date();
+     var strDate =   (d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear();
+     console.log(strDate);
+    
+     var dateActual = Date.parse(strDate)/1000;
+     var max_upload_date = dateActual + 86400;
+     var min_upload_date  ;
+
+
+                    rnd=0; 
+                var orderMode = $('#orderBut').val();
+                    if( orderMode === "recent") orderMode="date-posted-desc";
+                    if( orderMode === "interesting") orderMode="interestingness-desc";
+                    if( orderMode === "random") {orderMode="interestingness-desc"; rnd=1;}//set rnd flag
+                    
+                var orientation = $('#durationBut').val();
+                var tag = $('#tag').val();
+                   
+                var dateMode= $('#dateBut').val();
+                    if( dateMode === "today")   min_upload_date = dateActual ;
+                    if( dateMode === "3day")    min_upload_date = dateActual - 172800;
+                    if( dateMode === "week")    min_upload_date = dateActual - 518400;  //604800
+                    if( dateMode === "month")   min_upload_date = dateActual - 2073600; //2160000
+                    if( dateMode === "3month")  min_upload_date = dateActual - 6220800; //172800
+                    
+                var tagMode=$('#hdBut').val(); 
+                    if( tagMode==="text") var insert ="&text=";
+                    if( tagMode==="tags") var insert ="&tags=";
+       
+                           
+                            var req = "&api_key=" + apiKey +
+                                      "&page=" + page +
+                                      "&per_page=" + 150 +
+                                     //  insert + tag +
+                                      "&tag_mode=" + "all" +
+                                      "&extras=owner_name,url_m,url_l" + 
+                                      "&sort=" + orderMode +
+                                      "&orientation=" + orientation +
+                                      "&min_upload_date=" + min_upload_date +
+                                      "&max_upload_date=" + max_upload_date +
+                                      "&format=json&nojsoncallback=1";
+///////////////////////////////////////////////////////////////////////////////////////////    
+                           
+        if(mode==="userPhotos")      var api = "https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&user_id=" + user_id  + req;
+        
+        if(mode==="favoritePhotos") var api = "https://www.flickr.com/services/rest/?method=flickr.favorites.getList&user_id=" + user_id  + req;
+        
+        if(mode==="groupPhotos")     var api = "https://www.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&group_id=" + user_id  + req;
+                                        
+                            $.getJSON(api,function(data) {
+                                        console.log(data);                       // IMPRIME DATA (PHOTOS)
+                                        photo=data.photos.photo;                 // GET DA PHOTO DO ARRAY PHOTOS
+                                        console.log(photo);                      // IMPRIME ARRAY PHOTO
+                                        numPhotos= data.photos.photo.length;     // GET NUMBER OF PHOTOS POR PAGINA
+                                        totalPhotos=data.photos.total;           // GET NUMBER TOTAL OF PHOTOS
+                                        numPages=data.photos.pages;              // GET NUMBER OF PAGES  
+                                        console.log("Num Photos: " + numPhotos);
+                                        console.log("Total: " + totalPhotos); 
+                                        console.log("Pages: " + numPages);
+                                                         
+                                                    
+                                                    
+                          if(totalPhotos != 0) 
+                                    {
+                                      if(mode==="userPhotos")
+                                        { 
+                                           if(rnd=== 1)  msgTitle = "flickr photos of user " + username + " in a random order";
+                                         else
+                                           var msgTitle = "flickr photos of user " + username + " ordered by " + orderMode;
+                                        } 
+
+                                      if(mode==="favoritePhotos") 
+                                        {
+                                           if(rnd=== 1)  msgTitle = "favorite photos of user " + username + " in a random order";
+                                         else
+                                           var msgTitle = "favorite photos of user " + username + " ordered by " + orderMode;
+                                        }     
+                                      if(mode==="groupPhotos") 
+                                        {
+                                           if(rnd=== 1)  msgTitle = "flickr photos of group " + username + " in a random order";
+                                         else
+                                           var msgTitle = "flickr photos of group " + username + " ordered by " + orderMode;
+                                        }
+
+                                            $("#title").val(msgTitle); // INSERE A MSG NO HTML 
+                                            $("#title").show();
+
+                                           proc(numPhotos,photo);
+                                           $('#pageup').show();   
+                                           $('#pagedw').show();   
+                                           $('#page').show();  
+                                           $('#infodw').val(numPages+" pages found");
+                                           $('#infodw').show();
+                                }   
+                                      else
+                                    {
+                                      document.getElementById("title").innerHTML="NO PHOTOS FOUND, CHECK SEARCHING OPTIONS"; // INSERE A MSG NO HTML     
+                                    }
+                                           
+                                                            });   
+                                                        });
+                  }
+                  else
+                  {
+     /// SE O USERNAME INTRODUZIDO É UM ID 
+                            user_id=username;
+
+                             console.log("id of user: " + username);
+     // METODO PARA CARREGAR 500 FOTOS DO USER  ///////////////////////////////////////////////////////////////////////////////// 
+        
+     var d = new Date();
+     var strDate =   (d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear();
+     console.log(strDate);
+    
+     var dateActual = Date.parse(strDate)/1000;
+     var max_upload_date = dateActual + 86400;
+     var min_upload_date  ;
+                   
+                        rnd=0;                
+                    var orderMode = $('#orderBut').val();
+                    if( orderMode === "recent") orderMode="date-posted-desc";
+                    if( orderMode === "interesting") orderMode="interestingness-desc";
+                    if( orderMode === "random") {orderMode="interestingness-desc"; rnd=1;}//set rnd flag
+                    
+                var orientation = $('#durationBut').val();
+                var tag = $('#tag').val();
+                   
+                var dateMode= $('#dateBut').val();
+                    if( dateMode === "today")   min_upload_date = dateActual ;
+                    if( dateMode === "3day")    min_upload_date = dateActual - 172800;
+                    if( dateMode === "week")    min_upload_date = dateActual - 518400;  //604800
+                    if( dateMode === "month")   min_upload_date = dateActual - 2073600; //2160000
+                    if( dateMode === "3month")  min_upload_date = dateActual - 6220800; //172800
+                    
+                var tagMode=$('#hdBut').val(); 
+                    if( tagMode==="text") var insert ="&text=";
+                    if( tagMode==="tags") var insert ="&tags=";
+                   
+                   var req = "&api_key=" + apiKey +
+                                      "&page=" + page +
+                                      "&per_page=" + 150 +
+                                    //   insert + tag +
+                                      "&tag_mode=" + "all" +
+                                      "&extras=owner_name,url_m,url_l" + 
+                                      "&sort=" + orderMode +
+                                      "&orientation=" + orientation +
+                                      "&min_upload_date=" + min_upload_date +
+                                      "&max_upload_date=" + max_upload_date +
+                                      "&format=json&nojsoncallback=1";
+               
+                        if(mode==="userPhotos")      var api = "https://www.flickr.com/services/rest/?method=flickr.people.getPhotos&user_id=" + user_id + req;
+                        if(mode==="favoritePhotos") var api = "https://www.flickr.com/services/rest/?method=flickr.favorites.getList&user_id=" + user_id + req;
+                        if(mode==="groupPhotos")     var api = "https://www.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&group_id=" + user_id + req;      
+
+                                $.getJSON(api,function(data) {
+                                           console.log(data);                       // IMPRIME DATA (PHOTOS)
+                                           photo=data.photos.photo;                 // GET DA PHOTO DO ARRAY PHOTOS
+                                           console.log(photo);                      // IMPRIME ARRAY PHOTO
+                                           numPhotos= data.photos.photo.length;     // GET NUMBER OF PHOTOS POR PAGINA
+                                           totalPhotos=data.photos.total;           // GET NUMBER TOTAL OF PHOTOS
+                                           numPages=data.photos.pages;              // GET NUMBER OF PAGES  
+                                           console.log("Num Photos: " + numPhotos);
+                                           console.log("Total: " + totalPhotos); 
+                                           console.log("Pages: " + numPages);
+
+              
+                                                             
+                                 if(totalPhotos != 0) 
+                                    {
+                                      if(mode==="userPhotos")
+                                        { 
+                                           if(rnd=== 1)  msgTitle = "flickr photos of user " + username + " in a random order";
+                                         else
+                                           var msgTitle = "flickr photos of user " + username + " ordered by " + orderMode;
+                                        } 
+
+                                      if(mode==="favoritePhotos") 
+                                        {
+                                           if(rnd=== 1)  msgTitle = "favorite photos of user " + username + " in a random order";
+                                         else
+                                           var msgTitle = "favorite photos of user " + username + " ordered by " + orderMode;
+                                        }     
+                                      if(mode==="groupPhotos") 
+                                        {
+                                           if(rnd=== 1)  msgTitle = "flickr photos of group " + username + " in a random order";
+                                         else
+                                           var msgTitle = "flickr photos of group " + username + " ordered by " + orderMode;
+                                        }
+
+                                            $("#title").val(msgTitle); // INSERE A MSG NO HTML 
+                                            $("#title").show();
+
+                                           proc(numPhotos,photo);
+                                           $('#pageup').show();   
+                                           $('#pagedw').show();   
+                                           $('#page').show();   
+                                           $('#infodw').val(numPages+" pages found");
+                                           $('#infodw').show();
+                                }  
+                                 else
+                                {
+                                  document.getElementById("title").innerHTML="NO PHOTOS FOUND, CHECK SEARCHING OPTIONS"; // INSERE A MSG NO HTML     
+                                }
+                                          
+                                          });   
+                        }         
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var off1=true;
+function myFunction1() {
+   if (off1)
+   { 
+         del();
+  var x = document.createElement("SELECT");
+  x.setAttribute("id", "favList1");
+  document.body.appendChild(x);
+   x.setAttribute("onchange", "insert1()");
+  document.body.appendChild(x);
+  
+
+   z = document.createElement("option");
+  z.setAttribute("value", "");
+  var t = document.createTextNode("select order");
+  z.appendChild(t);
+  document.getElementById("favList1").appendChild(z);
+
+  var z = document.createElement("option");
+  z.setAttribute("value", "relevance");
+  var t = document.createTextNode("relevance");
+  z.appendChild(t);
+  document.getElementById("favList1").appendChild(z);
+ 
+  var z = document.createElement("option");
+  z.setAttribute("value", "recent");
+  var t = document.createTextNode("recent");
+  z.appendChild(t);
+  document.getElementById("favList1").appendChild(z);
+  
+  var z = document.createElement("option");
+  z.setAttribute("value", "interesting");
+  var t = document.createTextNode("interesting");
+  z.appendChild(t);
+  document.getElementById("favList1").appendChild(z);
+  
+  var z = document.createElement("option");
+  z.setAttribute("value", "random");
+  var t = document.createTextNode("random");
+  z.appendChild(t);
+  document.getElementById("favList1").appendChild(z);
+  
+  off1=false;
+   }
+   else
+   {
+       var myobj = document.getElementById("favList1");
+       myobj.remove();
+       off1=true;
+   }
+}
+
+function insert1()
+{
+ var x = document.getElementById("favList1").value;
+  document.getElementById("orderBut").value =  x;
+ 
+  var myobj = document.getElementById("favList1");
+  myobj.remove();
+  off1=true;
+  
+}
+////////////////////////////////////////////////////////////////////////////
+var off2=true;
+function myFunction2() {
+   if (off2)
+   { 
+         del();
+  var x = document.createElement("SELECT");
+  x.setAttribute("id", "favList2");
+  document.body.appendChild(x);
+   x.setAttribute("onchange", "insert2()");
+  document.body.appendChild(x);
+  
+   z = document.createElement("option");
+  z.setAttribute("value", "");
+  var t = document.createTextNode("select date");
+  z.appendChild(t);
+  document.getElementById("favList2").appendChild(z);
+  
+    var z = document.createElement("option");
+  z.setAttribute("value", "all");
+  var t = document.createTextNode("all");
+  z.appendChild(t);
+  document.getElementById("favList2").appendChild(z);
+  
+   var z = document.createElement("option");
+  z.setAttribute("value", "today");
+  var t = document.createTextNode("today");
+  z.appendChild(t);
+  document.getElementById("favList2").appendChild(z);
+  
+  var z = document.createElement("option");
+  z.setAttribute("value", "3day");
+  var t = document.createTextNode("3day");
+  z.appendChild(t);
+  document.getElementById("favList2").appendChild(z);
+
+  var z = document.createElement("option");
+  z.setAttribute("value", "week");
+  var t = document.createTextNode("week");
+  z.appendChild(t);
+  document.getElementById("favList2").appendChild(z);
+ 
+  var z = document.createElement("option");
+  z.setAttribute("value", "month");
+  var t = document.createTextNode("month");
+  z.appendChild(t);
+  document.getElementById("favList2").appendChild(z);
+  
+  var z = document.createElement("option");
+  z.setAttribute("value", "3month");
+  var t = document.createTextNode("3month");
+  z.appendChild(t);
+  document.getElementById("favList2").appendChild(z);
+  
+ 
+  
+  off2=false;
+   }
+   else
+   {
+       var myobj = document.getElementById("favList2");
+       myobj.remove();
+       off2=true;
+   }
+}
+
+function insert2()
+{
+ var x = document.getElementById("favList2").value;
+  document.getElementById("dateBut").value =  x;
+   
+  var myobj = document.getElementById("favList2");
+  myobj.remove();
+  off2=true;
+  
+}
+////////////////////////////////////////////////////////////////////////////
+var off3=true;
+function myFunction3() {
+   if (off3)
+   { 
+         del();
+  var x = document.createElement("SELECT");
+  x.setAttribute("id", "favList3");
+  document.body.appendChild(x);
+   x.setAttribute("onchange", "insert3()");
+  document.body.appendChild(x);
+  
+   z = document.createElement("option");
+  z.setAttribute("value", "");
+  var t = document.createTextNode("select ratio");
+  z.appendChild(t);
+  document.getElementById("favList3").appendChild(z);
+  
+   var z = document.createElement("option");
+  z.setAttribute("value", "all");
+  var t = document.createTextNode("all");
+  z.appendChild(t);
+  document.getElementById("favList3").appendChild(z);
+
+  var z = document.createElement("option");
+  z.setAttribute("value", "landscape");
+  var t = document.createTextNode("landscape");
+  z.appendChild(t);
+  document.getElementById("favList3").appendChild(z);
+ 
+  var z = document.createElement("option");
+  z.setAttribute("value", "portrait");
+  var t = document.createTextNode("portrait");
+  z.appendChild(t);
+  document.getElementById("favList3").appendChild(z);
+  
+  var z = document.createElement("option");
+  z.setAttribute("value", "square");
+  var t = document.createTextNode("square");
+  z.appendChild(t);
+  document.getElementById("favList3").appendChild(z);
+  
+  var z = document.createElement("option");
+  z.setAttribute("value", "panorama");
+  var t = document.createTextNode("panorama");
+  z.appendChild(t);
+  document.getElementById("favList3").appendChild(z);
+  
+  off3=false;
+   }
+   else
+   {
+       var myobj = document.getElementById("favList3");
+       myobj.remove();
+       off3=true;
+   }
+}
+
+function insert3()
+{
+ var x = document.getElementById("favList3").value;
+  document.getElementById("durationBut").value =  x;
+   
+  var myobj = document.getElementById("favList3");
+  myobj.remove();
+  off3=true;
+  
+}
+
+////////////////////////////////////////////////////////////////////////////
+var off4=true;
+function myFunction4() {
+   if (off4)
+   { 
+         del();
+  var x = document.createElement("SELECT");
+  x.setAttribute("id", "favList4");
+  document.body.appendChild(x);
+   x.setAttribute("onchange", "insert4()");
+  document.body.appendChild(x);
+  
+ z = document.createElement("option");
+  z.setAttribute("value", "");
+  var t = document.createTextNode("select mode");
+  z.appendChild(t);
+  document.getElementById("favList4").appendChild(z);
+  
+  
+  z = document.createElement("option");
+  z.setAttribute("value", "text");
+  var t = document.createTextNode("text");
+  z.appendChild(t);
+  document.getElementById("favList4").appendChild(z);
+  
+   var z = document.createElement("option");
+  z.setAttribute("value", "tags");
+  var t = document.createTextNode("tags");
+  z.appendChild(t);
+  document.getElementById("favList4").appendChild(z);
+
+
+  
+  off4=false;
+   }
+   else
+   {
+       var myobj = document.getElementById("favList4");
+       myobj.remove();
+       off4=true;
+   }
+}
+
+function insert4()
+{
+ var x = document.getElementById("favList4").value;
+  document.getElementById("hdBut").value =  x;
+   
+  var myobj = document.getElementById("favList4");
+  myobj.remove();
+  off4=true;
+  
+}
+
+////////////////////////////////////////////////////////////////////////////
+function del()
+{
+     var myobj = document.getElementById("favList1");
+   if(myobj) {off1=true;myobj.remove();}
+   
+      myobj = document.getElementById("favList2");
+   if(myobj) {off2=true;myobj.remove();}
+   
+    myobj = document.getElementById("favList3");
+   if(myobj) {off3=true;myobj.remove();}
+   
+    myobj = document.getElementById("favList4");
+   if(myobj) {off4=true;myobj.remove();}
+
+
+   
+}             
+
+/////////////////////////////////////////////////////////////////////////////////
+// FUNCTION TO GET THE ATRIBUTES PASSED ON THE URL
+      var queryString = decodeURIComponent(window.location.search); //parsing 
+      queryString = queryString.substring(1); 
+      var queries = queryString.split("&"); 
+    
+      //// Retrieve
+      check_browser();
+      var pic = localStorage.getItem("pic");
+         document.body.style.backgroundImage = "url("+pic+")";
+        
+         var url1 = localStorage.getItem("url1");
+         var url2 = localStorage.getItem("url2");
+         var return_url=url1+"&"+url2
+
+
+
+</script>
+
+</body>
+</html>

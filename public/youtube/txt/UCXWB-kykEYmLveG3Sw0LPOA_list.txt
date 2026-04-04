@@ -1,0 +1,922 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "lAh29Dw3gXtGqAr78Vmb_B4JiTE",
+    "id": "PLcVjm5TixIzt2C9glEo45a0EUY4y2RVR1",
+    "snippet": {
+      "publishedAt": "2021-10-31T19:40:18Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Remembering Leonard Cohen",
+      "description": "Videos and performances from the legendary late singer/songwriter.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nleonard cohen, hallelujah",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Remembering Leonard Cohen",
+        "description": "Videos and performances from the legendary late singer/songwriter.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nleonard cohen, hallelujah"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 46
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Cxyx259IPnWiWqIV8xDeFhSiopE",
+    "id": "PLcVjm5TixIzvQ-W9EXFTKpHIq-jqrb4-F",
+    "snippet": {
+      "publishedAt": "2017-11-17T11:44:28Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "LeonardCohen - Greatest Hits",
+      "description": "Greatest LeonardCohen hits are curated in this music video playlist. Enjoy the greatest hits of LeonardCohen in this playlist. Check out other playlists for audio videos, live performances, interviews and more...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "LeonardCohen - Greatest Hits",
+        "description": "Greatest LeonardCohen hits are curated in this music video playlist. Enjoy the greatest hits of LeonardCohen in this playlist. Check out other playlists for audio videos, live performances, interviews and more..."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "MGGP6jCBugtR1W-sXbECUBXXZ-A",
+    "id": "PLcVjm5TixIzvzmeZAS5TbFDdxrhwRHcAq",
+    "snippet": {
+      "publishedAt": "2017-11-06T17:21:56Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Greatest Hits of Leonard Cohen",
+      "description": "Enjoy listening to a curation of songs that are the most liked hits of Leonard Cohen",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Greatest Hits of Leonard Cohen",
+        "description": "Enjoy listening to a curation of songs that are the most liked hits of Leonard Cohen"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "hfHvw2mNniaPK553BITk5uXJSu4",
+    "id": "PLcVjm5TixIztLgDkWb2YnwBBefEZOS8NV",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:09:42Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - Songs Of Leonard Cohen",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Songs Of Leonard Cohen. Listen to songs of Songs Of Leonard Cohen in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/svitEEpI07E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/svitEEpI07E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/svitEEpI07E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/svitEEpI07E/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/svitEEpI07E/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - Songs Of Leonard Cohen",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Songs Of Leonard Cohen. Listen to songs of Songs Of Leonard Cohen in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "i-JN7JzxT1M1JjtslX6Ayo7AME4",
+    "id": "PLcVjm5TixIzv_P9XK5gYOMiWVNsmfFwVH",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:09:02Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - Songs Of Love And Hate - 50th Anniversary Album Playlist",
+      "description": "Listen to this playlist featuring all the songs of Leonard Cohen's 'Songs Of Love And Hate' album. Songs Of Love And Hate turns 50 years old this year!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3f0ADuVJhYQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3f0ADuVJhYQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3f0ADuVJhYQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3f0ADuVJhYQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3f0ADuVJhYQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - Songs Of Love And Hate - 50th Anniversary Album Playlist",
+        "description": "Listen to this playlist featuring all the songs of Leonard Cohen's 'Songs Of Love And Hate' album. Songs Of Love And Hate turns 50 years old this year!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "CiVhITdHp4ReZHSi5OhUmOHWVW8",
+    "id": "PLcVjm5TixIzv-z2NPBfPDMPy5RPvoJIWF",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:08:39Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - New Skin For The Old Ceremony",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's New Skin For The Old Ceremony. Listen to songs of New Skin For The Old Ceremony in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - New Skin For The Old Ceremony",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's New Skin For The Old Ceremony. Listen to songs of New Skin For The Old Ceremony in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "KhO47myLY-YuvM_cV2viqXVj7zs",
+    "id": "PLcVjm5TixIzvHqEOnGy5YPzv-TDFyKtke",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:07:33Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - Various Positions",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Various Positions. Listen to songs of Various Positions in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NGorjBVag0I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NGorjBVag0I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NGorjBVag0I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NGorjBVag0I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NGorjBVag0I/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - Various Positions",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Various Positions. Listen to songs of Various Positions in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "qqjEEW1geV6yos7zy7Z-wF2YZjc",
+    "id": "PLcVjm5TixIzurfJ2dgSNl4zCZ3TOO-sIS",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:07:09Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - I'm Your Man",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's I'm Your Man. Listen to songs of I'm Your Man in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/JTTC_fD598A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/JTTC_fD598A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/JTTC_fD598A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/JTTC_fD598A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/JTTC_fD598A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - I'm Your Man",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's I'm Your Man. Listen to songs of I'm Your Man in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "tNt73hkhd5jXV7K0q2T-BQZJxrE",
+    "id": "PLcVjm5TixIztpi7E1kkFyrrvuKLuyzzXr",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:06:45Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - The Future",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's The Future. Listen to songs of The Future in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/LXvG0SMP7tw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/LXvG0SMP7tw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/LXvG0SMP7tw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/LXvG0SMP7tw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/LXvG0SMP7tw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - The Future",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's The Future. Listen to songs of The Future in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "jlHmJXXHGmizZaXJJ09JcCPflvE",
+    "id": "PLcVjm5TixIzstqk3zbwop5FIanlbkq-vS",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:06:21Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - Ten New Songs",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Ten New Songs. Listen to songs of Ten New Songs in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NW7oNpzBSGc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NW7oNpzBSGc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NW7oNpzBSGc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NW7oNpzBSGc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NW7oNpzBSGc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - Ten New Songs",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Ten New Songs. Listen to songs of Ten New Songs in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "N0KyfHIAjqSQxbwW1P1MD0ZJxTY",
+    "id": "PLcVjm5TixIztTBpkTKssghf-2-XpbWPZI",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:05:03Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - Songs From The Road",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Songs From The Road. Listen to songs of Songs From The Road in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FYkJuAb0mMk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FYkJuAb0mMk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FYkJuAb0mMk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FYkJuAb0mMk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FYkJuAb0mMk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - Songs From The Road",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Songs From The Road. Listen to songs of Songs From The Road in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 14
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "dWtSZ-1F5BsBIYfRFykEwdp8xOI",
+    "id": "PLcVjm5TixIztvfC_w07QW-cFwyuVPXhmc",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:04:38Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - Old Ideas",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Old Ideas. Listen to songs of Old Ideas in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Dc9nYpWDR08/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Dc9nYpWDR08/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Dc9nYpWDR08/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Dc9nYpWDR08/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Dc9nYpWDR08/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - Old Ideas",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Old Ideas. Listen to songs of Old Ideas in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "UVensMU96-X6Qi7-1LpzweeKmmU",
+    "id": "PLcVjm5TixIzsAHHT0HvuyL2Sqitr4RXE1",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:04:14Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - Popular Problems",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Popular Problems. Listen to songs of Popular Problems in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - Popular Problems",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Popular Problems. Listen to songs of Popular Problems in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "lRnpUOW1NFe1f99qWghR_U7l5PI",
+    "id": "PLcVjm5TixIztr8cIsKI0iU9portMM_Pjd",
+    "snippet": {
+      "publishedAt": "2017-11-03T17:03:49Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Leonard Cohen - Can't Forget: A Souvenir Of The Grand Tour",
+      "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Can't Forget: A Souvenir Of The Grand Tour. Listen to songs of Can't Forget: A Souvenir Of The Grand Tour in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/xlkzoLIb-ps/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Leonard Cohen - Can't Forget: A Souvenir Of The Grand Tour",
+        "description": "Listen to this Album playlist featuring all the songs of Leonard Cohen's Can't Forget: A Souvenir Of The Grand Tour. Listen to songs of Can't Forget: A Souvenir Of The Grand Tour in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "DzdfD1b9rUbfK7prlGn3RiVZAkQ",
+    "id": "PLcVjm5TixIztfACTE5yBH8j2h6Ubzx8i7",
+    "snippet": {
+      "publishedAt": "2017-11-02T18:09:02Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "LeonardCohen - Remix",
+      "description": "Remix Videos of LeonardCohen are curated in this playlist. Enjoy a non-stop stream of Remix Videos.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xejva1SMP4E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xejva1SMP4E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xejva1SMP4E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xejva1SMP4E/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/xejva1SMP4E/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "LeonardCohen - Remix",
+        "description": "Remix Videos of LeonardCohen are curated in this playlist. Enjoy a non-stop stream of Remix Videos."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "TjwAxl-MEFFpfawhdGsodRmUKgI",
+    "id": "PLcVjm5TixIztdstiMzeU_MFrn8AnQXRpU",
+    "snippet": {
+      "publishedAt": "2017-10-26T13:49:38Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "LeonardCohen - Audio Videos",
+      "description": "All audio-only videos of LeonardCohen are curated in this playlist. Enjoy a non-stop video stream of audio songs in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/v0nmHymgM7Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/v0nmHymgM7Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/v0nmHymgM7Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/v0nmHymgM7Y/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/v0nmHymgM7Y/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "LeonardCohen - Audio Videos",
+        "description": "All audio-only videos of LeonardCohen are curated in this playlist. Enjoy a non-stop video stream of audio songs in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 20
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "2YzrwaOBWRHcpZxf4r4-fgQTLt8",
+    "id": "PLcVjm5TixIzsnoGj4JsKyYkZD9nA19du4",
+    "snippet": {
+      "publishedAt": "2017-10-25T10:11:49Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "LeonardCohen - Lyric Videos",
+      "description": "All Lyric Videos of LeonardCohen are curated in this playlist. Enjoy a non-stop stream of Lyric Videos.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YD6fvzGIBfQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YD6fvzGIBfQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YD6fvzGIBfQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YD6fvzGIBfQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YD6fvzGIBfQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "LeonardCohen - Lyric Videos",
+        "description": "All Lyric Videos of LeonardCohen are curated in this playlist. Enjoy a non-stop stream of Lyric Videos."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "y7GzkQbuqL0Q5i4E43vt_jTF2Zg",
+    "id": "PLcVjm5TixIzugIKEw9ug2d3N6V_Vds7NL",
+    "snippet": {
+      "publishedAt": "2017-10-24T14:19:36Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "LeonardCohen - Live",
+      "description": "Watch the live performance from LeonardCohen. Enjoy a non-stop music stream in this playlist.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/n_56ep729TE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/n_56ep729TE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/n_56ep729TE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/n_56ep729TE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/n_56ep729TE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "LeonardCohen - Live",
+        "description": "Watch the live performance from LeonardCohen. Enjoy a non-stop music stream in this playlist."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "kWBc7tTi9cZYqfXZVP8cfFdZG58",
+    "id": "PLcVjm5TixIzs1FO9lFEvG7x7eXJmFs_Rr",
+    "snippet": {
+      "publishedAt": "2017-10-13T10:25:30Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Best of Leonard Cohen",
+      "description": "Best Leonard Cohen songs are curated in this music video playlist. Enjoy the greatest hits of Leonard Cohen in this playlist. Check out other playlists for audio videos, live performances, interviews and more...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YrLk4vdY28Q/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Best of Leonard Cohen",
+        "description": "Best Leonard Cohen songs are curated in this music video playlist. Enjoy the greatest hits of Leonard Cohen in this playlist. Check out other playlists for audio videos, live performances, interviews and more..."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "0BHNKu0za7EB0AVERWmFVlMb6og",
+    "id": "PLcVjm5TixIzsHL5Z1Gj7NCEzAEt6om0Lp",
+    "snippet": {
+      "publishedAt": "2014-09-23T16:33:15Z",
+      "channelId": "UCXWB-kykEYmLveG3Sw0LPOA",
+      "title": "Popular Problems by Leonard Cohen - album stream",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FVegcCcMNS4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "LeonardCohenVEVO",
+      "localized": {
+        "title": "Popular Problems by Leonard Cohen - album stream",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  }
+]

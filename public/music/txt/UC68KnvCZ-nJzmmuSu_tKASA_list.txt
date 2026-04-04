@@ -1,0 +1,1501 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "2C6vEe_16FzT88sRwr_tI2dudxg",
+    "id": "PLc87N-d3x2CplbhKWEZAnaRLqeEcp3VG-",
+    "snippet": {
+      "publishedAt": "2022-08-22T17:52:08Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Relaxing Videos",
+      "description": "Hi! Our best relaxing nature videos to relax yourself.\n\n-------------------\n\nWelcome to Just Instrumental Music!\n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform to make them more suitable and attractive to the average viewer. This results in videos that are perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times such as Mozart, Beethoven, Bach, Chopin and many more. \n\nWe hope you enjoy them!\n\nTake a look at our social networks:\n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/c/JustInstrumentalMusicYT/join\n\n- Have a look at our cool merchandising store ;)\nhttps://teespring.com/stores/just-instrumental-music\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- ... and on Twitter too: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n#relaxingvideo  #naturevideo",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/m4T1QwWlXbs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/m4T1QwWlXbs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/m4T1QwWlXbs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Relaxing Videos",
+        "description": "Hi! Our best relaxing nature videos to relax yourself.\n\n-------------------\n\nWelcome to Just Instrumental Music!\n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform to make them more suitable and attractive to the average viewer. This results in videos that are perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times such as Mozart, Beethoven, Bach, Chopin and many more. \n\nWe hope you enjoy them!\n\nTake a look at our social networks:\n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/c/JustInstrumentalMusicYT/join\n\n- Have a look at our cool merchandising store ;)\nhttps://teespring.com/stores/just-instrumental-music\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- ... and on Twitter too: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n#relaxingvideo  #naturevideo"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "g_8SjtGOEtqzuYEjK6rrqk_fpZ8",
+    "id": "PLc87N-d3x2CpPFPyi3sUXQBiZ1TQQsap4",
+    "snippet": {
+      "publishedAt": "2022-08-04T17:59:15Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Classical Music Nature Videos",
+      "description": "Hi, playlist of some of our nature videos with classical music pieces.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1bPqd2Qmpuw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1bPqd2Qmpuw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1bPqd2Qmpuw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1bPqd2Qmpuw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1bPqd2Qmpuw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Classical Music Nature Videos",
+        "description": "Hi, playlist of some of our nature videos with classical music pieces."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "shFOoHjgiX-ZJp7SzLGH3eFJrNA",
+    "id": "PLc87N-d3x2CqFZkHtvMHrePOQgDy7Co7u",
+    "snippet": {
+      "publishedAt": "2021-02-04T14:54:03Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Georg Friedrich Händel",
+      "description": "The best pieces composed by Georg Friedrich Händel.\n-------------------\nWelcome to Just Instrumental Music! \n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/c/JustInstrumentalMusicYT/join\n\n\n- Have a look at our cool merchandising store ;)\nhttps://teespring.com/stores/just-instrumental-music\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Our Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wp-nJZBH54w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wp-nJZBH54w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wp-nJZBH54w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wp-nJZBH54w/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Georg Friedrich Händel",
+        "description": "The best pieces composed by Georg Friedrich Händel.\n-------------------\nWelcome to Just Instrumental Music! \n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/c/JustInstrumentalMusicYT/join\n\n\n- Have a look at our cool merchandising store ;)\nhttps://teespring.com/stores/just-instrumental-music\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Our Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "nuRqKdG_cOUGqiUWCMqZor168Yg",
+    "id": "PLc87N-d3x2Coek3jXlLrnzYsEe4K7PH7S",
+    "snippet": {
+      "publishedAt": "2020-12-07T15:09:09Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Greetings Video Cards",
+      "description": "Funny and original greeting card video messages to share on your social media: WhatsApp, Facebook, Instagram, Tik Tok, Twitter... and send to your loved ones. Enjoy it ! \n\n“We must find time to stop and thank the people who make a difference in our lives.”\n— John F. Kennedy\n\n-------------------\n\nWelcome to Just Instrumental Music! Thank you so much for watching this video. I hope you enjoy it and don't forget to share it with your family and friends!\n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/channel/UC68K...\n\n- Have a look at our cool merchandising store ;)\nteespring.com/stores/just-instrumenta...\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrume...\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogsp...\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wC1BecIvg-s/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wC1BecIvg-s/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wC1BecIvg-s/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wC1BecIvg-s/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wC1BecIvg-s/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Greetings Video Cards",
+        "description": "Funny and original greeting card video messages to share on your social media: WhatsApp, Facebook, Instagram, Tik Tok, Twitter... and send to your loved ones. Enjoy it ! \n\n“We must find time to stop and thank the people who make a difference in our lives.”\n— John F. Kennedy\n\n-------------------\n\nWelcome to Just Instrumental Music! Thank you so much for watching this video. I hope you enjoy it and don't forget to share it with your family and friends!\n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/channel/UC68K...\n\n- Have a look at our cool merchandising store ;)\nteespring.com/stores/just-instrumenta...\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrume...\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogsp...\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Iq8jMDQ3ROeJWHHApvlHTnNewyw",
+    "id": "PLc87N-d3x2Co-vCzP5qQ7ra7xv3gGruyd",
+    "snippet": {
+      "publishedAt": "2020-12-07T15:07:39Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Christmas Videos",
+      "description": "Some of the best Christmas instrumental carols and songs to create a perfect background holiday season ambience for Christmas time with fireplace. This is the most relaxing and upbeat Xmas music playlist mix. We wish you a holly jolly Merry Christmas and a Happy New Year 2021!\n\n\"Christmas is most truly Christmas when we celebrate it by giving the light of love to those who need it most.\" - Ruth Carter Stapleton\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/c/JustInstrumentalMusicYT/join\n\n- Have a look at our cool merchandising store ;)\nhttps://teespring.com/stores/just-instrumental-music\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Our Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#christmas2020 #christmasmusic #christmassongsandcarols",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0wuUcHVF4Ss/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0wuUcHVF4Ss/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0wuUcHVF4Ss/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0wuUcHVF4Ss/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0wuUcHVF4Ss/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Christmas Videos",
+        "description": "Some of the best Christmas instrumental carols and songs to create a perfect background holiday season ambience for Christmas time with fireplace. This is the most relaxing and upbeat Xmas music playlist mix. We wish you a holly jolly Merry Christmas and a Happy New Year 2021!\n\n\"Christmas is most truly Christmas when we celebrate it by giving the light of love to those who need it most.\" - Ruth Carter Stapleton\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/c/JustInstrumentalMusicYT/join\n\n- Have a look at our cool merchandising store ;)\nhttps://teespring.com/stores/just-instrumental-music\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Our Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#christmas2020 #christmasmusic #christmassongsandcarols"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "kl7INClBBqva7ir8wmzgspP1tLI",
+    "id": "PLc87N-d3x2CrauK33BOCSKJRTvEqikUiZ",
+    "snippet": {
+      "publishedAt": "2020-10-26T12:59:34Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Chorus Musical Pieces",
+      "description": "Welcome to Just Instrumental Music! Best classical music and relaxing instrumental pieces.\n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/channel/UC68KnvCZ-nJzmmuSu_tKASA/join\n\n- Have a look at our cool merchandising store ;)\nhttps://teespring.com/stores/just-instrumental-music\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Our Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wzeRSsNHtsQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wzeRSsNHtsQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wzeRSsNHtsQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wzeRSsNHtsQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wzeRSsNHtsQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Chorus Musical Pieces",
+        "description": "Welcome to Just Instrumental Music! Best classical music and relaxing instrumental pieces.\n\n- Become a member and support the channel ^_^\nhttps://www.youtube.com/channel/UC68KnvCZ-nJzmmuSu_tKASA/join\n\n- Have a look at our cool merchandising store ;)\nhttps://teespring.com/stores/just-instrumental-music\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Our Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "O9lVHjpBfhf92yC28Ovm487GUHg",
+    "id": "PLc87N-d3x2CoFBlV18FjqYqV4kNtsSbcR",
+    "snippet": {
+      "publishedAt": "2020-09-28T16:39:51Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Pyotr Ilyich Tchaikovsky",
+      "description": "Famous musical pieces by Russian composer Pyotr Ilyich Tchaikovsky.\n\n“Truly there would be reason to go mad were it not for music.”\n― Peter Ilyich Tchaikovsky\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#classicalmusic #Tchaikovsky",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/K0qDZSbKWB4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/K0qDZSbKWB4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/K0qDZSbKWB4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/K0qDZSbKWB4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/K0qDZSbKWB4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Pyotr Ilyich Tchaikovsky",
+        "description": "Famous musical pieces by Russian composer Pyotr Ilyich Tchaikovsky.\n\n“Truly there would be reason to go mad were it not for music.”\n― Peter Ilyich Tchaikovsky\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#classicalmusic #Tchaikovsky"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "bFpcOKQGcuUk3Gk6PlZO0948CWQ",
+    "id": "PLc87N-d3x2Cqlhnhplirij3kWGbZgD2LE",
+    "snippet": {
+      "publishedAt": "2020-06-01T17:07:32Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Symphonic Music",
+      "description": "Best famous classical and orchestral symphonic music.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content featured in this video has been recorded by us. Please do not reupload our content. \n\n#classicalmusic #symphony #symphonicmusic",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/kq1pIgXPm6I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/kq1pIgXPm6I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/kq1pIgXPm6I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/kq1pIgXPm6I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/kq1pIgXPm6I/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Symphonic Music",
+        "description": "Best famous classical and orchestral symphonic music.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content featured in this video has been recorded by us. Please do not reupload our content. \n\n#classicalmusic #symphony #symphonicmusic"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Hw45sku0rvhiUMUsgwWKNSBX8RU",
+    "id": "PLc87N-d3x2CpsrnJhp0r0vrxycCAQE98G",
+    "snippet": {
+      "publishedAt": "2020-05-18T16:28:22Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Most Famous Pieces of Classical Music",
+      "description": "The Best classical music and most famous classical pieces of all time.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#classicalmusic #classical #music",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Most Famous Pieces of Classical Music",
+        "description": "The Best classical music and most famous classical pieces of all time.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#classicalmusic #classical #music"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 31
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "I94V9PREEa0YCOInrzb67WXH1Bc",
+    "id": "PLc87N-d3x2CoOu8s9iXeKPcNkWWt5pcIb",
+    "snippet": {
+      "publishedAt": "2019-10-30T13:03:48Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Flute Music",
+      "description": "Some of the best classical music for studying and concentration. It is the perfect relaxing instrumental music for studying and better learning to focus and it is also great classical flute music to study, concentrate, writing or working in office. Use this classical music for relaxation and reading or as study music for exams and study time.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n#classicalmusic #musicforstudying #studymusic",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NVFeRUBHqv0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NVFeRUBHqv0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NVFeRUBHqv0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NVFeRUBHqv0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NVFeRUBHqv0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Flute Music",
+        "description": "Some of the best classical music for studying and concentration. It is the perfect relaxing instrumental music for studying and better learning to focus and it is also great classical flute music to study, concentrate, writing or working in office. Use this classical music for relaxation and reading or as study music for exams and study time.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n#classicalmusic #musicforstudying #studymusic"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Q9xibbWg_YacgLWS2FPbRF3JRE4",
+    "id": "PLc87N-d3x2CpK-yWOW0vwfBGJetHOO2Bm",
+    "snippet": {
+      "publishedAt": "2019-10-21T11:40:46Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Cello Music",
+      "description": "Some of the best classical violincello music for studying and concentration.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#classicalmusic #musicforstudying #studymusic",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/UAONiX6AT_k/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/UAONiX6AT_k/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/UAONiX6AT_k/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/UAONiX6AT_k/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/UAONiX6AT_k/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Cello Music",
+        "description": "Some of the best classical violincello music for studying and concentration.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#classicalmusic #musicforstudying #studymusic"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 8
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ufg1MAuegzffcF83KBGB-BV-e1E",
+    "id": "PLc87N-d3x2CpdxrbeF6NcoyG0bQUX0aoY",
+    "snippet": {
+      "publishedAt": "2019-09-17T11:30:59Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Robert Schumann",
+      "description": "Some of the best classical music for studying and concentration composed by Schumann with soothing nature sounds. It is the perfect relaxing instrumental music for studying and better learning to focus and it is also great classical music to study, concentrate, writing or working in office. Use this classical music for relaxation and reading or as study music for exams and study time.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#classicalmusic #musicforstudying #studymusic",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/WGxye7iXyfg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/WGxye7iXyfg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/WGxye7iXyfg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Robert Schumann",
+        "description": "Some of the best classical music for studying and concentration composed by Schumann with soothing nature sounds. It is the perfect relaxing instrumental music for studying and better learning to focus and it is also great classical music to study, concentrate, writing or working in office. Use this classical music for relaxation and reading or as study music for exams and study time.\n\n-------------------\n\nWelcome to Just Instrumental Music! \n\nWe love classical music as well as relaxing instrumental music so some years ago we decided to create this channel where you can find the best videos of well-known pieces of classical piano, violin and orchestral music combined with nature sounds and visuals in a unique way. We made original and educative videos from musical compositions which we transform making them perfect to focus on studying, reading, working and improving your concentration and memorization while listening to the greatest composers of all times.\n\n- Follow us on Facebook: https://www.facebook.com/JustInstrumentalMusic/\n\n- Twitter: https://twitter.com/JustInstrument1\n\n- Our Blog: https://justinstrumentalmusicc.blogspot.com\n\nThank you so much for watching this video. I hope you enjoy it and don't forget to Subscribe :)\n\n-------------------\n\n- All visual content and nature sounds featured in this video have been recorded by us. Please do not reupload our content. \n\n#classicalmusic #musicforstudying #studymusic"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Z5YI_gywCm0vn0iQUBaAM2uGyxM",
+    "id": "PLc87N-d3x2CrawZVDY5IRmulKNVEKk-4g",
+    "snippet": {
+      "publishedAt": "2018-05-29T12:44:36Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Reading Music",
+      "description": "Some of the best study music for concentration and brain power with relaxing sounds. Relaxing music for studying, concentration and focus memory for work: instrumental music for reading. Use it as background studying music for final exam study time and studying music to help you concentrate on homework, learning, working, reading or writing. Enjoy the music!\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BklGhQYKl30/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BklGhQYKl30/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BklGhQYKl30/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BklGhQYKl30/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BklGhQYKl30/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Reading Music",
+        "description": "Some of the best study music for concentration and brain power with relaxing sounds. Relaxing music for studying, concentration and focus memory for work: instrumental music for reading. Use it as background studying music for final exam study time and studying music to help you concentrate on homework, learning, working, reading or writing. Enjoy the music!\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 19
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ZU7ZFDaKHtfoIB1qgwPxAgoNbbo",
+    "id": "PLc87N-d3x2CpbS8cw-1rYcRDiu0Wcu64x",
+    "snippet": {
+      "publishedAt": "2018-05-22T12:44:48Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Guitar Music",
+      "description": "Some of the best relaxing study music for concentration and memory. Relaxing instrumental music for studying, concentration and focus memory for work: soothing music for reading. Use it as background study music for final exam study time and studying music to help you concentrate on homework, learning, working, reading or writing. Enjoy the music!\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)\n\nMusic:",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_wX1C-uVvgk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_wX1C-uVvgk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_wX1C-uVvgk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_wX1C-uVvgk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_wX1C-uVvgk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Guitar Music",
+        "description": "Some of the best relaxing study music for concentration and memory. Relaxing instrumental music for studying, concentration and focus memory for work: soothing music for reading. Use it as background study music for final exam study time and studying music to help you concentrate on homework, learning, working, reading or writing. Enjoy the music!\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)\n\nMusic:"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "azUshVN7Tq0GQZKvdRGRP5lSVxw",
+    "id": "PLc87N-d3x2CoR0Nt6sc4u1gO19UL5_dEZ",
+    "snippet": {
+      "publishedAt": "2018-02-19T13:15:11Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Orchestral Music",
+      "description": "Some of the best classical orchestral music for studying and concentration. It is the perfect relaxing instrumental music for studying and better learning to focus and it is also great classical orchestra music to study, concentrate, writing or working in office. Use this classical music for relaxation and reading or as study music for exams and study time.\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Orchestral Music",
+        "description": "Some of the best classical orchestral music for studying and concentration. It is the perfect relaxing instrumental music for studying and better learning to focus and it is also great classical orchestra music to study, concentrate, writing or working in office. Use this classical music for relaxation and reading or as study music for exams and study time.\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 28
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "6Mp7THYk3qzduH2lLIfLbatIBFA",
+    "id": "PLc87N-d3x2CodYUSfXEbGVA373Kl8lD6o",
+    "snippet": {
+      "publishedAt": "2016-09-13T13:04:56Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Study Music Playlist",
+      "description": "Some of the best relaxing music for studying, concentration and focus memory for work and studies: soothing instrumental songs. Use it as background study music for final exam study time to concentrate, homework, learning, reading or writing. Enjoy this relaxing instrumental playlist mix!\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/VB6SIKl8Md0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/VB6SIKl8Md0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/VB6SIKl8Md0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/VB6SIKl8Md0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Study Music Playlist",
+        "description": "Some of the best relaxing music for studying, concentration and focus memory for work and studies: soothing instrumental songs. Use it as background study music for final exam study time to concentrate, homework, learning, reading or writing. Enjoy this relaxing instrumental playlist mix!\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 188
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Rjw9kCdBN2nDap-STqFKoZGho6E",
+    "id": "PLc87N-d3x2CqNUiafB4gGC5hjl27gNQyx",
+    "snippet": {
+      "publishedAt": "2015-10-05T15:54:22Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Relaxing Classical Music",
+      "description": "Some of the best Classical Music for relaxation and stress relief. It is the perfect relaxing music for studying to focus and concentrate, reading, writing or working in office: relaxation piano and violin music to study and concentrate with soothing  sounds. Use it as instrumental music for studying and classical music for relaxation or as study music for exams and study time. Enjoy it!\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Relaxing Classical Music",
+        "description": "Some of the best Classical Music for relaxation and stress relief. It is the perfect relaxing music for studying to focus and concentrate, reading, writing or working in office: relaxation piano and violin music to study and concentrate with soothing  sounds. Use it as instrumental music for studying and classical music for relaxation or as study music for exams and study time. Enjoy it!\n\nThank you so much for watching this video by Just Instrumental Music channel. I hope you enjoy it and don't forget to Subscribe :)"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 187
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "F8aD0xNvnlfLBbVJOU2vDl4tg1Q",
+    "id": "PLc87N-d3x2CrBpHUMfFlRsh6Vfjz7hurs",
+    "snippet": {
+      "publishedAt": "2015-09-01T13:11:29Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Just Instrumental Music",
+      "description": "Just Instumental Music is a channel dedicated to classical music in which you can find the best well-known pieces of classical music. Enjoy!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/m4T1QwWlXbs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/m4T1QwWlXbs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/m4T1QwWlXbs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Just Instrumental Music",
+        "description": "Just Instumental Music is a channel dedicated to classical music in which you can find the best well-known pieces of classical music. Enjoy!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 230
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "NF9gPzjigc_Y-YTGS6bhBSaUvj4",
+    "id": "PLc87N-d3x2CpLdT17q9SC5PQhmIIxK2Oq",
+    "snippet": {
+      "publishedAt": "2015-08-03T18:08:09Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Johannes Brahms Playlist",
+      "description": "Johannes Brahms Playlist",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jHf_2vMUzhA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jHf_2vMUzhA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jHf_2vMUzhA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jHf_2vMUzhA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jHf_2vMUzhA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Johannes Brahms Playlist",
+        "description": "Johannes Brahms Playlist"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "VSUrqAGSdGzxnrJDLzp9L3Xor44",
+    "id": "PLc87N-d3x2Cp864VdAOQgjYRaDdJq93rW",
+    "snippet": {
+      "publishedAt": "2015-07-08T14:27:33Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Relaxing Piano Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lW-QNVuNkc8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lW-QNVuNkc8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lW-QNVuNkc8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lW-QNVuNkc8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lW-QNVuNkc8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Relaxing Piano Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 108
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8CRI5FMSS_OSXxS49QRjYtAlhlA",
+    "id": "PLc87N-d3x2CoIM3pNvL25XKSqOVebEMxi",
+    "snippet": {
+      "publishedAt": "2015-06-23T21:54:18Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Erik Satie",
+      "description": "Erik Satie",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BVBtoiPtFNg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BVBtoiPtFNg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BVBtoiPtFNg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BVBtoiPtFNg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BVBtoiPtFNg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Erik Satie",
+        "description": "Erik Satie"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "pQ829HG2PVZwRODVOOiUZKCTCAY",
+    "id": "PLc87N-d3x2CqCzhGHJlIlMev_k5HcZ4Je",
+    "snippet": {
+      "publishedAt": "2015-05-25T18:51:57Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Classical Violin Music",
+      "description": "Classical music violin for studying and concentration",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Classical Violin Music",
+        "description": "Classical music violin for studying and concentration"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 31
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "wykNz3JHQ_wOVse1PNUBZ_XEuvc",
+    "id": "PLc87N-d3x2CrSLCAMo8QKtqKcim_Y45-t",
+    "snippet": {
+      "publishedAt": "2015-04-27T13:17:34Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Classical Piano Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/OkokNfS80WY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/OkokNfS80WY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/OkokNfS80WY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/OkokNfS80WY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Classical Piano Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 104
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "7yTrtjtaMsiAP83yKr4XywIDw18",
+    "id": "PLc87N-d3x2CoV143OB-AM1wVTzoU-EAZf",
+    "snippet": {
+      "publishedAt": "2015-04-06T14:11:51Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Joseph Haydn",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/irS3dejECNs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/irS3dejECNs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/irS3dejECNs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/irS3dejECNs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/irS3dejECNs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Joseph Haydn",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "GKIcHzm4MV4VbP7GU2wmHlEDX44",
+    "id": "PLc87N-d3x2CqP-UafljfJ3fxkaTXK0c_9",
+    "snippet": {
+      "publishedAt": "2015-03-30T13:38:30Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Franz Liszt",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2v1NicefAfE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2v1NicefAfE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2v1NicefAfE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2v1NicefAfE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Franz Liszt",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 8
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "djPd5BvQX8T_Lvr7hPempp3dYtQ",
+    "id": "PLc87N-d3x2CrxhdMVPnn4NX0B1mAJakWo",
+    "snippet": {
+      "publishedAt": "2015-03-16T17:54:25Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Claude Debussy",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ABZUzMfDS9k/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ABZUzMfDS9k/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ABZUzMfDS9k/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ABZUzMfDS9k/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ABZUzMfDS9k/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Claude Debussy",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "0qz4am9iPq5L5hcIjRdHHGGknWk",
+    "id": "PLc87N-d3x2Cp6r9xS3CO3SRjzon8qWiOJ",
+    "snippet": {
+      "publishedAt": "2014-12-13T11:48:34Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "The Best of Classical Music",
+      "description": "The Best of Classical Music",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lrFL7ucclvI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "The Best of Classical Music",
+        "description": "The Best of Classical Music"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 192
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "_8Roe9lRyC9ulbxG86Rhaa9ix-c",
+    "id": "PLc87N-d3x2CoLujhzz4FDO_he937zMTOP",
+    "snippet": {
+      "publishedAt": "2014-07-15T09:06:16Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Classical Music for Studying and Concentration",
+      "description": "Some of the best classical music for studying and concentration.\n\nThank you so much for watching this playlist. I hope you enjoy it and don't forget to share it!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/WGxye7iXyfg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/WGxye7iXyfg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/WGxye7iXyfg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Classical Music for Studying and Concentration",
+        "description": "Some of the best classical music for studying and concentration.\n\nThank you so much for watching this playlist. I hope you enjoy it and don't forget to share it!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 162
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "AzFLQAADsxSt3voROOFnz0JhoKQ",
+    "id": "PLc87N-d3x2CrT8n6j5kSKs3Uq1_Pwzfib",
+    "snippet": {
+      "publishedAt": "2014-05-15T10:53:18Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Franz Schubert",
+      "description": "Some of the best classical music for studying and concentration by Franz Schubert.\n\nIt's the perfect classical music playlist for studying and concentration, focusing memory and brain development. This is also great instrumental music for reading and writing, doing homework and better learning, or for background relaxing music while doing any other activity.\n\nThank you so much for watching this playlist. I hope you enjoy it and don't forget to share it!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/zPHAb-e5eF0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/zPHAb-e5eF0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/zPHAb-e5eF0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/zPHAb-e5eF0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/zPHAb-e5eF0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Franz Schubert",
+        "description": "Some of the best classical music for studying and concentration by Franz Schubert.\n\nIt's the perfect classical music playlist for studying and concentration, focusing memory and brain development. This is also great instrumental music for reading and writing, doing homework and better learning, or for background relaxing music while doing any other activity.\n\nThank you so much for watching this playlist. I hope you enjoy it and don't forget to share it!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "JsY79vSKnasqDKK8VCZohk1-lJg",
+    "id": "PLc87N-d3x2CpSIjutjzcmH2R2OsIv7y9f",
+    "snippet": {
+      "publishedAt": "2014-05-11T12:07:58Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Felix Mendelssohn",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CqKdtsf9Zyw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CqKdtsf9Zyw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CqKdtsf9Zyw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CqKdtsf9Zyw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CqKdtsf9Zyw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Felix Mendelssohn",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "C3HuGKT2XiQYl3P-XfiCpcQKTw8",
+    "id": "PLc87N-d3x2CpqW-RIsAKPh3-CTXWT0hcv",
+    "snippet": {
+      "publishedAt": "2014-04-28T19:14:10Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Johann Sebastian Bach",
+      "description": "Some of the best classical music by Johann Sebastian Bach. This instrumental playlist mix is perfect as a background music while studying and concentration or relaxing.\n\nThank you so much for listening to this music. I hope you enjoy it and don't forget to share it!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/w3HCPVMtd8M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/w3HCPVMtd8M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/w3HCPVMtd8M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/w3HCPVMtd8M/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/w3HCPVMtd8M/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Johann Sebastian Bach",
+        "description": "Some of the best classical music by Johann Sebastian Bach. This instrumental playlist mix is perfect as a background music while studying and concentration or relaxing.\n\nThank you so much for listening to this music. I hope you enjoy it and don't forget to share it!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 20
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "n2nQkTE8gIbm__Wk1uo6-oxtxy0",
+    "id": "PLc87N-d3x2CpLJfP1ol-A9fQrb_c1MuAV",
+    "snippet": {
+      "publishedAt": "2014-04-26T22:46:24Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Frédéric Chopin",
+      "description": "Some of the best classical music for studying and concentration by Frédéric Chopin.\n\nIt's the perfect classical music playlist for studying and concentration, focusing memory and brain development. \n\nThank you so much for watching this playlist. I hope you enjoy it and don't forget to share it!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/VYS1RLuYQKo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/VYS1RLuYQKo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/VYS1RLuYQKo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/VYS1RLuYQKo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Frédéric Chopin",
+        "description": "Some of the best classical music for studying and concentration by Frédéric Chopin.\n\nIt's the perfect classical music playlist for studying and concentration, focusing memory and brain development. \n\nThank you so much for watching this playlist. I hope you enjoy it and don't forget to share it!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 26
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "gzbYwNqfl0JKKaaFOnVGha8kA7Q",
+    "id": "PLc87N-d3x2CpyMQpR0cpN_qtgb_ptrVls",
+    "snippet": {
+      "publishedAt": "2014-04-16T11:31:53Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Ludwig van Beethoven",
+      "description": "Some of the best classical music for studying and concentration by Ludwig van Beethoven.\n\nIt's the perfect classical music playlist for studying and concentration, focusing memory and brain development. \n\nThank you so much for watching this playlist. I hope you enjoy it and don't forget to share it!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/JV6crJiopKA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Ludwig van Beethoven",
+        "description": "Some of the best classical music for studying and concentration by Ludwig van Beethoven.\n\nIt's the perfect classical music playlist for studying and concentration, focusing memory and brain development. \n\nThank you so much for watching this playlist. I hope you enjoy it and don't forget to share it!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 27
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "SRolAoMjky9f-Kl9T-b-QbZD0Yg",
+    "id": "PLc87N-d3x2CpgzXk3bqIC_5D6zwivcVad",
+    "snippet": {
+      "publishedAt": "2014-03-28T19:54:17Z",
+      "channelId": "UC68KnvCZ-nJzmmuSu_tKASA",
+      "title": "Wolfgang Amadeus Mozart",
+      "description": "Wolfgang Amadeus Mozart",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/UKvhe4s-CQI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/UKvhe4s-CQI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/UKvhe4s-CQI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/UKvhe4s-CQI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/UKvhe4s-CQI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Just Instrumental Music",
+      "localized": {
+        "title": "Wolfgang Amadeus Mozart",
+        "description": "Wolfgang Amadeus Mozart"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 33
+    }
+  }
+]

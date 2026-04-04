@@ -1,0 +1,325 @@
+<!doctype html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./../../js/myScripts.js"></script>
+
+<script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+
+<style>
+
+body{
+   
+   background: #191c17;
+  
+  
+  width:1280px;
+  font-family: Charcoal, Charcoal, sans-serif;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.playerDiv {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+   z-index:9990;
+   display: block !important;
+   color:black;
+ 
+}
+
+#header {
+
+  position:fixed;
+  width:1260px;
+  height:650px;
+  top:10px;
+  left: 10px;
+  border-radius: 0px 0px 0px 0px;
+  text-align: center;
+  font-family: Charcoal, Charcoal, sans-serif;
+  font-size: 26px;
+  background:rgba(1, 0, 0, 0.5);
+  color: white;
+  z-index:19999;
+   visibility: hidden;
+
+
+}
+#header3 {
+
+  position:fixed;
+  width:1260px;
+  height:150px;
+  top:80px;
+  left: 10px;
+  border-radius: 0px 0px 0px 25px;
+  text-align: center;
+  font-family: Charcoal, Charcoal, sans-serif;
+  font-size: 26px;
+ 
+ // color: transparent;
+  z-index:10000002;
+
+
+}
+#header2 {
+
+  position:fixed;
+  width:40px;
+  height:40px;
+  top:10px;
+  left: 1230px;
+ // border-radius: 0px 0px 25px 0px;
+  text-align: center;
+  font-family: Charcoal, Charcoal, sans-serif;
+  font-size: 26px;
+ opacity: 0.5;
+//  color: transparent;
+ background-image: url(../images/menu.jpg);
+   z-index:100002;
+  cursor: pointer;
+  visibility: hidden;
+
+}
+#menuBut {
+  position:fixed;
+  top:440px;
+  left:500px;
+  width:300px;
+  background: DarkSlateGray;
+  color: white;
+}
+#backBut {
+  position:fixed;
+  top:340px;
+  left:500px;
+  width:300px;
+  background: DarkSlateGray;
+  color: white;
+}
+#backBut:hover {
+color: white;
+}
+#footer{
+  position:fixed;
+  width:1030px;
+  height: 60px;
+  top:0px;
+  left:0px;
+// background:red;
+ // visibility: hidden;
+  z-index:10000;
+}
+
+
+
+p{
+font-size:29px;
+line-height: 1.1;
+
+  
+}
+.btn {
+  
+		   background:#0b5b5b;
+		   border: 3px solid yellowgreen;
+ 
+		   color: white;
+		   border-radius: 12px;
+		   padding: 7px 20px;
+		   text-align: center;
+		   text-decoration: none;
+		   display: inline-block;
+		   font-size: 35px;
+		   cursor:pointer;
+		   margin:5px;
+		   z-index:1000000000;
+}
+.btn:hover {
+			 background:yellowgreen;
+}
+#lt1{
+   position:fixed;
+   top:85px;
+   left:60px;
+}
+#lt2{
+   position:fixed;
+   top:135px;
+	left:67px;
+}
+#lt3{
+   position:fixed;
+   top:185px;
+	left:50px;
+}
+
+#l2{
+  position:fixed;
+  top:575px;
+  left:80px;
+  color:black;
+  background:grey;
+  padding:5px 10px;
+
+}
+#l3{
+  position:fixed;
+  top:485px;
+  left:240px;
+  font-size: 40px;
+  color:lime;
+  background:transparent;
+  padding:5px 10px;
+
+}
+#l4{
+  position:fixed;
+  top:220px;
+  left:240px;
+  font-size: 40px;
+  color:lime;
+  background:transparent;
+  padding:5px 10px;
+
+}
+#title{
+	  position:fixed;
+	  top:0px;
+	  left:500px;
+	  color:yellow;
+	  font-size:40px;
+ 
+	  
+}
+img{
+    width:0px;
+    height:0px;
+}
+</style>
+</style>
+</head>
+
+
+
+<body>
+  
+    <div class="playerDiv" >
+    <!--  
+      <video id="player">
+        <source src="https://vidcdn2.eroticmv.com/dat1/mrsteachers1ep2/mrsteachers1ep2.m3u8" type="video/mp4"/>
+    </video>
+  -->
+      <iframe id="myIframe"  autoplay="1" frameborder="0" marginwidth="0" marginheight="0" scrolling="NO" width="1280px" height="720px" autoplay="1"   background= "#191c17"></iframe>
+  -->
+        </div>
+
+<div id="header2" ></div>
+<div id="header" >
+  
+<p id="title" class="txt">                             INSTRUCTIONS </p>
+
+<p id="lt1"> ( check the  'Youtube settings button'  for better resolutions, mouse hover right/lower corner ) <p>
+<p id="lt2"> ( on PlayList mode use the foward and back arrow buttons to move on the videos playlist ) <p>   
+
+<p id="l2" class="txt"> ( this Tv is based on Internet Video Links, they can change or stop to work at any time ) <p>
+<p  id="lt3"> ( click the back button to get the previous menu or the main menu button for the main menu ) <p>
+
+<p  id="l3" class="txt"> ( click the screen to hide the instruction  ) <p>    
+<p  id="l4" class="txt"> ( click the screen to hide the instruction  ) <p>    
+
+<button   id='menuBut' onclick="location.href = './../../xxx-index?'+return_url;" class="btn">MAIN MENU</button>    
+<button   id='backBut' onclick="goBack()" class="btn">BACK</button>
+</div>
+
+
+<div id="footer" >
+<p> <p>       
+</div>
+
+
+
+<script>
+
+
+
+ /////////////////////////////////////////////
+
+
+var el1 = document.getElementById('footer');
+el1.onmouseover = function() {
+
+            document.getElementById('header').style.visibility= "visible";
+}
+
+var el2 = document.getElementById('header2');
+el2.onclick = function() {
+
+            document.getElementById('header').style.visibility= "visible";
+}
+
+var el = document.getElementById('header');
+el.onclick = function() {
+
+            document.getElementById('header').style.visibility= "hidden";
+}
+
+
+
+//// SESSION VARIABLES RETRIVE /////////////////////////////////////////////////
+         check_browser();
+         var pic = localStorage.getItem("pic");
+         document.body.style.backgroundImage = "url("+pic+")";
+        
+         var url1 = localStorage.getItem("url1");
+         var url2 = localStorage.getItem("url2");
+         var return_url=url1+"&"+url2
+ //////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+// FUNCTION TO GET THE ATRIBUTES PASSED ON THE URL
+var queryString = decodeURIComponent(window.location.search); //parsing
+      queryString = queryString.substring(1);
+      var queries = queryString.split("&");
+
+
+       video_id=(queries[0]); // GET THE VIDEO ID FROM THE URL
+     //  console.log("VideoId no player: "+video_id);
+   var pic=(queries[3]);  // GET THE LIST ID FROM THE URL   WWW//....?VIDEO_ID&VIDEO_LIST
+   var scroll=(queries[3]);
+   var roomName=(queries[4]);
+     
+       clear_url()  
+     // console.log("SCROLL: " + scroll);
+       list_id=video_id;
+      
+          
+      // console.log("NAME: " + roomName)
+  if(roomName != 'noname')
+    {
+      room=roomName;
+     // createroom();
+    }
+////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+// FUNCION TO GET BACK ON CLICK
+function goBack() {
+                     window.open("./erotic-movies?player&"+scroll,"_self");
+}
+
+       
+     var url = video_id ;
+     let myIframe = document.getElementById("myIframe");
+     myIframe.src = url;
+      
+/////////////////////////////////////////////////////////////////////////////////      
+   
+      
+</script>
+  </body>
+</html>

@@ -1,0 +1,999 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "5GwQx6d8TxE9h3Qqr7W-bioF404",
+    "id": "PL1vwtZvNWlaZkb2atvUdNNM76cBZHk68b",
+    "snippet": {
+      "publishedAt": "2021-11-26T14:49:03Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Viral Car Reactions",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jJc2cMhYnfI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jJc2cMhYnfI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jJc2cMhYnfI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jJc2cMhYnfI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jJc2cMhYnfI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Viral Car Reactions",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8dwEHS-UR90Lko1KichP-WzNoxA",
+    "id": "PL1vwtZvNWlaZ9OV5Us0v8L84XZl12ddIF",
+    "snippet": {
+      "publishedAt": "2021-10-26T14:27:55Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "New Reveals",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ZgMymU2J24w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ZgMymU2J24w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ZgMymU2J24w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ZgMymU2J24w/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ZgMymU2J24w/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "New Reveals",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "NK7eTYd015QDhXAvOH2Z0eiPsX0",
+    "id": "PL1vwtZvNWlaZpZGbvk4EesjpIqveHeWO_",
+    "snippet": {
+      "publishedAt": "2021-10-22T14:25:36Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Shorts",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/hc5mRD4Jrm4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/hc5mRD4Jrm4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/hc5mRD4Jrm4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/hc5mRD4Jrm4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/hc5mRD4Jrm4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Shorts",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "XJxeDQ0hzKf1zBOMtbz_G7nfbRk",
+    "id": "PL1vwtZvNWlaZBoOQQwXPN9D5xPEaSiwdH",
+    "snippet": {
+      "publishedAt": "2021-10-20T13:35:39Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Garage Tours",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/mY_XEVJQgsw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/mY_XEVJQgsw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/mY_XEVJQgsw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/mY_XEVJQgsw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/mY_XEVJQgsw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Garage Tours",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "WfMmmyiM5zONxcvqEqzypiYY4FM",
+    "id": "PL1vwtZvNWlaZXo4dL5drot6Vu5KGtlzdi",
+    "snippet": {
+      "publishedAt": "2021-10-13T09:27:45Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Live Car Reveals",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/kz_ciYER9Qs/default_live.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/kz_ciYER9Qs/mqdefault_live.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/kz_ciYER9Qs/hqdefault_live.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/kz_ciYER9Qs/sddefault_live.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/kz_ciYER9Qs/maxresdefault_live.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Live Car Reveals",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "AZSOJV5t2M6GJoeYWcP_f87P2Tg",
+    "id": "PL1vwtZvNWlaY4aqUDu8-Xe6Xts4FvwTEM",
+    "snippet": {
+      "publishedAt": "2021-10-01T15:01:15Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Surprises",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/WinB41LUFt4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/WinB41LUFt4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/WinB41LUFt4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/WinB41LUFt4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/WinB41LUFt4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Surprises",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "YtPE3sUOLlFIxMB5mjnIkYxZlJQ",
+    "id": "PL1vwtZvNWlaaAMQp7PTxiuOLvgdmbLoEC",
+    "snippet": {
+      "publishedAt": "2021-08-27T12:56:57Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "DIY",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/F56UKUJVX-s/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/F56UKUJVX-s/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/F56UKUJVX-s/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/F56UKUJVX-s/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/F56UKUJVX-s/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "DIY",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "_Wy4LoEowlBns_VxK90Aj9nAo3k",
+    "id": "PL1vwtZvNWlaYfJH36TBelVuqf6AqYNrPA",
+    "snippet": {
+      "publishedAt": "2021-07-16T14:57:16Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Sergi Presents",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qCznFvSMRH4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qCznFvSMRH4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qCznFvSMRH4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qCznFvSMRH4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qCznFvSMRH4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Sergi Presents",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "r4W0UYKt_psjbzBIkQSDn0XF4Ac",
+    "id": "PL1vwtZvNWlaZXlJnbusPHA5UO2AuvsRhk",
+    "snippet": {
+      "publishedAt": "2021-07-16T14:57:07Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Sergi's Presents!",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Sergi's Presents!",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 0
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "FMmKDQw-1Ge_56NNV0GAkhH6AeU",
+    "id": "PL1vwtZvNWlaa5yMb1_RFw1uRGlXHfvi8p",
+    "snippet": {
+      "publishedAt": "2021-07-05T08:17:46Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Monster Trucks",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fizNPTaSFP8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fizNPTaSFP8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fizNPTaSFP8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fizNPTaSFP8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fizNPTaSFP8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Monster Trucks",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "UGc6nJFWDeovca5cRVIPf8harJc",
+    "id": "PL1vwtZvNWlaYyRI1K5my_4oRXbdujcJlk",
+    "snippet": {
+      "publishedAt": "2021-06-28T16:03:00Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Mega Mansions",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/tSza4PTRfGA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/tSza4PTRfGA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/tSza4PTRfGA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/tSza4PTRfGA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/tSza4PTRfGA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Mega Mansions",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "xv9PlM__Elxo6W-hvfjGItUfGbw",
+    "id": "PL1vwtZvNWlaZ4N0j4gfiGtsvTtbhM57aj",
+    "snippet": {
+      "publishedAt": "2021-06-03T10:42:46Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Mega Yachts",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FGNaT-aS2a0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FGNaT-aS2a0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FGNaT-aS2a0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FGNaT-aS2a0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FGNaT-aS2a0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Mega Yachts",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "fdL7q7P70kpwLt3wuvmK-2e1dXk",
+    "id": "PL1vwtZvNWlaa13tX1XwnJ88s2aXw523Vq",
+    "snippet": {
+      "publishedAt": "2021-05-03T13:48:49Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Classics",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ZdiiW5Ag0q8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ZdiiW5Ag0q8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ZdiiW5Ag0q8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ZdiiW5Ag0q8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ZdiiW5Ag0q8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Classics",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "bh3TEhLIEcbRlPL57LLdwQN3dCA",
+    "id": "PL1vwtZvNWlaZlZhlbmi3M1A6eTW_ZgxJ3",
+    "snippet": {
+      "publishedAt": "2021-04-08T09:25:01Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Future Electric Cars",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/D30xDh7SeKc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/D30xDh7SeKc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/D30xDh7SeKc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/D30xDh7SeKc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/D30xDh7SeKc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Future Electric Cars",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 13
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "0BsmhO7fgRFlxQcpeuub7CkYAPY",
+    "id": "PL1vwtZvNWlabGdodGw__f3wKlpKnwH12o",
+    "snippet": {
+      "publishedAt": "2021-03-26T07:10:20Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Giveaways",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cntBLOmyVk8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cntBLOmyVk8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cntBLOmyVk8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/cntBLOmyVk8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/cntBLOmyVk8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Giveaways",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "1mHsaBaR7tfff4_SAzFm0BfzluE",
+    "id": "PL1vwtZvNWlabtOJYgaawX7-Yr6mT3-iyg",
+    "snippet": {
+      "publishedAt": "2020-11-18T13:46:01Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "iXperience Show",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ns3SCuHecq0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ns3SCuHecq0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ns3SCuHecq0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ns3SCuHecq0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ns3SCuHecq0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "iXperience Show",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "PzD9zjeGNW4Yl3pUbWwA2nJtpOU",
+    "id": "PL1vwtZvNWlabsfXWoG_ItAUrw4PFOlxKf",
+    "snippet": {
+      "publishedAt": "2020-11-05T14:08:51Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Tech & Gaming Reviews",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fRtvcriRRI4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fRtvcriRRI4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fRtvcriRRI4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fRtvcriRRI4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fRtvcriRRI4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Tech & Gaming Reviews",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "-9Kt3pyNGk5UTy7enwZwFKGnHsA",
+    "id": "PL1vwtZvNWlaaIw_FS9hmeDN4CUbXCOHLr",
+    "snippet": {
+      "publishedAt": "2020-04-28T17:37:59Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "The Hangout Show",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/zWMS3FBoj0A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/zWMS3FBoj0A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/zWMS3FBoj0A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/zWMS3FBoj0A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/zWMS3FBoj0A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "The Hangout Show",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Uo6DYGjv-cQXn05cTCzLkxtTubM",
+    "id": "PL1vwtZvNWlaae6XA5RLOrgaQs5KFH8Jz5",
+    "snippet": {
+      "publishedAt": "2019-10-09T08:02:04Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Movie Cars",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/c-HopimiHic/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/c-HopimiHic/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/c-HopimiHic/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/c-HopimiHic/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Movie Cars",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 16
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "pUuX9lBxJroLyHqM_jS7SVsdgzM",
+    "id": "PL1vwtZvNWlaaD4ByC0lI3F1QUc0ULrUkR",
+    "snippet": {
+      "publishedAt": "2019-10-09T07:56:45Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Pranks & Comedy",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BqfsJjJyR68/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BqfsJjJyR68/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BqfsJjJyR68/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BqfsJjJyR68/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BqfsJjJyR68/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Pranks & Comedy",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 19
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "3cZzT9bt-CEo3mDQLkrWqATkCBM",
+    "id": "PL1vwtZvNWlabqmI43uqzOr26ODHEfthGf",
+    "snippet": {
+      "publishedAt": "2019-10-09T06:44:35Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Celebrity  Collaborations",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/rVUiMHjwvEo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/rVUiMHjwvEo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/rVUiMHjwvEo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/rVUiMHjwvEo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/rVUiMHjwvEo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Celebrity  Collaborations",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 30
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Y5qa6RrBmVAvFSLGJ0RKZZqR17g",
+    "id": "PL1vwtZvNWlaYNGGlJs_G9sl6WTE2t27V2",
+    "snippet": {
+      "publishedAt": "2019-10-09T06:25:52Z",
+      "channelId": "UCKSVUHI9rbbkXhvAXK-2uxA",
+      "title": "Top 10 Most Insane Cars",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dsWxMoh3_50/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dsWxMoh3_50/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dsWxMoh3_50/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dsWxMoh3_50/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dsWxMoh3_50/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Supercar Blondie",
+      "localized": {
+        "title": "Top 10 Most Insane Cars",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 35
+    }
+  }
+]

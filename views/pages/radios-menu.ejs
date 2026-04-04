@@ -1,0 +1,111 @@
+<style>
+    /* 1. Wrapper to activate the Goldenrod Theme */
+    #sl-radio-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 1150px;
+        animation: fadeIn 0.4s ease-out;
+    }
+
+    /* 2. The Circular Close Button (Top Right) */
+    #sl-radio-wrapper .close-btn {
+        position: absolute;
+        top: -65px;
+        right: 250px;
+        width: 45px;
+        height: 45px;
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid black;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 110;
+        transition: all 0.2s ease;
+        outline: none;
+        padding: 0;
+    }
+
+    #sl-radio-wrapper .close-btn:hover, 
+    #sl-radio-wrapper .close-btn:focus {
+        
+        color: white;
+        transform: scale(1.3) ;
+        box-shadow: 0 0 15px rgba(218, 165, 32, 0.5);
+    }
+
+    /* 3. Title Styling */
+    #sl-radio-wrapper #title {
+        font-size: 42px;
+        color: var(--accent, goldenrod);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        letter-spacing: 4px;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+
+    /* 4. The Grid Container */
+    #sl-radio-wrapper .conteiner {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* Two columns for now */
+        gap: 25px !important;
+        width: 600px !important; /* Narrower because there are only 2 buttons */
+        padding: 40px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* 5. Radio Root Buttons */
+    #sl-radio-wrapper .btn {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        padding: 40px 20px !important;
+        font-size: 22px;
+        color: white !important;
+        text-align: center;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+    }
+
+
+    /* Hide scrollbar */
+    #sl-radio-wrapper .conteiner::-webkit-scrollbar { width: 0px; }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div id="sl-radio-wrapper">
+    
+    <button class="close-btn" onclick="closeSubMenu()" tabindex="30">
+        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </button>
+
+  
+
+    <div class="conteiner">
+        <div data-type="radio-root" data-mode="sl" class="btn" tabindex="1">
+            Second Life Radios
+        </div>  
+
+        <div data-type="radio-root" data-mode="inter" class="btn" tabindex="2">
+            World Radios
+        </div>  
+    </div>
+
+</div>

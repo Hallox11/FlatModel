@@ -1,0 +1,8 @@
+[
+  {
+    "title": "",
+    "thumb": "./../images/radio1.svg",
+    "thumb2": "./../images/radio2.svg"
+  }
+ 
+]

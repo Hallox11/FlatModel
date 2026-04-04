@@ -1,0 +1,1290 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "pxBBCJ3wLbOzcsEOGxIaljGIHG0",
+    "id": "PLHNLKeG6BVco7_5gnokQXA1x5twf58C_p",
+    "snippet": {
+      "publishedAt": "2022-08-02T09:14:27Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Sound Bath",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/7c5b4svHSpc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/7c5b4svHSpc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/7c5b4svHSpc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/7c5b4svHSpc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/7c5b4svHSpc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Sound Bath",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "17Lg3yBe8MQcKEcbkzs-6Nd5SkA",
+    "id": "PLHNLKeG6BVcoF-ftACaZ71CCUa3UeWeqB",
+    "snippet": {
+      "publishedAt": "2022-08-02T09:13:48Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "About Dr. SaxLove",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1C7QBUgkR84/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1C7QBUgkR84/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1C7QBUgkR84/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1C7QBUgkR84/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1C7QBUgkR84/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "About Dr. SaxLove",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Ij5Gc1B1e19Old1CYRPFXd8A9AI",
+    "id": "PLHNLKeG6BVcpelsepmNMIVJjbOrH7BI4a",
+    "snippet": {
+      "publishedAt": "2021-02-24T04:33:42Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Smooth Bossa Jazz",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8_VtAuWfKGg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8_VtAuWfKGg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8_VtAuWfKGg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8_VtAuWfKGg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8_VtAuWfKGg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Smooth Bossa Jazz",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8JRA5bmFpADtJnNMMiVwGtMo8XE",
+    "id": "PLHNLKeG6BVco2UzuOeKguQ-gqvvFsum5a",
+    "snippet": {
+      "publishedAt": "2020-03-24T19:13:25Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Smooth Jazz for Social Distancing",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/4BcN_24T3_A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/4BcN_24T3_A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/4BcN_24T3_A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/4BcN_24T3_A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/4BcN_24T3_A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Smooth Jazz for Social Distancing",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "A3QRrK9EZphO_VIOCH8-u0M4k4M",
+    "id": "PLHNLKeG6BVcrE4HEVaj46Hu1Z2nNAgoTH",
+    "snippet": {
+      "publishedAt": "2019-11-11T16:44:52Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Green Jazz",
+      "description": "Don't be mean... enjoy the green with Dr. SaxLove. The Dr.'s smooth and mellow prescription will get you right. Enjoy!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ctpOUkzDgvw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ctpOUkzDgvw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ctpOUkzDgvw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ctpOUkzDgvw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ctpOUkzDgvw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Green Jazz",
+        "description": "Don't be mean... enjoy the green with Dr. SaxLove. The Dr.'s smooth and mellow prescription will get you right. Enjoy!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Ab46Jd7FhV6Uiy4bW_mPffftzlc",
+    "id": "PLHNLKeG6BVcoOjqZ-AU3hBRUjAXIt23lH",
+    "snippet": {
+      "publishedAt": "2019-07-05T23:24:47Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Weekend Jazz • Smooth Jazz Saxophone for Chilling Out",
+      "description": "Smooth Jazz Weekend Music • Smooth Jazz Saxophone Instrumental Music for Enjoying Your Weekend!\n\n► Subscribe to Dr. SaxLove: http://bit.ly/2s0tLE4\n► Reach out to Dr. SaxLove: https://drsaxlove.com/contact\n► Get the backing tracks: https://backingtracks.pro\n\nDr. SaxLove specializes in smooth jazz, jazz music, smooth jazz instrumental, soft jazz, Motown jazz, jazz blues, jazz saxophone, and saxophone jazz.  His music is the perfect music for relaxation, study, work, dining, and chilling out.\n\n#smoothjazz\n#smoothjazzinstrumental\n#jazzmusic\n#softjazz\n#jazzsaxophone\n#jazzinstrumental",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/oZ2CxALP45w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/oZ2CxALP45w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/oZ2CxALP45w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/oZ2CxALP45w/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/oZ2CxALP45w/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Weekend Jazz • Smooth Jazz Saxophone for Chilling Out",
+        "description": "Smooth Jazz Weekend Music • Smooth Jazz Saxophone Instrumental Music for Enjoying Your Weekend!\n\n► Subscribe to Dr. SaxLove: http://bit.ly/2s0tLE4\n► Reach out to Dr. SaxLove: https://drsaxlove.com/contact\n► Get the backing tracks: https://backingtracks.pro\n\nDr. SaxLove specializes in smooth jazz, jazz music, smooth jazz instrumental, soft jazz, Motown jazz, jazz blues, jazz saxophone, and saxophone jazz.  His music is the perfect music for relaxation, study, work, dining, and chilling out.\n\n#smoothjazz\n#smoothjazzinstrumental\n#jazzmusic\n#softjazz\n#jazzsaxophone\n#jazzinstrumental"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 15
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "CPRu-qPqYnfNazRdMuEmHN-ddEQ",
+    "id": "PLHNLKeG6BVcouSmXROgwgtP5wnHLgoNSk",
+    "snippet": {
+      "publishedAt": "2019-05-06T23:07:24Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Latest Recordings",
+      "description": "Dr. SaxLove's latest songs. Enjoy!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ZbrTTG7siGA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ZbrTTG7siGA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ZbrTTG7siGA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ZbrTTG7siGA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ZbrTTG7siGA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Latest Recordings",
+        "description": "Dr. SaxLove's latest songs. Enjoy!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 21
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "U0jf3HlWaT2yxQqc13RKlTiTgs8",
+    "id": "PLHNLKeG6BVcrtPP0PsDabY4WFVVX6XBbV",
+    "snippet": {
+      "publishedAt": "2019-04-10T16:42:32Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Relaxing Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nGELZdwSAvw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nGELZdwSAvw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nGELZdwSAvw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nGELZdwSAvw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nGELZdwSAvw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Relaxing Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 20
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ByntAZFcKmrH7ucH3LvbHL6jd5Y",
+    "id": "PLHNLKeG6BVcogcHQHizgLqm1fafxzSqsQ",
+    "snippet": {
+      "publishedAt": "2019-02-13T02:11:29Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Jazz & Fireplace Videos",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vkidzNqxeyg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vkidzNqxeyg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vkidzNqxeyg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vkidzNqxeyg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vkidzNqxeyg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Jazz & Fireplace Videos",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "vkQFTck1ZcFn6B2-7e_KPHDeAGA",
+    "id": "PLHNLKeG6BVcoq7pnZTg_W4VhkNly6coEI",
+    "snippet": {
+      "publishedAt": "2018-03-14T17:18:08Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Dr. SaxLove Music Videos",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/zI6MKyUNkoU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/zI6MKyUNkoU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/zI6MKyUNkoU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/zI6MKyUNkoU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/zI6MKyUNkoU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Dr. SaxLove Music Videos",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "zYakrGvUxq8TfsOARvHfgoF5h4A",
+    "id": "PLHNLKeG6BVcqWktr2Wyyf1VBhVnDgcYBL",
+    "snippet": {
+      "publishedAt": "2017-05-16T18:23:26Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Music for Sleeping",
+      "description": "Soft Jazz... sensitive, relaxing, gentle, loving.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PYObWrPw88s/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PYObWrPw88s/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PYObWrPw88s/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PYObWrPw88s/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/PYObWrPw88s/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Music for Sleeping",
+        "description": "Soft Jazz... sensitive, relaxing, gentle, loving."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 13
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "uieDEM-NbWOopLGJk2ah0XDp2uE",
+    "id": "PLHNLKeG6BVcpqXTgrfL1lgBBta1b54gOx",
+    "snippet": {
+      "publishedAt": "2017-03-30T18:18:51Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Cafe Music",
+      "description": "A Musical Cup of Coffee. Enjoy!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/TIGxWrjnn5s/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/TIGxWrjnn5s/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/TIGxWrjnn5s/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/TIGxWrjnn5s/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/TIGxWrjnn5s/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Cafe Music",
+        "description": "A Musical Cup of Coffee. Enjoy!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 43
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "9Armg5GX3UwNuwXqNZAb7GYvUq0",
+    "id": "PLHNLKeG6BVcp_z-_BKtV7CT_hbs9g4IZ1",
+    "snippet": {
+      "publishedAt": "2016-12-28T01:28:13Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Soft Jazz",
+      "description": "Soft Jazz Saxophone... relax and enjoy.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ChizqzfGTvQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ChizqzfGTvQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ChizqzfGTvQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ChizqzfGTvQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ChizqzfGTvQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Soft Jazz",
+        "description": "Soft Jazz Saxophone... relax and enjoy."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 62
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "haN0wB1cadTI7TkJs075FNaeoJQ",
+    "id": "PLHNLKeG6BVcoEHqlKO32siABtnRNJGRIT",
+    "snippet": {
+      "publishedAt": "2016-12-08T16:06:11Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Christmas Holiday Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NiWvg2FVusI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NiWvg2FVusI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NiWvg2FVusI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NiWvg2FVusI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NiWvg2FVusI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Christmas Holiday Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 8
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "gug0E9_W_Y8lcHjpAwu0AL_FNg4",
+    "id": "PLHNLKeG6BVcrDFUSr5dbEtzjkN3JkCfze",
+    "snippet": {
+      "publishedAt": "2016-11-26T19:40:59Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Dr. SaxLove Performances",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/G0UdzjWMMTY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/G0UdzjWMMTY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/G0UdzjWMMTY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/G0UdzjWMMTY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/G0UdzjWMMTY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Dr. SaxLove Performances",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "D2692ehbScNfET_HDWzx8XNjhXc",
+    "id": "PLHNLKeG6BVcog09EmnwdNkyx8If7aeRUE",
+    "snippet": {
+      "publishedAt": "2016-09-02T10:02:58Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Smooth Jazz Beatles",
+      "description": "Smooth Jazz Saxophone Beatles Music.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/llQbyaip9RA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/llQbyaip9RA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/llQbyaip9RA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/llQbyaip9RA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/llQbyaip9RA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Smooth Jazz Beatles",
+        "description": "Smooth Jazz Saxophone Beatles Music."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "iH6lW7VRI4_ZwVNJrJ17bkA4ogk",
+    "id": "PLHNLKeG6BVcp5ITMEefCrK3wSA1dAGXOi",
+    "snippet": {
+      "publishedAt": "2016-08-31T22:02:55Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Saxophone Blues",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Saxophone Blues",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "cb0NAOoJqLx1oX3uwW-JP33rWuY",
+    "id": "PLHNLKeG6BVcpQIz1mRGEU5mheFuD3dRry",
+    "snippet": {
+      "publishedAt": "2016-08-31T22:02:36Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Blues Guitar",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YIhfk4Zaevk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Blues Guitar",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "AMJaqdeu5LdaTsLbRfBYR64G5IE",
+    "id": "PLHNLKeG6BVcoy_5pCsTAyn6k9k-F5qO56",
+    "snippet": {
+      "publishedAt": "2016-08-31T14:44:29Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Study Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/H8favz3pKx0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/H8favz3pKx0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/H8favz3pKx0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/H8favz3pKx0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/H8favz3pKx0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Study Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 69
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "e00yVS801pQHS8NXAJMubJPCGAU",
+    "id": "PLHNLKeG6BVcrgnIy0XZhl7E3y_ld1cWvV",
+    "snippet": {
+      "publishedAt": "2016-08-31T14:10:43Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Blues Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-ez5xl6VoGM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-ez5xl6VoGM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-ez5xl6VoGM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-ez5xl6VoGM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-ez5xl6VoGM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Blues Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Oyh9a3qqUiK-1XSFiwqSv0uHR_M",
+    "id": "PLHNLKeG6BVcrGX0JwWUG3JMpKoZT1kV__",
+    "snippet": {
+      "publishedAt": "2016-08-30T20:26:18Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Dinner Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dvH-nbindvk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dvH-nbindvk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dvH-nbindvk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dvH-nbindvk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dvH-nbindvk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Dinner Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 60
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "sXL2GXUrQZ-WX9HC86BZu8p-l0U",
+    "id": "PLHNLKeG6BVcriGyBNaPFoqTmJTU9B2gws",
+    "snippet": {
+      "publishedAt": "2016-08-30T18:21:05Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Soft Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-7im0L1DCyc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-7im0L1DCyc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-7im0L1DCyc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-7im0L1DCyc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-7im0L1DCyc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Soft Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 68
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Lzfdxbx1NuG6DRIBMiM9XT916WQ",
+    "id": "PLHNLKeG6BVcoyXjOWakhQJO1LGG7ABSye",
+    "snippet": {
+      "publishedAt": "2016-08-10T10:22:07Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Restaurant Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uXSW1cHCgek/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uXSW1cHCgek/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uXSW1cHCgek/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uXSW1cHCgek/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uXSW1cHCgek/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Restaurant Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 59
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "gkRPwY6CQzVpmotPP_0QU2upJcQ",
+    "id": "PLHNLKeG6BVcqiK4Kmvc465FKVhARHq4ey",
+    "snippet": {
+      "publishedAt": "2016-08-10T10:21:35Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Jazz Instrumental",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uIPx5ym2slY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uIPx5ym2slY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uIPx5ym2slY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uIPx5ym2slY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uIPx5ym2slY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Jazz Instrumental",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 44
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "mcbhe0W7js9Mncf4HwLa8uaQPLM",
+    "id": "PLHNLKeG6BVcoPdsZSQb_zVhVWCyFs15k0",
+    "snippet": {
+      "publishedAt": "2016-08-03T19:51:55Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Jazz & Nature Sounds",
+      "description": "Soft Jazz and the Sounds of Nature. What could be better?",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/z4zNXiPI1Z4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/z4zNXiPI1Z4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/z4zNXiPI1Z4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/z4zNXiPI1Z4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/z4zNXiPI1Z4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Jazz & Nature Sounds",
+        "description": "Soft Jazz and the Sounds of Nature. What could be better?"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "D4Tw0I3J9a0Uj15xlf9iLwQspsg",
+    "id": "PLHNLKeG6BVcqudPeBuJ9v8eBSn_GqCxAz",
+    "snippet": {
+      "publishedAt": "2016-07-27T10:30:10Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Jazz Blues",
+      "description": "Smooth Blues with Sax and Harmonica. Smokin'!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CvnqmQYWlYg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CvnqmQYWlYg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CvnqmQYWlYg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CvnqmQYWlYg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CvnqmQYWlYg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Jazz Blues",
+        "description": "Smooth Blues with Sax and Harmonica. Smokin'!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "-bxGfMTBKaZI8T-O6NEVtDBwFxQ",
+    "id": "PLHNLKeG6BVcreCaFCP64Zk2xTfbMycE8x",
+    "snippet": {
+      "publishedAt": "2016-07-27T01:55:19Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Classic Jazz",
+      "description": "Classic Jazz Standards on Saxophone",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/m3btisVZHNQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/m3btisVZHNQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/m3btisVZHNQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/m3btisVZHNQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/m3btisVZHNQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Classic Jazz",
+        "description": "Classic Jazz Standards on Saxophone"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 28
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "hcZ9QdyiqxyX97Y-KV18FEUJhBw",
+    "id": "PLHNLKeG6BVcoOcMi9umptMHQrCXCZffi_",
+    "snippet": {
+      "publishedAt": "2016-07-27T01:00:06Z",
+      "channelId": "UCNJFXYXkXt_P8bJUxb21MpA",
+      "title": "Smooth Jazz",
+      "description": "Relaxing Smooth Jazz Saxophone Instrumental Music",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/goigJAc76T0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/goigJAc76T0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/goigJAc76T0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/goigJAc76T0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/goigJAc76T0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Dr. SaxLove Music Experience",
+      "localized": {
+        "title": "Smooth Jazz",
+        "description": "Relaxing Smooth Jazz Saxophone Instrumental Music"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 91
+    }
+  }
+]

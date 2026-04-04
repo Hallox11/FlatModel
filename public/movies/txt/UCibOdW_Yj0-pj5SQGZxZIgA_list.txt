@@ -1,0 +1,1188 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "NaJ-eWTEvcqBMaaVZEws-F3HZbI",
+    "id": "PL0SF9WU-7FYLXlaP_Hz0CAnPOytETfBzt",
+    "snippet": {
+      "publishedAt": "2022-01-31T12:05:19Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The East Side Kids Series",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1WuOMbAVrmQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1WuOMbAVrmQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1WuOMbAVrmQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1WuOMbAVrmQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1WuOMbAVrmQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The East Side Kids Series",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "lKUnQBQOUgUz6XvaTFUPmJbfTh0",
+    "id": "PL0SF9WU-7FYKsAU0nN_QmN-S10Ib3bCXD",
+    "snippet": {
+      "publishedAt": "2022-01-18T10:03:46Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Editor's Pick | Best Movies On Retrospective",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ctPM0NP-UNk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ctPM0NP-UNk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ctPM0NP-UNk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ctPM0NP-UNk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ctPM0NP-UNk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Editor's Pick | Best Movies On Retrospective",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 26
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "EW2MR3HMUclm2K_KreDh1R83xV8",
+    "id": "PL0SF9WU-7FYKEFy61gBQWC8RXi8s3IZWl",
+    "snippet": {
+      "publishedAt": "2021-08-31T11:32:03Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Charlie Chaplin Playlist | Master Of Comedy | Retrospective",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3LFyPGtW0OY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3LFyPGtW0OY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3LFyPGtW0OY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3LFyPGtW0OY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3LFyPGtW0OY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Charlie Chaplin Playlist | Master Of Comedy | Retrospective",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 13
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "xdVHwk9RIZuswhEWkREC_doSyp4",
+    "id": "PL0SF9WU-7FYJNtHTqnrI-8ZSLuxUGk83g",
+    "snippet": {
+      "publishedAt": "2021-08-05T08:58:35Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "👹 Cult Horrors 👹 | Classic Horror Movies Curated By Retrospective",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fSKsOVNThAU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fSKsOVNThAU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fSKsOVNThAU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fSKsOVNThAU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fSKsOVNThAU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "👹 Cult Horrors 👹 | Classic Horror Movies Curated By Retrospective",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 37
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "pwhpb1xZJkEhMzyr2BW0R7Itwuc",
+    "id": "PL0SF9WU-7FYKh2NxWS5hDEgSkB7zOSe0b",
+    "snippet": {
+      "publishedAt": "2021-05-19T11:04:53Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Classic Comedy Movies | Retrospective",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Classic Comedy Movies | Retrospective",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 49
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Fm7iY886QkEXak8_98QBHsULlKI",
+    "id": "PL0SF9WU-7FYK5jpB8L3DKuYNsItDsDyHg",
+    "snippet": {
+      "publishedAt": "2021-03-18T12:30:57Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Real Discussions With Stars Behind The Movies - Movie Talk",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xuMuEW_8ZkU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xuMuEW_8ZkU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xuMuEW_8ZkU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xuMuEW_8ZkU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/xuMuEW_8ZkU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Real Discussions With Stars Behind The Movies - Movie Talk",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 16
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "LxLyWCPNqcE8g1WCSr0pkTF0f_I",
+    "id": "PL0SF9WU-7FYKe1OIyAi-UV4fvERYshWO9",
+    "snippet": {
+      "publishedAt": "2021-02-12T16:43:15Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Be My Valentine? | Classic Romance Movies Marathon | Retrospective",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YPOaSfH2TwY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YPOaSfH2TwY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YPOaSfH2TwY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YPOaSfH2TwY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YPOaSfH2TwY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Be My Valentine? | Classic Romance Movies Marathon | Retrospective",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 11
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "cpnJt4hiylNS81GxvMRkas6ujzI",
+    "id": "PL0SF9WU-7FYJ7B4xeAGmrChmAJQ9-PYZP",
+    "snippet": {
+      "publishedAt": "2021-01-29T11:03:25Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The Western Collection - Retrospective Full Movies",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/68jYJBnF2OE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/68jYJBnF2OE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/68jYJBnF2OE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/68jYJBnF2OE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/68jYJBnF2OE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The Western Collection - Retrospective Full Movies",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 23
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "dtjwrEpeOd_7HkI207Xf3Dq5P2s",
+    "id": "PL0SF9WU-7FYI4RMX4UQdPcsRmcyTceoE_",
+    "snippet": {
+      "publishedAt": "2021-01-29T10:56:10Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The Blaxploitation Collection - Retrospective Full Movies",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1SzAZR-7WyY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The Blaxploitation Collection - Retrospective Full Movies",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "GbT6lvDkus4FMEY_ufwi3XMrBvo",
+    "id": "PL0SF9WU-7FYLs1Q-6QILf-zcySgo6C4wx",
+    "snippet": {
+      "publishedAt": "2021-01-25T15:43:50Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Cult Classics Directed By Roger Corman",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/51WLuTlty6A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/51WLuTlty6A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/51WLuTlty6A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/51WLuTlty6A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/51WLuTlty6A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Cult Classics Directed By Roger Corman",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "MCOGQEFKTC9iXKzu6CGfj2U31NI",
+    "id": "PL0SF9WU-7FYIcfYHgpIFcWAoet9WWQfGI",
+    "snippet": {
+      "publishedAt": "2020-11-17T09:49:33Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Classic Musicals - Retrospective",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/okrdwzBoaEs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/okrdwzBoaEs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/okrdwzBoaEs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/okrdwzBoaEs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/okrdwzBoaEs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Classic Musicals - Retrospective",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 24
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "PNXB6k3CJ39k4gKlhIyPor646h0",
+    "id": "PL0SF9WU-7FYLIXEO7VzfX6LYw1Z2tbOut",
+    "snippet": {
+      "publishedAt": "2020-09-02T15:51:34Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Cartoon Classics",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/JzhHmz4Ydr0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/JzhHmz4Ydr0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/JzhHmz4Ydr0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/JzhHmz4Ydr0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/JzhHmz4Ydr0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Cartoon Classics",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "liWMQBrK1kxwVG-6T2B6qz2VdKc",
+    "id": "PL0SF9WU-7FYKviSqUXU4iE1scXG_y_cHc",
+    "snippet": {
+      "publishedAt": "2020-07-20T15:52:50Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The 20s Collection - Retrospective",
+      "description": "Iconic movies from the 1920s!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pvg2Ky02_VU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pvg2Ky02_VU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pvg2Ky02_VU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pvg2Ky02_VU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pvg2Ky02_VU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The 20s Collection - Retrospective",
+        "description": "Iconic movies from the 1920s!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 11
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "iUG7FcSgebhtl20YSMBtWs988hw",
+    "id": "PL0SF9WU-7FYL7mMdg5Sx4QyVOivuD4NXH",
+    "snippet": {
+      "publishedAt": "2020-07-20T15:50:24Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The 60s Collection - Retrospective",
+      "description": "Iconic movies from the 1960s!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_y6lrUY_y_g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_y6lrUY_y_g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_y6lrUY_y_g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_y6lrUY_y_g/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_y6lrUY_y_g/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The 60s Collection - Retrospective",
+        "description": "Iconic movies from the 1960s!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 29
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "kGexdFm04VR_MfKwexwOZJUlguE",
+    "id": "PL0SF9WU-7FYLsgspFW8ZfcMevSV5vlcE7",
+    "snippet": {
+      "publishedAt": "2020-07-20T15:48:21Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The 30s Collection - Retrospective",
+      "description": "Iconic movies from the 1930s!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0pAOrZcvwuc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0pAOrZcvwuc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0pAOrZcvwuc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0pAOrZcvwuc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0pAOrZcvwuc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The 30s Collection - Retrospective",
+        "description": "Iconic movies from the 1930s!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 42
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "K2TDnWm3U-dXdxPZa_u__wyuFY4",
+    "id": "PL0SF9WU-7FYK-Ye6T6qs5vFEWy2_vL1a2",
+    "snippet": {
+      "publishedAt": "2020-07-20T15:47:01Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The 80s Collection - Retrospective",
+      "description": "Iconic movies from the 1980s!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dqX6poSBXh8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dqX6poSBXh8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dqX6poSBXh8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dqX6poSBXh8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dqX6poSBXh8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The 80s Collection - Retrospective",
+        "description": "Iconic movies from the 1980s!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "TvnRhIf0RRsOSKRh483afKTU_QA",
+    "id": "PL0SF9WU-7FYLSesBomrMc_TO_MveofF0X",
+    "snippet": {
+      "publishedAt": "2020-07-20T15:46:05Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The 70s Collection - Retrospective",
+      "description": "Iconic movies from the 1970s!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The 70s Collection - Retrospective",
+        "description": "Iconic movies from the 1970s!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 46
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "iHX8Au-O87f5iwBeg0uTqped_Ek",
+    "id": "PL0SF9WU-7FYL3FiqjTTkgfLpnqmG1TJQd",
+    "snippet": {
+      "publishedAt": "2020-07-20T15:44:38Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The 50s Collection - Retrospective",
+      "description": "Iconic movies from the 1950s!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/gyePJXDB-uQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/gyePJXDB-uQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/gyePJXDB-uQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/gyePJXDB-uQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/gyePJXDB-uQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The 50s Collection - Retrospective",
+        "description": "Iconic movies from the 1950s!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 30
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "hVyRFhsu0PQNxntgl_qQCLBt6Is",
+    "id": "PL0SF9WU-7FYINLb0GlmODdp1MA4uhI9SI",
+    "snippet": {
+      "publishedAt": "2020-07-20T15:43:16Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The 40s Collection - Retrospective",
+      "description": "Iconic movies from the 1940s!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The 40s Collection - Retrospective",
+        "description": "Iconic movies from the 1940s!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 58
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "KET36x_jWfLnGpR2M-5SfQfRWNg",
+    "id": "PL0SF9WU-7FYIP8OQAMrij08LVsS81CtY4",
+    "snippet": {
+      "publishedAt": "2020-07-20T15:41:46Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "The 90s Collection - Retrospective",
+      "description": "Iconic movies from the 1990s!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SclDzvDWrds/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SclDzvDWrds/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SclDzvDWrds/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/SclDzvDWrds/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/SclDzvDWrds/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "The 90s Collection - Retrospective",
+        "description": "Iconic movies from the 1990s!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 8
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "pZp5vLH6gRLfUId07CrSCjXUwJU",
+    "id": "PL0SF9WU-7FYLrQNIOUQLn3bRxNdK3sL5C",
+    "snippet": {
+      "publishedAt": "2018-09-13T23:37:23Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Best Of Film Noir",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/GWmULjZDjMI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/GWmULjZDjMI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/GWmULjZDjMI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/GWmULjZDjMI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/GWmULjZDjMI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Best Of Film Noir",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 17
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "mUcySp5QdIcmX5UJ7fw-hPoQbyM",
+    "id": "PL0SF9WU-7FYK4NzdzvmZzzPtxzWRvXC2M",
+    "snippet": {
+      "publishedAt": "2018-08-27T20:05:58Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Classic Thrillers",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Classic Thrillers",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 31
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "jHXjDGGEzc_wcWoftmH5LEPTA3w",
+    "id": "PL0SF9WU-7FYJwDe6vkWT-NH4TPrQ3aAl0",
+    "snippet": {
+      "publishedAt": "2018-07-11T16:28:58Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Movies in Technicolour",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BR4-PADx-V0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Movies in Technicolour",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 41
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Z-g252nckSpLYQe1mbWV28sWDb0",
+    "id": "PL0SF9WU-7FYJD93oLw6t65aB62rBfwzLj",
+    "snippet": {
+      "publishedAt": "2018-07-11T16:27:53Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Black and White Movies",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Hw59GS_IukI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Black and White Movies",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 141
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "a0Ltid9K_mlMC_Nbyg9Jrqd47SQ",
+    "id": "PL0SF9WU-7FYKhtH1E9YEG5d2W-K0NneDO",
+    "snippet": {
+      "publishedAt": "2018-05-25T13:01:03Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Classic Film Clips",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/img/no_thumbnail.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Classic Film Clips",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 97
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "umrTpI1457Ce7YTURLaPEWVP7nE",
+    "id": "PL0SF9WU-7FYLle7KIJA6LNDIFbQZBheDz",
+    "snippet": {
+      "publishedAt": "2018-05-25T13:00:18Z",
+      "channelId": "UCibOdW_Yj0-pj5SQGZxZIgA",
+      "title": "Latest Releases",
+      "description": "The latest full movies on Retrospective",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/27mD7FItDr8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/27mD7FItDr8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/27mD7FItDr8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/27mD7FItDr8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/27mD7FItDr8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Retrospective - Classic Movies",
+      "localized": {
+        "title": "Latest Releases",
+        "description": "The latest full movies on Retrospective"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 235
+    }
+  }
+]

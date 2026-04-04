@@ -1,0 +1,2283 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "f5tGsNEEu_6Q3HkhanRYclV2oVs",
+    "id": "PLfYVzk0sNiGGvd_jjZsZkRvszLDMR5DNy",
+    "snippet": {
+      "publishedAt": "2021-03-10T02:30:38Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "OSCARS 2021 | FILMMAKER INTERVIEWS",
+      "description": "MoMA's Department of Film combs through major studio releases and the top film festivals in the world, selecting influential, innovative films made in the past 12 months that we believe will stand the test of time.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/VRR41C6fMM0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/VRR41C6fMM0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/VRR41C6fMM0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/VRR41C6fMM0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/VRR41C6fMM0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "OSCARS 2021 | FILMMAKER INTERVIEWS",
+        "description": "MoMA's Department of Film combs through major studio releases and the top film festivals in the world, selecting influential, innovative films made in the past 12 months that we believe will stand the test of time."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "jYwwZOsDnzeqmaonUgtj2cpH_os",
+    "id": "PLfYVzk0sNiGFAawJw7UoyVsb-1NbJXVSS",
+    "snippet": {
+      "publishedAt": "2021-03-05T14:04:25Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "REIMAGINING BLACKNESS & ARCHITECTURE",
+      "description": "Uncover new definitions of architecture through the lens of Black makers from past to present. Learn how history and the creativity of others have shaped our built environment by enrolling in Reimagining Blackness and Architecture: https://coursera.org/learn/blackness-architecture",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NKFqFjtlj9g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NKFqFjtlj9g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NKFqFjtlj9g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NKFqFjtlj9g/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/NKFqFjtlj9g/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "REIMAGINING BLACKNESS & ARCHITECTURE",
+        "description": "Uncover new definitions of architecture through the lens of Black makers from past to present. Learn how history and the creativity of others have shaped our built environment by enrolling in Reimagining Blackness and Architecture: https://coursera.org/learn/blackness-architecture"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 17
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "hnZunqrsGPSezWyQYEDaS-afL1I",
+    "id": "PLfYVzk0sNiGHzUUdFpqNEE1zAxCsMjlaB",
+    "snippet": {
+      "publishedAt": "2020-11-16T21:34:04Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MoMA | UNIQLO ARTSPEAKS",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/239_BLVToB8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/239_BLVToB8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/239_BLVToB8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/239_BLVToB8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/239_BLVToB8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MoMA | UNIQLO ARTSPEAKS",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 52
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "xBThwW4o1-JihKnA2Yvw3SPH8pk",
+    "id": "PLfYVzk0sNiGECVuveVDMhuNbzPROep3GZ",
+    "snippet": {
+      "publishedAt": "2020-09-22T02:06:12Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "WHAT IS CONTEMPORARY ART?",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0N7OnQkch7s/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0N7OnQkch7s/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0N7OnQkch7s/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0N7OnQkch7s/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0N7OnQkch7s/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "WHAT IS CONTEMPORARY ART?",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 13
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "6qvz9cyzRLhrEcTKXtsHSTkrQes",
+    "id": "PLfYVzk0sNiGESrYzLXxPvJHdjN6IZn2b_",
+    "snippet": {
+      "publishedAt": "2020-09-22T02:00:25Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MoMA’S K–12 TEACHER COURSES",
+      "description": "Discover strategies—including inquiry, activities, and themes—to integrate art in your teaching wherever you are. Enroll in MoMA’s three courses aimed at K-12 teachers at http://www.coursera.org/moma",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/XM4yNAI5aFQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/XM4yNAI5aFQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/XM4yNAI5aFQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/XM4yNAI5aFQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/XM4yNAI5aFQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MoMA’S K–12 TEACHER COURSES",
+        "description": "Discover strategies—including inquiry, activities, and themes—to integrate art in your teaching wherever you are. Enroll in MoMA’s three courses aimed at K-12 teachers at http://www.coursera.org/moma"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "kq8vpx_WYw4l-tL4CE33Kioz57s",
+    "id": "PLfYVzk0sNiGEv3gE6ranUBG-96qMP0PaR",
+    "snippet": {
+      "publishedAt": "2020-08-06T04:48:41Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "FILM VAULT SUMMER CAMP",
+      "description": "During the month of August, we streamed treasures from MoMA’s film archive—with a new selection of films released each week.\n\nFilm at MoMA is made possible by CHANEL.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dV3_Cp3BHe0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dV3_Cp3BHe0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dV3_Cp3BHe0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dV3_Cp3BHe0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dV3_Cp3BHe0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "FILM VAULT SUMMER CAMP",
+        "description": "During the month of August, we streamed treasures from MoMA’s film archive—with a new selection of films released each week.\n\nFilm at MoMA is made possible by CHANEL."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 18
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "h722v_ZdQI4_YAxWxaaDnE86Tw8",
+    "id": "PLfYVzk0sNiGHE4sn8RZ0ZzSi0ubgDrdbx",
+    "snippet": {
+      "publishedAt": "2020-07-20T21:41:57Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "DISABILITY EQUALITY AND MUSEUMS",
+      "description": "MoMA is committed to disability equality and works to remove physical, programmatic, and attitudinal barriers within the Museum. At the core of this work are disability equality workshops, where staff reflect on their own lived experiences, and learn to identify and transform language, attitudes, and behaviors that negatively impact visitors with disabilities. An important aspect of these workshops is listening to disabled visitors who share a passion for art. In this series, you’ll hear first-hand from New Yorkers about their experiences and perspectives on disability equality. \nTo watch this series with audio description, click here: https://www.youtube.com/playlist?list=PLfYVzk0sNiGH01sTsjHKReaLLG5sAXHDY",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0-kZXqSfNlY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0-kZXqSfNlY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0-kZXqSfNlY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0-kZXqSfNlY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0-kZXqSfNlY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "DISABILITY EQUALITY AND MUSEUMS",
+        "description": "MoMA is committed to disability equality and works to remove physical, programmatic, and attitudinal barriers within the Museum. At the core of this work are disability equality workshops, where staff reflect on their own lived experiences, and learn to identify and transform language, attitudes, and behaviors that negatively impact visitors with disabilities. An important aspect of these workshops is listening to disabled visitors who share a passion for art. In this series, you’ll hear first-hand from New Yorkers about their experiences and perspectives on disability equality. \nTo watch this series with audio description, click here: https://www.youtube.com/playlist?list=PLfYVzk0sNiGH01sTsjHKReaLLG5sAXHDY"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "jKl6qQazwqRQu_Wl96fMJhuQ5cA",
+    "id": "PLfYVzk0sNiGG5zPuLkwJqSCl6QAdUxS6t",
+    "snippet": {
+      "publishedAt": "2020-05-08T02:48:20Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MoMA VIRTUAL VIEWS",
+      "description": "We’re bringing our galleries to you with Virtual Views. Each month, we’ll take you inside an exhibition or a favorite artwork from the collection through video stories and curator Q&As, as well as audio playlists and feature articles. Each week on moma.org, audiences around the world can join us for a new virtual experience",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/t7rdjeoWLig/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/t7rdjeoWLig/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/t7rdjeoWLig/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/t7rdjeoWLig/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/t7rdjeoWLig/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MoMA VIRTUAL VIEWS",
+        "description": "We’re bringing our galleries to you with Virtual Views. Each month, we’ll take you inside an exhibition or a favorite artwork from the collection through video stories and curator Q&As, as well as audio playlists and feature articles. Each week on moma.org, audiences around the world can join us for a new virtual experience"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 48
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "InI5vg5ZPZ9_1rs_lQT0tWkM6-8",
+    "id": "PLfYVzk0sNiGH5nDKdV_Wr79bfieFEd6nx",
+    "snippet": {
+      "publishedAt": "2020-02-05T01:59:46Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "LATEST",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1q4GNAQosy0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1q4GNAQosy0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1q4GNAQosy0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1q4GNAQosy0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "LATEST",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 164
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "uMdnBIPgySWeGeqsmxeWWUfR_AY",
+    "id": "PLfYVzk0sNiGG8mvBWAXGnETXurUviXfkj",
+    "snippet": {
+      "publishedAt": "2019-11-07T17:59:37Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "THE WAY I SEE IT | MoMA BBC",
+      "description": "Leading creative thinkers choose an artwork from MoMA's collection, and talk about how it inspires or provokes, thrills or surprises them.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lhcswhfgNtM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lhcswhfgNtM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lhcswhfgNtM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lhcswhfgNtM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lhcswhfgNtM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "THE WAY I SEE IT | MoMA BBC",
+        "description": "Leading creative thinkers choose an artwork from MoMA's collection, and talk about how it inspires or provokes, thrills or surprises them."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 11
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "m33NNIVOig3Bm6X82kqm0ce8Qv0",
+    "id": "PLfYVzk0sNiGHJWrRF2YQlMKVSUZ5nYuvz",
+    "snippet": {
+      "publishedAt": "2019-07-08T18:48:20Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "A NEW MoMA",
+      "description": "Welcome to the new MoMA.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/TKUK1CxsOeo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/TKUK1CxsOeo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/TKUK1CxsOeo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/TKUK1CxsOeo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/TKUK1CxsOeo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "A NEW MoMA",
+        "description": "Welcome to the new MoMA."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "c0Kpz6Sz9COIIoT34GKMmqKm5DY",
+    "id": "PLfYVzk0sNiGFf-AyCDwoQ_Q4W66Z7g0VG",
+    "snippet": {
+      "publishedAt": "2018-10-24T20:07:55Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MoMA R&D SALONS",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/HVc_2B-yYOs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/HVc_2B-yYOs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/HVc_2B-yYOs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MoMA R&D SALONS",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 36
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "OhLNSUelL-hHMgbRvkxZBQ3Tfg4",
+    "id": "PLfYVzk0sNiGFVAWeeB7XVhMKZCyw3qrJr",
+    "snippet": {
+      "publishedAt": "2018-09-10T19:02:27Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MoMA EXHIBITIONS",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/YUZi6PzfN7U/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/YUZi6PzfN7U/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/YUZi6PzfN7U/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/YUZi6PzfN7U/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/YUZi6PzfN7U/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MoMA EXHIBITIONS",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 27
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "y1WXwRD83IdFFZLjaDkPWwNbPtw",
+    "id": "PLfYVzk0sNiGEmRqIcaaGBC-Hs3fPCmiID",
+    "snippet": {
+      "publishedAt": "2018-03-12T17:31:59Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "LIVE Q&A",
+      "description": "Tune in live each month to ask questions of MoMA curators, conservators, artists, and more.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ZXB6F51xXyY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ZXB6F51xXyY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ZXB6F51xXyY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ZXB6F51xXyY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ZXB6F51xXyY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "LIVE Q&A",
+        "description": "Tune in live each month to ask questions of MoMA curators, conservators, artists, and more."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 18
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "AgIvq77zxqNlJwoE0diAeKHp7gM",
+    "id": "PLfYVzk0sNiGG-Tn6QB3Y7_aEoexb2I4KZ",
+    "snippet": {
+      "publishedAt": "2018-01-24T15:34:12Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "STEPHEN SHORE",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/T029CTSO0IE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/T029CTSO0IE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/T029CTSO0IE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/T029CTSO0IE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/T029CTSO0IE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "STEPHEN SHORE",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "zJFNh3PHngqXasdad-QQ6tGNxlY",
+    "id": "PLfYVzk0sNiGG-BO7Nr6hKfe1_GUEopQNJ",
+    "snippet": {
+      "publishedAt": "2017-11-29T23:02:07Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "JACOB LAWRENCE",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Y82kDauZDyE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Y82kDauZDyE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Y82kDauZDyE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Y82kDauZDyE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Y82kDauZDyE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "JACOB LAWRENCE",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 34
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "zgsP-RvozkmEU2p-cH5vLy80cHM",
+    "id": "PLfYVzk0sNiGFAwjERg_ZapoTtzwT_4wB7",
+    "snippet": {
+      "publishedAt": "2017-11-29T22:39:22Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "FRANCIS PICABIA",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/HMyrZKIBANE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/HMyrZKIBANE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/HMyrZKIBANE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/HMyrZKIBANE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/HMyrZKIBANE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "FRANCIS PICABIA",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "hoyaSDtot3iKB7QJd7lOrWsv_Nc",
+    "id": "PLfYVzk0sNiGEPXVK9OaH6h9JOv4VTFYYZ",
+    "snippet": {
+      "publishedAt": "2017-11-08T01:19:47Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MAX ERNST",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/sWAzhHQKX5c/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/sWAzhHQKX5c/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/sWAzhHQKX5c/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/sWAzhHQKX5c/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/sWAzhHQKX5c/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MAX ERNST",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "wPJcmL7PrZ9NPHTGjp5kbXCmmbY",
+    "id": "PLfYVzk0sNiGGyiHa7DWbS7CJO2Xjbm8dG",
+    "snippet": {
+      "publishedAt": "2017-11-06T21:04:54Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MARINA ABRAMOVIĆ",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2GD5PBK_Bto/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2GD5PBK_Bto/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2GD5PBK_Bto/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MARINA ABRAMOVIĆ",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "pzlXZPM8qs13GPEWo_6xc7lwvnw",
+    "id": "PLfYVzk0sNiGErrr3Zldl-VoBv5I2m98OX",
+    "snippet": {
+      "publishedAt": "2017-11-06T21:03:47Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "YVONNE RAINER",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/APY2KxpQGBo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/APY2KxpQGBo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/APY2KxpQGBo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/APY2KxpQGBo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/APY2KxpQGBo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "YVONNE RAINER",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "nnvKrQKtUV3Y5ZCinIDYH2-V4fQ",
+    "id": "PLfYVzk0sNiGG0G5qhjxWRnJ5RlU7Y3Y5Y",
+    "snippet": {
+      "publishedAt": "2017-11-06T21:02:38Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "LOUISE BOURGEOIS",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Ny1BZZOTzQk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Ny1BZZOTzQk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Ny1BZZOTzQk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "LOUISE BOURGEOIS",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 17
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "2Epkj0xZpdzmoZaTmjGZ6Jr4xqw",
+    "id": "PLfYVzk0sNiGFPWhiHvQioOomLTtQli6xb",
+    "snippet": {
+      "publishedAt": "2017-11-06T21:02:18Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "ROBERT RAUSCHENBERG",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/X_RyhOz1JvE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/X_RyhOz1JvE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/X_RyhOz1JvE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "ROBERT RAUSCHENBERG",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 22
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "VwNB4AR9EIqXrMv8Vj4urA2Ns2A",
+    "id": "PLfYVzk0sNiGFPnf8u8ykFRyPk6F5pYciz",
+    "snippet": {
+      "publishedAt": "2017-11-06T21:01:57Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "ANDY WARHOL",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/sbnFo3JFTPs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/sbnFo3JFTPs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/sbnFo3JFTPs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/sbnFo3JFTPs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/sbnFo3JFTPs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "ANDY WARHOL",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "NzNmbykBP3sBsSLjL8hR6hn-qsA",
+    "id": "PLfYVzk0sNiGGvqiqg_B_oeTMYms2q4lE2",
+    "snippet": {
+      "publishedAt": "2017-11-06T21:01:43Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "YAYOI KUSAMA",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/x6GMdydE7I8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/x6GMdydE7I8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/x6GMdydE7I8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/x6GMdydE7I8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "YAYOI KUSAMA",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 22
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "WWQqzqWz9p68HYX3JqdOlP7nSK8",
+    "id": "PLfYVzk0sNiGEZGZ9ymqs1Q5CCCNi_oujP",
+    "snippet": {
+      "publishedAt": "2017-11-06T21:01:26Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "JACKSON POLLOCK",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/oG45EoRh3Fo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/oG45EoRh3Fo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/oG45EoRh3Fo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/oG45EoRh3Fo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/oG45EoRh3Fo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "JACKSON POLLOCK",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "0gONi6DRdk4cFGAk2U1iK2a1yj0",
+    "id": "PLfYVzk0sNiGE9ulRXKyv5Y_CSYnXGP0B5",
+    "snippet": {
+      "publishedAt": "2017-11-06T21:00:46Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "WILLEM DE KOONING",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/91-htuqmezI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/91-htuqmezI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/91-htuqmezI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/91-htuqmezI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/91-htuqmezI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "WILLEM DE KOONING",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "PC5icG-3RzEdIvClXfVTrN5-pJ8",
+    "id": "PLfYVzk0sNiGEYqVUto4LSaJXO82MB-0kB",
+    "snippet": {
+      "publishedAt": "2017-11-06T21:00:10Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MARK ROTHKO",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fsaRisPpzjU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fsaRisPpzjU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fsaRisPpzjU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fsaRisPpzjU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fsaRisPpzjU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MARK ROTHKO",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 13
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8Y6SP-ud39dr-HWCP-MadQgVrFw",
+    "id": "PLfYVzk0sNiGFpEUlejp95m7Fh6v6js23M",
+    "snippet": {
+      "publishedAt": "2017-11-06T20:59:32Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MARCEL DUCHAMP",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/DCgWn8fFKAQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/DCgWn8fFKAQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/DCgWn8fFKAQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/DCgWn8fFKAQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/DCgWn8fFKAQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MARCEL DUCHAMP",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "aiF3sfbj_Wu61BSt4mDEaUttB7g",
+    "id": "PLfYVzk0sNiGFTzTrSZC-NR22x3YVRPbAo",
+    "snippet": {
+      "publishedAt": "2017-11-06T20:59:14Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "VINCENT VAN GOGH",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/GqukPl3u5Pg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/GqukPl3u5Pg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/GqukPl3u5Pg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/GqukPl3u5Pg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "VINCENT VAN GOGH",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "RxfKGzaMm-JOTwp4LvY_LkuzYs4",
+    "id": "PLfYVzk0sNiGGmsL2qvwVojkmoMLAGa_XD",
+    "snippet": {
+      "publishedAt": "2017-11-06T20:58:12Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "HENRI MATISSE",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/OmIIfIjrIZY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/OmIIfIjrIZY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/OmIIfIjrIZY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/OmIIfIjrIZY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/OmIIfIjrIZY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "HENRI MATISSE",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 8
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "19jdlMMQ6kpssFwUN3fA7Dim_Eo",
+    "id": "PLfYVzk0sNiGEQIq0Kq915udaOJH-gqbk2",
+    "snippet": {
+      "publishedAt": "2017-11-06T20:57:34Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "PABLO PICASSO",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/rGZYfSzvPvs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/rGZYfSzvPvs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/rGZYfSzvPvs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/rGZYfSzvPvs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/rGZYfSzvPvs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "PABLO PICASSO",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 24
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8HE8_5yiBE4enoydgHp65BQDUfs",
+    "id": "PLfYVzk0sNiGF8ZYj6TZPvLyiuWRHp-d76",
+    "snippet": {
+      "publishedAt": "2017-10-26T14:46:47Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "AT THE MUSEUM",
+      "description": "See what it takes to run a modern museum in our observational documentary series, \"At the Museum.\" Follow MoMA staff as exhibitions are designed, installed, and opened to the public.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dnMCMC3uPhs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dnMCMC3uPhs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dnMCMC3uPhs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dnMCMC3uPhs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dnMCMC3uPhs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "AT THE MUSEUM",
+        "description": "See what it takes to run a modern museum in our observational documentary series, \"At the Museum.\" Follow MoMA staff as exhibitions are designed, installed, and opened to the public."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 16
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "5_m1Gkw0KJTGkWsCwCMG-otCx0Y",
+    "id": "PLfYVzk0sNiGEuhDUHc0KqYZvVJ8G25fZl",
+    "snippet": {
+      "publishedAt": "2017-08-29T20:59:45Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "FASHION AS DESIGN",
+      "description": "Why do we wear what we wear? Explore the design, making, and lifecycle of garments in our free online course, \"Fashion as Design.\" Sign-up: mo.ma/fashionasdesign",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/D-Ghh-_CJEo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/D-Ghh-_CJEo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/D-Ghh-_CJEo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/D-Ghh-_CJEo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/D-Ghh-_CJEo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "FASHION AS DESIGN",
+        "description": "Why do we wear what we wear? Explore the design, making, and lifecycle of garments in our free online course, \"Fashion as Design.\" Sign-up: mo.ma/fashionasdesign"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 25
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "U0G0GfjtV6Qyij4TNGFcxG4sPyw",
+    "id": "PLfYVzk0sNiGEK6K6DG2jacP_mDp4gQIpC",
+    "snippet": {
+      "publishedAt": "2017-06-14T01:25:45Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MoMA PS1",
+      "description": "An exhibition space rather than a collecting institution, MoMA PS1 devotes its energy and resources to displaying the most experimental art in the world.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/eJq5lO38Plc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/eJq5lO38Plc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/eJq5lO38Plc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/eJq5lO38Plc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/eJq5lO38Plc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MoMA PS1",
+        "description": "An exhibition space rather than a collecting institution, MoMA PS1 devotes its energy and resources to displaying the most experimental art in the world."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 18
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Jta1sDwOwVcgURfhQlx4uhqXfgM",
+    "id": "PLfYVzk0sNiGGmiSgnOoAdzD8y59w_acHM",
+    "snippet": {
+      "publishedAt": "2017-06-12T14:50:11Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "FRANK LLOYD WRIGHT",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/VhUDu0Q08UA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/VhUDu0Q08UA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/VhUDu0Q08UA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/VhUDu0Q08UA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/VhUDu0Q08UA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "FRANK LLOYD WRIGHT",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 15
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Xr6L7j7zJM5zg3w-3DIRTyp2qVk",
+    "id": "PLfYVzk0sNiGFaqN1iYF-KaVKBEgA3ZPCl",
+    "snippet": {
+      "publishedAt": "2017-04-13T21:53:24Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "HOW TO SEE",
+      "description": "MoMA curators and visiting artists explore the galleries to explain how they see the art of our time.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "HOW TO SEE",
+        "description": "MoMA curators and visiting artists explore the galleries to explain how they see the art of our time."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 47
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "q2EQBPebTv8eIsT05B8O3aOkBGE",
+    "id": "PLfYVzk0sNiGEZXlIltPP7Yy_s5gTM7hf8",
+    "snippet": {
+      "publishedAt": "2017-03-23T20:41:29Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "IN THE STUDIO",
+      "description": "Learn about the materials and techniques of postwar abstract painters in these tutorials by artist and conservator Corey D'Augustine. \nEnroll in our free online course “In the Studio: Postwar Abstract Painting” at http://www.coursera.org/learn/painting",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/EncR_T0faKM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/EncR_T0faKM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/EncR_T0faKM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/EncR_T0faKM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/EncR_T0faKM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "IN THE STUDIO",
+        "description": "Learn about the materials and techniques of postwar abstract painters in these tutorials by artist and conservator Corey D'Augustine. \nEnroll in our free online course “In the Studio: Postwar Abstract Painting” at http://www.coursera.org/learn/painting"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 27
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "wn9ttCI_t8li83vZeskjbg0aXAc",
+    "id": "PLfYVzk0sNiGFkiIVCzjj2-n8BFLZuYCEj",
+    "snippet": {
+      "publishedAt": "2017-02-15T15:24:53Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MoMA LIVE",
+      "description": "Tune in to watch programs, concerts, and events live from the Museum of Modern Art.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PgPYcBLFEHw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PgPYcBLFEHw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PgPYcBLFEHw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PgPYcBLFEHw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/PgPYcBLFEHw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MoMA LIVE",
+        "description": "Tune in to watch programs, concerts, and events live from the Museum of Modern Art."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 162
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "B1oo6WXqRoF4Z-KdDZ25WYIjrFU",
+    "id": "PLfYVzk0sNiGEyhrsFr_uPx76BzVxh9URl",
+    "snippet": {
+      "publishedAt": "2017-02-13T19:38:04Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "PHOTOGRAPHY",
+      "description": "As diverse as photography itself, MoMA’s collection includes over 25,000 works not only by artists, but also by journalists, scientists, entrepreneurs, and amateurs.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/OnB1YZ211w0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/OnB1YZ211w0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/OnB1YZ211w0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/OnB1YZ211w0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "PHOTOGRAPHY",
+        "description": "As diverse as photography itself, MoMA’s collection includes over 25,000 works not only by artists, but also by journalists, scientists, entrepreneurs, and amateurs."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 31
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "JMwwOsCZ7dINzfu8y_HqNScX2_s",
+    "id": "PLfYVzk0sNiGEqFFlcyHYz2Jkei54Rzqav",
+    "snippet": {
+      "publishedAt": "2017-02-13T16:15:34Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "ARCHITECTURE AND DESIGN",
+      "description": "The world's first curatorial department devoted to architecture and design, the collection includes building models, drawings, photographs, and objects ranging from appliances, furniture, and tableware to tools, textiles, and even, sports cars.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1bbeBo3te5E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1bbeBo3te5E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1bbeBo3te5E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1bbeBo3te5E/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1bbeBo3te5E/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "ARCHITECTURE AND DESIGN",
+        "description": "The world's first curatorial department devoted to architecture and design, the collection includes building models, drawings, photographs, and objects ranging from appliances, furniture, and tableware to tools, textiles, and even, sports cars."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 42
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "KZ5lLMttc-m59RJarEf1tPsv_u0",
+    "id": "PLfYVzk0sNiGGr3LkpTo-OjKPBNmKBxKy9",
+    "snippet": {
+      "publishedAt": "2017-01-27T21:22:19Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MEDIA AND PERFORMANCE",
+      "description": "Experience MoMA's collection of time-based works ranging from moving images, film installations, video, performance, motion- and sound-based works.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/AH14ebqez-I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/AH14ebqez-I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/AH14ebqez-I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/AH14ebqez-I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/AH14ebqez-I/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MEDIA AND PERFORMANCE",
+        "description": "Experience MoMA's collection of time-based works ranging from moving images, film installations, video, performance, motion- and sound-based works."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 34
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "u0x26uK3RmH_dd_GfG0p5Hy-0-M",
+    "id": "PLfYVzk0sNiGHp2Aj1di-ETXG3ZOXXCRwz",
+    "snippet": {
+      "publishedAt": "2017-01-27T20:37:08Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "PAINTING AND SCULPTURE",
+      "description": "Explore the world's largest collection of modern painting and sculpture from van Gogh and Picasso, up to the masterworks of today.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Dm8z90rpMKw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Dm8z90rpMKw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Dm8z90rpMKw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Dm8z90rpMKw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Dm8z90rpMKw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "PAINTING AND SCULPTURE",
+        "description": "Explore the world's largest collection of modern painting and sculpture from van Gogh and Picasso, up to the masterworks of today."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 49
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "5FZ9pMAx1vTQBhhNjKXiZU9SoWA",
+    "id": "PLfYVzk0sNiGGvV2cYQkY1ol2gOZVwazLh",
+    "snippet": {
+      "publishedAt": "2016-11-25T15:18:06Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "AT THE MUSEUM – SCENES",
+      "description": "See what it takes to run one of the world’s largest museums of modern and contemporary art. Subscribe for weekly behind-the-scenes episodes.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/hSWaKatKrgw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/hSWaKatKrgw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/hSWaKatKrgw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/hSWaKatKrgw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/hSWaKatKrgw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "AT THE MUSEUM – SCENES",
+        "description": "See what it takes to run one of the world’s largest museums of modern and contemporary art. Subscribe for weekly behind-the-scenes episodes."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 29
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "HvuI7182Qrh2wdwO4qZljzbMYCI",
+    "id": "PLfYVzk0sNiGF99aJI5cgcMBw_OMT5ubYt",
+    "snippet": {
+      "publishedAt": "2016-07-21T19:03:38Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "FILM",
+      "description": "MoMA was the first museum to show and collect films as works of art. With now more than 27,000 films, the collection includes all periods and genres. See what’s playing! http://mo.ma/2lbxR9i",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BBNwiPgknn8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BBNwiPgknn8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BBNwiPgknn8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BBNwiPgknn8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BBNwiPgknn8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "FILM",
+        "description": "MoMA was the first museum to show and collect films as works of art. With now more than 27,000 films, the collection includes all periods and genres. See what’s playing! http://mo.ma/2lbxR9i"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 62
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "VK_SFRsrwGyw1cauJAqkgU-OOH8",
+    "id": "PLfYVzk0sNiGEgFGeTqyFNk7g7o3rBrh37",
+    "snippet": {
+      "publishedAt": "2016-06-16T17:21:42Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "CONSERVATION",
+      "description": "Learn how MoMA conservators take care of artwork in the museum’s collection—from works on paper, sculpture and objects, to photography and time-based media.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-qpBxBtvMKY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-qpBxBtvMKY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-qpBxBtvMKY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-qpBxBtvMKY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-qpBxBtvMKY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "CONSERVATION",
+        "description": "Learn how MoMA conservators take care of artwork in the museum’s collection—from works on paper, sculpture and objects, to photography and time-based media."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 25
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "sa_uOj9TUUrCcZ0KFIKmtV2Z7t4",
+    "id": "PLfYVzk0sNiGE9sz0eBBWZomhPMhEQAABz",
+    "snippet": {
+      "publishedAt": "2016-05-02T20:18:57Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "Museum Director Glenn D. Lowry in Conversation",
+      "description": "Glenn D. Lowry, director of The Museum of Modern Art, speaks with artists, and scholars and lectures on contemporary art, the role of museums in society, and other topics related to his research interests.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/AzPM0Awykxo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/AzPM0Awykxo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/AzPM0Awykxo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/AzPM0Awykxo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/AzPM0Awykxo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "Museum Director Glenn D. Lowry in Conversation",
+        "description": "Glenn D. Lowry, director of The Museum of Modern Art, speaks with artists, and scholars and lectures on contemporary art, the role of museums in society, and other topics related to his research interests."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 16
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "CvtSBs3-UDN3AdEsyy1JVrIzYns",
+    "id": "PLfYVzk0sNiGFb3srWFk1-hn_4vRvgK8nu",
+    "snippet": {
+      "publishedAt": "2016-02-09T18:28:05Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "SEEING THROUGH PHOTOGRAPHS",
+      "description": "What is the difference between seeing and understanding a photograph? With MoMA curator Sarah Meister as your guide, meet with artists and discover a variety of perspectives on photography in our free online course “Seeing Through Photographs” at http://www.coursera.org/learn/photography",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/A6y4R-UEt4U/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/A6y4R-UEt4U/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/A6y4R-UEt4U/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/A6y4R-UEt4U/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "SEEING THROUGH PHOTOGRAPHS",
+        "description": "What is the difference between seeing and understanding a photograph? With MoMA curator Sarah Meister as your guide, meet with artists and discover a variety of perspectives on photography in our free online course “Seeing Through Photographs” at http://www.coursera.org/learn/photography"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 30
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "HGe3yb2K0uj71H_k32YuYRQmBFw",
+    "id": "PLfYVzk0sNiGEUapzxvW8wuXj7YQmcJ1gk",
+    "snippet": {
+      "publishedAt": "2015-09-21T22:09:19Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MODERN ART & IDEAS",
+      "description": "Explore modern and contemporary art through themes like Places & Spaces, Art & Identity, Transforming Everyday Objects, and Art & Society. \nEnroll in our free online course “Modern Art & Ideas” at http://www.coursera.org/learn/modern-art-ideas",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Mngjs-QsaPM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Mngjs-QsaPM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Mngjs-QsaPM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Mngjs-QsaPM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Mngjs-QsaPM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MODERN ART & IDEAS",
+        "description": "Explore modern and contemporary art through themes like Places & Spaces, Art & Identity, Transforming Everyday Objects, and Art & Society. \nEnroll in our free online course “Modern Art & Ideas” at http://www.coursera.org/learn/modern-art-ideas"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "3iVNObojCYgipZLmfjLV_ch_MNI",
+    "id": "PLfYVzk0sNiGHidf1P4g7-aTZ8u5Zr_SnL",
+    "snippet": {
+      "publishedAt": "2015-09-21T20:25:05Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "ARTIST STORIES",
+      "description": "Short documentaries on living artists, currently on view at MoMA, or in the Museum's collection.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/HAGHz27Flcg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/HAGHz27Flcg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/HAGHz27Flcg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/HAGHz27Flcg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/HAGHz27Flcg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "ARTIST STORIES",
+        "description": "Short documentaries on living artists, currently on view at MoMA, or in the Museum's collection."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 22
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "XA6wdTL11MDk-dc1D4CvaqrijS4",
+    "id": "PLfYVzk0sNiGF_q81RC-yRFUUF07CaVg8_",
+    "snippet": {
+      "publishedAt": "2014-08-06T21:32:13Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "MoMA PS1 Sunday Sessions",
+      "description": "Sunday Sessions is a weekly presentation of performance, moving images, dance, music, and discursive programs. http://momaps1.org/sundaysessions",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nnQtOuyUnaU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nnQtOuyUnaU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nnQtOuyUnaU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nnQtOuyUnaU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nnQtOuyUnaU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "MoMA PS1 Sunday Sessions",
+        "description": "Sunday Sessions is a weekly presentation of performance, moving images, dance, music, and discursive programs. http://momaps1.org/sundaysessions"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 39
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8vgqySvkKOclmZKRUSICuHsg22w",
+    "id": "PLA9DED03231B5E68B",
+    "snippet": {
+      "publishedAt": "2010-10-27T17:07:00Z",
+      "channelId": "UC9CswYtb5rL31CHwyVoyJvQ",
+      "title": "ABSTRACT EXPRESSIONISM",
+      "description": "Abstract Expressionist New York. The Museum of Modern Art, October 3, 2010-April 11, 2011. MoMA.org/abexny",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pXioeYcT0AI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pXioeYcT0AI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pXioeYcT0AI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pXioeYcT0AI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pXioeYcT0AI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Museum of Modern Art",
+      "localized": {
+        "title": "ABSTRACT EXPRESSIONISM",
+        "description": "Abstract Expressionist New York. The Museum of Modern Art, October 3, 2010-April 11, 2011. MoMA.org/abexny"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 24
+    }
+  }
+]

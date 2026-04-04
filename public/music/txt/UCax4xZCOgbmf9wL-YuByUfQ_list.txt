@@ -1,0 +1,830 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "96Bev9pZfJ_68YHRyYK_2et0Nm8",
+    "id": "PLC_g0dKIMzZrEfG_q_iMW7qrBiuIwSgdk",
+    "snippet": {
+      "publishedAt": "2019-10-24T12:20:36Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música de Portugal . Guitarra Portuguesa",
+      "description": "música feita em portugal . guitarra portuguesa de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/kOT2hiBbd4w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/kOT2hiBbd4w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/kOT2hiBbd4w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/kOT2hiBbd4w/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/kOT2hiBbd4w/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música de Portugal . Guitarra Portuguesa",
+        "description": "música feita em portugal . guitarra portuguesa de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 17
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ChGUF02sA4jk9HNue4tWhZI8WuI",
+    "id": "PLC_g0dKIMzZoeXz5xvZepETBf0rCE-N4r",
+    "snippet": {
+      "publishedAt": "2017-11-01T14:28:54Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . António Zambujo",
+      "description": "música feita em portugal . com letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/h7MxkwblNhs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/h7MxkwblNhs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/h7MxkwblNhs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/h7MxkwblNhs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/h7MxkwblNhs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . António Zambujo",
+        "description": "música feita em portugal . com letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 23
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "me6uAtASN0dVpH3w45oAUQeQNR8",
+    "id": "PLC_g0dKIMzZr9fceY2sk1948tBP2bI0dx",
+    "snippet": {
+      "publishedAt": "2017-10-31T23:18:27Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Lusofonia",
+      "description": "música feita em portugal . parcerias lusófonas",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wrJ816KzMLs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wrJ816KzMLs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wrJ816KzMLs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wrJ816KzMLs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wrJ816KzMLs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Lusofonia",
+        "description": "música feita em portugal . parcerias lusófonas"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 53
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "bKwRdi4QeZBuwNMWhzEQ-PhPV9k",
+    "id": "PLC_g0dKIMzZp6t_4Hjm0Iq08_EmxW9_4w",
+    "snippet": {
+      "publishedAt": "2015-07-02T11:55:05Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Duetos",
+      "description": "música feita em portugal . com letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/r4Nnqdo-fOE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/r4Nnqdo-fOE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/r4Nnqdo-fOE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/r4Nnqdo-fOE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/r4Nnqdo-fOE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Duetos",
+        "description": "música feita em portugal . com letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 43
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "qfs1KUQ2b2Pr5izGVw6jCHszl0c",
+    "id": "PLC_g0dKIMzZpEVXWbToV_QeDByzntBwJE",
+    "snippet": {
+      "publishedAt": "2015-03-13T03:07:48Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Interpretação",
+      "description": "música feita em portugal . interpretações do mesmo tema",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/8GzxgG_LmqM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/8GzxgG_LmqM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/8GzxgG_LmqM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/8GzxgG_LmqM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/8GzxgG_LmqM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Interpretação",
+        "description": "música feita em portugal . interpretações do mesmo tema"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 67
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "KkrcJR0DCbFcjHgb6B_MzRzmFj8",
+    "id": "PLC_g0dKIMzZpM8PeWfywjxA3Dsr05isFk",
+    "snippet": {
+      "publishedAt": "2014-12-31T19:02:55Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Dulce Pontes",
+      "description": "música feita em portugal . com letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/c6I2d4AN_yw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/c6I2d4AN_yw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/c6I2d4AN_yw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/c6I2d4AN_yw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/c6I2d4AN_yw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Dulce Pontes",
+        "description": "música feita em portugal . com letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 8
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "_Z_1joOXKorCWi-If-N2XBx-Wso",
+    "id": "PLC_g0dKIMzZr1ONdWn2mvJ0u_pKWuiVDM",
+    "snippet": {
+      "publishedAt": "2014-12-31T18:51:51Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Amália Rodrigues",
+      "description": "música feita em portugal . com letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/EIibu0pJCTg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/EIibu0pJCTg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/EIibu0pJCTg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/EIibu0pJCTg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/EIibu0pJCTg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Amália Rodrigues",
+        "description": "música feita em portugal . com letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 22
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "J5RcH4oUE4DcbVpuyb6IUxvbKAQ",
+    "id": "PLC_g0dKIMzZqn51PswxF7NoGXbO6z2EYq",
+    "snippet": {
+      "publishedAt": "2014-12-31T18:42:51Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Mariza",
+      "description": "música feita em portugal . com letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qU8ciOvGhoc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qU8ciOvGhoc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qU8ciOvGhoc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qU8ciOvGhoc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qU8ciOvGhoc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Mariza",
+        "description": "música feita em portugal . com letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 16
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "hozBKQSswbJG3Oiy6c02LPSmm3c",
+    "id": "PLC_g0dKIMzZpuiexuhlRjQPn44BOK4ULV",
+    "snippet": {
+      "publishedAt": "2014-12-31T18:36:21Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Cristina Branco",
+      "description": "música feita em portugal . cristina branco",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/hjgyxZf9mZE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/hjgyxZf9mZE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/hjgyxZf9mZE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/hjgyxZf9mZE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/hjgyxZf9mZE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Cristina Branco",
+        "description": "música feita em portugal . cristina branco"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 18
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "m4gyf1AlazGtO5l-C33IXsgm0b4",
+    "id": "PLC_g0dKIMzZoJyLTEE4K3oszoV-7sb405",
+    "snippet": {
+      "publishedAt": "2014-12-31T18:29:36Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Carminho",
+      "description": "música feita em portugal . com letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Ew5TV49kUrc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Ew5TV49kUrc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Ew5TV49kUrc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Ew5TV49kUrc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Ew5TV49kUrc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Carminho",
+        "description": "música feita em portugal . com letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 15
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "jE1fmEprAv--L-K7C77yno-HiLA",
+    "id": "PLC_g0dKIMzZrvbReMzwQQKX5wQe9xa1GW",
+    "snippet": {
+      "publishedAt": "2014-12-31T18:25:05Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Pedro Abrunhosa",
+      "description": "música feita em portugal . com letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/MqniVKQoLso/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/MqniVKQoLso/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/MqniVKQoLso/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/MqniVKQoLso/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/MqniVKQoLso/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Pedro Abrunhosa",
+        "description": "música feita em portugal . com letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "mRh6UEmeU4dfhfZfTLjJJlUKtek",
+    "id": "PLC_g0dKIMzZrwOD-iWEZzjTb9UDyhH93C",
+    "snippet": {
+      "publishedAt": "2014-12-31T17:56:50Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Madredeus . Rodrigo Leão . Teresa Salgueiro",
+      "description": "música feita em portugal . com letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/a-l_MsRFgV4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/a-l_MsRFgV4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/a-l_MsRFgV4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/a-l_MsRFgV4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/a-l_MsRFgV4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Madredeus . Rodrigo Leão . Teresa Salgueiro",
+        "description": "música feita em portugal . com letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 25
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Z0ChH-Wy3NpIlY51_4BOvuDUyR0",
+    "id": "PLC_g0dKIMzZrcw3YMS8Uz1gj-SghKGnjO",
+    "snippet": {
+      "publishedAt": "2014-12-31T17:46:38Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Zeca Afonso . José Afonso",
+      "description": "música feita em portugal . com letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/r8r46eb-dM0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/r8r46eb-dM0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/r8r46eb-dM0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/r8r46eb-dM0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/r8r46eb-dM0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Zeca Afonso . José Afonso",
+        "description": "música feita em portugal . com letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 28
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "v16xJXW_mwGivWDct6j5YeS6jis",
+    "id": "PLC_g0dKIMzZpEROGIARaR6f2gvinDAmZ_",
+    "snippet": {
+      "publishedAt": "2014-10-25T01:49:55Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Língua não materna",
+      "description": "música feita em portugal . não cantada em português de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0rW9Kyi2fx4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0rW9Kyi2fx4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0rW9Kyi2fx4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0rW9Kyi2fx4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0rW9Kyi2fx4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Língua não materna",
+        "description": "música feita em portugal . não cantada em português de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "sRatA-TXN6QLIUypIJo7o-EFVPc",
+    "id": "PLC_g0dKIMzZp3HmktNGhIB2kuRwOeZnf2",
+    "snippet": {
+      "publishedAt": "2014-08-18T15:35:12Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Feminino",
+      "description": "música feita em portugal . vozes femininas de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/7OuH9Q60km4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/7OuH9Q60km4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/7OuH9Q60km4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/7OuH9Q60km4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/7OuH9Q60km4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Feminino",
+        "description": "música feita em portugal . vozes femininas de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 93
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "z-GcCthKG6_fjrLTzGv7P6cW8uE",
+    "id": "PLC_g0dKIMzZrXntd514rVjBPO4rIhTVVT",
+    "snippet": {
+      "publishedAt": "2014-02-07T14:55:01Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Fado",
+      "description": "música feita em portugal . fado de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/6ZtCybyTWss/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/6ZtCybyTWss/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/6ZtCybyTWss/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/6ZtCybyTWss/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/6ZtCybyTWss/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Fado",
+        "description": "música feita em portugal . fado de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 87
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "N_AJ4A1qnH0BUogyokP0CwYEFiY",
+    "id": "PLC_g0dKIMzZqc5vy1xB43HLlU4CBAzxKR",
+    "snippet": {
+      "publishedAt": "2013-12-31T14:30:12Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Legendada",
+      "description": "música feita em portugal . com legenda / letra de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FzmElxZ3pNk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FzmElxZ3pNk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FzmElxZ3pNk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FzmElxZ3pNk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FzmElxZ3pNk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Legendada",
+        "description": "música feita em portugal . com legenda / letra de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 207
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8zmrX9PMisMRFfXUoAkZVvatHH4",
+    "id": "PLC_g0dKIMzZqZ2_8rSi02SUh97fMiMTCN",
+    "snippet": {
+      "publishedAt": "2012-12-18T01:14:49Z",
+      "channelId": "UCax4xZCOgbmf9wL-YuByUfQ",
+      "title": "Música Portuguesa . Com letra",
+      "description": "música feita em portugal . todas as músicas de portuscale pt",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uu7J_Idw_S4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uu7J_Idw_S4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uu7J_Idw_S4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uu7J_Idw_S4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uu7J_Idw_S4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "portuscale pt",
+      "localized": {
+        "title": "Música Portuguesa . Com letra",
+        "description": "música feita em portugal . todas as músicas de portuscale pt"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 230
+    }
+  }
+]

@@ -1,0 +1,163 @@
+
+.side {
+  position: fixed;
+  top: 150px;
+  left: 20px;
+  height: 500px;
+  width: 300px;
+  border: 2px solid #ffa260;
+}
+
+p {
+  font-size: 30px;
+}
+
+.side a {
+  display: block;
+  border: 2px solid #ffa260;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  padding: 0px;
+}
+
+.conteiner {
+  position: fixed;
+  overflow-y:hidden;
+  scroll-behavior: smooth;
+  top: 140px;
+  left: 400px;
+  height: 530px;
+  width: 800px;
+  
+}
+
+.conteiner a {
+  display: block;
+  font-size: 24px;
+  border: 2px solid #ffa260;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  padding: 5px;
+}
+
+.nav {
+  position: fixed;
+  top: 670px;
+  left:420px;
+  color: white;
+}
+
+.nav a{
+  font-size: 24px;
+  text-decoration: none;
+  border: 2px solid gray;
+  color: white;
+  margin: 10px;
+  padding: 5px 10px 5px 10px;
+}
+#back{
+position: fixed;
+top: 664px;
+left:85px;
+cursor: pointer;
+border: 2px solid #ffa260;
+background:  #e49a65;
+padding: 1px 40px 1px 40px;
+color:black;
+font-size: 35px;
+}
+#back:hover{
+  background: rgb(235, 114, 114);
+  color: yellow;
+}  
+.btn:hover,
+.btn:focus {
+  animation: btn 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+  background-color: rgb(49, 121, 49);
+  color: yellow;
+}
+
+@keyframes btn {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+
+.btn {
+  --color: #ffa260;
+  --hover: #e5ff60;
+}
+
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+body {
+  height: 100%;
+  color: #fff;
+  background: #191c17;
+  font: 400 2em 'Fira Sans', sans-serif;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+button {
+  
+  background: none;
+  border: 3px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 10px;
+  padding: 0.5em 0.9em;
+  font: 400 1.3em 'Fira Sans', sans-serif;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+.header {
+  position: fixed;
+  top: 0px;
+  left: 80px;
+  height: 80px;
+  align-content: center;
+}
+
+.header p {
+  text-align: center;
+  padding: 0px 0px 0px 10px;
+  font-size: 70px;
+  line-height: 0px;
+}
+
+code {
+  color: #e4cb58;
+  font: inherit;
+}
+#main_header {
+  position: fixed;
+  top: 0px;
+  left: 420px;
+  height: 80px;
+  align-content: center;
+  font-size: 80px;
+}
+.but{
+  display: block;
+  color: blueviolet;
+}

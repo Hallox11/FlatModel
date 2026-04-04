@@ -1,0 +1,202 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "mtrYQUMQ-noffPuf451IFAOhKPA",
+    "id": "PLovV35vwfGdGyxb8p96j2PGpjkXzPOQNR",
+    "snippet": {
+      "publishedAt": "2018-10-31T07:35:21Z",
+      "channelId": "UCYJhtXjfiwmah0DwXn3B-qw",
+      "title": "VR HOMES IN THE SPOTLIGHT",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PJ44SA1kykU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PJ44SA1kykU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PJ44SA1kykU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "InWorld Films",
+      "localized": {
+        "title": "VR HOMES IN THE SPOTLIGHT",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 8
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "dFt1iBJjRMHqVd6dXPxOgL1nNoI",
+    "id": "PLovV35vwfGdEpkomdRo8RwD7NWqluRdqq",
+    "snippet": {
+      "publishedAt": "2018-06-24T16:20:15Z",
+      "channelId": "UCYJhtXjfiwmah0DwXn3B-qw",
+      "title": "SECOND LIFE GAMING CHANNEL",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Cu_oJe5Egqs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Cu_oJe5Egqs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Cu_oJe5Egqs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "InWorld Films",
+      "localized": {
+        "title": "SECOND LIFE GAMING CHANNEL",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 149
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Y5Y6KpWlbPMJyqQa-Mi1wBmUVbA",
+    "id": "PLovV35vwfGdFVAzn5HEnq-eGpm6U5xRQt",
+    "snippet": {
+      "publishedAt": "2018-06-24T16:09:48Z",
+      "channelId": "UCYJhtXjfiwmah0DwXn3B-qw",
+      "title": "LIFESTYLE FILMING",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/WddDHzph2Ks/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/WddDHzph2Ks/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/WddDHzph2Ks/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "InWorld Films",
+      "localized": {
+        "title": "LIFESTYLE FILMING",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 12
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "qqmuDl7AStgUGE98oX3HK2zBZ3A",
+    "id": "PLovV35vwfGdEisfdTvB28tI74StdSQsI4",
+    "snippet": {
+      "publishedAt": "2016-06-24T13:22:00Z",
+      "channelId": "UCYJhtXjfiwmah0DwXn3B-qw",
+      "title": "SECOND LIFE CHRISTMAS CHANNEL",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/VRJ-PU8bhp0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/VRJ-PU8bhp0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/VRJ-PU8bhp0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/VRJ-PU8bhp0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/VRJ-PU8bhp0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "InWorld Films",
+      "localized": {
+        "title": "SECOND LIFE CHRISTMAS CHANNEL",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Q2--5O9is-UeARLKPcvsxzKb-DA",
+    "id": "PLovV35vwfGdGk2a0wE5v5haDbcMgm9Znr",
+    "snippet": {
+      "publishedAt": "2016-06-24T13:11:03Z",
+      "channelId": "UCYJhtXjfiwmah0DwXn3B-qw",
+      "title": "SECOND LIFE TOP GEAR'S CHANNEL",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/p4vQK9XdmYE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/p4vQK9XdmYE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/p4vQK9XdmYE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/p4vQK9XdmYE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/p4vQK9XdmYE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "InWorld Films",
+      "localized": {
+        "title": "SECOND LIFE TOP GEAR'S CHANNEL",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 11
+    }
+  }
+]

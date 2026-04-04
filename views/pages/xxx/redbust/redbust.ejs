@@ -1,0 +1,932 @@
+<html>
+  <head>
+  
+ <meta name="referrer" content="no-referrer">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="./../../js/myScripts.js"></script>
+
+  <style>
+    body{
+      background-color:black;
+     
+    }
+    #main{
+         top:0px;
+        left:35px;
+        position:fixed;
+        background:rgba(255, 255, 255, 0.1);
+        width:1040px;
+        height:720px;
+        overflow:scroll;
+        overflow-x:hidden;
+   
+    }
+    #container{
+                 top:30px;
+        left:30px;
+        position:relative;
+        background:transparent;
+       width:800px;
+        height:650px;
+    }
+ 
+
+    #container2{
+                 top:-640px;
+        left:520px;
+        position:relative;
+        background:transparent;
+        width:600px;
+        height:650px;
+    }
+    
+    
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: yellowgreen; 
+}
+
+#ref{
+    position: fixed;
+    top: 560px;
+    width:150px;
+    font-size: 22px;
+    padding: 5px 20px;
+    border-radius: 20px;
+     border: 3px solid orange;
+    color: orange;
+    background:transparent;
+    
+}
+#ref:focus{
+    outline: 0 !important;
+}
+#ref:hover{
+    outline: 0 !important;
+    background: rgb(49, 121, 49);
+    color: white !important;
+    border-color:white!important;
+}
+#top{
+    position: fixed;
+    top: 430px;
+    width:150px;
+    font-size: 21px;
+    padding: 5px 20px;
+    border-radius: 20px;
+     border: 3px solid orange;
+    color: orange;
+    background:transparent;
+    
+}
+#top:focus{
+    outline: 0 !important;
+}
+#top:hover{
+    outline: 0 !important;
+    background: rgb(49, 121, 49);
+    color: white !important;
+    border-color:white!important;
+}
+#bot{
+    position: fixed;
+    top: 480px;
+    width:150px;
+    font-size: 20px;
+    padding: 5px 20px;
+    border-radius: 20px;
+     border: 3px solid orange;
+    color: orange;
+    background:transparent;
+    
+}
+#bot:focus{
+    outline: 0 !important;
+}
+#bot:hover{
+    outline: 0 !important;
+    background: rgb(49, 121, 49);
+    color: white !important;
+    border-color:white!important;
+}
+#bback{
+    position: fixed;
+    top: 630px;
+    left: 1085px;
+    font-size: 23px;
+    width:170px;
+    padding: 0.4em 0.7em;
+    border-radius: 20px;
+     border: 3px solid orange;
+    color: orange;
+    background:transparent;
+  
+    
+}
+#bback:focus{
+    outline: 0 !important;
+}
+#bback:hover{
+    outline: 0 !important;
+    background: rgb(49, 121, 49);
+    color: white !important;
+    border-color:white!important;
+  
+}
+#tags{
+    position: fixed;
+    top: 150px;
+    width:150px;
+    font-size: 22px;
+    padding: 10px 20px;
+    border-radius: 20px;
+     border: 3px solid orange;
+    color: orange;
+    background:transparent;
+    
+}
+#tags:focus{
+    outline: 0 !important;
+}
+#tags:hover{
+    outline: 0 !important;
+    background: rgb(49, 121, 49);
+    color: white !important;
+    border-color:white!important;
+}
+#title{
+          font-family:helvetica_neue_boldcond,Arial,sans;
+          position:relative;
+          font-size:45px;
+          left:200px;
+          top:15px;
+          width:600px;
+          padding:5px 15px 5px 15px;
+           border: 2px solid yellow;
+            border-radius:20px;
+            color:black;
+            text-align:center;
+     content-align:center;
+}
+
+#link{
+      display:inline-block;
+      width:437px;
+      font-size:16px;
+}
+
+
+
+#titleTxt{
+          font-family:helvetica_neue_boldcond,Arial,sans;
+          position:relative;
+          font-size:18px;
+          left:20px;
+          top:25px;
+          width:900px;
+          padding:5px 15px 5px 15px;
+          
+            color:black;
+}
+
+#topics{
+            visibility:hidden;
+            position:fixed;
+            top:220px;
+            left:175px;
+            width:740px;
+            height:235px;
+            font-size:15px;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+         background:#393f2e9e;
+            overflow-y: auto;
+            z-index:-1;
+}
+#topic:hover{
+            background:yellowgreen;
+            color:black; !important
+}
+
+.btn {
+    
+             background:#0b5b5b;
+             border: 3px solid yellowgreen;
+   
+             color: white;
+             border-radius: 12px;
+             padding: 10px 20px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 19px;
+             cursor:pointer;
+             margin:5px;
+        
+}
+.btn:hover {
+               background:yellowgreen;
+}
+.bt{
+     position:inline;
+    font-size:18px;
+}
+.bt:hover{
+           color:black; !important
+           background:cyan;
+}
+
+.image{
+          
+          
+}
+
+#post_title{
+         display:inline;
+        font-family:helvetica_neue_boldcond,Arial,sans;
+        font-size : 22px;
+        width : 600px;
+       // height : 100px;
+      //  background : #de9999;
+        color : white;
+        font-weight : 50;
+        padding : 5px 0px 5px 0px;
+        margin : 20px 0px 0px 0px;
+}
+#butGal {
+    display:inline;
+    position:relative;
+     width : 480px;
+     height:240px;
+    top:0px;
+    left:0px;
+	color:white; 
+    background: transparent;
+	cursor:pointer;
+    border:none;
+ 
+}
+#butGal:focus {
+    outline:none;  
+} 
+.titl{
+     height:32px;
+     margin-top:20px;
+}
+
+#catBack{
+          background:DarkSlateGray; !important
+          color:black; !important
+           border: 3px solid white;
+}
+#catBack:hover{
+          background:green;
+          color:yellow;
+}
+.but{
+    position: fixed;
+    top: 460px;
+    left: 1095px;
+    width:150px;
+    font-size: 17px;
+    padding: 5px 0.7em;
+    border-radius: 20px;
+     border: 3px solid orange;
+    color: orange;
+    background:transparent;
+    
+}
+.but:focus{
+    outline: 0 !important;
+}
+.but:hover{
+    outline: 0 !important;
+    background: rgb(49, 121, 49);
+    color: white !important;
+    border-color:white!important;
+}
+img{
+     //  width : 0px;
+     //  height:0px;   
+}
+ img{
+    color:transparent;
+    background: transparent;
+    background-image:"";
+}
+</style>
+
+</head>
+ 
+  
+<body>
+ 
+        <div id="main" > 
+    
+        <div id="title" >RedBust Selected Erotic Pics</div>
+     <!--   <div id="titleTxt" >we still work on this</div> -->
+        <div id="container" ></div>
+         <div id="container2"></div>
+    
+        <button id='tags' onclick="readCat1();" class="btn but" >TAG`S</button>
+        <button id='size1' style="top:235px; font-size: 21px;" onclick="size1()" class="btn but" >SIZE 1</button>
+        <button id='size1' style="top:280px; font-size: 21px;" onclick="size2()" class="btn but" >SIZE 2</button>
+        <button id='size2' style="top:325px; font-size: 21px;" onclick="size3()" class="btn but" >SIZE 3</button>
+        <button id='size2' style="top:370px; font-size: 21px;" onclick="size4()" class="btn but" >SIZE 4</button>
+        <button id='bback' onclick="goBack()" class="btn but" >XXX MENU</button>
+        <button id='ref' onclick="ref()" class="btn but" >BACK</button>
+        <button id='top' onclick="pageTop()" class="btn but" >TOP</button>
+        <button id='bot' onclick="pageBot()" class="btn but" >BOTTOM</button>
+        </div>
+<!-- TOPICS DIV DINAMIC -->  
+        <div id="topics"> </div>
+         
+      
+
+         <script>
+ /////////////////////////////////////////////////////////////////////////////////
+// FUNCTION TO GET THE ATRIBUTES PASSED ON THE URL
+var queryString = decodeURIComponent(window.location.search); //parsing 
+      queryString = queryString.substring(1); 
+      var queries = queryString.split("&"); 
+    
+ //// SESSION VARIABLES RETRIVE /////////////////////////////////////////////////
+         check_browser();
+ var pic = localStorage.getItem("pic");
+         document.body.style.backgroundImage = "url("+pic+")";
+        
+         var url1 = localStorage.getItem("url1");
+         var url2 = localStorage.getItem("url2");
+         var return_url=url1+"&"+url2    
+       
+////////////////////////////////////////////////////////////////////////////////     
+function goBack() {
+                       window.location.href = './../../xxx-index?'+return_url; 
+}
+////////////////////////////////////////////////////////////////////////////////  
+function pageTop(){
+                        $('#main').animate({scrollTop: '0px'}, 2000);
+}
+////////////////////////////////////////////////////////////////////////////////  
+function pageBot(){
+                        $('#main').animate({scrollTop: 50000}, 2000);
+}
+////////////////////////////////////////////////////////////////////////////////  
+////////////////////////////////////////////////////////////////////////////////            
+
+function size1(){
+                   galFlag=2;
+                   readVids2();
+}
+function size2(){
+                   galFlag=3;
+                   readVids2(); 
+}
+function size3(){
+                   galFlag=4;
+                   readVids2(); 
+}
+function size4(){
+                   galFlag=1;
+                   readVids2(); 
+}
+
+
+
+// SHOW THE TOPICS BUTTONS DINAMIC /////////////////////////////////////
+var catego=[];
+readCat();
+function readCat1(){
+    $('#topics').show();
+     $('#topics').css("z-index", "10");
+}
+function readCat(){
+    
+               $('#topics').css('visibility','visible')
+               fetch('./catego.txt')
+                  .then(response => response.text())
+                  .then(data => {
+                        //   console.log(JSON.parse(data));
+                        addSearchBtns(JSON.parse(data));
+                       });
+}
+///////////
+function addSearchBtns(topic) {
+
+               $('#topics').empty();
+              
+               for (i = 0; i < topic.length+1; i++) {
+                     var but = "butx"+i;
+                     var $button = $("<input type='button' class='btn bt' />");
+                     $button.val(topic[i]);
+                     $("#topics").append($button);
+                     $button.attr('id',but); 
+                     $("#topics").append($button);
+                  }
+                  
+                       $button.attr('id',"catBack"); 
+                       $button.val("BACK");
+                       $("#buttons").append($button);
+                       
+                        $("#buttons").append($button);
+                        
+                       $("#topics").hide();
+                      //  $("#buttons").css('visibility','visible')
+}
+
+	
+////////////////////////
+
+ $(document).on("click", ".bt", function() {
+
+      if ($(this).hasClass("bt")) {
+       var query = $(this).val();
+       var url =$(this).text();
+       $("#tag").val(query);
+        $("#buttons").hide();
+        $("#topics").hide();
+        
+         galFlag=0;
+         if(query==="GALLERY" ) readGallery(url);
+
+    
+      galFlag===0;
+           if(query==="Amateurs") readVids("./txt/amateurs.txt"); 
+           if(query==="Asian") readVids("./txt/asian.txt"); 
+           if(query==="Automotive") readVids("./txt/automotive.txt"); 
+           if(query==="Beach & Bikini") readVids("./txt/beach.txt"); 
+           if(query==="Big Boobs") readVids("./txt/boobs.txt"); 
+           if(query==="Compilations") readVids("./txt/compilation.txt");
+           if(query==="Dress Up") readVids("./txt/dressup.txt");
+           if(query==="Erotica") readVids("./txt/erotica.txt");
+           if(query==="Fetish") readVids("./txt/fetish.txt");
+           if(query==="Latina") readVids("./txt/latinas.txt");
+           if(query==="Lesbian") readVids("./txt/lesbian.txt");
+           if(query==="Nude in Public") readVids("./txt/public.txt");
+           if(query==="Other") readVids("./txt/other.txt");
+           if(query==="Party") readVids("./txt/party.txt");
+           if(query==="Pretty Ladies") readVids("./txt/pretty.txt");
+           
+           if(query==="Retro") readVids("./txt/retro.txt");
+           if(query==="Sport") readVids("./txt/sport.txt");
+           if(query==="Super Chicks") readVids("./txt/super.txt");
+           if(query==="Young girls") readVids("./txt/young.txt");
+           
+         
+           
+        
+   //  https://redbust.com/asian/
+      }
+});
+/////////////////////////////////////////
+
+
+
+
+
+function readGallery(url){
+                    
+                galFlag=2;
+              //  $('#container').css("left", "10px");
+                
+                functABC(url).then(function(data) {
+// Run this when your request was successful
+console.log("RESPOSTA: " + data);
+if(data==="done") readVids("./red_pics.txt", mode);
+}).catch(function(err) {
+// Run this when promise was rejected via reject()
+ console.log(err)
+})
+
+}
+////////////
+function functABC(url) {
+
+return new Promise(function(resolve, reject) {
+
+$.ajax({
+url: '/getRedPics',
+type: 'POST',
+data: {
+         url:url
+},
+success: function(data) {
+resolve(data) // Resolve promise and go to then()
+},
+error: function(err) {
+reject(err) // Reject the promise and go to catch()
+}
+});
+});
+}
+       
+                 
+
+////////////////////////////////////////////////////////////////////////////////
+function ref(){
+                 window.location.href = './redbust'; 
+}
+////////////////////////////////////////////////////////////////////////////////
+
+readVids("./redbust.txt"); 
+function posts(mode,url){
+                           
+                          
+                $.ajax({
+                         type: 'GET',
+                         url: './redbust_index.php',
+                         dataType: 'json',
+                         async: mode,
+                         data: { url:url },
+
+                        });
+
+                         readVids(); 
+                         
+}
+////////////////////////////////////////////////////////////////////////////////
+
+
+      
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+var count=2;
+var galFlag=0;
+
+function addHtmlContainer1()
+{
+// TITLE DIV /////////////////////////////////////////////////////////////////////
+var pTitle = document.createElement("div");
+   
+    inc_id="ti"+count;
+    count++;
+    pTitle.id=inc_id;
+    pTitle.className="titl";
+    
+ document.getElementById("container").appendChild(pTitle);
+
+ var $p = $("<div id='post_title'>"+title+"<div/>");
+                     
+                      $("#"+inc_id).append($p);
+
+ var but = "butGal";
+                     var $button = $("<input type='button' class='btn bt' />");
+                     $button.val("GALLERY");
+                     $button.attr('id',but); 
+                     $button.text(link); 
+                      var pe=$button;
+                     $("#"+inc_id).append($button);
+                   
+// IMAGE DIV //////////////////////////////////////////////////////////////////////
+
+
+if(galFlag===0 )
+{
+var img = document.createElement("img");
+          
+            img.style.width = "480px";
+            img.style.height = "240px";
+            img.src = image ;
+            img.alt=link;
+            img.className="image";
+           document.getElementById("container").appendChild(img); 
+}
+if(galFlag===1)
+{
+var img = document.createElement("img");
+          
+            img.style.width = "900px";
+            img.src = image ;
+            img.alt=link;
+            img.className="image";
+           document.getElementById("container").appendChild(img); 
+}
+if(galFlag===2)
+{
+var img = document.createElement("img");
+          
+            img.style.width = "485px";
+            img.src = image ;
+            img.alt=link;
+            img.className="image";
+           document.getElementById("container").appendChild(img); 
+}
+if(galFlag===3)
+{
+var img = document.createElement("img");
+          
+            img.style.width = "420px";
+            img.src = image ;
+            img.alt=link;
+            img.className="image";
+           document.getElementById("container").appendChild(img); 
+}
+if(galFlag===4)
+{
+var img = document.createElement("img");
+          
+            img.style.width = "600px";
+            img.src = image ;
+            img.alt=link;
+            img.className="image";
+           document.getElementById("container").appendChild(img); 
+}
+
+}
+
+//// SECOND CONTAINER
+function addHtmlContainer2()
+{
+// TITLE DIV /////////////////////////////////////////////////////////////////////
+var pTitle = document.createElement("div");
+   
+    inc_id="ti"+count;
+    count++;
+    pTitle.id=inc_id;
+    pTitle.className="titl";
+    
+ document.getElementById("container2").appendChild(pTitle);
+
+ var $p = $("<div id='post_title'>"+title+"<div/>");
+                     
+                      $("#"+inc_id).append($p);
+
+ var but = "butGal";
+                     var $button = $("<input type='button' class='btn bt' />");
+                     $button.val("GALLERY");
+                     $button.attr('id',but); 
+                     $button.text(link); 
+                      var pe=$button;
+                     $("#"+inc_id).append($button);
+                   
+// IMAGE DIV //////////////////////////////////////////////////////////////////////
+var img = document.createElement("img");
+       if(galFlag===0 )
+          {
+            img.style.width = "480px";
+            img.style.height = "240px";
+
+            img.src = image ;
+            img.alt=link;
+            img.className="image";
+           document.getElementById("container2").appendChild(img); 
+          }  
+   
+          if(galFlag===2 )
+          {
+            img.style.width = "485px";
+                
+          img.src = image ;
+            img.alt=link;
+            img.className="image";
+           document.getElementById("container2").appendChild(img); 
+          }      
+     
+     
+        
+           
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var videos;
+var title;
+var desc;
+var image;
+var coment;
+var link;
+var date;
+
+function resetScroll(){
+
+                        var myDiv = document.getElementById('main');
+                            myDiv.scrollTop = 0;
+
+}
+
+function readVids(txt) {
+   
+                                resetScroll();
+                                 $("#container").empty();
+                                 $("#container2").empty();
+                                  fetch(txt)
+                                   .then(response => response.text())
+                                   .then(data => {
+                                                 //   console.log(data);
+                                                     videos = JSON.parse(data);
+                                                  // console.log(data);
+                                         proc(videos);
+                                          
+                                         
+                                    });
+                            ///////////////////////////       
+                         /*         $.ajax({
+                            type: 'GET',
+                            url: './rename.php',
+                           async: false,
+                            dataType: 'json',
+                            data: {
+                                    file:mode,
+                                    txt:txt
+                                    
+                                   
+                            },
+            
+                        });    
+                        */
+                                     
+    }
+    
+    function readVids2() {
+        
+        
+                            $("#container").empty();
+                            $("#container2").empty();
+         
+          
+                                  fetch('./red_pics.txt')
+                                   .then(response => response.text())
+                                   .then(data => {
+                                                 //   console.log(data);
+                                                     videos = JSON.parse(data);
+                                                
+                                         proc(videos);
+                                       
+                                    });
+
+                                     
+    }
+                   
+            
+
+function proc(videos)
+{
+     var c=1;
+     $.each(videos, function(i, item){
+                                        title = item.titl;
+                                        desc = item.desc;
+                                        image = item.imag;
+                                        coment=item.comdesc;
+                                        link=item.link;
+                                        date=item.date;
+                                      
+                                          
+                      if(galFlag===0)   title=title.substring(0,44);      
+
+        if(c==1 && galFlag===0) {addHtmlContainer1(); c=2;} else if(c==2 && galFlag===0) {addHtmlContainer2(); c=1;} 
+        if(c==1 && galFlag===2) {addHtmlContainer1(); c=2;} else if(c==2 && galFlag===2) {addHtmlContainer2(); c=1;} 
+                     
+                      if(galFlag===0) {
+                                       $('#container').css("left","30px");
+                                       $('#container2').css("top","-640px");
+                                       $('#main').css("left","35px");
+                                       $('#main').css("width","1040px");
+                                       $('#title').css("left","200px");
+                                       $(".titl").show();
+                                      }        
+                      if(galFlag===1) {
+                                       $('#container').css("left","70px");
+                                       $('#main').css("left","35px");
+                                       $('#main').css("width","1040px");
+                                       $('#title').css("left","200px");
+                                       $(".titl").hide();                                 
+                                       addHtmlContainer1();
+                                      }
+                      if(galFlag===2) {
+                                       $('#container').css("left","25px");
+                                       $('#container2').css("top","-620px");
+                                       $('#main').css("left","35px");
+                                       $('#main').css("width","1040px");
+                                       $('#title').css("left","200px");
+                                       $(".titl").hide();
+                                      }  
+                      if(galFlag===3) {
+                                       $('#container').css("left","305px");
+                                       $('#main').css("left","35px");
+                                       $('#main').css("width","1040px");
+                                       $('#title').css("left","200px");
+                                       $(".titl").hide();                                 
+                                       addHtmlContainer1();
+                                      }  
+                      if(galFlag===4) {
+                                       $('#container').css("left","220px");
+                                       $('#main').css("left","35px");
+                                       $('#main').css("width","1040px");
+                                       $('#title').css("left","200px");
+                                       $(".titl").hide();                                 
+                                       addHtmlContainer1();
+                                      }  
+
+              
+
+                                       });
+                                       
+                                     
+                                    
+                                     $('a').hide();
+}
+
+
+ ///////////////////////////////////////////////////////////////////////////////
+
+ const colorChange = () => {
+    const swatch = document.querySelectorAll('.btn');
+  
+   for (var i=0; i < swatch.length; i++) {
+    
+    if(mode==="title") document.getElementById('title').style.color = getHSL();
+    if(mode==="text") swatch[i].style.color = getHSL();
+   if(mode==="border") swatch[i].style.borderColor = getHSL();
+    if(mode==="frame") document.getElementById('title').style.borderColor = getHSL();
+  
+   
+                     
+  }
+   
+  
+   
+};
+
+/// F4
+const getHSL = () => {
+
+
+    return `hsl(${hue}, ${sat}%, ${light}%)`;
+};
+ ///////////////////////////////////////////////////////////////
+ 
+ readIndex();
+
+var backPic;
+var hue;
+var sat;
+var light;
+var mode;
+function readIndex(){
+                         fetch('./../../colors.txt')
+                                .then(response => response.text())
+                                .then(data => {
+                                             //   console.log(JSON.parse(data));
+                                                 data=(JSON.parse(data));
+                                             
+                                     
+           
+                                     
+                                          
+                                       backPic=((data.pic));
+                                           hue =   data.text_hue;
+                                           sat =   data.text_sat;
+                                           light = data.text_light;
+                          
+                                           mode="text";
+                                           colorChange();
+                                           
+                                        backPic=((data.pic));
+                                           hue =   data.border_hue;
+                                           sat =   data.border_sat;
+                                           light = data.border_light;
+                                           
+                                           mode="border";
+                                           colorChange();
+                                           
+                                       backPic=((data.pic));
+                                           hue =   data.title_hue;
+                                           sat =   data.title_sat;
+                                           light = data.title_light;
+                                           mode="title";
+                                           colorChange(); 
+                                           
+                                        backPic=((data.pic));
+                                           hue =   data.frame_hue;
+                                           sat =   data.frame_sat;
+                                           light = data.frame_light;
+                                           mode="frame";
+                                           colorChange();   
+                                           
+});
+ }             
+         
+         </script>         
+         
+</body>
+</html>

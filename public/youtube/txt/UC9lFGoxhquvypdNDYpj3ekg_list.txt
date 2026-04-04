@@ -1,0 +1,1062 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "gQ4hEJtD_8JmnM4CrQf8oSCSgyI",
+    "id": "PLI0b2jAH3oFttGLNBZGivV9Gt5uEYO7hj",
+    "snippet": {
+      "publishedAt": "2021-10-25T17:45:25Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "The Second Life Book Club with Draxtor",
+      "description": "The Second Life Book Club is a series of literary-minded events. Showtime is every Wednesday at 12pm or 5pm SLT with special non-fiction events scheduled as guests become available.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BTgPq26wTuM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BTgPq26wTuM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BTgPq26wTuM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BTgPq26wTuM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BTgPq26wTuM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "The Second Life Book Club with Draxtor",
+        "description": "The Second Life Book Club is a series of literary-minded events. Showtime is every Wednesday at 12pm or 5pm SLT with special non-fiction events scheduled as guests become available."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 96
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "1K7w8_hTT7pW3QXtoNhEUkfkdzU",
+    "id": "PLI0b2jAH3oFuUYHWpKq-3J8ajWvD3T14t",
+    "snippet": {
+      "publishedAt": "2021-07-24T12:08:32Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "The Three Body Problem Soundtrack",
+      "description": "Everyone knows I am obsessed with Cixin Liu's \"The Three-Body Problem\" trilogy. It is also known as \"Remembrance of Earth's Past\". I am not interested in the Netflix adaption, I am super happy with the books. And since the soundtrack I hear in my head while reading is primarily made of Metal, I decided to compile a list ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/mtH5cr4T7Ms/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/mtH5cr4T7Ms/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/mtH5cr4T7Ms/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/mtH5cr4T7Ms/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/mtH5cr4T7Ms/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "The Three Body Problem Soundtrack",
+        "description": "Everyone knows I am obsessed with Cixin Liu's \"The Three-Body Problem\" trilogy. It is also known as \"Remembrance of Earth's Past\". I am not interested in the Netflix adaption, I am super happy with the books. And since the soundtrack I hear in my head while reading is primarily made of Metal, I decided to compile a list ..."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "X1BjR6OqPsDZRSFNAGyzliLkgGE",
+    "id": "PLI0b2jAH3oFsPqlrMvdK57b3NG9sE3Rzn",
+    "snippet": {
+      "publishedAt": "2020-04-04T10:27:51Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "Made in SL",
+      "description": "These are some of my favorite videos I made for the official SL channel. There are MANY MORE so do check them out!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/TIRhAZY2MEo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/TIRhAZY2MEo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/TIRhAZY2MEo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "Made in SL",
+        "description": "These are some of my favorite videos I made for the official SL channel. There are MANY MORE so do check them out!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 19
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "5kF2E1k6XaJxsUA0ipkAAWFg_AE",
+    "id": "PLI0b2jAH3oFsdPlJ54wvdaJASnDye2AiM",
+    "snippet": {
+      "publishedAt": "2019-09-28T16:48:35Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "DraxtorReads across the Metaverse",
+      "description": "#DraxtorReads across the Metaverse featured social scientists, musicians & bestselling authors with interviews taped at #114Harvest in Sansar [more info at http://draxtor.com/draxtorreads]",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FU5XimyWols/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FU5XimyWols/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FU5XimyWols/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FU5XimyWols/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FU5XimyWols/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "DraxtorReads across the Metaverse",
+        "description": "#DraxtorReads across the Metaverse featured social scientists, musicians & bestselling authors with interviews taped at #114Harvest in Sansar [more info at http://draxtor.com/draxtorreads]"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 26
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "SzEDq24QRp10I_dtcirTXpdWzWc",
+    "id": "PLI0b2jAH3oFtglWJvHpiCdXPslGZj9DYN",
+    "snippet": {
+      "publishedAt": "2019-02-27T18:56:28Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "Assorted Sansar videos",
+      "description": "There are tons of Sansar videos on this channel as we stream almost daily so here I just put a few highlights of pre-produced videos as well as live shows. Enjoy and visit us at #114Harvest sometime ....",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/690ZOwtxq7k/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/690ZOwtxq7k/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/690ZOwtxq7k/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/690ZOwtxq7k/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/690ZOwtxq7k/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "Assorted Sansar videos",
+        "description": "There are tons of Sansar videos on this channel as we stream almost daily so here I just put a few highlights of pre-produced videos as well as live shows. Enjoy and visit us at #114Harvest sometime ...."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 12
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "VF3Zcf4k_O_BMTykMaAq7q5iRMg",
+    "id": "PLI0b2jAH3oFsBOo12grYB0JXH-LEN1VkX",
+    "snippet": {
+      "publishedAt": "2019-01-07T14:01:00Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "LIVE from [BETA] 114 Harvest: Infinite Jest",
+      "description": "[***  IF YOU WANT TO READ ALONG GET THE FREE E-BOOK http://libcom.org/library/infinite-jest-david-foster-wallace + IF YOU ARE NEW TO SANSAR = get an account at http://bit.ly/sansar_drax &  join our Discord to connect while off-world = https://discord.gg/g4v6A97  ***]\n\nEvery Monday at 5am SLT bright and early we will serve up one hour of DFW's \"Infinite Jest\" for your discerning ears, all read by a blue dragon in social VR .....  [ you will find tons of info about the book online and a FREE download pdf below + good review of sorts = https://www.youtube.com/watch?v=nB0yurW8uEk ]\n\nWhat is the goal of this project you ask? Well: first of all we feel the strong need to infuse these virtual spaces with deeper art, humanistic values and generally speaking inspiring and VERY funny narratives. \n\nOh I forgot to mention that DFW stands for David Foster Wallace, the author of that book we are talking about. More about him is here https://en.wikipedia.org/wiki/David_Foster_Wallace\n\nBut on the more pedestrian side = I just love this book so much, it is insane, mind-altering [even says so on the back cover!!], I love to read, I love to read FOR YOU GUYS and most of all doing this in VR with just one static camera and \"disguised\" as a dragon avatar I feel I can totally top the wackiness of the dude whose kid did a kind of \"Infinite Jest\" comic strip all just with LEGOS [and that really did happen! GOOGLE IT!]\n\nSo there you have it: the project starts MONDAY 01/07/2019 and will be live-streamed as well as archived at http://youtube.com/draxtor as well as  http://twitch.tv/sansardrax\n\nThe viewing party is happening at #114Harvest [http://bit.ly/114harvest] so you can hang with fellow reading nerds there and listen in and chat and if you want to read along in private or public or whatever please do get the e-book free here = http://libcom.org/library/infinite-jest-david-foster-wallace\n\nIf you like to support this and other activities of the Draxtor in virtual worlds please buy him [aka me] a coffee at Ko-Fi = https://ko-fi.com/draxtor THANK YOU ! ! ! !",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/v45vIVdtHJ0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/v45vIVdtHJ0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/v45vIVdtHJ0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "LIVE from [BETA] 114 Harvest: Infinite Jest",
+        "description": "[***  IF YOU WANT TO READ ALONG GET THE FREE E-BOOK http://libcom.org/library/infinite-jest-david-foster-wallace + IF YOU ARE NEW TO SANSAR = get an account at http://bit.ly/sansar_drax &  join our Discord to connect while off-world = https://discord.gg/g4v6A97  ***]\n\nEvery Monday at 5am SLT bright and early we will serve up one hour of DFW's \"Infinite Jest\" for your discerning ears, all read by a blue dragon in social VR .....  [ you will find tons of info about the book online and a FREE download pdf below + good review of sorts = https://www.youtube.com/watch?v=nB0yurW8uEk ]\n\nWhat is the goal of this project you ask? Well: first of all we feel the strong need to infuse these virtual spaces with deeper art, humanistic values and generally speaking inspiring and VERY funny narratives. \n\nOh I forgot to mention that DFW stands for David Foster Wallace, the author of that book we are talking about. More about him is here https://en.wikipedia.org/wiki/David_Foster_Wallace\n\nBut on the more pedestrian side = I just love this book so much, it is insane, mind-altering [even says so on the back cover!!], I love to read, I love to read FOR YOU GUYS and most of all doing this in VR with just one static camera and \"disguised\" as a dragon avatar I feel I can totally top the wackiness of the dude whose kid did a kind of \"Infinite Jest\" comic strip all just with LEGOS [and that really did happen! GOOGLE IT!]\n\nSo there you have it: the project starts MONDAY 01/07/2019 and will be live-streamed as well as archived at http://youtube.com/draxtor as well as  http://twitch.tv/sansardrax\n\nThe viewing party is happening at #114Harvest [http://bit.ly/114harvest] so you can hang with fellow reading nerds there and listen in and chat and if you want to read along in private or public or whatever please do get the e-book free here = http://libcom.org/library/infinite-jest-david-foster-wallace\n\nIf you like to support this and other activities of the Draxtor in virtual worlds please buy him [aka me] a coffee at Ko-Fi = https://ko-fi.com/draxtor THANK YOU ! ! ! !"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 22
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8gSeMljIuPU8LPVsJQxza4tRqHw",
+    "id": "PLI0b2jAH3oFsjsLS5sp7hf-Cbw8Kw7MJB",
+    "snippet": {
+      "publishedAt": "2018-12-06T19:27:06Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "HoverDerby: the full collection",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PLNWvvZzTxM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PLNWvvZzTxM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PLNWvvZzTxM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PLNWvvZzTxM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/PLNWvvZzTxM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "HoverDerby: the full collection",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 27
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "CDKIrOl8JIZ0etZWqit5dH1j0sA",
+    "id": "PLI0b2jAH3oFtc6Fog2EP67uAhy7VX_rD5",
+    "snippet": {
+      "publishedAt": "2018-04-17T17:20:50Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "Our Digital Selves: My Avatar is me!",
+      "description": "“Our Digital Selves: My Avatar is me!” tells the story of 13 ability-diverse global citizens as they explore their identity through artistic expression and make their home in the Metaverse.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/GQw02-me0W4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/GQw02-me0W4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/GQw02-me0W4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/GQw02-me0W4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/GQw02-me0W4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "Our Digital Selves: My Avatar is me!",
+        "description": "“Our Digital Selves: My Avatar is me!” tells the story of 13 ability-diverse global citizens as they explore their identity through artistic expression and make their home in the Metaverse."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 30
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "On7LXD8omeJq0FVtS9haOL3kQhA",
+    "id": "PLI0b2jAH3oFtQ9bK2soouXMk-a1QVtkiS",
+    "snippet": {
+      "publishedAt": "2017-07-13T05:35:54Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "Atlas Hopping in Sansar",
+      "description": "Every Saturday at 11am = we did it for 3 years. Fun times for sure but happy to be back home.\n\nMeeting point = 114 Harvest is closed down .. .sorry!\n\nFlickr page = https://www.flickr.com/groups/4506240@N20/",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/k-Vz9ehTANo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/k-Vz9ehTANo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/k-Vz9ehTANo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "Atlas Hopping in Sansar",
+        "description": "Every Saturday at 11am = we did it for 3 years. Fun times for sure but happy to be back home.\n\nMeeting point = 114 Harvest is closed down .. .sorry!\n\nFlickr page = https://www.flickr.com/groups/4506240@N20/"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 111
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ald-batUtsSNYefU3e-HE7jH1ro",
+    "id": "PLI0b2jAH3oFsxuQQm6rXjGvcwrXG_Jten",
+    "snippet": {
+      "publishedAt": "2017-04-20T09:02:39Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "RIP Allan Holdsworth 1947-2017",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pjZ_u4at3r0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pjZ_u4at3r0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pjZ_u4at3r0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pjZ_u4at3r0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "RIP Allan Holdsworth 1947-2017",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 15
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "PBbqI4ZTZe59NunzhMLGQONS5OA",
+    "id": "PLI0b2jAH3oFth18SQzNn8SGPD7GS1uezB",
+    "snippet": {
+      "publishedAt": "2015-06-20T03:59:02Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "What Second Life means to me",
+      "description": "Initiated by Xiola Linden, this video series is made by residents just like you and me [and yes some Lindens too] & they are sharing their passion for this wonderful community in very personal stories. I do hope this playlist keeps on growing....",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/0QcFhbAwMVc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/0QcFhbAwMVc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/0QcFhbAwMVc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/0QcFhbAwMVc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/0QcFhbAwMVc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "What Second Life means to me",
+        "description": "Initiated by Xiola Linden, this video series is made by residents just like you and me [and yes some Lindens too] & they are sharing their passion for this wonderful community in very personal stories. I do hope this playlist keeps on growing...."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 32
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ALPNGBYxJlKIIXJcpb2xjJ1LuXI",
+    "id": "PLI0b2jAH3oFvNmBFo1d2EzXQT4BX6wktQ",
+    "snippet": {
+      "publishedAt": "2015-01-16T03:18:16Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "Kaleo Electronix",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2LM2bom8fsw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2LM2bom8fsw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2LM2bom8fsw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2LM2bom8fsw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "Kaleo Electronix",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "3OAzgdZYxvBpFVmtV71uaIukEn8",
+    "id": "PLI0b2jAH3oFu2AiXJzaAz5E2k45qNdwMu",
+    "snippet": {
+      "publishedAt": "2014-04-06T02:44:29Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "my fave music [other than Zappa!]",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PvEs8KvcBmY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PvEs8KvcBmY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PvEs8KvcBmY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PvEs8KvcBmY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "my fave music [other than Zappa!]",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 285
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "9mNNusehrufwER6bD6Tn8XQPINA",
+    "id": "PLI0b2jAH3oFsWmh6gnxRxAAOHFHUeYQFM",
+    "snippet": {
+      "publishedAt": "2013-10-08T18:49:01Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "draxtor™...our work for all!",
+      "description": "Via draxtor™...and media for all, award-winning producer Bernhard Drax & team offer audio/video magic for - among other goodies - the immersive Second Life platform.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xBEdq4RGsMw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xBEdq4RGsMw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xBEdq4RGsMw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xBEdq4RGsMw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "draxtor™...our work for all!",
+        "description": "Via draxtor™...and media for all, award-winning producer Bernhard Drax & team offer audio/video magic for - among other goodies - the immersive Second Life platform."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 22
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "34YWgRwYCL1-G9MYmNNuqD5dPRI",
+    "id": "PLI0b2jAH3oFvr6J0AhWroB9lmOXRN2xLV",
+    "snippet": {
+      "publishedAt": "2013-04-05T15:47:09Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "The Drax Files : World Makers",
+      "description": "\"The Drax Files: World Makers\" profiles the creative people behind the avatars who move the Metaverse forward, cutting across gender, ethnic and generational divides.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3-LB-FeJlc4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3-LB-FeJlc4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3-LB-FeJlc4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3-LB-FeJlc4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3-LB-FeJlc4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "The Drax Files : World Makers",
+        "description": "\"The Drax Files: World Makers\" profiles the creative people behind the avatars who move the Metaverse forward, cutting across gender, ethnic and generational divides."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 50
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "e0qNxyYW_a4qD9w0_4xVW2viIvc",
+    "id": "PLI0b2jAH3oFtyuAlBzshMv0jxugmh8xqG",
+    "snippet": {
+      "publishedAt": "2013-02-24T03:57:23Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "basicdrax machinima showcase",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/kY6tChCiVL4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/kY6tChCiVL4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/kY6tChCiVL4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/kY6tChCiVL4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/kY6tChCiVL4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "basicdrax machinima showcase",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 8
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "w_9nVe_vbKyQ9oGRV61HAaCcdyg",
+    "id": "PL21C64312D0B53CFF",
+    "snippet": {
+      "publishedAt": "2012-02-20T22:53:32Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "Flufee on a Meshion",
+      "description": "Flufee was/is your cuddly mesh mega-star, roaming the SecondLife grid & pontificating on the future of the Metaverse [show ran from 2011-2013]",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/tCsqoO0-Fk8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/tCsqoO0-Fk8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/tCsqoO0-Fk8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/tCsqoO0-Fk8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "Flufee on a Meshion",
+        "description": "Flufee was/is your cuddly mesh mega-star, roaming the SecondLife grid & pontificating on the future of the Metaverse [show ran from 2011-2013]"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 25
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "q_CvHbzyeatxL8BGW30BmhL3BiM",
+    "id": "PL4E0BA6C2CACC6973",
+    "snippet": {
+      "publishedAt": "2012-01-10T18:07:18Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "cool stuff I worked on",
+      "description": "Breaking News: your friendly trademarked avatar Draxtor ™ has a first life, appears in videos, produces music and even went to Paris to talk to Jimmy Carter once ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/P2jn_lxrrPg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/P2jn_lxrrPg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/P2jn_lxrrPg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/P2jn_lxrrPg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/P2jn_lxrrPg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "cool stuff I worked on",
+        "description": "Breaking News: your friendly trademarked avatar Draxtor ™ has a first life, appears in videos, produces music and even went to Paris to talk to Jimmy Carter once ..."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 41
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "84ZhVDmGA5muuoicoQzMMU4U7e4",
+    "id": "PL6A15C648B89629E2",
+    "snippet": {
+      "publishedAt": "2012-01-08T22:16:25Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "Documenting Second Life [2007- 2011]",
+      "description": "I entered the Metaverse in February 2007 & have enjoyed documenting the ups and downs, the ins and outs, the drama, the creativity, the edge pushing ever since ...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ceGPSr19Qh8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ceGPSr19Qh8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ceGPSr19Qh8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ceGPSr19Qh8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ceGPSr19Qh8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "Documenting Second Life [2007- 2011]",
+        "description": "I entered the Metaverse in February 2007 & have enjoyed documenting the ups and downs, the ins and outs, the drama, the creativity, the edge pushing ever since ..."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 83
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "B6I7P54IYc24tLPmYUh5VsLrzRA",
+    "id": "PLC505E316DB51834A",
+    "snippet": {
+      "publishedAt": "2011-03-17T12:46:51Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "Educational Uses of SecondLife",
+      "description": "...a selection of videos I have done over the years, focusing on the educational uses of Second Life....",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/5kBfi_8wDUg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/5kBfi_8wDUg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/5kBfi_8wDUg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "Educational Uses of SecondLife",
+        "description": "...a selection of videos I have done over the years, focusing on the educational uses of Second Life...."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 31
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "iEnsTQ6KhdtdJjbYleJGa95lNkk",
+    "id": "PL2BA326D8909AE83A",
+    "snippet": {
+      "publishedAt": "2011-02-04T20:20:41Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "SL related TOP 40",
+      "description": "....purely subjective collection of good SL machinima [and some news items too]!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lLhwstdPbNQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lLhwstdPbNQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lLhwstdPbNQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lLhwstdPbNQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lLhwstdPbNQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "SL related TOP 40",
+        "description": "....purely subjective collection of good SL machinima [and some news items too]!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 29
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "NHWq1x2Auyv0dfxq_554F5hm28Q",
+    "id": "PLE77A24FBE20F011C",
+    "snippet": {
+      "publishedAt": "2010-10-04T21:41:25Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "The Kansas To Cairo Project",
+      "description": "30 students, thousands of miles apart. A virtual world brings them together and proves that avatar-based interaction can transcend geographical as well cultural boundaries...",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_GPcW2Q-b24/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_GPcW2Q-b24/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_GPcW2Q-b24/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_GPcW2Q-b24/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_GPcW2Q-b24/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "The Kansas To Cairo Project",
+        "description": "30 students, thousands of miles apart. A virtual world brings them together and proves that avatar-based interaction can transcend geographical as well cultural boundaries..."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 8
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "jL3XhMbPXUOHn8xLh7EKn3rEwXY",
+    "id": "PLB005B7BFF601C1A0",
+    "snippet": {
+      "publishedAt": "2009-08-11T04:52:54Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "BAVC Producer's Institute 2008 - 2010",
+      "description": "The BAVC Producer's Institute in San Francisco was truly cutting edge. MacArthur Foundation funded it for 5 years. I am proud to say I was a mentor there 2008 - 2010...so sad to see it go [more info at http://www.bavc.org]",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dSuHqfHUQc0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dSuHqfHUQc0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dSuHqfHUQc0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dSuHqfHUQc0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "BAVC Producer's Institute 2008 - 2010",
+        "description": "The BAVC Producer's Institute in San Francisco was truly cutting edge. MacArthur Foundation funded it for 5 years. I am proud to say I was a mentor there 2008 - 2010...so sad to see it go [more info at http://www.bavc.org]"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 12
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "yxqLrCz0Ipiz7ax6A8QTF03icdY",
+    "id": "PL926C430A92799CF6",
+    "snippet": {
+      "publishedAt": "2009-04-01T19:47:10Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "California Legacy",
+      "description": "The California Legacy Project at Santa Clara University has put out close to 500 radio segments on CA literature. Will they make as many machinimas?",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3DqPO2NXQDE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3DqPO2NXQDE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3DqPO2NXQDE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "California Legacy",
+        "description": "The California Legacy Project at Santa Clara University has put out close to 500 radio segments on CA literature. Will they make as many machinimas?"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "to9gdTVkN0Aj7yG0T75Io1UANew",
+    "id": "PLB716B2F276B8DF60",
+    "snippet": {
+      "publishedAt": "2007-06-06T19:55:05Z",
+      "channelId": "UC9lFGoxhquvypdNDYpj3ekg",
+      "title": "ZAPPA!!!",
+      "description": "ZAPPA =  my biggest inspiration!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/KZazEM8cgt0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/KZazEM8cgt0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/KZazEM8cgt0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Draxtor",
+      "localized": {
+        "title": "ZAPPA!!!",
+        "description": "ZAPPA =  my biggest inspiration!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 153
+    }
+  }
+]

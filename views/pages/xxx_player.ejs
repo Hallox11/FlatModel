@@ -1,0 +1,237 @@
+<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
+<style>
+    #player-wrapper {
+        width: 1280px;
+        height: 720px;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+/* 2. Video occupies the full container */
+    .video-js.vjs-matrix {
+        width: 1280px !important;
+        height: 720px !important;
+        color: #ffa260;
+    }
+
+/* 3. Top-Right "X" Close Button */
+    .exit-btn {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        z-index: 100; /* Stays above the video */
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 28px;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .exit-btn:hover {
+        background: #ff0000;
+        border-color: #ff0000;
+        transform: scale(1.1);
+    }
+
+    .video-title-overlay {
+        position: absolute;
+        top: 25px;
+        left: 30px;
+        z-index: 10;
+        color: #ffa260;
+        font-size: 18px;
+        background: rgba(0,0,0,0.6);
+        padding: 5px 15px;
+        border-radius: 5px;
+        pointer-events: none; /* Allows clicks to pass through to video */
+        max-width: 600px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .player-controls {
+        position: absolute;
+        bottom: 20px;
+        z-index: 10;
+        display: flex;
+        gap: 20px;
+    }
+
+    .video-title {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.8);
+        padding: 10px 30px;
+        border-radius: 30px;
+        color: #ffa260;
+        font-size: 18px;
+        border: 1px solid rgba(255,162,96,0.3);
+        z-index: 10;
+        white-space: nowrap;
+        max-width: 80%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Matrix-style button to match your theme */
+    .xxx-btn {
+        background: transparent;
+        color: #ffa260;
+        border: 1px solid #ffa260;
+        padding: 8px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .xxx-btn:hover {
+        background: #ffa260;
+        color: #000;
+    }
+</style>
+
+<div id="player-wrapper">
+    <div class="video-title-overlay"><%= title %></div>
+    
+    <div class="exit-btn" onclick="backToGrid()">×</div>
+
+    <video
+        id="xxx-video-player"
+        class="video-js vjs-big-play-centered vjs-matrix"
+        controls
+        preload="auto"
+        width="1280"
+        height="720">
+        <source src="<%= stream %>" type="application/x-mpegURL">
+    </video>
+</div>
+
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+<script>
+    window.isRemoteAction = false;
+
+    // Use a slight delay to ensure DOM and videojs are ready
+    setTimeout(() => {
+        if (typeof videojs !== 'undefined') {
+            if (window.videojsPlayer) {
+                window.videojsPlayer.dispose();
+            }
+
+            window.videojsPlayer = videojs('xxx-video-player', {
+                autoplay: true,
+                muted: true, 
+                controls: true,
+                preload: 'auto',
+                fluid: false
+            });
+
+            window.videojsPlayer.ready(function() {
+                const player = this;
+                
+                // Attempt autoplay
+                player.play().catch(() => {
+                    console.log("Autoplay blocked - waiting for interaction");
+                });
+
+                setupSocketSync(player);
+            });
+        }
+    }, 100);
+
+function setupSocketSync(player) {
+    // --- SENDING ---
+    player.on('play', () => { 
+        // Only send if we aren't responding to a remote command
+        if(!window.isRemoteAction) {
+            socket.emit('toPlay', player.currentTime());
+        }
+    });
+
+    player.on('pause', () => { 
+        if(!window.isRemoteAction) {
+            socket.emit('toPause', player.currentTime());
+        }
+    });
+
+    player.on('seeked', () => { 
+        if(!window.isRemoteAction) {
+            socket.emit('toSeek', player.currentTime());
+        }
+    });
+
+    // --- RECEIVING ---
+// --- RECEIVING ---
+socket.on('Play', (time) => {
+    // 1. Check if player exists and has the internal 'tech' ready
+    if (!window.videojsPlayer || window.videojsPlayer.disposed_) return;
+
+    window.videojsPlayer.ready(function() {
+        const p = window.videojsPlayer;
+        // 2. Only trigger if not already playing
+        if (p.paused && p.paused()) { 
+            console.log("Remote Play received:", time);
+            window.isRemoteAction = true;
+            p.currentTime(time);
+            p.play().catch(e => console.warn("Play deferred:", e));
+            setTimeout(() => { window.isRemoteAction = false; }, 800);
+        }
+    });
+});
+
+socket.on('Pause', (time) => {
+    // 1. Check if player exists and has the internal 'tech' ready
+    if (!window.videojsPlayer || window.videojsPlayer.disposed_) return;
+
+    window.videojsPlayer.ready(function() {
+        const p = window.videojsPlayer;
+        // 2. Only trigger if not already paused
+        if (p.paused && !p.paused()) {
+            console.log("Remote Pause received:", time);
+            window.isRemoteAction = true;
+            p.pause();
+            p.currentTime(time);
+            setTimeout(() => { window.isRemoteAction = false; }, 800);
+        }
+    });
+});
+
+    socket.on('Seek', (time) => {
+        // Only seek if the difference is more than 1 second to avoid jitter
+        if (Math.abs(player.currentTime() - time) > 1) {
+            window.isRemoteAction = true;
+            player.currentTime(time);
+            setTimeout(() => { window.isRemoteAction = false; }, 800);
+        }
+    });
+}
+
+
+
+
+function backToGrid() {
+        if (window.videojsPlayer) {
+            window.videojsPlayer.dispose();
+            window.videojsPlayer = null;
+        }
+        // Redirect back to the xvideos grid view
+        handleNav('xvideos');
+    }
+</script>

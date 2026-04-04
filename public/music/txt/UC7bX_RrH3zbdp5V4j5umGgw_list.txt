@@ -1,0 +1,830 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "P9MKSJaSScLu4sURB92EDnZSPTU",
+    "id": "PL-mzrQ96YAOTsfSG_x91SAILug73xWICB",
+    "snippet": {
+      "publishedAt": "2021-11-07T17:05:46Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Members-Only Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/znVc3qMQk44/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/znVc3qMQk44/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/znVc3qMQk44/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/znVc3qMQk44/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/znVc3qMQk44/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Members-Only Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 218
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "C3eLfHyLyp2gZwVyi_6vippRH1s",
+    "id": "PL-mzrQ96YAOQOgrTzq18m1Y2Fbi-s-WVR",
+    "snippet": {
+      "publishedAt": "2021-07-20T11:23:24Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Relax Music Beats - Lofi Chill Jazzy Beats to Study, Work and Relax",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vEQreqv_Hvo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vEQreqv_Hvo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vEQreqv_Hvo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vEQreqv_Hvo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vEQreqv_Hvo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Relax Music Beats - Lofi Chill Jazzy Beats to Study, Work and Relax",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 44
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Wpj1qtZy-2mzaicekxj_2snoeRU",
+    "id": "PL-mzrQ96YAOSXApujYTT35Lqu9MkZVVCE",
+    "snippet": {
+      "publishedAt": "2020-12-28T00:44:15Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Holiday Jazz",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/4-AtHeFbw-o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/4-AtHeFbw-o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/4-AtHeFbw-o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/4-AtHeFbw-o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/4-AtHeFbw-o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Holiday Jazz",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 42
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "GFDVyXYKkc_9-c0K4pxBlTiwARA",
+    "id": "PL-mzrQ96YAOQ5rW1dg87rQdoO8leSn7yP",
+    "snippet": {
+      "publishedAt": "2020-09-11T11:29:27Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Smooth JAZZ",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/HnnkoH53ZIQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/HnnkoH53ZIQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/HnnkoH53ZIQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/HnnkoH53ZIQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/HnnkoH53ZIQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Smooth JAZZ",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 342
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "MnNpGAyKyehkcSoc-X1hHH9DkHg",
+    "id": "PL-mzrQ96YAOTsWLZUablQLEcI5w5ngcFD",
+    "snippet": {
+      "publishedAt": "2020-09-04T10:13:51Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Daily Jazz and Bossa Nova",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/DTtfXaet1p4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/DTtfXaet1p4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/DTtfXaet1p4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/DTtfXaet1p4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/DTtfXaet1p4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Daily Jazz and Bossa Nova",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 123
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "D-Jbdmhwr_CQnJUMlzDJqYZ7YQA",
+    "id": "PL-mzrQ96YAOTWGVmBo1b_WJPbIs_NkNyW",
+    "snippet": {
+      "publishedAt": "2020-06-08T11:50:33Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "New Music Daily",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9cVzIwWdmLA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9cVzIwWdmLA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9cVzIwWdmLA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9cVzIwWdmLA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9cVzIwWdmLA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "New Music Daily",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 752
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "RlyFkQ2TChXbcXh1x9JYB5LRDak",
+    "id": "PL-mzrQ96YAOQsEgKRE99_oJ5TIV3w74F-",
+    "snippet": {
+      "publishedAt": "2018-04-22T21:27:27Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Music for Work and Study",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Bxlo5IinBbI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Bxlo5IinBbI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Bxlo5IinBbI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Bxlo5IinBbI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Bxlo5IinBbI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Music for Work and Study",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 730
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "yQCMeWjkDn6GtqN48NHO4Yp0SS8",
+    "id": "PL-mzrQ96YAORZksliGXafEDFfp-5rAjJv",
+    "snippet": {
+      "publishedAt": "2017-05-04T19:32:42Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Happy Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/zOc7eHX9Gjo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/zOc7eHX9Gjo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/zOc7eHX9Gjo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/zOc7eHX9Gjo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/zOc7eHX9Gjo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Happy Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 110
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "5nvLsSj346Zjo3rfWmPbdbNiqnE",
+    "id": "PL-mzrQ96YAOTgmCR8HfjSUjihChSVfhFh",
+    "snippet": {
+      "publishedAt": "2017-02-03T16:45:05Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Romantic Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/EIw8SO6dadQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/EIw8SO6dadQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/EIw8SO6dadQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/EIw8SO6dadQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/EIw8SO6dadQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Romantic Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 270
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "T-hThlEkuOhzt7NOQtHRE5r3mKg",
+    "id": "PL-mzrQ96YAOQXUCJQlf72Y-jtpQsO7KbL",
+    "snippet": {
+      "publishedAt": "2017-01-25T19:52:02Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Morning Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/tUBAkMZ6BH8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/tUBAkMZ6BH8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/tUBAkMZ6BH8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/tUBAkMZ6BH8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/tUBAkMZ6BH8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Morning Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 434
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "dk1QmqITsSvdjoaRTDvHfqGBkSk",
+    "id": "PL-mzrQ96YAORU2FMikLD2LzIMcZtQcZKc",
+    "snippet": {
+      "publishedAt": "2017-01-24T19:20:14Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Bossa Nova Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pR7wqdjeV9s/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pR7wqdjeV9s/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pR7wqdjeV9s/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pR7wqdjeV9s/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pR7wqdjeV9s/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Bossa Nova Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 302
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "UDD3xDVoIT98_IxzB0x4Tdf5v_k",
+    "id": "PL-mzrQ96YAORaST83M1Ckd5mTq8nWD9Sp",
+    "snippet": {
+      "publishedAt": "2017-01-24T19:19:25Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Piano Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/C4WuHN5L9Y8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/C4WuHN5L9Y8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/C4WuHN5L9Y8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/C4WuHN5L9Y8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/C4WuHN5L9Y8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Piano Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 257
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "vpZwRwQ4Q_1dU1tJSa4Ldfdjzjk",
+    "id": "PL-mzrQ96YAOS3TRzEAD3niB8PVeal3CZR",
+    "snippet": {
+      "publishedAt": "2017-01-23T20:25:11Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Jazz Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SuZon8ziKfU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SuZon8ziKfU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SuZon8ziKfU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/SuZon8ziKfU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/SuZon8ziKfU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Jazz Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 848
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ac_BvWUbHReb_YogyW46wvsjCLQ",
+    "id": "PL-mzrQ96YAOQMfeXBCO3j-X7xhyu4HmB1",
+    "snippet": {
+      "publishedAt": "2016-11-18T16:19:21Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Music for Cooking",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qtH4-eTzxZI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qtH4-eTzxZI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qtH4-eTzxZI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qtH4-eTzxZI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qtH4-eTzxZI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Music for Cooking",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 481
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "mNthGNBBHs6wwglR42KB53Da8aU",
+    "id": "PL-mzrQ96YAORvKpW_vXTy9VT68CZbwqbD",
+    "snippet": {
+      "publishedAt": "2016-11-13T14:16:03Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Relaxing Sleep Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/WkE-EL8_lB8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/WkE-EL8_lB8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/WkE-EL8_lB8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/WkE-EL8_lB8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/WkE-EL8_lB8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Relaxing Sleep Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 287
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "7YJiRvHMVBp7zwfd_C4SleiDVrI",
+    "id": "PL-mzrQ96YAOTQYc6GBAGYJneSz1Ji3NZB",
+    "snippet": {
+      "publishedAt": "2016-11-08T19:30:11Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Christmas & New Year Music",
+      "description": "Christmas Music - We Wish You A Merry Christmas!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-c4DYX4uMpQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-c4DYX4uMpQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-c4DYX4uMpQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-c4DYX4uMpQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-c4DYX4uMpQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Christmas & New Year Music",
+        "description": "Christmas Music - We Wish You A Merry Christmas!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 122
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "K9wGlvLNKUJvQf0sZy4Ew8_cRH0",
+    "id": "PL-mzrQ96YAORVqyhPWZvLYbjZZQD0STss",
+    "snippet": {
+      "publishedAt": "2015-12-31T15:02:54Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Background Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ctc3kF8CVs4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ctc3kF8CVs4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ctc3kF8CVs4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ctc3kF8CVs4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ctc3kF8CVs4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Background Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 957
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Aj1sCtu91UqF6mf0PSjXQxbPdyM",
+    "id": "PL-mzrQ96YAOQN14i_Ji70WDXtqcMwJ-vC",
+    "snippet": {
+      "publishedAt": "2015-11-18T19:13:30Z",
+      "channelId": "UC7bX_RrH3zbdp5V4j5umGgw",
+      "title": "Holiday Music",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xFIK1HlQJFk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xFIK1HlQJFk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xFIK1HlQJFk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xFIK1HlQJFk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/xFIK1HlQJFk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Relax Music",
+      "localized": {
+        "title": "Holiday Music",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 123
+    }
+  }
+]

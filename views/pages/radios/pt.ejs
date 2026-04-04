@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="UTF-8">
+    <title>Radios Portugal - TV Edition</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./../js/myScripts.js"></script>
+    <meta name="viewport" content="width=1280, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --glass: rgba(0, 0, 0, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --accent: #00d2ff;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            width: 1280px; height: 720px;
+            font-family: 'Fira Sans', sans-serif;
+            background-color: #111;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #title {
+            width: 100%;
+            padding: 30px 0 10px 0;
+            text-align: center;
+            font-size: 34px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+        }
+
+        .container {
+            width: 1180px;
+            height: 540px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            display: flex;
+            padding: 25px;
+            gap: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            margin-top: 10px;
+        }
+
+        .player-side {
+            flex: 0 0 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #radio-logo {
+            width: 200px; height: 200px;
+            object-fit: contain;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+        }
+
+        .text-box { width: 100%; overflow: hidden; height: 80px; }
+        #radio-title { font-size: 26px; display: block; color: var(--accent); margin-bottom: 5px; }
+        #radio-signal { font-size: 16px; opacity: 0.6; }
+
+        .list-side {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        .list-side::-webkit-scrollbar { width: 6px; }
+        .list-side::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+
+        #radios {
+            list-style: none;
+            padding: 0; margin: 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        #radios li {
+            background: rgba(255,255,255,0.07);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            aspect-ratio: 1.2 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        #radios li:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        #radios img.cover {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        #bback {
+            position: absolute;
+            bottom: 30px;
+            left: 50px;
+            background: rgba(255,255,255,0.9);
+            color: #000;
+            border: none;
+            padding: 14px 45px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        // --- REDIRECT SHIELD ---
+        // Prevents the external JS from forcing a page reload if it doesn't like the environment
+        window.onbeforeunload = function() { return null; };
+        
+        window._trackJs = { console: { display: !1 }, enabled: 7E-4 > Math.random() ? !0 : !1, token: "73faad723c2e459eafb494db926fccb4", version: "5.0.3" };
+        window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+        ga.l = +new Date;
+        ga("create", "UA-43921502-1", "auto");
+        ga("set", { anonymize_ip: !0, cookie_domain: "radioonline.com.pt" });
+        ga("send", "pageview");
+        
+        var webradioConfig = {
+            countryCode: "PT", debugMode: 0, domainID: 31, languageCode: "pt",
+            slugDomain: "radioonline-com-pt", urlApi: "https://api.webrad.io/",
+            txt: { live: "Ao vivo", loading: "A carregar", play: "Tocar", stop: "Parar", volume: "Volume" }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/script/soundmanager2-nodebug-jsmin.js" defer></script>
+    <script src="https://cdn.webrad.io/js/main-5.0.3.min.js" defer></script>
+</head>
+
+<body>
+
+    <div id="title">Radios de Portugal</div>
+
+    <div class="container">
+        <div class="player-side">
+            <div id="radio">
+                <div class="img-box"><img id="radio-logo" src="https://cdn.webrad.io/images/spacer.gif" alt=""></div>
+                <div class="text-box">
+                    <strong id="radio-title"></strong>
+                    <strong id="radio-signal"></strong>
+                </div>
+                <div class="radio-player">
+                    <div id="radio-controls"></div>
+                    <a class="favorite-button" data-favorite-button disabled></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-side">
+            <ul id="radios">
+                <li class="item-8"><a href="#tsf"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/tsf.png" alt="TSF"></a></li>
+                <li class="item-1"><a href="#rfm"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/rfm.png" alt="RFM"></a></li>
+                <li class="item-2"><a href="#comercial"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/comercial.png" alt="Comercial"></a></li>
+                <li class="item-7"><a href="#renascenca"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/renascenca.png" alt="Renascença"></a></li>
+                <li class="item-3"><a href="#cidade-fm"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/cidade-fm.png" alt="Cidade FM"></a></li>
+                <li class="item-4"><a href="#m80"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/m80.png" alt="M80"></a></li>
+                <li class="item-43"><a href="#universitaria-do-minho-braga"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/universitaria-do-minho-braga.png" alt="RUM"></a></li>
+                <li class="item-6"><a href="#mega"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/mega.png" alt="Mega Hits"></a></li>
+                <li class="item-9"><a href="#nova-era"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/nova-era.png" alt="Nova Era"></a></li>
+                <li class="item-10"><a href="#rfm-80"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/rfm-80.png" alt="RFM 80s"></a></li>
+                <li class="item-11"><a href="#sbsr"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/sbsr.png" alt="SBSR"></a></li>
+                <li class="item-12"><a href="#hiper-fm"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/hiper-fm.png" alt="Hiper FM"></a></li>
+                <li class="item-13"><a href="#smooth"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/smooth.png" alt="Smooth FM"></a></li>
+                <li class="item-14"><a href="#oceano-pacifico-rfm"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/oceano-pacifico-rfm.png" alt="Oceano Pacífico"></a></li>
+                <li class="item-15"><a href="#orbital"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/orbital.png" alt="Orbital"></a></li>
+                <li class="item-16"><a href="#nove3cinco-povoa-de-lanhoso"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/nove3cinco-povoa-de-lanhoso.png" alt="Nove3cinco"></a></li>
+                <li class="item-17"><a href="#super"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/super.png" alt="Super FM"></a></li>
+                <li class="item-18"><a href="#oxigenio"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/oxigenio.png" alt="Oxigénio"></a></li>
+                <li class="item-42"><a href="#antena-minho"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/antena-minho.png" alt="Antena Minho"></a></li>
+                <li class="item-20"><a href="#rb-barcelos"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/rb-barcelos.png" alt="Radio Barcelos"></a></li>
+                <li class="item-21"><a href="#swtmn-lisboa"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/swtmn-lisboa.png" alt="Meo Sudoeste"></a></li>
+                <li class="item-22"><a href="#cascais-lisboa"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/cascais-lisboa.png" alt="Cascais"></a></li>
+                <li class="item-23"><a href="#amalia"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/amalia.png" alt="Amália"></a></li>
+                <li class="item-24"><a href="#festival"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/festival.png" alt="Festival"></a></li>
+                <li class="item-25"><a href="#vodafone-lisboa"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/vodafone-lisboa.png" alt="Vodafone FM"></a></li>
+                <li class="item-26"><a href="#marginal"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/marginal.png" alt="Marginal"></a></li>
+                <li class="item-27"><a href="#sim"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/sim.png" alt="Sim"></a></li>
+                <li class="item-28"><a href="#santiago-guimaraes"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/santiago-guimaraes.png" alt="Santiago"></a></li>
+                <li class="item-29"><a href="#guadiana-algarve"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/guadiana-algarve.png" alt="Guadiana"></a></li>
+                <li class="item-30"><a href="#popular"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/popular.png" alt="Popular FM"></a></li>
+                <li class="item-31"><a href="#botareu"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/botareu.png" alt="Botareu"></a></li>
+                <li class="item-32"><a href="#voz-beja"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/voz-beja.png" alt="Voz da Planicie"></a></li>
+                <li class="item-33"><a href="#marcoense-marco-de-canaves"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/marcoense-marco-de-canaves.png" alt="Marcoense"></a></li>
+                <li class="item-34"><a href="#atlantida"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/atlantida.png" alt="Atlântida"></a></li>
+                <li class="item-35"><a href="#vizela"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/vizela.png" alt="Vizela"></a></li>
+                <li class="item-36"><a href="#nova"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/nova.png" alt="Nova"></a></li>
+                <li class="item-37"><a href="#onda-viva"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/onda-viva.png" alt="Onda Viva"></a></li>
+                <li class="item-41"><a href="#sao-miguel"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/sao-miguel.png" alt="São Miguel"></a></li>
+                <li class="item-39"><a href="#no-ar-porto"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/no-ar-porto.png" alt="No Ar"></a></li>
+                <li class="item-40"><a href="#94-fm"><img class="cover" src="https://cdn.webrad.io/images/logos/radioonline-com-pt/94-fm.png" alt="94 FM"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <button id="bback" onclick="location.href = './inter-radio?'+return_url;">BACK</button>
+
+</body>
+</html>

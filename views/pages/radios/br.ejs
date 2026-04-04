@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+    <head prefix="og: http://ogp.me/ns#">
+        <meta charset="UTF-8">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./../js/myScripts.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/main.min.css">
+<script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/main.min.js"></script>
+        
+        <meta name="viewport" content="width=1280">
+      
+    
+        <link rel="stylesheet" href="./../styles/radios.css">
+        <link rel="stylesheet" href="./../styles/menu_index.css">
+       
+
+        <script>
+            window._trackJs = {
+                console: {
+                    display: !1
+                },
+                enabled: 7E-4 > Math.random() ? !0 : !1,
+                token: "73faad723c2e459eafb494db926fccb4",
+                version: "5.0.3"
+            };
+            window.ga = window.ga || function() {
+                (ga.q = ga.q || []).push(arguments)
+            }
+            ;
+            ga.l = +new Date;
+            ga("create", "UA-43921502-1", "auto");
+            ga("set", {
+                anonymize_ip: !0,
+                cookie_domain: "ecouterradioenligne.com"
+            });
+            ga("send", "pageview");
+            setTimeout(function() {
+                ga("send", "event", "Read", "60 seconds")
+            }, 6E4);
+            window.SM2_DEFER = !0;
+            var webradioConfig = {
+                countryCode: "FR",
+                debugMode: 0,
+                domainID: 37,
+                languageCode: "fr",
+                slugDomain: "ecouterradioenligne-com",
+                slugFavorites: "favoris",
+                urlApi: "https://api.webrad.io/",
+                urlStatic: "https://cdn.webrad.io/",
+                algolia: [{
+                    "applicationId": "3ZTZWUB3YF",
+                    "apiKey": "69c38d1d7696f10303d883840d265170"
+                }],
+                dashJs: {
+                    version: "3.1.3"
+                },
+                hlsJs: {
+                    version: "0.14.16"
+                },
+                txt: {
+                    error: "Erreur",
+                    live: "En direct",
+                    loading: "Chargement en cours",
+                    mute: "Désactiver\/réactiver le son",
+                    no_audio: "Pas d'audio depuis plus d'un mois, nous vérifions chaque semaine",
+                    play: "Jouer",
+                    popup: "Écoutez ici",
+                    search_for: "Résultats de la recherche de %s",
+                    search_none: "Aucun résultat pour %s",
+                    start: "Démarrer",
+                    stop: "Arrêtez",
+                    volume: "Contrôle du volume"
+                }
+            };
+        </script>
+       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.2/hogan.min.js" crossorigin="anonymous" defer></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find%2CArray.prototype.findIndex%2CArray.prototype.forEach%2CArray.prototype.reduce%2CElement.prototype.closest%2CElement.prototype.remove%2Cfetch%2CObject.assign%2CObject.entries" crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/script/soundmanager2-nodebug-jsmin.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdn.webrad.io/js/main-5.0.3.min.js" crossorigin="anonymous" defer></script>
+    
+    </head>
+   
+
+    <body>
+        
+       
+                    
+        <div class="radio-section" id="content-area">
+                        
+                        <div id="radio">
+                            <div class="loading" id="radio-track"></div>
+                                <div class="left-box">
+                                        <div class="text-box">
+                                            <marquee behavior="scroll" direction="left">       <strong class="title" id="radio-title"></strong>
+                                          <strong class="signal" id="radio-signal"></strong>
+                                          </marquee>
+                                        </div>
+                                </div>
+                                <div class="img-box" style="display: none;">
+                                    <img id="radio-logo" src="https://cdn.webrad.io/images/spacer.gif" alt="" height="86" importance="high" width="96">
+                                </div>
+                                
+                                <div class="btn-holder">
+                                    <a  id="radio-link" ></a>
+                                    </div>
+                            </div>
+
+                            <div class="radio-player">
+                                <div class="loading" id="radio-controls" src="https://cdn.webrad.io/images/icon-st.png"  width="20" height="40"title="">
+                                  
+                                </div>
+                                <a class="favorite-button" aria-label="Add to favorites / Remove from favorites" title="Add to favorites / Remove from favorites" data-favorite-button disabled>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <ul id="radios">
+                            <li class="item-1">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#nrj-france" title="NRJ">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/nrj-france.png" alt="NRJ" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-2">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#skyrock" title="Skyrock FM">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/skyrock.png" alt="Skyrock FM" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-3">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#rfi" title="RFI">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/rfi.png" alt="RFI" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-4">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#rfm" title="RFM">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/rfm.png" alt="RFM" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-5">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#france-inter" title="France Inter">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/france-inter.png" alt="France Inter" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-6">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#nostalgie" title="Nostalgie">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/nostalgie.png" alt="Nostalgie" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-7">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#virgin" title="Virgin Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/virgin.png" alt="Virgin Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-8">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#rire-et-chanson" title="Rire et Chansons">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/rire-et-chanson.png" alt="Rire et Chansons" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-9">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#rtl" title="RTL">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/rtl.png" alt="RTL" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-10">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#cherie" title="Chérie FM">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/cherie.png" alt="Chérie FM" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-11">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#france-info" title="France Info France">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/france-info.png" alt="France Info France" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-12">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#europe" title="Europe 1">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/europe.png" alt="Europe 1" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-13">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#rtl2" title="RTL 2">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/rtl2.png" alt="RTL 2" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-14">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#france-culture" title="Radio France Culture">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/france-culture.png" alt="Radio France Culture" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-15">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#beur" title="Beur FM (Paris)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/beur.png" alt="Beur FM (Paris)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-16">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#fip" title="Radio FIP">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/fip.png" alt="Radio FIP" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-17">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#mfm" title="M Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/mfm.png" alt="M Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-18">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#latina" title="Latina">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/latina.png" alt="Latina" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-19">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#fg-dj" title="FG DJ Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/fg-dj.png" alt="FG DJ Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-20">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#orient" title="Radio Orient">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/orient.png" alt="Radio Orient" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-21">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#jazz" title="Jazz Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/jazz.png" alt="Jazz Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-22">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/genre/musique-france/#arl-fm-bordeaux" title="Arl FM (Bordeaux)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/arl-fm-bordeaux.png" alt="Arl FM (Bordeaux)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-23">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#chante-france" title="Chante France">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/chante-france.png" alt="Chante France" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-24">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#france-musique" title="Radio France Musique">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/france-musique.png" alt="Radio France Musique" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-25">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#contact-fm" title="Contact la Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/contact-fm.png" alt="Contact la Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-26">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#generations" title="Generations">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/generations.png" alt="Generations" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-27">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#oui-fm" title="OÜI FM">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/oui-fm.png" alt="OÜI FM" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-28">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#africa-1-france" title="Africa No 1">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/africa-1-france.png" alt="Africa No 1" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-29">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#classique" title="Radio Classique">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/classique.png" alt="Radio Classique" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-30">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#voltage" title="Voltage">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/voltage.png" alt="Voltage" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-31">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#meuh" title="Radio Meuh">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/meuh.png" alt="Radio Meuh" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-32">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/genre/musique-france/#aleo-macon" title="Radio Aleo (Macon)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/aleo-macon.png" alt="Radio Aleo (Macon)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-33">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#vibration" title="Vibration">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/vibration.png" alt="Vibration" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-34">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#fun" title="Fun radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/fun.png" alt="Fun radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-35">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#le-mouv-ajaccio" title="Le Mouv (Ajaccio)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/le-mouv-ajaccio.png" alt="Le Mouv (Ajaccio)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-36">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#monte-carlo-doualiya" title="Monte Carlo Doualiya">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/monte-carlo-doualiya.png" alt="Monte Carlo Doualiya" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-37">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#tropiques-paris" title="Tropiques FM (Paris)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/tropiques-paris.png" alt="Tropiques FM (Paris)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-38">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#maghreb-2" title="France Maghreb 2 France">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/maghreb-2.png" alt="France Maghreb 2 France" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-39">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#hit-west" title="Hit West">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/hit-west.png" alt="Hit West" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-40">
+                                <span>
+                                    <a href="https://ecouterradioenligne.com/#metropolys" title="Radio Metropolys">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ecouterradioenligne-com/metropolys.png" alt="Radio Metropolys" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                        
+                        </ul>
+
+
+                            </div>
+                      
+                       <button id='bback'onclick="location.href = './inter-radio?'+return_url;" class="btn" >CLOSE</button>
+            </main>
+          
+          
+<script>
+function applySavedBackground() {
+    const savedBg = localStorage.getItem("user_bg");
+    if (savedBg) {
+        document.body.style.backgroundImage = "url('" + savedBg + "')";
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundAttachment = "fixed";
+    }
+}
+
+// Run this as soon as the page loads
+
+    // Auto-focus first button for TV Remote usage
+window.onload = function() {
+      applySavedBackground();
+        document.getElementById('SlRadios').focus();
+};
+</script>
+    </body>
+</html>

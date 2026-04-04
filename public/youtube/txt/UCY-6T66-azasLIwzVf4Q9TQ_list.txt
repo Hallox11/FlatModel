@@ -1,0 +1,2515 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "m6DoFGoHOxUUq_UvmzomS_P7bdM",
+    "id": "PLrdXfGJ6YuL6rQlICR_ONxWoAqObPCIKy",
+    "snippet": {
+      "publishedAt": "2021-05-20T16:34:21Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dalí Symbols",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cVvzA8eFRNg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cVvzA8eFRNg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cVvzA8eFRNg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/cVvzA8eFRNg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/cVvzA8eFRNg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dalí Symbols",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "APyGKrIkRbMBbeOqHEoiMnJ5sDI",
+    "id": "PLrdXfGJ6YuL50X4W1dmXZSVqBc4GIMAZ2",
+    "snippet": {
+      "publishedAt": "2021-03-24T20:32:14Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Fashion Design at The Dali",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-xJq4aO6cvU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-xJq4aO6cvU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-xJq4aO6cvU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-xJq4aO6cvU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-xJq4aO6cvU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Fashion Design at The Dali",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "M3VPQ1abi9KVQkYDQUKUuNFNAk0",
+    "id": "PLrdXfGJ6YuL5jRTlyyFPOayt2ZQKMABt9",
+    "snippet": {
+      "publishedAt": "2021-02-16T17:43:07Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Student Surrealist Art Exhibit 2021",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/evh8AjzVE14/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/evh8AjzVE14/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/evh8AjzVE14/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/evh8AjzVE14/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/evh8AjzVE14/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Student Surrealist Art Exhibit 2021",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "twqNWAtuTE16Yy3jETnrqAR_gBU",
+    "id": "PLrdXfGJ6YuL6pIVR-2iLZsS6vYqwecCa8",
+    "snippet": {
+      "publishedAt": "2021-01-22T00:30:35Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Young Scholars Lecture Series",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/WICSRny3aO0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/WICSRny3aO0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/WICSRny3aO0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/WICSRny3aO0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/WICSRny3aO0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Young Scholars Lecture Series",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "L3hSfMic7jGQ1GG6a7MA0LoXaCQ",
+    "id": "PLrdXfGJ6YuL5PRhvk3R6KMQQ2fsmFEdD_",
+    "snippet": {
+      "publishedAt": "2021-01-05T21:44:50Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "The 10th Anniversary of The Dali Museum's Building",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jHbU5aY5jyM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jHbU5aY5jyM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jHbU5aY5jyM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jHbU5aY5jyM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jHbU5aY5jyM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "The 10th Anniversary of The Dali Museum's Building",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 22
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "9Z8hzq9J8QSTlVeunopQW3z2zgI",
+    "id": "PLrdXfGJ6YuL4yVbCzi-54ffbHy1iMBGx5",
+    "snippet": {
+      "publishedAt": "2020-12-09T19:25:01Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Follow the Tangent: Archives, Art and Anecdotes",
+      "description": "In this ongoing series, we will delve into the world of art archives and the often-unexpected gems that are uncovered in the course of researching Dalí, Surrealism and the myriad visiting exhibitions hosted at the Museum.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dX9erCH7cDs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dX9erCH7cDs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dX9erCH7cDs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dX9erCH7cDs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dX9erCH7cDs/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Follow the Tangent: Archives, Art and Anecdotes",
+        "description": "In this ongoing series, we will delve into the world of art archives and the often-unexpected gems that are uncovered in the course of researching Dalí, Surrealism and the myriad visiting exhibitions hosted at the Museum."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "iifffakISRWTZ16dyLWjksMh_UM",
+    "id": "PLrdXfGJ6YuL7HC8iVb2eKL_urBPT90Xg-",
+    "snippet": {
+      "publishedAt": "2020-09-24T21:01:20Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dalí Museum Virtual Programs",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dalí Museum Virtual Programs",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 36
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "wlF5zwpJKUFJjVAQiaBMHiw-Tjw",
+    "id": "PLrdXfGJ6YuL4FV0o0zhe44YHre7YYNbSA",
+    "snippet": {
+      "publishedAt": "2020-09-09T22:03:36Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dalí's Sacred Science",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/sonhhmo-9EY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/sonhhmo-9EY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/sonhhmo-9EY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/sonhhmo-9EY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dalí's Sacred Science",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "XNgkgxPp5JcPDBtZVGcjvyhvLqw",
+    "id": "PLrdXfGJ6YuL7_r8bCCRc6xl9NTd1sbpA6",
+    "snippet": {
+      "publishedAt": "2020-05-11T14:20:23Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Student Surrealist Art Exhibit",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/r4zELtaNFb4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/r4zELtaNFb4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/r4zELtaNFb4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Student Surrealist Art Exhibit",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "PWFH7KLDFofsMyOt8dpksOTGD2k",
+    "id": "PLrdXfGJ6YuL7k2FfN1xXbHbRR9QTqJtW4",
+    "snippet": {
+      "publishedAt": "2020-04-27T18:01:54Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Midnight in Paris 1929",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vEW0htZQxcM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vEW0htZQxcM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vEW0htZQxcM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vEW0htZQxcM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vEW0htZQxcM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Midnight in Paris 1929",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "A8WM6VdZgpjcm-D1Qnd2d0DL07c",
+    "id": "PLrdXfGJ6YuL7pPmYDb3Amumne9GwNFQpU",
+    "snippet": {
+      "publishedAt": "2020-04-23T17:55:38Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "At Home with The Dalí",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cLg4KR7xQhc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cLg4KR7xQhc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cLg4KR7xQhc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/cLg4KR7xQhc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/cLg4KR7xQhc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "At Home with The Dalí",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "NjnRbfnNoAzKhNYsvNjJK3FwVsM",
+    "id": "PLrdXfGJ6YuL5t32VbAlXbU92frBBNy_2G",
+    "snippet": {
+      "publishedAt": "2020-04-20T13:48:23Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Volunteers of The Dalí",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fvZ44y4hJTk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fvZ44y4hJTk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fvZ44y4hJTk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fvZ44y4hJTk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fvZ44y4hJTk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Volunteers of The Dalí",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "spDqVpnFqln6imAH8SSDgpcMSi0",
+    "id": "PLrdXfGJ6YuL5TIIjzVcEPf4TWrzhEIi4M",
+    "snippet": {
+      "publishedAt": "2020-02-15T22:10:41Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Salvador Dalí Works",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Je_YgDogbWE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Je_YgDogbWE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Je_YgDogbWE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Je_YgDogbWE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Je_YgDogbWE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Salvador Dalí Works",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 13
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "_u-dTkWtrrn6BoUWFu_eZaWdD2A",
+    "id": "PLrdXfGJ6YuL6hMcRYhWMXaPMnm-kilOLX",
+    "snippet": {
+      "publishedAt": "2019-08-08T14:36:29Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Goya at The Dalí Museum",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/GhPynaaa9fE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/GhPynaaa9fE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/GhPynaaa9fE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/GhPynaaa9fE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/GhPynaaa9fE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Goya at The Dalí Museum",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "-w8yGL2HfC1FddLocqTpyQE-bVs",
+    "id": "PLrdXfGJ6YuL4YyJKNNuFB2NLo04KauR19",
+    "snippet": {
+      "publishedAt": "2019-07-29T19:33:04Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Visual Magic: Dalí's Masterworks in Augmented Reality",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_9iDdSfpVgk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_9iDdSfpVgk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_9iDdSfpVgk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_9iDdSfpVgk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_9iDdSfpVgk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Visual Magic: Dalí's Masterworks in Augmented Reality",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 1
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "vknp-wAAU5f5FIwxMc8u-ifNyLo",
+    "id": "PLrdXfGJ6YuL5QjB9md51pYPM3k8UaQue2",
+    "snippet": {
+      "publishedAt": "2019-03-13T17:09:57Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "\"Magritte & Dalí\" at The Dalí Museum",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/29i1hopsBiw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/29i1hopsBiw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/29i1hopsBiw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/29i1hopsBiw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/29i1hopsBiw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "\"Magritte & Dalí\" at The Dalí Museum",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "xPho1uHmHFIKwX46o7I70ZrmHLI",
+    "id": "PLrdXfGJ6YuL6ae1cas3DSe4ePRrencypl",
+    "snippet": {
+      "publishedAt": "2019-01-18T00:02:10Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dali Museum Education Programs",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/2BOLrMhTwCA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dali Museum Education Programs",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "taL00B48YqBSHEIF53Ai_BlAmW8",
+    "id": "PLrdXfGJ6YuL4ZY1DaIF8j82UeMuED6ahs",
+    "snippet": {
+      "publishedAt": "2019-01-18T00:00:58Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dalí Museum Education Programs",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dalí Museum Education Programs",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "UirCA4m6_QDJi5YYEQG8Tq26H7g",
+    "id": "PLrdXfGJ6YuL4O0ksUc5cuIAAXCHn1JFcI",
+    "snippet": {
+      "publishedAt": "2018-11-19T15:58:32Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "The Dalí Museum Store",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/J540klShhK0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/J540klShhK0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/J540klShhK0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/J540klShhK0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/J540klShhK0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "The Dalí Museum Store",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ur18rbIui_9vF_h1jLIFqXPhd7c",
+    "id": "PLrdXfGJ6YuL6A8dFtzLBrXIR4-ZG_xrWt",
+    "snippet": {
+      "publishedAt": "2018-07-18T16:41:08Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "\"Clyde Butcher: Vision of Dali's Spain\" at The Dali Museum",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/MtnIvE9kHxE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/MtnIvE9kHxE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/MtnIvE9kHxE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/MtnIvE9kHxE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/MtnIvE9kHxE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "\"Clyde Butcher: Vision of Dali's Spain\" at The Dali Museum",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "7GbTASxrooCwkIdBb4qW8QMM5lA",
+    "id": "PLrdXfGJ6YuL60VfuvB386Q3u0R0HxqM6K",
+    "snippet": {
+      "publishedAt": "2018-04-13T13:58:19Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "\"Dali & da Vinci\" at The Dali Museum",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/VrFvCVUphyQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/VrFvCVUphyQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/VrFvCVUphyQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/VrFvCVUphyQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "\"Dali & da Vinci\" at The Dali Museum",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "tEGPI4oEVyleBHzqgh3nqgWpdKI",
+    "id": "PLrdXfGJ6YuL6x5qQqyOD_dRs_siWMRjCM",
+    "snippet": {
+      "publishedAt": "2018-04-13T13:50:51Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "\"Warhol: Art. Fame. Mortality\" at The Dali Museum",
+      "description": "“Warhol and Dali lived in New York City at the same time. The photos of the two of them suggest a certain reticence. Perhaps they knew how much alike they were. Artistically they are of the same species – both radical. If Dali is radical in the way he delivered his subject of the changeable self through many media – painting, sculpture, film, and language – Warhol is radical in allowing media to provide his subject – faces from the tabloids and glossy magazines, products from the catalog of the American consumer.” - Dr. Hank Hine, Executive Director of The Dali\n\nLearn more: http://thedali.org/warhol",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/XnzPDiRAej8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/XnzPDiRAej8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/XnzPDiRAej8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/XnzPDiRAej8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/XnzPDiRAej8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "\"Warhol: Art. Fame. Mortality\" at The Dali Museum",
+        "description": "“Warhol and Dali lived in New York City at the same time. The photos of the two of them suggest a certain reticence. Perhaps they knew how much alike they were. Artistically they are of the same species – both radical. If Dali is radical in the way he delivered his subject of the changeable self through many media – painting, sculpture, film, and language – Warhol is radical in allowing media to provide his subject – faces from the tabloids and glossy magazines, products from the catalog of the American consumer.” - Dr. Hank Hine, Executive Director of The Dali\n\nLearn more: http://thedali.org/warhol"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ix_EGE47eyEjMg79dpqDbdY9oao",
+    "id": "PLrdXfGJ6YuL5nPllGJOlF0Ya-j3y2-t8e",
+    "snippet": {
+      "publishedAt": "2018-04-13T13:26:00Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "M. C. Escher at The Dali Museum",
+      "description": "“Escher, like Dali, played in a serious way with that fundamental question of visual art – What is real? Is the world as it looks to be, or have I constructed an illusion in my mind? Escher delights every viewer with his visual sleights of hand.” -Hank Hine, Dali Museum Executive Director.\n\nLearn more: http://thedali.org/escher",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/e-FePnnp62I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/e-FePnnp62I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/e-FePnnp62I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/e-FePnnp62I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/e-FePnnp62I/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "M. C. Escher at The Dali Museum",
+        "description": "“Escher, like Dali, played in a serious way with that fundamental question of visual art – What is real? Is the world as it looks to be, or have I constructed an illusion in my mind? Escher delights every viewer with his visual sleights of hand.” -Hank Hine, Dali Museum Executive Director.\n\nLearn more: http://thedali.org/escher"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "qSMfazfTMNqt5WYxzkTikeToosQ",
+    "id": "PLrdXfGJ6YuL4U_XsqvEb0ltNqxeoJG2Ej",
+    "snippet": {
+      "publishedAt": "2018-04-13T13:06:04Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Eduardo Chillida at The Dali Museum",
+      "description": "The Eduardo Chillida exhibition continues The Dali Museum’s tradition of presenting art and artists whose relationship to Salvador Dali and Surrealism may not be widely known.\n\nLearn more: http://thedali.org/chill",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/mQGunN-kWmE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/mQGunN-kWmE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/mQGunN-kWmE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/mQGunN-kWmE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/mQGunN-kWmE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Eduardo Chillida at The Dali Museum",
+        "description": "The Eduardo Chillida exhibition continues The Dali Museum’s tradition of presenting art and artists whose relationship to Salvador Dali and Surrealism may not be widely known.\n\nLearn more: http://thedali.org/chill"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ugGrNr112HT6Dl6gDoSIk5MPufI",
+    "id": "PLrdXfGJ6YuL62rhOfLxQ-VDFnLJkQpwu7",
+    "snippet": {
+      "publishedAt": "2018-02-20T20:27:37Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "\"Frida Kahlo at The Dali\"",
+      "description": "Kahlo and Dali each created artistic autobiographies and their personalities loom behind their paintings, generating a presence that both shapes and overshadows their works of art. While Kahlo largely rejected the term ‘Surrealism’ and felt that her works were as real as her life, Andre Breton, known as the founder of Surrealism, took great interest in her work and described her painting as a bomb wrapped in a ribbon.\n\nLearn more: http://thedali.org/frida",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ibajcRK1psA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ibajcRK1psA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ibajcRK1psA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ibajcRK1psA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ibajcRK1psA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "\"Frida Kahlo at The Dali\"",
+        "description": "Kahlo and Dali each created artistic autobiographies and their personalities loom behind their paintings, generating a presence that both shapes and overshadows their works of art. While Kahlo largely rejected the term ‘Surrealism’ and felt that her works were as real as her life, Andre Breton, known as the founder of Surrealism, took great interest in her work and described her painting as a bomb wrapped in a ribbon.\n\nLearn more: http://thedali.org/frida"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "HkXmGnYVgdcwi2oPplv_NpiagHY",
+    "id": "PLrdXfGJ6YuL7t8MF8ryDgJnUSyGoa4gDl",
+    "snippet": {
+      "publishedAt": "2018-02-20T19:55:32Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "\"Dali & Duchamp\" at The Dali Museum",
+      "description": "On the surface, these two great 20th-century artists could hardly be more dissimilar, but Dali and Duchamp maintained a lasting bond of friendship and mutual admiration throughout their careers. What fueled this seemingly unlikely friendship was deeper than their shared artistic interests – among them eroticism, language, optics and games. More fundamentally, the two men were united by a combination of humor and skepticism, which led both, in different ways, to challenge conventional views of art and life.\n\nLearn more: http://thedali.org/duchamp",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cmAlvmrpucw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cmAlvmrpucw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cmAlvmrpucw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/cmAlvmrpucw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/cmAlvmrpucw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "\"Dali & Duchamp\" at The Dali Museum",
+        "description": "On the surface, these two great 20th-century artists could hardly be more dissimilar, but Dali and Duchamp maintained a lasting bond of friendship and mutual admiration throughout their careers. What fueled this seemingly unlikely friendship was deeper than their shared artistic interests – among them eroticism, language, optics and games. More fundamentally, the two men were united by a combination of humor and skepticism, which led both, in different ways, to challenge conventional views of art and life.\n\nLearn more: http://thedali.org/duchamp"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ie6BelDMk0l0VrqIQg3ZSOPXtu4",
+    "id": "PLrdXfGJ6YuL7xonScOHbrduzCNvuN0qo3",
+    "snippet": {
+      "publishedAt": "2018-02-20T19:38:58Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "\"Disney & Dalí\" at The Dalí Museum",
+      "description": "Born three years and half a world apart, both Disney and Dalí bore boyhood imaginations grounded in their upbringing in the 1900s, encouraging their lives, careers, and legacies to be paralleled on a profound level. A deeper look into the lives and artistic prominence of the Surrealist and the dreamer—highlighted by hand-written letters and alongside filmed dramatizations and audio re-creations—will show just how alike these two innovators were in blurring the lines between reality and dreams.\n\nLearn more: http://thedali.org/disney",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/u-4am2FeTnE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/u-4am2FeTnE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/u-4am2FeTnE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/u-4am2FeTnE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/u-4am2FeTnE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "\"Disney & Dalí\" at The Dalí Museum",
+        "description": "Born three years and half a world apart, both Disney and Dalí bore boyhood imaginations grounded in their upbringing in the 1900s, encouraging their lives, careers, and legacies to be paralleled on a profound level. A deeper look into the lives and artistic prominence of the Surrealist and the dreamer—highlighted by hand-written letters and alongside filmed dramatizations and audio re-creations—will show just how alike these two innovators were in blurring the lines between reality and dreams.\n\nLearn more: http://thedali.org/disney"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "NkW1WLk-nma2IIHSYJsHn4XDNVc",
+    "id": "PLrdXfGJ6YuL4K_gph3M_8d8jPYTzOrPOI",
+    "snippet": {
+      "publishedAt": "2018-02-20T19:17:37Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "The Dali Museum in the News",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/oy3zjTa29pU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/oy3zjTa29pU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/oy3zjTa29pU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/oy3zjTa29pU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "The Dali Museum in the News",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 25
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "lDdYwM_3fpznp1rb0Oq74OW3Vis",
+    "id": "PLrdXfGJ6YuL7V5T3oIqw0udawDdZ65HfN",
+    "snippet": {
+      "publishedAt": "2016-10-13T16:51:02Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Ferran Adria at The Dali Museum",
+      "description": "Widely celebrated for changing the landscape of gastronomy, renowned chef and restaurateur Ferran Adria changed cooking in the same way Salvador Dali changed art. In conjunction with The Dali Museum's special exhibition \"Ferran Adria: The Invention of Food,\" events ranged from an amazing Paella Party at FarmTable Kitchen with Chef Adria in attendance, to a series of seven sold-out Immersion Dinners, prepared by top chefs serving as an experiential homage to Chef Adria.\n\nLearn more: http://thedali.org/ferran",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/k2wm1XNokgo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/k2wm1XNokgo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/k2wm1XNokgo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/k2wm1XNokgo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/k2wm1XNokgo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Ferran Adria at The Dali Museum",
+        "description": "Widely celebrated for changing the landscape of gastronomy, renowned chef and restaurateur Ferran Adria changed cooking in the same way Salvador Dali changed art. In conjunction with The Dali Museum's special exhibition \"Ferran Adria: The Invention of Food,\" events ranged from an amazing Paella Party at FarmTable Kitchen with Chef Adria in attendance, to a series of seven sold-out Immersion Dinners, prepared by top chefs serving as an experiential homage to Chef Adria.\n\nLearn more: http://thedali.org/ferran"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "7-wsB-Zrvk_fEaxGx6repLk8IKA",
+    "id": "PLrdXfGJ6YuL61Sv45RKc0pHLXIyw0i5bS",
+    "snippet": {
+      "publishedAt": "2016-06-15T17:55:11Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Opera at The Dali Museum",
+      "description": "Experience Opera at The Dali, a collaboration with St. Petersburg College. Opera at The Dali introduces audiences to emerging opera artists through dynamic 20-minute performances every month. Performances are free to the public. Opera is performed from the Spiral Staircase.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/XLlTQ0zfg9c/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/XLlTQ0zfg9c/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/XLlTQ0zfg9c/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/XLlTQ0zfg9c/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/XLlTQ0zfg9c/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Opera at The Dali Museum",
+        "description": "Experience Opera at The Dali, a collaboration with St. Petersburg College. Opera at The Dali introduces audiences to emerging opera artists through dynamic 20-minute performances every month. Performances are free to the public. Opera is performed from the Spiral Staircase."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 30
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "N2h9VuA4BP-4QovtAixrV1-nbKA",
+    "id": "PLrdXfGJ6YuL7L5QRckpLfZEr10ym0eoa9",
+    "snippet": {
+      "publishedAt": "2016-06-15T17:48:46Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Poetry at The Dali Museum",
+      "description": "Poetry at The Dali is an ongoing series hosted by St. Petersburg Poet Laureate, Helen Wallace. Occurring on the second Thursday of each month through May 2016, each evening features Wallace joined by selected poets to present poems addressing the theme of Memory and Desire. Following the presentation, is an audience Q&A.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qXfo6QbPWoQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qXfo6QbPWoQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qXfo6QbPWoQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Poetry at The Dali Museum",
+        "description": "Poetry at The Dali is an ongoing series hosted by St. Petersburg Poet Laureate, Helen Wallace. Occurring on the second Thursday of each month through May 2016, each evening features Wallace joined by selected poets to present poems addressing the theme of Memory and Desire. Following the presentation, is an audience Q&A."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 25
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "iTl_GmtLPSUr2TIbS6mpGcrdLrQ",
+    "id": "PLrdXfGJ6YuL5_2wczsjh5r3DsSp4g8oBv",
+    "snippet": {
+      "publishedAt": "2016-06-14T21:58:17Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Explore The Dali Museum",
+      "description": "Dali's mind-bending works belong in a building that shares their same imaginative soul – a true architectural achievement. Opened on January 11, 2011, The Dali is a structure to behold.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bKI9o6r_iw0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Explore The Dali Museum",
+        "description": "Dali's mind-bending works belong in a building that shares their same imaginative soul – a true architectural achievement. Opened on January 11, 2011, The Dali is a structure to behold."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 18
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "IHkb8ue9ppyDtbgfdAWOBf-yyk8",
+    "id": "PLrdXfGJ6YuL5u3mdCJinKWibzd1dA7FTS",
+    "snippet": {
+      "publishedAt": "2016-04-20T18:46:59Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dreams of Dali Virtual Reality Experience at The Dali Museum",
+      "description": "Go inside and beyond Dalí’s painting Archeological Reminiscence of Millet’s Angelus and explore the world of the surrealist master like never before.\n\nLearn more: http://dreamsofdali.org",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dreams of Dali Virtual Reality Experience at The Dali Museum",
+        "description": "Go inside and beyond Dalí’s painting Archeological Reminiscence of Millet’s Angelus and explore the world of the surrealist master like never before.\n\nLearn more: http://dreamsofdali.org"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8xQFR6IONXB4EdsFX2pAP5zDG3M",
+    "id": "PLrdXfGJ6YuL46HqagvoT-cAwh9-iNIAn_",
+    "snippet": {
+      "publishedAt": "2016-04-20T18:46:40Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Walt Disney and Salvador Dali Gallery Series",
+      "description": "Join us each week as our tour guides Christa and Celia explore our \"Disney and Dali: Architects of the Imagination\" exhibit here at The Dali.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/lTWSsHyPOFQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/lTWSsHyPOFQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/lTWSsHyPOFQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/lTWSsHyPOFQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/lTWSsHyPOFQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Walt Disney and Salvador Dali Gallery Series",
+        "description": "Join us each week as our tour guides Christa and Celia explore our \"Disney and Dali: Architects of the Imagination\" exhibit here at The Dali."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 7
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "zAcW1sGj2dAaHpQtCCTsJGgFi6Y",
+    "id": "PLrdXfGJ6YuL65JadkXnG-vxSI51EBMe1c",
+    "snippet": {
+      "publishedAt": "2016-04-20T18:25:33Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "SciCafe at The Dali Museum",
+      "description": "SciCafe St. Petersburg is an informal discussion series for adults created by Secrets of the Sea Marine Exploration Center and Aquarium (formerly The Pier Aquarium) in 2009. Its purpose is to raise awareness and satisfy peoples’ curiosity about things scientific. The Dali Museum is a proud host of the 2016 Tuesday evening series.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9EtGG7NyJSQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9EtGG7NyJSQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9EtGG7NyJSQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9EtGG7NyJSQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9EtGG7NyJSQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "SciCafe at The Dali Museum",
+        "description": "SciCafe St. Petersburg is an informal discussion series for adults created by Secrets of the Sea Marine Exploration Center and Aquarium (formerly The Pier Aquarium) in 2009. Its purpose is to raise awareness and satisfy peoples’ curiosity about things scientific. The Dali Museum is a proud host of the 2016 Tuesday evening series."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "yaHp76g7x9qZ9vqixUfEb_9irM8",
+    "id": "PLrdXfGJ6YuL6d_MAKWSxlVFePG52ijoJc",
+    "snippet": {
+      "publishedAt": "2016-04-08T16:57:03Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Coffee with a Curator at The Dalí Museum",
+      "description": "A focused, theme-oriented PowerPoint presentation on a variety of Dali-related topics. The talk is presented by one of The Dali''s Curatorial/Education team",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Isev7fR9r8w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Isev7fR9r8w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Isev7fR9r8w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Isev7fR9r8w/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Isev7fR9r8w/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Coffee with a Curator at The Dalí Museum",
+        "description": "A focused, theme-oriented PowerPoint presentation on a variety of Dali-related topics. The talk is presented by one of The Dali''s Curatorial/Education team"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 71
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "HCTfep5l_zW4V9K-7aLFzQlSc2I",
+    "id": "PLrdXfGJ6YuL62eob_liDzFb2U3-kuZM74",
+    "snippet": {
+      "publishedAt": "2016-01-15T15:19:54Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dali on the “Fly”",
+      "description": "The Dali on the “Fly” Art Mobile is a collaborative project of the Pinellas County School Board and The Dali Museum.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/l2JPWB3uYI0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/l2JPWB3uYI0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/l2JPWB3uYI0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/l2JPWB3uYI0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/l2JPWB3uYI0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dali on the “Fly”",
+        "description": "The Dali on the “Fly” Art Mobile is a collaborative project of the Pinellas County School Board and The Dali Museum."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "t9T-vU_89uvGIXuJ_yt_EvsnJnw",
+    "id": "PLrdXfGJ6YuL7tF6bNowmVnLyL6toaSMjZ",
+    "snippet": {
+      "publishedAt": "2014-10-29T14:53:05Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dada & Surrealism",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wd_3311oYBk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wd_3311oYBk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wd_3311oYBk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wd_3311oYBk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wd_3311oYBk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dada & Surrealism",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 149
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "l_YFkHXhaDXTHcGlRo-sIzAHDLs",
+    "id": "PLrdXfGJ6YuL6TT9HtzxZlxu4-mFDJbz0U",
+    "snippet": {
+      "publishedAt": "2014-10-29T13:59:47Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Daliwood Student Films",
+      "description": "Daliwood is a juried film competition of Pinellas and Hillsborough County middle and high school students. Students are invited to make a short film exploring a particular, set theme. The judges select works which are shown at the Sunscreen Film Festival and the winners are shown at The Dali Museum in the Student Gallery. Award winning films are given a cash prize to both teacher and student director.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nqEv_iSXijU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nqEv_iSXijU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nqEv_iSXijU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nqEv_iSXijU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nqEv_iSXijU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Daliwood Student Films",
+        "description": "Daliwood is a juried film competition of Pinellas and Hillsborough County middle and high school students. Students are invited to make a short film exploring a particular, set theme. The judges select works which are shown at the Sunscreen Film Festival and the winners are shown at The Dali Museum in the Student Gallery. Award winning films are given a cash prize to both teacher and student director."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 79
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "kdNxb5yFrhnNx_2Ny3wGg2Y9WEQ",
+    "id": "PLrdXfGJ6YuL453m7gixL3UX1oPqe6RJyE",
+    "snippet": {
+      "publishedAt": "2013-09-18T21:58:00Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Sharing Salvador; Legacy Stories",
+      "description": "This documentary film series captures over 30 years of memories, featuring myriad story tellers from The Dali with a behind-the-scenes look at the 1983 opening of this St. Petersburg jewel and never-seen-before personal and historical photographs of the museum founders and Salvador Dali.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/5UnYJfZ87hA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/5UnYJfZ87hA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/5UnYJfZ87hA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/5UnYJfZ87hA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/5UnYJfZ87hA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Sharing Salvador; Legacy Stories",
+        "description": "This documentary film series captures over 30 years of memories, featuring myriad story tellers from The Dali with a behind-the-scenes look at the 1983 opening of this St. Petersburg jewel and never-seen-before personal and historical photographs of the museum founders and Salvador Dali."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 12
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "MHx9HZ1vse-poqS9FzEwd-Jwgo4",
+    "id": "PLrdXfGJ6YuL5OTRmAktCxEp_54cJ8dFpE",
+    "snippet": {
+      "publishedAt": "2013-06-19T12:47:51Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Innovation Labs at The Dali Museum",
+      "description": "One-of-a-kind programs that combine over 60 years of research on creativity, creative problem solving, and innovation – infused with Dali’s philosophy – to unlock a team’s untapped potential.\n\nLearn more: http://thedali.org/innovationlabs",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/zi6VAQzLI0g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/zi6VAQzLI0g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/zi6VAQzLI0g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/zi6VAQzLI0g/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/zi6VAQzLI0g/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Innovation Labs at The Dali Museum",
+        "description": "One-of-a-kind programs that combine over 60 years of research on creativity, creative problem solving, and innovation – infused with Dali’s philosophy – to unlock a team’s untapped potential.\n\nLearn more: http://thedali.org/innovationlabs"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 11
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "WlIm-3og8mxfNuMeo9g6ZPDSXTE",
+    "id": "PLrdXfGJ6YuL5rhuZa9NwRgmf280zPSJzG",
+    "snippet": {
+      "publishedAt": "2013-04-08T03:55:00Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dali Condensed Lecture Series",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uN2qmqmghe0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uN2qmqmghe0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uN2qmqmghe0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/uN2qmqmghe0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/uN2qmqmghe0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dali Condensed Lecture Series",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "uIhRXbAvBr4FCd0TrkfCjPAiKS0",
+    "id": "PLrdXfGJ6YuL6ofYwv2o6QFff2dWcajt17",
+    "snippet": {
+      "publishedAt": "2013-04-05T13:54:30Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "The Genius Next Door",
+      "description": "A rapid-fire grounding in the newest knowledge in science, art, education and business.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-fFUKu4wWbU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-fFUKu4wWbU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-fFUKu4wWbU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-fFUKu4wWbU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-fFUKu4wWbU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "The Genius Next Door",
+        "description": "A rapid-fire grounding in the newest knowledge in science, art, education and business."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "pL3Jl9s6fruA4viAuhfwPTVzUzo",
+    "id": "PLE6DD3FDA7966B94D",
+    "snippet": {
+      "publishedAt": "2012-08-16T19:00:20Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Direct from the Director",
+      "description": "An inside look of the museum from the Director of the Dali.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/XR8sojufQ9U/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/XR8sojufQ9U/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/XR8sojufQ9U/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Direct from the Director",
+        "description": "An inside look of the museum from the Director of the Dali."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 16
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "pg29Zi1B2DjXLW0feNNvJaW3fG4",
+    "id": "PL360B66B4A39AC4A0",
+    "snippet": {
+      "publishedAt": "2012-08-15T21:06:57Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Lectures at The Dali Museum",
+      "description": "A variety of lectures about Salvador Dali and related topics featuring Dali Museum staff and guest speakers.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/hHzCz2Tcyyo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/hHzCz2Tcyyo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/hHzCz2Tcyyo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/hHzCz2Tcyyo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Lectures at The Dali Museum",
+        "description": "A variety of lectures about Salvador Dali and related topics featuring Dali Museum staff and guest speakers."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 108
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "tKQtNv_OJAin13Qv3Vu4_h39CY8",
+    "id": "PLB0BBE56D7C2A72EE",
+    "snippet": {
+      "publishedAt": "2012-08-15T19:45:20Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "What's New",
+      "description": "Never a dull moment at The Dali. Check out our latest and greatest videos.\n\nThe Dali Museum, located in the heart of beautiful downtown St. Petersburg, Florida, is home to an unparalleled collection of Salvador Dali art. The Dali is the first and only museum in the Southeastern United States to be recognized internationally by the Michelin Guide with a three-star rating. The building is itself a work of art, featuring 1,062 triangular-shaped glass panels – the only structure of its kind in North America. \n\nThe Museum is open seven days a week from 10am-5:30pm (open late on Thursdays with reduced admission). For more, visit www.TheDali.org",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/F1eLeIocAcU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "What's New",
+        "description": "Never a dull moment at The Dali. Check out our latest and greatest videos.\n\nThe Dali Museum, located in the heart of beautiful downtown St. Petersburg, Florida, is home to an unparalleled collection of Salvador Dali art. The Dali is the first and only museum in the Southeastern United States to be recognized internationally by the Michelin Guide with a three-star rating. The building is itself a work of art, featuring 1,062 triangular-shaped glass panels – the only structure of its kind in North America. \n\nThe Museum is open seven days a week from 10am-5:30pm (open late on Thursdays with reduced admission). For more, visit www.TheDali.org"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 65
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "jE6XjrgYU-z8VNf12T14598wZXQ",
+    "id": "PL324B7A507685B604",
+    "snippet": {
+      "publishedAt": "2012-08-15T19:33:55Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Junior Docent Art Camp",
+      "description": "Learn about Dali, make new friends and have a surreal adventure. Offered to children ages 9-15, this week-long camp at The Dali invites students to explore the fascinating ideas of the world's most famous surrealist, learning about Surrealism, Salvador Dali, and The Dali Museum collection in order to lead their own public tour during the culminating Friday reception.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9B_JdWND5Fo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9B_JdWND5Fo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9B_JdWND5Fo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9B_JdWND5Fo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9B_JdWND5Fo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Junior Docent Art Camp",
+        "description": "Learn about Dali, make new friends and have a surreal adventure. Offered to children ages 9-15, this week-long camp at The Dali invites students to explore the fascinating ideas of the world's most famous surrealist, learning about Surrealism, Salvador Dali, and The Dali Museum collection in order to lead their own public tour during the culminating Friday reception."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 14
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "dxqrChLczXyMsZUshl45W6spAnY",
+    "id": "PL37817DE1509158B8",
+    "snippet": {
+      "publishedAt": "2012-08-14T20:35:39Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dali Museum Teacher Resources",
+      "description": "A collection of resources about The Dali Museum collection for teachers.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/rp2PRA0qaD4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/rp2PRA0qaD4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/rp2PRA0qaD4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/rp2PRA0qaD4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/rp2PRA0qaD4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dali Museum Teacher Resources",
+        "description": "A collection of resources about The Dali Museum collection for teachers."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 30
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "uA25C4dIjKnaUKavRt6AHq--YlA",
+    "id": "PL9FAAA51821A89D25",
+    "snippet": {
+      "publishedAt": "2012-08-09T21:34:04Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Special Exhibitions at The Dali Museum",
+      "description": "An assortment videos promoting special exhibitions.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nCWsPY2nHJY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nCWsPY2nHJY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nCWsPY2nHJY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Special Exhibitions at The Dali Museum",
+        "description": "An assortment videos promoting special exhibitions."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 36
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "MdGwiGKC8khpJuKc6jjDPxiEvSM",
+    "id": "PL45633A5DB96C677E",
+    "snippet": {
+      "publishedAt": "2012-08-09T20:27:13Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Salvador Dali and Science Series",
+      "description": "A series of talks focusing on concepts that engaged Dali which are then explored more fully from a scientific perspective. The discussions explore a wide range of scientific topics including DNA, death, and sexual practices.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/HngecOSuWYE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/HngecOSuWYE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/HngecOSuWYE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/HngecOSuWYE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Salvador Dali and Science Series",
+        "description": "A series of talks focusing on concepts that engaged Dali which are then explored more fully from a scientific perspective. The discussions explore a wide range of scientific topics including DNA, death, and sexual practices."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "s8IsRtVslc6GvbmiUgYdpg4SVxE",
+    "id": "PLB22B360D92F03E6E",
+    "snippet": {
+      "publishedAt": "2012-08-09T20:23:24Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Performances at The Dali Museum",
+      "description": "The Museum occasionally hosts musicians and actors who perform avant-garde and unusual musical or theatrical performances.  And, semi-monthly, The Dali offers free opera performances in collaboration with St. Petersburg College to introduce audiences to emerging opera artists.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xb_T65OHILQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xb_T65OHILQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xb_T65OHILQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xb_T65OHILQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Performances at The Dali Museum",
+        "description": "The Museum occasionally hosts musicians and actors who perform avant-garde and unusual musical or theatrical performances.  And, semi-monthly, The Dali offers free opera performances in collaboration with St. Petersburg College to introduce audiences to emerging opera artists."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 39
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "DSRzUkS3gumJ5zW6iWRRquvqvOo",
+    "id": "PL7CE8E21ABE9463CE",
+    "snippet": {
+      "publishedAt": "2012-08-09T19:19:32Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Our Town at The Dali Museum",
+      "description": "Our Town is a conversation series with notable St. Pete mythmakers. Host Dr. Carol Mickett, philosopher and artist, converses with local heroes about their visions, accomplishments, and contributions to shaping the identity of our town. \n\nOur Town is brought to you by Bloomin' Brands and Allstate Roadside Services",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/WumuxFdJGvw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/WumuxFdJGvw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/WumuxFdJGvw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/WumuxFdJGvw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Our Town at The Dali Museum",
+        "description": "Our Town is a conversation series with notable St. Pete mythmakers. Host Dr. Carol Mickett, philosopher and artist, converses with local heroes about their visions, accomplishments, and contributions to shaping the identity of our town. \n\nOur Town is brought to you by Bloomin' Brands and Allstate Roadside Services"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 20
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "j0K5fARgJF81ghumGwaRFeiry58",
+    "id": "PLA456837E87FA0231",
+    "snippet": {
+      "publishedAt": "2012-06-14T19:25:50Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Conservation at The Dali Museum",
+      "description": "Within the sweeping walls of The Dali Museum lives one of the most revered Salvador Dali collections in existence. Our commitment to share these works with audiences around the world comes with the significant responsibility to expertly maintain these precious pieces. These rare and distinguished artworks are continually evaluated to determine their preservation needs.\n\nConservation made possible by the National Endowment for the Arts.\n\nLearn more: http://thedali.org/conservation",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/L1wOfQDnp8o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/L1wOfQDnp8o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/L1wOfQDnp8o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/L1wOfQDnp8o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/L1wOfQDnp8o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Conservation at The Dali Museum",
+        "description": "Within the sweeping walls of The Dali Museum lives one of the most revered Salvador Dali collections in existence. Our commitment to share these works with audiences around the world comes with the significant responsibility to expertly maintain these precious pieces. These rare and distinguished artworks are continually evaluated to determine their preservation needs.\n\nConservation made possible by the National Endowment for the Arts.\n\nLearn more: http://thedali.org/conservation"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 15
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "y_U4n41lf2XgFuRuBwmmlpynywA",
+    "id": "PL538765D89B569903",
+    "snippet": {
+      "publishedAt": "2011-06-09T15:25:21Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Salvador Dali and the Media",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jdE3U9VXMzA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jdE3U9VXMzA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jdE3U9VXMzA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Salvador Dali and the Media",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 11
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "00SDqxtsolQ5VJPqokWDym_LNUM",
+    "id": "PLE91C8339E267DF87",
+    "snippet": {
+      "publishedAt": "2010-07-15T22:30:44Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Dali Defined - The History and Paintings Explained",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/LiUZYgpLsMg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/LiUZYgpLsMg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/LiUZYgpLsMg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Dali Defined - The History and Paintings Explained",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "x0Typ0YSaVSSVrbB8heQEUPBRKE",
+    "id": "PL2E4B95030832633C",
+    "snippet": {
+      "publishedAt": "2009-05-12T19:46:21Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Salvador Dali Look Alike Contest",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9SxrDfq1Kxk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9SxrDfq1Kxk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9SxrDfq1Kxk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "localized": {
+        "title": "Salvador Dali Look Alike Contest",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 12
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "sEHXK8Zo0WZ-6UuTEgKZmdEqBmI",
+    "id": "FLY-6T66-azasLIwzVf4Q9TQ",
+    "snippet": {
+      "publishedAt": "2007-04-25T20:13:49Z",
+      "channelId": "UCY-6T66-azasLIwzVf4Q9TQ",
+      "title": "Favorites",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aa4L4n6O5z8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aa4L4n6O5z8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aa4L4n6O5z8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/aa4L4n6O5z8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Dalí Museum",
+      "defaultLanguage": "en",
+      "localized": {
+        "title": "Favorites",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 35
+    }
+  }
+]

@@ -1,0 +1,135 @@
+<div id="radio_player_container" style="display:flex; flex-direction:column; align-items:center; width:100%; height:100%; justify-content:center; background:rgba(0,0,0,0.5);">
+    
+    <div id='title_bar' style="font-size:24px; color:var(--accent, goldenrod); margin-bottom:20px; letter-spacing:2px;">Second Life Radio Service</div>          
+
+    <button id="back_btn" onclick="goBack()" style="position:absolute; top:20px; right:20px; background:none; border:none; cursor:pointer; color:white;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <div id="radio_glass" style="width:200px; height:200px; background:rgba(255,255,255,0.05); border:1px solid var(--accent, goldenrod); border-radius:15px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; box-shadow: 0 0 20px rgba(218, 165, 32, 0.2);">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="var(--accent, goldenrod)">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+    </div>
+
+    <div id="station_display" style="font-size:28px; color:white; margin-bottom:5px; font-weight:600;">Connecting...</div>
+    <div class="status-text" id="status_text" style="font-size:14px; color:rgba(255,255,255,0.5); text-transform:uppercase; margin-bottom:20px;">Live Audio Stream</div>
+
+    <audio id="sl_native_player" autoplay></audio>
+
+    <!-- Custom URL Override -->
+    <div style="width:320px; display:flex; flex-direction:column; gap:8px; margin-bottom:20px;">
+        <div style="font-size:11px; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:1px;">Custom Stream Override</div>
+        <input type="text" id="custom_url_input" placeholder="https://stream.example.com/live" style="width:100%; box-sizing:border-box; background:rgba(255,255,255,0.07); border:1px solid rgba(218,165,32,0.4); border-radius:8px; padding:9px 12px; color:white; font-size:13px; outline:none;" />
+        <input type="text" id="custom_name_input" placeholder="Station name (optional)" style="display:none;width:100%; box-sizing:border-box; background:rgba(255,255,255,0.05); border:1px solid rgba(218,165,32,0.25); border-radius:8px; padding:9px 12px; color:white; font-size:13px; outline:none;" />
+        <div style="display:flex; gap:8px;">
+            <button onclick="playCustomStream()" style="flex:1; background:var(--accent, goldenrod); border:none; border-radius:8px; padding:9px; color:#1a1a1a; font-size:13px; font-weight:600; cursor:pointer; letter-spacing:1px;">PLAY</button>
+            <button onclick="revertToStation()" style="flex:1; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.2); border-radius:8px; padding:9px; color:white; font-size:13px; cursor:pointer; letter-spacing:1px;">REVERT</button>
+        </div>
+    </div>
+
+    <div class="volume-container" style="display:flex; align-items:center; gap:15px; width:320px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        <input type="range" id="vol_slider" min="0" max="1" step="0.01" value="0.8" style="flex:1; accent-color:var(--accent, goldenrod); cursor:pointer;">
+    </div>
+</div>
+
+<script>
+(function() {
+    const audio = document.getElementById('sl_native_player');
+    const volSlider = document.getElementById('vol_slider');
+    const stationDisplay = document.getElementById('station_display');
+    const statusText = document.getElementById('status_text');
+
+    // Store the original station info from params so we can revert to it
+    let originalStreamUrl = null;
+    let originalStationName = 'Unknown Station';
+
+    // --- Load from params (original behaviour) ---
+    if (window.lastRadioUrl) {
+        const urlParams = new URLSearchParams(window.lastRadioUrl.split('?')[1]);
+        originalStreamUrl = urlParams.get('stream');
+        originalStationName = urlParams.get('name') || 'Unknown Station';
+    }
+
+    function loadStream(url, name) {
+        if (!url) return;
+        stationDisplay.textContent = name;
+        statusText.textContent = 'Connecting...';
+        statusText.style.color = 'rgba(255,255,255,0.5)';
+        audio.src = url;
+        audio.volume = volSlider.value;
+        audio.onerror = function() {
+            statusText.textContent = 'Stream error — check the URL';
+            statusText.style.color = 'rgba(255,100,100,0.8)';
+            stationDisplay.textContent = 'Failed';
+        };
+        audio.onplaying = function() {
+            statusText.textContent = 'Live Audio Stream';
+            statusText.style.color = 'rgba(255,255,255,0.5)';
+        };
+        audio.play().catch(() => {});
+    }
+
+    // Boot with the preset station
+    loadStream(originalStreamUrl, originalStationName);
+
+    // Volume slider
+    volSlider.addEventListener('input', function() {
+        audio.volume = this.value;
+    });
+
+    // --- Custom URL override ---
+    window.playCustomStream = function() {
+        const url = document.getElementById('custom_url_input').value.trim();
+        const name = document.getElementById('custom_name_input').value.trim();
+        if (!url) {
+            statusText.textContent = 'Please enter a stream URL';
+            statusText.style.color = 'rgba(255,100,100,0.8)';
+            return;
+        }
+        loadStream(url, name || url);
+    };
+
+    // Revert back to the original station from params
+    window.revertToStation = function() {
+        document.getElementById('custom_url_input').value = '';
+        document.getElementById('custom_name_input').value = '';
+        if (originalStreamUrl) {
+            loadStream(originalStreamUrl, originalStationName);
+        } else {
+            audio.pause();
+            audio.src = '';
+            stationDisplay.textContent = 'Idle';
+            statusText.textContent = 'No station loaded';
+            statusText.style.color = 'rgba(255,255,255,0.5)';
+        }
+    };
+
+    // Enter key in URL field triggers play
+    document.getElementById('custom_url_input').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') window.playCustomStream();
+    });
+})();
+
+// Close logic — unchanged from your original
+function goBack() {
+    const audio = document.getElementById('sl_native_player');
+    audio.pause();
+    audio.src = '';
+    audio.load();
+    audio.remove();
+
+    let previousMenu = 'sl-radio';
+    if (window.lastRadioUrl) {
+        if (window.lastRadioUrl.includes('sl-radio')) previousMenu = 'sl-radio';
+        else if (window.lastRadioUrl.includes('inter-radio')) previousMenu = 'inter-radio';
+    }
+
+    $('#sub-content-overlay').fadeOut(200, function() {
+        handleNav(previousMenu);
+    });
+}
+</script>

@@ -1,0 +1,1 @@
+{"pic":"https://images.wallpaperscraft.com/image/single/umbrella_red_sea_art_119667_1280x720.jpg","text_hue":"7","text_sat":"100","text_light":"99","border_hue":"1","border_sat":"81","border_light":"63","title_hue":"1","title_sat":"100","title_light":"65","frame_hue":"44","frame_sat":"75","frame_light":"53"}

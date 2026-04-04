@@ -1,0 +1,160 @@
+<style>
+/* --- Overlay Container (Wraps your content) --- */
+#restricted-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 500px;
+    background: rgba(0, 0, 0, 0.7); /* The Semi-Transparent Layer */
+    backdrop-filter: blur(15px); /* Optional Blur for Premium feel */
+    border: 3px solid #ff4d4d; /* Border matching the warning title */
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    z-index: 1000;
+}
+
+/* --- Centered Text Styling --- */
+#title {
+    font-size: 55px;
+    font-weight: 600;
+    color: #ff4d4d;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.line {
+    font-size: 28px;
+    font-weight: 200;
+    color: white;
+    margin: 5px 0;
+}
+
+#l3 { color: #f1c40f; } /* Yellow accent line */
+
+/* --- Password Input --- */
+#myPsw {
+    width: 350px;
+    height: 60px;
+    font-size: 35px;
+    color: #2ecc71;
+    background: rgba(0, 0, 0, 0.6);
+    border: 3px solid #ff4d4d;
+    border-radius: 12px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* --- The Cross Button Design --- */
+/* Centering the button and styling the 'Cross' design */
+#backBut {
+    margin-top: 20px;
+    background: rgba(241, 196, 15, 0.1); /* Subtle yellow tint */
+    border: 2px solid #f1c40f;
+    color: #f1c40f;
+    padding: 12px 30px;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#backBut .cross-icon {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#backBut:hover {
+    background: #f1c40f;
+    color: #000;
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
+}
+</style>
+
+<body> 
+<div id="restricted-overlay">
+    <div id="title">Attention to Adult Content</div>
+
+    <div id="l1" class="line">( the following pages are for adult viewers only )</div>
+    <div id="l2" class="line">( enter password to access or click the Back button )</div>
+    <div id="l3" class="line">( check the Tv info notecard for the password )</div>
+    <input type="password" id="myPsw" autocomplete="off">
+
+    <p id="errorMsg" style="display:none; color:#ff4d4d; font-weight:600;"></p>
+
+    <button id='errorBut' onclick="tryAgain();" class="btn" style="display:none;">TRY AGAIN</button>
+    <button id='backBut' onclick="back();" class="btn-cross">BACK ✕</button>
+</div>
+
+<script>
+    var socket;
+    var myRoom = 'Lobby';
+
+    window.onload = function() {
+        const params = new URLSearchParams(window.location.search);
+        myRoom = params.get('room') || 'Lobby';
+
+        if (typeof io !== 'undefined') {
+            socket = io.connect();
+            socket.emit('createroom', myRoom);
+        }
+        
+        const pswd = document.getElementById("myPsw");
+        pswd.focus();
+        readIndex();
+    };
+
+    // --- NAVIGATION ADAPTATION ---
+
+function back() {
+    // Check if the global close function exists
+    if (typeof closeSubMenu === "function") {
+        closeSubMenu(); // This hides the overlay and shows the grid
+    } else {
+        // Fallback only if the script isn't loaded
+        window.history.back(); 
+    }
+}
+
+function checkPswd() {
+    const $pswdInput = $('#myPsw');
+    const password = $pswdInput.val();
+    
+    if (password === "slxxx") { 
+        // SUCCESS: Use the MENU KEY defined in NAV_CONFIG
+        if (typeof handleNav === "function") {
+            // ONLY pass the key name, not the path or room
+            handleNav('xxx-index'); 
+        } else {
+            // Emergency fallback if myScripts.js is missing
+            window.location.href = './xxx-index?room=' + myRoom; 
+        }
+    } else {
+        // ERROR Logic
+        $('#errorMsg').text("Wrong Password !!").show();
+        $pswdInput.hide();
+        $('#errorBut').show();
+    }
+}  // Handle Enter Key
+    document.getElementById("myPsw").onkeyup = function (e) {
+        if (e.which == 13) checkPswd();
+    };
+
+    function tryAgain() {
+        $('#l4, #errorBut, #errorMsg').hide();
+        $('#myPsw').show().val("").focus();
+    }
+
+</script>
+</body>

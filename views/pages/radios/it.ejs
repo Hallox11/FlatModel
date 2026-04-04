@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+    <head prefix="og: http://ogp.me/ns#">
+        <meta charset="UTF-8">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <meta name="viewport" content="width=1280">
+      
+    
+        <link rel="stylesheet" href="./../styles/radios.css">
+        <link rel="stylesheet" href="./../styles/menu_index.css">
+       
+
+        <script>
+            window._trackJs = {
+                console: {
+                    display: !1
+                },
+                enabled: 7E-4 > Math.random() ? !0 : !1,
+                token: "73faad723c2e459eafb494db926fccb4",
+                version: "5.0.3"
+            };
+            window.ga = window.ga || function() {
+                (ga.q = ga.q || []).push(arguments)
+            }
+            ;
+            ga.l = +new Date;
+            ga("create", "UA-43921502-1", "auto");
+            ga("set", {
+                anonymize_ip: !0,
+                cookie_domain: "ascoltareradio.com"
+            });
+            ga("send", "pageview");
+            setTimeout(function() {
+                ga("send", "event", "Read", "60 seconds")
+            }, 6E4);
+            window.SM2_DEFER = !0;
+            var webradioConfig = {
+                countryCode: "IT",
+                debugMode: 0,
+                domainID: 34,
+                languageCode: "it",
+                slugDomain: "ascoltareradio-com",
+                slugFavorites: "preferiti",
+                urlApi: "https://api.webrad.io/",
+                urlStatic: "https://cdn.webrad.io/",
+                algolia: [{
+                    "applicationId": "3ZTZWUB3YF",
+                    "apiKey": "69c38d1d7696f10303d883840d265170"
+                }],
+                dashJs: {
+                    version: "3.1.3"
+                },
+                hlsJs: {
+                    version: "0.14.16"
+                },
+                txt: {
+                    error: "Errore",
+                    live: "In diretta",
+                    loading: "Caricamento in corso",
+                    mute: "Némítás\/némítás feloldása",
+                    no_audio: "Nessun audio per più di un mese, controlliamo ogni settimana",
+                    play: "Play",
+                    popup: "Ascolta qui",
+                    search_for: "Risultati di ricerca per %s",
+                    search_none: "Nessun risultato per %s",
+                    start: "Inizia",
+                    stop: "Stop",
+                    volume: "Controllo volume"
+                }
+            };
+        </script>
+       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.2/hogan.min.js" crossorigin="anonymous" defer></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find%2CArray.prototype.findIndex%2CArray.prototype.forEach%2CArray.prototype.reduce%2CElement.prototype.closest%2CElement.prototype.remove%2Cfetch%2CObject.assign%2CObject.entries" crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/script/soundmanager2-nodebug-jsmin.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdn.webrad.io/js/main-5.0.3.min.js" crossorigin="anonymous" defer></script>
+    
+    </head>
+   
+
+    <body>
+        
+        <div id='header'>
+            <h1>Live radios from Italia</h1>
+        </div>          
+                    
+        <div class="radio-section" id="content-area">
+                        
+                        <div id="radio">
+                            <div class="loading" id="radio-track"></div>
+                                <div class="left-box">
+                                        <div class="text-box">
+                                            <marquee behavior="scroll" direction="left">       <strong class="title" id="radio-title"></strong>
+                                          <strong class="signal" id="radio-signal"></strong>
+                                          </marquee>
+                                        </div>
+                                </div>
+                                <div class="img-box">
+                                    <img id="radio-logo" src="https://cdn.webrad.io/images/spacer.gif" alt="" height="86" importance="high" width="96">
+                                </div>
+                                
+                                <div class="btn-holder">
+                                    <a  id="radio-link" ></a>
+                                    </div>
+                            </div>
+
+                            <div class="radio-player">
+                                <div class="loading" id="radio-controls" src="https://cdn.webrad.io/images/icon-st.png"  width="20" height="40"title="">
+                                  
+                                </div>
+                                <a class="favorite-button" aria-label="Add to favorites / Remove from favorites" title="Add to favorites / Remove from favorites" data-favorite-button disabled>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <ul id="radios">
+                            <li class="item-9">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#virgin" title="Virgin Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/virgin.png" alt="Virgin Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-1">
+                                <span>
+                                   <a href="https://ascoltareradio.com/genere/internazionale/#sound-cuneo" title="Radio Piemonte Sound (Cuneo)">
+                                       <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/sound-cuneo.png" alt="Radio Piemonte Sound (Cuneo)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-2">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#rtl-102-5" title="RTL">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/rtl-102-5.png" alt="RTL" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-3">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#rds" title="RDS radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/rds.png" alt="RDS radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-4">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#radio-105" title="Radio 105">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/radio-105.png" alt="Radio 105" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-5">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#rai-2" title="Radio 2">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/rai-2.png" alt="Radio 2" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-6">
+                                <span>
+                                   <a href="https://ascoltareradio.com/genere/internazionale/#marche-ascoli-piceno" title="Radio Aut Marche (Ascoli Piceno)">
+                                       <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/marche-ascoli-piceno.png" alt="Radio Aut Marche (Ascoli Piceno)" height="66" width="96"></a>
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-7">
+                                <span>
+                                   <a href="https://ascoltareradio.com/genere/internazionale/#febea-reggio-calabria" title="Febea Radio (Reggio Calabria)">
+                                       <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/febea-reggio-calabria.png" alt="Febea Radio (Reggio Calabria)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-8">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#kiss-kiss" title="Kiss Kiss">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/kiss-kiss.png" alt="Kiss Kiss" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-10">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#rai-1" title="Radio 1">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/rai-1.png" alt="Radio 1" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-11">
+                                <span>
+                                    <a href="https://ascoltareradio.com/genere/internazionale/#gold-alessandria" title="Radio Gold (Alessandria)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/gold-alessandria.png" alt="Radio Gold (Alessandria)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-12">
+                                <span>
+                                   <a href="https://ascoltareradio.com/genere/internazionale/#babboleo-genova" title="Radio Babboleo News (Genova)">
+                                       <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/babboleo-genova.png" alt="Radio Babboleo News (Genova)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-13">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#monte-carlo" title="Radio Monte Carlo">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/monte-carlo.png" alt="Radio Monte Carlo" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-14">
+                                <span>
+                                    <a href="https://ascoltareradio.com/genere/internazionale/#controradio-firenze" title="Controradio (Firenze)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/controradio-firenze.png" alt="Controradio (Firenze)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-15">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#rai-3" title="Radio 3">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/rai-3.png" alt="Radio 3" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-16">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#subasio" title="Subasio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/subasio.png" alt="Subasio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-17">
+                                <span>
+                                    <a href="https://ascoltareradio.com/genere/internazionale/#rgs" title="Radio RGS">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/rgs.png" alt="Radio RGS" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-18">
+                                <span>
+                                    <a href="https://ascoltareradio.com/genere/internazionale/#saba-sound" title="Radio Saba Sound">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/saba-sound.png" alt="Radio Saba Sound" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-19">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#sei-roma" title="Radio Sei (Roma)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/sei-roma.png" alt="Radio Sei (Roma)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-20">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#marte" title="Radio Marte">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/marte.png" alt="Radio Marte" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-21">
+                                <span>
+                                    <a href="https://ascoltareradio.com/genere/internazionale/#studioradio" title="StudioRadio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/studioradio.png" alt="StudioRadio" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-22">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#norba" title="Radio Norba">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/norba.png" alt="Radio Norba" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-23">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#nuova-napoli" title="Radio Nuova San Giorgio (Napoli)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/nuova-napoli.png" alt="Radio Nuova San Giorgio (Napoli)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-24">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#antenna-1-roma" title="Antenna 1 (Roma)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/antenna-1-roma.png" alt="Antenna 1 (Roma)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-25">
+                                <span>
+                                   <a href="https://ascoltareradio.com/genere/internazionale/#95-4-firenze" title="Radio Firenze">
+                                       <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/95-4-firenze.png" alt="Radio Firenze" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-26">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#ti-ricordi-roma" title="Radio Ti Ricordi (Roma)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/ti-ricordi-roma.png" alt="Radio Ti Ricordi (Roma)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-27">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#centro-suono-sport-roma" title="Radio Centro Suono Sport (Roma)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/centro-suono-sport-roma.png" alt="Radio Centro Suono Sport (Roma)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-28">
+                                <span>
+                                    <a href="https://ascoltareradio.com/genere/world-music/#linea-1-portenza" title="Radio Linea n1 (Portenza)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/linea-1-portenza.png" alt="Radio Linea n1 (Portenza)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-29">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#company" title="Radio Company">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/company.png" alt="Radio Company" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-30">
+                                <span>
+                                   <a href="https://ascoltareradio.com/genere/world-music/#laser-matera" title="Radio Laser (Matera)">
+                                       <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/laser-matera.png" alt="Radio Laser (Matera)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-31">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#studio-delta" title="Studio Delta">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/studio-delta.png" alt="Studio Delta" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-32">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#mambo-roma" title="Radio Mambo (Roma)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/mambo-roma.png" alt="Radio Mambo (Roma)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-33">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#rock-roma" title="Radio Rock (Roma)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/rock-roma.png" alt="Radio Rock (Roma)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-34">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#popolare" title="Radio Popolare">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/popolare.png" alt="Radio Popolare" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-35">
+                                <span>
+                                    <a href="https://ascoltareradio.com/genere/world-music/#eco-cittanova" title="Radio Eco Sound (Cittanova)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/eco-cittanova.png" alt="Radio Eco Sound (Cittanova)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                            <li class="item-36">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#rai-iso" title="Iso radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/rai-iso.png" alt="Iso radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-37">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#105-classics" title="Radio 105 Classics">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/105-classics.png" alt="Radio 105 Classics" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-38">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#lady" title="Lady radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/lady.png" alt="Lady radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-39">
+                                <span>
+                                    <a href="https://ascoltareradio.com/#rete-sport" title="Rete Sport">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/rete-sport.png" alt="Rete Sport" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-40">
+                                <span>
+                                   <a href="https://ascoltareradio.com/genere/world-music/#azzurra-teramo" title="Radio Azzurra (Teramo)">
+                                       <img class="cover" src="https://cdn.webrad.io/images/logos/ascoltareradio-com/azzurra-teramo.png" alt="Radio Azzurra (Teramo)" height="66" width="96"></a>
+                                </span>
+                            </li>
+                        
+                        </ul>
+
+
+                            </div>
+                      
+                       <button id='bback'onclick="location.href = './inter-radio?'+return_url;" class="btn" >BACK</button>
+            </main>
+            
+            <script>
+
+  //// SESSION VARIABLES RETRIVE /////////////////////////////////////////////////
+         
+
+    
+</script>
+          
+    </body>
+</html>

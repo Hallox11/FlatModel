@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <title>Live Radios from Morocco</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./../js/myScripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.2/hogan.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find%2CArray.prototype.findIndex%2CArray.prototype.forEach%2CArray.prototype.reduce%2CElement.prototype.closest%2CElement.prototype.remove%2Cfetch%2CObject.assign%2CObject.entries" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/script/soundmanager2-nodebug-jsmin.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.webrad.io/js/main-5.0.3.min.js" crossorigin="anonymous" defer></script>
+
+    <link rel="stylesheet" href="./../styles/radios.css">
+    <link rel="stylesheet" href="./../styles/menu_index.css">
+
+    <script>
+        window._trackJs = {
+            console: { display: false },
+            enabled: 7E-4 > Math.random(),
+            token: "73faad723c2e459eafb494db926fccb4",
+            version: "5.0.3"
+        };
+        var webradioConfig = {
+            countryCode: "MA",
+            debugMode: 0,
+            domainID: 68,
+            languageCode: "fr",
+            slugDomain: "radio-co-ma",
+            urlApi: "https://api.webrad.io/",
+            urlStatic: "https://cdn.webrad.io/",
+            txt: {
+                live: "En direct",
+                loading: "Chargement...",
+                play: "Jouer",
+                stop: "Arrêter"
+            }
+        };
+        window.SM2_DEFER = true;
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Live Radios from Morocco</h1>
+    </div>          
+    
+    <main class="radio-section" id="content-area">
+        <div id="radio">
+            <div class="loading" id="radio-track"></div>
+            <div class="left-box">
+                <div class="text-box">
+                    <marquee behavior="scroll" direction="left">
+                        <strong class="title" id="radio-title"></strong>
+                        <strong class="signal" id="radio-signal"></strong>
+                    </marquee>
+                </div>
+            </div>
+            <div class="img-box">
+                <img id="radio-logo" src="https://cdn.webrad.io/images/spacer.gif" alt="Radio Logo" height="86" width="96">
+            </div>
+            <div class="btn-holder">
+                <a id="radio-link"></a>
+            </div>
+            <div class="radio-player">
+                <div class="loading" id="radio-controls"></div>
+                <a class="favorite-button" aria-label="Toggle Favorite" data-favorite-button disabled></a>
+            </div>
+        </div>
+
+        <ul id="radios">
+            <li class="item-1"><span><a href="#med" title="Med Radio"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/med.png" alt="Med Radio" height="66" width="96"></a></span></li>
+            <li class="item-2"><span><a href="#chada" title="Chada FM"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/chada.png" alt="Chada FM" height="66" width="96"></a></span></li>
+            <li class="item-3"><span><a href="#medi" title="Medi 1"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/medi.png" alt="Medi 1" height="66" width="96"></a></span></li>
+            <li class="item-4"><span><a href="#mars" title="Radio Mars"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/mars.png" alt="Radio Mars" height="66" width="96"></a></span></li>
+            <li class="item-5"><span><a href="#aswat" title="Aswat"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/aswat.png" alt="Aswat" height="66" width="96"></a></span></li>
+            <li class="item-6"><span><a href="#sawa" title="Radio Sawa"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/sawa.png" alt="Radio Sawa" height="66" width="96"></a></span></li>
+            <li class="item-7"><span><a href="#hit" title="Hit Radio"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/hit.png" alt="Hit Radio" height="66" width="96"></a></span></li>
+            <li class="item-8"><span><a href="#mfm" title="MFM Radio"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/mfm.png" alt="MFM Radio" height="66" width="96"></a></span></li>
+            <li class="item-9"><span><a href="#monte-calro-doualiya" title="Radio Monte Carlo Doualiya"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/monte-calro-doualiya.png" alt="Radio Monte Carlo Doualiya" height="66" width="96"></a></span></li>
+            <li class="item-10"><span><a href="#2m" title="Radio 2M"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/2m.png" alt="Radio 2M" height="66" width="96"></a></span></li>
+            <li class="item-11"><span><a href="#atlantic" title="Atlantic Radio"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/atlantic.png" alt="Atlantic Radio" height="66" width="96"></a></span></li>
+            <li class="item-12"><span><a href="#soleil" title="Radio Soleil"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/soleil.png" alt="Radio Soleil" height="66" width="96"></a></span></li>
+            <li class="item-13"><span><a href="#only-rai" title="Radio Only Raï"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/only-rai.png" alt="Radio Only Raï" height="66" width="96"></a></span></li>
+            <li class="item-14"><span><a href="#chaine" title="Radio Chaine Inter"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/chaine.png" alt="Radio Chaine Inter" height="66" width="96"></a></span></li>
+            <li class="item-15"><span><a href="#izlan" title="Izlan"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/izlan.png" alt="Izlan" height="66" width="96"></a></span></li>
+            <li class="item-16"><span><a href="#nrj-maroc" title="NRJ Maroc"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/nrj-maroc.png" alt="NRJ Maroc" height="66" width="96"></a></span></li>
+            <li class="item-17"><span><a href="#hit-mgharba" title="Hit Radio Mgharba"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/hit-mgharba.png" alt="Hit Radio Mgharba" height="66" width="96"></a></span></li>
+            <li class="item-18"><span><a href="#hit-buzz" title="Hit Radio Buzz"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/hit-buzz.png" alt="Hit Radio Buzz" height="66" width="96"></a></span></li>
+            <li class="item-19"><span><a href="#ness" title="Ness Radio"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/ness.png" alt="Ness Radio" height="66" width="96"></a></span></li>
+            <li class="item-20"><span><a href="#hit-radio-dancefloor" title="Hit Radio Dancefloor"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/hit-radio-dancefloor.png" alt="Hit Radio Dancefloor" height="66" width="96"></a></span></li>
+            <li class="item-21"><span><a href="#assadissa" title="Radio Assadisa FM"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/assadissa.png" alt="Radio Assadisa FM" height="66" width="96"></a></span></li>
+            <li class="item-22"><span><a href="#medina" title="Radio Medina FM"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/medina.png" alt="Radio Medina FM" height="66" width="96"></a></span></li>
+            <li class="item-23"><span><a href="#ohayo" title="Ohayō Otaku Desu"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/ohayo.png" alt="Ohayō Otaku Desu" height="66" width="96"></a></span></li>
+            <li class="item-24"><span><a href="#watania" title="Idaa Al Watania"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/watania.png" alt="Idaa Al Watania" height="66" width="96"></a></span></li>
+            <li class="item-25"><span><a href="#yabiladi" title="Radio Yabiladi"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/yabiladi.png" alt="Radio Yabiladi" height="66" width="96"></a></span></li>
+            <li class="item-26"><span><a href="#izlanzik" title="Izlanzik Radio"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/izlanzik.png" alt="Izlanzik Radio" height="66" width="96"></a></span></li>
+            <li class="item-27"><span><a href="#sawt-ouarzazate" title="Radio Sawt (Ouarzazate)"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/sawt-ouarzazate.png" alt="Radio Sawt (Ouarzazate)" height="66" width="96"></a></span></li>
+            <li class="item-28"><span><a href="#atbir" title="Radio Atbir"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/atbir.png" alt="Radio Atbir" height="66" width="96"></a></span></li>
+            <li class="item-29"><span><a href="#amazighia" title="Al Amazighia"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/amazighia.png" alt="Al Amazighia" height="66" width="96"></a></span></li>
+            <li class="item-30"><span><a href="#star-maroc" title="Radio Star Maroc FM"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/star-maroc.png" alt="Radio Star Maroc FM" height="66" width="96"></a></span></li>
+            <li class="item-31"><span><a href="#moroccan" title="The Moroccan Radio"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/moroccan.png" alt="The Moroccan Radio" height="66" width="96"></a></span></li>
+            <li class="item-32"><span><a href="#anwa-rock" title="Anwa-rock"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/anwa-rock.png" alt="Anwa-rock" height="66" width="96"></a></span></li>
+            <li class="item-33"><span><a href="#cap" title="Cap Radio"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/cap.png" alt="Cap Radio" height="66" width="96"></a></span></li>
+            <li class="item-34"><span><a href="#orient-fm" title="Orient FM"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/orient-fm.png" alt="Orient FM" height="66" width="96"></a></span></li>
+            <li class="item-35"><span><a href="#habayiib" title="Radio Habayiib"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/habayiib.png" alt="Radio Habayiib" height="66" width="96"></a></span></li>
+            <li class="item-36"><span><a href="#coran" title="Radio Coran"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/coran.png" alt="Radio Coran" height="66" width="96"></a></span></li>
+            <li class="item-37"><span><a href="#rock-metal" title="Hit Radio Rock/Metal"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/rock-metal.png" alt="Hit Radio Rock/Metal" height="66" width="96"></a></span></li>
+            <li class="item-38"><span><a href="#anwarock" title="Radio Anwarock"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/anwarock.png" alt="Radio Anwarock" height="66" width="96"></a></span></li>
+            <li class="item-39"><span><a href="#hit-radio-gold" title="Hit Radio Gold"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/hit-radio-gold.png" alt="Hit Radio Gold" height="66" width="96"></a></span></li>
+            <li class="item-40"><span><a href="#hit-rnb" title="Hit Radio RnB"><img class="cover" src="https://cdn.webrad.io/images/logos/radio-co-ma/hit-rnb.png" alt="Hit Radio RnB" height="66" width="96"></a></span></li>
+        </ul>
+        
+        <button id="bback" onclick="location.href = './inter-radio?' + return_url;" class="btn">BACK</button>
+    </main>
+</body>
+</html>

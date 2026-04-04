@@ -1,0 +1,372 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "un4iSbhBEsF2fSIaQOuEiymuE5Y",
+    "id": "PLzPlx_hy42tROaI8VxnsTjFVOE5-dpNad",
+    "snippet": {
+      "publishedAt": "2020-10-16T17:40:53Z",
+      "channelId": "UCSrnmu3W6YXWU_85DKT5arg",
+      "title": "Using Your Comments",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Vy8CsNSqErQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Vy8CsNSqErQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Vy8CsNSqErQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Vy8CsNSqErQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "ThatWasEpic",
+      "localized": {
+        "title": "Using Your Comments",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 24
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "sYznFSzkUw1XaTMRcDFd0nGx1hY",
+    "id": "PLzPlx_hy42tS8uyKLi3EraJZRrhO-NdX4",
+    "snippet": {
+      "publishedAt": "2020-10-16T17:40:12Z",
+      "channelId": "UCSrnmu3W6YXWU_85DKT5arg",
+      "title": "Giveaways",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/G3TpB6-WJ3o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/G3TpB6-WJ3o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/G3TpB6-WJ3o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/G3TpB6-WJ3o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "ThatWasEpic",
+      "localized": {
+        "title": "Giveaways",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 47
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8oZC9SKFKbcUEy-JQmE-X02-5bw",
+    "id": "PLzPlx_hy42tQWy6yK0n7u5QL_ZHZaOrX-",
+    "snippet": {
+      "publishedAt": "2017-07-17T18:51:33Z",
+      "channelId": "UCSrnmu3W6YXWU_85DKT5arg",
+      "title": "Originals",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Fyq9YNm7xH8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Fyq9YNm7xH8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Fyq9YNm7xH8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Fyq9YNm7xH8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "ThatWasEpic",
+      "localized": {
+        "title": "Originals",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 134
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "wPRWU8UnSm3NdwJmoRJ2Q6J80fs",
+    "id": "PLzPlx_hy42tSG9tWoYfuBkglFfe3sDXfy",
+    "snippet": {
+      "publishedAt": "2017-07-17T18:45:41Z",
+      "channelId": "UCSrnmu3W6YXWU_85DKT5arg",
+      "title": "Business Man",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CTcoaaJ8Tuw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CTcoaaJ8Tuw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CTcoaaJ8Tuw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CTcoaaJ8Tuw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "ThatWasEpic",
+      "localized": {
+        "title": "Business Man",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "faDZJAAl04ZsHKPDF-hCoQJlHlc",
+    "id": "PLzPlx_hy42tQ-gqB-n46qNLAkUbWlTd7C",
+    "snippet": {
+      "publishedAt": "2017-07-17T18:38:50Z",
+      "channelId": "UCSrnmu3W6YXWU_85DKT5arg",
+      "title": "Girls",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/XuaC3dXayAs/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/XuaC3dXayAs/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/XuaC3dXayAs/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/XuaC3dXayAs/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "ThatWasEpic",
+      "localized": {
+        "title": "Girls",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 30
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "wjlPcXuWjSgnB8hf-63QukEr040",
+    "id": "PLzPlx_hy42tTpGLEl1c8wUXRzd4hTA4oO",
+    "snippet": {
+      "publishedAt": "2017-07-17T18:29:04Z",
+      "channelId": "UCSrnmu3W6YXWU_85DKT5arg",
+      "title": "Frat Bro",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/QcdBD7v2xzE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/QcdBD7v2xzE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/QcdBD7v2xzE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/QcdBD7v2xzE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "ThatWasEpic",
+      "localized": {
+        "title": "Frat Bro",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "GwdATpAaJH2FuiG2Sn1tZ6IPf7Y",
+    "id": "PLzPlx_hy42tRyTAX76SWA0i95HNuxh6hI",
+    "snippet": {
+      "publishedAt": "2017-07-17T18:17:27Z",
+      "channelId": "UCSrnmu3W6YXWU_85DKT5arg",
+      "title": "Cholo",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/NI2xAZId24I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/NI2xAZId24I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/NI2xAZId24I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/NI2xAZId24I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "ThatWasEpic",
+      "localized": {
+        "title": "Cholo",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 27
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "z4Ko4RaIhL10N8n8OrDCGPfjvw8",
+    "id": "PLzPlx_hy42tRFaEK-lpzD-JodJPNvmqak",
+    "snippet": {
+      "publishedAt": "2014-10-06T07:28:32Z",
+      "channelId": "UCSrnmu3W6YXWU_85DKT5arg",
+      "title": "Recent Uploads",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bhnlQmli5TU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bhnlQmli5TU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bhnlQmli5TU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bhnlQmli5TU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "ThatWasEpic",
+      "localized": {
+        "title": "Recent Uploads",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 302
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "0xeIvDM3oFjAjd1deB79Teq56qQ",
+    "id": "FLSrnmu3W6YXWU_85DKT5arg",
+    "snippet": {
+      "publishedAt": "2014-09-24T22:02:12Z",
+      "channelId": "UCSrnmu3W6YXWU_85DKT5arg",
+      "title": "Favorites",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/7xjW2-JkWI4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/7xjW2-JkWI4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/7xjW2-JkWI4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/7xjW2-JkWI4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "ThatWasEpic",
+      "defaultLanguage": "en",
+      "localized": {
+        "title": "Favorites",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 155
+    }
+  }
+]

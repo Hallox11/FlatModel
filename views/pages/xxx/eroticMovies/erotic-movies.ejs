@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=1280">
+
+    <title>Erotic Movies Menu</title>
+
+   
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./../../js/myScripts.js"></script>
+
+
+
+        <style>
+          
+            body {
+
+                background: #191c17;
+                width: 1270px;
+                font-family: Charcoal, Charcoal, sans-serif;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            p {
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 46px;
+                left: 0%;
+                opacity: 1.0;
+                color: white;
+                line-height: 200%;
+            }
+
+            #header {
+                display: none;
+                position: fixed;
+                top: 15px;
+                left: 108px;
+                width: 1052px;
+                height: 649px;
+                background: rgb(0 0 0 / 82%);
+                border: 3px solid white;
+                border-radius: 8px;
+                z-index: 10000;
+            }
+
+            .btn {
+
+                background: #0b5b5b;
+                border: 3px solid yellowgreen;
+
+                color: white;
+                border-radius: 12px;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 22px;
+                cursor: pointer;
+                margin: 5px;
+                z-index: 1000000000;
+            }
+
+            .btn:hover {
+                background: yellowgreen;
+            }
+
+            .backBut {
+                font-family: Charcoal, Charcoal, sans-serif;
+                position: fixed;
+                top: 675px;
+                left: 10px;
+                border: 2px solid white;
+                border-radius: 8px;
+                text-align: center;
+                text-decoration: none;
+                line-height: 30px;
+                font-size: 20px;
+                width: 80px;
+                height: 30px;
+                background: rgba(100, 100, 100, 0.5);
+                color: gold;
+                cursor: pointer;
+            }
+
+            .backBut:hover {
+                background: yellowgreen;
+                color: black;
+            }
+
+            #menu {
+
+                position: fixed;
+                top: 675px;
+                left: 10px;
+                border: 2px solid white;
+                border-radius: 8px;
+                text-align: center;
+                text-decoration: none;
+                line-height: 30px;
+                font-size: 20px;
+                width: 150px;
+                height: 30px;
+                background: rgba(100, 100, 100, 0.5);
+                color: gold;
+                cursor: pointer;
+            }
+
+            #menu:hover {
+                background: yellowgreen;
+                color: black;
+            }
+
+
+
+            #mainBut01 {
+                position: fixed;
+                top: 185px;
+            }
+
+            #mainBut02 {
+                position: fixed;
+                top: 440px;
+            }
+
+            #mainBut03 {
+                position: fixed;
+                top: 320px;
+            }
+
+            #mainBut04 {
+                position: fixed;
+                top: 440px;
+            }
+
+            #mainBut05 {
+                position: fixed;
+                top: 540px;
+            }
+
+
+
+            .mainBut {
+                width: 500px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                background: DarkSlateGray;
+                border: 3px solid yellowgreen;
+                border-radius: 12px;
+                color: #e8f1e4;
+                font-size: 38px;
+
+            }
+
+            .mainBut:hover {
+                background: ForestGreen;
+                border: 3px solid yellow;
+                color: white;
+            }
+
+
+
+            #conteiner {
+
+                position: fixed;
+                top: 56px;
+                left: 17px;
+                width: 1170px;
+                height: 612px;
+                background: transparent;
+
+                overflow: scroll;
+                overflow-x: hidden;
+            }
+
+            #output {
+
+                position: relative;
+                top: -5px;
+                left: 90px;
+                width: 1230px;
+                height: 500px;
+                background: transparent;
+
+            }
+
+            /* width */
+            ::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 5px grey;
+                border-radius: 10px;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: red;
+                border-radius: 10px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: yellowgreen;
+            }
+
+
+            #countInfo {
+                display: none;
+                position: fixed;
+                top: 675px;
+                left: 200px;
+                font-size: 20px;
+                width: 250px;
+                background: rgba(100, 100, 100, 0.5);
+                border: 2px solid white;
+                border-radius: 12px;
+                color: gold;
+                height: 34px;
+            }
+
+            #title {
+                display: none;
+                position: fixed;
+                top: 12px;
+                left: 112px;
+                width: 1038px;
+                color: gold;
+                font-size: 26px;
+                border: 2px solid white;
+                border-radius: 8px;
+                background: rgba(100, 100, 100, 0.5);
+                text-align: center;
+                pointer-events: none;
+
+            }
+
+       
+            .image {
+                display: none;
+
+
+            }
+
+            .image:hover {
+                background: #96cf2252;
+            }
+
+            .thumbs {
+                display: none;
+            }
+
+            .Vtitle {
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
+            .decade{
+                width: 155px;
+                font-size: 35px;
+                top:480px;
+            }
+
+            .loader {
+  display: none;
+  position: fixed;
+  top: 320px;
+  left: 600px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+        </style>
+    </head>
+
+<body>
+
+<div id="header">
+
+        <!-- MAIN TITLE -->
+<p style="position:fixed;top:20px;left:355px;font-size:56px;color:gold;margin-top:0px;">Worldwide Erotic Movies</p>
+<!-- <p style="position:fixed;top:70px;left:210px;font-size:28px;">the Videos on this slideshow are provide by the public feed</p> -->
+
+
+        <!-- MAIN BUTTONS + INFO BUTTONS -->
+<!-- <input id="mainBut01" onclick="getData('mostRecent',1);" type="button" class="btn mainBut" value="Most Recent" /> -->
+<input id="mainBut02" style="top:460px" onclick="getData('mostViewed',1);" type="button" class="btn mainBut" value="Most Viewed" />
+<!-- <input id="mainBut03" onclick="getData('mostLike',1);" type="button" class="btn mainBut" value="Most Like" /> -->
+<input id="mainBut04" style="left:-810px;top:250px" onclick="getData('1960',1);" type="button" class="btn mainBut decade" value="1960's" />
+<input id="mainBut04" style="left:-540px;top:330px" onclick="getData('1970',1);" type="button" class="btn mainBut decade" value="1970's" />
+<input id="mainBut04" style="left:-270px;top:250px" onclick="getData('1980',1);" type="button" class="btn mainBut decade" value="1980's" />
+<input id="mainBut04" style="left:-0px;top:330px"   onclick="getData('1990',1);" type="button" class="btn mainBut decade" value="1990's" />
+<input id="mainBut04" style="left:270px;top:250px"  onclick="getData('2000',1);" type="button" class="btn mainBut decade" value="2000's" />
+<input id="mainBut04" style="left:540px;top:330px"  onclick="getData('2010',1);" type="button" class="btn mainBut decade" value="2010's" />
+<input id="mainBut04" style="left:810px;top:250px"  onclick="getData('2020',1);" type="button" class="btn mainBut decade" value="2020's" />
+
+
+<!-- <input id="mainBut05" onclick="getData('input');" type="button" class="btn mainBut" value="Submit Video Url" /> -->
+
+ 
+
+
+    </div> <!-- CONTAINER END -->
+
+    <!-- OVERPAGE TXT INFO -->
+    <input id="title" class="backBut" />
+
+
+    <!-- SEARCH AND EXIT BUTTONS -->
+    <div id="menu" style="left:562px;" onclick="menu()" class="backBut ">HIDE MENU</div>
+    <div id="back" style="left:1080px;width:80px;" onclick="back()" class="backBut">BACK</div>
+   
+    <input id="countInfo" type="button" class="backBut" value="videos not found" />
+    <div id="loader" class="loader"></div> 
+
+    <!-- GALLERY DISPLAY DIV DINAMIC -->
+    <div id="conteiner">
+        <div id="output">
+        </div>
+
+        <!-- HTML END -->
+
+
+<script>
+
+////////////////////////////////////////////////////////////////////////            
+function back() {
+                window.location.href = './../../xxx-index?'+return_url;
+}
+///////////////////////////////////////////////////////////////////////////////////////
+//// SESSION VARIABLES RETRIVE /////////////////////////////////////////////////
+check_browser();
+         var pic = localStorage.getItem("pic");
+         document.body.style.backgroundImage = "url("+pic+")";
+        
+         var url1 = localStorage.getItem("url1");
+         var url2 = localStorage.getItem("url2");
+         var return_url=url1+"&"+url2
+ //////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////
+// FUNCTION TO GET THE ATRIBUTES PASSED ON THE URL
+var queryString = decodeURIComponent(window.location.search); //parsing 
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+
+        var from = (queries[0]); // GET THE VIDEO ID FROM THE URL
+        var scroll = (queries[1]); // GET THE VIDEO ID FROM THE URL
+
+       // console.log("FROM: " + from);
+     //   console.log("SCROOL: " + scroll);
+        
+        clear_url()
+
+/////////////////////////////////////////////////////////////////////////////////
+
+var updateFlag = 0;
+
+startSetup();
+
+function startSetup() {
+       
+                $('#menu').text('HIDE MENU')
+
+                $("#header").show();
+                $('#countInfo').hide();
+                $('#title').hide();
+              
+
+                var title;
+                fetch('./lists/title.txt')
+                    .then(response => response.text())
+                    .then(data => {
+
+                       //  console.log("TITLE " + data);
+                        title = data;
+                        getTxt("movies.txt", title);
+                        //  menu();
+                    });
+
+} // STARTUP END
+
+////////////////////////////////////////////////////////////////////////
+function menu() {
+
+                if ($("#menu").text() === "HIDE MENU") {
+                    $("#menu").text("SHOW MENU");
+                    $('#countInfo').show();
+                    $('#title').show();
+                    $("#header").hide();
+                }
+                else {
+                    $("#menu").text("HIDE MENU");
+                    $('#countInfo').hide();
+                    $('#title').hide();
+                    $("#header").show();
+                }
+                $("#topics").empty();
+                //   clear();
+
+} // MENU END
+
+////////////////////////////////////////////////////////////////////////////
+// FUNCTION TO MAKE A API POST //////////////////////////////////////////// 
+function postQuery(query, txtFile) {
+
+                $("#output").hide();
+                $('#loader').show(); // show loader
+              
+                if (updateFlag === 0) {
+                       getTxt(txtFile, txtFile);
+                }
+                else {
+                       sendPost(query, txtFile).then(function (data) {
+                       console.log("RESPOSTA: " + data);
+                     
+                       if (data === "ok") getTxt(txtFile);
+                    
+                    }).catch(function (err) {
+                        // Run this when promise was rejected via reject()
+                        console.log(err)
+                    }) // end catch
+
+                }
+} // POSTQUERY END
+
+function sendPost(query, txtFile) {
+
+        return new Promise(function (resolve, reject) {
+
+
+                $.ajax({
+                        url: '/getEroticMovies',
+                        type: 'POST',
+                        data: {
+                            'url': query,
+                            'txtFile': txtFile
+                        },
+                        success: function (data) {
+                            resolve(data) // Resolve promise and go to then()
+                        },
+                        error: function (err) {
+                            reject(err) // Reject the promise and go to catch()
+                        }
+                    });
+                });
+
+}// SEND POST END
+ 
+
+/////////////////////////////////////////////////////////////////////////
+// FUNCTION TO READ THE TXT FILES
+function getTxt(txtFile, titleFile) {
+
+                $('main').empty();
+
+               
+                fetch('./lists/' + txtFile)
+                    .then(response => response.text())
+                    .then(data => {
+                        // console.log(data);
+                        var videos = JSON.parse(data);
+                    
+                        $('#countInfo').val(videos.length + '  movies found');
+
+                        proc(videos, "a");
+                   
+                    var title;
+                     
+                    if(titleFile=='mostviewed')  title='Most Viewed Movies'; 
+                    else if(titleFile=='mostlike')  title='Most Liked Movies'; 
+                    else title = titleFile +' Decade Movies' ;
+                                   
+                   
+                    $('#title').val(title);
+                        rename(txtFile, titleFile);
+
+                    }); //end txt read
+
+
+} // GET TXT END
+          
+////////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////////
+
+function getData(mode, page) {
+
+ if (mode === "mostViewed") { postQuery("https://eroticmv.com/category/decades/?archive_query=view&alphabet_filter", 'mostviewed'); menu(); }
+ if (mode === "mostLike") { postQuery('https://eroticmv.com/category/decades/?archive_query=like&alphabet_filter', 'mostlike'); menu(); }
+ if (mode === "1960") { postQuery('https://eroticmv.com/category/decades/1960s/', "1960's"); menu(); }
+ if (mode === "1970") { postQuery('https://eroticmv.com/category/decades/1970s/', "1970's"); menu(); }
+ if (mode === "1980") { postQuery('https://eroticmv.com/category/decades/1980s/', "1980's"); menu(); }
+ if (mode === "1990") { postQuery('https://eroticmv.com/category/decades/1990s/', "1990's"); menu(); }
+ if (mode === "2000") { postQuery('https://eroticmv.com/category/decades/2000s/', "2000's"); menu(); }
+ if (mode === "2010") { postQuery('https://eroticmv.com/category/decades/2010s/', "2010's"); menu(); }
+ if (mode === "2020") { postQuery('https://eroticmv.com/category/decades/2020s/', "2020's"); menu(); }
+ 
+ }
+
+////////////////////////////////////////////////////////////////////////// 
+//////////////////////////////////////////////////////////////////////////
+
+var count = 0;
+function proc (videos, mode) {
+
+                $("#output").empty(); // clear thumbs
+                $("#output").hide(); // hide thumbs
+                $('#loader').show(); // show loader
+           
+            //  console.log(videos);
+
+
+                $.each(videos, function (i, item) { // foreach video
+
+
+                    var thumb = item.thumb;
+                    var title = item.title;
+                    var desc = item.desc;
+                    var vid = item.url
+
+                    title = title.substring(0, 50)
+
+                    ///////////////// 
+                    // add thumbs div
+                    count++;
+                var div = document.createElement("div");
+                    div.id = 'id' + count;
+                    div.style.position = 'relative';
+                    div.style.float = "left";
+                    div.style.display = 'inline';
+                    div.className = "thumbs";
+
+                    document.getElementById("output").appendChild(div);
+                    ////////////////                   
+                    // add title div
+                var div2 = document.createElement("div");
+                    div2.innerHTML = title
+                    div2.style.position = 'absolute';
+                    div2.className = "Vtitle";
+                    div2.style.textAlign = 'center';
+                    div2.name = vid;
+                    div2.style.background = '#1b171ca3';
+                    div2.style.color = 'white';
+                    div2.style.cursor = "pointer";
+                    // add function sendVideo to title div
+                    div2.addEventListener("click", function (e) {
+                        sendVideo(e.target.name);
+                    })
+
+                    document.getElementById('id' + count).appendChild(div2);
+                    /////////////////////
+                    // add main image img
+                var img = document.createElement("img");
+                    img.style.width = "190px";
+                    div2.style.top = '259px';
+                    div2.style.left = '15px';
+                    div2.style.width = '180px'; //Title
+                    div2.style.height = '36px';
+                    div2.style.fontSize = '15px';
+
+                    // img.style.height = "270px";
+                    img.style.margin = "9px 9px";
+                    img.style.cursor = "pointer";
+                    img.src = thumb;
+                    img.style.border = "2px solid white";
+                    img.alt = vid;
+                    img.className = "image";
+                    // add function sendVideo to title div  
+                    img.addEventListener("click", function (e) {
+                        sendVideo(e.target.alt);
+                    })
+
+                    document.getElementById('id' + count).appendChild(img);
+
+
+                }); // FOREACH END
+
+                $('.image').show();
+                $('.Vtitle').show();
+
+                $('#loader').hide(); // show loader
+                $('#conteiner').show();
+                $('#output').show();
+                // if call comes from main set scrool to zero if comes from player set scroll to saved scroll
+               
+                if (from === "main") {
+                    $('#conteiner').scrollTop(0);
+                }
+                if (from === "player") {
+                    menu();
+                    console.log("SCROLL " + scroll)
+                    $('#conteiner').scrollTop(scroll);
+                }
+                
+
+} // END PROC FUNCTION
+
+
+// hover functions, scale and change border color on mouse hover
+$(document).on("mouseenter", ".thumbs", function () {
+         
+                $(this).css('margin', '0px');
+                $(this).css('transform', 'scale(' + 1.06 + ')');
+
+                var id = ($(this).attr('id'));
+                $(this).children('img').css({ "border": "2px solid greenyellow" });
+
+                img = document.createElement("img");
+                img.style.position = 'absolute';
+                img.className = "playButton";
+                img.style.textAlign = 'center';
+                img.style.top = '130px';
+                img.style.left = '80px';
+                img.style.zIndex = '1000';
+                img.alt = $(this).children('img').attr('alt');
+                img.style.cursor = "pointer";
+                img.src = './../../../images/playButton.png';
+
+                img.addEventListener("click", function (e) {
+                    sendVideo(e.target.alt);
+                })
+
+
+                document.getElementById(id).append(img);
+
+ });// MOUSE ENTER END
+
+// reset values on mouse leave
+$(document).on("mouseleave", ".thumbs", function () {
+
+                $(this).children('img').css({ "border": "2px solid white" });
+                $(this).css('transform', 'scale(' + 1 + ')');
+                $('.playButton').remove();
+}); // MOUSE LEAVE END
+      
+         
+    
+///////////////////////////////////////////////////////////////////////
+// FUNCTION TO CALL TVYTUBE SENDING VIDEOID, BACKPIC E SCROLL POSITION 
+function sendVideo(vidId) {
+
+                var scrollPos = ($("#conteiner").scrollTop());
+
+                window.open("./tvmovie?" + vidId + "&" + scrollPos, "_self");
+             
+
+} // SENDVIDEO END
+
+//////////////////////////////////////////////////////////////////////
+// FUNCTION TO RENAME THE DEFAULT TXT FILE
+function rename(txt, title) {
+
+                  $.ajax({
+                           type: 'POST',
+                           url: '/erotic_rename',
+
+                          data: {
+                                  filename: txt,
+                                  mode: title
+                                },
+                         });
+ }// RENAME END
+       
+    
+
+
+
+</script>
+
+</body>
+
+</html>

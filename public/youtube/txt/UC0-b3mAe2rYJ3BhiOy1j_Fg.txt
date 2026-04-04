@@ -1,0 +1,2629 @@
+[
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "6sTe1KepQ3PX8Id7BQYHkurvWOU",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLnZheWhPWXpYR0x3",
+    "snippet": {
+      "publishedAt": "2021-05-31T09:10:06Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Sakura (Second Life Machinima)",
+      "description": "Mono no aware (物の哀れ, もののあはれ[1]), literally \"the pathos of things\", and also translated as \"an empathy toward things\", or \"a sensitivity to ephemera\", is a Japanese term for the awareness of impermanence (無常, mujō), or transience of things, and both a transient gentle sadness (or wistfulness) at their passing as well as a longer, deeper gentle sadness about this state being the reality of life.\n\nThe phrase is derived from the Japanese word mono (物), which means \"thing\", and aware (哀れ), which was a Heian period expression of measured surprise (similar to \"ah\" or \"oh\"), translating roughly as \"pathos\", \"poignancy\", \"deep feeling\", \"sensitivity\", or \"awareness\". Thus, mono no aware has frequently been translated as \"the 'ahh-ness' of things, life, and love\". Awareness of the transience of all things heightens appreciation of their beauty, and evokes a gentle sadness at their passing. In his criticism of The Tale of Genji, Motoori noted that mono no aware is the crucial emotion that moves readers. Its scope was not limited to Japanese literature, and became associated with Japanese cultural tradition (see also sakura)\n\nA cherry blossom is a flower of many trees of genus Prunus or Prunus subg. Cerasus. They are also known as Japanese cherry and Sakura (桜 or 櫻; さくら or サクラ). They generally refer to ornamental cherry trees, not to cherry trees that produce fruit for eating.[4][5] It is considered the national flower of Japan.\n\n￭ Filmed in Second Life\nNeverending - Sakura Tales\nJayden Mercury & Valarie\nmaps.secondlife.com/secondlife/Neverending/164/65/36\n\n￭ Directed by CoccoroAffinita & Erythro Asimov\n\n￭ Filmed by Erythro Asimov (Bandicam)\n\n￭ Edited by  Erythro Asimov (DaVinci Resolve)\n\n￭ Music \n\"Sakura Variations\" by Ikuta Ryu",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vayhOYzXGLw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vayhOYzXGLw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vayhOYzXGLw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vayhOYzXGLw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 0,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "vayhOYzXGLw"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "8zVZKZ5bSeeT1l1ss9meTxKoTdI",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLnFoVU43bURlVU5j",
+    "snippet": {
+      "publishedAt": "2018-05-07T09:09:40Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "360° Test",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qhUN7mDeUNc/default_live.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qhUN7mDeUNc/mqdefault_live.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qhUN7mDeUNc/hqdefault_live.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qhUN7mDeUNc/sddefault_live.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qhUN7mDeUNc/maxresdefault_live.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 1,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "qhUN7mDeUNc"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "X5MwIaqJtm_lhPRdiOLBDJQt1qM",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLmE5dGpBUExDOGdF",
+    "snippet": {
+      "publishedAt": "2017-03-17T10:29:51Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Under the Sea by Cica Ghost (Second Life Machinima)",
+      "description": "Video in two parts\nSecond part can be seen here \nhttps://vimeo.com/songularity/the-waning-sea\n\nMarine vertebrate populations declined 49 % between 1970 and 2012. Populations of fish species utilized by humans have fallen by half, with some of the most important species experiencing even greater declines. Around one in four species of sharks, rays and skates is now threatened with extinction, due primarily to overfishing. 29 % of marine fisheries are overfished.\n\nTropical reefs have lost more than half their reef-building corals over the last 30 years. Worldwide, nearly 20% of mangrove cover was lost between 1980 and 2005. If current rates of temperature rise continue, the ocean will become too warm for coral reefs by 2050.\n\nSeabed mining licences cover 1.2 million square kilometres of ocean floor.\n\nMore than 5 trillion plastic pieces weighing over 250,000 tonnes are in the sea.\n\nOxygen-depleted dead zones are growing as a result of nutrient run-off.\n\nRead the WWF Living Blue Planet Report 2015\nhttps://www.worldwildlife.org/publications/living-blue-planet-report-2015\n\n￭ Music \n\"Underwater Life\" by Armand Amar\n\n￭ Filmed in Second Life\nUnder the Sea by Cica Ghost\nmaps.secondlife.com/secondlife/Aggramar/164/65/36",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/a9tjAPLC8gE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/a9tjAPLC8gE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/a9tjAPLC8gE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/a9tjAPLC8gE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/a9tjAPLC8gE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 2,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "a9tjAPLC8gE"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "56LQEPKRS7pA1cCXMQGnB_YWcEs",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkhCTElpM2JibVFj",
+    "snippet": {
+      "publishedAt": "2017-02-19T01:40:11Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Penumbra (Second Life Machinima)",
+      "description": "This short machinima relies on the work of Meilo Minotaur & CapCat Ragu on Antonio Gramsci's quote “The old world is dying, and the new world struggles to be born: now is the time of monsters”.\n\nThis quote dated of 1930 from the one-time leader of the Communist Party of Italy who was imprisoned by Benito Mussolini, resonates with the current actuality. A bit everywhere people are giving more credit to populists, dream makers, monsters lurking in the twilight attacking our humanity values. Fear became the new milestone of Art of politics, making people believing that only shelter remaining is to raise walls, increase hate. As we may feel it as \"The End Of The World As We Know It\" I still have faith we will be strong enough to fight against. Though is time to enter actively into resistance.\n\nInto this metaphor the forest symbolizes the old world dying, caterpillars avid into the shades, the beast is growing into her chrysalis, her apparent beauty is attracting people stuck into old idea of pasts. A tree decided to stand in resistance, others are following, resistance is on the way.\n\n￭ Music \nThis video features the song \"Hospital\" by Max Richter\n\n￭ Filmed in Second Life\nBerg by Nordan Art\nhttp://maps.secondlife.com/secondlife/Nordan%20om%20Jorden/180/176/21\nBuild and design by Meilo Minotaur & CapCat Ragu\n\n￭ Exhibition notecard\n\n“The old world is dying, and the new world struggles to be born: now is the time of monsters.” This is, usually, the quote we most see attributed to Antonio Gramsci, the Italian theorist, politician, and freedom fighter.\n\nHowever, this is not the true quote. \nhttp://courses.justice.eku.edu/pls330_louis/docs/gramsci-prison-notebooks-vol1.pdf page 556\n\nIn Italian, what Gramsci wrote in Quaderni del carcere (Prison Notebooks) was: “La crisi consiste appunto nel fatto che il vecchio muore e il nuovo non può nascere: in questo interregno si verificano i fenomeni morbosi piú svariati.”. This would more accurately translate to: “Crisis consists precisely in the fact that the old world is dying and the new one cannot be born, in this interregnum a great variety of morbid symptoms appear.” \n\nBut Prison Notebooks suffered several translation mutations, such as: “Le vieux monde se meurt, le nouveau monde tarde à apparaître et dans ce clair-obscur surgissent les monstres.” This mutation was carried over to portuguese translation: “O velho mundo agoniza; o novo mundo tarda a nascer, e, nesse claro-escuro, irrompem os monstros”. Back to English, this would translate to “The old world is dying, the new world is slow to appear and in this chiaroscuro the monsters arise.”\n\nThe word “penumbra” exists both in English and Portuguese. It means partial illumination, a chiaroscuro, the dusk. Going back to the original quote, this penumbra, this forest, is the interregno, mutated by the flux of words in translation, adding poetic resonance to Gramsci’s pragmatism. \n\nBeware of the “morbid symptoms” you might embody!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/HBLIi3bbmQc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/HBLIi3bbmQc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/HBLIi3bbmQc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/HBLIi3bbmQc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/HBLIi3bbmQc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 3,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "HBLIi3bbmQc"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "3HutQCqRJ86TLKL89g8Sb1_aVjE",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkJYT0k1ZzBIYmU0",
+    "snippet": {
+      "publishedAt": "2016-11-10T23:33:26Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Tumor 360 VR Little Planet (Second Life Machinima)",
+      "description": "Collaborative work made with Lalwende Leakey\nThe first Second Life Little Planet video using a moving camera\nFilmed in SL with IOL Camera 360 v0.12\nStiched with IOL Camera 360° Scripts and Hugin\n\n30 hours of calculus were needed to create 38,000 files / 100 Gb for that 360° video. \n\nTo have a better experience watch it on phone or tablet using YouTube App and move your gear around you.\n\nYou can also watch the 360° version\nhttps://youtu.be/6xtrtw1he6Q\n\n￭ Music \nThis video features the song \"Thursday Monday Waking\" by Michael Brook\nhttp://michaelbrookmusic.com/\n\n￭ Filmed in Second Life\nMetaLES\nhttp://maps.secondlife.com/secondlife...\nBuild and design by Igor Ballyhoo",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/BXOI5g0Hbe4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/BXOI5g0Hbe4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/BXOI5g0Hbe4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/BXOI5g0Hbe4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/BXOI5g0Hbe4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 4,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "BXOI5g0Hbe4"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "WwqSaXIIxsmgL5nWGpsY0fCFKvI",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjZ4dHJ0dzFoZTZR",
+    "snippet": {
+      "publishedAt": "2016-11-10T21:36:52Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Tumor 360 VR (Second Life Machinima)",
+      "description": "Collaborative work made with Lalwende Leakey\nThe first Second Life 360° video using a moving camera\nFilmed in SL with IOL Camera 360 v0.12\nStiched with IOL Camera 360° Scripts and Hugin\nEdited with PowerDirector 15\n\n30 hours of calculus were needed to create 38,000 files / 100 Gb for that 360° video. \n\nTo have a better experience watch it on phone or tablet using YouTube App and move your gear around you.\n\nYou can also watch the little planet version\nhttps://youtu.be/BXOI5g0Hbe4\n\n￭ Music \nThis video features the song \"Thursday Monday Waking\" by Michael Brook\nhttp://michaelbrookmusic.com/\n\n￭ Filmed in Second Life\nMetaLES\nhttp://maps.secondlife.com/secondlife/MetaLES/137/120/1200\nBuild and design by Igor Ballyhoo",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/6xtrtw1he6Q/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/6xtrtw1he6Q/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/6xtrtw1he6Q/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/6xtrtw1he6Q/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/6xtrtw1he6Q/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 5,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "6xtrtw1he6Q"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "9mm1D_E1b6gsSj7jx7egIKuBGko",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLm9GLWhRcHlQWTl3",
+    "snippet": {
+      "publishedAt": "2016-06-15T21:14:15Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Survivors",
+      "description": "Trailer of Survivors Role Play Game \n\n￭ Actors\nPhoenix Meidoom\nDanger69\nAsasha Dinzeo\nPhill Halcali\nNjamh Feila\nNavarre Follet\n\n￭ Music \n\"Pandomic\" by Really Slow Motion\nhttp://www.reallyslowmotion.com/\n\n￭ Build\nCrimarizon, Fanatik\n\n￭ MD Game Production\nhttp://mdgameproduction.wix.com/\nDirector: Phoenix Meidoom, Danger69\nProgrammer: Poly Dawg\nScenography: Megan Prumier\nDesigner: Safhira Kegel\nTranslator: Phill Halcali\nChrissy Sparrowtree\nVideo Maker: Erythro Asimov\n\n￭ Partners\nAmici Radio Network\nhttp://www.amiciradio.altervista.org/\nMarnieblu\n\nFishbone Resort\nhttp://maps.secondlife.com/secondlife/Thalipolli/201/51/26\nNavarre Follet - Njamh Feila\n\nMany Thanks to all the people who have \ncollaborated on this project.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/oF-hQpyPY9w/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/oF-hQpyPY9w/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/oF-hQpyPY9w/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/oF-hQpyPY9w/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/oF-hQpyPY9w/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 6,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "oF-hQpyPY9w"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "N1_k0Se9xw2tyAeJn8Q0JQ-vmxM",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjJJTDVMVk5UMUVF",
+    "snippet": {
+      "publishedAt": "2015-12-27T01:53:58Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Minions Merry Christmas & Happy New Year - Jingle Bells (Second Life Machinima)",
+      "description": "Merry Christmas & Happy New Year 2016\n\n￭ Filmed in Second Life\nIcewater Village\nhttp://maps.secondlife.com/secondlife/Icewater/65/213/21\nBuild and design by Spinnetje Jewell\n\nThanks to Spinnetje for letting me rez on her land.\n\n￭ Lyrics\ni koli ma\npo ali na\nnoo noo\nalé colové ola to !\n\noli to makani\nmako lanipota\npapi launé bli\nlé bo la chiouaoua arf\n\nbullok éla bella\njon ham éli bello\nla kiton éla janné ka\nlé bo la chiouaoua arf\n\nbullok éla bella\njon ham éli bello\nla kiton éla janné ka\npalita moka poto\n\nheyy\nli poti li poti\na ti pol toda\nai la poo la tandori\npalita moka poto\n\nheyy\nli poti li poti\na ti pol toda\nai la poo la tandori\nmalako la poulano\n\nyehaw !\npoli pistach\ni papi boulber !",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2IL5LVNT1EE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2IL5LVNT1EE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2IL5LVNT1EE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2IL5LVNT1EE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/2IL5LVNT1EE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 7,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "2IL5LVNT1EE"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "-lEbXSUav5SzkrXxuKZXrdNBqOE",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLnpRVlgyRlo0dTlV",
+    "snippet": {
+      "publishedAt": "2015-12-12T00:42:03Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "The Day After - In memory of victims of terrorist attacks",
+      "description": "In memory of the victims of terrorist attacks of Flight 9268, Beirut, Paris, Baghdad, Yola, Kano, Bamako, Tunis, El Arish & San Bernardino.\n\nStand against all kind of extremism, islamism but also islamophobia.\n\nThursday morning waking\nAnd lots of people crying\nBut I thought I saw angels there\nFlying through the charnel air\nThey whispered don't you worry\nFor someone's petty hate and crimes\nFor good is here and everywhere\nAnd God is always on our side\nI saw my wife's eyes fill with tears\nThat her belief should bring us here\nBut don't you worry my fair dame\nYours and theirs just ain't the same\nI told her these are not your sins\nThey're someone else's petty crimes\nFor good is here and everywhere\nAnd god is always on your side\nHold me\nThe world I know's about to blow\nHold me\nThe world I know's about to go\nHold me\nMy life's as far as I can breath\nHold me\nDon't know if I can bare to see\nIf good's still here and everywhere\nAnd God is always on our side\n\n￭ Music \nThis video features the song \"Thursday Monday Waking\" by After The Ice\nhttp://www.paullisak.com/\n\n￭ Filmed in Second Life\nChouchou\nhttp://maps.secondlife.com/secondlife/Chouchou/122/130/21\nBuild and design by",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/zQVX2FZ4u9U/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/zQVX2FZ4u9U/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/zQVX2FZ4u9U/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/zQVX2FZ4u9U/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/zQVX2FZ4u9U/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 8,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "zQVX2FZ4u9U"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CgHfCA27ELUB-SINf0swZwTyI0U",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLm1WTkdMaXg3dmNj",
+    "snippet": {
+      "publishedAt": "2015-10-03T20:03:28Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Our Land",
+      "description": "Collaborative filming done with Pepa Cometa. We enjoy doing this movie together :)\n\nPepa channels\nVimeo: https://vimeo.com/user28633831\nYouTube: https://www.youtube.com/channel/UCQ5XHov1oy7YflbZmmu7uxA\n\n￭ Music \nThis video features the song \"This Land Is Your Land\" by Sharon Jones and the Dap-Kings - \n\n￭ Filmed in Second Life\nCrestwick\nhttp://maps.secondlife.com/secondlife/Uninhabited%20Island/154/131/24\nBuild and design by Isa Messioptra & Ciphertazi Wandin\n\n￭ Starring\n\nIn order of appearance\n\nSkippy Beresford, Pepa Cometa,\nAnthony John, \nLex Matterhorn\nA dog & a cat falling in love\nYoon, \nHugh Jackman\nMiu Miu, \nJude the pianist\nA girl smoking, \nA couple blahblahting\nThe wise boy,\nCipherscape, Isa Messioptra\nDido Haas, Nitro Fireguard\nErythro Asimov, Billie\nMich Michabo\nThe Manneken pis\nThe Roswell Alien\nA skating girl\nTutsy NAvArAthnA\nAnthony Gartner\nMM (Mysterr), Doc",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/mVNGLix7vcc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/mVNGLix7vcc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/mVNGLix7vcc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/mVNGLix7vcc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/mVNGLix7vcc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 9,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "mVNGLix7vcc"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "JRAhtjWuuN9j6yZWONl5JTCSrLU",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLktYaDFlYUU2Mi1B",
+    "snippet": {
+      "publishedAt": "2015-04-28T11:38:07Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Sparkys (Second Life Machinima) / Billie Holiday - I'm a fool to love you",
+      "description": "￭ Music \nI'm a fool to love you by Billie Holiday\n\n￭ Filmed in Second Life\nMetaLES\nhttp://metalesperformance.blogspot.com/\nhttp://maps.secondlife.com/secondlife/MetaLES/149/84/21\nRomy Nayar",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/KXh1eaE62-A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/KXh1eaE62-A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/KXh1eaE62-A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/KXh1eaE62-A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/KXh1eaE62-A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 10,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "KXh1eaE62-A"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "HE2gbk4k-yETo430VLXPa-jDPVI",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjlPbm1NckxhTmZj",
+    "snippet": {
+      "publishedAt": "2015-04-16T20:43:20Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Let me out (Second Life Machinima) / Mario Meltsa",
+      "description": "Click on Read more...\n\nThe Pripyat amusement park in Pripyat, Ukraine is an abandoned amusement park. It was to be opened on May 1, 1986 in time for the May Day celebrations (decorations for this event are still in place in Pripyat today) but the plans were interrupted when on April 26 the Chernobyl disaster occurred a few kilometers away. The park was opened for a couple of hours on April 27 to keep the city people entertained before the announcement to evacuate the city was made. Today, the park, and in particular the Ferris wheel are a symbol of the Chernobyl disaster. The amusement park itself is located behind the Palace of Culture in the centre of the city.\n\nThe audio message you can hear in russian as you enter Everwinter is the actual recording of the evacuation message played to the city of pripyat following the nuclear disaster at chernobyl\n\nThe evacuation of Pripyat took place the day after the disaster on the afternoon of April 27, 1986, The evacuation of Pripyat's 43,000 residents took 3.5 hours, using 1,100 buses from Kiev. \nThe inhabitants were allowed to take only necessary items with them, as they were to return in three days. \nThis information was released to avoid panic and to stop people taking too much luggage with them. \nLater, the authorities decided that the city must remain empty forever.\n\nBased on records now available, some 985,000 people died, mainly of cancer, as a result of the Chernobyl accident. That is between when the accident occurred in 1986 and the present day. More deaths, it projects, will follow.\n\nInteresting video to watch\nPostcards from Pripyat, Chernobyl from Danny Cooke\nhttps://vimeo.com/112681885\n\n￭ Music \nLet me out by Mario Meltsa.\nhttps://soundcloud.com/mariomeltsa\n\n￭ Filmed in Second Life\nEverwinter - Post Apocalyptic Theme Park\nhttp://maps.secondlife.com/secondlife/Elven%20Mist/168/122/26\nLauren Bentham",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/9OnmMrLaNfc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/9OnmMrLaNfc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/9OnmMrLaNfc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/9OnmMrLaNfc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/9OnmMrLaNfc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 11,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "9OnmMrLaNfc"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5InXOSpIgpOBOTEBHH6mfgCgdUE",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLndiWGZVYzhfdEcw",
+    "snippet": {
+      "publishedAt": "2015-02-03T16:03:49Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "#BlackLivesMatters",
+      "description": "Just because I feel concerned.\n\n￭ Music \nThis video features the song \"Strange Fruit\" from Abel Meeropol performed by Aaron.\n\nhttps://en.wikipedia.org/wiki/Strange_Fruit\nhttps://en.wikipedia.org/wiki/Abel_Meeropol\nhttp://1001in1000days.blogspot.fr/2011/05/826-strange-fruit-billie-holiday-1939.html\n\n￭ Footages\nRalston Smith\nProtest March on Washington DC.\nNov 24, 2014\nhttp://ralstonsmith.com/\nhttps://vimeo.com/112955066\n\nNational Archives and Records Administration\nMarch on Washington DC for Jobs and Freedom\nAug 28, 1963.\n\nhttps://en.wikipedia.org/wiki/March_on_Washington_for_Jobs_and_Freedom\nhttps://archive.org/details/gov.archives.arc.49737",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wbXfUc8_tG0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wbXfUc8_tG0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wbXfUc8_tG0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wbXfUc8_tG0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wbXfUc8_tG0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 12,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "wbXfUc8_tG0"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "zm9bKHlktZEpQPcqsEnTUEMyZ_s",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLmNpVTNRSHVBWlA4",
+    "snippet": {
+      "publishedAt": "2014-12-03T11:21:11Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Avatars on board Orion Dec 4 #JourneyToMars (Second Life Machinima)",
+      "description": "Shannon Cardalines & Erythro Asimov, with help to their deep electronic nature, were the very first avatars orbiting the Earth on board NASA Orion, Dec 5 2014.\n\nComfortably numb in a microchip they made the journey for humanity's progress and technological advancement, making a critical step forward on the #JourneyToMars\n\n#Imonboard #Orion #JourneyToMars\n\n￭ Credits\n\nImages\nNASA, JPL, ESA\n\nMusic\nCNN \"Go There\"\n\n￭ Filmed in Second Life\nInSilico\nBuild and design by Stark Osterham, Skills Hak",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ciU3QHuAZP8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ciU3QHuAZP8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ciU3QHuAZP8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ciU3QHuAZP8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ciU3QHuAZP8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 13,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "ciU3QHuAZP8"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "HKyts5VQMt7_5ZKyxQfpSpSOiSA",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLm1oMHJNLTVJNi1Z",
+    "snippet": {
+      "publishedAt": "2014-11-18T01:15:54Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "67P Heart Beat - A tribute to Rosetta & Philae Journey on 67P Churyumov Gerasimenko",
+      "description": "Click on Read more...\n\nRosetta was launched on 2 March 2004 on an Ariane 5 rocket and reached the comet on 6 August 2014, becoming the first spacecraft to orbit a comet.\n\nRosetta's Philae lander successfully made the first controlled touchdown on a comet nucleus, specifically Comet 67P, on 12 November 2014.\n\nThanks to all who made this dream becomes real !\nhttps://twitter.com/ESA_Rosetta\nhttps://twitter.com/Philae2014\n\n￭ Sounds\nEuropean Space Agency ESOC\nA Singing Comet\nhttps://soundcloud.com/esaops\n\nSpeedenza\nhttp://www.freesound.org/people/Speedenza/\n\n￭ Real Images and 3D Animations of Rosetta & Philae\nEuropean Space Agency\nhttp://blogs.esa.int/rosetta/\nhttp://sci.esa.int/rosetta/\nhttp://www.esa.int/spaceinimages/Missions/Rosetta\n\n￭ 3D Flyover Animations and Panorama of comet 67P Churyumov Gerasimenko\nMattias Malmer\nhttp://mattias.malmer.nu/",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/mh0rM-5I6-Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/mh0rM-5I6-Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/mh0rM-5I6-Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/mh0rM-5I6-Y/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/mh0rM-5I6-Y/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 14,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "mh0rM-5I6-Y"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "hkw0_2fYQdltwsO5iKkaL63J78E",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjc1bGIzX01FLXAw",
+    "snippet": {
+      "publishedAt": "2014-10-13T01:01:55Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "The 6th Extinction - Decline in Amphibian Populations (Second Life Machinima)",
+      "description": "Please click on Show more ...\n\nAmphibians have been one of Earth's great survivors -- evolving about 400 million years ago before the dinosaurs, persisting through ice ages, asteroid impacts, and myriad other ecological and climatic changes.\nBut today amphibian declines and extinctions have no precedent in any animal class over the last few millennia. \nAbout 32% of some 6000 amphibian species are threatened as compared to12% of bird and 23% of mammal species. Up to 122 amphibian species may be extinct since 1980, and population size is declining in at least 43% of species. In the last decades of the 20th century the amphibian extinction rate exceeded the mean extinction rate of the last 350 million years by at least 200 times. \nThe amphibian declines are linked to natural forces such as competition, predation, reproduction and disease, as well as human-induced stresses such as habitat destruction, environmental contamination, invasive species \nand climate change.\n\nThanks to Shannon Cardalines for her great support and voice training ;)\n\nIf you are resident of the United States you can watch an very interesting documentary on PBS Nature\nFrogs: The Thin Green Line\nhttp://video.pbs.org/video/1117923308/\n\n￭ Music \nThis video features the song \"Night of the Jownstown Flood\" by Chicken Little.\n\n￭ SL Amphbians in order of appearance\nThree striped poison frog / Ameerega Trivitatus\nYunnan lake newt / Cynops wolterstorffi\nGolden Toad / Incilius periglenes\nStrawberry poison-dart frog / Oophaga pumilio\nWhite-spotted bush frog / Raorchestes chalazodes\nAmatola Toad / Vandijkophrynus amatolicus\nBlack-eared Golden Mantella / Mantella milotympanum\n\n￭ Filmed in Second Life\nPrehistorica - the Dawn Kingdoms, Fort Nowhere\nhttp://maps.secondlife.com/secondlife/Fort%20Nowhere/129/70/1102\nWanders Nowhere\n\nFruit Islands Tropical Rainforest, Appleberry\nhttp://maps.secondlife.com/secondlife/Appleberry/229/201/22\nEquinox Pinion\n\nSkye Glas\nhttp://maps.secondlife.com/secondlife/Skye%20Glas/151/143/22\nAlex Bader\n\nKala's Home , Swan Islands\nhttp://maps.secondlife.com/secondlife/Swan%20Islands/117/154/21\nKala Balut\n\n￭ For The University of Western Australia's MachinimUWA VII: Transcending Borders\nhttp://www.uwainsl.blogspot.com.au/2014/07/transcending-borders-launch-of-uwa-art.html",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/75lb3_ME-p0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/75lb3_ME-p0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/75lb3_ME-p0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/75lb3_ME-p0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/75lb3_ME-p0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 15,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "75lb3_ME-p0"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "BfjOUOqjJIje44v9l2Gi8s4YJIg",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLmdFVFBYczB2bk5j",
+    "snippet": {
+      "publishedAt": "2014-10-01T22:10:54Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Night of the Johnstown Flood (Second Life Machinima) / Chicken Little",
+      "description": "On this date of May 31 in 1889, a dam collapsed releasing water that flooded the town of Johnstown, Pennsylvania and killed 2,209 people.\n\nThe South Fork Dam was built on the the Little Conemaugh River fourteen miles upstream from Johnstown, and, at the time, it was the largest earth dam in the United States. Wealthy men from the Pittsburgh area created the South Fork Fishing and Hunting Club and owned the dam, which created Lake Conemaugh, a fishing lake.\n\nSome blamed the Johnstown Flood on the wealthy who used Lake Conemaugh for their recreation, creating a hazard that killed thousands of working people. The aftermath led to some of the early expressions of outrage during the U.S. Industrial Age against corporate powers and the wealthy.\n\nhttp://en.wikipedia.org/wiki/Johnstown_Flood\n\n￭ Music \nNight of the Jownstown Flood by Chicken Little.\nhttp://chickenlittle.bandcamp.com/track/night-of-the-johnstown-flood\nhttps://www.facebook.com/chickenlittlemusic/info.\nThanks to Dave Cuomo for letting me use Chicken Little song.\n\n￭ Filmed in Second Life\nMatoluta Sanctuary\nhttp://maps.secondlife.com/secondlife/Sartre/176/71/22\nBuild and design by Mz Marville\n\n￭ For The University of Western Australia's MachinimUWA VII: Transcending Borders\nhttp://www.uwainsl.blogspot.com.au/2014/07/transcending-borders-launch-of-uwa-art.html",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/gETPXs0vnNc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/gETPXs0vnNc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/gETPXs0vnNc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/gETPXs0vnNc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/gETPXs0vnNc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 16,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "gETPXs0vnNc"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "JPt_lRKsX1_uu2o8JpwpkiRIrdI",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLmhLaS1uZW5PT2JN",
+    "snippet": {
+      "publishedAt": "2014-07-01T02:59:06Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Homeless [Invisible People]",
+      "description": "Project Homeless is a global filmmaking initiative to raise awareness through stories on screen.\nhttp://screenmyshorts.com/?page_id=1629\n\n￭ Music \nThis video features the song \"Homeless\" by Ladysmith Black Mambazo\n\n￭ Filmed into Second Life\nH220\nhttp://maps.secondlife.com/secondlife/KSA%20Atlantis/196/159/502\nBuild and design by Squonk Levenque, Miuccia Klaar\n\nMaifair\nBuild and design by ShaySibrian\n\n￭ Documentary\nhttp://invisiblepeople.tv",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/hKi-nenOObM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/hKi-nenOObM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/hKi-nenOObM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/hKi-nenOObM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/hKi-nenOObM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 17,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "hKi-nenOObM"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "TOeEI8Ij9i1kZ-QEK4QwxlGet6g",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjRPNjZXNEttcFZR",
+    "snippet": {
+      "publishedAt": "2014-06-07T17:14:11Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Return to the center",
+      "description": "If one night watching the stars, you look attentively two degrees north of Beta Librae, the brightest star in the constellation Libra you will notice 20 light-years from here the red dwarf Gliese 581. There on exoplanet Zarmina orbiting Gliese 581 are living the Aïltars into a world without war, without starvation, without pestilence. Into a world of love, peace and harmony.\n\n￭ Music \nThis video features the song \"Angkor Wat\" by Yes.\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/Vana/179/158/32\nBuild and design by Fur Yifu",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/4O66W4KmpVQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/4O66W4KmpVQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/4O66W4KmpVQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/4O66W4KmpVQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/4O66W4KmpVQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 18,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "4O66W4KmpVQ"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "l5_XtncbzkpcqFw5wDf0iPV0MIY",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkptLXFqbGp6UlQ0",
+    "snippet": {
+      "publishedAt": "2014-06-01T18:22:22Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Rivers and Roads (Second Life Machinima)",
+      "description": "￭ Music \nThis video features the song \"Rivers and Roads\" by The Head and the Heart\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/Fairyland/134/142/21\nBuild and design by Gocha Merlin",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Jm-qjljzRT4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Jm-qjljzRT4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Jm-qjljzRT4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Jm-qjljzRT4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Jm-qjljzRT4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 19,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Jm-qjljzRT4"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Ftoxe-uAcofgugc7yW4BXzsC8o0",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLmJRSEJ5RjFicjdJ",
+    "snippet": {
+      "publishedAt": "2014-05-19T07:28:53Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Summertime Blues - Imagination by Arnicar India (Second Life Machima)",
+      "description": "There are question and hard ones. Once a little girl asked me what does Santa Klaus do after Christmass. Was wondering if I should let her know he gets into summertime blues.\n\n￭ Music \nThis video features the song \"Merry Chrismass\" by fossil60\nhttps://soundcloud.com/fossil60\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/Guana%20Cay/220/132/29\nBuild and design by Arnicar India",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bQHByF1br7I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bQHByF1br7I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bQHByF1br7I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bQHByF1br7I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bQHByF1br7I/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 20,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "bQHByF1br7I"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "NHJFIzP_bcKf7jnPpzBAnnUDPak",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjZ4OU9aRW9ieVo0",
+    "snippet": {
+      "publishedAt": "2014-05-04T17:25:19Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "The Miniature Goal by Haveit Neox (Second Life Machinima)",
+      "description": "\"Our disproportionate appetite for resources makes it clear that our progress, and therefore our goal, will succumb to a miniature plan. We will eventually come to realize that the planet's current ecosystems are being damaged to a point where we may not be able to save them. Where does that leave us when we become so small?\"\nHaveit Neox\n\nHistory gives us the answer : War\n\n￭ Music \nThis video features music \"Orpheus\" by Monteverdi\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/Shekhawati/237/41/34\nBuild and design by Haveit Neox",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/6x9OZEobyZ4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/6x9OZEobyZ4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/6x9OZEobyZ4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/6x9OZEobyZ4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/6x9OZEobyZ4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 21,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "6x9OZEobyZ4"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Js5h9H3dgTKnjx2RGoh6S5C54dY",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLk5pNmZFUm8zVWg4",
+    "snippet": {
+      "publishedAt": "2014-05-03T12:40:03Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "The Void by Storm Septimus (Second Life Machinima)",
+      "description": "￭ Music \nThis video features the song \"Bang Bang\" by Emily Peal\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/LEA27/108/113/2006\nBuild and design by Storm Septimus",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Ni6fERo3Uh8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Ni6fERo3Uh8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Ni6fERo3Uh8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Ni6fERo3Uh8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Ni6fERo3Uh8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 22,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Ni6fERo3Uh8"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "VH5jxujoeiMoCYf4aCIvFn6VHKQ",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkdUSFoyaURpbjRZ",
+    "snippet": {
+      "publishedAt": "2014-04-19T21:10:08Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Charlie (Second Life Machinima) / Down Like Silver - Wolves",
+      "description": "￭ Music \nWolves by Down Like Silver\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/Coral%20Reef%20Island/226/136/47",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/GTHZ2iDin4Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/GTHZ2iDin4Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/GTHZ2iDin4Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/GTHZ2iDin4Y/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/GTHZ2iDin4Y/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 23,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "GTHZ2iDin4Y"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "XTVD5uQcRCSdUmladhGBESsIoKs",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLnFWMlZYc0FqYjE0",
+    "snippet": {
+      "publishedAt": "2014-04-19T21:09:42Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Little Village by Cica Ghost / Remembrance by Javolenus (Second Life Machinima)",
+      "description": "￭ Music \nThis video features the song \"Remembrance\" by Javolenus\nhttp://ccmixter.org/files/Javolenus/44151\nhttps://soundcloud.com/javolenus\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/Caramel/31/151/31\nBuild and design by Cica Ghost",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qV2VXsAjb14/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qV2VXsAjb14/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qV2VXsAjb14/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qV2VXsAjb14/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qV2VXsAjb14/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 24,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "qV2VXsAjb14"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "wALKHbXj-xyhza2fwV5iE9ndqS0",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLmNEcWVtaXNEak9r",
+    "snippet": {
+      "publishedAt": "2014-02-16T18:30:10Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "The Visitors by Cica Ghost (Second Life Machinima)",
+      "description": "Under pouring rain, arriving in the city the Cica Ghost Visitors, with their colorful energy, and open the windows of the Lost Town La Città Perduta on the sensitive and poetic vision of their creator.\n\n￭ Music \nThis video features the song \"La Noyée\" by Yann Tiersen\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/Land%20of%20Glory/31/151/31\nLost Town - La Citta Pertuda\nBuild and design by sivi Kelberry, and Akilae Gant.\n\n￭ Artwork\nThe Visitors by Cica Ghost",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cDqemisDjOk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cDqemisDjOk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cDqemisDjOk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/cDqemisDjOk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/cDqemisDjOk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 25,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "cDqemisDjOk"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "X_1GIxTTE_NzGZJJCQydJfe6cao",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLlA5R2puR3J6MkFN",
+    "snippet": {
+      "publishedAt": "2014-01-09T21:26:43Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Hai Kur Mamashu Shis (Second Life Machinima)",
+      "description": "Hai Kur Mamashu Shis*\n*I want to tell you a story in Yagan\n\n￭ Music \nThis video features the song \"To The Dancers On The Ice\" by Emilie Simon\n\n￭ Filmed into Second Life\nSouth Pole\nDesign and unpredictable terraform by a Texan Girl",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/P9GjnGrz2AM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/P9GjnGrz2AM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/P9GjnGrz2AM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/P9GjnGrz2AM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/P9GjnGrz2AM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 26,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "P9GjnGrz2AM"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "iinm7gVFXapzHwF76oM2ythkLn4",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkhOTTNTS3lhY0VJ",
+    "snippet": {
+      "publishedAt": "2013-12-16T23:08:58Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Looking Around - Xolox (Second Life Machinima)",
+      "description": "Second Life Machinima for the WD Project Sci-Fi\nhttp://wdthepowerofchoice.com/projectscifi/?1341424795\n\n￭ Music \nThis video features the song \"Looking around\" by Xolox\n\nFollow Distorted Beat Records:\nWebsite: http://www.distortedbeat.com/\nFacebook: https://www.facebook.com/distortedbeat\nSoundcloud: https://soundcloud.com/distorted-beat...\n\nFollow XOLOX:\nWebsite: http://djxolox.com/\nFacebook: https://www.facebook.com/djxolox\nTwitter: http://twitter.com/djxolox\nSoundcloud: https://soundcloud.com/dj-xolox\n\nBuy the song on beatport\nhttp://www.beatport.com/release/looking-around/1155460\n\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/INSILICO/190/182/3602\nInSilico\nBuild and design by Skills Hak",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/HNM3SKyacEI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/HNM3SKyacEI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/HNM3SKyacEI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/HNM3SKyacEI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/HNM3SKyacEI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 27,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "HNM3SKyacEI"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "lcLZmLneQ0CwUheMXDawHU7UiTw",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkRWcDVMOGctQVQw",
+    "snippet": {
+      "publishedAt": "2013-11-26T18:43:45Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Pangloss II - Behind the scene / Manu Chao - Rainin in Paradize (Second Life Machinima)",
+      "description": "Read the description for more information.\n\nSecond part of a serie about Bowie Lana Zeplin installation into Second Life.\nstarts here https://www.youtube.com/watch?v=T8isZ87v4y0\n\n-\n\nHistory will one day have its say, but it will not be the history that Brussels, Paris, Washington or the United Nations will teach, but that which they will teach in the countries emancipated from colonialism and its puppets. Africa will write its own history, and it will be, to the north and to the south of the Sahara, a history of glory and dignity.\n\nPatrice Emery Lumumba\nLast words September 1960\n\n-\n\n￭ Pangloss in Second Life\n\nhttp://maps.secondlife.com/secondlife/Banana%20Island/129/115/21\nPangloss  - Banana Island\n\nFirst time I met Bowie we talked about her inspiration\nPangloss was inspired originally by photographer Richard Mosse's photo \"Men Of Good Fortune\". http://www.richardmosse.com/content/4.works/10.infra/21.jpg. This photo is taken using a military infrared camera, making the photos look like a beautiful Lisa Frank dream land, when in reality they are devastating pictures of a war-torn Congo. The contrast of harsh reality and haunting, surreal beauty really moved me and I was reminded of a character in Voltaire's \"Candide\" named Pangloss.  Pangloss is a delusional character who believes that he lives in the best of all possible worlds.  He sees the world through rose-colored glasses, and he refuses to acknowledge the pain and suffering before him; Again, the contrast of reality and surreality.\n\nWas obvious I had to make a second machinima revealing the hidden ghosts of Pangloss. History of Congo is a long list of disasters. Shortly, one of baddest never ending colonization history. Under the reign of Belgium King Leopold II, from 1885 to 1908, it is estimated that the Congolese native population decreased by about ten million people. During the Cold War western countries particularly the United States supported a dictator Mobutu due to his anti-communist stance. By 1996 the past victims of Rwanda genocide became the genocider in east of Congo, without almost any reaction of International Community. Two wars 1996-1997, 1998-2003, never ending conflict in North Kivu. 11 countries engaged making it the deadliest war since World War II with over 5.6 million of deaths. Sadly those wars has been financed by all of us. A mineral Coltan, used to build computers, mobile phones, tablets is extracted in the east of the country, and partly finances the rebels, along with the equally deplorable gold and cassiterite (tin oxide) trades.\n\nRead more about Congo History here\nhttp://en.wikipedia.org/wiki/History_of_the_Democratic_Republic_of_the_Congo\n\n￭ Infra\nArt work by Richard Mosse\nhttp://www.richardmosse.com/\n\nVideo Links\nhttps://vimeo.com/43877177\nhttps://vimeo.com/67115692\n\n￭ War Witch (Rebelle)\nA film by Kim Nguyen\nhttp://www.rebelle-lefilm.ca/english/\nMontreal-based filmmaker Kim Nguyen paints a poignant and harrowing portrait of Komona, a 14-year-old girl who has been kidnapped from her African village by rebels to become a child soldier. She escapes from the camp with an older albino soldier and experiences for the very first time the joys of a peaceful and loving life, but a fresh tragedy will force her to confront and fight the ghosts haunting her mind. Inspired by a real story that took place in Burma. Nguyen worked on the film for 10 years, watching and catching children's points of view with his camera and mixing in tightly edited flashbacks in which the spirits of human beings appear with an ultra-realistic and violent storyline. War Witch is also a poignant and impossible love story filled with magic, picturesque images.\n\n￭ Photography\nChristian Als http://christianals.com/\nPep Bonet http://pepbonet.com/\nJean Marc Boujou \nGuy Calaf http://www.guycalaf.com/\nJérôme Delay https://twitter.com/jeromedelay\nMariella Furrer http://www.mariellafurrer.com/\nJunior D. Kannah http://www.kulturphoto.fr/\nPhil Moore http://philmoore.info/\nRichard Mosse http://www.richardmosse.com/\nDominic Nahr http://dominicnahr.com/\nJames Oatway http://www.jamesoatway.com/\nFinbarr O'Reilly http://www.boston.com/bigpicture/\nJack Picone http://www.jackpicone.com/\nZizola Francesco http://www.zizola.com/\n\n￭ Congo Wars\nhttp://en.wikipedia.org/wiki/First_Congo_War\nhttp://en.wikipedia.org/wiki/Second_Congo_War\nhttp://en.wikipedia.org/wiki/Kivu_conflict\n\n￭ Coltan\nhttp://www.enoughproject.org/conflict-minerals\nhttp://www.raisehopeforcongo.org/content/initiatives/conflict-minerals\nhttp://www.crisisgroup.org/en/publication-type/key-issues/country/conflict-minerals-in-drc.aspx\n\nUN Final on the Illegal Exploitation of Natural Resources and Other Forms of Wealth of the DRC\nhttp://daccess-dds-ny.un.org/doc/UNDOC/GEN/N02/621/79/PDF/N0262179.pdf?OpenElement\n\n￭ Sexual Violence\nhttp://www.enoughproject.org/conflicts/eastern_congo/sexual-violence\nhttp://www.cbsnews.com/videos/war-against-women/\nhttp://www.panzihospital.org/",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/DVp5L8g-AT0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/DVp5L8g-AT0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/DVp5L8g-AT0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/DVp5L8g-AT0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/DVp5L8g-AT0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 28,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "DVp5L8g-AT0"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "V4eSZZIA6m9OW8K4fFts3-BRnMg",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLlQ4aXNaODd2NHkw",
+    "snippet": {
+      "publishedAt": "2013-11-04T07:25:12Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Pangloss I by Bowie Lana Zeplin / Edvard Grieg (Second Life Machinima)",
+      "description": "Second Life Machinima\n\n￭ Music \nThis video features the song \"Solveigs Lied\" by Edvard Grieg from Peer Gynt\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/Banana%20Island/129/115/21\nPangloss  - Banana Island\nBuild and design by Bowie Lana Zeplin\n\n￭ Many Thanks to\nBowie Lana Zeplin to let me use her land for this movie",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/T8isZ87v4y0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/T8isZ87v4y0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/T8isZ87v4y0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/T8isZ87v4y0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/T8isZ87v4y0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 29,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "T8isZ87v4y0"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "t3mXMSriQUQLrh_TQz5CU9TRCio",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLktzN0dwRm1TamJZ",
+    "snippet": {
+      "publishedAt": "2013-10-11T15:06:50Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Walk Unafraid / R.E.M. (Second Life Machinima)",
+      "description": "Second Life Machinima\n\nIf I have a bag of rocks to carry as I go\nI just want to hold my head up high\nI don't care what I have to step over\nI'm prepared to look you in the eye\nLook me in the eye\nAnd if you see familiarity\nThen celebrate the contradiction\nHelp me when I fall to\nWalk unafraid\n\n￭ Music \nThis video features the song \"Walk Unfraid\" by R.E.M. from the live recording 2003-10-29 Avalon Hollywood Theatre - Hollywood CA - USA.\n\n￭ Filmed into Second Life\nhttp://maps.secondlife.com/secondlife/Fantasies%20III/64/226/23\nDeadPool  - Dark Experience/ Fantasies III\nBuild and design by Ƙυɳʈ ßαttitυdє\n\n￭ Many Thanks to\nƘυɳʈ ßαttitυdє to let me use his land for this movie",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Ks7GpFmSjbY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Ks7GpFmSjbY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Ks7GpFmSjbY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Ks7GpFmSjbY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Ks7GpFmSjbY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 30,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Ks7GpFmSjbY"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "n0VhUntbhMZlwKzIYBdeIIi1PoM",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkwyNEY3Ni1waldR",
+    "snippet": {
+      "publishedAt": "2013-09-26T21:19:52Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Sexual Revolution by Anita Witt, Pallina Loon / Roger Waters (Second Life Machinima)",
+      "description": "Second Life Machinima\n\n￭ Music \nThis video features the song \"4:41 AM Sexual Revolution\" from the LP \"The Pros and Cons of Hitch Hiking\" by Roger Waters\n\n￭ Filmed into Second Life\nDryland @ Mado\nhttp://maps.secondlife.com/secondlife/Mado/120/174/38\nBuild and design by Anita Witt\n\nInstallation \"Woobs ... a baby\"\nby pallina60 Loon\nhttp://www.youtube.com/user/pallina60Loon\n\n￭ Many Thanks to\nAnita Witt to let me use her land for this movie",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/L24F76-pjWQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/L24F76-pjWQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/L24F76-pjWQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/L24F76-pjWQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/L24F76-pjWQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 31,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "L24F76-pjWQ"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "fc73-x3Nl9ZoGeSI6ce4C7Nluzo",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLnBjN2N4am9QVUw0",
+    "snippet": {
+      "publishedAt": "2013-09-01T15:03:43Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Mobilis in Mobili (Second Life Machinima)",
+      "description": "Second Life Machinima\n\n￭ Music \nThis video features the music \"Requiem in B-flat minor, Op. 89, B. 165\" from Antonín Dvořák\n\n￭ Filmed into Second Life\nBlake Diego Point\nhttp://maps.secondlife.com/secondlife/Blake%20Diego/33/174/21\nBuild and design by Aley\n\nMermaid's cave - Pino\nhttp://maps.secondlife.com/secondlife/Pino/217/163/7\n\n￭ Many Thanks to\nKatie Luckstone",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pc7cxjoPUL4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pc7cxjoPUL4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pc7cxjoPUL4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pc7cxjoPUL4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pc7cxjoPUL4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 32,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "pc7cxjoPUL4"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "CX4RhZlrrAYRkrIE1Zqd6ztrb5c",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLnZmb1ZNN3NCSXVr",
+    "snippet": {
+      "publishedAt": "2013-08-25T22:53:52Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "The Last Stop by Storm Septimus - Yesterday is here / Jennifer Stuart & Kim Göransson",
+      "description": "Second Life Machinima\n\n￭ Music \nThis video features the cover \"Yesterday is here\" from Tom Waits by Jennifer Stuart & Kim Göransson \nhttps://soundcloud.com/starshipjenerprise/yesterday-is-here-tom-waits-1\nhttps://www.facebook.com/JenniferStuartMusic\nhttps://www.facebook.com/MyHotAirBalloonMusic\n\n￭ Filmed into Second Life\nThe Fade @ The Last Stop\nhttp://maps.secondlife.com/secondlife/The%20Last%20Stop/92/101/45\nBuild and design by Storm Septimus & Tych Voyager\n\n￭ Many Thanks to\nStorm Septimus, Zoe Quaritch, Madcap Madzuko\nJennifer Stuart, Kim Göransson",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vfoVM7sBIuk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vfoVM7sBIuk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vfoVM7sBIuk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vfoVM7sBIuk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vfoVM7sBIuk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 33,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "vfoVM7sBIuk"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "TM9vVrg9RrwcfSUaqioQex-YSps",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLk9hZE5TNlVCeFdj",
+    "snippet": {
+      "publishedAt": "2013-08-19T18:46:30Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "*Ghostville* by Cica Ghost, Elephant Gun / Beirut (Second Life Machinima)",
+      "description": "Second Life Machinima\n\nMala princeza, Cica is Grivca\nSretne na balu mladoga princa\nI zaljubi se princ u Cicu\nI zaljubi se Cica u princa :)\n\nSecond Life Machinima\n\n￭ Music \nThis video features the song \"Elphant Gun\" from the LP \"Elephant\" by Beirut\nhttp://www.beirutband.com/\n\n￭ Filmed into Second Life\n*Ghostville* by Cica Ghost\nhttp://maps.secondlife.com/secondlife/MetaLES/235/219/25\nBuild and design by Cica Ghost\nhttps://my.secondlife.com/cica.ghost#about_tab\nhttps://marketplace.secondlife.com/stores/98471\n\n￭ Avatar\nElephant by Rosie Dimanovic\nhttps://my.secondlife.com/rosie.dimanovic#about_tab\nhttps://marketplace.secondlife.com/stores/67839\n\n￭ Many Thanks to\nCica Ghost for hiring me ;)",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/OadNS6UBxWc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/OadNS6UBxWc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/OadNS6UBxWc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/OadNS6UBxWc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/OadNS6UBxWc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 34,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "OadNS6UBxWc"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "tq5TldbPTVhC1X2TzNzrrOHiJAU",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLml3cTAyc21PcHZZ",
+    "snippet": {
+      "publishedAt": "2013-07-07T16:04:09Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Eclipse - Exercices in free love / Freddie Mercury & Montserrat Caballé (Second Life Machinima)",
+      "description": "Better in full screen\n\n￭ Music \nFreddie Mercury & Montserrat Caballé\nExercices in free love\n\n￭ Filmed Into Second Life\nThe Trace\nBuild and design by Kyllie Jaxxon",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/iwq02smOpvY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/iwq02smOpvY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/iwq02smOpvY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/iwq02smOpvY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/iwq02smOpvY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 35,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "iwq02smOpvY"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "t1Z6yzdi8OBBUI3oUGk6UuSsJTU",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjItX1FTSEVXbkRv",
+    "snippet": {
+      "publishedAt": "2013-07-07T15:04:34Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Taya Tan (Second Life Machinima) -  MachinimUWA VI",
+      "description": "Second Life Machinima\nMachinimUWA VI\n\n￭ Music \nSaori Yuki\nTayan Tan\n\n￭ Filmed Into Second Life\nAnnwn Willows\nBuilds and designs by Joanna Corith\nSpecial thanks to Joanna for bringing me there\nhttp://maps.secondlife.com/secondlife/Annwn%20Willows/134/137/903\n\nEnd is dedicated to Iono Allen ;)\n\nTaya-tan, taya-tan, taya-tan\nWatashi no tokimekiyo\nTaya-tan, taya-tan, taya-tan\nKokoro ga utau-no yo\nAnata no mune, yorisou toki\nAi-no uta a kanaderu watashi\n\nTaya-tan, taya-tan, taya-tan\nWatashi wa guitar nano\nTaya-tan, taya-tan, taya-tan\nAnata ga hiku watashi\n\nTaya-tan, taya-tan, taya-tan\nHisokana tokimeki yo\nTaya-tan, taya-tan, taya-tan\nKokoro ga yureru noyo\nMatsuge tozashi, yumemiru toki\nMune no itoga furuete iruno\n\nTaya-tan, taya-tan, taya-tan\nWatashi wa guitar nano\nTaya-tan, taya-tan, taya-tan\nAnata ga hiku watashi",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/2-_QSHEWnDo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/2-_QSHEWnDo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/2-_QSHEWnDo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/2-_QSHEWnDo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/2-_QSHEWnDo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 36,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "2-_QSHEWnDo"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "5CsPrKyW3lV5-QjPpH9qpEBOwPA",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjI2SjA2ZG5PemJv",
+    "snippet": {
+      "publishedAt": "2013-06-23T00:16:02Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Philip Rosedale Interview Trailer 2013-06-21 (Second Life)",
+      "description": "Trailer of interview of Philip Rosedale done for burn2.org 2013, June 21th",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/26J06dnOzbo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/26J06dnOzbo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/26J06dnOzbo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/26J06dnOzbo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/26J06dnOzbo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 37,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "26J06dnOzbo"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "01pDctkzctacPetSeVYd8GzM_gQ",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjVzWjNnQnRldW44",
+    "snippet": {
+      "publishedAt": "2013-06-19T07:01:55Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Huracán - Flocke by Joanna Corith & Pale Illusion - Love is Strong by Inga Bourlier - MachinimUWA VI",
+      "description": "Second Life Machinima\nA Weather Reflection\n\nMachinimUWA VI\nhttp://www.uwainsl.blogspot.com.au/20...\n\nHuracán \nHura (wind) / cán (center)\n\nHuracán is the composition of the angry wind goddess Guabancex, and her two enablers the gods Guatauba, and Coatrisque that the Taino Indians in Puerto Rico and also the Carib and Arawak Indians elsewhere in the Caribbean believed controlled the weather, particularly hurricanes.\n\n￭ Music \nInga Bourlier\nLove is Strong\nhttps://soundcloud.com/ingabourlier\nhttps://www.facebook.com/ingabourlier\nhttp://www.reverbnation.com/ingabourlier\nSpecial thanks to Inga for letting me use her great cover\n\n￭ Filmed Into Second Life\nFlocke 'Reality, merely an illusion...'\nBuilds and designs by Joanna Corith & Pale Illusion\nSpecial thanks for letting me rez into their wonderful place.\nhttp://maps.secondlife.com/secondlife/Horizon%20Dream/108/23/32\n\nThe Looking Glass - Horizon Dream\nBuilds and designs by Marcus Inkpen & Sharni Azalee\nhttp://maps.secondlife.com/secondlife/Horizon%20Dream/20/24/27\n\nUniversity of Western Australia\nShot of Sunken Gardens visible at 1:31\nhttp://maps.secondlife.com/secondlife/University%20of%20WA/40/224/24",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/5sZ3gBteun8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/5sZ3gBteun8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/5sZ3gBteun8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/5sZ3gBteun8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/5sZ3gBteun8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 38,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "5sZ3gBteun8"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Wpv-aWvZHZNSqc-ZRLkj11lyugE",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLmhUU1hRUHJ4Vk5F",
+    "snippet": {
+      "publishedAt": "2013-05-31T20:39:19Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Egmont by Syn Beresford, Lia Woodget / Beethoven (Second Life Machinima)  - MachinimUWA VI",
+      "description": "Second Life Machinima\nA Theatrical Reflection\n\nMachinimUWA VI\nhttp://www.uwainsl.blogspot.com.au/2013/03/reflections-machinimuwa-vi-launches.html\n\nFreudvoll und leidvoll, gedankenvoll sein\nLangen und bangen in schwebender Pein\nHimmelhoch jauchzend, zum Tode betrübt\nGlücklich allein ist die Seele, die liebt\n\nJohann Wolfgang von Goethe\nEgmont 1788\n \n￭ Music \nLudwig van Beethoven\nEgmont Overture Op. 84\nhttp://en.wikipedia.org/wiki/Egmont_(Beethoven)\nMusopen Symphony Orchestra\nhttps://musopen.org/music/1563/ludwig-van-beethoven/egmont-overture-op-84/\n\n￭ Filmed Into Second Life\nElysion - Les Reves\nBuild and designed by Syn Beresford\nhttp://maps.secondlife.com/secondlife/Les%20Reves/222/93/45\n\nBlack Spot Shipyard\nBuild by Lia Woodget\nhttp://maps.secondlife.com/secondlife/Black%20Spot/199/160/26\n\nUniversity of Western Australia\n\n￭ Avatars\nSail Away Project\n\"Juan\", \"Old Man With Pipe\", \"Old Timer\",\n\"Spanish Governor\", \nby Courtesy of Rafale Kamachi, RomTheRom Freenote\n\nJewelry\nby Courtesy of Rafale Kamachi\n\nShip \"Ghost\"\nBlack Spot Shipyard\nby Lia Woodget\nhttps://marketplace.secondlife.com/stores/13195",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/hTSXQPrxVNE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/hTSXQPrxVNE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/hTSXQPrxVNE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/hTSXQPrxVNE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/hTSXQPrxVNE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 39,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "hTSXQPrxVNE"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "7-ZLSntubH_5CWi34ezjRLy7rd8",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLm5aS1k2Y2U4VXBR",
+    "snippet": {
+      "publishedAt": "2013-05-09T21:13:22Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Dare to dream (Second Life Machinima)",
+      "description": "Second Life Machinima\nAnd the dreams that you dare to dream really do come true.\n\n￭ Music \nThis video features the song \"Over the rainbow\" from the LP \"Facing Future\" by Israel Kamakawiwo'le \nhttp://www.izhawaii.com\n\n￭ Filmed into Second Life\nDreamer's Islands\nhttp://maps.secondlife.com/secondlife/Lonely%20Soul/43/222/21\nBuild made by Anthony Gartner\nhttps://my.secondlife.com/anthony.gartner",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nZKY6ce8UpQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nZKY6ce8UpQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nZKY6ce8UpQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nZKY6ce8UpQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nZKY6ce8UpQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 40,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "nZKY6ce8UpQ"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "qFZiPWek1H8cZP0hkpa28oOT8Jw",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjdMU3RNUHhZZkRZ",
+    "snippet": {
+      "publishedAt": "2013-05-01T19:07:34Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Breathe you in my dreams / Trixie Whitley (Second Life Machinima)",
+      "description": "Second Life Machinima\nThe amazing story of a man living into a cloudy isolated island and looking at the horizon. Any resemblance to real persons would obviously be accidental.\n\n￭ Music \nThis video features the song \"Breathe you in my dreams\" from the LP \"Fourth Corner\" by Trixie Whitley \n\n￭ Filmed into Second Life\nWinter Moon\nhttp://maps.secondlife.com/secondlife/Winter%20Moon/38/65/22\nBuild made by Dream Shadowcry\n\n￭ Many Thanks to\nDream Shadowcry for letting me film on this wonderful place",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/7LStMPxYfDY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/7LStMPxYfDY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/7LStMPxYfDY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/7LStMPxYfDY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/7LStMPxYfDY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 41,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "7LStMPxYfDY"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "UCZeOcmMq5wa_-4G-bXqyNn22Pw",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLklhaXJ2Y1pNQ1FJ",
+    "snippet": {
+      "publishedAt": "2013-04-18T19:44:03Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Poe yawne slolu oer - Night iridescence / James Horner (Second Life Machinima)",
+      "description": "Second Life Machinima\n\n￭ Music \nNight iridescence by James Horner\n\n￭ Filmed into Second Life\nnAvitar Na'vi Forest\nhttp://maps.secondlife.com/secondlife/nAvitar/128/127/751\nhttps://www.facebook.com/groups/nAvitar/\n\nBuild made by\nJai'Tu'Kan (ardman787.boa)\nKa'china Soiala (autumnrayne.blackburn)\n\nPandora Home Tree\nhttp://maps.secondlife.com/secondlife/Pandora%20HomeTree/136/163/3625",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/IairvcZMCQI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/IairvcZMCQI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/IairvcZMCQI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/IairvcZMCQI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/IairvcZMCQI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 42,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "IairvcZMCQI"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "b1PJPBRRppXBEI_tOHVKiZt7mhk",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLm1MY1Zwbmdka3VJ",
+    "snippet": {
+      "publishedAt": "2013-04-14T00:08:36Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "A ton étoile / Noir Désir (Second Life Machinima)",
+      "description": "Second Life Machinima\n\n￭ Music \nThis video features the song \"A ton étoile\" from the LP \"En Public et en Images\" by Noir Désir\n\n￭ Filmed into Second Life\nAkasha\nhttp://maps.secondlife.com/secondlife/Akasha/185/72/2059\nScheherazade\nhttp://maps.secondlife.com/secondlife/Scheherazade/109/109/49\n\nBuild by Rob Danton and Kean Kelly\nhttps://my.secondlife.com/cica.ghost#about_tab\nhttps://my.secondlife.com/kean.kelly/#about_tab\n\n￭ Paintings\nBansky\nhttp://en.wikipedia.org/wiki/Banksy\n\n￭ Many Thanks to\nKean Kelly for letting me film on this wonderful place\n\n￭ Lyrics English translation\nBelow the full light\nAnd into the shadow silently\nIf you seek for a shelter\nInaccessible\nTell yourself it is not that far away \nAnd than one shines\n\nTo your star\nTo your star\n\nLittle sister of my nights\nAll of these I missed\nWhen you was saving face\nOf many others than me\nKnow that I do not forget anything but one clears\n\nTo your star\nTo your star\nTo your star\nTo your star\n\nAlways on the horizon\nOf Suns bowing\nAs we have no choice Heart is left\nYou can spit, even laugh, and you owe it\n\nTo your star\nTo your star\n\nA Marcos\nTo the joy\nTo the beauty of dreams\nTo the melancholy\nTo the hope that keeps us\nTo the health of fire\nAnd the flame\n\nTo your star\nTo your star\nTo your star\nTo your star",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/mLcVpngdkuI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/mLcVpngdkuI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/mLcVpngdkuI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/mLcVpngdkuI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/mLcVpngdkuI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 43,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "mLcVpngdkuI"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Jpdxy_9KN9LhuHqrUd2vAraaGug",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLlRDSW81dTN0TS1n",
+    "snippet": {
+      "publishedAt": "2013-04-04T16:02:44Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "La Panique Mécanique / Dionysos - *Rust* by Cica Ghost (Second Life Machinima)",
+      "description": "Second Life Machinima\n\n￭ Music \nLa panique mécanique by Dionysos\nhttp://www.dionyweb.com/\nhttp://www.dionyweb.com/la_mecanique_du_coeur.php\nOfficial YouTube \nhttp://www.youtube.com/user/officieldionysos\n\n￭ Filmed into Second Life\n*Rust* by Cica Ghost\nhttp://maps.secondlife.com/secondlife/LEA13/164/103/22\nBuild by Cica Ghost\nhttps://my.secondlife.com/cica.ghost#about_tab\nhttps://marketplace.secondlife.com/stores/98471\n\n￭ Avatars\nThe Wooden Puppet\nhttps://marketplace.secondlife.com/p/tmb-Wooden-Puppet-BOXed/2861149\nhttps://marketplace.secondlife.com/p/gear-works-wheart-beating-finished-full-perm-wONOFF-sound/2163747\n\n￭ Many Thanks to\nCica Ghost for letting me film on her wonderful place\n\n￭ Lyrics translation\nWhen I panic the mechanism of my heart derailed to the point that I think I'm an old train\nLoco steam locomotive which makes wheeling on tracks of my own fears\nI'm afraid of what? I am afraid of you, in fact of me without you, look\nYou see steam filter under the rails\n\nThis is the mechanical panic of my heart, loco locomotive loco steam locomotive\nThe mechanical panic of my heart, loco locomotive loco steam locomotive\n\nAt this time it sounded like I rang like a bell tower in a desert of blue smoke\nAs the fear to go, go go hazards of back and forth caused me some crash\nI'll learn to avoid them another time, but now it starts to slam, I have popcorn in the heart\n\nThis is the mechanical panic of my heart, loco locomotive loco steam locomotive\nThe mechanical panic of my heart, loco locomotive loco steam locomotive\n\nWatch out if you don't wait for me at the station\nMy heart is heavy it does not float even in the peaceful ocean\nIt sinks like a stone, heart that stings I know is not very good to love\n\nMists will make your slam trains haunted, by now I can build you sublime women ghosts,\nBlond or brown to cut into the mist\nI can disembowel without scare them and sign your humble servant Jack the Ripper\nDo not be afraid little you will learn very quickly to scare for existing\nDo not be afraid little you learn quickly to frighten\n\nThis is the mechanical panic of my heart, loco locomotive loco steam locomotive\nThe mechanical panic of my heart, loco locomotive loco steam locomotive\nThis is the mechanical panic of my heart, loco locomotive loco steam locomotive\nThe mechanical panic of my heart, loco locomotive loco steam locomotive",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/TCIo5u3tM-g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/TCIo5u3tM-g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/TCIo5u3tM-g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/TCIo5u3tM-g/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/TCIo5u3tM-g/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 44,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "TCIo5u3tM-g"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "Z8e-qWwgxPhlTBvRuIAowokS568",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLk5jaXMxZURPYnRR",
+    "snippet": {
+      "publishedAt": "2013-03-16T14:44:00Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Baja Norte - That's How it Goes / Javolenus (Second Life Machinima)",
+      "description": "Second Life Machinima\nThat's how life goes in salt spray \n\n￭ Music \nThat's How It Goes by Javolenus, available under a Creative Commons Attribution-Noncommercial license.\nhttp://ccmixter.org/people/Javolenus\nhttp://ccmixter.org/files/Javolenus/41587\n\nhttp://javolenus.bandcamp.com/\n\n￭ Filmed into Second Life\nSalt Water - Baja Norte\nhttp://maps.secondlife.com/secondlife/Salt%20Water/179/150/22\n\nFickr pictures pool\nhttp://www.flickr.com/groups/bahia_norte_on_salt_water/pool/\n\nBuild by Jac Mornington \n\n￭ Many Thanks to\nJac Mornington for letting me film on his wonderful place\nJavolenus for letting me use his great song track",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Ncis1eDObtQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Ncis1eDObtQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Ncis1eDObtQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Ncis1eDObtQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Ncis1eDObtQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 45,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Ncis1eDObtQ"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "vVhunJ1Z-9p4JMXFfKZJEMTYGj0",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkpfNUVzS2JQZVo4",
+    "snippet": {
+      "publishedAt": "2013-03-12T01:30:07Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Ghost of Tom Joad / Bruce Springsteen (Second Life Machinima)",
+      "description": "Second Life Machinima\nThe Great Depression of 1929 destroyed the lives of thousands of U.S. citizens, its effects stretching as far as Europe.\n\n\"The Ghost of Tom Joad\" is a song by Bruce Springsteen. It is the title track to his eleventh studio album, released in 1995. The character Tom Joad, from John Steinbeck's classic 1939 novel The Grapes of Wrath, is mentioned in the title and narrative.\n\nIf we measured unemployment the way they did during the 1930s, today's unemployment would be worse than any single year of the Great Depression.\n1931 - 15.3%    2009 - 21%\n1932 - 22.9%    2010 - 22%\n1933 - 20.6%    2011 - 22%\n1934 - 16%      2012 - 23%\n\nYouth Unemployment have never been worse\nUnited State 16%\nEurope 24%\nFrance 27%\nItaly 37%\nSpain 56%\nPortugal 38%\nGreece 58%\n\n￭ Music \nBruce Springsteen\nGhost of Tom Joad\nhttp://en.wikipedia.org/wiki/The_Ghost_of_Tom_Joad_(song)\n\n￭ Film\nGrapes of Wrath with Henry Fonda from John Steinbeck Book\nhttp://en.wikipedia.org/wiki/The_Grapes_of_Wrath\nhttp://www.imdb.com/title/tt0032551/\n\n￭ Pictures\nDorothea Lange\nhttp://en.wikipedia.org/wiki/Dorothea_Lange\nMargaret Bourke-White\nhttp://fr.wikipedia.org/wiki/Margaret_Bourke-White\n \n￭ Filmed into Second Life\nCrael City\nhttp://maps.secondlife.com/secondlife/Crael/202/14/21\nThanks to people at Crael, particulary Brighid 'Bree' Riordan, Bryndi Ingersoll, Teyrin Miller\n\nFar Away\nhttp://maps.secondlife.com/secondlife/Dreamworld%20North/202/151/22\nVirtual Decay\nhttp://maps.secondlife.com/secondlife/Virtual%20Decay/95/126/25",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/J_5EsKbPeZ8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/J_5EsKbPeZ8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/J_5EsKbPeZ8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/J_5EsKbPeZ8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/J_5EsKbPeZ8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 46,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "J_5EsKbPeZ8"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "4IsJ7Mc7F4IHhPVZCw7intCdYbY",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkUzbm5UM0FabGpr",
+    "snippet": {
+      "publishedAt": "2013-03-09T10:52:01Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "A Journey into Spring - Lullabye / Goran Bregovic (Second Life Machinima)",
+      "description": "Second Life Machinima\n\nCalas Galadhon is very unique set of SIMs. Build with lot of attention to details, is one of my favorite natural place of Second Life.  If you look attentively somewhere you can see this greek writing on a wall. \"η φιλια ειναι μια ψυχη σε δυο σώματα\", (Friendship is one soul in two bodies). Idea of this movie came from it.\n\n￭ Music \nLullabye by Goran Bregovic\nhttp://www.goranbregovic.rs\n\n￭ Filmed into Second Life\nCalas Galadhon Park Sims\nhttp://calasgaladhon.com/\nhttp://slurl.com/secondlife/Calas%20Galadhon/142/229/22/\n\nThanks to the SIM owners Ty Tenk and Truck Meredith for this wonderful place",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/E3nnT3AZljk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/E3nnT3AZljk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/E3nnT3AZljk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/E3nnT3AZljk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/E3nnT3AZljk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 47,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "E3nnT3AZljk"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "T8aSsG9Ocsg_xnpXd-hSBkb5pCk",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkkyUTBuZEY4dTFJ",
+    "snippet": {
+      "publishedAt": "2013-02-21T16:40:56Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Chocolate Jesus / Joe Bonamassa & Beth Hart (Second Life Machinima)",
+      "description": "Second Life Machinima\nInto the sweaty of Louisiana bayou\nWhen the weather gets rough\nAnd it's whiskey in the shade\nPour him over ice cream\nFor a nice parfait\n\n￭ Music\nChocolate Jesus by Joe Bonamassa & Beth Hart (Tom Waits cover)\nhttp://hartandbonamassa.com/youtube/\n\n￭ Painting\nCharlie Terrell\nhttp://charlieterrell.com/\n\n￭ Filmed into Second Life\nVoodoo Blues - A wonderful club to hear Blues\nVoodoo Bayou: http://maps.secondlife.com/secondlife/Voodoo%20Bayou/101/139/22\n\n\nAlternate scenes\nShady Falls: http://maps.secondlife.com/secondlife/Shady%20Falls/28/106/50\nValentine Town: http://maps.secondlife.com/secondlife/Elizabeth%20Town/162/46/38\nNorth Pole Village: http://maps.secondlife.com/secondlife/Porvoo/217/132/127",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/I2Q0ndF8u1I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/I2Q0ndF8u1I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/I2Q0ndF8u1I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/I2Q0ndF8u1I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/I2Q0ndF8u1I/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 48,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "I2Q0ndF8u1I"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "xhXhb7X9KoxkZns7B327cb7EEMc",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLjd3SkNUUHNwY1hB",
+    "snippet": {
+      "publishedAt": "2013-02-08T00:20:04Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Ora et Labora / Luc Arbogast (Second Life Machinima)",
+      "description": "Second Life Machinima\nA lighthouse keeper is haunted by daemons. Who knows when the dream starts, but the day after once again it is super-clear.\n\nThanks to Ida Calberg for sharing her beautiful land\n\nSelected for MOMAC March 2013\nhttp://aviewtv.com/momac/\n\n￭ Music\nLuc Arbogast\nOra et Labora\nhttp://www.lucarbogast.fr/\n\n￭ Second Life URL\nReflections of Beauty\nhttp://maps.secondlife.com/secondlife/Reflections%20of%20Beauty/157/96/49",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/7wJCTPspcXA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/7wJCTPspcXA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/7wJCTPspcXA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/7wJCTPspcXA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/7wJCTPspcXA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 49,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "7wJCTPspcXA"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "0Nc5-vpovBeRDb9ixm7M4iyySgM",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLlJKTFRyRUhhLUlN",
+    "snippet": {
+      "publishedAt": "2013-02-01T11:30:06Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Traeme Paz / Patricia Vonne (Second Life Machinima)",
+      "description": "Second Life Machinima.\nHIS Part II\nI caught up a butterfly there, and let it flee.\n\nThanks to the unexpected faun claudia222 jewell\n\n￭ Build\nL'oscurità e la luce (aka Lucia Genesis)\n\n￭ Music\nTraeme Paz by Patricia Vonne\nhttp://www.patriciavonne.com/\n\n￭ Filmed in Second Life\nWorld's End Garden\nhttp://maps.secondlife.com/secondlife/Worlds%20End%20Garden/128/128/2",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/RJLTrEHa-IM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/RJLTrEHa-IM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/RJLTrEHa-IM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/RJLTrEHa-IM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/RJLTrEHa-IM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 50,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "RJLTrEHa-IM"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "KTcJu3U9OB-tCWpgXtprZttmTQM",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLmdQUzVndWNtN0FN",
+    "snippet": {
+      "publishedAt": "2013-01-28T19:02:08Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "True Colors / Ane Brun (Second Life Machinima)",
+      "description": "Second Life Machinima\nHIS Part I\nFor Hilde\nI couldn't find a better place to express such a happy mood ;)\n\n￭ Music\nAne Brun\nTrue Colors\nhttp://anebrun.com/\n\n￭ Filmed into Second Life\nHappyMood Forest\nhttp://maps.secondlife.com/secondlife/HappyMood/87/91/22",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/gPS5gucm7AM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/gPS5gucm7AM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/gPS5gucm7AM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/gPS5gucm7AM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/gPS5gucm7AM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 51,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "gPS5gucm7AM"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "h4SrRCm_eJ0VcsgcJd7NnxexHhI",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLkJ3ZzBpblJxSjBv",
+    "snippet": {
+      "publishedAt": "2013-01-11T19:50:37Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Tableau by Nylon Pinkney & Polyester Partridge (Second Life Machinima)",
+      "description": "Second Life Machinima\nTableau\n\n￭ Build\nNylon Pinkney, Polyester Partridge\n\n￭ Second Life URL\nTableau\nhttp://maps.secondlife.com/secondlife/Tableau/128/128/23",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Bwg0inRqJ0o/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Bwg0inRqJ0o/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Bwg0inRqJ0o/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Bwg0inRqJ0o/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Bwg0inRqJ0o/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 52,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "Bwg0inRqJ0o"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "6LbcyH0RNJerfMaxlxoj5NdKE70",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLnczR29FNnpSaG1J",
+    "snippet": {
+      "publishedAt": "2013-01-10T22:06:03Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Domination Island (Second Life Machinima)",
+      "description": "Second Life Machinima\nDomination Island\n\n￭ Domination Island\nTeam: Andy Hextall, spankybutt, cuddle Aura, Ida Carlberg, Kika Wardark, Dane Silverfall, JSun\nBuild: Andy HexTall\nhttp://dominationisland.blogspot.com/\n\n￭ Music\nJordan Reyne\nhttp://www.jordanreyne.com/\nFear of Flying from album Passenger\nhttp://jordanreyne.bandcamp.com/album/passenger\n\n￭ Second Life URL\nDomination Island\nhttp://maps.secondlife.com/secondlife/Domination%20Island/42/225/117",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/w3GoE6zRhmI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/w3GoE6zRhmI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/w3GoE6zRhmI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/w3GoE6zRhmI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/w3GoE6zRhmI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 53,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "w3GoE6zRhmI"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "NQxY8tyAt5EFEEOdnXKlejSfEoU",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLmFLbWJ0UlRNN0dr",
+    "snippet": {
+      "publishedAt": "2013-01-04T20:56:43Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "Tim's Dreams by Romy Nayar - Farewell Babylove by Olga Zee (Second Life Machinima)",
+      "description": "Second Life Machinima\nTim's Dreams\n\n￭ Build   \nRomy Nayar\nhttp://romynayar.blogspot.com/\nMetaLES\nhttp://metalesperformance.blogspot.com/\n\n￭ Music\nFarewell Babylove by Olga Zee (aka Loreen Aldrin)\nhttp://songularity.org/blog/artist/olga-zee-loreen-aldrin/\nhttp://www.youtube.com/user/OlgaZoubkova\n\n￭ Second Life URL\nhttp://maps.secondlife.com/secondlife/MetaLES/242/237/22\n\n￭ See Also\nhttp://slartexposed.weebly.com/1/post/2013/01/tims-dreams-by-romy-nayar.html",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/aKmbtRTM7Gk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/aKmbtRTM7Gk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/aKmbtRTM7Gk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/aKmbtRTM7Gk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/aKmbtRTM7Gk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 54,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "aKmbtRTM7Gk"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  },
+  {
+    "kind": "youtube#playlistItem",
+    "etag": "EwO_G-oLV8M9zZ6cwKIdHUbUMZA",
+    "id": "VVUwLWIzbUFlMnJZSjNCaGlPeTFqX0ZnLnNOTlFYR1pkSHhn",
+    "snippet": {
+      "publishedAt": "2012-11-02T11:06:28Z",
+      "channelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg",
+      "title": "The Follow - World Tour In A Day - One Eleven",
+      "description": "The Follow - World Tour In A Day\nRecorded 26 October 2012\nMusic courtesy of The Follow\n\nFull show can been seen on UStream\nhttp://www.ustream.tv/recorded/26447116\n\nOfficial Band Web Site\nhttp://thefollow.com\n\nThe Follow YouTube Channel\nhttp://www.youtube.com/user/thefollow\n\nSong \"One Eleven\" from the Album Origins (Remastered 2011)\nhttp://www.cdbaby.com/cd/thefollow\n\nDiscovering Musicians of SL\nhttp://songularity.org\nhttp://songularity.org/blog/artist/the-follow/\n\nSL Venue\nhttp://ecole-sl.org",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/sNNQXGZdHxg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/sNNQXGZdHxg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/sNNQXGZdHxg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/sNNQXGZdHxg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/sNNQXGZdHxg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Songularity",
+      "playlistId": "UU0-b3mAe2rYJ3BhiOy1j_Fg",
+      "position": 55,
+      "resourceId": {
+        "kind": "youtube#video",
+        "videoId": "sNNQXGZdHxg"
+      },
+      "videoOwnerChannelTitle": "Songularity",
+      "videoOwnerChannelId": "UC0-b3mAe2rYJ3BhiOy1j_Fg"
+    }
+  }
+]

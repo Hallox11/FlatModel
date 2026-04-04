@@ -1,0 +1,1188 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "lXHn2oyI6ehWJHTlvO0VQlLw-6s",
+    "id": "PLdGqz6dgvIzZp-R6aTHMN2g9pM9P_auN6",
+    "snippet": {
+      "publishedAt": "2020-06-03T18:31:50Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Black American Visual, Multimedia, and Interdisciplinary Artists",
+      "description": "This is a collection of videos featuring the work and voices of Black American artists working across a wide range of media. \n\nMost of these are shorter videos, which we encourage you to use as a jumping off point for your own research into the artists that capture your imagination and scholarly interest. \n\nWe will be adding to this playlist over time, and welcome your recommendations for other videos to add here.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/iS5EMI-e34g/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Black American Visual, Multimedia, and Interdisciplinary Artists",
+        "description": "This is a collection of videos featuring the work and voices of Black American artists working across a wide range of media. \n\nMost of these are shorter videos, which we encourage you to use as a jumping off point for your own research into the artists that capture your imagination and scholarly interest. \n\nWe will be adding to this playlist over time, and welcome your recommendations for other videos to add here."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 22
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "aTI6Jgs6gCnLpqDc28CqrTgrJY4",
+    "id": "PLdGqz6dgvIzbVzp5PLmPcfL3icrI-_TMg",
+    "snippet": {
+      "publishedAt": "2020-03-13T13:09:32Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Art Assignments for the Self-Quarantine | The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Zy7qhRUM1uI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Zy7qhRUM1uI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Zy7qhRUM1uI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Zy7qhRUM1uI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Zy7qhRUM1uI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Art Assignments for the Self-Quarantine | The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 12
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "foct4JCms50D5gsKxO3hV3GhfyY",
+    "id": "PLdGqz6dgvIzbmk0lYsYSbsJa7TxuaHLqu",
+    "snippet": {
+      "publishedAt": "2019-12-14T22:11:57Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "All Visual Art Assignments | The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "All Visual Art Assignments | The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 43
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "AcNTtQAMQELEETsZZgxX1dWDdmU",
+    "id": "PLdGqz6dgvIzYnG_7DWUfV93Up03Q2_NUT",
+    "snippet": {
+      "publishedAt": "2019-12-14T22:04:28Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Assignments You Can Do With Kids | The Art Assignment",
+      "description": "Here's a list of art assignments and activities for the young ones in your life! \nPlease share the work you're making with students or family members on social media using the hashtag #theartassignment. \nPre-order our book \"You Are An Artist: Assignments to Spark Creation\" here:  http://bit.ly/2kplj2h",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Assignments You Can Do With Kids | The Art Assignment",
+        "description": "Here's a list of art assignments and activities for the young ones in your life! \nPlease share the work you're making with students or family members on social media using the hashtag #theartassignment. \nPre-order our book \"You Are An Artist: Assignments to Spark Creation\" here:  http://bit.ly/2kplj2h"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 13
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "KAeiNYOCrsNJ_vIYYWHV3jtyG08",
+    "id": "PLdGqz6dgvIzaTrkLR5swXaDDLfUx7c6Z8",
+    "snippet": {
+      "publishedAt": "2019-12-14T22:04:03Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Craft, Textile, and Fabrics - Assignments and Prompts | The Art Assignment",
+      "description": "Use thread, wool, fabric, and other textile products with these art assignments! Use these as prompts to inspire your creativity whenever you need it. \nPlease share the work you're making with students or family members on social media using the hashtag #theartassignment. \nPre-order our book \"You Are An Artist: Assignments to Spark Creation\" here: http://bit.ly/2kplj2h",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/3GLmRJMTn6E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/3GLmRJMTn6E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/3GLmRJMTn6E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/3GLmRJMTn6E/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/3GLmRJMTn6E/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Craft, Textile, and Fabrics - Assignments and Prompts | The Art Assignment",
+        "description": "Use thread, wool, fabric, and other textile products with these art assignments! Use these as prompts to inspire your creativity whenever you need it. \nPlease share the work you're making with students or family members on social media using the hashtag #theartassignment. \nPre-order our book \"You Are An Artist: Assignments to Spark Creation\" here: http://bit.ly/2kplj2h"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "seZLrobIeNNmtRV0-VCtK_gussw",
+    "id": "PLdGqz6dgvIzaFoffMvDWkzcBxtNhWh9rk",
+    "snippet": {
+      "publishedAt": "2019-12-14T22:03:35Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Design Assignments and Prompts | The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qwOXumLJgGg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qwOXumLJgGg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qwOXumLJgGg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qwOXumLJgGg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qwOXumLJgGg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Design Assignments and Prompts | The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 12
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "kNrXwwzmPbzbqMd_MgvHGf1zCbQ",
+    "id": "PLdGqz6dgvIzZyzCAxLVEx0-d8_DvllHro",
+    "snippet": {
+      "publishedAt": "2019-12-14T22:03:16Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Observe the World With These Assignments  | The Art Assignment",
+      "description": "Here are some art assignments that ask you to go beyond your studio or office and observe the outside world. \nPre-order our book \"You Are An Artist: Assignments to Spark Creation\" here: http://bit.ly/2kplj2h",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Observe the World With These Assignments  | The Art Assignment",
+        "description": "Here are some art assignments that ask you to go beyond your studio or office and observe the outside world. \nPre-order our book \"You Are An Artist: Assignments to Spark Creation\" here: http://bit.ly/2kplj2h"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 27
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "BkAUT-Rpv3uFGb-sAbf5tLoPB-M",
+    "id": "PLdGqz6dgvIzYy5b7k-rVTWIIAxqQB0RYa",
+    "snippet": {
+      "publishedAt": "2019-12-14T22:01:40Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Performance Art Assignments and Prompts | The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qbuRG-NWUuY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Performance Art Assignments and Prompts | The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 18
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "M9ITrrJquE3iho3efuwWFAlwMbQ",
+    "id": "PLdGqz6dgvIzZvuXOTFzW80XF4T2KGEhYy",
+    "snippet": {
+      "publishedAt": "2019-12-14T22:00:48Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Technology-based Assignments, Prompts, and Inspiration | The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Technology-based Assignments, Prompts, and Inspiration | The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 11
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "abhc0YtLwnLKiO6l3BUgjGBa0EU",
+    "id": "PLdGqz6dgvIzYwPXMA92FgK4j4uLb2ZxKX",
+    "snippet": {
+      "publishedAt": "2019-12-14T22:00:02Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Assignments for Drawing | The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Assignments for Drawing | The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "xBvEa4MlCjIx2EvDxzSZVtN3III",
+    "id": "PLdGqz6dgvIzZ7BLdqJLctakicVoRjk9DR",
+    "snippet": {
+      "publishedAt": "2019-12-14T21:59:38Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Paint with these art assignments & prompts.| The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Paint with these art assignments & prompts.| The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 10
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "LshQsznffWxBNIH_XtlIoIS9fzo",
+    "id": "PLdGqz6dgvIzYGAwrR7ALgdIS3aVirM0lv",
+    "snippet": {
+      "publishedAt": "2019-12-14T21:58:59Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Photography Art Assignments, Prompts, and Inspiration | The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/wgTWPkK5wvo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Photography Art Assignments, Prompts, and Inspiration | The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 14
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "NK28KrIhNVDXeu6RYULhNiBShHw",
+    "id": "PLdGqz6dgvIzawF2b-72yyQOICWt_i-W6u",
+    "snippet": {
+      "publishedAt": "2019-12-14T21:58:26Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Assignments with Sculpture | The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/slCnZzsETVM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/slCnZzsETVM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/slCnZzsETVM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/slCnZzsETVM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/slCnZzsETVM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Assignments with Sculpture | The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 18
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "KGAU6GZMrbYq6QdtFeQwZToBv1Q",
+    "id": "PLdGqz6dgvIzYKC180BeerStnKZ9vw3hS3",
+    "snippet": {
+      "publishedAt": "2019-12-14T21:57:32Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Assignments with Sound | The Art Assignment",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/nxxpTYV2FIk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/nxxpTYV2FIk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/nxxpTYV2FIk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/nxxpTYV2FIk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/nxxpTYV2FIk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Assignments with Sound | The Art Assignment",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "hK7CdJb_bHY4qHEOgiSC_POX5Uw",
+    "id": "PLdGqz6dgvIzaPibvkUMF-pBnxrn2aAPRo",
+    "snippet": {
+      "publishedAt": "2019-12-14T21:57:04Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Collaborate With a Friend | The Art Assignment",
+      "description": "These art assignments work well with collaboration! Use these videos as prompts to make art with friends, colleagues, or other family. \nPlease share the work you're making with students or family members on social media using the hashtag #theartassignment. \nPre-order our book \"You Are An Artist: Assignments to Spark Creation\" here: http://bit.ly/2kplj2h",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Collaborate With a Friend | The Art Assignment",
+        "description": "These art assignments work well with collaboration! Use these videos as prompts to make art with friends, colleagues, or other family. \nPlease share the work you're making with students or family members on social media using the hashtag #theartassignment. \nPre-order our book \"You Are An Artist: Assignments to Spark Creation\" here: http://bit.ly/2kplj2h"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 21
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "vIBm_v-zbeAYVFKzwJwPuZEfqhU",
+    "id": "PLdGqz6dgvIzb8HKBYcO0b4Mfx3HwkexyI",
+    "snippet": {
+      "publishedAt": "2019-07-24T14:53:43Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "AP Art History - Themes Across Global Art History",
+      "description": "In this playlist, you will learn about Global Art History through the lens of five timely themes: Migration, Gender, Resistance, Climate, and Empathy. Jumping backwards and forwards through time, each video explores the ways each theme has been expressed in disparate cultures and by a diverse range of artists. Many of the artworks discussed in these videos are part of the list of required knowledge for the AP Art History course, but also include works that are not part of the list. This series is hosted by Sarah Urist Green from The Art Assignment and was made in collaboration with Smarthistory. No prior coursework in Art History is assumed or required.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1_x4hlO1rgE/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1_x4hlO1rgE/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1_x4hlO1rgE/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1_x4hlO1rgE/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1_x4hlO1rgE/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "AP Art History - Themes Across Global Art History",
+        "description": "In this playlist, you will learn about Global Art History through the lens of five timely themes: Migration, Gender, Resistance, Climate, and Empathy. Jumping backwards and forwards through time, each video explores the ways each theme has been expressed in disparate cultures and by a diverse range of artists. Many of the artworks discussed in these videos are part of the list of required knowledge for the AP Art History course, but also include works that are not part of the list. This series is hosted by Sarah Urist Green from The Art Assignment and was made in collaboration with Smarthistory. No prior coursework in Art History is assumed or required."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "f1KavJUYBxDGkzupqybXdPdmDMI",
+    "id": "PLdGqz6dgvIzZTcwq1zj49DsdOzxEMO5Cx",
+    "snippet": {
+      "publishedAt": "2017-08-28T16:10:57Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Five Favorite Works of Art",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/zR6590IJQ2Q/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/zR6590IJQ2Q/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/zR6590IJQ2Q/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/zR6590IJQ2Q/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/zR6590IJQ2Q/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Five Favorite Works of Art",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "uTQDWEB2eVMNEPniJhT_Hdw1WNE",
+    "id": "PLdGqz6dgvIzYLfXstmvIBpxU2hiD1iiIb",
+    "snippet": {
+      "publishedAt": "2017-06-01T21:14:02Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Art Cooking",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/i0OOA4Hcq4c/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/i0OOA4Hcq4c/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/i0OOA4Hcq4c/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/i0OOA4Hcq4c/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Art Cooking",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 13
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "8VRnRHokNfB2rT15w_U81UWe_6w",
+    "id": "PLdGqz6dgvIzZttESWuBwA_WXCOCBuP7Ih",
+    "snippet": {
+      "publishedAt": "2017-04-06T21:31:41Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Better Know",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Ooz3u9y7P7I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Ooz3u9y7P7I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Ooz3u9y7P7I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/Ooz3u9y7P7I/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/Ooz3u9y7P7I/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Better Know",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "IbEYYasJFDiMHqRYJG4hwueon9E",
+    "id": "PLdGqz6dgvIzbI6g3GcjQRjJDkTnjbIkaZ",
+    "snippet": {
+      "publishedAt": "2016-06-29T18:24:11Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "ARTLINE",
+      "description": "Call us and ask a question about art. We'll (probably) answer it: 901 - 602 - ARTY (2789)",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/r3l9pI1OuzU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/r3l9pI1OuzU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/r3l9pI1OuzU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/r3l9pI1OuzU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/r3l9pI1OuzU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "ARTLINE",
+        "description": "Call us and ask a question about art. We'll (probably) answer it: 901 - 602 - ARTY (2789)"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 5
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "GrN2Iahqbl2urkFVL1e0H34izCo",
+    "id": "PLdGqz6dgvIzYVoVZ79A290S6td-WA9nPO",
+    "snippet": {
+      "publishedAt": "2016-03-10T23:01:17Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Art Trip",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/QZLi-yPzNIA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/QZLi-yPzNIA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/QZLi-yPzNIA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/QZLi-yPzNIA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/QZLi-yPzNIA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Art Trip",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 16
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ce7IlnbMvlAqberNSLvGh9KAjmo",
+    "id": "PLdGqz6dgvIzbBxo7XJHnOtHfBzid97rtl",
+    "snippet": {
+      "publishedAt": "2015-07-06T14:33:59Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "The Case For",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/afjbOpnJni0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/afjbOpnJni0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/afjbOpnJni0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/afjbOpnJni0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/afjbOpnJni0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "The Case For",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 20
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "kDJKyKWy7uxbRLggqRgaNQsLkvc",
+    "id": "PLdGqz6dgvIzZlgSGtCMrwxPJVEoPkYwiT",
+    "snippet": {
+      "publishedAt": "2014-05-15T16:24:54Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "We Think Art is Interesting",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FNOFoe5WhIY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FNOFoe5WhIY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FNOFoe5WhIY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FNOFoe5WhIY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "We Think Art is Interesting",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 34
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "CELAADBL9zHYWg71V8543a89gc0",
+    "id": "PLdGqz6dgvIzYRuGp7I__ihsLF9xJyRMSG",
+    "snippet": {
+      "publishedAt": "2014-04-16T14:22:25Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Extras",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-TsWM4i-s9Y/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-TsWM4i-s9Y/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-TsWM4i-s9Y/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-TsWM4i-s9Y/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-TsWM4i-s9Y/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Extras",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "JAVE8rRpN5rcNcT-KlmHh4E5d0k",
+    "id": "PLdGqz6dgvIzYeKEkAB4ZNSG098Kz9UX8C",
+    "snippet": {
+      "publishedAt": "2014-04-10T19:26:39Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Assignment Responses",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/6QNKf_fHWRQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/6QNKf_fHWRQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/6QNKf_fHWRQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/6QNKf_fHWRQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/6QNKf_fHWRQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Assignment Responses",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 25
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "JUbRgaQMl5JJ0AkauJtuGpGOFa8",
+    "id": "PLdGqz6dgvIzYgUG9MmGy2N84IED9gA-8W",
+    "snippet": {
+      "publishedAt": "2014-04-10T19:17:25Z",
+      "channelId": "UCmQThz1OLYt8mb2PU540LOA",
+      "title": "Assignment Episodes",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/U9lpMFPEj58/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "The Art Assignment",
+      "localized": {
+        "title": "Assignment Episodes",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 60
+    }
+  }
+]

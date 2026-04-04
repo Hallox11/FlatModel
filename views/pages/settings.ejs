@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <title>WebTV - Settings</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 1280px;
+        height: 720px;
+        background-color: #000;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #fff;
+        font-family: 'Fira Sans', sans-serif;
+        overflow: hidden;
+    }
+
+    #main_header {
+        position: fixed;
+        top: 10px;
+        left: 50px;
+        font-size: 45px;
+        font-weight: 400;
+        color: orange;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    #msg p {
+        position: fixed;
+        top: 65px;
+        left: 200px;
+        color: #f1c40f;
+        font-size: 21px;
+    }
+
+    /* Column Containers */
+    [class^="conteiner"] {
+        position: fixed;
+        top: 120px;
+        height: 520px;
+        width: 280px;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        border: 2px solid #ffa260;
+        border-radius: 15px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .conteiner1 { left: 50px; }
+    .conteiner2 { left: 350px; }
+    .conteiner3 { left: 650px; }
+    .conteiner4 { left: 950px; height: 565px; }
+
+    p { font-size: 28px; margin: 15px 0; color: #fff; font-weight: 600; }
+
+    /* Buttons */
+    .btn {
+        display: block;
+        width: 90%;
+        margin: 8px auto;
+        padding: 8px;
+        font-size: 22px;
+        text-decoration: none;
+        color: white;
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid #ffa260;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+        text-align: center;
+    }
+
+    .btn:hover, .btn:focus {
+        background: #2ecc71;
+        color: #000;
+        border-color: #fff;
+        outline: none;
+        transform: scale(1.05);
+    }
+
+    /* Control Arrows Positioning */
+    .nav-arrows { position: fixed; z-index: 100; display: flex; gap: 10px; left: 961px; width: 260px; justify-content: space-between; }
+    #nav_row { top: 370px; }
+    #zom_row { top: 423px; }
+    #scr_row { top: 476px; }
+    #web_row { top: 529px; }
+    #bp_row  { top: 582px; }
+
+    .arrow-btn { width: 45%; padding: 5px; font-weight: bold; border: 2px solid #ffa260; color: white; background: rgba(0,0,0,0.5); border-radius: 5px; cursor: pointer; text-decoration: none; text-align: center;}
+    .arrow-btn:hover { background: #2ecc71; color: #000; }
+
+    #back {
+        position: fixed;
+        top: 655px;
+        left: 550px;
+        width: 180px;
+        color: #f1c40f;
+        border-color: #f1c40f;
+        font-size: 35px;
+        padding: 5px;
+    }
+</style>
+</head>
+
+<body>
+
+    <h1 id='main_header'>Settings Menu</h1>
+
+    <div id="msg">
+        <p>On-screen settings not working? Click the right frame button for a SL Hud</p>
+    </div>
+
+    <div class="nav-arrows" id="nav_row"><a onclick="cmd('NAV_OFF:OFF')" class="arrow-btn"><<</a><a onclick="cmd('NAV_OFF:OFF')" class="arrow-btn">>></a></div>
+    <div class="nav-arrows" id="zom_row"><a onclick="cmd('ZOM_OFF:OFF')" class="arrow-btn"><<</a><a onclick="cmd('ZOM_OFF:ON')" class="arrow-btn">>></a></div>
+    <div class="nav-arrows" id="scr_row"><a onclick="hide_scr('DW')" class="arrow-btn"><<</a><a onclick="hide_scr('UP')" class="arrow-btn">>></a></div>
+    <div class="nav-arrows" id="web_row"><a onclick="hide_web('DW')" class="arrow-btn"><<</a><a onclick="hide_web('UP')" class="arrow-btn">>></a></div>
+    <div class="nav-arrows" id="bp_row"> <a onclick="background('DW')" class="arrow-btn"><<</a><a onclick="background('UP')" class="arrow-btn">>></a></div>
+
+    <div class="conteiner1">
+        <p>Frame Textures</p>
+        <a onclick="texture('14c859c9-b22a-d4b0-2ee5-f17b6edacd70')" class="btn">Texture 01</a>
+        <a onclick="texture('5b76a72b-fcbb-83e5-6fe2-7cbb3d128601')" class="btn">Texture 02</a> 
+        <a onclick="texture('23d2f974-8e1a-8c32-f7e3-4f1f18117c50')" class="btn">Texture 03</a>
+        <a onclick="texture('33a30f78-0f71-b4dc-243c-c45a29dd0348')" class="btn">Texture 04</a>    
+        <a onclick="texture('dca8b93b-ee7e-cea0-346f-1e78257c9828')" class="btn">Texture 05</a>
+        <a onclick="texture('c3743161-f03a-9015-b614-f3fe0dc5aaa3')" class="btn">Texture 06</a>
+    </div>
+
+    <div class="conteiner2">
+        <p>Aspect Ratio</p>
+        <a onclick="ratio('RESIZE')" class="btn">--- RESIZE +++</a>
+        <a onclick="ratio('16_9')" class="btn">16/9 fullHD</a>
+        <a onclick="ratio('21_9')" class="btn">21/9 Cinema</a>
+        <a onclick="ratio('4_3')" class="btn">4/3 oldTV</a>
+    </div>
+
+    <div class="conteiner3">
+        <p>Portrait / Page</p>
+        <a onclick="ratio('1_1')" class="btn">1/1 square</a>
+        <a onclick="ratio('9_16')" class="btn">9/16 phone</a>
+        <a onclick="ratio('A4')" class="btn">A4 page</a>
+    </div>
+
+    <div class="conteiner4">
+        <p>Mode</p>
+        <a onclick="cmd('WALL')" class="btn">WALL</a>
+        <a onclick="cmd('STAND')" class="btn">STAND</a>
+        <p style="font-size:16px; opacity:0.6; margin-top:20px;">
+            NAV BUTTON<br>AUTO ZOOM<br>SCR ALPHA<br>WEB ALPHA<br>BACK PICT
+        </p>
+        <a onclick="ratio('RESET')" class="btn">RESET</a>
+    </div>  
+
+    <a id="back" onclick="location.href='./?'+return_url" class="btn">BACK</a>
+
+<script>
+    // 1. INSTANT BACKGROUND
+    const pic = localStorage.getItem("user_bg") || localStorage.getItem("pic");
+    if (pic) document.body.style.backgroundImage = "url('" + pic + "')";
+
+    // 2. SESSION DATA
+    check_browser();
+    var url1 = localStorage.getItem("url1");
+    var url2 = localStorage.getItem("url2");
+    var return_url = url1 + "&" + url2;
+    var tv_url = url1 + ".agni.secondlife.io:" + url2;
+
+    // 3. COLOR SYNC (No BG overwrite)
+    function readIndex(){
+        fetch('./colors.txt')
+            .then(response => response.text())
+            .then(data => {
+                let colorData = JSON.parse(data);
+                if(colorData.title_hue) {
+                    const hVal = `hsl(${colorData.title_hue}, ${colorData.title_sat}%, ${colorData.title_light}%)`;
+                    document.getElementById('main_header').style.color = hVal;
+                }
+                if(colorData.border_hue) {
+                    const bVal = `hsl(${colorData.border_hue}, ${colorData.border_sat}%, ${colorData.border_light}%)`;
+                    $('.btn, .arrow-btn, [class^="conteiner"]').css('border-color', bVal);
+                }
+            });
+    }
+
+    // COMMS
+    function post(url){
+        $.ajax({ type: 'POST', url: '/check', data: { 'status': url } });
+    }
+
+    function ratio(v) { post(tv_url + '?set_cmd:' + v); }
+    function texture(u) { post(tv_url + '?texture:' + u); }
+    function cmd(v) { post(tv_url + '?' + v); }
+
+    // ALPHAS
+    var valWeb = 0.5, valScr = 0.5;
+    function hide_web(a) {
+        if(a=="UP" && valWeb < 1) valWeb += 0.1;
+        if(a=="DW" && valWeb > 0.2) valWeb -= 0.1;
+        post(tv_url+'?WEB_OFF:'+valWeb);
+    }
+    function hide_scr(a) {
+        if(a=="UP" && valScr < 1) valScr += 0.1;
+        if(a=="DW" && valScr > 0.1) valScr -= 0.1;
+        post(tv_url+'?SCR_OFF:'+valScr);
+    }
+
+    // PIC LIST
+    var pics = [];
+    $.get('./pic_uuids.txt', function(data){ pics = data.split('\n'); });
+    var pic_index = 0;
+    function background(dir) {
+        if(dir=="UP") { 
+            if(pic_index >= pics.length-1) pic_index=0;
+            pic_index++;
+        } else {
+            pic_index--;
+            if(pic_index < 0) pic_index=pics.length-2;
+        }
+        post(tv_url + '?slidetx:' + pics[pic_index]);
+    }
+
+    readIndex();
+</script>
+
+</body>
+</html>

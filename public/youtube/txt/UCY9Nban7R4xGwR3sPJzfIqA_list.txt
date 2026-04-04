@@ -1,0 +1,176 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "rkbnfERc-qpYXOBfWUDpZ6EpU18",
+    "id": "PLl_kdiudJZWgED3B280xzvE7TbPUsjOvC",
+    "snippet": {
+      "publishedAt": "2020-01-13T19:17:12Z",
+      "channelId": "UCY9Nban7R4xGwR3sPJzfIqA",
+      "title": "Понравившиеся видео",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_OUWd-dMHM0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_OUWd-dMHM0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_OUWd-dMHM0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Top Five",
+      "localized": {
+        "title": "Понравившиеся видео",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 187
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "tIqUzTwonGzqBLoAwNB-iVz0k1s",
+    "id": "PLl_kdiudJZWhLIpGKJR2ydMRByzKdPsHN",
+    "snippet": {
+      "publishedAt": "2015-09-30T20:30:48Z",
+      "channelId": "UCY9Nban7R4xGwR3sPJzfIqA",
+      "title": "УБОЙНЫЕ ФАКТЫ",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/FN7zl19991M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/FN7zl19991M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/FN7zl19991M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/FN7zl19991M/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/FN7zl19991M/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Top Five",
+      "localized": {
+        "title": "УБОЙНЫЕ ФАКТЫ",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 3
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "zSuIYHrzon3wYCeWWHdn4adpGjs",
+    "id": "PLl_kdiudJZWhGYsV5Lxrwp_2QHi9B8Slk",
+    "snippet": {
+      "publishedAt": "2015-03-08T16:13:42Z",
+      "channelId": "UCY9Nban7R4xGwR3sPJzfIqA",
+      "title": "ДЕСЯТКА",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/xd_mhX4YbCU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/xd_mhX4YbCU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/xd_mhX4YbCU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/xd_mhX4YbCU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/xd_mhX4YbCU/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Top Five",
+      "localized": {
+        "title": "ДЕСЯТКА",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 109
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "vNT5ttz2dbkGgYqwo2DEZqp8kJk",
+    "id": "PLl_kdiudJZWh69O6BYAOzfCoL12RGbOTQ",
+    "snippet": {
+      "publishedAt": "2014-11-09T14:50:22Z",
+      "channelId": "UCY9Nban7R4xGwR3sPJzfIqA",
+      "title": "ТОП5",
+      "description": "Лучший ТОП в мире!",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/y_lz7BwWhT4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/y_lz7BwWhT4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/y_lz7BwWhT4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/y_lz7BwWhT4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/y_lz7BwWhT4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Top Five",
+      "localized": {
+        "title": "ТОП5",
+        "description": "Лучший ТОП в мире!"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 11
+    }
+  }
+]

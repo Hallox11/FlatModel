@@ -1,0 +1,136 @@
+<style>
+    /* 1. Wrapper for Goldenrod Theme */
+    #sl-radio-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 700px; /* Slimmer for a list view */
+        animation: fadeIn 0.4s ease-out;
+    }
+
+    /* 2. Circular Close Button (Top Right) */
+    #sl-radio-wrapper .close-btn {
+        position: absolute;
+        top: -10px;
+        right: -50px; /* Offset to the side of the list */
+        width: 45px;
+        height: 45px;
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid black;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 110;
+        transition: all 0.2s ease;
+        outline: none;
+    }
+
+    #sl-radio-wrapper .close-btn:hover, 
+    #sl-radio-wrapper .close-btn:focus {
+        color: white;
+        transform: scale(1.3) ;
+        box-shadow: 0 0 15px rgba(218, 165, 32, 0.5);
+    }
+
+    /* 3. Title Styling */
+    #sl-radio-wrapper #title {
+        font-size: 28px;
+        color: #564f4f;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        letter-spacing: 4px;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+
+    /* 4. The Scrollable List Container */
+    #sl-radio-wrapper .conteiner {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+        height: 500px !important;
+        padding: 10px 20px;
+        overflow-y: auto;
+
+        mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+    }
+
+    /* 5. List Item Button Styling */
+    #sl-radio-wrapper .btn {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+        backdrop-filter: blur(5px) !important; 
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        padding: 18px 25px !important;
+        font-size: 20px;
+        color: white !important;
+        text-align: center !important;
+        display: flex !important;
+        align-items: center;
+        width: 100%;
+        min-height: 60px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        box-sizing: border-box; /* Ensures padding doesn't break width */
+    }
+
+
+
+    /* Hide scrollbar */
+    #sl-radio-wrapper .conteiner::-webkit-scrollbar { width: 0px; }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div id="sl-radio-wrapper">
+    
+    <button class="close-btn" onclick="closeSubMenu()" tabindex="40">
+        <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </button>
+
+    <div id="title">Second Life Radio Streams</div>
+
+    <div class="conteiner">
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://ice1.somafm.com/illstreet-128-mp3" data-name="Tableau" tabindex="1">Tableau</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://strm112.1.fm/bossanova_mobile_mp3" data-name="Samba Cafe" tabindex="2">Samba Cafe</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://ice.somafm.com/dronezone" data-name="Black Kite" tabindex="3">Black Kite</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://stream2.10223.cc:8025/cc_sim_v4_b12" data-name="Chouchou" tabindex="4">Chouchou</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://stream2.10223.cc:8025/memento_v3" data-name="Memento Mori" tabindex="5">Memento Mori</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://q2stream.wqxr.org/q2" data-name="Delicatessen" tabindex="6">Delicatessen</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://d-oo-b.cc:8008" data-name="Two Fish" tabindex="7">Two Fish</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://www.radioparadise.com/mp3-192" data-name="Satyr" tabindex="8">Satyr Dance Club</div>
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://ice1.somafm.com/suburbsofgoa-128-mp3" data-name="Acc Alpha" tabindex="9">Acc Alpha</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://icy.unitedradio.it/SubasioPerUnOraDAmore.mp3" data-name="Retrospect" tabindex="10">Retrospect</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://ice.somafm.com/suburbsofgoa" data-name="Magilis al Jinn" tabindex="11">Magilis al Jinn</div> 
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://dixmixgallery.sl-radio.online:8130" data-name="Dixmix Gallery" tabindex="12">Dixmix Gallery</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://94.23.51.96:8001" data-name="Sommergewitter" tabindex="13">Sommergewitter</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://188.40.23.212:9753/unity.mp3" data-name="Cannibal" tabindex="14">Cannibal</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://eagle.streemlion.com:6410/stream" data-name="Ocho Tango" tabindex="15">Ocho Tango</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://sc-blues.1.fm:8030" data-name="Vincents Blues" tabindex="16">Vincents Blues</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://server3.luschaudio.com:10304/stream" data-name="OZ Nightclub" tabindex="17">OZ Nightclub</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://185.33.21.112:80/radiogaia_128" data-name="Natural Wilderness" tabindex="18">Natural Wilderness</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://204.187.100.18:1780/FOXXIES" data-name="Foxxies Jazz Club" tabindex="19">Foxxies Jazz Club</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://stream1.megarockradio.net:8240/" data-name="Turlaccor Store" tabindex="20">Turlaccor Store</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://heartbeatz.fm:8008/;" data-name="Hypnotic Romance" tabindex="21">Hypnotic Romance</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://steampunk.radioriel.org" data-name="Galerie des Machines" tabindex="22">Galerie des Machines</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://srv1.goodsoundstream.com:5198" data-name="End of Days Club" tabindex="23">End of Days Club</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://144.217.49.251/stream1" data-name="Rocca Sorrentina" tabindex="24">Rocca Sorrentina</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://88.198.70.10:8001/;" data-name="Amara" tabindex="25">Amara</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://pstnet5.shoutcastnet.com:50180/stream" data-name="Waterfalls" tabindex="26">Waterfalls</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://185.33.22.15:11025" data-name="Tag Dance Club" tabindex="27">Tag Dance Club</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://whmsonic.playerfullhd.com/9986/stream" data-name="TANGO with NOTTOO" tabindex="28">TANGO with NOTTOO</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://199.180.75.118:80/stream" data-name="Grand Canyon South" tabindex="29">Grand Canyon South</div>  
+        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://199.180.72.2:8015/stream" data-name="West Egg" tabindex="30">West Egg</div>  
+    </div>
+</div>

@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+    <head prefix="og: http://ogp.me/ns#">
+        <meta charset="UTF-8">
+        
+        <meta name="viewport" content="width=1280">
+      
+    
+        <link rel="stylesheet" href="./../styles/radios.css">
+        <link rel="stylesheet" href="./../styles/menu_index.css">
+       
+
+        <script>
+            window._trackJs = {
+                console: {
+                    display: !1
+                },
+                enabled: 7E-4 > Math.random() ? !0 : !1,
+                token: "73faad723c2e459eafb494db926fccb4",
+                version: "5.0.3"
+            };
+            window.ga = window.ga || function() {
+                (ga.q = ga.q || []).push(arguments)
+            }
+            ;
+            ga.l = +new Date;
+            ga("create", "UA-43921502-1", "auto");
+            ga("set", {
+                anonymize_ip: !0,
+                cookie_domain: "internetradiouk.com"
+            });
+            ga("send", "pageview");
+            setTimeout(function() {
+                ga("send", "event", "Read", "60 seconds")
+            }, 6E4);
+            window.SM2_DEFER = !0;
+            var webradioConfig = {
+                countryCode: "GB",
+                debugMode: 0,
+                domainID: 42,
+                languageCode: "en",
+                slugDomain: "internetradiouk-com",
+                slugFavorites: "favorites",
+                urlApi: "https://api.webrad.io/",
+                urlStatic: "https://cdn.webrad.io/",
+                algolia: [{
+                    "applicationId": "3ZTZWUB3YF",
+                    "apiKey": "69c38d1d7696f10303d883840d265170"
+                }],
+                dashJs: {
+                    version: "3.1.3"
+                },
+                hlsJs: {
+                    version: "0.14.16"
+                },
+                txt: {
+                    error: "Error",
+                    live: "Live",
+                    loading: "Loading",
+                    mute: "Mute\/unmute",
+                    no_audio: "No audio for more than a month, we check weekly",
+                    play: "Play",
+                    popup: "Listen here",
+                    search_for: "Search results for %s",
+                    search_none: "No results for %s",
+                    start: "Start",
+                    stop: "Stop",
+                    volume: "Volume control"
+                }
+            };
+        </script>
+       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.2/hogan.min.js" crossorigin="anonymous" defer></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find%2CArray.prototype.findIndex%2CArray.prototype.forEach%2CArray.prototype.reduce%2CElement.prototype.closest%2CElement.prototype.remove%2Cfetch%2CObject.assign%2CObject.entries" crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/script/soundmanager2-nodebug-jsmin.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdn.webrad.io/js/main-5.0.3.min.js" crossorigin="anonymous" defer></script>
+    
+    </head>
+   
+
+    <body>
+        
+        <div id='header'>
+            <h1>Live radios from England</h1>
+        </div>          
+                    
+        <div class="radio-section" id="content-area">
+                        
+                        <div id="radio">
+                            <div class="loading" id="radio-track"></div>
+                                <div class="left-box">
+                                        <div class="text-box">
+                                            <marquee behavior="scroll" direction="left">       <strong class="title" id="radio-title"></strong>
+                                          <strong class="signal" id="radio-signal"></strong>
+                                          </marquee>
+                                        </div>
+                                </div>
+                                <div class="img-box">
+                                    <img id="radio-logo" src="https://cdn.webrad.io/images/spacer.gif" alt="" height="86" importance="high" width="96">
+                                </div>
+                                
+                                <div class="btn-holder">
+                                    <a  id="radio-link" ></a>
+                                    </div>
+                            </div>
+
+                            <div class="radio-player">
+                                <div class="loading" id="radio-controls" src="https://cdn.webrad.io/images/icon-st.png"  width="20" height="40"title="">
+                                  
+                                </div>
+                                <a class="favorite-button" aria-label="Add to favorites / Remove from favorites" title="Add to favorites / Remove from favorites" data-favorite-button disabled>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <ul id="radios">
+                            <li class="item-2">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-1" title="BBC Radio 1">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-1.png" alt="BBC Radio 1" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-3">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-2" title="BBC Radio 2">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-2.png" alt="BBC Radio 2" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-4">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-3" title="BBC Radio 3">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-3.png" alt="BBC Radio 3" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-5">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-4" title="BBC Radio 4">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-4.png" alt="BBC Radio 4" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-6">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-4-extra" title="BBC Radio 4 Extra">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-4-extra.png" alt="BBC Radio 4 Extra" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-7">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-5-live" title="BBC Radio 5 Live">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-5-live.png" alt="BBC Radio 5 Live" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-8">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-5-live-sports" title="BBC Radio 5 Live Sports Extra (London)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-5-live-sports.png" alt="BBC Radio 5 Live Sports Extra (London)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-9">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-6" title="BBC Radio 6 Music">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-6.png" alt="BBC Radio 6 Music" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-10">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-world-service" title="BBC Radio World Service">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-world-service.png" alt="BBC Radio World Service" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-11">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-asian" title="BBC Radio Asian Network">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-asian.png" alt="BBC Radio Asian Network" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-12">
+                                <span>
+                                    <a href="https://internetradiouk.com/#planet-rock" title="Planet Rock">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/planet-rock.png" alt="Planet Rock" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-13">
+                                <span>
+                                    <a href="https://internetradiouk.com/#jazz-fm" title="Jazz FM">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/jazz-fm.png" alt="Jazz FM" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-14">
+                                <span>
+                                    <a href="https://internetradiouk.com/#classic-fm" title="Classic FM">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/classic-fm.png" alt="Classic FM" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-1">
+                                <span>
+                                    <a href="https://internetradiouk.com/#classic-rock" title="Absolute Classic Rock">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/classic-rock.png" alt="Absolute Classic Rock" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-15">
+                                <span>
+                                    <a href="https://internetradiouk.com/#capital" title="Capital FM">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/capital.png" alt="Capital FM" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-16">
+                                <span>
+                                    <a href="https://internetradiouk.com/#1mix" title="1 Mix EDM">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/1mix.png" alt="1 Mix EDM" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-17">
+                                <span>
+                                    <a href="https://internetradiouk.com/#smooth" title="Smooth Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/smooth.png" alt="Smooth Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-18">
+                                <span>
+                                    <a href="https://internetradiouk.com/#rinse-fm" title="Rinse FM">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/rinse-fm.png" alt="Rinse FM" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-19">
+                                <span>
+                                    <a href="https://internetradiouk.com/#x" title="Radio X">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/x.png" alt="Radio X" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-20">
+                                <span>
+                                    <a href="https://internetradiouk.com/#heart" title="Heart Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/heart.png" alt="Heart Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-21">
+                                <span>
+                                    <a href="https://internetradiouk.com/#absolute" title="Absolute Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/absolute.png" alt="Absolute Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-22">
+                                <span>
+                                    <a href="https://internetradiouk.com/#discover-trance-uk" title="Discover Trance">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/discover-trance-uk.png" alt="Discover Trance" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-23">
+                                <span>
+                                    <a href="https://internetradiouk.com/#caroline" title="Radio Caroline">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/caroline.png" alt="Radio Caroline" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-24">
+                                <span>
+                                    <a href="https://internetradiouk.com/#kiss-london" title="KISS (London)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/kiss-london.png" alt="KISS (London)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-25">
+                                <span>
+                                    <a href="https://internetradiouk.com/#greatest-hits-radio" title="Greatest Hits Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/greatest-hits-radio.png" alt="Greatest Hits Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-26">
+                                <span>
+                                    <a href="https://internetradiouk.com/#more-worthing" title="More Radio (Worthing)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/more-worthing.png" alt="More Radio (Worthing)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-27">
+                                <span>
+                                    <a href="https://internetradiouk.com/#imagine" title="Imagine">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/imagine.png" alt="Imagine" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-28">
+                                <span>
+                                    <a href="https://internetradiouk.com/#manx" title="Manx Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/manx.png" alt="Manx Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-29">
+                                <span>
+                                    <a href="https://internetradiouk.com/#kane-fm" title="Kane FM (London)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/kane-fm.png" alt="Kane FM (London)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-30">
+                                <span>
+                                    <a href="https://internetradiouk.com/#sunshine-hereford" title="Sunshine Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/sunshine-hereford.png" alt="Sunshine Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-31">
+                                <span>
+                                    <a href="https://internetradiouk.com/#talksport" title="Talk Sport">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/talksport.png" alt="Talk Sport" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-32">
+                                <span>
+                                    <a href="https://internetradiouk.com/#1xtra" title="BBC Radio 1 Xtra">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/1xtra.png" alt="BBC Radio 1 Xtra" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-33">
+                                <span>
+                                    <a href="https://internetradiouk.com/#william-hill-racing" title="William Hill Racing Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/william-hill-racing.png" alt="William Hill Racing Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-34">
+                                <span>
+                                    <a href="https://internetradiouk.com/#sheffield" title="Sheffield Live">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/sheffield.png" alt="Sheffield Live" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-35">
+                                <span>
+                                    <a href="https://internetradiouk.com/#solar" title="Solar Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/solar.png" alt="Solar Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-36">
+                                <span>
+                                    <a href="https://internetradiouk.com/#choice-london" title="Capital Xtra (London)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/choice-london.png" alt="Capital Xtra (London)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-37">
+                                <span>
+                                    <a href="https://internetradiouk.com/#bbc-glasgow" title="BBC Radio Scotland (Glasgow)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/bbc-glasgow.png" alt="BBC Radio Scotland (Glasgow)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-38">
+                                <span>
+                                    <a href="https://internetradiouk.com/#absolute-80s" title="Absolute 80s Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/absolute-80s.png" alt="Absolute 80s Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-39">
+                                <span>
+                                    <a href="https://internetradiouk.com/#virgin" title="Virgin Radio">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/virgin.png" alt="Virgin Radio" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="item-40">
+                                <span>
+                                    <a href="https://internetradiouk.com/#magic-london" title="Radio Magic FM (London)">
+                                        <img class="cover" src="https://cdn.webrad.io/images/logos/internetradiouk-com/magic-london.png" alt="Radio Magic FM (London)" height="66" width="96">
+                                    </a>
+                                </span>
+                            </li>
+                            
+                        </ul>
+
+
+                            </div>
+                      
+                      
+            </main>
+            
+                        <script>
+
+  // Retrieve
+         var pic = sessionStorage.getItem("pic");
+         console.log(pic);
+
+ 
+        document.body.style.backgroundImage = "url("+pic+")";
+       
+       
+      
+ 
+    
+</script>
+          
+    </body>
+</html>

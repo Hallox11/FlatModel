@@ -1,0 +1,406 @@
+<style>
+    /* Fixed Navigation Elements */
+    .backBut {
+        position: fixed;
+        background: transparent;
+        border: 2px solid gold;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 23px;
+        z-index: 1000;
+        text-align: center;
+    }
+    .backBut:hover { background: yellowgreen; color: black; }
+    .backBut:focus { outline: 0; }
+    
+    #title { top: 8px; left: 200px; width: 900px; height: 35px; display: none; }
+    #exitBtn { top: 680px; left: 1145px; width: 80px; }
+    #refreshBtn { top: 680px; left: 115px; width: 180px; }
+    #infodw { top: 678px; left: 480px; width: 300px; display: none; }
+
+    /* Gallery Structure */
+  
+    .playButton {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        cursor: pointer;
+        pointer-events: none;
+        width: 60px;
+    }
+
+    #conteiner::-webkit-scrollbar { width: 12px; }
+    #conteiner::-webkit-scrollbar-track { background: #333; border-radius: 10px; }
+    #conteiner::-webkit-scrollbar-thumb { background: red; border-radius: 10px; }
+
+#conteiner {
+    position: fixed;
+    top: 60px; /* This pushes it below the 55px header */
+    left: 0;
+    width: 1280px; /* Full width of your screen */
+    height: 660px; /* 720px total - 60px header = 660px */
+    overflow-y: auto; /* Enable vertical scroll */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    padding-bottom: 20px; /* Space at the bottom */
+}
+
+#output {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    padding: 10px 40px; /* Padding on sides so cards don't hit the edges */
+    width: 1200px; /* Slightly less than 1280 to leave room for the scrollbar */
+    margin: 0 auto;
+}
+
+.thumbs {
+    position: relative;
+    width: 100%; /* Items fill the grid cell */
+    transition: transform 0.2s;
+    background: #1b171c;
+    border-radius: 0px;
+    overflow: hidden;
+    border: 2px solid white;
+}
+
+.image {
+    width: 100%;
+    height: 220px; /* Fixed height for consistent rows */
+    
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.Vtitle {
+    position: relative; /* Changed from absolute for better grid flow */
+    background: rgba(27, 23, 28, 0.85);
+    color: white;
+    padding: 0px;
+    text-align: center;
+    font-size: 14px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* New Header Layout */
+#flickr-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 25px;
+    position: fixed;
+    top: 5px;
+    z-index: 1000;
+    width: 1280px; /* Fixed to your screen size */
+    box-sizing: border-box;
+}
+
+.nav-group { display: flex; gap: 10px; flex: 1; }
+.nav-group-right { display: flex; justify-content: flex-end; flex: 1; }
+
+/* Modern Button Style */
+.modern-btn {
+    background: #534b4bbf;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.modern-btn:hover {
+    background: rgba(218, 165, 32, 0.2);
+    border-color: gold;
+    color: gold;
+}
+
+/* Red Exit Button for Consistency */
+.flickr-close-btn-modern {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.flickr-close-btn-modern:hover {
+    background: #ff6b6b;
+    color: #000;
+    transform: rotate(90deg);
+}
+
+/* Adjust the main container to drop down for the header */
+#conteiner {
+    top: 60px !important; /* Move down to clear the nav */
+    height: 650px !important;
+}
+
+/* Search Pill (Hidden by default or used for search) */
+.search-pill {
+    display: flex;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    padding: 3px 15px;
+    color: gold;
+    font-weight: bold;
+    font-size: 13px;
+}
+</style>
+
+<div id="flickr-nav-container"> 
+    <div class="nav-group">
+        <button class="modern-btn" onclick="refresh()">
+            <span class="btn-icon">🔄</span> REFRESH
+        </button>
+        <div id="status-pill" class="search-pill">
+            <span id="infodw_text">Loading...</span>
+        </div>
+    </div>
+
+    <div style="flex: 2; text-align: center;">
+        <input id="title" readonly 
+               style="background:transparent; border:none; color:gold; text-align:center; width:100%; font-size:16px; font-weight:bold; pointer-events:none;">
+    </div>
+
+    <div class="nav-group-right">
+        <button class="flickr-close-btn-modern" onclick="backToMusic()">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="3" fill="none">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+</div>
+
+
+<div id="conteiner">
+    <div id="output"></div>
+</div>
+
+<script>
+(function() {
+    // --- 1. SET STATE ---
+    let updateFlag = 0; 
+
+    // Use the values passed from the server EJS tags
+    const targetID = "<%= (typeof targetID !== 'undefined') ? targetID : '' %>";
+    const mode = "<%= (typeof targetMode !== 'undefined') ? targetMode : '' %>";
+    const room = typeof myRoom !== 'undefined' ? myRoom : 'Lobby';
+
+    console.log("Overlay received from server:", { targetID, mode, room });
+
+    // --- 2. INITIALIZE ---
+    init();
+
+    function init() {
+        if (!targetID || targetID === "") {
+            readVids("/music/ytube.txt", "");
+            return;
+        }
+
+        if (mode === 'mix') get_SvideosMix(targetID);
+        else if (mode === 'user') get_Svideos(targetID);
+        else if (mode === 'list') get_Slists(targetID);
+        else readVids("/music/ytube.txt", ""); 
+    }
+
+    // --- 3. DATA FETCHING ---
+    function get_SvideosMix(query) {
+        if (updateFlag === 0) readVids(`/music/txt/${query}.txt`, "tags");
+        else userSearch('tag', "full concerts", 1);
+    }
+
+    function get_Svideos(query) {
+        if (updateFlag === 0) {
+            readVids(`/music/txt/${query}.txt`, "user");
+        } else {
+            let channelId = query.startsWith('UC') ? query.replace('UC', 'UU') : query;
+            userSearch('userChannel', channelId, 1);
+        }
+    }
+
+    function get_Slists(query) {
+        if (updateFlag === 0) readVids(`/music/txt/${query}_list.txt`, "list");
+        else userSearch('userLists', query, 1);
+    }
+
+    window.refresh = function() {
+        updateFlag = 1;
+        init();
+    };
+
+    function readVids(txt, mode) {
+        console.log("Fetching Data from:", txt);
+        fetch(txt)
+            .then(res => res.json())
+            .then(videos => {
+                if (!videos || videos.length === 0) return;
+
+                let activeMode = mode;
+                if (videos[0].kind === "youtube#playlistItem") activeMode = "user";
+                if (videos[0].kind === "youtube#playlist") activeMode = "list";
+                
+                const channelTitle = videos[0]?.snippet?.channelTitle || "Unknown Channel";
+                $('#infodw_text').text(videos.length + (activeMode === "list" ? " lists" : " videos"));
+                $('#title').val(activeMode === "list" ? "Playlists: " + channelTitle : "Channel: " + channelTitle).show();
+
+                proc(videos, activeMode);
+            })
+            .catch(err => {
+                console.error("Path not found, trying search...", err);
+                if (updateFlag === 0) { updateFlag = 1; init(); }
+            });
+    }
+
+function proc(videos, mode) {
+    const $output = $("#output").empty();
+    const currentCatID = typeof targetID !== 'undefined' ? targetID : 'concerts'; 
+    const room = typeof myRoom !== 'undefined' ? myRoom : 'Lobby';
+
+    videos.forEach((item, i) => {
+        if (!item || !item.snippet) return;
+
+        let thumb, title, vid;
+        if (mode === "user" || mode === "tags" || mode === "mix" || !mode) {
+            thumb = item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url;
+            title = item.snippet.title || "No Title";
+            vid = item.snippet.resourceId ? item.snippet.resourceId.videoId : (item.id.videoId || item.id);
+        } else if (mode === "list") {
+            thumb = item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url;
+            title = `${item.snippet.title} (${item.contentDetails?.itemCount || '?'} vids)`;
+            vid = item.id;
+        }
+
+        const cardHtml = `
+            <div class="thumbs" id="thumb-${i}">
+                <img src="${thumb}" class="image vid-trigger" 
+                     data-vid="${vid}" data-cat="${currentCatID}" data-mode="${mode}" alt="${title}">
+                <div class="Vtitle vid-trigger" 
+                     data-vid="${vid}" data-cat="${currentCatID}" data-mode="${mode}">
+                    ${title.substring(0, 65)}
+                </div>
+            </div>`;
+            
+        $output.append(cardHtml);
+    });
+
+    // --- CLICK: CAPTURE SCROLL ---
+    $('.vid-trigger').off('click').on('click', function(e) {
+        e.preventDefault();
+        const vId = $(this).data('vid');
+        const cat = $(this).data('cat');
+        const mod = $(this).data('mode');
+        
+        // Grab scroll position of the container
+        const scroll = $('#conteiner').scrollTop() || 0;
+
+        if (!vId || vId === "undefined") return;
+
+        // URL for the player, including the scroll position
+        const playerUrl = `/music/tvytube?videoId=${vId}&targetID=${cat}&targetMode=${mod}&scrollPos=${scroll}&room=${room}`;
+        
+        console.log("Saving scroll " + scroll + " and going to player.");
+        handleNav(playerUrl); 
+    });
+
+    // --- RESTORE: READ FROM VIRTUAL PATH ---
+    // We check window.currentAjaxPath because window.location.search is empty in AJAX apps
+    const sourcePath = window.currentAjaxPath || window.location.href;
+    
+    try {
+        const urlParams = new URL(sourcePath, window.location.origin).searchParams;
+        const savedScroll = urlParams.get('scrollPos');
+
+        if (savedScroll && parseInt(savedScroll) > 0) {
+            console.log("Restoring scroll to:", savedScroll);
+            
+            // Set flag to stop socket sync while we auto-scroll
+            window.isRestoringScroll = true; 
+            
+            setTimeout(() => {
+                $('#conteiner').stop().animate({ scrollTop: parseInt(savedScroll) }, 400, function() {
+                    window.isRestoringScroll = false;
+                });
+            }, 350); // Delay to let images load first
+        }
+    } catch (e) {
+        console.warn("Could not parse scroll position", e);
+    }
+}
+
+
+// --- HOVER EFFECTS ---
+ 
+ 
+ 
+    $(document).off("mouseenter", ".thumbs").on("mouseenter", ".thumbs", function() {
+        $(this).css('transform', 'scale(1.05)');
+        $(this).append(`<img src="/images/playButton.png" class="playButton">`);
+    }).on("mouseleave", ".thumbs", function() {
+        $(this).css('transform', 'scale(1)');
+        $(this).find('.playButton').remove();
+    });
+
+    function userSearch(mode, user, page) {
+        $('#infodw_text').text("Searching YouTube...");
+        $.ajax({
+            url: '/getChannelVideos',
+            type: 'POST',
+            data: { mode, userId: user, tag: user, order: 'date', type: 'music' },
+            success: data => {
+                if (data === "ok") readVids("/music/ytube.txt", mode);
+            }
+        });
+    }
+
+window.backToMusic = function() {
+    console.log("Returning to Music Menu...");
+    
+    // 1. Fade out the current gallery content
+    $('#sub-content-overlay').fadeOut(200, function() {
+        // 2. Clear the gallery HTML so it's fresh for next time
+        $(this).html('').hide(); 
+        
+        // 3. Trigger handleNav to load the main Music Menu
+        // This keeps the overlay active but swaps the content to the icons
+        handleNav('music'); 
+    });
+};
+
+
+    // --- SCROLL SYNC ---
+$('#conteiner').on('scroll', function() {
+    // 1. If this scroll was triggered by a remote sync, DO NOTHING
+    if (window.isSyncing) return;
+
+    if (window.socket && window.socket.connected) {
+        window.socket.emit('state_sync', {
+            type: 'scroll',
+            position: $(this).scrollTop(),
+            room: window.myRoom
+        });
+    }
+});
+
+})();
+</script>

@@ -1,0 +1,238 @@
+<style>
+    /* Scope everything to #xxx-module to ignore CSS from other pages */
+    #xxx-module {
+        width: 1240px;
+        height: 720px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    #xxx-module .nav-bar {
+        padding: 15px 25px;
+        display: flex;
+        gap: 12px;
+        background: #111;
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        border-bottom: 1px solid #222;
+    }
+
+    #xxx-module #xxx-search-input {
+        flex-grow: 1;
+        background: #222;
+        color: #fff;
+        border: 1px solid #444;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    #xxx-module .search-btn, #xxx-module .cat-modal-btn {
+        padding: 0 20px;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 45px;
+    }
+
+    #xxx-module .search-btn { background: #f00; }
+    #xxx-module .cat-modal-btn { background: #333; border: 1px solid #ffa260; color: #ffa260; }
+
+    /* Modal Styling */
+    #xxx-cat-modal {
+        display: none;
+        position: fixed; /* Fixed to the 1280x720 viewport */
+        top: 0;
+        left: 0;
+        width: 1280px;
+        height: 720px;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        width: 90%;
+        max-width: 1000px;
+    }
+
+    .cat-item {
+        background: #1a1a1a;
+        padding: 15px;
+        border: 1px solid #444;
+        color: #ffa260;
+        text-align: center;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    .cat-item:hover { background: #ffa260; color: #000; border-color: #fff; }
+
+    /* Grid Layout */
+    #xxx-module .video-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        padding: 25px;
+        box-sizing: border-box;
+    }
+
+    #xxx-module .video-card {
+        background: #161616;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s;
+        border: 2px solid #a79d9d;
+    }
+
+    #xxx-module .video-card:hover {
+        transform: translateY(-5px);
+        border-color: yellow !important;
+    }
+
+    #xxx-module .thumb-wrap { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
+    #xxx-module .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    #xxx-module .video-title { font-size: 10px; padding: 10px; color: #eee; text-align: center; text-transform: uppercase; }
+
+#xxx-module .close-btn {
+    background: #222;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    border-radius: 50%; /* Circular button */
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+#xxx-module .close-btn:hover {
+    background: #ff4444;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+    #yt-content-scroll::-webkit-scrollbar { width: 12px; }
+    #yt-content-scroll::-webkit-scrollbar-track { background: #333; border-radius: 10px; }
+    #yt-content-scroll::-webkit-scrollbar-thumb { background: red; border-radius: 10px; }
+
+</style>
+
+<div id="xxx-module">
+    <div class="nav-bar">
+        <input type="text" id="xxx-search-input" value="<%= tag %>" placeholder="Search videos...">
+        <button class="search-btn" onclick="xxxSearch()">Search</button>
+        <button class="cat-modal-btn" onclick="toggleCatModal(true)">Categories</button>
+        <button class="close-btn" onclick="closeSubMenu()">✕</button>
+    </div>
+
+    <div id="xxx-cat-modal">
+        <h2 style="color: #ffa260; margin-bottom: 20px;">SELECT CATEGORY</h2>
+        <div class="cat-grid">
+            <% ["3some", "POV", "Asian", "Latina", "Milf", "Amateur", "Anal", "VR", "Handjob", "College", "Outdoor", "Solo"].forEach(c => { %>
+                <div class="cat-item" onclick="selectCat('<%= c %>')"><%= c %></div>
+            <% }) %>
+        </div>
+        <p onclick="toggleCatModal(false)" style="margin-top: 30px; cursor: pointer; color: #888;">[ CLOSE ]</p>
+    </div>
+
+    <div class="video-grid">
+        <% videos.forEach(v => { %>
+            <div class="video-card" data-url="<%= v.pageUrl %>" data-title="<%= v.title %>" onclick="playXXX(this)">
+                <div class="thumb-wrap">
+                    <img src="<%= v.thumbnail %>" alt="video thumbnail">
+                </div>
+                <p class="video-title"><%= v.title %></p>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<script>
+// --- MODAL LOGIC ---
+function toggleCatModal(show) {
+    $('#xxx-cat-modal').css('display', show ? 'flex' : 'none');
+    
+    // Sync modal state to others
+    if (window.socket && !window.isRemoteAction) {
+        socket.emit('state_sync', {
+            type: 'xxx_modal',
+            show: show
+        });
+    }
+}
+
+function selectCat(cat) {
+    toggleCatModal(false);
+    handleNav('/xvideos-grid?tag=' + encodeURIComponent(cat));
+}
+
+// --- VIDEO PLAYER ---
+async function playXXX(el) {
+    const url = el.getAttribute('data-url');
+    const title = el.getAttribute('data-title');
+    try {
+        const res = await fetch('/get-xxx-stream?url=' + encodeURIComponent(url));
+        const data = await res.json();
+        if (data.streamUrl) {
+            const playerUrl = `/xxx-player?stream=${encodeURIComponent(data.streamUrl)}&title=${encodeURIComponent(title)}`;
+            handleNav(playerUrl); 
+        }
+    } catch (e) { console.error("Stream fetch failed", e); }
+}
+
+function xxxSearch() {
+    const val = document.getElementById('xxx-search-input').value;
+    handleNav('/xvideos-grid?tag=' + encodeURIComponent(val));
+}
+
+// --- SCROLL SYNC ---
+$('#xxx-module').on('scroll', function() {
+    if (window.isSyncing) return; 
+    if (window.socket && window.socket.connected) {
+        window.socket.emit('state_sync', {
+            type: 'scroll',
+            position: $(this).scrollTop(),
+            room: window.myRoom
+        });
+    }
+});
+
+// --- REMOTE SOCKET LISTENER ---
+// Ensure this is globally available or added to your main listener
+socket.off('state_sync').on('state_sync', (data) => {
+    if (data.type === 'scroll') {
+        const $target = $('#xxx-module');
+        if ($target.length) {
+            window.isSyncing = true;
+            $target.scrollTop(data.position);
+            setTimeout(() => { window.isSyncing = false; }, 50);
+        }
+    }
+    if (data.type === 'xxx_modal') {
+        window.isRemoteAction = true;
+        $('#xxx-cat-modal').css('display', data.show ? 'flex' : 'none');
+        setTimeout(() => { window.isRemoteAction = false; }, 100);
+    }
+});
+</script>

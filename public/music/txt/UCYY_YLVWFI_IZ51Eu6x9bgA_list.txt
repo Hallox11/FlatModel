@@ -1,0 +1,360 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "YhES1AZdidjctITbeEX3jAABR9g",
+    "id": "PLoPLEt1InO1xeEVHhy1i06186FDbN8J-5",
+    "snippet": {
+      "publishedAt": "2019-06-05T03:47:03Z",
+      "channelId": "UCYY_YLVWFI_IZ51Eu6x9bgA",
+      "title": "Don's Tunes | Featured Artists",
+      "description": "Selection of clips and live videos from Don's Tunes Featured Artists.\nIf you want to be featured on the playlist, Spotify & the website check this link: https://www.donstunes.com/getfeatured/",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/vqBC8SkdPS4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/vqBC8SkdPS4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/vqBC8SkdPS4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/vqBC8SkdPS4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/vqBC8SkdPS4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Don's Tunes",
+      "localized": {
+        "title": "Don's Tunes | Featured Artists",
+        "description": "Selection of clips and live videos from Don's Tunes Featured Artists.\nIf you want to be featured on the playlist, Spotify & the website check this link: https://www.donstunes.com/getfeatured/"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 76
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "yAkFwqUnaqFfv0dLStimRGkppiw",
+    "id": "PLoPLEt1InO1wGd1tZ9WWLrKX6cpl91uk3",
+    "snippet": {
+      "publishedAt": "2019-05-04T04:11:52Z",
+      "channelId": "UCYY_YLVWFI_IZ51Eu6x9bgA",
+      "title": "Summer Grooves | Don's Tunes",
+      "description": "Playlist with of #Summer Tunes from Don's Tunes Collection - #funk, #hip-hop, #soul, rock'n'roll, bossa nova, #jazz Spotify: https://sptfy.com/5gsd",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/iIoXFPbY7H8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/iIoXFPbY7H8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/iIoXFPbY7H8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/iIoXFPbY7H8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/iIoXFPbY7H8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Don's Tunes",
+      "localized": {
+        "title": "Summer Grooves | Don's Tunes",
+        "description": "Playlist with of #Summer Tunes from Don's Tunes Collection - #funk, #hip-hop, #soul, rock'n'roll, bossa nova, #jazz Spotify: https://sptfy.com/5gsd"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 55
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "vtVDPhcVi9dd4OZ-iWO8X3uM0vY",
+    "id": "PLoPLEt1InO1x_fhNUCZW2HgRI3uTUn5NY",
+    "snippet": {
+      "publishedAt": "2018-11-25T13:53:35Z",
+      "channelId": "UCYY_YLVWFI_IZ51Eu6x9bgA",
+      "title": "Whiskey Blues | Slow Blues Compilations | Don's Tunes",
+      "description": "The Original Whiskey Blues Compilations by Don's Tunes.  🥃 The Whiskey Blues Playlist on Spotify:   https://sptfy.com/WhiskeyBlues\n👉 The Best Blues / Blues-rock playlist on YouTube:  https://www.youtube.com/playlist?list=PL2140A0411C65DD13\n🔷Don's Tunes on Facebook: https://www.facebook.com/dondraperstunes/\n🔷 #Blues & Jazz Group: https://goo.gl/72sLfA\n🔷 Don's Tunes on Instagram: https://www.instagram.com/mr.don.draper/\n🔷 Don's Tunes on Twitter: https://twitter.com/DonsTunes",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1eNSWZ4x2ZU/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1eNSWZ4x2ZU/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1eNSWZ4x2ZU/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1eNSWZ4x2ZU/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Don's Tunes",
+      "localized": {
+        "title": "Whiskey Blues | Slow Blues Compilations | Don's Tunes",
+        "description": "The Original Whiskey Blues Compilations by Don's Tunes.  🥃 The Whiskey Blues Playlist on Spotify:   https://sptfy.com/WhiskeyBlues\n👉 The Best Blues / Blues-rock playlist on YouTube:  https://www.youtube.com/playlist?list=PL2140A0411C65DD13\n🔷Don's Tunes on Facebook: https://www.facebook.com/dondraperstunes/\n🔷 #Blues & Jazz Group: https://goo.gl/72sLfA\n🔷 Don's Tunes on Instagram: https://www.instagram.com/mr.don.draper/\n🔷 Don's Tunes on Twitter: https://twitter.com/DonsTunes"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ogkxUa_uzyDV4cl6P2_sBIvn__Q",
+    "id": "PLoPLEt1InO1yToyY60kXkUM5VqUXoH1u-",
+    "snippet": {
+      "publishedAt": "2017-03-29T08:39:15Z",
+      "channelId": "UCYY_YLVWFI_IZ51Eu6x9bgA",
+      "title": "Blues & Jazz Covers | Don's Tunes",
+      "description": "Compilation of Covers of Famous Blues & Jazz tunes from Don's Tunes Collection. Audiophile Quality. Spotify: https://sptfy.com/574P~s\nDon's Tunes on Facebook: https://www.facebook.com/dondraperstunes/\nBlues & Jazz Group: https://goo.gl/72sLfA\nDon's Tunes on Instagram: https://www.instagram.com/mr.don.draper/\nDon's Tunes on Twitter: https://twitter.com/DonsTunes",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/PC-hykGSaM4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/PC-hykGSaM4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/PC-hykGSaM4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/PC-hykGSaM4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/PC-hykGSaM4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Don's Tunes",
+      "localized": {
+        "title": "Blues & Jazz Covers | Don's Tunes",
+        "description": "Compilation of Covers of Famous Blues & Jazz tunes from Don's Tunes Collection. Audiophile Quality. Spotify: https://sptfy.com/574P~s\nDon's Tunes on Facebook: https://www.facebook.com/dondraperstunes/\nBlues & Jazz Group: https://goo.gl/72sLfA\nDon's Tunes on Instagram: https://www.instagram.com/mr.don.draper/\nDon's Tunes on Twitter: https://twitter.com/DonsTunes"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 98
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "kMX-BErik4RjMXopdWiXsJuZqRI",
+    "id": "PLoPLEt1InO1yBhgqrGvfD6R9Nj-8-oHM8",
+    "snippet": {
+      "publishedAt": "2017-03-18T18:38:22Z",
+      "channelId": "UCYY_YLVWFI_IZ51Eu6x9bgA",
+      "title": "Vocal Jazz Playlist | Don's Tunes",
+      "description": "Jazz Playlist From Don's Tunes Collection. Vocal Jazz, Female Vocals, Audiophile Quality\nDon on Facebook: https://www.facebook.com/dondraperstunes/\nDon on Tumblr: http://donstumbs.tumblr.com/\nDon on G+: https://plus.google.com/+DonsTunesOfficial",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/oH7_YBheXFg/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/oH7_YBheXFg/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/oH7_YBheXFg/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/oH7_YBheXFg/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/oH7_YBheXFg/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Don's Tunes",
+      "localized": {
+        "title": "Vocal Jazz Playlist | Don's Tunes",
+        "description": "Jazz Playlist From Don's Tunes Collection. Vocal Jazz, Female Vocals, Audiophile Quality\nDon on Facebook: https://www.facebook.com/dondraperstunes/\nDon on Tumblr: http://donstumbs.tumblr.com/\nDon on G+: https://plus.google.com/+DonsTunesOfficial"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 28
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "e8xcWGExXhHjuIVj9Cob7QNbXYo",
+    "id": "PLoPLEt1InO1xTEYaUav7HKwHca3CpI2k6",
+    "snippet": {
+      "publishedAt": "2013-12-13T15:58:53Z",
+      "channelId": "UCYY_YLVWFI_IZ51Eu6x9bgA",
+      "title": "Female Vocals - Jazz & Blues | Don's Tunes",
+      "description": "The Best Audiophile Female Blues & Jazz Vocals by Don's Tunes On Spotify: https://sptfy.com/5b9n\nFacebook: https://www.facebook.com/dondraperstunes/",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/cR3cqRY02Nk/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/cR3cqRY02Nk/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/cR3cqRY02Nk/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/cR3cqRY02Nk/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/cR3cqRY02Nk/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Don's Tunes",
+      "localized": {
+        "title": "Female Vocals - Jazz & Blues | Don's Tunes",
+        "description": "The Best Audiophile Female Blues & Jazz Vocals by Don's Tunes On Spotify: https://sptfy.com/5b9n\nFacebook: https://www.facebook.com/dondraperstunes/"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 63
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "gkUSNCpXIbCfQEwfHoJzxdXqk2M",
+    "id": "PLoPLEt1InO1yqWjvZTytVAW7bVe__dM3l",
+    "snippet": {
+      "publishedAt": "2013-12-13T15:52:58Z",
+      "channelId": "UCYY_YLVWFI_IZ51Eu6x9bgA",
+      "title": "Slow Blues & Blues-rock Ballads | Don's Tunes",
+      "description": "Don's Tunes Slow and Relaxing  #Blues Collection. Blues Ballads, Texas, Chicago, Delta Blues.\non Spotify:  🥃 Whiskey Blues Playlist - https://sptfy.com/WhiskeyBlues\n👉Don's Tunes Official Playlist - https://sptfy.com/DonsTunesOfficial\n🎸Slow Blues Playlist - https://sptfy.com/SlowBlues\n🎸New Blues Playlist - https://sptfy.com/NewBlues\n♠️Dark Americana Playlist - https://sptfy.com/DarkAmericana\n💃 The Best Female Blues & Jazz Vocals: https://sptfy.com/FemaleVocals\n🔷 Don's Tunes on Facebook: https://www.facebook.com/dondraperstunes/\n🔷 Blues & Jazz Group: https://goo.gl/72sLfA\n🔷 Don's Tunes on Instagram: https://www.instagram.com/mr.don.draper/\n🔷https://www.donstunes.com/",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ioOzsi9aHQQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ioOzsi9aHQQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ioOzsi9aHQQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ioOzsi9aHQQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ioOzsi9aHQQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Don's Tunes",
+      "localized": {
+        "title": "Slow Blues & Blues-rock Ballads | Don's Tunes",
+        "description": "Don's Tunes Slow and Relaxing  #Blues Collection. Blues Ballads, Texas, Chicago, Delta Blues.\non Spotify:  🥃 Whiskey Blues Playlist - https://sptfy.com/WhiskeyBlues\n👉Don's Tunes Official Playlist - https://sptfy.com/DonsTunesOfficial\n🎸Slow Blues Playlist - https://sptfy.com/SlowBlues\n🎸New Blues Playlist - https://sptfy.com/NewBlues\n♠️Dark Americana Playlist - https://sptfy.com/DarkAmericana\n💃 The Best Female Blues & Jazz Vocals: https://sptfy.com/FemaleVocals\n🔷 Don's Tunes on Facebook: https://www.facebook.com/dondraperstunes/\n🔷 Blues & Jazz Group: https://goo.gl/72sLfA\n🔷 Don's Tunes on Instagram: https://www.instagram.com/mr.don.draper/\n🔷https://www.donstunes.com/"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 294
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Veixed5FFZm92Qs9LRpRte4MXyI",
+    "id": "PL2140A0411C65DD13",
+    "snippet": {
+      "publishedAt": "2012-05-31T16:13:42Z",
+      "channelId": "UCYY_YLVWFI_IZ51Eu6x9bgA",
+      "title": "Blues & Blues-Rock Best Of Playlist | Don's Tunes",
+      "description": "Don's Tunes - The Best Slow Blues, Blues-rock Playlist\non Spotify:  🥃 Whiskey Blues Playlist - https://sptfy.com/WhiskeyBlues\n👉Don's Tunes Official Playlist - https://sptfy.com/DonsTunesOfficial\n🎸Slow Blues Playlist - https://sptfy.com/SlowBlues\n🎸New Blues Playlist - https://sptfy.com/NewBlues\n♠️Dark Americana Playlist - https://sptfy.com/DarkAmericana\n💃 The Best Female Blues & Jazz Vocals: https://sptfy.com/FemaleVocals\n🔷 Don's Tunes on Facebook: https://www.facebook.com/dondraperstunes/\n🔷 Blues & Jazz Group: https://goo.gl/72sLfA\n🔷 Don's Tunes on Instagram: https://www.instagram.com/mr.don.draper/\n🔷https://www.donstunes.com/",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/VAmjWhpOLcI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/VAmjWhpOLcI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/VAmjWhpOLcI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/VAmjWhpOLcI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        }
+      },
+      "channelTitle": "Don's Tunes",
+      "localized": {
+        "title": "Blues & Blues-Rock Best Of Playlist | Don's Tunes",
+        "description": "Don's Tunes - The Best Slow Blues, Blues-rock Playlist\non Spotify:  🥃 Whiskey Blues Playlist - https://sptfy.com/WhiskeyBlues\n👉Don's Tunes Official Playlist - https://sptfy.com/DonsTunesOfficial\n🎸Slow Blues Playlist - https://sptfy.com/SlowBlues\n🎸New Blues Playlist - https://sptfy.com/NewBlues\n♠️Dark Americana Playlist - https://sptfy.com/DarkAmericana\n💃 The Best Female Blues & Jazz Vocals: https://sptfy.com/FemaleVocals\n🔷 Don's Tunes on Facebook: https://www.facebook.com/dondraperstunes/\n🔷 Blues & Jazz Group: https://goo.gl/72sLfA\n🔷 Don's Tunes on Instagram: https://www.instagram.com/mr.don.draper/\n🔷https://www.donstunes.com/"
+      }
+    },
+    "contentDetails": {
+      "itemCount": 313
+    }
+  }
+]

@@ -1,0 +1,198 @@
+<style>
+    #yt-player-wrapper {
+        width: 1280px;
+        height: 720px;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* iframe fills the full container */
+    #yt-player-wrapper iframe {
+        width: 1280px;
+        height: 720px;
+        border: none;
+        display: block;
+    }
+
+    /* Top-right X close button — same as original */
+    .exit-btn {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 28px;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .exit-btn:hover {
+        background: #ff0000;
+        border-color: #ff0000;
+        transform: scale(1.1);
+    }
+
+    /* Title overlay — same position / style as original */
+    .video-title-overlay {
+        position: absolute;
+        top: 25px;
+        left: 30px;
+        z-index: 10;
+        color: #ff6b6b;
+        font-size: 18px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 5px 15px;
+        border-radius: 5px;
+        pointer-events: none;
+        max-width: 600px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+
+<div id="yt-player-wrapper">
+    <div class="video-title-overlay"><%= title %></div>
+    <div class="exit-btn" onclick="backToYtGrid()">×</div>
+
+    <!-- YouTube IFrame API embed -->
+    <div id="yt-iframe-container" style="width:1280px;height:720px;"></div>
+</div>
+
+<script>
+(function() {
+    window.isRemoteAction = false;
+
+    const VIDEO_ID = '<%= videoId %>';
+
+    // ─── LOAD YOUTUBE IFRAME API ──────────────────────────────────────────────
+    function loadYTApi() {
+        if (window.YT && window.YT.Player) { initPlayer(); return; }
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+    }
+
+    window.onYouTubeIframeAPIReady = function() { initPlayer(); };
+
+    // ─── PLAYER INIT ─────────────────────────────────────────────────────────
+    let player;
+
+    function initPlayer() {
+        if (window.ytEmbedPlayer) {
+            try { window.ytEmbedPlayer.destroy(); } catch(e) {}
+        }
+
+        player = new YT.Player('yt-iframe-container', {
+            width:  '1280',
+            height: '720',
+            videoId: VIDEO_ID,
+            playerVars: {
+                autoplay: 1,
+                controls: 1,
+                rel: 0,
+                modestbranding: 1,
+                iv_load_policy: 3
+            },
+            events: {
+                onReady:       onPlayerReady,
+                onStateChange: onPlayerStateChange
+            }
+        });
+
+        window.ytEmbedPlayer = player;
+    }
+
+    // ─── EVENTS → SOCKET (send) ───────────────────────────────────────────────
+    function onPlayerReady(e) {
+        e.target.playVideo();
+        setupSocketSync();
+    }
+
+    function onPlayerStateChange(e) {
+        if (window.isRemoteAction) return;
+        if (!window.socket) return;
+
+        if (e.data === YT.PlayerState.PLAYING) {
+            socket.emit('toPlay', player.getCurrentTime());
+        } else if (e.data === YT.PlayerState.PAUSED) {
+            socket.emit('toPause', player.getCurrentTime());
+        }
+    }
+
+    // Track seeks: poll every 500ms; if time jumps > 2s between polls, it's a seek
+    let lastPollTime = 0;
+    setInterval(() => {
+        if (!player || !player.getCurrentTime) return;
+        const t = player.getCurrentTime();
+        if (Math.abs(t - lastPollTime) > 2 && player.getPlayerState() !== YT.PlayerState.BUFFERING) {
+            if (!window.isRemoteAction && lastPollTime !== 0) {
+                if (window.socket) socket.emit('toSeek', t);
+            }
+        }
+        lastPollTime = t;
+    }, 500);
+
+    // ─── SOCKET → PLAYER (receive) ────────────────────────────────────────────
+    function setupSocketSync() {
+        if (!window.socket) return;
+
+        socket.on('Play', (time) => {
+            if (!player || !player.getPlayerState) return;
+            if (player.getPlayerState() !== YT.PlayerState.PLAYING) {
+                window.isRemoteAction = true;
+                player.seekTo(time, true);
+                player.playVideo();
+                setTimeout(() => { window.isRemoteAction = false; }, 800);
+            }
+        });
+
+        socket.on('Pause', (time) => {
+            if (!player || !player.getPlayerState) return;
+            if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+                window.isRemoteAction = true;
+                player.pauseVideo();
+                player.seekTo(time, true);
+                setTimeout(() => { window.isRemoteAction = false; }, 800);
+            }
+        });
+
+        socket.on('Seek', (time) => {
+            if (!player) return;
+            if (Math.abs(player.getCurrentTime() - time) > 1) {
+                window.isRemoteAction = true;
+                player.seekTo(time, true);
+                setTimeout(() => { window.isRemoteAction = false; }, 800);
+            }
+        });
+    }
+
+    // ─── NAV ──────────────────────────────────────────────────────────────────
+    window.backToYtGrid = function() {
+        if (window.ytEmbedPlayer) {
+            try { window.ytEmbedPlayer.stopVideo(); window.ytEmbedPlayer.destroy(); } catch(e) {}
+            window.ytEmbedPlayer = null;
+        }
+        handleNav('youtube');
+    };
+
+    // ─── BOOT ─────────────────────────────────────────────────────────────────
+    loadYTApi();
+})();
+</script>

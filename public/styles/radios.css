@@ -1,0 +1,295 @@
+
+
+html {
+    box-sizing: border-box;
+}
+
+*,:after,:before {
+    box-sizing: inherit;
+}
+
+
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    background: #002e3b;
+    color: #005f79;
+    font: 16px/1.0 Arial,Helvetica Neue,Helvetica,sans-serif;
+    min-width: 320px;
+}
+.text-box{
+           
+    position: fixed;
+    top:580px;
+    left: 600px;
+}
+#radios {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    height: 550px;
+    overflow-y: auto; /* Allows scrolling inside the box if icons exceed space */
+    padding: 20px;
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#radios li {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: 0;
+    padding: 5px;
+    width: 25%;
+}
+
+@media (min-width: 480px) {
+    #radios li {
+        height:auto;
+        width: auto;
+    }
+}
+
+#radios li span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 110px;
+    padding: 15px;
+    position: relative;
+    
+    /* The "France" Style Glass Look */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media (min-width: 480px) {
+    #radios li span {
+        height:86px;
+        width: 125px;
+    }
+}
+
+#radios li a {
+    display: block;
+}
+
+#radios li a:before {
+    bottom: -1px;
+    left: -1px;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    border: 3px solid yellow;
+    box-shadow: 0 0 20px 0 rgba(0,46,59,.2);
+    content: "";
+    display: none;
+}
+
+#radios li a:hover:before {
+    display: block;
+}
+
+
+#header h1{
+    position: fixed;
+    top:5px;
+    left: 400px;
+    line-height: 20px;
+    min-height: 20px;
+    text-align: center;
+    font-size: 40px;
+    color: goldenrod;
+}
+.img-box{
+    position: fixed;
+    top:620px;
+    left: 275px;
+    line-height: 20px;
+    min-height: 20px;
+    text-align: center;
+    font-size: 40px;
+    color: goldenrod;
+}
+.text-box{
+    display: block;
+    left: 0px;
+    width: 100%;
+    padding: 10px;
+    font-size: 22px;
+    color: #c2e2ff;
+    
+}
+
+
+
+
+
+.radio-controls{
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+/* DEFINE BUTAO PLAY */
+.btn-external,.btn-play {
+    display: inline-block;
+    vertical-align: middle;
+    background: #fff;
+    border-radius: 50%;
+    height: 53px;
+    position: relative;
+    text-align: center;
+    width: 53px;
+}
+
+.btn-external img,.btn-play img {
+    height: 18px;
+    left: 18px;
+    position: absolute;
+    top: 17px;
+    width: 18px;
+}
+
+.btn-flash {
+    margin-top: 7px;
+    height: 53px;
+}
+
+
+
+.ico-load,.ico-sound img{
+    display: inline-block;
+    vertical-align: middle;
+    height: 40px;
+    width: 40px;
+    padding: 0px;
+    
+    color: white;
+}
+
+.ico-sound {
+    margin: 0 7px -6px 12px;
+    width:50px;
+     height:60px;
+   
+}
+
+
+
+
+
+
+
+
+
+
+.radio-section .radio-player {
+    position: fixed;
+    top: 630px;
+    left: 400px;
+
+    overflow: hidden;
+    padding: 22px 15px;
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 5px 120px;
+    border-radius: 25px;
+    border: 1px solid #b6b2b2;
+}
+
+
+.btn:hover,
+.btn:focus {
+  animation: btn 1s;
+  box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+  background-color: rgb(49, 121, 49);
+  color: yellow;
+}
+
+@keyframes btn {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+
+.btn {
+  --color: #ffa260;
+  --hover: #e5ff60;
+}
+
+
+button {
+    position: relative;
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+
+#hide{
+        position:fixed;
+        top:680px;
+        left:1050px;
+        z-index:10000000;
+         background: #191c17;
+         color: #191c17;
+    }
+
+    #bback {
+    /* 1. Reset Position and Size */
+    position: fixed;
+    bottom: 35px;
+    right: 50px;
+    width: 140px;
+    height: 50px;
+    
+    /* 2. Remove default button styling */
+    background: rgba(255, 255, 255, 0.05); /* Transparent glass tint */
+    
+    border-radius: 20px; /* Modern rounded corners */
+    outline: none;
+    cursor: pointer;
+    
+    /* 3. Text Styling */
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* 4. Effects */
+    backdrop-filter: blur(3px); /* Blurs background behind button */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* 5. Hover & Focus (for TV/Controller Navigation) */
+#bback:hover, 
+#bback:focus {
+    background: rgba(218, 165, 32, 0.2);
+    border-color: #ffd700; /* Brighter gold on focus */
+    color: #fff;
+    transform: scale(1.0); /* Slight zoom effect */
+    box-shadow: 0 0 20px rgba(218, 165, 32, 0.6);
+}

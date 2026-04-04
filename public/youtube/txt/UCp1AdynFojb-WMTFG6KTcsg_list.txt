@@ -1,0 +1,1142 @@
+[
+  {
+    "kind": "youtube#playlist",
+    "etag": "CgRyXxpMdQud4ZWAlTm7lvGiuVc",
+    "id": "PL4_LbOYo9ZJmwJhOBV0gbaxl9ZHKFSEbc",
+    "snippet": {
+      "publishedAt": "2021-09-29T18:21:00Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "ASMR",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/b00J3bMdKb8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/b00J3bMdKb8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/b00J3bMdKb8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/b00J3bMdKb8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/b00J3bMdKb8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "ASMR",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 2
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "3Kl-0xm55wMjkygoB2EyEhG-k4o",
+    "id": "PL4_LbOYo9ZJmVK0FHguREg4c5bx0TT9uP",
+    "snippet": {
+      "publishedAt": "2021-06-17T18:30:34Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Sustainability",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jX9xWDDwjMc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jX9xWDDwjMc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jX9xWDDwjMc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jX9xWDDwjMc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jX9xWDDwjMc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Sustainability",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 4
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "yajN1hcWus9oCt3aAiMdXtyoSx0",
+    "id": "PL4_LbOYo9ZJkwTm109_FA-R9ongBK4ps3",
+    "snippet": {
+      "publishedAt": "2021-05-07T14:38:28Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Beauty",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/t080kBgIfw4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/t080kBgIfw4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/t080kBgIfw4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/t080kBgIfw4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/t080kBgIfw4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Beauty",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 13
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "ZCZOS9J-QL-nlJkFmJ2UCrZLcz8",
+    "id": "PL4_LbOYo9ZJkwAZqypLQgwPJY0P4Etbk3",
+    "snippet": {
+      "publishedAt": "2021-04-01T14:48:10Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Home Improvement",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/jA6kKY_uzn0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/jA6kKY_uzn0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/jA6kKY_uzn0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/jA6kKY_uzn0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/jA6kKY_uzn0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Home Improvement",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 26
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "bo0LqF_vAgmtKvZiOYkSdgTnUZo",
+    "id": "PL4_LbOYo9ZJkbKPrSm2jMPvizIzrGPOWq",
+    "snippet": {
+      "publishedAt": "2021-03-27T11:37:31Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Made With Pride",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/rPUbLpXFjgI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/rPUbLpXFjgI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/rPUbLpXFjgI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/rPUbLpXFjgI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/rPUbLpXFjgI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Made With Pride",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "YhcteQrd37X8fXPgni8_0XxN6zs",
+    "id": "PL4_LbOYo9ZJm50P0Jp75or_F97806IkdC",
+    "snippet": {
+      "publishedAt": "2020-11-03T16:08:47Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Hair",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pybzfHcDft4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pybzfHcDft4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pybzfHcDft4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/pybzfHcDft4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/pybzfHcDft4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Hair",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 17
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "XEvuXyE1d1QY780g9qpVYBJgEMU",
+    "id": "PL4_LbOYo9ZJljwkHdMrYw1O5Mti-GK7t4",
+    "snippet": {
+      "publishedAt": "2020-10-16T17:08:44Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Style",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qsaaqHEhK_0/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qsaaqHEhK_0/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qsaaqHEhK_0/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qsaaqHEhK_0/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qsaaqHEhK_0/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Style",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 51
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "rXFmKBfv6Z1nnI6yUtuEA89yWmc",
+    "id": "PL4_LbOYo9ZJnCwnp2i7BByo8Vt38PQGfi",
+    "snippet": {
+      "publishedAt": "2020-09-15T19:13:35Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Body Art",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/-cZHugTLHz8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/-cZHugTLHz8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/-cZHugTLHz8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/-cZHugTLHz8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/-cZHugTLHz8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Body Art",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 47
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "hBdhmcK4OLQf946lhYYb_z-5EX4",
+    "id": "PL4_LbOYo9ZJmsvGxiKg3OSXOxeAKv_ruz",
+    "snippet": {
+      "publishedAt": "2020-07-13T13:38:46Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Lash Art",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dGMVSRZdte8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dGMVSRZdte8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dGMVSRZdte8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/dGMVSRZdte8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/dGMVSRZdte8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Lash Art",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Jwt96HVF02PATo9RAr_-VLrfc2Q",
+    "id": "PL4_LbOYo9ZJk6CSXzYpm6AeD_622J7Dmy",
+    "snippet": {
+      "publishedAt": "2020-07-13T13:37:49Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Brow Art",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ZE1MwnxNP5g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ZE1MwnxNP5g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ZE1MwnxNP5g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/ZE1MwnxNP5g/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/ZE1MwnxNP5g/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Brow Art",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 6
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "oBXtXX_4S_qrIHWqTf-DSAgGnyI",
+    "id": "PL4_LbOYo9ZJmxtKQTroi6Na-P-Vj5ERCy",
+    "snippet": {
+      "publishedAt": "2020-06-10T14:53:23Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Refurbished",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fd97OJtYtZw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fd97OJtYtZw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fd97OJtYtZw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fd97OJtYtZw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fd97OJtYtZw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Refurbished",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 12
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "3otZxHphcmZcxwtraMHi7rX1E0E",
+    "id": "PL4_LbOYo9ZJm9BzK8d9nReg39A20BulZj",
+    "snippet": {
+      "publishedAt": "2019-09-26T20:28:11Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Master Craft",
+      "description": "Master Craft takes you behind the scenes of artists and their work to unravel exactly what it takes to bring their art to life.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/1jkVvpFvCu8/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/1jkVvpFvCu8/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/1jkVvpFvCu8/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/1jkVvpFvCu8/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/1jkVvpFvCu8/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Master Craft",
+        "description": "Master Craft takes you behind the scenes of artists and their work to unravel exactly what it takes to bring their art to life."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 16
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "mJbtrrinep33i5AFTYPdyBn3Qpo",
+    "id": "PL4_LbOYo9ZJkWjhPQAHHHd7bfrRNf0P7e",
+    "snippet": {
+      "publishedAt": "2019-04-01T18:19:03Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Nail Art",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/b3AIn9ad4rY/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/b3AIn9ad4rY/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/b3AIn9ad4rY/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/b3AIn9ad4rY/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/b3AIn9ad4rY/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Nail Art",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 24
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "Ro6ylv1vIS1N2bCXExlN97oxkCM",
+    "id": "PL4_LbOYo9ZJkvK6BS3Z71F3odMUDbN_zJ",
+    "snippet": {
+      "publishedAt": "2019-01-18T14:03:08Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "LEGO Art",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SJAO_vFgRCQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SJAO_vFgRCQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SJAO_vFgRCQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/SJAO_vFgRCQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/SJAO_vFgRCQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "LEGO Art",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 21
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "78XEvZ6B9dGA_ecN90gMsVAwLFk",
+    "id": "PL4_LbOYo9ZJkhDe4bafeIMNTX7FhJfBmd",
+    "snippet": {
+      "publishedAt": "2018-10-12T17:59:45Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Interactive Art",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/j4gkagRQVeo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/j4gkagRQVeo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/j4gkagRQVeo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/j4gkagRQVeo/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/j4gkagRQVeo/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Interactive Art",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 65
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "TN3MH-kQbqoneD_QEfeRihfQa-4",
+    "id": "PL4_LbOYo9ZJngWMcwTYn0xtyf1JTf5cOg",
+    "snippet": {
+      "publishedAt": "2018-10-12T17:59:14Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Ceramic Art",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/oCMOmfok3Iw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/oCMOmfok3Iw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/oCMOmfok3Iw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/oCMOmfok3Iw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/oCMOmfok3Iw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Ceramic Art",
+        "description": ""
+      }
+    },
+    "contentDetails": {
+      "itemCount": 43
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "BtbBg6CMuwbAQPDDFMTQJQlTpvQ",
+    "id": "PL4_LbOYo9ZJkroChxxpEEmMe2xt5Z7I_x",
+    "snippet": {
+      "publishedAt": "2018-06-15T15:21:32Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Rainbow Art",
+      "description": "The place for art infused with rainbow colors in the form of wooden triangles, wearable glitter, tie-dye, and even slime.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bCq1T_qXrzI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bCq1T_qXrzI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bCq1T_qXrzI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/bCq1T_qXrzI/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/bCq1T_qXrzI/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Rainbow Art",
+        "description": "The place for art infused with rainbow colors in the form of wooden triangles, wearable glitter, tie-dye, and even slime."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 46
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "xgVrG9pbCE8xIfPgoeN3SznNCUw",
+    "id": "PL4_LbOYo9ZJkZb-KFwEvKtECB6zELTutJ",
+    "snippet": {
+      "publishedAt": "2018-06-14T16:09:15Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Nature-Inspired Art",
+      "description": "Check out how artists and sculptors are inspired by nature, animals, and the elements through their creations.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/CzvwgOf3L-A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/CzvwgOf3L-A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/CzvwgOf3L-A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/CzvwgOf3L-A/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/CzvwgOf3L-A/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Nature-Inspired Art",
+        "description": "Check out how artists and sculptors are inspired by nature, animals, and the elements through their creations."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 33
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "2kso26i12ZVJyjx9yEbwzqv5oLo",
+    "id": "PL4_LbOYo9ZJn_8NjPv4FzMjMQXEhPyGxI",
+    "snippet": {
+      "publishedAt": "2018-06-13T14:51:26Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Food Art",
+      "description": "From edible cookie art to learning how food props for tv and film are made, we have the latest from artists and sculptors that have mastered both food and art.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/T7gD75HlkZ4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/T7gD75HlkZ4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/T7gD75HlkZ4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/T7gD75HlkZ4/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/T7gD75HlkZ4/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Food Art",
+        "description": "From edible cookie art to learning how food props for tv and film are made, we have the latest from artists and sculptors that have mastered both food and art."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 23
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "TNSKscvBMuVGn3c1wYi2HuNx3ZY",
+    "id": "PL4_LbOYo9ZJnXyeZhk71RkdxS1CnFW70c",
+    "snippet": {
+      "publishedAt": "2018-05-17T16:04:26Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Tattoo Art",
+      "description": "Check out tattoo artists that use incredible techniques to design unique creations like glow-in-the-dark tattoos, stop-motion tattoos, and even green screen tattoos where you can watch your favorite TV shows.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/wnjF7ydVxKM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/wnjF7ydVxKM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/wnjF7ydVxKM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Tattoo Art",
+        "description": "Check out tattoo artists that use incredible techniques to design unique creations like glow-in-the-dark tattoos, stop-motion tattoos, and even green screen tattoos where you can watch your favorite TV shows."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 44
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "BSKkHi6ouK7MHfdKqsBkmboQ_WQ",
+    "id": "PL4_LbOYo9ZJlIXZgvo3SKHMKIZDr6Yez0",
+    "snippet": {
+      "publishedAt": "2018-05-17T16:03:56Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Stop-Motion Art",
+      "description": "See the latest from artists who use stop motion art and animation to tell stories through their creations.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/fQQefjzrysQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/fQQefjzrysQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/fQQefjzrysQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/fQQefjzrysQ/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/fQQefjzrysQ/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Stop-Motion Art",
+        "description": "See the latest from artists who use stop motion art and animation to tell stories through their creations."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 9
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "-Bgjdc_w4y86YN1j74OE2fQWHV4",
+    "id": "PL4_LbOYo9ZJkyhUGuvMv8WWEP40x6z7eG",
+    "snippet": {
+      "publishedAt": "2018-05-17T16:03:37Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Hyperrealistic Art",
+      "description": "Artists use materials like fruit, Rubik’s cubes, and even toothpaste to create art that is so realistic you’ll have to do a double take.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/OxC8VVgZ-Mc/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/OxC8VVgZ-Mc/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/OxC8VVgZ-Mc/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/OxC8VVgZ-Mc/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/OxC8VVgZ-Mc/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Hyperrealistic Art",
+        "description": "Artists use materials like fruit, Rubik’s cubes, and even toothpaste to create art that is so realistic you’ll have to do a double take."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 79
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "pDL5uQo-UyjF3-_lde4avR-zMt4",
+    "id": "PL4_LbOYo9ZJmuTsBqiwR6BsEmkK0YJ0Da",
+    "snippet": {
+      "publishedAt": "2018-05-17T16:02:25Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Tiny Art",
+      "description": "The place for all things tiny art. Watch portraits being drawn on a single grain of rice, tiny figures made out of peanuts, and discover how those Tiny Food videos are made.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/N4YSoFirT_k/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/N4YSoFirT_k/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/N4YSoFirT_k/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/N4YSoFirT_k/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/N4YSoFirT_k/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Tiny Art",
+        "description": "The place for all things tiny art. Watch portraits being drawn on a single grain of rice, tiny figures made out of peanuts, and discover how those Tiny Food videos are made."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 18
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "5vroH4sWrUBILr6gdHMUWl2JG5s",
+    "id": "PL4_LbOYo9ZJmvfoSP36Qu8qORf4U9Qg9f",
+    "snippet": {
+      "publishedAt": "2018-05-17T16:02:11Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Transformative Art",
+      "description": "The best from artists that transform people into animals, themselves into puppets, and even art that transforms an ordinary sidewalk.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/mmyijI0VbZw/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/mmyijI0VbZw/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/mmyijI0VbZw/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/mmyijI0VbZw/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/mmyijI0VbZw/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Transformative Art",
+        "description": "The best from artists that transform people into animals, themselves into puppets, and even art that transforms an ordinary sidewalk."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 130
+    }
+  },
+  {
+    "kind": "youtube#playlist",
+    "etag": "RfxPfJ2h125tgcFGXLVqYlulVgY",
+    "id": "PL4_LbOYo9ZJnGvKYa5Zaf4CeyTK5z2mqg",
+    "snippet": {
+      "publishedAt": "2018-02-20T20:04:25Z",
+      "channelId": "UCp1AdynFojb-WMTFG6KTcsg",
+      "title": "Best of ART INSIDER",
+      "description": "The very best pieces of work from ART INSIDER.",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/qGwvl9-mCnA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/qGwvl9-mCnA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/qGwvl9-mCnA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/qGwvl9-mCnA/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/qGwvl9-mCnA/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Art Insider",
+      "localized": {
+        "title": "Best of ART INSIDER",
+        "description": "The very best pieces of work from ART INSIDER."
+      }
+    },
+    "contentDetails": {
+      "itemCount": 20
+    }
+  }
+]

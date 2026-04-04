@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=1280">
+
+<title>Youtube Menu</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./../js/myScripts.js"></script>
+
+	
+	
+<style>
+
+.demo-1 {
+ height: 100px;	
+ overflow: hidden;
+ position: fixed;
+ top:-40px;
+ left:0px;
+}
+
+.demo-1 h3 {
+ font-size: 0.5em;
+ color: lime;
+ position: relative;
+ width: 1500px;
+ height: 100%;
+  
+
+ line-height: 80px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ /* Apply animation to this element */	
+ -moz-animation: demo-1 25s linear infinite;
+ -webkit-animation: demo-1 25s linear infinite;
+ animation: demo-1 25s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes demo-1 {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes demo-1 {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes demo-1 {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
+}
+
+
+body{
+   
+     background: #191c17;
+  
+    width:1280px;
+    font-family: Charcoal, Charcoal, sans-serif;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+p{
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      text-align: center;
+      font-size:46px;
+      left:0%;
+      opacity: 1.0;
+      color:white;
+      line-height:200%;
+}
+#header{
+  display: none;
+            position: fixed;
+            top: 15px;
+            left: 33px;
+            width: 1192px;
+            height: 649px;
+            background: rgb(0 0 0 / 82%);
+            border: 3px solid white;
+            border-radius: 8px;
+            z-index:10000;
+}
+
+.btn {
+  z-index:10000;  
+  background: DarkSlateGray;
+            border: 3px solid yellowgreen;
+            color: white;
+            border-radius: 12px;
+            padding: 10px 25px;
+            font-size: 27px;
+            cursor: pointer;
+            margin: 5px;
+}
+.btn:hover {
+               background:yellowgreen;
+}
+
+.btn2 {
+  padding: 10px;
+  font-size: 19px;
+  z-index:10000;  
+  width: 190px;
+
+	margin: 3px;
+	border-radius: .8em;
+	background-color: #CCC;
+	background-image: linear-gradient(45deg, #CCC, #999);
+	box-shadow: inset -.15em .15em 0 #666,
+				inset .1em -.1em 0 #CCC;
+}
+.btn2:hover {
+               background:yellowgreen;
+               color:white;
+               border-color: yellow;
+}
+.backBut{
+      font-family: Charcoal, Charcoal, sans-serif;
+      position:fixed;
+      top:675px;
+      left:10px;
+      border: 2px solid white;
+      border-radius:8px;
+      text-align: center;
+      text-decoration: none;
+      line-height:30px;
+      font-size: 20px;
+      width:80px;
+      height:30px;
+      background: rgba(100, 100, 100, 0.5);
+      color:gold;
+      cursor:pointer;
+}
+.backBut:hover{
+            background:yellowgreen;
+            color:black;
+}
+
+#back:hover{
+  background:yellowgreen;
+            color:black;
+}
+#menu{
+  
+  position:fixed;
+  top:675px;
+  left:10px;
+  border: 2px solid white;
+  border-radius:8px;
+  text-align: center;
+  text-decoration: none;
+  line-height:30px;
+  font-size: 20px;
+  width:150px;
+  height:30px;
+  color:gold;
+  cursor:pointer;
+}
+#menu:hover{
+        background:yellowgreen;
+        color:black;
+}
+#topics{
+
+            position:fixed;
+            top:180px;
+            left:32px;
+            width:1200px;
+            height:460px;
+            font-size:20px;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            z-index:1000;
+            overflow-y: auto;
+    
+}
+#topic:hover{
+            background:yellowgreen;
+            color:yellow;
+}
+
+.buinfo{
+
+         background:DarkSlateGray;
+         border: 3px solid yellowgreen;
+         color:white;
+         pointer-events: none;
+      
+}
+
+.subbut{
+             color: white;
+             border-radius: 12px;
+             border: 2px solid #9ae916;
+             padding: 10px 20px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 22px;
+             cursor:pointer;
+             margin:5px;
+             z-index:1000000000;
+                 background:#306236fa;
+}
+.subbut:hover{
+         background:blue;
+         color: black;
+         border-color:yellow;
+}
+
+
+#sugeBut{
+          position:fixed;
+          top:165px;
+}
+#userBut{
+          position:fixed;
+          top:255px;
+}
+
+#tagBut{
+          position:fixed;
+          top:345px;
+}
+
+#inputBut{
+          position:fixed;
+          top:435px;
+}
+#groupBut{
+          position:fixed;
+          top:525px;
+}
+#roomTitle{
+            display:none;
+            position:fixed;
+            top:220px;
+            height: 105px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 970px;
+            font-size:26px;
+            cursor:context-menu;
+            padding: 10px 20px;
+}
+#roomTitle:focus {outline:0;}
+
+#infoBut{
+            display:none;
+            position:fixed;
+            top:220px;
+            height: 70px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 970px;
+            font-size:26px;
+            cursor:context-menu;
+            padding: 10px 40px;
+}
+#infoBut:focus {outline:0;}
+
+#infoRoom{
+            display:none;
+            position:fixed;
+            top:220px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 570px;
+            font-size:26px;
+            cursor:context-menu;
+            padding: 10px 40px;
+}
+#infoRoom:focus {outline:0;}
+
+
+#tag{
+          display:none;  
+          position:fixed;
+          top:508px;
+          left:210px;
+          width:400px;
+          padding:10px 15px;
+          font-size:26px;
+          border: 3px solid DarkSlateGray;
+          border-radius: 12px;
+          background:#a9d8c0;
+          z-index:1000000;
+
+}
+
+#suggest{
+          display:none;
+          position:fixed;
+          top:500px;
+          width:200px;
+          padding:6px 20px;
+          left:725px;
+          font-size:30px;
+          background:#5ab565;
+}
+#submit{
+          display:none;
+          position:fixed;
+          top:500px;
+          width:200px;
+          padding:6px 20px;
+          left:725px;
+          font-size:30px;
+          background:#5ab565;
+}
+#submitLists{
+          display:none;
+          position:fixed;
+          top:500px;
+          width:200px;
+          padding:6px 20px;
+          left:300px;
+          font-size:30px;
+          background:#5ab565;
+}
+#sugVideos{
+          display:none;
+          position:fixed;
+          top:365px;
+          width:300px;
+          padding:12px 20px;
+          left:490px;
+          font-size:32px;
+          background:#5ab565;
+}
+#sugLists{
+          display:none;
+          position:fixed;
+          top:460px;
+          width:300px;
+          padding:12px 20px;
+          left:490px;
+          font-size:32px;
+          background:#5ab565;
+}
+#tag1{
+          display:none;  
+          position:fixed;
+          height:50px;
+          top:570px;
+          left:170px;
+          width:620px;
+          font-size:28px;
+          padding:0px 15px;
+          border: 3px solid DarkSlateGray;
+          border-radius: 12px;
+          background:#a9d8c0;
+          z-index:1000000;
+
+}
+#submit1{
+          display:none;
+          position:fixed;
+          top:570px;
+          left:830px;
+           padding:0px 15px;
+           height:50px;
+          font-size:30px;
+          background:#5ab565;
+}
+#submit2{
+          display:none;
+          position:fixed;
+          top:570px;
+          left:830px;
+           padding:0px 15px;
+           height:50px;
+          font-size:30px;
+          background:#5ab565;
+}
+
+.userbu{
+          display:none;
+          width: 500px;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+         
+}
+
+.mainbu{
+          width: 500px;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          background:DarkSlateGray;
+          border: 3px solid #ccbf1f;
+          border-radius:12px;
+          color:#e5efcc;
+          font-size:38px;
+
+
+          
+        
+}
+.mainbu:hover{
+         background:ForestGreen;
+         border: 3px solid ForestGreen;
+         color:white;
+
+      
+	border-top: 3px solid #666;
+	border-right: 3px solid #666;
+}
+
+
+
+#conteiner{
+   
+        position:fixed;
+        top:55px;
+        left:17px;
+        width:1233px;
+        height:612px;
+        background:transparent;
+ 
+        overflow: scroll;
+        overflow-x: hidden;
+}
+#output{
+        
+        position:relative;
+        top:0px;
+        left:15px;
+        width:1230px;
+        height:500px;
+        background:transparent;
+
+}
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: yellowgreen; 
+}
+
+
+#countInfo {
+          display:none;
+          position:fixed;
+          top:675px;
+          left:110px;
+          font-size:20px;
+          width:250px;
+          border: 2px solid white;
+          border-radius: 12px;
+          height: 34px;
+          background: rgba(100, 100, 100, 0.5);
+          color:gold;
+         
+        }
+#refresh {
+          
+          position:fixed;
+          top:675px;
+          left:35px;
+          font-size:20px;
+          width:50px;
+          border: 2px solid transparent;
+          border-radius: 12px;
+          height: 34px;
+          background: transparent;
+          color:transparent;
+         
+        }
+#title {
+            display: none;
+            position: fixed;
+            top: 12px;
+            left: 40px;
+            width: 1175px;
+            color: gold;
+            font-size: 26px;
+            border: 2px solid white;
+            border-radius: 8px;
+            background: rgba(100, 100, 100, 0.5);
+            pointer-events: none;
+            text-align: center;
+
+        }
+
+.backBut:focus {
+              outline:0;
+}
+/* FILTER DROP MENUS */
+
+
+#catBack{
+          background:DarkSlateGray;
+          color:white;
+           border: 3px solid white;
+}
+#catBack:hover{
+          background:green;
+          color:yellow;
+}
+#stepback{
+          display:none;   
+          position:fixed;
+          top:580px;
+          left:576px;
+          font-size:27px;
+          width:130px;
+          padding:7px;
+          background:DarkSlateGray;
+          border: 2px solid yellowgreen;
+          border-radius:12px;
+          color:white;
+          z-index:1000000;
+
+}
+#stepback:hover{
+             background:yellowgreen;
+             color:black;
+             border-color:white;
+}
+#butInfo{
+             background:#96cf2252;
+}
+
+
+
+.image {
+  display: none;
+
+ 
+}
+.image:hover{
+             background:#96cf2252;
+}
+.thumbs {
+  display: none;
+}
+.Vtitle{
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+</style>	
+</head>
+
+<body>
+ 
+	<div id="header" >
+        
+<!-- MAIN TITLE -->
+ <p style="position:fixed;top:20px;left:355px;font-size:56px;color:gold;margin-top:0px;"    >Youtube Public Videos</p>
+ <p style="position:fixed;top:70px;left:210px;font-size:28px;">the Videos on this slideshow are provide by the public Youtube feed</p>
+
+ <input id="infoBut"   type="button"  class="btn buinfo" value="jsdynamic info text" />
+ <input id="infoRoom"   type="button"  class="btn buinfo" value="jsdynamic info text" />   
+ <div id="roomTitle"   type="button"  class="btn buinfo" value="jsdynamic info text" >Normaly view is sync BUT with a delay of 3 4 seconds, the sync is lost when someone pause the video, to get a truly sync video view, create a room with any random name and share that name with other viewers, them they just have to submit that name to join the room group. Theres only need to join one time, to leave the room use the button close room. In sync view the video cant be paused.</div> 
+
+<!-- MAIN BUTTONS + INFO BUTTONS -->      
+
+ <input id="sugeBut"   onclick="callMode='userChannel'; openSub('userSugest');"        type="button"  class="btn mainbu" value="Suggested Channels" />
+ <input id="userBut"   onclick="openSub('userChannel');"  type="button"  class="btn mainbu" value="User´s Channels" />
+ <input id="tagBut"    onclick="openSub('tag');"          type="button"  class="btn mainbu" value="Tag´s Search" />
+ <input id="inputBut"  onclick="openSub('input');"        type="button"  class="btn mainbu" value="Submit Video Url" />
+ <!-- <input id="groupBut"  onclick="openSub('room');"        type="button"  class="btn mainbu" value="Sync View Room" /> -->
+
+<!-- INPUT AND SUBMITE FIELD -->
+ <input id="tag1" type="text" name="query"  onfocus="this.placeholder=''" class="subbut" placeholder="https://www.youtube.com/watch?v=S2Ip-uUhaoI"  />
+ <input id="submit1" onclick="submitUrl();"  type="button" value="Submit Video Url" class="subbut" />
+ <input id="submit2" onclick="closeRoom();"  type="button" value="Close Room" class="subbut" />
+ 
+<!-- TOPICS DIV DINAMIC -->  
+ <div id="topics"> </div>
+
+<!-- INPUT AND SUBMITE FIELD -->
+ <input id="tag" type="text" name="query" class="sub " onfocus="this.placeholder=''" placeholder=""  />
+ <input id="submit" onclick="submit2();"  type="button" value="Videos" class=" sub subbut" />
+ <input id="submitLists" onclick="callMode='userLists';submit2();"  type="button" value="Playlists" class=" sub subbut" />
+ <input id="suggest" onclick="submit2();"  type="button" value="Suggested" class=" sub subbut" />
+  
+ <input id="sugVideos"  onclick="get_Svideos();"  type="button" value="VIDEOS" class=" sub subbut" />
+ <input id="sugLists"   onclick="get_Slists();"  type="button" value="LISTS" class=" sub subbut" />
+
+
+
+ <input id="stepback" onclick="stepBack();" type="button"  class=" " value="BACK" />
+
+<!-- ROLLING TEXT INFO -->           
+ <div class="demo-1">
+ <!-- <h3 style="font-size:20px;"> -- to return to this menu when wacthing a video just move your mouse to the top of the screen and a back button option just pop out -- </h3> -->
+ </div>
+
+ </div> <!-- CONTAINER END -->     
+
+<!-- OVERPAGE TXT INFO -->    
+ <input id="title" class="backBut"  />
+            
+     
+<!-- SEARCH AND EXIT BUTTONS -->            
+ <div id="menu" style="left:565px;"          onclick="menu()"  class="backBut ">HIDE MENU</div> 
+ <div id="back" style="left:1145px;width:80px;" onclick="back()"        class="backBut">BACK</div> 
+ <!-- <button  id="butInfo" class="backBut" style="width:340px;left:750px; top:680px;font-size:21px;"> use Menu to search options</button> -->
+
+ <input id="countInfo"  type="button"  class="backbut" value="videos not found" />
+ <input id="refresh"   type="button"  class="backBut" value="Refresh" onclick="refresh()" />
+      
+              
+<!-- GALLERY DISPLAY DIV DINAMIC -->    
+ <div id="conteiner">
+ <div id="output" >
+ </div>
+           
+<!-- HTML END -->
+      
+
+<script src="./../socket.io/socket.io.js"></script>
+
+
+<script>
+// SCRIPT START //////////////////////////////////////////////
+
+var socket = io.connect();
+createroom()
+
+function createroom() {
+
+room='roomName';
+socket.emit('createroom', room);
+                 
+}
+
+socket.on('openPage', function(url){
+
+//location.href = url;
+
+window.open(url, "_self");
+
+console.log("uurrll"+url);
+
+});
+//////////////////////////////////////////////////////////////
+
+/////////////////////////////////////
+var apiKey="c90dea5c7207bea531ac489747938f44";        
+var apii; // used to access galeery methodes
+var step;
+var stepg;
+
+var callMode;
+var mode;
+var roomName="noRoom";
+
+clear();           // makes aclear at starup
+
+/////////////////////////////////////////////////////////////////////////////////
+// FUNCTION TO GET THE ATRIBUTES PASSED ON THE URL
+var queryString = decodeURIComponent(window.location.search); //parsing 
+      queryString = queryString.substring(1); 
+      var queries = queryString.split("&"); 
+    
+    
+      var from =(queries[0]); // GET THE VIDEO ID FROM THE URL
+      var scroll =(queries[1]); // GET THE VIDEO ID FROM THE URL
+
+      check_browser(); 
+     // clear_url();
+
+      console.log("FROM: " + from);
+      console.log("SCROOL: " + scroll);
+
+
+
+ //// Retrieve
+         
+         var pic = localStorage.getItem("pic");
+         document.body.style.backgroundImage = "url("+pic+")";
+        
+         var url1 = localStorage.getItem("url1");
+         var url2 = localStorage.getItem("url2");
+         var return_url=url1+"&"+url2
+// RESETS THE SEARCH VIEW /////////////////////////////////////////////
+function clear(){
+                    $('#infoBut').hide();          // hide info txt
+                    $('.sub').hide();              // hide submit
+                    $('.buinfo').hide();           // hide order buttons 
+                    $('.mainbu').show();           // show buttons
+                    $('#buttons').hide();           // show user sub menu
+                    $('#submit1').hide(); 
+                    $('#submit2').hide();   
+                    $('#tag1').hide();
+                  //  $('#title').hide();
+
+                    $('#stepback').hide();
+
+
+}// clear() end
+
+var updateFlag=0;
+
+startSetup();
+
+function refresh(){
+                     updateFlag=1;
+                     console.log("Refresh: "+updateFlag)
+
+}
+
+function startSetup() {
+    $('#menu').text('HIDE MENU')
+
+    $('#countInfo').hide();
+    $('#title').hide();
+    $("#header").show();
+
+     readVids("ytube.txt","");
+
+}
+////////////////////////////////////////////////////////////////////////
+function menu(){
+            
+            if($("#menu").text()==="HIDE MENU") 
+            {
+              $("#menu").text("SHOW MENU");
+              $('#countInfo').show();
+              
+              $('#title').show();
+              $("#header").hide();
+            }
+              else
+            { 
+              $("#menu").text("HIDE MENU");
+              $('#countInfo').hide();
+            
+              $('#title').hide();
+              $("#header").show();
+            }              
+               $("#topics").empty();
+               clear();
+      
+}
+///////////////////////////////////////////////////////////////////////
+function back()
+{
+       window.open("./../?"+return_url, "_self");
+}
+
+function closeRoom()
+{
+       sessionStorage.setItem("key", "noRoom");
+       $('#infoRoom').val("Actual Room Name:  OFF");
+       key="noRoom";
+       setPage("main");
+}
+// FUNCTION TO RECEIVE AND SET A VIDEO URL
+
+
+var   key = sessionStorage.getItem("key");
+    //  console.log("KEY: "+key)
+      if(key != 'noRoom')
+      {
+        roomName=key;
+      }
+      else 
+      roomName="noRoom";
+      if(key === null) roomName='noRoom';
+
+/////////////////////////////////////////////////////
+function submitUrl(){
+                     if(callMode==="input")
+                     {
+                        var url=$("#tag1").val();
+                        var head=url.substring(0,32);
+                        
+                        if(head==="https://www.youtube.com/watch?v=")
+                        {
+                        console.log("URL: " + url);  
+                        var stripHead=url.search("v=") + 2;
+                        var idVideo =url.substring(stripHead);
+
+                        var ids = idVideo.split("&"); 
+
+                        console.log(ids.length);
+
+                        if(ids.length>1)
+                          {
+                        var listId=ids[1].substring(ids[1].search("list=") + 5);
+                            idVideo=ids[0];
+                            window.open("./tvytube?"+ listId +'&'+'list', "_self");   
+                            
+                            console.log(idVideo);
+                        console.log(listId);
+                        console.log(ids[2]);
+                          }
+                        else
+                        window.open("./tvytube?"+ idVideo , "_self");    
+
+                  }
+                        else
+                        {
+                         $("#tag1").val("Invalid youtube Url");
+                        }
+                      }
+                      //ROOM SELECT
+                      if(callMode==="room")
+                      {
+                        roomName=$("#tag1").val();
+                        if(roomName!="")
+                        {
+                        sessionStorage.setItem("key", roomName);
+                        key = sessionStorage.getItem("key");
+                        console.log("KEY: "+key)
+                        console.log("room name: "+roomName);
+                        setPage("main");
+                        }
+                        else
+                        {
+                      //  $("#tag1").val("Invalid Room name");
+                      //  setPage("room");
+                        }
+                      }
+}
+///////////////////////////////////////////////////////////////////////
+// FUNCTION TO CALL TVYTUBE SENDING VIDEOID, BACKPIC E SCROLL POSITION 
+function sendVideo(vidId){
+
+var scrollPos = ($("#conteiner").scrollTop() );
+
+var randomRoom = Math.floor(Math.random() * 10000);
+   console.log("random room"+randomRoom);
+
+   var urlToSend=  "./tvytube?"+vidId+"&"+scrollPos+"&"+randomRoom;
+
+//   socket.emit("open", urlToSend);  
+  
+   window.open("./tvytube?"+vidId+"&"+scrollPos+"&"+randomRoom, "_self");
+   console.log(vidId)
+ 
+}
+//////////////////////////////////////////////////////////////////////
+function stepBack(){  
+                                console.log(step);
+                     console.log(callMode);
+
+                     if(step===1 && callMode==="userChannel") {setPage("main"); step=0;}
+                     else if(step===2 && callMode==="userChannel") {setPage("user1"); step=1;}
+                     
+                     else if(step===1 && callMode==="userLists") {setPage("main"); step=0;}
+                     else if(step===2 && callMode==="userLists") {setPage("group1"); step=1;}
+                     
+                     else if(step===1 && callMode==="tag") {setPage("main"); step=0;}
+                     else if(step===2 && callMode==="tag") {setPage("tag1"); step=1;}
+
+                     else if(step===1 && callMode==="room") {setPage("main"); step=0;}
+                     else if(step===2 && callMode==="room") {setPage("room"); step=1;}
+
+                     else if(step===1 && callMode==="input") {setPage("main"); step=0;}
+                 
+}
+
+
+function setPage(page){
+
+                                     $('#tag1').hide();
+                                     $('#submit1').hide();
+                                     $('#submit2').hide();
+
+                 if(page==="main") {
+                                     $('#search').show();
+                                     $('#infoBut').hide();
+                                     $('#infoRoom').hide();
+                                     $('#roomTitle').hide();
+                                     $('.sub').hide();
+                                     $('#stepback').hide();
+                                     $('.mainbu').show();
+                                     $("#suggest").hide();
+                                     $('#sugVideos').hide();
+                                     $('#sugLists').hide();
+                                     $('#submit2').hide();
+                                    
+                                   }  
+                 if(page==="tag1") {
+                                      $('.mainbu').hide();    // hide main buttons
+                                                                                         
+                                    $('#infoBut').val('submit your tag words or pickup a suggested one');  
+                                    $('#infoBut').show();
+                                    $('#stepback').show();
+                                    $('#tag').attr("placeholder", " insert tag words");
+                                    $('#tag').val("");
+                                    $('.sub').show();
+                                    $("#suggest").show();
+                                    $("#submitLists").hide();
+              
+                                    $("#infoBut").  css({ top: 230 });
+                                    $("#tag").      css({ top: 420, left: 210});
+                                    $("#submit").   css({ top: 418, left: 650});
+                                    $("#suggest").css({ top: 418, left: 860});
+                                    $('#sugVideos').hide();
+                                    $('#sugLists').hide();
+                                    step=1;
+                                    
+                                   }  
+                
+                if(page==="user1") {
+                                     $('#infoBut').show();
+                                     $('.sub').show();
+                                     $('#stepback').show();
+                                     $('.mainbu').hide();
+                                     $("#suggest").hide();
+                                     $('#sugVideos').hide();
+                                     $('#sugLists').hide();
+                                     $("#infoBut").   css({ "font-size": "27px"});                                   
+                                     $('#infoBut').val("submit a valid channel Id ( like 'UCbAlVnKhbGLK78GsSemQXxw' )"); 
+                                     $('#tag').attr("placeholder", "    paste a valid channel Id here");
+                                     $('#tag').val("");
+                                              
+                                     $("#infoBut").  css({ top: 230 });
+                                     $("#tag").      css({ top: 360, left: 420});
+                                     $("#submit").   css({ top: 435, left: 415});
+                                     $("#submitLists").   css({ top: 435, left: 655});
+                                                                     
+                                       step=1;
+                                   }  
+            
+           
+              
+                if(page==="room") {
+                                     $('#roomTitle').show();
+                                     $('#infoRoom').show();
+                                     $('#tag1').show();
+                                     $('#submit1').show();
+                                     $('#submit2').show();
+                                     $('#stepback').show();
+                                     $('.mainbu').hide();
+                                     $("#suggest").hide();
+                                     $('#search').hide();
+
+                                     $("#infoRoom").   css({ "font-size": "27px"});
+                                     $("#roomTitle").   css({ "font-size": "19px"});
+                                     if(key==="noRoom")
+                                     $('#infoRoom').val("Actual Room Status:  OFF");
+                                     if(key!="noRoom")
+                                     $('#infoRoom').val("Actual Room Status:  ON");
+                                   
+                                     $("#infoBut").   css({ "font-size": "12px"});
+                                   
+                                     $('#infoBut').val("To get a truly sync video view, create a room with any random name and share that name with other viewers, then they just have to submit that name to join the room group Theres only need to join one time, to leave the room use the button close room"); 
+                                   
+                                     $('#tag1').attr("placeholder", "enter room name here");
+                                     $('#tag1').val("");
+                                     $('#submit1').val("Submit Room Name");
+                                     $('#submit2').val("Close Room");
+              
+                                     $("#roomTitle").  css({ top: 180 });
+                                     $("#roomTitle").  css({ height: 85 });
+                                     $("#infoRoom").  css({ top: 305 });
+                                     $("#tag1").      css({ top: 380, left: 310});
+                                     $("#submit1").   css({ top: 445, left: 480});
+                                     $("#submit2").   css({ top: 510, left: 533});
+                                    
+                                    
+                                       step=1;
+                                   }                      
+                 if(page==="input") {
+                                     $('#infoBut').show();
+                                     $('#tag1').show();
+                                     $('#submit1').show();
+                                     $('#stepback').show();
+                                     $('.mainbu').hide();
+                                     $("#suggest").hide();
+                                     $('#search').hide();
+                                   
+                                     $("#infoBut").   css({ "font-size": "27px"});
+                                     $('#infoBut').val("submit a valid link ( like 'https://www.youtube.com/watch?v=e0NgW6t4Q24"); 
+                                     $('#tag1').attr("placeholder", "use 'Ctlr v' to past the Youtube video link here");
+                                     $('#tag1').val("");
+                                     $('#submit1').val("Submit Video Url");
+                                     
+                                     $("#infoBut").  css({ top: 250 });
+                                     $("#tag1").      css({ top: 360, left: 310});
+                                     $("#submit1").   css({ top: 435, left: 510});
+                                    
+                                    
+                                       step=1;
+                                   }         
+               if(page==="suggest") {
+                                     $('#infoBut').hide();
+                                     $('.sub').hide();
+                                     $('#stepback').hide();
+                                     $('.mainbu').hide();
+                                     }           
+               if(page==="suggest2") {
+                                     $("#infoBut").  css({ top: 250 });
+                                     $("#infoBut").   css({ "font-size": "36px"});
+                                     $('#infoBut').val("videos or playlists ?"); 
+                                     $('#infoBut').show();
+                                     $('#sugVideos').show();
+                                     $('#sugLists').show();
+                                  //   $('.sub').hide();
+                                     $('#stepback').hide();
+                                     $('.mainbu').hide();
+                                     }                                                          
+             
+}
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+// OPEN SUBMIT FIELD /////////////////////////////////////////////
+function openSub(type){ 
+               
+            
+               var sugestMode;
+            
+               if(type==="tag")    {
+                                      callMode="tag";
+                                      setPage("tag1");
+                                    }
+              
+           
+      
+         if(type==="userSugest")   {
+                                     setPage("suggest");
+                                    
+                                     if(callMode==="userChannel")
+                                     readCat();
+                                     if(callMode==="userLists")
+                                     addSearchBtns('groupFav');
+                                     if(callMode==="tag")
+                                     addSearchBtns('tagFav');
+                                     $("#topics").show();
+                                   }                                         
+       
+       
+       
+        if(type==="userChannel")    {
+                                      $('#search').hide();
+                                      callMode="userChannel";
+                                      setPage("user1");
+                                   }        
+           
+        if(type==="userLists")   {
+                                     callMode="userLists";
+                                     setPage("group1");
+                                     submit2();
+                                   } 
+         if(type==="input")   {
+                                     callMode="input";
+                                     setPage("input");
+                                   }    
+         if(type==="room")   {
+                                     callMode="room";
+                                     setPage("room");
+                                   }                                             
+   
+}// opensub() end
+
+
+// EXECUTE THE SUBMIT DATA /////////////////////////////////////////
+
+function submit2(){
+                  
+                        var query=$("#tag").val();
+
+                        var ok =query.substring(0,2);
+
+                        console.log(ok);
+
+            if(query!="" && ok==="UC" && callMode==="userChannel")
+                {
+                        query=query.replace('UC','UU');
+                        array2=[];
+                        count=0;
+                        pageCount=0;
+                        $("#header").hide();
+               
+                     userSearch (callMode,query,1);
+
+                } 
+                else if(query!="" && ok==="UC" && callMode==="userLists" )
+                 {
+                        array2=[];
+                        count=0;
+                        pageCount=0;
+                        $("#header").hide();
+
+                     userSearch (callMode,query,1);
+                }
+                else if(query!="" && ok!="UC" && (callMode==="userLists" || callMode==="userChannel"))
+                {
+                    $('#tag').val("");
+                    $('#tag').attr("placeholder","");
+                    $('#tag').attr("placeholder", "     the Id is not valid, try again");
+                } 
+
+
+                 if(callMode==="tag" && query!="")
+                {
+                        array2=[];
+                        count=0;
+                        pageCount=0;
+                        $("#header").hide();
+                        userSearch (callMode,query,1);
+                }
+                                   
+}// submit() end
+
+
+
+
+////////////////////////////////////////////////////////////////////////
+// SHOW THE TOPICS BUTTONS DINAMIC /////////////////////////////////////
+
+function readCat(){
+ 
+                        addSearchBtns((categorias));
+               
+}
+
+function addSearchBtns(topic) {
+
+        $('#topics').empty();
+
+       // console.log("SIZE: " + topic.length);
+              
+          for (i = 0; i < topic.length; i++) {
+           // console.log("TOPIC: " + topic[i].name);
+            var cat=topic[i].name;
+                     var but = "butx"+i;
+                     var $button = $("<input type='button' class='btn2 bt' />");
+                     $button.val(cat);
+                     $("#topics").append($button);
+                     $button.attr('id',but); 
+                     $("#topics").append($button);
+                  }
+                  
+                       $button.attr('id',"catBack"); 
+                       $button.val("BACK");
+                       $("#buttons").append($button); //adiciona botao back 
+}
+
+	
+//////////////////////////////////////////////////////////////////////////////
+// FUNÇAO QUE DETECTA O CLICK NUM DOS BOTOES DE SUGESTAO  ////////////////////
+var query;
+ $(document).on("click", ".bt", function() {
+
+      if ($(this).hasClass("bt")) {
+        query = $(this).val();
+       
+        $("#tag").val(query);
+        $("#buttons").hide();
+        $("#topics").hide();
+        
+
+      if(query==="BACK") setPage('main');
+       else 
+       {
+           from="load";
+           setPage("suggest2");
+       }
+
+      }
+});
+
+
+
+function get_Svideos(){
+  var id;
+  var txt;
+  for (i = 0; i < categorias.length; i++) {
+             //procura nome do botao na lista, se existir le ficheiro associado ao Id    
+        if(categorias[i].name===query)
+                   {
+                     
+                     if(updateFlag===0){
+                         id=categorias[i].id;
+                         console.log("IDflag0: " + id)
+                         txt="./txt/"+id+".txt";
+                         console.log("TXTflag0: " + txt)
+                         readVids(txt,"user");   
+                        }   
+                        if(updateFlag===1){
+                          id=categorias[i].id;
+                          id=id.replace('UC','UU');
+                          console.log("IDflag1: " + id)
+                          userSearch ('userChannel',id,1);
+                        }   
+
+
+                    }
+                }
+}
+function get_Slists(){
+
+for (i = 0; i < categorias.length; i++) {
+           //procura nome do botao na lista, se existir le ficheiro associado ao Id    
+      if(categorias[i].name===query)
+                 {
+                   if(updateFlag===0){
+                       var id=categorias[i].id;
+                       var txt="./txt/"+id+"_list.txt";
+                       readVids(txt,"list");      
+                      }   
+                        if(updateFlag===1){
+                          id=categorias[i].id;
+                          userSearch ('userLists',id,1);
+                      }   
+                 }
+            }
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var proc= function(videos, mode) {
+                                  
+                              $("#output").empty();
+                            //  $("#output").hide();
+                              
+
+            //  console.log(videos);
+           //    console.log(videos [0].snippet.channelTitle);
+
+           //   var items=videos.items;
+
+            $.each(videos, function(i, item){
+
+if(mode==="user"){
+                var thumb = item.snippet.thumbnails.high.url;
+                var title = item.snippet.title;
+                var desc = item.snippet.description.substring(0,200) + ".....";
+                var vid = item.snippet.resourceId.videoId;
+}
+if(mode==="tags"){
+                var thumb = item.snippet.thumbnails.high.url;
+                var title = item.snippet.title;
+                var desc = item.snippet.description.substring(0,200) + ".....";
+                var vid = item.id.videoId;
+}
+if(mode==="list"){
+                var thumbTest = item.snippet.thumbnails.high;
+                if("high" in item.snippet.thumbnails) thumb = item.snippet.thumbnails.high.url;
+                else thumb = item.snippet.thumbnails.medium.url;
+                var title = item.snippet.localized.title;
+                var desc = item.snippet.description;
+                var vid =   item.id;
+                numVids = item.contentDetails.itemCount;
+                title=title + "    (" + numVids +" videos)";
+}
+
+// add thumbs div
+count ++;
+var div = document.createElement("div");
+div.id='id'+count;
+div.style.position='relative';
+div.style.float = "left";
+div.style.display='inline';
+div.className="thumbs";
+
+document.getElementById("output").appendChild(div);
+//////
+//add title div
+title=title.substring(0,80)
+var div2 = document.createElement("div");
+div2.innerHTML=title
+
+div2.style.position='absolute';
+div2.className="Vtitle";
+div2.style.textAlign= 'center';
+div2.name=vid;
+div2.style.background= '#1b171ca3';
+div2.style.color= 'white';
+div2.style.cursor = "pointer";
+//div2.style.zIndex = "1000";
+
+// add function sendVideo to title div
+div2.addEventListener("click", function(e) {
+                             sendVideo (e.target.name);
+                })
+
+document.getElementById('id'+count).appendChild(div2);
+///////
+// add main image img
+var img = document.createElement("img");
+
+if(m1==0 && m2==0 && m3==0) x = Math.floor((Math.random() * 3) + 1);
+x=2;
+if(x===3) {m3=2; m2=0; m1=0}
+if(x===2) {m2=3; m1=0; m3=0}
+if(x===1) {m1=4; m2=0; m3=0}
+
+if( m3>0 && m2==0 && m1==0) { m3--;img.style.width = "580px";x=0;
+                              div2.style.top= '293px';
+                              div2.style.left= '10px';
+                              div2.style.width= '575px';
+                              div2.style.height= '40px';
+                              div2.style.fontSize='17px';
+}
+if( m2>0 && m3==0 && m1==0) { m2--;img.style.width = "380px";x=0;
+                              div2.style.top= '259px';
+                              div2.style.left= '15px';
+                              div2.style.width= '370px';
+                              div2.style.height= '30px';
+                              div2.style.fontSize='15px';
+}
+if( m1>0 && m2==0 && m3==0) { m1--;img.style.width = "285px";x=0;
+                              div2.style.top= '137px';
+                              div2.style.left= '10px';
+                              div2.style.width= '280px';
+                              div2.style.height= '30px';
+                              div2.style.fontSize='14px';
+}
+
+           // img.style.height = "270px";
+            img.style.margin = "7px 8px";
+            img.style.cursor = "pointer";
+            img.src = thumb ;
+            img.style.border = "2px solid white";
+            img.alt=vid;
+            img.className="image";
+           // add function sendVideo to title div  
+            img.addEventListener("click", function(e) {
+                             sendVideo (e.target.alt);
+                })
+                 
+           document.getElementById('id'+count).appendChild(img); 
+          
+
+
+
+            });
+
+       $('.image').show();
+       $('.Vtitle').show();
+
+     
+// if call comes from main set scrool to zero e comes from player set scroll to saved scroll
+
+   
+
+    
+ 
+      };
+
+// hover functions, scale and change border color on mouse hover
+$(document).on("mouseenter", ".thumbs", function() {
+    $(this).css('margin','0px'); 
+    $(this).css('transform', 'scale(' + 1.06 + ')');
+    
+    var id=($(this).attr('id'));
+    $(this).children('img').css({ "border": "2px solid greenyellow"});
+
+
+    img = document.createElement("img");
+    img.style.position='absolute';
+    img.className="playButton";
+    img.style.textAlign= 'center';
+    img.style.top='130px';
+    img.style.left='180px';
+    img.style.zIndex='1000';
+    img.alt=$(this).children('img').attr('alt');
+    img.style.cursor = "pointer";
+    img.src = './../../../images/playButton.png' ;
+
+    img.addEventListener("click", function(e) {
+                             sendVideo (e.target.alt);
+                })
+
+
+    document.getElementById(id).append(img); 
+   
+});
+// reset values on mouse leave
+$(document).on("mouseleave", ".thumbs", function() {
+    
+   $(this).children('img').css({ "border": "2px solid white"});
+    $(this).css('transform', 'scale(' + 1 + ')');
+    $('.playButton').remove();
+});
+///////////////////////////////////////////////////////////////
+var count=0;
+var x=0;
+var m1=0;
+var m2=0;
+var m3=0;
+
+///////////////////////////////////////////////////////////////////////       
+ 
+
+
+
+//// FIM DA FUNÇAO PROC  ////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// INICIO DA FUNÇAO SEARCH_USER  ////////////////////////////////////////////////////////////////////////////////////////////// 
+      
+ function userSearch(mode,user,page){
+           
+            from="load";
+            var userId=user;
+            var order="date";
+            var pages=5;
+            console.log("MODE: " + mode);
+            console.log("USER: " + user);
+
+            functABC(mode,user,pages).then(function(data) {
+    // Run this when your request was successful
+            console.log("RESPOSTA: " + data);
+            if(data==="ok") readVids("./ytube.txt", mode);
+         }).catch(function(err) {
+    // Run this when promise was rejected via reject()
+             console.log(err)
+         })
+           
+}
+////////////
+function functABC(mode,user,pages) {
+   
+    return new Promise(function(resolve, reject) {
+         
+           // var mode=mode;
+            var userId=user;
+            var tag=user; // in tag search tag comes on user
+            var order='date';
+            var pages=5;
+          
+
+      $.ajax({
+        url: '/getChannelVideos',
+        type: 'POST',
+        data: {
+           'mode'  : mode,
+           'userId': userId,
+           'tag': tag,
+           'order' : order,
+           'type' : 'youtube'
+           },
+        success: function(data) {
+          resolve(data) // Resolve promise and go to then()
+        },
+        error: function(err) {
+          reject(err) // Reject the promise and go to catch()
+        }
+      });
+    });
+  }
+
+/*
+*
+*
+*
+*/
+
+  
+function readVids(txt, mode) {
+
+     $("#header").hide();
+        
+            fetch(txt)
+                .then(response => response.text())
+                .then(data => {
+
+                 //   console.log(data);
+                 
+                    var videos = JSON.parse(data);
+                  //  console.log(videos);                 
+                    var numVideos = videos.length;
+                  //  console.log("Numvideos: " + numVideos);
+       
+                    var channelTitle= videos[0].snippet.channelTitle;
+                   // console.log("CHANNEL TITLE: " + channelTitle);
+
+            if(videos[0].kind === "youtube#playlistItem")  mode="user";                  
+            if(videos[0].kind === "youtube#playlist")  mode="list";
+            if(videos[0].kind === "youtube#searchResult")  mode="tags";
+  
+ 
+            if(mode==="user") $('#countInfo').val(numVideos + " videos found");
+            if(mode==="list") $('#countInfo').val(numVideos + " lists found");
+            if(mode==="tags") $('#countInfo').val(numVideos + " videos found");
+             
+            if(from==="player"|| from==="load"){  
+            $("#countInfo").show();
+            $("#title").show();
+            }
+           // menu();
+           
+               
+          //  console.log("TXT:" + txt.substring(1));   
+            rename(txt,mode);
+                
+            if(mode==="user") { $('#title').val( "Videos of channel:  " + channelTitle);proc(videos, "user");}
+            if(mode==="list") { $('#title').val( "Playlists of channel:  " + channelTitle);proc(videos, "list");}
+            if(mode==="tags") { $('#title').val( "Mix Videos Selection");proc(videos, "tags");}
+                
+            if(from==="main") {          
+                     $('#conteiner').scrollTop(0)
+                     $("#header").show();
+       }
+       if(from==="load") {          
+                     $('#conteiner').scrollTop(0)
+                     $('#menu').text("SHOW MENU");
+                     $("#header").hide();
+                     $("#topics").empty()
+       }
+       if(from==="player") {  
+        console.log("SCROLL " + scroll)        
+                     $('#conteiner').scrollTop(scroll);
+                     $('#conteiner').scrollTop(scroll);
+                     $('#menu').text("SHOW MENU");
+                     $("#header").hide();
+                     $("#topics").empty();
+       }
+            });
+}
+
+function rename(txt, mode){
+                        $.ajax({
+                            type: 'POST',
+                            url: '/rename',
+                        
+                            data: {
+                                    filename:txt,
+                                    mode:'youtube'
+                                  },
+                        });
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+        const categorias=[
+     { name:"Second Life", id:"UC5dsLkNZX9pVgmEHpJX9QCA"},
+     { name:"Bryn Oh", id:"UCI7NrJQ5vpg2PmVQKpwXSbw"},
+     { name:"Tutsy", id:"UCbfOwWpYoWo5l0Tz-q29Tbg"},
+     { name:"inWorld", id:"UCYJhtXjfiwmah0DwXn3B-qw"},
+     { name:"Draxtor", id:"UC9lFGoxhquvypdNDYpj3ekg"},
+     { name:"Songularity", id:"UC0-b3mAe2rYJ3BhiOy1j_Fg"},
+     { name:"Oema Resident", id:"UCxGlN6DXSe4qxjRmWgvM7zw"},
+     { name:"Art Assignment", id:"UCmQThz1OLYt8mb2PU540LOA"},
+     { name:"Prespective", id:"UCN8V_pO0xOFKLL4XG1tshnw"},
+     { name:"Dalí Museum", id:"UCY-6T66-azasLIwzVf4Q9TQ"},
+     { name:"MOMA", id:"UC9CswYtb5rL31CHwyVoyJvQ"},
+     { name:"Art Insider", id:"UCp1AdynFojb-WMTFG6KTcsg"},
+     { name:"Smithsonian", id:"UCZW0jH_nivSuvSmFHppURyg"},
+     { name:"Mary Lynn", id:"UC5Fj6asAU8JwL21dwM_VrWg"},
+     { name:"Nature Cams", id:"UC-2KSeUU5SMCX6XLRD-AEvw"},
+     { name:"National Geographic", id:"UCpVm7bg6pXKo1Pr6k5kxG9A"},
+     { name:"Nature Docs", id:"UCQtW2oz8ec8pHjjxawujNjg"},
+     { name:"4K Nature", id:"UCYaeKUmFbAD687PAQG1qjOA"},
+     { name:"Real Wild", id:"UCbq-4OJxnziD3awH-aTezeA"},
+     { name:"BBC World", id:"UCQtW2oz8ec8pHjjxawujNjg"},
+     { name:"Touropia", id:"UCh3Rpsdv1fxefE0ZcKBaNcQ"},
+     { name:"Nature Relax", id:"UC4lp9Emg1ci8eo2eDkB-Tag"},
+     { name:"8K Landscapes", id:"UC-hKdAEl4c86O9lNTNrOqhw"},
+     { name:"Timeline", id:"UC88lvyJe7aHZmcvzvubDFRg"},
+     { name:"Weird History", id:"UCc-N24Y5OA0gqbjBwe1ttfA"},
+     { name:"History Channel", id:"UC9MAhZQQd9egwWCxrwSIsJQ"},
+     { name:"AdVexon TV", id:"UCtcsKTmGKo1UCT24OaGxEtw"},
+     { name:"Top Five", id:"UCY9Nban7R4xGwR3sPJzfIqA"},
+     { name:"SciShow Space", id:"UCrMePiHCWG4Vwqv3t7W9EFg"},
+     { name:"Minute Physics", id:"UCUHW94eEFW7hkUMVaZz4eDg"},
+     { name:"Bright Side", id:"UC4rlAVgAK0SGk-yTfe48Qpw"},
+     { name:"5-Minute Magic", id:"UCnobTPLeBxWHurWHq8jzsnA"},
+     { name:"Laughs Gags", id:"UCpsSadsgX_Qk9i6i_bJoUwQ"},
+     { name:"Fun Home Videos", id:"UC_zEzzq54Rm0iy7lmmZbCIg"},
+     { name:"BigDawsTv", id:"UCu4X846OSea5YU6S8fIpy1A"},
+     { name:"Ownage Pranks", id:"UCxOGHW-aqciBe5Wjq8ltzOg"},
+     { name:"FailArmy", id:"UCPDis9pjXuqyI7RYLJ-TTSA"},
+     { name:"ThatWasEpic", id:"UCSrnmu3W6YXWU_85DKT5arg"},
+     { name:"Insider", id:"UCHJuQZuzapBh-CuhRYxIZrg"},
+     { name:"Fame Focus", id:"UCfzuJecdM0uhX7HfICewt3Q"},
+     { name:"FactoFusion", id:"UCd-1pQG-2H5IJl4Jkmy3bXw"},
+     { name:"STORROR", id:"UCdPui8EYr_sX6q1xNXCRPXg"},
+     { name:"Nerdstalgic", id:"UCXjmz8dFzRJZrZY8eFiXNUQ"},
+     { name:"Car Blondie", id:"UCKSVUHI9rbbkXhvAXK-2uxA"},
+     { name:"DriveTribe", id:"UChiwLDIBJrV5SxqdixMHmQA"}
+    ]
+         
+
+</script>
+
+</body>
+</html>

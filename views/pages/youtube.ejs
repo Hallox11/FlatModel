@@ -1,0 +1,519 @@
+<style>
+
+#yt-module {
+    width: 1200px; /* Full width */
+    height: 720px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent the whole module from scrolling */
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+#yt-module .nav-bar {
+    flex-shrink: 0; /* Prevents the bar from squishing */
+    padding: 15px 25px;
+    display: flex;
+    gap: 12px;
+    background: transparent;
+    z-index: 99;
+    border-bottom: 1px solid #222;
+    align-items: center;
+}
+
+/* New Scrollable Wrapper */
+#yt-content-scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+    #yt-module #yt-search-input {
+        flex-grow: 1;
+        background: #222;
+        color: #fff;
+        border: 1px solid #444;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    #yt-module .search-btn, #yt-module .cat-modal-btn {
+        padding: 0 20px;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 45px;
+        white-space: nowrap;
+    }
+
+    #yt-module .search-btn { background: #ff0000; }
+    #yt-module .cat-modal-btn { background: #333; border: 1px solid #ff6b6b; color: #ff6b6b; }
+
+    /* Modal */
+    #yt-cat-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 1280px;
+        height: 720px;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        width: 90%;
+        max-width: 1000px;
+    }
+
+    .cat-item {
+        background: #1a1a1a;
+        padding: 15px;
+        border: 1px solid #444;
+        color: #ff6b6b;
+        text-align: center;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.2s;
+        border-radius: 4px;
+    }
+
+    .cat-item:hover { background: #ff0000; color: #fff; border-color: #fff; }
+
+    /* Grid */
+#yt-module .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+    #yt-module .video-card {
+        background: #161616;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s;
+        border: 1px solid white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #yt-module .video-card:hover {
+        transform: translateY(0px);
+        border-color: #ff0000 !important;
+    }
+
+    #yt-module .thumb-wrap {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background: #000;
+        position: relative;
+    }
+
+    #yt-module .thumb-wrap img { width: 100%; height: 100%;  }
+
+    #yt-module .duration-badge {
+        position: absolute;
+        bottom: 6px;
+        right: 6px;
+        background: rgba(0,0,0,0.85);
+        color: #fff;
+        font-size: 11px;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+
+    #yt-module .video-meta { 
+        padding: 4px 10px 10px;
+     }
+   
+   
+    #yt-module .video-title { 
+    letter-spacing: 0.9px; 
+    font-size: 13px; 
+    margin: 5px; 
+    color: #eee; 
+    text-transform: uppercase; 
+    margin-bottom: 0px; 
+    line-height: 1.0;
+    
+    /* ADD THESE: */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+    
+    #yt-module .video-channel { 
+        font-size: 13px;
+         margin: 1px;
+         color: #ff6b6b; }
+
+    #yt-module .loading-msg {
+        text-align: center;
+        padding: 60px;
+        color: #555;
+        font-size: 18px;
+        grid-column: 1 / -1;
+    }
+
+    #yt-module .error-msg {
+        text-align: center;
+        padding: 60px;
+        color: #ff4444;
+        font-size: 16px;
+        grid-column: 1 / -1;
+    }
+
+    /* Load more */
+    #yt-module .load-more-wrap {
+        text-align: center;
+        padding: 10px 25px 30px;
+    }
+
+    #yt-module .load-more-btn {
+        background: transparent;
+        color: #ff6b6b;
+        border: 1px solid #ff6b6b;
+        padding: 10px 40px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.2s;
+    }
+
+    #yt-module .load-more-btn:hover { background: #ff0000; color: #fff; border-color: #ff0000; }
+    #yt-module .load-more-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    #yt-module .fav-modal-btn { 
+    background: #111; 
+    border: 1px solid #ffd700; 
+    color: #ffd700; 
+    padding: 0 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    height: 45px;
+}
+
+.fav-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 40px;
+        width: 1240px;
+    }
+    .fav-item {
+        background: #1a1a1a;
+        padding: 30px 10px;
+        border: 2px solid #333;
+        color: #ffd700;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 8px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.3s;
+    }
+    .fav-item:hover {
+        border-color: #ffd700;
+        background: #ffd700;
+        color: #000;
+    }
+
+    /* Update these specific parts in your <style> block */
+
+#yt-fav-modal {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 1280px; 
+    height: 720px; 
+    background: rgba(0, 0, 0, 0.98); /* Slightly darker for better contrast */
+    z-index: 10000; 
+    flex-direction: column; 
+    align-items: center; 
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+/* Container for the buttons that allows vertical scrolling */
+.fav-scroll-container {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns as seen in your image */
+    gap: 10px;
+    width: 1200px; /* Slightly less than 1240 to account for scrollbar padding */
+    padding: 10px;
+}
+
+.fav-item {
+    background: #111;
+    padding: 12px 5px;
+    border: 1.5px solid #ffd700; /* Goldenrod border */
+    color: #ffd700;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: capitalize;
+    transition: all 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fav-item:hover {
+    background: #ffd700;
+    color: #000;
+}
+
+#yt-module .close-btn {
+    background: #222;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    border-radius: 50%; /* Circular button */
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+#yt-module .close-btn:hover {
+    background: #ff4444;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+    #yt-content-scroll::-webkit-scrollbar { width: 12px; }
+    #yt-content-scroll::-webkit-scrollbar-track { background: #333; border-radius: 10px; }
+    #yt-content-scroll::-webkit-scrollbar-thumb { background: red; border-radius: 10px; }
+
+</style>
+
+<div id="yt-module">
+    <!-- Top Bar stays fixed because it is outside the scroll div -->
+    <div class="nav-bar">
+        <input type="text" id="yt-search-input" value="<%= tag || 'secondlife' %>" placeholder="Search YouTube...">
+        <button class="search-btn" onclick="ytSearch()">Search</button>
+        <button class="cat-modal-btn" style="border-color: #ffd700; color: #ffd700;" onclick="toggleYtFavModal(true)">Favorites</button>
+        <button class="cat-modal-btn" onclick="toggleYtCatModal(true)">Categories</button>
+        <button class="cat-modal-btn" id="refresh-btn" onclick="refreshGrid()" 
+    style="border-color:#4CAF50; color:#4CAF50;">
+    ↺ REFRESH <span id="quota-display">...</span>
+</button>
+       <button class="close-btn" onclick="closeSubMenu()">✕</button>
+    </div>
+
+    <!-- This container handles all the scrolling -->
+    <div id="yt-content-scroll">
+        <div class="video-grid">
+            <% videos.forEach(v => { %>
+                <div class="video-card" data-video-id="<%= v.videoId %>" data-title="<%= v.title %>" onclick="playYouTube(this)">
+                    <div class="thumb-wrap">
+                        <img src="<%= v.thumbnail %>" alt="thumbnail">
+                        <% if (v.duration) { %><span class="duration-badge"><%= v.duration %></span><% } %>
+                    </div>
+                    <div class="video-meta">
+                        <p class="video-channel"><%= v.channel %></p>
+                        <p class="video-title"><%= v.title %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <!-- Modals remain here -->
+<!-- Categories Modal -->
+<div id="yt-cat-modal">
+    <div style="margin-bottom: 20px; font-size: 24px; color: #ff6b6b; font-weight: bold;">Categories</div>
+    <div class="cat-grid">
+        <!-- Add your categories here -->
+<div class="cat-item" onclick="selectYtCat('Comedy')">Comedy</div>
+<div class="cat-item" onclick="selectYtCat('Movies & Trailers')">Movies & Trailers</div>
+<div class="cat-item" onclick="selectYtCat('Viral Videos')">Viral Videos</div>
+<div class="cat-item" onclick="selectYtCat('Reaction Videos')">Reaction Videos</div>
+
+<div class="cat-item" onclick="selectYtCat('Gaming')">Gaming</div>
+<div class="cat-item" onclick="selectYtCat('Live Streams')">Live Streams</div>
+<div class="cat-item" onclick="selectYtCat('Esports')">Esports</div>
+<div class="cat-item" onclick="selectYtCat('Walkthroughs & Guides')">Walkthroughs & Guides</div>
+
+<div class="cat-item" onclick="selectYtCat('Music Videos')">Music Videos</div>
+<div class="cat-item" onclick="selectYtCat('Live Performances')">Live Performances</div>
+<div class="cat-item" onclick="selectYtCat('Chill & Lo-fi')">Chill & Lo-fi</div>
+<div class="cat-item" onclick="selectYtCat('Playlists & Mixes')">Playlists & Mixes</div>
+
+<div class="cat-item" onclick="selectYtCat('Education')">Education</div>
+<div class="cat-item" onclick="selectYtCat('Documentaries')">Documentaries</div>
+<div class="cat-item" onclick="selectYtCat('Science & Tech Explained')">Science & Tech Explained</div>
+<div class="cat-item" onclick="selectYtCat('History')">History</div>
+
+<div class="cat-item" onclick="selectYtCat('Tech Reviews')">Tech Reviews</div>
+<div class="cat-item" onclick="selectYtCat('Unboxing')">Unboxing</div>
+<div class="cat-item" onclick="selectYtCat('AI & Future Tech')">AI & Future Tech</div>
+<div class="cat-item" onclick="selectYtCat('Smart Home')">Smart Home</div>
+
+<div class="cat-item" onclick="selectYtCat('Vlogs')">Vlogs</div>
+<div class="cat-item" onclick="selectYtCat('Travel')">Travel</div>
+<div class="cat-item" onclick="selectYtCat('Daily Life')">Daily Life</div>
+<div class="cat-item" onclick="selectYtCat('Reality & Challenges')">Reality & Challenges</div>
+
+<div class="cat-item" onclick="selectYtCat('Cooking')">Cooking</div>
+<div class="cat-item" onclick="selectYtCat('Food Reviews')">Food Reviews</div>
+<div class="cat-item" onclick="selectYtCat('Street Food')">Street Food</div>
+<div class="cat-item" onclick="selectYtCat('Recipes')">Recipes</div>
+
+<div class="cat-item" onclick="selectYtCat('Fitness & Health')">Fitness & Health</div>
+<div class="cat-item" onclick="selectYtCat('Finance & Motivation')">Finance & Motivation</div>
+    </div>
+    <button class="load-more-btn" style="margin-top: 30px;" onclick="toggleYtCatModal(false)">Close</button>
+</div>
+
+<!-- Favorites Modal -->
+<!-- Replace the start of your Favorites Modal with this -->
+<div id="yt-fav-modal">
+    <div style="margin-bottom: 20px; font-size: 24px; color: #ffd700; font-weight: bold;">Favorites</div>
+    <div class="fav-scroll-container">
+        <div class="fav-grid">
+            <% if (locals.favorites && favorites.length > 0) { %>
+                <% favorites.forEach(fav => { %>
+                    <div class="fav-item" onclick="selectChannel(this)" data-id="<%= fav.id %>">
+                        <%= fav.name %>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div style="color: #666; grid-column: 1/-1;">No favorites added yet.</div>
+            <% } %>
+        </div>
+    </div>
+    <button class="load-more-btn" style="margin-top: 10px; color: #ffd700; border-color: #ffd700;" onclick="toggleYtFavModal(false)">Close</button>
+</div>
+
+
+
+<script>
+window.ytSearch = function() {
+    const val = document.getElementById('yt-search-input').value.trim();
+    if (!val) return;
+    // Change 'youtube-grid' to 'youtube'
+    handleNav('youtube?tag=' + encodeURIComponent(val));
+};
+
+window.selectYtCat = function(cat) {
+    toggleYtCatModal(false);
+    // Change 'youtube-grid' to 'youtube'
+    handleNav('youtube?tag=' + encodeURIComponent(cat));
+};
+
+window.toggleYtCatModal = function(show) {
+    document.getElementById('yt-cat-modal').style.display = show ? 'flex' : 'none';
+    if (window.socket && !window.isRemoteAction) {
+        socket.emit('state_sync', { type: 'yt_modal', show });
+    }
+};
+
+
+window.toggleYtFavModal = function(show) {
+    const modal = document.getElementById('yt-fav-modal');
+    if (!modal) return;
+
+    modal.style.display = show ? 'flex' : 'none';
+    
+    // Only emit if this was a LOCAL click, not a command from the socket
+    if (window.socket && !window.isRemoteAction) {
+        socket.emit('state_sync', { 
+            type: 'yt_fav_modal', 
+            show: show,
+            room: "Lobby"
+        });
+    }
+};
+
+window.selectChannel = function(el) {
+    const id = el.getAttribute('data-id');
+    toggleYtFavModal(false);
+    handleNav('/youtube?tag=' + encodeURIComponent(id) + '&isChannel=true');
+};
+
+
+window.playYouTube = function(el) {
+    const videoId = el.getAttribute('data-video-id');
+    const title   = el.getAttribute('data-title');
+    handleNav(`/tvytube?videoId=${encodeURIComponent(videoId)}&title=${encodeURIComponent(title)}`);
+};
+
+// --- SCROLL SYNC ---
+// Change the ID from 'yt-module' to 'yt-content-scroll'
+var scrollContainer = document.getElementById('yt-content-scroll');
+
+scrollContainer.addEventListener('scroll', function() {
+    if (window.isSyncing) return;
+    
+    if (window.socket && window.socket.connected) {
+        socket.emit('state_sync', {
+            type: 'scroll',
+            position: this.scrollTop,
+            room: window.myRoom
+        });
+    }
+});
+
+
+// Load quota on page init
+async function loadQuota() {
+    try {
+        const res = await fetch('/api/quota');
+        const q = await res.json();
+        document.getElementById('quota-display').textContent = `(${q.used}/10000)`;
+    } catch(e) {
+        document.getElementById('quota-display').textContent = '';
+    }
+}
+
+window.refreshGrid = async function() {
+    const tag = document.getElementById('yt-search-input').value.trim() || 'secondlife';
+    const isChannel = window.location.search.includes('isChannel=true');
+    await loadQuota(); // update display before navigating
+    handleNav(`/youtube/refresh?tag=${encodeURIComponent(tag)}&isChannel=${isChannel}`);
+};
+
+// Load quota when grid opens
+loadQuota();
+
+</script>

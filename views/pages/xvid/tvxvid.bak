@@ -1,0 +1,523 @@
+<!doctype html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>if(!window.xv){window.xv={};}window.xv.conf={};</script>
+
+<script src="https://static-l3.xvideos-cdn.com/v-85eebca86b0/v3/js/skins/min/default.header.static.js"></script>
+
+<script src="https://static-l3.xvideos-cdn.com/v3/js/i18n/xvplayer/pt.js"></script>
+<script src="https://static-l3.xvideos-cdn.com/v-5b759c00eb4/v3/js/skins/min/player.html5hls.static.js" onerror="xv.console.log(this.src + ' load failed', 'Video page');"></script>
+
+<link rel="stylesheet" href="https://static-l3.xvideos-cdn.com/v-8719bb2c2eb/v3/css/player/html5.css">
+
+<link rel="stylesheet" href="https://static-l3.xvideos-cdn.com/v-8719bb2c2eb/v3/css/player/html5.less">
+
+<link rel="stylesheet" id="xvstyles" href="https://static-l3.xvideos-cdn.com/v-eb07396695c/v3/css/default/main-black-base.css">
+
+<style>
+
+body{
+   
+   background: #191c17;
+  
+  
+  width:1280px;
+  font-family: Charcoal, Charcoal, sans-serif;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.playerDiv {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+   z-index:9990;
+   display: block !important;
+   color:black;
+ 
+}
+
+#header {
+
+  position:fixed;
+  width:1260px;
+  height:650px;
+  top:10px;
+  left: 10px;
+  border-radius: 0px 0px 0px 0px;
+  text-align: center;
+  font-family: Charcoal, Charcoal, sans-serif;
+  font-size: 26px;
+  background:rgba(1, 0, 0, 0.5);
+  color: white;
+  z-index:19999;
+   visibility: hidden;
+
+
+}
+#header3 {
+
+  position:fixed;
+  width:1260px;
+  height:150px;
+  top:80px;
+  left: 10px;
+  border-radius: 0px 0px 0px 25px;
+  text-align: center;
+  font-family: Charcoal, Charcoal, sans-serif;
+  font-size: 26px;
+ 
+ // color: transparent;
+  z-index:10000002;
+
+
+}
+#header2 {
+
+  position:fixed;
+  width:40px;
+  height:40px;
+  top:10px;
+  left: 1230px;
+ // border-radius: 0px 0px 25px 0px;
+  text-align: center;
+  font-family: Charcoal, Charcoal, sans-serif;
+  font-size: 26px;
+ opacity: 0.5;
+//  color: transparent;
+ background-image: url(../images/menu.jpg);
+   z-index:100002;
+  cursor: pointer;
+  visibility: hidden;
+
+}
+#menuBut {
+  position:fixed;
+  top:440px;
+  left:500px;
+  width:300px;
+  background: DarkSlateGray;
+  color: white;
+}
+#backBut {
+  position:fixed;
+  top:340px;
+  left:500px;
+  width:300px;
+  background: DarkSlateGray;
+  color: white;
+}
+#backBut:hover {
+color: white;
+}
+#footer{
+  position:fixed;
+  width:1030px;
+  height: 60px;
+  top:0px;
+  left:0px;
+// background:red;
+ // visibility: hidden;
+  z-index:10000;
+}
+
+
+
+p{
+font-size:29px;
+line-height: 1.1;
+
+  
+}
+.btn {
+  
+		   background:#0b5b5b;
+		   border: 3px solid yellowgreen;
+ 
+		   color: white;
+		   border-radius: 12px;
+		   padding: 7px 20px;
+		   text-align: center;
+		   text-decoration: none;
+		   display: inline-block;
+		   font-size: 35px;
+		   cursor:pointer;
+		   margin:5px;
+		   z-index:1000000000;
+}
+.btn:hover {
+			 background:yellowgreen;
+}
+#lt1{
+   position:fixed;
+   top:85px;
+   left:60px;
+}
+#lt2{
+   position:fixed;
+   top:135px;
+	left:67px;
+}
+#lt3{
+   position:fixed;
+   top:185px;
+	left:50px;
+}
+
+#l2{
+  position:fixed;
+  top:575px;
+  left:80px;
+  color:black;
+  background:grey;
+  padding:5px 10px;
+
+}
+#l3{
+  position:fixed;
+  top:485px;
+  left:240px;
+  font-size: 40px;
+  color:lime;
+  background:transparent;
+  padding:5px 10px;
+
+}
+#l4{
+  position:fixed;
+  top:220px;
+  left:240px;
+  font-size: 40px;
+  color:lime;
+  background:transparent;
+  padding:5px 10px;
+
+}
+#title{
+	  position:fixed;
+	  top:0px;
+	  left:500px;
+	  color:yellow;
+	  font-size:40px;
+ 
+	  
+}
+img{
+    width:0px;
+    height:0px;
+}
+</style>
+</style>
+</head>
+
+
+
+<body class="video-page">
+    
+<div id="page" class="video-page">
+<div id="main">
+<div id="video-player-bg">
+<div id="html5video" style="height: 715px; width: 1280px;">
+<div id="html5video_base" style="display: none;height: 715px; width: 1280px;">
+</div>
+</div>
+
+<div id="header2" ></div>
+<div id="header" >
+  
+<p id="title" class="txt">                             INSTRUCTIONS </p>
+
+<p id="lt1"> ( check the  'Youtube settings button'  for better resolutions, mouse hover right/lower corner ) <p>
+<p id="lt2"> ( on PlayList mode use the foward and back arrow buttons to move on the videos playlist ) <p>   
+
+<p id="l2" class="txt"> ( this Tv is based on Internet Video Links, they can change or stop to work at any time ) <p>
+<p  id="lt3"> ( click the back button to get the previous menu or the main menu button for the main menu ) <p>
+
+<p  id="l3" class="txt"> ( click the screen to hide the instruction  ) <p>    
+<p  id="l4" class="txt"> ( click the screen to hide the instruction  ) <p>    
+
+<button   id='menuBut' onclick="location.href = './../xxx-index';" class="btn">MAIN MENU</button>    
+<button   id='backBut' onclick="goBack()" class="btn">BACK</button>
+</div>
+
+
+<div id="footer" >
+<p> <p>       
+</div>
+
+
+<script src="./../socket.io/socket.io.js"></script>
+
+<script>
+
+///////////////////////////////////////////////
+var socket = io.connect();
+var rom;
+var time;
+
+
+
+  var count=0;
+  function createroom() {
+
+      room=roomName;
+
+      
+      socket.emit('createroom', room);
+      
+    
+  }
+
+  createroom();
+
+ /////////////////////////////////////////////
+
+
+var el1 = document.getElementById('footer');
+el1.onmouseover = function() {
+
+            document.getElementById('header').style.visibility= "visible";
+}
+
+var el2 = document.getElementById('header2');
+el2.onclick = function() {
+
+            document.getElementById('header').style.visibility= "visible";
+}
+
+var el = document.getElementById('header');
+el.onclick = function() {
+
+            document.getElementById('header').style.visibility= "hidden";
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// FUNCION TO GET BACK ON CLICK
+function goBack() {
+
+
+window.open("./xvid?"+pic+"&player&"+scroll,"_self");
+
+}
+///////////////////////////
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+
+        // room= url2;
+         if (roomName!="noRoom") createroom(); 
+
+});
+/////////////////////////////////////////////////////////////////////////////////
+// FUNCTION TO GET THE ATRIBUTES PASSED ON THE URL
+var queryString = decodeURIComponent(window.location.search); //parsing
+      queryString = queryString.substring(1);
+      var queries = queryString.split("&");
+
+
+       video_id=(queries[0]); // GET THE VIDEO ID FROM THE URL
+       console.log("VideoId no player: "+video_id);
+   var pic=(queries[1]);  // GET THE LIST ID FROM THE URL   WWW//....?VIDEO_ID&VIDEO_LIST
+   var scroll=(queries[2]);
+   var roomName=(queries[3]);
+     
+      var id_length=video_id.length;
+      console.log("Id lenght: " + id_length);
+       list_id=video_id;
+      
+      // if (roomName!="noRoom") createroom(); 
+
+       console.log("NAME: " + roomName)
+  
+////////////////////////////////////////////////////////////////////////////////////
+
+playVideo(video_id);
+                
+function playVideo(videoUrl){
+
+functABC(videoUrl).then(function(data) {
+// Run this when your request was successful
+var videoLink=data.streams.hls;
+var title=data.title;
+var slideThumb=data.streams.slide_thumb;
+console.log("link: " + videoLink);
+console.log("title: " + title);
+console.log("slide: " + slideThumb);
+
+play(videoLink, title, slideThumb);
+
+}).catch(function(err) {
+// Run this when promise was rejected via reject()
+ console.log(err)
+})
+
+}
+////////////
+function functABC(videoUrl) {
+
+return new Promise(function(resolve, reject) {
+
+$.ajax({
+url: '/playVideo',
+type: 'POST',
+data: {
+	'videoUrl':videoUrl
+},
+success: function(data) {
+resolve(data) // Resolve promise and go to then()
+},
+error: function(err) {
+reject(err) // Reject the promise and go to catch()
+}
+});
+});
+}
+
+////////////////////
+
+
+///////////////////
+  function play(videoLink, title, slideThumb)
+  {  
+    
+       logged_user = false;
+    	var static_id_cdn = 3;
+    	var html5player = new HTML5Player('html5video', '26331355');
+    	if (html5player) {
+      //  videoLink='https://vidcdn2.eroticmv.com/dat1/naughtywivesvideoclub2006/naughtywivesvideoclub2006.m3u8'
+	    html5player.setVideoTitle(title);
+     // html5player.setVideoUrlHigh(videoLink);
+	    html5player.setVideoHLS(videoLink);
+	   
+	    html5player.setThumbUrl('');
+	   
+	    html5player.setThumbUrl169('');
+
+	    html5player.setThumbSlide(slideThumb);
+	
+
+	
+	    html5player.setIdCDN('2');
+	    html5player.setIdCdnHLS('2');
+	    html5player.setFakePlayer(false);
+	    html5player.setDesktopiew(true);
+        html5player.setSeekBarColor('#de2600');
+	    html5player.setUploaderName('');
+	    html5player.setPageReferer('');
+	    html5player.setVideoURL('');
+	    html5player.setStaticPath('https://static-l3.xvideos-cdn.com/v-5b759c00eb4/v3/');
+	    html5player.setHttps();
+	    html5player.setCanUseHttps();
+	    html5player.force_play_fullscreen=1;
+	    document.getElementById('html5video').style.minHeight = '';
+	    html5player.initPlayer();
+	      
+	    html5player.playClicked = 1;
+     
+	    html5player.play();
+var seek_flag;	
+var pause_flag;
+var play_flag;  
+//////////////////////////////////////////////////////////////      
+      html5player.video.addEventListener("play", function(){
+          console.log("MY-PLAYTIME: " + this.currentTime ); 
+          temp = this.currentTime;
+            myid = socket.id;
+            tempmyid = myid + " emited " + temp;
+            console.log("my id is: " + myid);
+           // socket.emit('status', tempmyid);
+           play_flag=0;
+         //  play_flag=1;
+             socket.emit('toPlay', temp, room);
+            html5player.play();
+      });
+//////////////////////////////////////////////////////////////
+html5player.video.addEventListener("seeked", function(){
+    
+  console.log("MY-SEEKTIME: " + this.currentTime ); 
+          temp = this.currentTime;
+            myid = socket.id;
+            tempmyid = myid + " emited " + temp;
+            console.log("my id is: " + myid);
+          //  socket.emit('status', tempmyid);
+          console.log("PLAY_FLAG"+play_flag);
+          if(play_flag===0)  {   
+            socket.emit('toSeek', temp, room);
+       //  html5player.play();
+            play_flag=1;
+          }
+      });
+//////////////////////////////////////////////////////////////
+          html5player.video.addEventListener("pause", function(){
+          console.log("MY-PAUSETIME: " + this.currentTime ); 
+        
+            temp = this.currentTime;
+            myid = socket.id;
+            tempmyid = myid + " emited " + temp;
+            console.log("my id is: " + myid);
+       //     socket.emit('status', tempmyid);
+       socket.emit('toPause', temp, roomName);
+        //  html5player.pause();
+            pause_flag=1;
+            
+        }); 
+///////////////////////////////////////////////////////////////        
+      socket.on('Play', function(currenttime){
+      
+     if(play_flag===1){
+      seek_flag=0;
+          html5player.video.currentTime=currenttime;
+          html5player.play();
+        }
+  });
+/////////////
+socket.on('Seek', function(currenttim){
+    
+         console.log("MY-SEEKTIME222: " + html5player.video.currentTime ); 
+        //  html5player.pause();
+          html5player.video.currentTime=currenttim;
+          html5player.play();
+   
+  });
+ 
+/////////////
+
+socket.on('Pause', function(currenttime){
+             //player.seekTo(currenttime, true);  
+             html5player.pause();
+             html5player.video.currentTime=currenttime;
+             m=0;
+
+           });
+
+    
+//////////////
+
+html5player.video.video_event_click ("click", function(t) {
+
+      console.log("CLICK: " + t);
+
+});
+
+
+
+
+
+	       $(".right").hide();
+         }         
+	     
+      
+
+
+   }
+
+</script>
+
+</body>
+</html>

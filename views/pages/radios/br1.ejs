@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+    <head prefix="og: http://ogp.me/ns#">
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./../js/myScripts.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <link rel="stylesheet" href="./../styles/radios.css">
+        <link rel="stylesheet" href="./../styles/menu_index.css">
+
+        <style>
+            /* STRETCH TO FIT - NO SCROLL STRATEGY */
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                width: 100vw;
+                overflow: hidden; /* Disables scroll */
+                background-color: #000;
+                color: white;
+                font-family: sans-serif;
+            }
+
+            .viewport-wrapper {
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                padding: 1vh 2vw;
+                box-sizing: border-box;
+                background: rgba(0,0,0,0.4); /* Darkens background for readability */
+            }
+
+            #header {
+                flex-shrink: 0;
+                text-align: center;
+            }
+
+            #header h1 {
+                font-size: 3vh;
+                margin: 1vh 0;
+                text-transform: uppercase;
+            }
+
+            /* The Player Area */
+            #radio {
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255,255,255,0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                padding: 1vh;
+                margin-bottom: 1vh;
+                height: 12vh;
+            }
+
+            /* The Grid of Radios */
+            #radios {
+                display: grid;
+                grid-template-columns: repeat(8, 1fr); /* 8 items across */
+                grid-template-rows: repeat(5, 1fr);    /* 5 rows down = 40 items */
+                gap: 0.8vh;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                flex-grow: 1; /* Fills available middle space */
+                overflow: hidden;
+            }
+
+            #radios li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(255,255,255,0.05);
+                border-radius: 8px;
+                transition: transform 0.2s;
+                border: 1px solid rgba(255,255,255,0.1);
+            }
+
+            #radios li:hover {
+                background: rgba(255,255,255,0.2);
+                transform: scale(1.05);
+            }
+
+            #radios li img {
+                max-height: 7vh; /* Forces icons to stay small enough to fit */
+                width: auto;
+                max-width: 90%;
+                object-fit: contain;
+            }
+
+            /* Bottom Button Area */
+            .footer-area {
+                flex-shrink: 0;
+                display: flex;
+                justify-content: center;
+                padding: 1vh 0;
+            }
+
+            #bback {
+                padding: 1vh 5vw;
+                font-size: 2vh;
+                cursor: pointer;
+                border-radius: 20px;
+                border: none;
+                background: #ff4d4d;
+                color: white;
+                font-weight: bold;
+            }
+
+            marquee { width: 200px; color: #fff; }
+        </style>
+
+        <script>
+            var webradioConfig = {
+                countryCode: "BR",
+                languageCode: "pt",
+                urlApi: "https://api.webrad.io/",
+                urlStatic: "https://cdn.webrad.io/",
+                txt: { live: "Ao vivo", loading: "A carregar", play: "Tocar", stop: "Parar" }
+            };
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.4/bowser.min.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/script/soundmanager2-nodebug-jsmin.js" crossorigin="anonymous" defer></script>
+        <script src="https://cdn.webrad.io/js/main-5.0.3.min.js" crossorigin="anonymous" defer></script>
+    </head>
+
+    <body>
+        <div class="viewport-wrapper">
+            <div id='header'>
+                <h1>Live radios from Brasil</h1>
+            </div>          
+                    
+            <div id="radio">
+                <div class="text-box" style="margin-right: 20px;">
+                    <marquee behavior="scroll" direction="left">
+                        <strong class="title" id="radio-title">SELECT A STATION</strong>
+                    </marquee>
+                </div>
+                <div class="img-box">
+                    <img id="radio-logo" src="https://cdn.webrad.io/images/spacer.gif" alt="" height="50">
+                </div>
+                <div id="radio-controls" style="margin-left:20px;"></div>
+            </div>
+
+            <ul id="radios">
+                <li><a href="#gazeta-cuiaba"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/gazeta-cuiaba.png"></a></li>
+                <li><a href="#jovem-pan"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/jovem-pan.png"></a></li>
+                <li><a href="#89-a-rock"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/89-a-rock.png"></a></li>
+                <li><a href="#fm-o-dia"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/fm-o-dia.png"></a></li>
+                <li><a href="#mix-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/mix-fm.png"></a></li>
+                <li><a href="#kiss"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/kiss.png"></a></li>
+                <li><a href="#disney"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/disney.png"></a></li>
+                <li><a href="#bh-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/bh-fm.png"></a></li>
+                <li><a href="#band"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/band.png"></a></li>
+                <li><a href="#antena"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/antena.png"></a></li>
+                <li><a href="#energia"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/energia.png"></a></li>
+                <li><a href="#saudade"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/saudade.png"></a></li>
+                <li><a href="#jb-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/jb-fm.png"></a></li>
+                <li><a href="#alpha-sp"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/alpha-sp.png"></a></li>
+                <li><a href="#bandeirantes"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/bandeirantes.png"></a></li>
+                <li><a href="#98-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/98-fm.png"></a></li>
+                <li><a href="#transamerica"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/transamerica.png"></a></li>
+                <li><a href="#tropical"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/tropical.png"></a></li>
+                <li><a href="#93-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/93-fm.png"></a></li>
+                <li><a href="#105-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/105-fm.png"></a></li>
+                <li><a href="#nativa-sao-paulo"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/nativa-sao-paulo.png"></a></li>
+                <li><a href="#transcontinental-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/transcontinental-fm.png"></a></li>
+                <li><a href="#globo"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/globo.png"></a></li>
+                <li><a href="#coca-cola-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/coca-cola-fm.png"></a></li>
+                <li><a href="#dumont-sp"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/dumont-sp.png"></a></li>
+                <li><a href="#melodia-rj"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/melodia-rj.png"></a></li>
+                <li><a href="#top-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/top-fm.png"></a></li>
+                <li><a href="#gazeta"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/gazeta.png"></a></li>
+                <li><a href="#novabrasil"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/novabrasil.png"></a></li>
+                <li><a href="#metropole"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/metropole.png"></a></li>
+                <li><a href="#jovem-pan-floripa"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/jovem-pan-floripa.png"></a></li>
+                <li><a href="#sulamerica-paradiso"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/sulamerica-paradiso.png"></a></li>
+                <li><a href="#itapoan-fm"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/itapoan-fm.png"></a></li>
+                <li><a href="#atlantida"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/atlantida.png"></a></li>
+                <li><a href="#capital"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/capital.png"></a></li>
+                <li><a href="#bahia-salvador"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/bahia-salvador.png"></a></li>
+                <li><a href="#feliz"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/feliz.png"></a></li>
+                <li><a href="#gaucha"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/gaucha.png"></a></li>
+                <li><a href="#cbn"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/cbn.png"></a></li>
+                <li><a href="#alvorada-bh"><img src="https://cdn.webrad.io/images/logos/radiosaovivo-net/alvorada-bh.png"></a></li>
+            </ul>
+
+            <div class="footer-area">
+                <button id='bback' onclick="location.href = './inter-radio?'+return_url;">BACK</button>
+            </div>
+        </div>
+
+        <script>
+            var pic = localStorage.getItem("pic");
+            if(pic) document.body.style.backgroundImage = "url("+pic+")";
+            
+            var url1 = localStorage.getItem("url1");
+            var url2 = localStorage.getItem("url2");
+            var return_url = url1 + "&" + url2;
+        </script>
+    </body>
+</html>
