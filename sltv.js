@@ -15,7 +15,7 @@ const io = new Server(server);
 const PORT = process.env.PORT || 3000;
 
 const fs = require('fs');
-
+const sqlite3 = require('sqlite3').verbose();
 
 const favPath = path.join(__dirname, 'favorites.json');
 
@@ -24,25 +24,233 @@ const favPath = path.join(__dirname, 'favorites.json');
 
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
-app.use('/backgrounds', express.static(__dirname + '/backgrounds'));
-// Render static files
+app.use('/backgrounds', express.static(path.join(__dirname, 'backgrounds')));
 app.use(express.static('public'));
-// Set the view engine to ejs
 app.set('view engine', 'ejs');
 
 
+// Updated global state to track everything happening in the room
+let lobbyState = {
+    url: '/',
+    videoId: null,
+    timestamp: 0,
+    isPaused: true,
+    currentBg: null,
+    radioData: null,
+    radioIndex: 0,      // <--- ADD THIS: Tracks the dial position (0, 1, 2...)
+    activeTag: null,
+    ajaxPath: null,
+    lastUpdate: Date.now()
+};
 
 
-////////////////////////////////////////////////////////////
-// *** GET Routes - display pages ***
-// Root Route
-app.get('/', function (req, res) {
-    res.render('pages/index');
+// 3. Secret key for verification
+const MY_SECRET = process.env.MY_SECRET || "MyUltraSecret123"; // ⚠️ move to .env
+let activeTvUrl = null;
+let tvRegistry = {};
+let BASE_URL = process.env.BASE_URL || "https://gearldine-unintrusted-carey.ngrok-free.dev/"; // ⚠️ move to .env
+const FIXED_ROOM = "Lobby";
+
+/////////////////////////////////////////////////
+// 1. Initialize the Database File
+const db = new sqlite3.Database('./sltv_data.sqlite', (err) => {
+    if (err) console.error("Database opening error:", err.message);
+    else console.log("Connected to SQLite database.");
+});
+
+/////////////////////////////////////////////////
+// 2. Create the Table if it doesn't exist
+// 2. Create Tables if they don't exist
+// 2. Create Tables if they don't exist
+db.run(`CREATE TABLE IF NOT EXISTS interactions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    owner TEXT,
+    creator TEXT,
+    clicker TEXT,
+    land_name TEXT,
+    land_id TEXT,
+    pos TEXT,
+    nearby TEXT,
+    object_id TEXT,
+    serial TEXT,
+    url TEXT, 
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+)`);
+
+// NEW: Persistent TV Registry — load after table is guaranteed to exist
+db.run(`CREATE TABLE IF NOT EXISTS tv_registry (
+    object_id TEXT PRIMARY KEY,
+    url TEXT NOT NULL,
+    owner TEXT,
+    land TEXT,
+    room TEXT,
+    last_seen DATETIME DEFAULT CURRENT_TIMESTAMP
+)`, (err) => {
+    if (err) return console.error("Failed to create tv_registry:", err.message);
+
+
+    // NEW: Load registry from DB on startup
+db.all("SELECT * FROM tv_registry", [], (err, rows) => {
+    if (err) return console.error("Failed to load TV registry:", err.message);
+    rows.forEach(row => {
+        tvRegistry[row.object_id] = {
+            url: row.url,
+            owner: row.owner,
+            land: row.land,
+            room: row.room
+        };
+    });
+    console.log(`[Registry] Loaded ${rows.length} TVs from DB.`);
+});
+
+});
+
+/////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////
+// 4. Register Endpoint (LSL Handshake)
+const clickerSessionMap = new Map();
+const SESSION_TTL = 30 * 1000;
+
+app.post('/register', (req, res) => {
+    const {
+        secret, owner, creator, clicker, land_name,
+        land_id, pos, nearby, object_id, serial, url
+    } = req.body;
+
+    if (secret !== MY_SECRET) return res.status(403).send("Denied");
+
+
+        console.log(`[System] Active TV URL updated to: ${activeTvUrl}`);
+        console.log("Secret: ", secret);
+        console.log("owner: ", owner);
+        console.log("creator: ", creator);
+        console.log("clicker: ", clicker);
+        console.log("land_name: ", land_name);
+        console.log("land_id: ", land_id);
+        console.log("pos: ", pos);
+        console.log("nearby: ", nearby);
+        console.log("object_id: ", object_id);
+        console.log("serial: ", serial);
+        console.log("url: ", url);
+
+
+
+    // Session map
+    if (clicker && clicker !== "Unknown" && object_id) {
+        clickerSessionMap.set(clicker, {
+            object_id,
+            expires: Date.now() + SESSION_TTL
+        });
+        console.log(`[Session] ${clicker} -> TV ${object_id}`);
+            io.to(FIXED_ROOM).emit('tv_registered', { clicker, object_id });
+    }
+
+    // Memory + DB persistence
+    if (object_id && url) {
+        tvRegistry[object_id] = { url, owner, land: land_name, room: `room_${land_id}` };
+        activeTvUrl = url;
+
+        // NEW: Upsert into tv_registry
+        db.run(`
+            INSERT INTO tv_registry (object_id, url, owner, land, room, last_seen)
+            VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+            ON CONFLICT(object_id) DO UPDATE SET
+                url        = excluded.url,
+                owner      = excluded.owner,
+                land       = excluded.land,
+                room       = excluded.room,
+                last_seen  = CURRENT_TIMESTAMP
+        `, [object_id, url, owner, land_name, `room_${land_id}`], (err) => {
+            if (err) console.error("[Registry] Failed to persist:", err.message);
+            else console.log(`[Registry] TV ${object_id} saved.`);
+        });
+    }
+
+    // Log interaction
+    const sql = `INSERT INTO interactions
+        (owner, creator, clicker, land_name, land_id, pos, nearby, object_id, serial, url)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+    db.run(sql, [owner, creator, clicker, land_name, land_id, pos, nearby, object_id, serial, url], function(err) {
+        if (err) return res.status(500).send("DB Error");
+        res.status(200).json({ status: "success", target_id: object_id, message: "TV Synchronized." });
+    });
+});
+
+// Agora o endpoint recebe o nome do clicker como parâmetro
+// O LSL envia: /get-session-id?clicker=NomeDoAvatar
+app.get('/get-session-id', (req, res) => {
+    const clicker = req.query.clicker;
+
+    if (!clicker) {
+        return res.status(400).json({ error: "Missing clicker param" });
+    }
+
+    const session = clickerSessionMap.get(clicker);
+
+    // Sessão não existe ou expirou
+    if (!session || Date.now() > session.expires) {
+        clickerSessionMap.delete(clicker); // limpeza
+        return res.status(404).json({ error: "No active session" });
+    }
+
+    res.json({ target_id: session.object_id });
 });
 
 
 
 
+////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////
+// THE MAIN PAGE ENDPOINT (The "App" UI)
+app.get('/', (req, res) => {
+    const userAgent = req.headers['user-agent'] || "";
+    const isSL = /SecondLife|Dullahan|Firestorm/i.test(userAgent);
+
+    // Se for Second Life, renderiza e encerra a função
+    if (isSL) {
+        return res.render('pages/index'); 
+    } 
+
+    // Se não for Second Life, renderiza e encerra a função
+    return res.render('pages/index');
+});
+///////////////////////////////////77
+
+
+// Keep ONLY this one
+app.post('/send-command', (req, res) => {
+    const { target_id, command, value } = req.body;
+console.log("Target: ",target_id)
+console.log("Comand: ",command)
+    // Find the specific URL for THIS TV ID
+    const tvData = tvRegistry[target_id];
+
+    if (tvData && tvData.url) {
+        axios.post(tvData.url, { command, value })
+            .then(() => res.json({ status: "Sent to " + target_id }))
+            .catch(err => res.status(500).json({ error: "TV Unreachable" }));
+    } else {
+        res.status(404).json({ error: "TV not found in registry" });
+    }
+});
+
+///////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////
+// *** GET Routes - display pages ***
+// Root Route
+/*
+app.get('/', function (req, res) {
+    res.render('pages/index');
+});
+*/
 
 ///////////////////////////////////////////////////////////
 // Initialize file if it doesn't exist
@@ -161,7 +369,7 @@ app.get('/music/tvytube', (req, res) => {
 
     // 3. RENDER WITH FALLBACKS
     // This prevents EJS from crashing if a variable is missing
-    res.render('pages/music/tvytube', { 
+    res.render('pages/tvytube', { 
         videoId: videoId || '', 
         targetID: targetID || 'concerts', 
         targetMode: mode || 'mix', 
@@ -247,8 +455,20 @@ app.get('/flickr', (req, res) => {
     });
 });
 // SETTINGS MENU
-app.get('/settings', function (req, res) {
-  res.render('pages/settings');
+app.get('/settings', (req, res) => {
+    const isAjax = req.xhr || req.headers.accept.indexOf('json') > -1;
+    const fullBaseUrl = `https://${req.get('host')}`;
+    const tvId = req.query.tv || null; // ← captura o ID
+
+    if (isAjax) {
+        return res.render('pages/settings', { 
+            baseUrl: fullBaseUrl,
+            tvId: tvId,        // ← passa ao template
+            layout: false 
+        });
+    } else {
+        return res.render('pages/index', { baseUrl: fullBaseUrl });
+    }
 });
 // RENAME ENDPOINT
 app.post('/rename', function (req, res) {
@@ -416,41 +636,56 @@ app.get("/xxx-player", (req, res) => {
 ///////////////////////////////////////////////////////////////////
 async function fetchYouTubeVideos(query, isChannel = false) {
     const key = process.env.YOUTUBE_API_KEY;
-    console.log(query)
-     console.log(isChannel)
-    // Base URL
-       query = query + " english";
-
-    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&q=${encodeURIComponent(query)}&relevanceLanguage=en&regionCode=US&key=${key}`;
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&relevanceLanguage=en&regionCode=US&key=${key}`;
 
     if (isChannel) {
-        // Mode: Specific Channel (Sorted by date to get latest uploads)
         url += `&channelId=${encodeURIComponent(query)}&order=date`;
     } else {
-        // Mode: Keyword/Tag Search
-        url += `&q=${encodeURIComponent(query)}`;
+        const searchQuery = query + " english";
+        url += `&q=${encodeURIComponent(searchQuery)}`;
     }
 
-    const searchRes = await fetch(url);
-    trackQuota(100);
-    const searchData = await searchRes.json();
-    
-    if (!searchData.items) {
-        console.error("YT API Error:", searchData.error || "No items found");
-        return [];
-    }
+    try {
+        const searchRes = await fetch(url);
+        
+        // 1. Check if the response is okay (status 200-299)
+        if (!searchRes.ok) {
+            const errorData = await searchRes.json();
+            
+            // Handle Quota Exceeded specifically (Error code 403)
+            if (searchRes.status === 403) {
+                console.error("🚨 YOUTUBE QUOTA EXCEEDED:", errorData.error.message);
+                return []; 
+            }
+            
+            throw new Error(`YouTube API Error: ${searchRes.status} - ${errorData.error.message}`);
+        }
 
-return searchData.items.map(i => ({
-    videoId: i.id.videoId,
-    title: i.snippet.title,
-    channel: i.snippet.channelTitle,
-    thumbnail:
-        i.snippet.thumbnails.maxres?.url ||
-        i.snippet.thumbnails.standard?.url ||
-        i.snippet.thumbnails.high?.url ||
-        i.snippet.thumbnails.medium?.url ||
-        i.snippet.thumbnails.default?.url
-}));
+        const searchData = await searchRes.json();
+
+        // 2. Only track quota if the request was actually successful
+        trackQuota(100);
+
+        if (!searchData.items || searchData.items.length === 0) {
+            console.warn(`[YT] No results found for: ${query}`);
+            return [];
+        }
+
+        return searchData.items.map(i => ({
+            videoId: i.id.videoId,
+            title: i.snippet.title,
+            channel: i.snippet.channelTitle,
+            thumbnail:
+                i.snippet.thumbnails.maxres?.url ||
+                i.snippet.thumbnails.high?.url ||
+                i.snippet.thumbnails.default?.url
+        }));
+
+    } catch (err) {
+        // 3. Catch network timeouts or other unexpected crashes
+        console.error("❌ FETCH ERROR:", err.message);
+        return []; // Return empty array so the UI doesn't break
+    }
 }
 async function getYouTubeVideos(query, isChannel = false) {
     const cacheDir  = path.join(__dirname, 'cache/youtube');
@@ -491,25 +726,29 @@ app.get('/youtube', async (req, res) => {
     let favoritesData = [];
     const favPath = path.join(__dirname, 'config', 'YT-favorites.json');
 
-    // 1. Unified Search / Tag / Category logic
+    // 1. Extract all needed query params
     const tag = req.query.tag || 'secondlife';
     const isChannel = req.query.isChannel === 'true';
+    const scrollPos = req.query.scrollPos || 0; // Capture scroll to pass it back to the grid view
 
     try {
-        // 2. Always Load Favorites (for the modal)
+        // 2. Always Load Favorites
         if (fs.existsSync(favPath)) {
             const raw = fs.readFileSync(favPath, 'utf8').trim();
             if (raw) favoritesData = JSON.parse(raw);
         }
 
-        // 3. Fetch Videos (Handles both search terms and channel IDs)
+        // 3. Fetch Videos
         const videos = await getYouTubeVideos(tag, isChannel);
 
-        // 4. Render the grid
+        // 4. Render the grid with all variables needed by your EJS and JS logic
         res.render('pages/youtube', { 
             videos: videos, 
             favorites: favoritesData, 
-            tag: tag 
+            tag: tag,
+            isChannel: isChannel, // Fixes your ReferenceError
+            scrollPos: scrollPos,  // Allows the grid to auto-scroll on load
+            req: req               // Safety: passes the full request object
         });
 
     } catch (err) {
@@ -517,18 +756,30 @@ app.get('/youtube', async (req, res) => {
         res.render('pages/youtube', { 
             videos: [], 
             favorites: favoritesData, 
-            tag: tag 
+            tag: tag,
+            isChannel: isChannel,
+            scrollPos: scrollPos,
+            req: req
         });
     }
 });
 app.get('/tvytube', (req, res) => {
     const videoId = req.query.videoId || '';
     const title   = req.query.title   || '';
+    
+    // Extract origin and scrollPos from query if they exist, 
+    // otherwise set sensible defaults.
+    const origin    = req.query.origin    || 'youtube'; 
+    const scrollPos = req.query.scrollPos || 0;
+    const isChannel = req.query.isChannel || 'false';
+
     res.render('pages/tvytube', { 
         videoId, 
         targetID:   videoId, 
         targetMode: 'user', 
-        scrollPos:  0 
+        scrollPos:  scrollPos,
+        origin:     origin,    // <--- Fixes your error
+        isChannel:  isChannel  // <--- Also needed for your script
     });
 });
 app.get('/youtube-favorites', async (req, res) => {
@@ -598,7 +849,7 @@ var playTime=0;
 // ===============================
 // GLOBAL CONFIG & CONSTANTS
 // ===============================
-const FIXED_ROOM = "Lobby";
+
 
 // ===============================
 // SOCKET.IO LOGIC
@@ -607,18 +858,7 @@ const FIXED_ROOM = "Lobby";
 // 1. Create a global object to track the room's current "Live" status
 
 
-// Updated global state to track everything happening in the room
-let lobbyState = {
-    url: '/',           // The current page route
-    videoId: null,      // Current YouTube ID
-    timestamp: 0,       // Current playback second
-    isPaused: true,     // Play/Pause status
-    currentBg: null,    // The active background image
-    radioData: null,    // { name, stream } for the radio
-    activeTag: null,    // The current search tag (e.g., '3some', 'jazz')
-    ajaxPath: null,      // The current AJAX overlay path
-    lastUpdate: Date.now()
-};
+
 
 io.on('connection', function(socket) {
     // 1. AUTO-JOIN FIXED ROOM
@@ -634,6 +874,19 @@ io.on('connection', function(socket) {
             ? lobbyState.timestamp
             : lobbyState.timestamp + (Date.now() - (lobbyState.lastUpdate || Date.now())) / 1000
     });
+
+    // ... inside io.on('connection', function(socket) { ...
+
+// Inside your io.on('connection', (socket) => { ... })
+socket.on('sync_radio_dial', (data) => {
+    // Store it in the global state
+    lobbyState.radioIndex = data.index;
+    
+    // Send to everyone in the FIXED_ROOM except the sender
+    socket.to(FIXED_ROOM).emit('update_radio_ui', { 
+        index: data.index 
+    });
+});
     // 3. NAVIGATION SYNC
 // Inside your io.on('connection', ...) block in index.js
 
@@ -745,13 +998,21 @@ socket.on('toPlay', function(data) {
     // 6. APPEARANCE (Backgrounds)
 // Dentro de window.onload
 socket.on('change_bg', function(data) {
-    // Se o servidor apenas fizer broadcast do que recebeu no emit acima
     if (data.image || data.url) {
-        const newUrl = data.image || data.url;
-        updateBG(newUrl, false); // false para não criar um loop infinito
+        lobbyState.currentBg = data.image || data.url; // ✅ guarda no estado
+        socket.to(FIXED_ROOM).emit('change_bg', data);  // ✅ replica para os outros
     }
 });
+socket.on('change_bg_index', (index) => {
+    // 1. Update Memory
+    lobbyState.currentBg = index;
 
+    // 2. SAVE TO DISK (HD)
+    saveToDisk({ bgIndex: index });
+
+    // 3. Tell everyone else to change their screen
+    io.to(FIXED_ROOM).emit('update_bg_ui', index);
+});
     // 7. UI & SLIDERS (For Main Page/Grid Sync)
     socket.on('control_event', function(data) {
         socket.to(FIXED_ROOM).emit('sync_ui', { action: data.action });
@@ -779,16 +1040,13 @@ socket.on('change_bg', function(data) {
 socket.on('disconnect', function() {
     const room = io.sockets.adapter.rooms.get(FIXED_ROOM);
     if (!room || room.size === 0) {
-        console.log("Sala vazia. A fazer reset ao estado global...");
-        lobbyState.videoId = null;
-        lobbyState.radioData = null;
-        lobbyState.ajaxPath = null;
+        console.log("Room empty. Resetting global state...");
+
     }
 });
+
+
 });
-
-
-
 
 
 server.listen(PORT, () => console.log(`Listening on ${ PORT }`));

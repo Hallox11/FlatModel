@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SL TV Dashboard</title>
+<style>
+body { font-family: sans-serif; background: #111; color: #eee; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { border: 1px solid #555; padding: 8px; text-align: left; }
+th { background: #222; }
+button { margin: 2px; padding: 5px 10px; }
+</style>
+</head>
+<body>
+<h1>Second Life TV Dashboard</h1>
+<table id="tvTable">
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Owner</th>
+    <th>Creator</th>
+    <th>Land</th>
+    <th>Position</th>
+    <th>Nearby</th>
+    <th>Commands</th>
+</tr>
+</thead>
+<tbody>
+<% tvs.forEach(tv => { %>
+<tr>
+    <td><%= tv.object_id || tv.id %></td>
+    <td><%= tv.owner %></td>
+    <td><%= tv.creator %></td>
+    <td><%= tv.land_name %></td>
+    <td><%= tv.pos %></td>
+    <td><%= tv.nearby %></td>
+    <td>
+        <button onclick="sendCommand('<%= tv.object_id %>', 'say', 'Hello')">Say</button>
+        <button onclick="sendCommand('<%= tv.object_id %>', 'kill')">Kill</button>
+        <button onclick="sendCommand('<%= tv.object_id %>', 'media_url', 'https://youtube.com/embed/xyz')">Play Video</button>
+        <button onclick="sendCommand('<%= tv.object_id %>', 'set_secret', 'NewSecret123')">Set Secret</button>
+    </td>
+</tr>
+<% }) %>
+</tbody>
+</table>
+
+<script>
+async function sendCommand(object_id, command, value = '') {
+    const res = await fetch(`/api/tv/${object_id}/command`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ command, value })
+    });
+    const data = await res.json();
+    alert(`Command response: ${JSON.stringify(data)}`);
+}
+
+// Optional: auto-refresh every 5 seconds via AJAX fetch
+setInterval(async () => {
+    const res = await fetch('/api/tvs');
+    const tvs = await res.json();
+    const tbody = document.querySelector("#tvTable tbody");
+    tbody.innerHTML = '';
+    tvs.forEach(tv => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${tv.object_id || tv.id}</td>
+            <td>${tv.owner}</td>
+            <td>${tv.creator}</td>
+            <td>${tv.land_name}</td>
+            <td>${tv.pos}</td>
+            <td>${tv.nearby}</td>
+            <td>
+                <button onclick="sendCommand('${tv.object_id}', 'say', 'Hello')">Say</button>
+                <button onclick="sendCommand('${tv.object_id}', 'kill')">Kill</button>
+                <button onclick="sendCommand('${tv.object_id}', 'media_url', 'https://youtube.com/embed/xyz')">Play Video</button>
+                <button onclick="sendCommand('${tv.object_id}', 'set_secret', 'NewSecret123')">Set Secret</button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}, 5000);
+</script>
+</body>
+</html>

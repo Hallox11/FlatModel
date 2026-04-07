@@ -67,15 +67,16 @@
 function goToYoutubeGrid() {
     console.log("Exiting player...");
     
-// 1. Informar o servidor IMEDIATAMENTE que o vídeo parou (limpa o lobbyState.videoId)
+    // 1. Informar o servidor (Manter como está, está correto)
     if (typeof socket !== 'undefined') {
         socket.emit('report_current_time', {
-            videoId: null, // CRÍTICO: Define como null para o servidor saber que acabou
+            videoId: null, 
             time: 0,
             paused: true 
         });
     }
 
+    // 2. Cleanup (Manter como está)
     if (window.ytPlayerInstance) {
         try {
             if (typeof window.ytPlayerInstance.stopVideo === 'function') window.ytPlayerInstance.stopVideo();
@@ -84,15 +85,21 @@ function goToYoutubeGrid() {
         window.ytPlayerInstance = null;
     }
 
-    // Capture the data originally passed into this page's EJS tags
-    const bID = "<%= (typeof targetID !== 'undefined') ? targetID : 'concerts' %>";
-    const bMode = "<%= (typeof targetMode !== 'undefined') ? targetMode : 'mix' %>";
+    // 3. Captura os dados do EJS
+const bID = "<%= (typeof targetID !== 'undefined') ? targetID : '' %>";
+    const bMode = "<%= (typeof targetMode !== 'undefined') ? targetMode : 'search' %>";
     const bScroll = "<%= (typeof scrollPos !== 'undefined') ? scrollPos : '0' %>";
-console.log(bScroll)
-    // Use handleNav to return to the menu, injecting the scrollPos back into the URL
-    handleNav(`/youtube?id=${bID}&mode=${bMode}&scrollPos=${bScroll}`); 
+    const source = "<%= (typeof origin !== 'undefined') ? origin : 'youtube' %>";
+    
+    // Construct the return URL
+    // If mode is channel, we add isChannel=true; otherwise, it's a standard search
+    const channelParam = (bMode === 'channel') ? '&isChannel=true' : '';
+    
+    const returnUrl = `/${source}?id=${encodeURIComponent(bID)}${channelParam}&scrollPos=${bScroll}`;
+    
+    console.log("Returning to:", returnUrl);
+    handleNav(returnUrl); 
 }
-
 (function() {
     // 1. Setup local variables
     const video_id = "<%= (typeof videoId !== 'undefined') ? videoId : '' %>";

@@ -22,7 +22,7 @@ const NAV_CONFIG = {
         'sl': '/sl-menu',
         'flickr': '/flickr',
         'youtube': '/youtube',
-
+        'settings': '/settings',
         'tvytube': '/tvytube',
         'xxx': '/xxx-check',
         'xxx-index': '/xxx-index',
@@ -138,7 +138,7 @@ function handleNav(mode, isRemote = false) {
     if (!mode) return;
     window.killRadio();
 
-    // 1. Limpeza de listeners antigos para evitar que o player "reapareça" por comandos de socket
+    // 1. Limpeza de listeners antigos
     if (window.socket) {
         window.socket.off('Play').off('Pause');
     }
@@ -166,11 +166,10 @@ function handleNav(mode, isRemote = false) {
         window.socket.emit(isAjaxMenu ? 'mirror_ajax_nav' : 'mirror_nav', {
             mode: mode, 
             route: finalUrl,
-            path: finalUrl, // ADICIONADO: Garante que o servidor receba o 'path' para validar a limpeza do vídeo
+            path: finalUrl,
             room: myRoom
         });
 
-        // Se NÃO for para o player, forçamos o servidor a limpar o ID do vídeo agora
         if (!finalUrl.includes('tvytube')) {
             window.socket.emit('report_current_time', {
                 videoId: null,
@@ -184,13 +183,24 @@ function handleNav(mode, isRemote = false) {
         window.lastRadioUrl = targetUrl; 
         window.currentAjaxPath = targetUrl; 
 
+        // --- NEW: UI CLEANUP FOR MAIN PAGE ELEMENTS ---
         $('.status-bar').fadeOut(200);
         $('#theme-slider').fadeOut(200);
+        $('#burger-menu-btn').fadeOut(200); // Hide burger on sub-pages
+        $('#controls').removeClass('active').fadeOut(200); // Close controls if open
+        // ----------------------------------------------
+
+        if (window.ytPlayerInstance) {
+            window.ytPlayerInstance.destroy(); 
+            window.ytPlayerInstance = null;
+        }
+
+        window.socket.off('Play');
+        window.socket.off('Pause');
+        window.socket.off('Seek');
 
         $.get(finalUrl, function(data) {
-            // Se o player antigo ainda estiver no DOM, removemos antes de injetar o novo
             $('#sub-content-overlay').empty(); 
-            
             $('#main-grid').hide();
             
             const wrappedData = `
@@ -223,8 +233,7 @@ function closeSubMenu(isRemote = false) {
         audio.remove();
     }
 
-if (!isRemote && window.socket && window.socket.connected) {
-        // Informe o servidor explicitamente que o estado do vídeo deve ser limpo
+    if (!isRemote && window.socket && window.socket.connected) {
         window.socket.emit('report_current_time', { 
             videoId: null, 
             time: 0, 
@@ -233,16 +242,27 @@ if (!isRemote && window.socket && window.socket.connected) {
 
         window.socket.emit('mirror_ajax_nav', { 
             action: 'CLOSE', 
-            path: '/', // Define o path como raiz para o servidor limpar o estado
+            path: '/', 
             room: myRoom 
         });
     }
 
+    // Clear any stuck animations on the burger before showing it
+    $('#burger-menu-btn').stop(true, true);
+
     $('#sub-content-overlay').fadeOut(200, function() {
         $(this).html('').hide();
+        
+        // Show the main grid again
         $('#main-grid').show().css({'opacity': '1', 'transform': 'scale(1)'});
+        
+        // --- RESTORE UI ELEMENTS ---
         $('.status-bar').fadeIn(200);
-        $('#theme-slider').fadeIn(200);
+        $('#burger-menu-btn').fadeIn(200); // Add this line!
+        
+        // Optional: If you want the theme slider to stay hidden 
+        // until the burger is clicked, change this to .hide()
+        $('#theme-slider').fadeOut(200); 
     });
 }
 
@@ -322,13 +342,17 @@ $(document).on('click', '.btn', function(e) {
 // ===============================
 // SCROLL SYNC
 // ===============================
+let scrollTimeout;
 $(document).on('scroll', '#conteiner, .conteiner, #xxx-module', function() {
     if (socket && socket.connected && !window.isSyncing) { 
-        socket.emit('state_sync', {
-            type: 'scroll',
-            position: $(this).scrollTop(),
-            room: myRoom
-        });
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            socket.emit('state_sync', {
+                type: 'scroll',
+                position: $(this).scrollTop(),
+                room: myRoom
+            });
+        }, 50); // Only emit every 50ms
     }
 });
 
@@ -374,6 +398,9 @@ $(document).on('focus blur', 'input[type="text"]', function(e) {
         room: window.myRoom
     });
 });
+
+
+
 
 // ===============================
 // SOCKET INITIALIZATION
@@ -442,6 +469,8 @@ let syncArrivalDone = false;
             }
         });
 
+
+        
         // -------------------------------------------------------
         // state_sync — SINGLE unified listener (was duplicated)
         // -------------------------------------------------------
@@ -581,16 +610,21 @@ let syncArrivalDone = false;
         // -------------------------------------------------------
         // mirror_ajax_nav — remote menu changes
         // -------------------------------------------------------
-        socket.on('mirror_ajax_nav', function(data) {
-            if (data.action === 'CLOSE') {
-                closeSubMenu(true); 
-            } else if (data.mode) {
-                $('.status-bar').fadeOut(200);
-                $('#theme-slider').fadeOut(200);
-                $('#main-grid').hide();
-                handleNav(data.mode, true); 
-            }
-        });
+// Locate this block near the bottom of your file
+socket.on('mirror_ajax_nav', function(data) {
+    if (data.action === 'CLOSE') {
+        closeSubMenu(true); 
+        // --- ADD THIS ---
+        $('#burger-menu-btn').fadeIn(200);
+        $('.status-bar').fadeIn(200);
+    } else if (data.mode) {
+        $('.status-bar').fadeOut(200);
+        $('#theme-slider').fadeOut(200);
+        $('#burger-menu-btn').fadeOut(200); // --- ADD THIS ---
+        $('#main-grid').hide();
+        handleNav(data.mode, true); 
+    }
+});
 
         // -------------------------------------------------------
         // mirror_nav — full page redirects

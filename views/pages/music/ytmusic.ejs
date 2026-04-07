@@ -274,80 +274,59 @@
 
 function proc(videos, mode) {
     const $output = $("#output").empty();
-    const currentCatID = typeof targetID !== 'undefined' ? targetID : 'concerts'; 
-    const room = typeof myRoom !== 'undefined' ? myRoom : 'Lobby';
+    // Use the targetID passed from the server EJS
+    const currentTag = "<%= (typeof targetID !== 'undefined') ? targetID : 'concerts' %>"; 
+    const currentRoom = typeof myRoom !== 'undefined' ? myRoom : 'Lobby';
 
     videos.forEach((item, i) => {
         if (!item || !item.snippet) return;
 
         let thumb, title, vid;
-        if (mode === "user" || mode === "tags" || mode === "mix" || !mode) {
-            thumb = item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url;
-            title = item.snippet.title || "No Title";
-            vid = item.snippet.resourceId ? item.snippet.resourceId.videoId : (item.id.videoId || item.id);
-        } else if (mode === "list") {
-            thumb = item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url;
-            title = `${item.snippet.title} (${item.contentDetails?.itemCount || '?'} vids)`;
-            vid = item.id;
-        }
+        // Standardize data extraction
+        thumb = item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url;
+        title = item.snippet.title || "No Title";
+        vid = item.snippet.resourceId ? item.snippet.resourceId.videoId : (item.id.videoId || item.id);
 
         const cardHtml = `
             <div class="thumbs" id="thumb-${i}">
-                <img src="${thumb}" class="image vid-trigger" 
-                     data-vid="${vid}" data-cat="${currentCatID}" data-mode="${mode}" alt="${title}">
-                <div class="Vtitle vid-trigger" 
-                     data-vid="${vid}" data-cat="${currentCatID}" data-mode="${mode}">
-                    ${title.substring(0, 65)}
+                <div class="vid-trigger" 
+                     data-vid="${vid}" 
+                     data-tag="${currentTag}" 
+                     data-mode="${mode}" 
+                     data-room="${currentRoom}">
+                    <img src="${thumb}" class="image" alt="${title}">
+                    <div class="Vtitle">${title.substring(0, 65)}</div>
                 </div>
             </div>`;
             
         $output.append(cardHtml);
     });
 
-    // --- CLICK: CAPTURE SCROLL ---
+    // --- CLICK: UNIFIED CALL TO PLAYER ---
     $('.vid-trigger').off('click').on('click', function(e) {
         e.preventDefault();
         const vId = $(this).data('vid');
-        const cat = $(this).data('cat');
+        const tag = $(this).data('tag');
         const mod = $(this).data('mode');
+        const room = $(this).data('room');
         
-        // Grab scroll position of the container
+        // Capture scroll position of the main container
         const scroll = $('#conteiner').scrollTop() || 0;
 
         if (!vId || vId === "undefined") return;
 
-        // URL for the player, including the scroll position
-        const playerUrl = `/music/tvytube?videoId=${vId}&targetID=${cat}&targetMode=${mod}&scrollPos=${scroll}&room=${room}`;
+        // MATCHING THE YOUTUBE/MUSIC GRID PARAMETERS EXACTLY
+        const playerUrl = `/music/tvytube?videoId=${vId}` + 
+                          `&origin=flickr` + // Identifies this specific gallery
+                          `&targetID=${encodeURIComponent(tag)}` + 
+                          `&targetMode=${mod}` + 
+                          `&scrollPos=${scroll}` + 
+                          `&room=${encodeURIComponent(room)}`;
         
-        console.log("Sento to Nav:", playerUrl)
+        console.log("Navigating to Player from Flickr:", playerUrl);
         handleNav(playerUrl); 
     });
-
-    // --- RESTORE: READ FROM VIRTUAL PATH ---
-    // We check window.currentAjaxPath because window.location.search is empty in AJAX apps
-    const sourcePath = window.currentAjaxPath || window.location.href;
-    
-    try {
-        const urlParams = new URL(sourcePath, window.location.origin).searchParams;
-        const savedScroll = urlParams.get('scrollPos');
-
-        if (savedScroll && parseInt(savedScroll) > 0) {
-            console.log("Restoring scroll to:", savedScroll);
-            
-            // Set flag to stop socket sync while we auto-scroll
-            window.isRestoringScroll = true; 
-            
-            setTimeout(() => {
-                $('#conteiner').stop().animate({ scrollTop: parseInt(savedScroll) }, 400, function() {
-                    window.isRestoringScroll = false;
-                });
-            }, 350); // Delay to let images load first
-        }
-    } catch (e) {
-        console.warn("Could not parse scroll position", e);
-    }
 }
-
 
 // --- HOVER EFFECTS ---
  
@@ -389,24 +368,26 @@ window.backToMusic = function() {
 
 
     // --- SCROLL SYNC ---
-const $ytScroll = $('#yt-content-scroll');
+// --- SCROLL SYNC CORRECTION ---
+// Use the container defined in your HTML
+const $scrollElement = $('#conteiner');
 
-    // 1. Remove any old listeners to prevent "Double Sending" on AJAX reload
-    $ytScroll.off('scroll');
+// 1. Clean up old listeners
+$scrollElement.off('scroll');
 
-    // 2. Attach the sync listener
-    $ytScroll.on('scroll', function() {
-        // Prevent feedback loops (User A -> User B -> User A)
-        if (window.isSyncing) return;
+// 2. Attach the sync listener
+$scrollElement.on('scroll', function() {
+    // Prevent loops during auto-scroll restoration
+    if (window.isSyncing || window.isRestoringScroll) return;
 
-        if (window.socket && window.socket.connected) {
-            window.socket.emit('state_sync', {
-                type: 'scroll',
-                position: $(this).scrollTop(),
-                room: window.myRoom || 'Lobby'
-            });
-        }
-    });
+    if (window.socket && window.socket.connected) {
+        window.socket.emit('state_sync', {
+            type: 'scroll',
+            position: $(this).scrollTop(),
+            room: window.myRoom || 'Lobby'
+        });
+    }
+});
 
 })();
 </script>

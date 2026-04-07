@@ -119,13 +119,17 @@
 
     #yt-module .thumb-wrap {
         width: 100%;
-        aspect-ratio: 16 / 9;
+        height: 100%;
         overflow: hidden;
         background: #000;
         position: relative;
     }
 
-    #yt-module .thumb-wrap img { width: 100%; height: 100%;  }
+    #yt-module .thumb-wrap img { 
+        width: 100%; 
+        height: 230px; 
+        object-fit: cover;
+     }
 
     #yt-module .duration-badge {
         position: absolute;
@@ -214,30 +218,8 @@
     height: 45px;
 }
 
-.fav-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        padding: 40px;
-        width: 1240px;
-    }
-    .fav-item {
-        background: #1a1a1a;
-        padding: 30px 10px;
-        border: 2px solid #333;
-        color: #ffd700;
-        text-align: center;
-        cursor: pointer;
-        border-radius: 8px;
-        font-weight: bold;
-        text-transform: uppercase;
-        transition: 0.3s;
-    }
-    .fav-item:hover {
-        border-color: #ffd700;
-        background: #ffd700;
-        color: #000;
-    }
+
+
 
     /* Update these specific parts in your <style> block */
 
@@ -473,9 +455,26 @@ window.selectChannel = function(el) {
 
 
 window.playYouTube = function(el) {
+    // 1. Extract data directly from the clicked element's attributes
     const videoId = el.getAttribute('data-video-id');
-    const title   = el.getAttribute('data-title');
-    handleNav(`/tvytube?videoId=${encodeURIComponent(videoId)}&title=${encodeURIComponent(title)}`);
+    const title = el.getAttribute('data-title');
+    
+    // 2. Use the variables passed from the server (via index.js)
+    const currentTag = "<%= tag %>"; 
+    const isChan = "<%= isChannel %>"; // Use the variable we just added to index.js
+    
+    // 3. Get the scroll position of the CORRECT container
+    const scrollContainer = document.getElementById('yt-content-scroll');
+    const scroll = scrollContainer ? scrollContainer.scrollTop : 0;
+    
+    const mode = (isChan === 'true') ? 'channel' : 'search';
+    const caller = 'youtube'; 
+
+    // 4. Build the URL
+    const url = `/tvytube?videoId=${videoId}&tag=${encodeURIComponent(currentTag)}&isChannel=${isChan}&playMode=${mode}&caller=${caller}&scrollPos=${scroll}`;
+    
+    console.log("Navigating to Player:", url);
+    handleNav(url); 
 };
 
 // --- SCROLL SYNC ---
@@ -506,14 +505,26 @@ async function loadQuota() {
     }
 }
 
-window.refreshGrid = async function() {
-    const tag = document.getElementById('yt-search-input').value.trim() || 'secondlife';
-    const isChannel = window.location.search.includes('isChannel=true');
-    await loadQuota(); // update display before navigating
-    handleNav(`/youtube/refresh?tag=${encodeURIComponent(tag)}&isChannel=${isChannel}`);
-};
-
 // Load quota when grid opens
 loadQuota();
 
+// --- AUTO-RESTORE SCROLL ON LOAD ---
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const savedScroll = urlParams.get('scrollPos');
+    
+    if (savedScroll) {
+        // Increase delay slightly if the grid is large or slow to render
+        setTimeout(() => {
+            const container = document.getElementById('yt-content-scroll');
+            if (container) {
+                container.scrollTo({
+                    top: parseInt(savedScroll),
+                    behavior: 'auto' // 'auto' is usually better for instant restoration
+                });
+                console.log("Restored scroll to:", savedScroll);
+            }
+        }, 300); // Adjusting to 300ms for safer AJAX timing
+    }
+})();
 </script>

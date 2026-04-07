@@ -1,23 +1,171 @@
 <style>
-    /* 1. Wrapper for Goldenrod Theme */
-    #sl-radio-wrapper {
+    :root {
+        --accent: #ffd86b;
+        --bg-dark: rgba(0, 0, 0, 0.85);
+    }
+
+    #sl-radio-master-container {
+        height: 720px;
+        width: 1280px;
+        margin: auto;
+        padding: 40px 20px;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         position: relative;
+        background:  rgba(0,0,0,0.5);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* TOP DIAL SECTION */
+    .dial-container {
+        position: relative;
+        top:50px;
+        width: 100%;
+        overflow: hidden;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255,216,107,0.1);
+    }
+
+    .dial-needle {
+        position: absolute;
+        top: 0; bottom: 0; left: 50%;
+        width: 2px;
+        background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+        box-shadow: 0 0 12px var(--accent);
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    .dial {
+        display: flex;
+        gap: 60px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        padding: 40px 0;
+        padding-left: calc(50% - 50px); 
+        padding-right: calc(50% - 50px);
+        cursor: grab;
+        scroll-behavior: smooth;
+    }
+    .dial:active { cursor: grabbing; }
+    .dial::-webkit-scrollbar { display: none; }
+
+    .station {
+        flex: 0 0 100px;
+        text-align: center;
+        font-size: 18px;
+        opacity: 0.7;
+        transform: scale(0.9);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        white-space: nowrap;
+        scroll-snap-align: center;
+        user-select: none;
+        text-transform: uppercase;
+        letter-spacing: 2;
+    }
+
+    .station.active {
+        opacity: 1;
+        transform: scale(1.5);
+        color: #ffb090;
+        font-weight: bold;
+    }
+
+    /* PLAYER SECTION */
+    #radio_player_ui {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 700px; /* Slimmer for a list view */
-        animation: fadeIn 0.4s ease-out;
+        padding-top: 30px;
+        margin-top: 50px;
     }
 
-    /* 2. Circular Close Button (Top Right) */
-    #sl-radio-wrapper .close-btn {
+    .display-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 15px;
+    }
+
+    .glass-display {
+        width: 180px;
+        height: 180px;
+        background: rgba(0,0,0,0.5);
+        
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+        position: relative;
+    }
+
+    #freq_display {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 40px;
+        color: #ffb090;
+        text-shadow: 0 0 10px var(--accent);
+        font-weight: 400;
+    }
+
+    .mhz-label {
+        font-size: 16px;
+        color: rgba(255,216,107,0.6);
+        letter-spacing: 1px;
+        margin-top: 2px;
+    }
+
+    /* SIDE ARROWS */
+    .side-arrow {
+        background:rgba(0,0,0,0.5);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.3s;
+        opacity: 0.5;
+                box-shadow: 0 0 25px rgba(255, 216, 107, 0.4);
+    }
+    .side-arrow:hover {
+        opacity: 1;
+        background: rgba(255,216,107,0.1);
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    #station_display { 
+        font-size: 40px; 
+        color: white; 
+        margin-bottom: 5px; 
+        font-weight: 600;
+        text-transform: uppercase;    
+    }
+    
+    
+        #status_text { 
+            font-size: 20px; 
+            color: rgba(255,255,255,0.4); 
+            text-transform: uppercase; 
+            margin-bottom: 20px; 
+            letter-spacing: 2px; }
+
+    #sl-radio-master-container .close-btn {
         position: absolute;
-        top: -10px;
-        right: -50px; /* Offset to the side of the list */
+        top: 20px;
+        right: 70px; 
         width: 45px;
         height: 45px;
-        background: rgba(0, 0, 0, 0.6);
         border: 1px solid black;
+        background: rgba(0, 0, 0, 0.6);
         border-radius: 50%;
         color: white;
         display: flex;
@@ -29,108 +177,244 @@
         outline: none;
     }
 
-    #sl-radio-wrapper .close-btn:hover, 
-    #sl-radio-wrapper .close-btn:focus {
-        color: white;
-        transform: scale(1.3) ;
-        box-shadow: 0 0 15px rgba(218, 165, 32, 0.5);
-    }
-
-    /* 3. Title Styling */
-    #sl-radio-wrapper #title {
-        font-size: 28px;
-        color: #564f4f;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        letter-spacing: 4px;
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    }
-
-    /* 4. The Scrollable List Container */
-    #sl-radio-wrapper .conteiner {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-        width: 100% !important;
-        height: 500px !important;
-        padding: 10px 20px;
-        overflow-y: auto;
-
-        mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
-    }
-
-    /* 5. List Item Button Styling */
-    #sl-radio-wrapper .btn {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-        backdrop-filter: blur(5px) !important; 
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 10px;
-        padding: 18px 25px !important;
-        font-size: 20px;
-        color: white !important;
-        text-align: center !important;
-        display: flex !important;
-        align-items: center;
-        width: 100%;
-        min-height: 60px;
-        transition: all 0.2s ease;
-        cursor: pointer;
-        box-sizing: border-box; /* Ensures padding doesn't break width */
-    }
-
-
-
-    /* Hide scrollbar */
-    #sl-radio-wrapper .conteiner::-webkit-scrollbar { width: 0px; }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+    #equalizer {
+    width: 300px;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    /* Reflects the accent color from your :root */
+    border-bottom: 1px solid rgba(255, 216, 107, 0.2);
+}
 </style>
 
-<div id="sl-radio-wrapper">
-    
-    <button class="close-btn" onclick="closeSubMenu()" tabindex="40">
-        <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
+<div id="sl-radio-master-container">
+    <button class="close-btn" onclick="closeSubMenu()">
+        <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
 
-    <div id="title">Second Life Radio Streams</div>
+    <div class="dial-container">
+        <div class="dial-needle"></div>
+        <div class="dial" id="dial">
+            <div class="station" data-stream="https://ice1.somafm.com/illstreet-128-mp3">Tableau</div>  
+            <div class="station" data-stream="https://strm112.1.fm/bossanova_mobile_mp3">Samba Cafe</div>  
+            <div class="station" data-stream="https://ice.somafm.com/dronezone">Black Kite</div>  
+            <div class="station" data-stream="https://stream2.10223.cc:8025/cc_sim_v4_b12">Chouchou</div>  
+            <div class="station" data-stream="https://stream2.10223.cc:8025/memento_v3">Memento Mori</div>  
+            <div class="station" data-stream="https://q2stream.wqxr.org/q2">Delicatessen</div>  
+            <div class="station" data-stream="https://d-oo-b.cc:8008">Two Fish</div>  
+            <div class="station" data-stream="https://www.radioparadise.com/mp3-192">Satyr Dance</div>
+            <div class="station" data-stream="https://ice1.somafm.com/suburbsofgoa-128-mp3">Acc Alpha</div>  
+            <div class="station" data-stream="https://icy.unitedradio.it/SubasioPerUnOraDAmore.mp3">Retrospect</div>  
+        </div>
+    </div>
 
-    <div class="conteiner">
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://ice1.somafm.com/illstreet-128-mp3" data-name="Tableau" tabindex="1">Tableau</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://strm112.1.fm/bossanova_mobile_mp3" data-name="Samba Cafe" tabindex="2">Samba Cafe</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://ice.somafm.com/dronezone" data-name="Black Kite" tabindex="3">Black Kite</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://stream2.10223.cc:8025/cc_sim_v4_b12" data-name="Chouchou" tabindex="4">Chouchou</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://stream2.10223.cc:8025/memento_v3" data-name="Memento Mori" tabindex="5">Memento Mori</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://q2stream.wqxr.org/q2" data-name="Delicatessen" tabindex="6">Delicatessen</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://d-oo-b.cc:8008" data-name="Two Fish" tabindex="7">Two Fish</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://www.radioparadise.com/mp3-192" data-name="Satyr" tabindex="8">Satyr Dance Club</div>
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://ice1.somafm.com/suburbsofgoa-128-mp3" data-name="Acc Alpha" tabindex="9">Acc Alpha</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://icy.unitedradio.it/SubasioPerUnOraDAmore.mp3" data-name="Retrospect" tabindex="10">Retrospect</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://ice.somafm.com/suburbsofgoa" data-name="Magilis al Jinn" tabindex="11">Magilis al Jinn</div> 
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://dixmixgallery.sl-radio.online:8130" data-name="Dixmix Gallery" tabindex="12">Dixmix Gallery</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://94.23.51.96:8001" data-name="Sommergewitter" tabindex="13">Sommergewitter</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://188.40.23.212:9753/unity.mp3" data-name="Cannibal" tabindex="14">Cannibal</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://eagle.streemlion.com:6410/stream" data-name="Ocho Tango" tabindex="15">Ocho Tango</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://sc-blues.1.fm:8030" data-name="Vincents Blues" tabindex="16">Vincents Blues</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://server3.luschaudio.com:10304/stream" data-name="OZ Nightclub" tabindex="17">OZ Nightclub</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://185.33.21.112:80/radiogaia_128" data-name="Natural Wilderness" tabindex="18">Natural Wilderness</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://204.187.100.18:1780/FOXXIES" data-name="Foxxies Jazz Club" tabindex="19">Foxxies Jazz Club</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://stream1.megarockradio.net:8240/" data-name="Turlaccor Store" tabindex="20">Turlaccor Store</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://heartbeatz.fm:8008/;" data-name="Hypnotic Romance" tabindex="21">Hypnotic Romance</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://steampunk.radioriel.org" data-name="Galerie des Machines" tabindex="22">Galerie des Machines</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://srv1.goodsoundstream.com:5198" data-name="End of Days Club" tabindex="23">End of Days Club</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://144.217.49.251/stream1" data-name="Rocca Sorrentina" tabindex="24">Rocca Sorrentina</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://88.198.70.10:8001/;" data-name="Amara" tabindex="25">Amara</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://pstnet5.shoutcastnet.com:50180/stream" data-name="Waterfalls" tabindex="26">Waterfalls</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://185.33.22.15:11025" data-name="Tag Dance Club" tabindex="27">Tag Dance Club</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="https://whmsonic.playerfullhd.com/9986/stream" data-name="TANGO with NOTTOO" tabindex="28">TANGO with NOTTOO</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://199.180.75.118:80/stream" data-name="Grand Canyon South" tabindex="29">Grand Canyon South</div>  
-        <div class="btn" data-type="radio-root" data-mode="sl" data-stream="http://199.180.72.2:8015/stream" data-name="West Egg" tabindex="30">West Egg</div>  
+    <div id="radio_player_ui">
+<div class="display-wrapper">
+    <button class="side-arrow" onclick="window.stepStation(-1)">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+
+    <div class="glass-display">
+        <div id="freq_display">88.0</div>
+        <div class="mhz-label">MHz</div>
+    </div>
+
+    <button class="side-arrow" onclick="window.stepStation(1)">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+</div>
+
+<!-- Simple Equalizer Canvas -->
+<canvas id="equalizer" width="300" height="40" style="display: block; margin: 10px auto;"></canvas>
+
+        <div id="station_display">Off Air</div>
+        <div id="status_text">Tune the radio</div>
+        <audio id="sl_native_player"></audio>
     </div>
 </div>
+
+<script>
+{
+    const dial = document.getElementById("dial");
+    const stations = Array.from(document.querySelectorAll(".station"));
+    const audio = document.getElementById('sl_native_player');
+    const display = document.getElementById("station_display");
+    const freqDisplay = document.getElementById("freq_display");
+    const statusText = document.getElementById("status_text");
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let tuneTimeout;
+
+    audio.volume = 1.0;
+
+
+
+window.stepStation = function(dir) {
+    const activeIdx = stations.findIndex(s => s.classList.contains('active'));
+    let nextIdx = activeIdx + dir;
+    
+    if (nextIdx >= 0 && nextIdx < stations.length) {
+        const target = stations[nextIdx];
+        
+        // 1. Move our own dial
+        dial.scrollTo({
+            left: target.offsetLeft - (dial.offsetWidth / 2) + (target.offsetWidth / 2),
+            behavior: 'smooth'
+        });
+
+        // 2. TELL THE SERVER (So others move too)
+        // We manually emit here because 'isDown' is false during a button click
+        socket.emit('sync_radio_dial', { index: nextIdx });
+    }
+};
+
+function loadStream(station) {
+    const url = station.getAttribute('data-stream');
+
+    // 1. Check if we are actually switching to a NEW url
+    if (audio.src !== url) {
+        
+        // 2. KILL THE PREVIOUS STREAM COMPLETELY
+        audio.pause();
+        audio.src = ""; // Clear the source
+        audio.load();   // Force the browser to dump the buffer
+        
+        display.textContent = station.textContent;
+        statusText.textContent = 'Connecting...';
+
+        // 3. SET THE NEW STREAM
+        audio.src = url;
+        
+        // We use a slight delay or a direct play call
+        audio.play().catch((err) => { 
+            console.log("Autoplay blocked or stream error:", err);
+            statusText.textContent = "Click to Resume"; 
+        });
+
+        audio.onplaying = () => { 
+            statusText.textContent = 'Live Audio Stream'; 
+        };
+        
+        audio.onerror = () => { 
+            statusText.textContent = 'Station Offline'; 
+        };
+    }
+}
+
+function updateActive() {
+    if (!dial) return;
+    const center = dial.getBoundingClientRect().left + (dial.offsetWidth / 2);
+    let closest = null;
+    let minDist = Infinity;
+
+    stations.forEach(station => {
+        const stationCenter = station.getBoundingClientRect().left + (station.offsetWidth / 2);
+        const dist = Math.abs(center - stationCenter);
+        if (dist < minDist) {
+            minDist = dist;
+            closest = station;
+        }
+    });
+
+    stations.forEach(s => s.classList.remove("active"));
+    
+    if (closest) {
+        closest.classList.add("active");
+        const idx = stations.indexOf(closest);
+
+        // Update the MHz frequency display (88.0 + index logic)
+        const fakeFreq = (88.0 + (idx * 2.1)).toFixed(1);
+        document.getElementById("freq_display").textContent = fakeFreq;
+
+        clearTimeout(tuneTimeout);
+        tuneTimeout = setTimeout(() => {
+            // SYNC LOGIC: Only tell the server if WE are the ones moving it
+            if (isDown) {
+                socket.emit('sync_radio_dial', { index: idx });
+            }
+            
+            // Load the actual audio stream
+            if (!isDown) loadStream(closest);
+        }, 300);
+    }
+}
+
+dial.addEventListener("mousedown", (e) => {
+        isDown = true;
+        dial.style.scrollSnapType = "none";
+        dial.style.scrollBehavior = "auto";
+        startX = e.pageX - dial.offsetLeft;
+        scrollLeft = dial.scrollLeft;
+    });
+
+    window.addEventListener("mouseup", () => {
+        if (!isDown) return;
+        isDown = false;
+        dial.style.scrollSnapType = "x mandatory";
+        dial.style.scrollBehavior = "smooth";
+        updateActive();
+    });
+
+    dial.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - dial.offsetLeft;
+        dial.scrollLeft = scrollLeft - (x - startX) * 1.5;
+        updateActive();
+    });
+
+    dial.addEventListener("scroll", () => {
+        if (!isDown) updateActive();
+    });
+
+    // Listen for other users moving the dial
+// Listen for the broadcast from the server
+socket.on('update_radio_ui', (data) => {
+    const target = stations[data.index];
+    if (target) {
+        // Stop current audio before moving
+        audio.pause();
+        audio.src = "";
+        
+        dial.scrollTo({
+            left: target.offsetLeft - (dial.offsetWidth / 2) + (target.offsetWidth / 2),
+            behavior: 'smooth'
+        });
+
+        // The 'scroll' event listener you already have 
+        // will eventually call loadStream(target) once the slide finishes.
+    }
+});
+
+// --- STARTUP LOGIC ---
+    const startIdx = 5; // Change this number to start at any station (0-9)
+    const initialTarget = stations[startIdx];
+
+    if (initialTarget) {
+        // 1. Instantly snap the dial to the target (no smooth behavior for instant load)
+        dial.scrollLeft = initialTarget.offsetLeft - (dial.offsetWidth / 2) + (initialTarget.offsetWidth / 2);
+        
+        // 2. Set the active classes and UI text
+        initialTarget.classList.add("active");
+        display.textContent = initialTarget.textContent;
+        
+        // 3. Update Frequency Display
+        const fakeFreq = (88.0 + (startIdx * 2.1)).toFixed(1);
+        freqDisplay.textContent = fakeFreq;
+
+        // 4. Load the stream immediately
+        loadStream(initialTarget);
+    } else {
+        // Fallback if index 5 doesn't exist
+        updateActive();
+    }
+
+    updateActive();
+}
+
+
+
+</script>

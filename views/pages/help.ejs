@@ -152,10 +152,13 @@
             Internet links are subject to change or deletion at any time.
         </div>
 
-        <div class="nav-bar">
-            <button onclick="location.href = './settings?'+return_url" class="btn">SETUP</button>
-            <button onclick="location.href = './?'+return_url" class="btn">BACK</button>
-        </div>
+<div class="nav-bar">
+    <!-- Botão para carregar o fragmento de Settings via AJAX -->
+    <div class="btn" data-type="menu" data-mode="settings">SETUP</div>
+    
+    <!-- Botão para voltar à Home -->
+    <div class="btn" data-type="menu" data-mode="home">BACK</div>
+</div>
     </div>
 
 <script>
