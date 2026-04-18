@@ -5,38 +5,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 1150px;
         animation: fadeIn 0.4s ease-out;
     }
 
-    /* 2. The Circular Close Button (Top Right) */
-    #sl-radio-wrapper .close-btn {
-        position: absolute;
-        top: -65px;
-        right: 250px;
-        width: 45px;
-        height: 45px;
-        background: rgba(0, 0, 0, 0.6);
-        border: 1px solid black;
-        border-radius: 50%;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 110;
-        transition: all 0.2s ease;
-        outline: none;
-        padding: 0;
-    }
-
-    #sl-radio-wrapper .close-btn:hover, 
-    #sl-radio-wrapper .close-btn:focus {
-        
-        color: white;
-        transform: scale(1.3) ;
-        box-shadow: 0 0 15px rgba(218, 165, 32, 0.5);
-    }
 
     /* 3. Title Styling */
     #sl-radio-wrapper #title {
@@ -54,15 +25,15 @@
         grid-template-columns: repeat(2, 1fr) !important; /* Two columns for now */
         gap: 25px !important;
         width: 600px !important; /* Narrower because there are only 2 buttons */
-        padding: 40px;
-        background: rgba(0, 0, 0, 0.3);
+        padding: 100px;
+        background: rgba(0, 0, 0, 0.4);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     /* 5. Radio Root Buttons */
     #sl-radio-wrapper .btn {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
             backdrop-filter: blur(5px); 
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -85,20 +56,43 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+.close-menu-btn {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.2s;
+        z-index: 10;
+    }
+
+.close-menu-btn:hover {
+        background: #ff0000;
+        border-color: #ff0000;
+        transform: scale(1.1);
+    }
+
 </style>
 
 <div id="sl-radio-wrapper">
     
-    <button class="close-btn" onclick="closeSubMenu()" tabindex="30">
-        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    </button>
+            <div class="close-menu-btn" onclick="closeSubMenu()">
+        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
+    </div>
 
   
 
     <div class="conteiner">
+
         <div data-type="radio-root" data-mode="sl" class="btn" tabindex="1">
             Second Life Radios
         </div>  

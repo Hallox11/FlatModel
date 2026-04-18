@@ -1,180 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280">
-    <title>Instructions - Smart TV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+<style>
+    /* Scoped styles for Instructions Overlay */
+    #instructions-overlay-wrapper {
+        width: 1280px;
+        height: 720px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: transparent; /* Parent overlay handles the blur */
+        color: white;
+        font-family: 'Fira Sans', sans-serif;
+        overflow: hidden;
+    }
 
-    <style>
-        :root {
-            --accent: #00d4ff;
-            --glass-panel: rgba(0, 0, 0, 0.6);
-        }
+    #instructions-content-panel {
+        position: absolute;
+        width: 1000px;
+        top: 60px;
+        padding: 40px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        text-align: center;
+        box-sizing: border-box;
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            width: 1280px;
-            min-height: 100vh;
-            background-color: #111;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: white;
-            font-family: 'Fira Sans', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow: hidden;
-        }
+    .instr-title {
+        font-size: 42px;
+        color: #00d4ff;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        letter-spacing: 3px;
+        text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    }
 
-        /* Main Glass Container */
-        #instructions-container {
-            position: fixed;
-            width: 1000px;
-            top: 50px;
-            padding: 40px;
-            background: var(--glass-panel);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
-            text-align: center;
-        }
+    .instr-section-title {
+        font-size: 26px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #eee;
+    }
 
-        .title {
-            font-size: 42px;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-        }
+    .instr-text-line {
+        font-size: 20px;
+        margin: 12px 0;
+        line-height: 1.5;
+    }
 
-        .section-title {
-            font-size: 26px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #eee;
-        }
+    .instr-red { color: #ff3333; }
+    .instr-green { color: #2ecc71; }
+    .instr-yellow { color: #f1c40f; }
 
-        .text-line {
-            font-size: 20px;
-            margin: 12px 0;
-            color: #ff0000;
-            line-height: 1.5;
-        }
+    .instr-footer {
+        position: absolute;
+        bottom: 0;
+        width: 1280px;
+        height: 200px;
+        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
 
-        .green { color: #2ecc71; }
-        .yellow { color: #f1c40f; }
+    .instr-legal-box {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px 30px;
+        border-radius: 10px;
+        font-size: 18px;
+        text-align: center;
+        width: 900px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0.9;
+    }
 
-        /* Bottom Footer for Legal/Buttons */
-        .footer-area {
-            position: fixed;
-            bottom: 0;
-            width: 1280px;
-            height: 180px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
+    .instr-back-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        color: white;
+        padding: 12px 100px;
+        font-size: 22px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-transform: uppercase;
+    }
 
-        .legal-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 30px;
-            border-radius: 10px;
-            font-size: 18px;
-            text-align: center;
-            width: 900px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-    
-        }
+    .instr-back-btn:hover {
+        background: #00d4ff;
+        color: black;
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+</style>
 
-        /* Buttons Styling */
-        .nav-bar {
-            display: flex;
-            gap: 40px;
-        }
+<div id="instructions-overlay-wrapper">
+    <div id="instructions-content-panel">
+        <div class="instr-title">Instructions</div>
 
-        .btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            color: white;
-            padding: 15px 80px;
-            font-size: 22px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
-        }
+        <div class="instr-section-title">FRAME BUTTONS</div>
+        <div class="instr-text-line">
+            ( <b class="instr-yellow">Right Button</b> - Settings HUD for Size, Aspect, Textures, etc. )
+        </div>
+        <div class="instr-text-line">
+            ( <b class="instr-yellow">Left Button</b> - Page Back when browsing external sites )
+        </div>
 
-        .btn:hover, .btn:focus {
-            outline: none;
-            background: var(--accent);
-            color: black;
-            border-color: white;
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
-        }
-    </style>
-</head>
+        <div style="margin: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); width: 60%; margin-left: 20%;"></div>
 
-<body>
-
-    <div id="instructions-container">
-        <div class="title">Instructions</div>
-
-        <div class="section-title">FRAME BUTTONS</div>
-        <div class="text-line">( <b class="yellow">Right Button</b> - Settings HUD for Size, Aspect, Textures, etc. )</div>
-        <div class="text-line">( <b class="yellow">Left Button</b> - Page Back when browsing external sites )</div>
-
-        <div style="margin: 25px 0; opacity: 0.3;">_________________________________</div>
-
-        <div class="text-line green">( Use <b>SETUP</b> for the Menu or get the HUD via the Right Frame Button )</div>
-        <div class="text-line green">( Move mouse to the <b class="yellow">Top</b> during video playback for the Back button )</div>
+        <div class="instr-text-line instr-green">
+            ( Use <b>SETUP</b> for the Menu or get the HUD via the Right Frame Button )
+        </div>
+        <div class="instr-text-line instr-green">
+            ( Move mouse to the <b class="instr-yellow">Top</b> during video playback for the Back button )
+        </div>
         
-        <div class="text-line" style="margin-top: 30px; ">
+        <div class="instr-text-line instr-red" style="margin-top: 25px; font-style: italic;">
             ( For legal reasons, copyright movies are not streamed )
         </div>
     </div>
 
-    <div class="footer-area">
-        <div class="legal-box">
+    <div class="instr-footer">
+        <div class="instr-legal-box">
             This TV is a pass-through device, all media is broadcast directly from original sites.<br>
             Internet links are subject to change or deletion at any time.
         </div>
 
-<div class="nav-bar">
-    <!-- Botão para carregar o fragmento de Settings via AJAX -->
-    <div class="btn" data-type="menu" data-mode="settings">SETUP</div>
-    
-    <!-- Botão para voltar à Home -->
-    <div class="btn" data-type="menu" data-mode="home">BACK</div>
-</div>
+        <button class="instr-back-btn" onclick="closeSubMenu()">Back</button>
     </div>
+</div>
 
 <script>
-    // Handle dynamic background
-    const pic = localStorage.getItem("user_bg") || localStorage.getItem("pic");
-    if (pic) {
-        document.body.style.backgroundImage = "url(" + pic + ")";
-    } else {
-        document.body.style.backgroundImage = "url('https://www.zastavki.com/pictures/1280x720/2014/Backgrounds_Black_wallpaper_with_red_abstraction_078603_26.jpg')";
-    }
-
-    // Handle session URLs
-    const url1 = localStorage.getItem("url1");
-    const url2 = localStorage.getItem("url2");
-    const return_url = url1 + "&" + url2;
+    // This script block runs once injected via AJAX.
+    // We ensure it talks to your existing closeSubMenu function.
+    console.log("Instructions overlay loaded.");
 </script>
-
-</body>
-</html>

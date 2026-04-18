@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisa — TV Registry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --surface2: #1c1c26;
+            --border: rgba(255,255,255,0.07);
+            --border-hover: rgba(255,255,255,0.15);
+            --accent: #daa520;
+            --accent-dim: rgba(218,165,32,0.15);
+            --text: #f0f0f0;
+            --text-muted: #888;
+            --text-dim: #555;
+            --on: #4cde80;
+            --on-bg: rgba(76,222,128,0.1);
+            --off: #ff5555;
+            --off-bg: rgba(255,85,85,0.1);
+            --rezz: #7b9cff;
+            --rezz-bg: rgba(123,156,255,0.1);
+            --mono: 'Space Mono', monospace;
+            --sans: 'Syne', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            min-height: 100vh;
+        }
+
+        /* ── HEADER ── */
+        header {
+            padding: 2rem 2.5rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-icon {
+            width: 38px; height: 38px;
+            border: 1.5px solid var(--accent);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .logo-icon svg { width: 20px; height: 20px; fill: var(--accent); }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h1 span { color: var(--accent); }
+
+        .subtitle {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: var(--mono);
+            margin-top: 2px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .last-updated {
+            font-size: 0.7rem;
+            font-family: var(--mono);
+            color: var(--text-dim);
+        }
+
+        .btn-refresh {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-refresh:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ── STATS ROW ── */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1px;
+            border-bottom: 1px solid var(--border);
+            background: var(--border);
+        }
+
+        .stat {
+            background: var(--bg);
+            padding: 1.25rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            font-family: var(--mono);
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: var(--mono);
+            line-height: 1;
+        }
+
+        .stat-value.green { color: var(--on); }
+        .stat-value.gold  { color: var(--accent); }
+        .stat-value.blue  { color: var(--rezz); }
+
+        /* ── TABS / FILTERS ── */
+        .toolbar {
+            padding: 1rem 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 2px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 3px;
+        }
+
+        .tab {
+            padding: 5px 14px;
+            font-size: 0.72rem;
+            font-family: var(--mono);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .tab.active {
+            background: var(--surface2);
+            color: var(--text);
+            border: 1px solid var(--border-hover);
+        }
+
+        .search-wrap {
+            flex: 1;
+            max-width: 300px;
+            position: relative;
+        }
+
+        .search-wrap svg {
+            position: absolute;
+            left: 10px; top: 50%;
+            transform: translateY(-50%);
+            width: 14px; height: 14px;
+            fill: var(--text-dim);
+            pointer-events: none;
+        }
+
+        input[type="search"] {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            padding: 7px 12px 7px 32px;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="search"]:focus { border-color: var(--accent); }
+        input[type="search"]::placeholder { color: var(--text-dim); }
+
+        /* ── TABLE ── */
+        .table-wrap {
+            overflow-x: auto;
+            padding: 0 2.5rem 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            font-size: 0.82rem;
+        }
+
+        thead th {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            font-weight: 400;
+            padding: 0 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+
+        tbody tr:hover { background: var(--surface); }
+
+        tbody td {
+            padding: 13px 12px;
+            vertical-align: middle;
+            color: var(--text-muted);
+        }
+
+        tbody td.primary { color: var(--text); font-weight: 600; }
+
+        .serial {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--accent);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 9px;
+            border-radius: 3px;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge::before {
+            content: '';
+            width: 5px; height: 5px;
+            border-radius: 50%;
+        }
+
+        .badge.on  { background: var(--on-bg);   color: var(--on);   }
+        .badge.on::before  { background: var(--on); box-shadow: 0 0 4px var(--on); }
+        .badge.off { background: var(--off-bg);  color: var(--off);  }
+        .badge.off::before { background: var(--off); }
+        .badge.rezz { background: var(--rezz-bg); color: var(--rezz); }
+        .badge.rezz::before { background: var(--rezz); }
+
+        .land { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .pos  { font-family: var(--mono); font-size: 0.7rem; }
+        .ts   { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); }
+
+        .nearby-pill {
+            display: inline-block;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 1px 6px;
+            font-size: 0.65rem;
+            font-family: var(--mono);
+            color: var(--text-muted);
+            margin: 1px;
+        }
+
+        /* ── EMPTY / LOADING ── */
+        .state-msg {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-dim);
+            font-family: var(--mono);
+            font-size: 0.8rem;
+        }
+
+        .state-msg .big { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text-dim); }
+
+        /* ── PAGINATION ── */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            padding: 1rem 2.5rem;
+            border-top: 1px solid var(--border);
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .page-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .page-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+        .page-btn:disabled { opacity: 0.3; cursor: default; }
+        .page-info { min-width: 80px; text-align: center; }
+
+        /* ── TRIGGER FILTER DOTS ── */
+        .dot-filter {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot-btn {
+            display: flex; align-items: center; gap: 5px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--text-muted);
+            transition: all 0.15s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dot-btn .dot { width: 7px; height: 7px; border-radius: 50%; }
+        .dot-btn.active-filter { border-color: var(--border-hover); background: var(--surface2); color: var(--text); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2H6v2h12v-2h-2v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+        </div>
+        <div>
+            <h1>Analisa <span>TV</span></h1>
+            <div class="subtitle">registry dashboard</div>
+        </div>
+    </div>
+    <div class="header-right">
+        <span class="last-updated" id="last-updated">—</span>
+        <button class="btn-refresh" onclick="loadData()">↻ Refresh</button>
+    </div>
+</header>
+
+<div class="stats">
+    <div class="stat">
+        <span class="stat-label">Total TVs</span>
+        <span class="stat-value gold" id="stat-total">—</span>
+    </div>
+    <div class="stat">
+        <span class="stat-label">Online now</span>
+        <span class="stat-value green" id="stat-on">—</span>
+    </div>
+    <div class="stat">
+        <span class="stat-label">Interactions</span>
+        <span class="stat-value" id="stat-interactions">—</span>
+    </div>
+    <div class="stat">
+        <span class="stat-label">Unique lands</span>
+        <span class="stat-value blue" id="stat-lands">—</span>
+    </div>
+</div>
+
+<div class="toolbar">
+    <div class="tabs">
+        <button class="tab active" onclick="setView('registry', this)">Registry</button>
+        <button class="tab" onclick="setView('interactions', this)">Interactions</button>
+    </div>
+
+    <div class="dot-filter" id="trigger-filters" style="display:none;">
+        <button class="dot-btn active-filter" data-trigger="all" onclick="setTrigger('all',this)">
+            <span class="dot" style="background:var(--text-muted)"></span> All
+        </button>
+        <button class="dot-btn" data-trigger="TV_ON" onclick="setTrigger('TV_ON',this)">
+            <span class="dot" style="background:var(--on)"></span> TV_ON
+        </button>
+        <button class="dot-btn" data-trigger="TV_OFF" onclick="setTrigger('TV_OFF',this)">
+            <span class="dot" style="background:var(--off)"></span> TV_OFF
+        </button>
+        <button class="dot-btn" data-trigger="rezz" onclick="setTrigger('rezz',this)">
+            <span class="dot" style="background:var(--rezz)"></span> Rezz
+        </button>
+    </div>
+
+    <div class="search-wrap">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="search" id="search" placeholder="Search owner, land, serial..." oninput="onSearch()">
+    </div>
+</div>
+
+<div class="table-wrap">
+    <div id="table-container">
+        <div class="state-msg"><div class="big">⟳</div>Loading...</div>
+    </div>
+</div>
+
+<div class="pagination">
+    <span class="page-info" id="page-info"></span>
+    <button class="page-btn" id="btn-prev" onclick="changePage(-1)" disabled>← Prev</button>
+    <button class="page-btn" id="btn-next" onclick="changePage(1)"  disabled>Next →</button>
+</div>
+
+<script>
+const BASE = window.location.origin;
+const PAGE_SIZE = 20;
+
+let allData       = [];
+let filteredData  = [];
+let currentView   = 'registry';
+let currentTrigger = 'all';
+let currentPage   = 1;
+let searchTerm    = '';
+
+async function loadData() {
+    document.getElementById('table-container').innerHTML =
+        '<div class="state-msg"><div class="big">⟳</div>Loading...</div>';
+
+    try {
+        const [regRes, intRes] = await Promise.all([
+            fetch(`${BASE}/api/tvs`),
+            fetch(`${BASE}/api/interactions`)
+        ]);
+
+        const registry     = regRes.ok     ? await regRes.json()  : [];
+        const interactions = intRes.ok     ? await intRes.json()  : [];
+
+        updateStats(registry, interactions);
+        allData = currentView === 'registry' ? registry : interactions;
+        applyFilters();
+
+        document.getElementById('last-updated').textContent =
+            'updated ' + new Date().toLocaleTimeString();
+
+    } catch(e) {
+        document.getElementById('table-container').innerHTML =
+            `<div class="state-msg"><div class="big">✗</div>Could not reach server.<br>${e.message}</div>`;
+    }
+}
+
+function updateStats(registry, interactions) {
+    document.getElementById('stat-total').textContent = registry.length;
+    
+    // Count any TV that is either explicitly ON or generally ONLINE
+    const onlineCount = registry.filter(r => 
+        r.status === 'TV_ON' || r.status === 'ONLINE'
+    ).length;
+    
+    document.getElementById('stat-on').textContent = onlineCount;
+    document.getElementById('stat-interactions').textContent = interactions.length;
+    const lands = new Set(registry.map(r => r.land).filter(Boolean));
+    document.getElementById('stat-lands').textContent = lands.size;
+}
+
+function setView(view, btn) {
+    currentView = view;
+    currentPage = 1;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filters = document.getElementById('trigger-filters');
+    filters.style.display = view === 'interactions' ? 'flex' : 'none';
+
+    loadData();
+}
+
+function setTrigger(trigger, btn) {
+    currentTrigger = trigger;
+    currentPage = 1;
+    document.querySelectorAll('.dot-btn').forEach(b => b.classList.remove('active-filter'));
+    btn.classList.add('active-filter');
+    applyFilters();
+}
+
+function onSearch() {
+    searchTerm = document.getElementById('search').value.toLowerCase();
+    currentPage = 1;
+    applyFilters();
+}
+
+function applyFilters() {
+    let data = [...allData];
+
+    if (currentView === 'interactions' && currentTrigger !== 'all') {
+        data = data.filter(r => r.trigger === currentTrigger);
+    }
+
+    if (searchTerm) {
+        data = data.filter(r =>
+            JSON.stringify(r).toLowerCase().includes(searchTerm)
+        );
+    }
+
+    filteredData = data;
+    renderTable();
+}
+
+function renderTable() {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const page  = filteredData.slice(start, start + PAGE_SIZE);
+    const total = filteredData.length;
+    const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+
+    document.getElementById('page-info').textContent =
+        `${start + 1}–${Math.min(start + PAGE_SIZE, total)} of ${total}`;
+    document.getElementById('btn-prev').disabled = currentPage <= 1;
+    document.getElementById('btn-next').disabled = currentPage >= totalPages;
+
+    if (page.length === 0) {
+        document.getElementById('table-container').innerHTML =
+            '<div class="state-msg"><div class="big">∅</div>No records found.</div>';
+        return;
+    }
+
+    const html = currentView === 'registry'
+        ? renderRegistry(page)
+        : renderInteractions(page);
+
+    document.getElementById('table-container').innerHTML = html;
+}
+
+function triggerBadge(trigger) {
+    const map = { TV_ON: 'on', TV_OFF: 'off', rezz: 'rezz' };
+    const cls = map[trigger] || 'rezz';
+    return `<span class="badge ${cls}">${trigger || 'unknown'}</span>`;
+}
+
+function statusBadge(status) {
+    // Standardize labels for better UI
+    let cls = 'off';
+    let label = status || 'OFFLINE';
+console.log(status)
+    // Logic: If status is TV_ON or ONLINE, show green.
+    // If status is TV_OFF or OFFLINE, show red.
+    if (status === 'TV_ON' || status === 'ONLINE') {
+        cls = 'on';
+        label = (status === 'TV_ON') ? 'TV ON' : 'ONLINE';
+    } else if (status === 'TV_OFF' || status === 'OFFLINE') {
+        cls = 'off';
+        label = (status === 'TV_OFF') ? 'TV OFF' : 'OFFLINE';
+    } else if (status === 'rezz') {
+        cls = 'rezz';
+        label = 'REZZED';
+    }
+
+    return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function fmtTime(ts) {
+    if (!ts) return '—';
+    const d = new Date(ts);
+    return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' })
+         + ' <br>' + d.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' });
+}
+
+function fmtNearby(nearby) {
+    if (!nearby || nearby === 'None' || nearby === 'none') return '<span style="color:var(--text-dim)">—</span>';
+    return nearby.split(',').map(n => `<span class="nearby-pill">${n.trim()}</span>`).join('');
+}
+
+function renderRegistry(rows) {
+    return `
+    <table>
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Serial</th>
+                <th>Owner</th>
+                <th>Land</th>
+                <th>Url</th>
+                <th>Last seen</th>
+            </tr>
+        </thead>
+        <tbody>
+        ${rows.map(r => `
+            <tr>
+                <td>${statusBadge(r.status)}</td>
+                <td class="serial">${r.serial || '—'}</td>
+                <td class="primary">${r.owner || '—'}</td>
+                <td class="land" title="${r.land || ''}">${r.land || '—'}</td>
+                <td class="pos">${(r.url || '—')}</td>
+                <td class="ts">${fmtTime(r.last_seen)}</td>
+            </tr>
+        `).join('')}
+        </tbody>
+    </table>`;
+}
+
+function renderInteractions(rows) {
+    return `
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Status</th>
+                <th>Serial</th>
+                <th>Clicker</th>
+                <th>Owner</th>
+                <th>Land</th>
+                <th>Position</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        ${rows.map(r => `
+            <tr>
+                <td class="ts">${fmtTime(r.timestamp)}</td>
+                <td>${triggerBadge(r.status)}</td>
+                <td class="serial">${r.serial || '—'}</td>
+                <td class="primary">${r.clicker || '—'}</td>
+                <td>${r.owner || '—'}</td>
+                <td class="land" title="${r.land_name || ''}">${r.land_name || '—'}</td>
+                <td class="pos">${r.pos || '—'}</td>
+
+
+
+            </tr>
+        `).join('')}
+        </tbody>
+    </table>`;
+}
+
+function changePage(dir) {
+    currentPage += dir;
+    renderTable();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+loadData();
+setInterval(loadData, 30000);
+</script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+
+<style>
+
+    /* Fixed Container */
+    .sl-list-wrapper {
+        width: 1280px;
+        height: 720px;
+        display: flex;
+        flex-direction: column;
+        
+        color: white;
+        overflow: hidden;
+       font-family: 'Outfit', sans-serif;
+    }
+
+    /* Header */
+    .sl-nav-header {
+        height: 60px;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px); 
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        flex-shrink: 0;
+        z-index: 10;
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 15px; width: 280px; }
+    .exit-btn { background: none; border: 1px solid white; color: white; padding: 8px; border-radius: 50%; cursor: pointer; display: flex; }
+    .exit-btn:hover { background: #ffcc00; color: #000; border-color: #ffcc00; }
+    .current-tag span { font-size: 18px; font-weight: bold; color: white; }
+    .current-tag small { color: #ffcc00; font-size: 12px; display: block; }
+
+    .category-chips { display: flex; gap: 10px; margin-left: 20px; }
+    .chip { background: rgba(255,255,255,0.05); border: 1px solid #444; color: white; padding: 8px 18px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+    .chip.active { background: rgba(255, 204, 0, 0.1); border-color: #ffcc00; color: #ffcc00; }
+
+    /* Scroll Area */
+    .list-scroll-area {
+        flex-grow: 1;
+        width: 1190px;
+        overflow-y: auto;
+        padding: 20px 25px;
+        margin-left: 15px;
+    }
+
+    .destination-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* The Row Design */
+    .list-row {
+        display: flex;
+        background: rgba(20, 20, 20, 0.8);
+        border: 2px solid rgba(255, 255, 255, 0.5); /* Matching your White Border preference */
+        border-radius: 10px;
+        height: 230px; /* Fixed height so images can fill it */
+        overflow: hidden; /* Clips the image to the border radius */
+        transition: transform 0.2s ease, border-color 0.2s;
+    }
+
+    .list-row:hover {
+       
+        border-color: #ffcc00;
+        background: rgba(30, 30, 30, 0.9);
+    }
+
+    /* LEFT HERO IMAGE - Fixed Width, 100% Height */
+    .row-hero-image {
+        width: 350px; /* Relevant size for 1280 screen */
+        height: 100%; /* Fill the entire card height */
+        flex-shrink: 0;
+        border-right: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .row-hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Maintains ratio while filling the space */
+        display: block;
+    }
+
+    /* RIGHT CONTENT AREA */
+    .row-content {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        flex-grow: 1;
+        justify-content: space-between;
+         background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.08));
+            backdrop-filter: blur(5px); 
+    }
+
+    .row-text h3 {
+
+        font-size: 26px;
+        margin: 0 0 10px 0;
+        letter-spacing: 1.2px;
+        color: orange;
+        font-weight: 400;
+    }
+
+    .row-text p {
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 1.1px;
+        color: whitesmoke;
+        font-weight: 400;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 5; /* Max 4 lines of description */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Action Button */
+    .row-actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .teleport-btn {
+        background: transparent;
+        border: 1px solid white;
+        color: #ffcc00;
+        text-decoration: none;
+        padding: 8px 35px;
+        border-radius: 4px;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.3s;
+    }
+
+    .teleport-btn:hover {
+        background: #ffcc00;
+        color: black;
+        border-color: #ffcc00;
+    }
+
+    /* Custom Scrollbar */
+    .list-scroll-area::-webkit-scrollbar { width: 10px; }
+    .list-scroll-area::-webkit-scrollbar-thumb { background: #444; border-radius: 5px; }
+
+
+    /* More Button Style */
+.more-trigger {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 204, 0, 0.1) !important;
+    border-color: #ffcc00 !important;
+    color: #ffcc00 !important;
+}
+
+/* Modal Core */
+.modal-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    display: none; /* Controlled by JS */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #151515;
+    width: 800px;
+    border: 2px solid #ffcc00;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+.modal-header h3 { font-family: serif; font-size: 28px; margin: 0; color: #ffcc00; }
+.close-modal { background: none; border: none; color: white; font-size: 30px; cursor: pointer; }
+
+/* Modal Selection Grid */
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.modal-card {
+    background: #222;
+    padding: 20px 10px;
+    text-align: center;
+    border: 1px solid #444;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.modal-card:hover {
+    border-color: #ffcc00;
+    background: #2a2a2a;
+    transform: translateY(-3px);
+}
+
+.modal-card.selected {
+    background: rgba(255, 204, 0, 0.1);
+    border-color: #ffcc00;
+    color: #ffcc00;
+}
+
+
+
+/* View Toggle Buttons */
+.view-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #444;
+    color: #888;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+}
+.view-btn.active {
+    color: #ffcc00;
+    border-color: #ffcc00;
+    background: rgba(255,204,0,0.1);
+}
+
+/* --- GRID MODE TRANSFORMATION --- */
+/* --- MODERN OVERLAY GRID --- */
+
+.view-mode-grid .destination-stack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.view-mode-grid .list-row {
+    position: relative; /* Required for absolute child positioning */
+    height: 380px; 
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    background: #000;
+}
+
+.view-mode-grid .row-hero-image {
+    width: 100%;
+    height: 100%; /* Image fills the whole card */
+}
+
+.view-mode-grid .row-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* FLOATING FOOTER OVERLAY */
+.view-mode-grid .row-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px; /* Height of the hoverlay */
+    padding: 0 20px;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    
+    /* Smooth gradient from transparent to dark for readability */
+    background: linear-gradient(to top, 
+        rgba(0, 0, 0, 0.9) 0%, 
+        rgba(0, 0, 0, 0.4) 60%, 
+        transparent 100%);
+    backdrop-filter: blur(2px); /* Optional: adds a glass effect */
+}
+
+.view-mode-grid .row-text h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #fff;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Extra pop against images */
+    max-width: 420px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Keep descriptions hidden in Grid */
+.view-mode-grid .row-text p {
+    display: none !important;
+}
+
+/* Modern Rocket Button */
+.view-mode-grid .teleport-btn {
+    width: 35px;
+    height: 35px;
+    padding: 0px;;
+    background: #ffcc00;
+    border-radius: 12px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.view-mode-grid .teleport-btn::before {
+    content: 'rocket_launch';
+    font-family: 'Material Symbols Rounded';
+    font-size: 24px;
+    color: #000;
+    font-variation-settings: 'FILL' 1;
+}
+
+.view-mode-grid .teleport-btn:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+/* --- SMOOTH, NATURAL SCROLLING --- */
+.list-scroll-area {
+    flex-grow: 1;
+    width: 1190px;
+    /* Changed to 'overlay' if supported, or 'auto' to prevent jumping */
+    overflow-y: auto; 
+    padding: 20px 25px;
+    margin-left: 15px;
+    
+    /* Makes manual scrolling (like clicking links) smooth, 
+       but keeps mouse wheel natural */
+    scroll-behavior: smooth; 
+
+    /* REMOVED: scroll-snap-type (This was causing the "compensation") */
+}
+
+.list-row {
+    /* REMOVED: scroll-snap-align */
+    display: flex;
+    background: rgba(20, 20, 20, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    height: 230px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s;
+}
+
+/* --- THE MODERN SCROLLBAR --- */
+.list-scroll-area::-webkit-scrollbar {
+    width: 13px;
+}
+
+.list-scroll-area::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.list-scroll-area::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.list-scroll-area::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 204, 0, 0.7);
+}
+</style>
+
+
+<div class="sl-list-wrapper">
+    <nav class="sl-nav-header">
+        <div class="nav-left">
+            <div class="current-tag">
+                <span>SECOND LIFE</span>
+                <small><%= tag %></small>
+            </div>
+        </div>
+
+<div class="category-chips">
+    <% favorites.slice(0, 4).forEach(fav => { %>
+        <button class="chip <%= tag === fav.name ? 'active' : '' %>" 
+            onclick="handleNav('/sl-destinations?tag=<%= encodeURIComponent(fav.name) %>&url=<%= encodeURIComponent(fav.url) %>')">
+            <%= fav.name %>
+        </button>
+    <% }) %>
+
+    <button class="chip more-trigger" onclick="toggleModal(true)">
+        <span class="material-symbols-rounded" style="font-size: 16px;">add</span>
+        MORE
+    </button>
+</div>
+
+<div class="nav-right" style="margin-left: auto; display: flex; gap: 10px;">
+    <button onclick="toggleView('list')" id="list-view-btn" class="view-btn active">
+        <span class="material-symbols-rounded">view_list</span>
+    </button>
+    <button onclick="toggleView('grid')" id="grid-view-btn" class="view-btn">
+        <span class="material-symbols-rounded">grid_view</span>
+    </button>
+                <button onclick="closeSubMenu()" class="exit-btn">
+                <span class="material-symbols-rounded">arrow_back</span>
+            </button>
+</div>
+    </nav>
+
+    <div class="list-scroll-area" id="sl-scroll-container">
+        <div class="destination-stack">
+            <% destinations.forEach(item => { %>
+<div class="list-row">
+    <div class="row-hero-image">
+        <img src="<%= item.thumbnail %>" loading="lazy">
+    </div>
+    
+    <div class="row-content">
+        <div class="row-text">
+            <h3><%= item.title %></h3>
+            <p><%= item.desc %></p> </div>
+        
+        <div class="row-actions">
+            <button 
+                onclick="window.location.assign('<%= item.teleportUrl %>');" 
+                class="teleport-btn">
+                teleport
+            </button>
+        </div>
+        
+    </div>
+</div>
+            <% }) %>
+        </div>
+    </div>
+
+<div id="category-modal" class="modal-overlay" onclick="toggleModal(false)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <h3>Explore Categories</h3>
+            <button class="close-modal" onclick="toggleModal(false)">&times;</button>
+        </div>
+        <div class="modal-grid">
+            <% favorites.forEach(fav => { %>
+                <div class="modal-card <%= tag === fav.name ? 'selected' : '' %>" 
+                     onclick="handleNav('/sl-destinations?tag=<%= encodeURIComponent(fav.name) %>&url=<%= encodeURIComponent(fav.url) %>')">
+                    <span><%= fav.name %></span>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+</div>
+<script>
+    function toggleModal(isOpen) {
+        const modal = document.getElementById('category-modal');
+        modal.style.display = isOpen ? 'flex' : 'none';
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggleModal(false);
+    });
+
+
+    function toggleView(mode) {
+    const wrapper = document.querySelector('.sl-list-wrapper');
+    const listBtn = document.getElementById('list-view-btn');
+    const gridBtn = document.getElementById('grid-view-btn');
+
+    if (mode === 'grid') {
+        wrapper.classList.add('view-mode-grid');
+        gridBtn.classList.add('active');
+        listBtn.classList.remove('active');
+        localStorage.setItem('sl-view-preference', 'grid');
+    } else {
+        wrapper.classList.remove('view-mode-grid');
+        listBtn.classList.add('active');
+        gridBtn.classList.remove('active');
+        localStorage.setItem('sl-view-preference', 'list');
+    }
+}
+
+// Check for saved preference on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const savedMode = localStorage.getItem('sl-view-preference');
+    if (savedMode === 'grid') toggleView('grid');
+});
+
+
+const scrollContainer = document.getElementById('sl-scroll-container');
+
+
+</script>

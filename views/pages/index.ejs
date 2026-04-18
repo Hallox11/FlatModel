@@ -27,7 +27,7 @@
         color: var(--text-color); font-family: 'Fira Sans', sans-serif;
         overflow: hidden; display: flex; flex-direction: column;
         align-items: center; justify-content: center;
-        transition: opacity 0.3s ease;
+        transition: background-image 0.8s ease-in-out, opacity 0.3s ease;
     }
 
     /* --- GRID & MAIN BUTTONS --- */
@@ -75,17 +75,18 @@
 /* Base State */
 #controls {
     position: absolute;
-    bottom: 30px; /* Position it where it should be when visible */
+    bottom: 30px;
     left: 50%;
-    transform: translateX(-50%) translateY(120%); /* Move it fully below screen */
-    display: flex; /* Always flex */
+    transform: translateX(-50%) translateY(120%);
+    /* Remove display: flex from here */
     opacity: 0;
-    pointer-events: none; /* Can't click it while hidden */
+    pointer-events: none;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 9999;
 }
 
 #controls.active {
+    display: flex !important; /* Force it to show when active */
     opacity: 1;
     transform: translateX(-50%) translateY(0);
     pointer-events: auto;
@@ -107,9 +108,6 @@
         transform: translateY(-3px); color: var(--accent);
     }
 
-    .arrow-btn { width: 60px !important; height: 48px !important; justify-content: center; padding: 0; }
-    .arrow-btn svg { transition: transform 0.2s ease; filter: drop-shadow(0 0 5px rgba(46, 204, 113, 0.2)); }
-    .arrow-btn:hover svg { transform: scale(1.2); stroke: var(--accent); }
 
     /* --- BURGER BUTTON --- */
     #burger-menu-btn {
@@ -145,10 +143,12 @@
         z-index: 100;
     }
 
-    #theme-slider {
-        position: absolute; bottom: 120px; width: 100%; height: 140px;
-        display: none;  z-index: 50;
-    }
+#theme-slider {
+    position: absolute; bottom: 120px; width: 100%; height: 140px;
+    display: none; z-index: 50;
+    overflow: hidden;   /* ← ADD THIS */
+    cursor: grab;       /* ← ADD THIS */
+}
 
     #theme-track { display: flex; gap: 15px; padding: 0 40px; transition: transform 0.3s ease; }
 
@@ -159,7 +159,10 @@
         transition: transform 0.2s ease, border 0.2s;
     }
 
-    .theme-thumb.active { border: 3px solid var(--accent); transform: scale(1.05); }
+.theme-thumb.active { 
+    border: 3px solid rgba(255, 255, 255, 0.8); 
+    transform: scale(1.05); 
+}
 
     /* --- CONTRAST MODES --- */
     body.dark-text, 
@@ -184,6 +187,8 @@
     /* --- UTILS --- */
     #vers { position: absolute; bottom: 10px; width: 100%; text-align: center; font-size: 0.7rem; opacity: 0.3; pointer-events: none; }
     
+
+    
     .remote-hover { 
         backdrop-filter: blur(15px) !important; 
         border: 1px solid white !important; 
@@ -206,7 +211,11 @@
     <div data-type="menu" data-mode="movies" class="btn">Movies</div>
     <div data-type="menu" data-mode="youtube" class="btn">YouTube</div>
     <div data-type="menu" data-mode="xxx" class="btn">XXX</div>
-    <div data-type="menu" data-mode="sl" class="btn">Second Life</div>
+<div data-type="menu" 
+     data-mode="/sl-destinations?tag=Editor Picks&url=https://secondlife.com/destination-guide/editor-picks" 
+     class="btn">
+     Second Life
+</div>
     <div data-type="menu" data-mode="flickr" class="btn">Flickr</div>
     <div data-type="menu" data-mode="browsers" class="btn">Browsers</div>
 </div>
@@ -250,6 +259,9 @@
     <button class="nav-btn-glass" onclick="handleNav('help')">
         <span class="material-symbols-rounded">help</span>
     </button>
+    <button class="nav-btn-glass" onclick="openSettings()">
+        <span class="material-symbols-rounded">settings</span>
+    </button>
     <button class="nav-btn-glass" style="width: 55px;color: #ff5555!important;" onclick="toggleControls()">
         <span class="material-symbols-rounded">close</span>
         <span></span>
@@ -257,41 +269,56 @@
 </div>
 
 <script>
-let on = true;
-let inactivityTimer;
+
+
+
 let backPics = [];
 let index = 0;
 let sliderOffset = 0;
 
-// ── UI SYNC (visuals only, no emits) ──────────────────
+let isMenuOpen = false; // Renamed for clarity
+
 function syncUI(action) {
     if (action === 'open') {
-        $('#controls').addClass('active'); // Slide up
+        // 1. Force display flex to override jQuery's inline 'display: none'
+        $('#controls').css('display', 'flex').addClass('active'); 
         $('#burger-menu-btn').fadeOut(200);
-        on = false;
+        
+        isMenuOpen = true; // Set the state to OPEN
     } else {
-        $('#controls').removeClass('active'); // Slide down
+        $('#controls').removeClass('active');
+        // 2. Smoothly hide and let jQuery handle the 'display: none' logic
+        $('#controls').fadeOut(200);
         $('#theme-slider').fadeOut(200);
         $('#burger-menu-btn').fadeIn(200);
-        on = true;
+        
+        isMenuOpen = false; // Set the state to CLOSED
     }
 }
 
 function toggleControls() {
-    if (on) {
+    console.log("Menu status: ", isMenuOpen);
+    
+    if (!isMenuOpen) {
         syncUI('open');
-        if (socket) socket.emit('control_event', { action: 'open', room: myRoom });
+        if (window.socket) window.socket.emit('control_event', { action: 'open', room: myRoom });
     } else {
         hideAllUI();
     }
 }
 
 function hideAllUI() {
-    if (on) return;
+    // 1. Close it locally on this screen
     syncUI('close');
-    if (socket) socket.emit('control_event', { action: 'close', room: myRoom });
-}
 
+    // 2. Tell the server to tell everyone else to close it
+    if (window.socket && window.socket.connected) {
+        window.socket.emit('control_event', { 
+            action: 'close', 
+            room: myRoom 
+        });
+    }
+}
 // ── BACKGROUNDS ───────────────────────────────────────
 function updateBG(url, shouldEmit = true) {
     document.body.style.backgroundImage = `url(${url})`;
@@ -317,6 +344,11 @@ function changeBackground(direction) {
         ? (index + 1) % backPics.length
         : (index - 1 + backPics.length) % backPics.length;
     updateBG(backPics[index], true);
+    if ($('#theme-slider').is(':visible')) {
+        syncSliderScroll();
+        // ← ADD THIS
+        if (socket) socket.emit('slider_event', { visible: true, offset: sliderOffset, room: myRoom });
+    }
 }
 
 // ── THEME SLIDER ──────────────────────────────────────
@@ -343,13 +375,63 @@ function buildThemeSlider() {
 function syncSliderScroll() {
     const itemWidth = 215;
     const containerWidth = $('#theme-slider').width();
-    sliderOffset = -(index * itemWidth) + (containerWidth / 2) - (itemWidth / 2);
+    const newOffset = -(index * itemWidth) + (containerWidth / 2) - (itemWidth / 2);
+    
     const maxScroll = -((backPics.length * itemWidth) - containerWidth);
-    if (sliderOffset > 0) sliderOffset = 0;
-    if (sliderOffset < maxScroll) sliderOffset = maxScroll;
-    $('#theme-track').css('transform', `translateX(${sliderOffset}px)`);
+    const finalOffset = Math.min(0, Math.max(maxScroll, newOffset));
+    
+    applySliderScroll(finalOffset, true);
 }
 
+function applySliderScroll(offset, shouldEmit = false) {
+    sliderOffset = offset;
+    $('#theme-track').css('transform', `translateX(${sliderOffset}px)`);
+
+    if (shouldEmit && socket) {
+        socket.emit('slider_event', { 
+            visible: true, 
+            offset: sliderOffset, 
+            room: myRoom 
+        });
+    }
+}
+
+// ── SLIDER DRAG SCROLL ────────────────────────────────
+(function() {
+    let isDragging = false;
+    let startX = 0;
+    let startOffset = 0;
+
+    $('#theme-slider').on('mousedown', function(e) {
+        isDragging = true;
+        startX = e.clientX;
+        startOffset = sliderOffset;
+        $(this).css('cursor', 'grabbing');
+        e.preventDefault();
+    });
+
+$(document).on('mousemove', function(e) {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    const containerWidth = $('#theme-slider').width();
+    const maxScroll = -((backPics.length * 215) - containerWidth);
+    sliderOffset = Math.min(0, Math.max(maxScroll, startOffset + dx));
+    $('#theme-track').css('transform', `translateX(${sliderOffset}px)`);
+
+    // ← ADD THIS BLOCK
+    clearTimeout(window._sliderSyncTimer);
+    window._sliderSyncTimer = setTimeout(() => {
+        if (socket) socket.emit('slider_event', { visible: true, offset: sliderOffset, room: myRoom });
+    }, 50);
+});
+
+    $(document).on('mouseup mouseleave', function() {
+        if (isDragging) {
+            isDragging = false;
+            $('#theme-slider').css('cursor', 'grab');
+        }
+    });
+})();
 // ── CLOCK ─────────────────────────────────────────────
 function updateClock() {
     var now = new Date();
@@ -362,57 +444,103 @@ function updateClock() {
 // ── BOOT ──────────────────────────────────────────────
 window.onload = function() {
     socket = window.socket;
-    socket.emit('join_room', myRoom);
 
     $('#theme-slider').hide();
 
     // All socket listeners in one place
-    socket.on('sync_ui', function(data) {
-        const shouldBeOpen = (data.action === 'open');
-        if (on === shouldBeOpen) syncUI(data.action);
-    });
+socket.on('sync_ui', function(data) {
+    // data.action will be either 'open' or 'close'
+    syncUI(data.action);
+});
 
-    socket.on('sync_slider', function(data) {
-        if (data.visible) {
-            buildThemeSlider();
-            $('#theme-slider').fadeIn(200, syncSliderScroll);
+socket.on('sync_slider', function(data) {
+    if (data.visible) {
+        buildThemeSlider();
+        if (data.offset !== undefined) {
+            // A drag scroll came in — apply offset directly, no re-centering
+            sliderOffset = data.offset;
+            $('#theme-slider').show();
+            $('#theme-track').css('transform', `translateX(${sliderOffset}px)`);
         } else {
-            $('#theme-slider').fadeOut(200);
+            $('#theme-slider').fadeIn(200, syncSliderScroll);
         }
-    });
+    } else {
+        $('#theme-slider').fadeOut(200);
+    }
+});
 
-    socket.on('state_sync', function(data) {
-        if (data.type === 'background') {
-            updateBG(data.url, false);
-        }
-    });
 
-    fetch('/api/backgrounds')
-        .then(r => r.json())
-        .then(data => {
-            backPics = data;
-            const savedBg = localStorage.getItem("user_bg");
-            if (savedBg) updateBG(savedBg, false);
+fetch('/api/backgrounds')
+    .then(r => r.json())
+    .then(data => {
+        backPics = data;
+
+        // 1. Primeiro, verificamos se o servidor já tem um fundo (através do socket)
+        // O force_sync_arrival disparado pelo servidor no connection tratará disso.
+        
+        // 2. Ouvinte para o estado inicial vindo do servidor
+        socket.on('force_sync_arrival', function(state) {
+            if (state.currentBg) {
+                console.log("Sincronizando fundo com a sala:", state.currentBg);
+                updateBG(state.currentBg, false); // false = não avisar de volta (evita loop)
+            } else {
+                // SÓ SE o servidor estiver vazio é que tentamos o local ou aleatório
+                const savedBg = localStorage.getItem("user_bg");
+                if (savedBg && backPics.includes(savedBg)) {
+                    updateBG(savedBg, true); // Avisa a sala que este é o novo fundo
+                } else if (backPics.length) {
+                    const randomIndex = Math.floor(Math.random() * backPics.length);
+                    updateBG(backPics[randomIndex], true);
+                }
+            }
         });
 
-    $('#theme-slider').on('wheel', function(e) {
-        e.preventDefault();
-        const itemWidth = 215;
-        const containerWidth = $(this).width();
-        const maxScroll = -((backPics.length * itemWidth) - containerWidth);
-        sliderOffset += (e.originalEvent.deltaY > 0) ? -itemWidth : itemWidth;
-        if (sliderOffset > 0) sliderOffset = 0;
-        if (sliderOffset < maxScroll) sliderOffset = maxScroll;
-        $('#theme-track').css('transform', `translateX(${sliderOffset}px)`);
+        // Caso o force_sync_arrival já tenha passado, pedimos o estado de novo
+        socket.emit('request_current_state');
     });
 
     updateClock();
 };
 
+
+function openSettings() {
+    // 1. Hide the controls first so they don't stay on screen
+    hideAllUI();
+
+    // 2. Hide the main grid with a nice transition
+    $('#main-grid').css({'opacity': '0', 'transform': 'scale(0.9)', 'pointer-events': 'none'});
+    $('.status-bar').fadeOut(200);
+    $('#burger-menu-btn').fadeOut(200);
+
+    // 3. AJAX call to fetch the settings page
+    $.ajax({
+        url: '/settings', // The route that renders settings.ejs
+        type: 'GET',
+        success: function(data) {
+            $('#sub-content-overlay').html(data).fadeIn(300).css('display', 'flex');
+            
+            // Sync with other viewers if needed
+            if (window.socket) {
+                window.socket.emit('mirror_ajax_nav', { 
+                    action: 'OPEN', 
+                    path: '/settings', 
+                    room: myRoom 
+                });
+            }
+        },
+        error: function(err) {
+            console.error("Error loading settings:", err);
+            // Revert UI if it fails
+            $('#main-grid').css({'opacity': '1', 'transform': 'scale(1)', 'pointer-events': 'auto'});
+            $('#burger-menu-btn').fadeIn(200);
+        }
+    });
+}
 // ── DELEGATED EVENTS ──────────────────────────────────
 $(document).on('click', '.theme-thumb', function() {
     updateBG(backPics[$(this).data('index')], true);
 });
+
 </script>
 </body>
 </html>

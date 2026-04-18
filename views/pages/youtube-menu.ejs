@@ -1,0 +1,145 @@
+<style>
+    #youtube-menu-wrapper {
+    width: 1050px;
+    padding: 25px;
+    background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.5));
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+    margin: 20px auto;
+    position: relative; /* Essential for the close button positioning */
+    }
+
+    /* Botão de Fechar/Voltar */
+    .close-menu-btn {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.2s;
+        z-index: 10;
+    }
+
+    .close-menu-btn:hover {
+        background: #ff0000;
+        border-color: #ff0000;
+        transform: scale(1.1);
+    }
+
+    .search-container {
+        width: 100%;
+        max-width: 800px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .search-input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 30px;
+        border-radius: 15px;
+        font-size: 1.5rem;
+        color: white;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .search-input:focus {
+        border-color: #ff0000;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+
+    .tags-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        width: 100%;
+    }
+
+    .tag-card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: 0.2s;
+    }
+
+    .tag-card:hover {
+        background: #ff0000;
+        transform: scale(1.05);
+    }
+
+    .tag-title {
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    #youtube-menu-wrapper .music-header {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
+</style>
+
+<div id="youtube-menu-wrapper">
+    <div class="close-menu-btn" onclick="closeSubMenu()">
+        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
+    </div>
+
+    <div class="movies-header" style="color: white; font-size: 1.6rem; letter-spacing: 5px; margin-bottom: 30px;">YOUTUBE SEARCH</div>
+
+    <div class="search-container">
+        <input type="text" 
+               id="yt-search-field" 
+               class="search-input" 
+               placeholder="Pesquisar no YouTube..."
+               onkeypress="if(event.key === 'Enter') executeSearch()">
+    </div>
+
+    <div class="tags-grid">
+        <div class="tag-card" onclick="handleNav('/youtube-grid?genre=Tecnologia&menu=/youtube-menu')">
+            <div class="tag-title">Tecnologia</div>
+        </div>
+        <div class="tag-card" onclick="handleNav('/youtube-grid?genre=Gaming&menu=/youtube-menu')">
+            <div class="tag-title">Gaming</div>
+        </div>
+        <div class="tag-card" onclick="handleNav('/youtube-grid?genre=Culinária&menu=/youtube-menu')">
+            <div class="tag-title">Culinária</div>
+        </div>
+        <div class="tag-card" onclick="handleNav('/youtube-grid?genre=Notícias&menu=/youtube-menu')">
+            <div class="tag-title">Notícias</div>
+        </div>
+    </div>
+</div>
+
+<script>
+function executeSearch() {
+    const query = document.getElementById('yt-search-field').value;
+    if (query.trim() !== "") {
+        handleNav(`/youtube-grid?genre=${encodeURIComponent(query)}&menu=/youtube-menu`);
+    }
+}
+</script>

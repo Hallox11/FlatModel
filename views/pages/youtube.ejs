@@ -1,7 +1,7 @@
 <style>
 
 #yt-module {
-    width: 1200px; /* Full width */
+    width: 1280px; /* Full width */
     height: 720px; /* Fixed height */
     display: flex;
     flex-direction: column;
@@ -12,14 +12,15 @@
 }
 
 #yt-module .nav-bar {
-    flex-shrink: 0; /* Prevents the bar from squishing */
-    padding: 15px 25px;
-    display: flex;
-    gap: 12px;
-    background: transparent;
-    z-index: 99;
-    border-bottom: 1px solid #222;
-    align-items: center;
+        height: 60px;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px); 
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        flex-shrink: 0;
+        z-index: 10;
 }
 
 /* New Scrollable Wrapper */
@@ -31,13 +32,15 @@
 }
 
     #yt-module #yt-search-input {
-        flex-grow: 1;
+        
         background: #222;
         color: #fff;
         border: 1px solid #444;
         padding: 12px;
+        width: 230px!important;
         border-radius: 4px;
         font-size: 16px;
+       
     }
 
     #yt-module .search-btn, #yt-module .cat-modal-btn {
@@ -52,8 +55,17 @@
         white-space: nowrap;
     }
 
-    #yt-module .search-btn { background: #ff0000; }
-    #yt-module .cat-modal-btn { background: #333; border: 1px solid #ff6b6b; color: #ff6b6b; }
+    #yt-module .search-btn {
+         background: #ff0000;
+         margin-left: 5px;
+    }
+
+    #yt-module .cat-modal-btn {
+         background: #333; 
+         border: 1px solid #ff6b6b; 
+         color: #ff6b6b;
+         margin-left: 20px;
+         }
 
     /* Modal */
     #yt-cat-modal {
@@ -102,32 +114,30 @@
 }
 
     #yt-module .video-card {
-        background: #161616;
+        background: #161616a3;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         transition: transform 0.2s;
         border: 1px solid white;
-        border-radius: 4px;
         cursor: pointer;
     }
 
     #yt-module .video-card:hover {
-        transform: translateY(0px);
-        border-color: #ff0000 !important;
+       
+        border: 2px solid yellow;
     }
 
     #yt-module .thumb-wrap {
         width: 100%;
-        height: 100%;
+        
         overflow: hidden;
-        background: #000;
         position: relative;
     }
 
     #yt-module .thumb-wrap img { 
         width: 100%; 
-        height: 230px; 
+        height: 220px; 
         object-fit: cover;
      }
 
@@ -144,13 +154,13 @@
     }
 
     #yt-module .video-meta { 
-        padding: 4px 10px 10px;
+        padding: 0px 10px 10px;
      }
    
    
     #yt-module .video-title { 
     letter-spacing: 0.9px; 
-    font-size: 13px; 
+    font-size: 12px; 
     margin: 5px; 
     color: #eee; 
     text-transform: uppercase; 
@@ -165,9 +175,10 @@
 }
     
     #yt-module .video-channel { 
-        font-size: 13px;
+        font-size: 14px;
          margin: 1px;
-         color: #ff6b6b; }
+         text-transform: uppercase; 
+         color: #ffd700; }
 
     #yt-module .loading-msg {
         text-align: center;
@@ -306,11 +317,22 @@
     #yt-content-scroll::-webkit-scrollbar-track { background: #333; border-radius: 10px; }
     #yt-content-scroll::-webkit-scrollbar-thumb { background: red; border-radius: 10px; }
 
+
+    .nav-left { display: flex; align-items: center; gap: 15px; width: 150px; }
+    .current-tag span { font-size: 18px; font-weight: bold; color: white; }
+    .current-tag small { color: #ffcc00; font-size: 12px; display: block; }
 </style>
 
 <div id="yt-module">
     <!-- Top Bar stays fixed because it is outside the scroll div -->
     <div class="nav-bar">
+        <div class="nav-left">
+            <div class="current-tag">
+                <span>YOUTUBE</span>
+                <small><%= tag %></small>
+            </div>
+        </div>
+
         <input type="text" id="yt-search-input" value="<%= tag || 'secondlife' %>" placeholder="Search YouTube...">
         <button class="search-btn" onclick="ytSearch()">Search</button>
         <button class="cat-modal-btn" style="border-color: #ffd700; color: #ffd700;" onclick="toggleYtFavModal(true)">Favorites</button>
@@ -426,7 +448,7 @@ window.selectYtCat = function(cat) {
 window.toggleYtCatModal = function(show) {
     document.getElementById('yt-cat-modal').style.display = show ? 'flex' : 'none';
     if (window.socket && !window.isRemoteAction) {
-        socket.emit('state_sync', { type: 'yt_modal', show });
+        socket.emit('state_sync', { type: 'yt_cat_modal', show });
     }
 };
 
@@ -439,11 +461,7 @@ window.toggleYtFavModal = function(show) {
     
     // Only emit if this was a LOCAL click, not a command from the socket
     if (window.socket && !window.isRemoteAction) {
-        socket.emit('state_sync', { 
-            type: 'yt_fav_modal', 
-            show: show,
-            room: "Lobby"
-        });
+        socket.emit('state_sync', { type: 'yt_fav_modal', show });
     }
 };
 

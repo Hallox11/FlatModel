@@ -18,12 +18,15 @@ const NAV_CONFIG = {
         'inter-radio': '/radios/inter-radio',
         'sl-radio': '/radios/sl-radio',
         'music': '/music-menu',
+        'music-grid': '/music-grid',
         'movies': '/movies-menu',
-        'sl': '/sl-menu',
+        'sl-destinations': '/sl-destinations',
         'flickr': '/flickr',
-        'youtube': '/youtube',
+        'youtube': '/youtube-menu',
         'settings': '/settings',
         'tvytube': '/tvytube',
+        'erotic': '/erotic-grid',        // Add this
+        'erotic-grid': '/erotic-grid',   // Add this for safety
         'xxx': '/xxx-check',
         'xxx-index': '/xxx-index',
         'xvideos': '/xvideos-grid',
@@ -130,7 +133,31 @@ $(document).ready(function() {
         $('body').addClass('dark-text');
     }
 });
+$(document).ready(function() {
+    const params = new URLSearchParams(window.location.search);
+    const token  = params.get('token');
 
+    if (!token) {
+        // Sem token — acesso direto não autorizado
+        window.location.href = '/access-denied';
+        return;
+    }
+
+    $.get(`/validate-token?token=${token}`)
+        .done(function(data) {
+            if (data.valid) {
+                console.log("✅ Access granted for:", data.owner);
+                // Remove o token da URL sem recarregar
+                window.history.replaceState({}, '', '/');
+                // App continua a carregar normalmente
+            } else {
+                window.location.href = '/access-denied';
+            }
+        })
+        .fail(function() {
+            window.location.href = '/access-denied';
+        });
+});
 // ===============================
 // CORE NAVIGATION FUNCTION
 // ===============================
@@ -281,6 +308,8 @@ $(document).on('click', '.btn', function(e) {
 
     if (type === "menu") return handleNav(mode);
 
+
+    
     if (type === "radio-root") {
         let route = NAV_CONFIG.radioRoot[mode];
         let stream = $el.data('stream');
@@ -343,7 +372,8 @@ $(document).on('click', '.btn', function(e) {
 // SCROLL SYNC
 // ===============================
 let scrollTimeout;
-$(document).on('scroll', '#conteiner, .conteiner, #xxx-module', function() {
+// Locate this in your GLOBAL config
+$(document).on('scroll', '#conteiner, .conteiner, #xxx-module, #grid-content', function() {
     if (socket && socket.connected && !window.isSyncing) { 
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
@@ -352,7 +382,7 @@ $(document).on('scroll', '#conteiner, .conteiner, #xxx-module', function() {
                 position: $(this).scrollTop(),
                 room: myRoom
             });
-        }, 50); // Only emit every 50ms
+        }, 50); 
     }
 });
 
@@ -401,32 +431,47 @@ $(document).on('focus blur', 'input[type="text"]', function(e) {
 
 
 
-
+function aplicarBackground(url) {
+    $('body').css({
+        'background-image': `url('${url}')`,
+        'background-size': 'cover',
+        'background-position': 'center',
+        'background-attachment': 'fixed'
+    });
+}
 // ===============================
 // SOCKET INITIALIZATION
 // ===============================
 $(function() { 
     if (typeof io !== 'undefined') {
 
-        socket.on('connect', () => {
-            console.log("Socket connected! Joining room:", myRoom);
-            socket.emit('join_room', myRoom);
-        });
 
         // -------------------------------------------------------
         // force_sync_arrival — sync new arrival to lobby state
         // -------------------------------------------------------
 let syncArrivalDone = false;
-        socket.on('force_sync_arrival', function(state) {
+     
+
+
+socket.on('force_sync_arrival', function(state) {
             if (syncArrivalDone) return;
             syncArrivalDone = true;
             console.log("--- SYNCING TO LOBBY STATE ---", state);
 
             // 1. SYNC BACKGROUND (Sempre atualiza o fundo)
-            if (state.currentBg) {
-                document.body.style.backgroundImage = `url('${state.currentBg}')`;
-                document.body.style.backgroundSize = "cover";
-            }
+if (state.currentBg) {
+        console.log("Aplicando fundo vindo do servidor:", state.currentBg);
+        aplicarBackground(state.currentBg);
+    } else {
+        // Se o servidor não tem fundo definido, usa o local ou padrão
+        let localBG = localStorage.getItem("selectedBG");
+        if (localBG) {
+            aplicarBackground(localBG);
+            // Opcional: Avisar o servidor que este é o novo fundo da sala
+            socket.emit('change_bg', { url: localBG });
+        }
+    }
+
 
             // 2. PRIORIDADE: SYNC AJAX OVERLAY (Menus, Grids, etc.)
             // Se houver um menu ativo, ele deve ser a prioridade visual.
@@ -448,24 +493,24 @@ let syncArrivalDone = false;
                                        window.ytPlayerInstance.getVideoData().video_id === state.videoId;
 
                 if (alreadyPlaying) {
-                    console.log("Already playing, seeking to:", state.timestamp);
-                    window.ytPlayerInstance.seekTo(state.timestamp, true);
+                    console.log("Already playing, seeking to:", state.videoTimestamp);
+                    window.ytPlayerInstance.seekTo(state.videoTimestamp, true);
                     if (!state.isPaused) window.ytPlayerInstance.playVideo();
                     return;
                 }
 
                 const syncPath = `/tvytube?videoId=${state.videoId}`;
-                window.syncTargetTime = state.timestamp;
-                window.syncIsPaused   = state.isPaused;
+                window.syncTargetTime = state.videoTimestamp;
+                window.syncIsPaused   = state.videoPaused;
+                window.syncArrivalTime = Date.now();
                 handleNav(syncPath, true);
                 return;
             }
 
             // 4. SYNC RADIO (Se não houver vídeo nem menu impeditivo)
-            if (state.radioData && state.radioData.stream) {
-                if (typeof tuneRadio === 'function') {
-                    tuneRadio(state.radioData.stream, state.radioData.name);
-                }
+            let ind=state.radioDialIndex
+            if (state.currentMode==="RADIO" ) {
+               handleNav(`/radios/sl-radio?stream=${encodeURIComponent(state.radioStream)}&name=${encodeURIComponent(state.radioName || '')}`, true);
             }
         });
 
@@ -490,11 +535,7 @@ let syncArrivalDone = false;
 
                         if (data.selector === '.flickr-card') {
                             const $flickrGrid = $('#flickr-results-grid');
-                            if ($flickrGrid.length) {
-                                $flickrGrid.stop().animate({
-                                    scrollTop: $target.position().top + $flickrGrid.scrollTop() - 60
-                                }, 400);
-                            }
+                            
                         }
                     }
                     break;
@@ -507,7 +548,7 @@ let syncArrivalDone = false;
                     break;
                 }
 
-                case 'yt_modal': {
+                case 'yt_cat_modal': {
                     const $modal = $('#yt-cat-modal');
                     if ($modal.length) {
                         window.isRemoteAction = true;
@@ -517,19 +558,32 @@ let syncArrivalDone = false;
                     break;
                 }
 
-                case 'scroll': {
-                    const $scrollTarget = $('#yt-content-scroll').length  ? $('#yt-content-scroll') :
-                                          $('#xxx-module').length          ? $('#xxx-module') :
-                                          $('#flickr-results-grid').length ? $('#flickr-results-grid') :
-                                          $('#conteiner');
-
-                    if ($scrollTarget.length > 0) {
-                        window.isSyncing = true;
-                        $scrollTarget.scrollTop(data.position);
-                        setTimeout(() => { window.isSyncing = false; }, 50);
+                case 'yt_fav_modal': {
+                    const $modal = $('#yt-fav-modal');
+                    if ($modal.length) {
+                        window.isRemoteAction = true;
+                        $modal.css('display', data.show ? 'flex' : 'none');
+                        setTimeout(() => { window.isRemoteAction = false; }, 100);
                     }
                     break;
                 }
+
+case 'scroll': {
+    // Add #grid-content to this priority list
+    const $scrollTarget = $('#grid-content').length        ? $('#grid-content') :
+                          $('#yt-content-scroll').length   ? $('#yt-content-scroll') :
+                          $('#xxx-module').length          ? $('#xxx-module') :
+                          $('#flickr-results-grid').length ? $('#flickr-results-grid') :
+                          $('#conteiner');
+
+    if ($scrollTarget.length > 0) {
+        window.isSyncing = true;
+        $scrollTarget.scrollTop(data.position);
+        // Using a slightly longer timeout to ensure smooth handling
+        setTimeout(() => { window.isSyncing = false; }, 100);
+    }
+    break;
+}
 
                 case 'start_slideshow':
                     if (typeof window.startSlideshow === 'function') {
@@ -587,15 +641,6 @@ let syncArrivalDone = false;
                     $('#flickr-loader').fadeIn(100);
                     break;
 
-                case 'flickr_scroll': {
-                    const $flickrGrid = $('#flickr-results-grid');
-                    if ($flickrGrid.length) {
-                        window.isSyncingScroll = true;
-                        $flickrGrid.scrollTop(data.scrollTop);
-                        setTimeout(() => { window.isSyncingScroll = false; }, 50);
-                    }
-                    break;
-                }
 
                 case 'radio_hash_change':
                     window.isRemoteAction = true;

@@ -1,152 +1,221 @@
 <style>
-    /* 1. Wrapper to activate the Blue/Music Theme */
-    #music-menu-wrapper {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 800px;
-        animation: fadeIn 0.4s ease-out;
-    }
+/* ============================================================
+   MUSIC DISCOVERY - PREMIUM TV INTERFACE
+   ============================================================ */
 
-    /* 2. The Circular Close Button (Top Right) */
-    #music-menu-wrapper .close-btn {
-        position: absolute;
-        top: -10px;
-        right: 0px;
-        width: 50px;
-        height: 50px;
-        background: rgba(0, 0, 0, 0.6);
-        border: 2px solid #00d4ff; /* Music Accent Color */
-        border-radius: 50%;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 110;
-        transition: all 0.2s ease;
-        outline: none;
-    }
+#music-menu-wrapper {
+    width: 1050px;
+    padding: 25px;
+    background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.5));
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+    margin: 20px auto;
+    position: relative; /* Essential for the close button positioning */
+}
 
-    #music-menu-wrapper .close-btn:hover, 
-    #music-menu-wrapper .close-btn:focus {
-        background: #00d4ff;
-        color: black;
-        transform: scale(1.1) rotate(90deg);
-        box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-    }
+#music-menu-wrapper .music-header {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
 
-    /* 3. Title Styling */
-    #music-menu-wrapper #title {
-        font-size: 30px;
-        color: #00d4ff;
-        text-transform: uppercase;
-        margin-bottom: 25px;
-        letter-spacing: 4px;
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    }
+.music-grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
+    width: 100%;
+}
 
-    /* 4. The Grid Container - 2 Columns */
-    #music-menu-wrapper .conteiner {
-        display: grid !important;
-        grid-template-columns: 2fr 1fr !important; /* Larger main button, smaller list button */
-        gap: 12px !important;
-        width: 100% !important;
-        max-height: 480px;
-        overflow-y: auto;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        border: 1px solid rgba(0, 212, 255, 0.1);
-    }
+.feature-row {
+    grid-column: span 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
 
-    /* 5. Music Button Styling */
-    #music-menu-wrapper .btn {
-        background: rgba(0, 212, 255, 0.1) !important;
-        border: 1px solid rgba(0, 212, 255, 0.3) !important;
-        border-radius: 12px;
-        padding: 22px 15px !important;
-        font-size: 20px;
-        color: white !important;
-        text-align: center;
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
-        cursor: pointer;
-    }
+.feature-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Softened from 0.8 */
+    padding: 22px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+}
 
-    /* Special style for "Lists" buttons to make them look distinct */
-    #music-menu-wrapper .list-btn {
-        background: rgba(255, 255, 255, 0.05) !important;
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+.feature-btn:hover { background: white; color: black; border-color: white; }
 
-    #music-menu-wrapper .btn:focus, 
-    #music-menu-wrapper .btn:hover {
-        background: #00d4ff !important;
-        color: #000 !important;
-        transform: scale(1.03);
-        outline: none;
-        box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
-    }
+.music-group {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
 
-    /* 6. Full-Width Override for single items */
-    .full-row {
-        grid-column: span 2;
-    }
+.music-group:hover {
+    transform: translateY(-5px); /* Changed from 0px to create a lift effect */
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.4);
+}
 
-    /* Hide scrollbar */
-    #music-menu-wrapper .conteiner::-webkit-scrollbar { width: 0px; }
+.main-genre-btn {
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+.main-genre-btn1 {
+    font-size: 0.75rem;
+    font-weight: 400;
+    padding: 5px 15px;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* Energy Colors */
+.energy-high { border-color: rgba(255, 75, 43, 0.4); }
+.energy-high .main-genre-btn { color: #ff4b2b; }
+.energy-high .main-genre-btn1 { color: #ff4b2b; border-color: rgba(255, 75, 43, 0.6); }
+.energy-high .main-genre-btn1:hover { background: #ff4b2b; color: white; }
+
+.energy-chill { border-color: rgba(0, 212, 255, 0.4); }
+.energy-chill .main-genre-btn { color: #00d4ff; }
+.energy-chill .main-genre-btn1 { color: #00d4ff; border-color: rgba(0, 212, 255, 0.6); }
+.energy-chill .main-genre-btn1:hover { background: #00d4ff; color: white; }
+
+.energy-smooth { border-color: rgba(255, 179, 71, 0.4); }
+.energy-smooth .main-genre-btn { color: #ffb347; }
+.energy-smooth .main-genre-btn1 { color: #ffb347; border-color: rgba(255, 179, 71, 0.6); }
+.energy-smooth .main-genre-btn1:hover { background: #ffb347; color: white; }
+
+.energy-soul { border-color: rgba(189, 0, 255, 0.4); }
+.energy-soul .main-genre-btn { color: #d385ee; }
+.energy-soul .main-genre-btn1 { color: #d385ee; border-color: rgba(189, 0, 255, 0.6); }
+.energy-soul .main-genre-btn1:hover { background: #d385ee; color: white; }
+
+.close-menu-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 10;
+}
+
+.close-menu-btn:hover {
+    background: #ff4b2b;
+    border-color: #ff4b2b;
+    transform: scale(1.1);
+}
 </style>
 
 <div id="music-menu-wrapper">
-    
-    <button class="close-btn" onclick="closeSubMenu()" tabindex="50">
-        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    </button>
-
-    <div id="title">Music Menu</div>
-
-    <div class="conteiner">
-        <div data-type="music" data-mode="concerts" class="btn full-row" tabindex="1">Live Concerts</div>  
-        <div data-type="music" data-mode="full" class="btn full-row" tabindex="2">Full Albums</div>  
-
-        <div data-type="music" data-mode="blues" class="btn" tabindex="3">Blues</div> 
-        <div data-type="music" data-mode="blues_list" class="btn list-btn" tabindex="4">Lists</div>
-
-        <div data-type="music" data-mode="jazz" class="btn" tabindex="5">Jazz</div> 
-        <div data-type="music" data-mode="jazz_list" class="btn list-btn" tabindex="6">Lists</div>
-            
-        <div data-type="music" data-mode="classic" class="btn" tabindex="7">Classic Music</div> 
-        <div data-type="music" data-mode="classic_list" class="btn list-btn" tabindex="8">Lists</div>
-
-        <div data-type="music" data-mode="relax" class="btn" tabindex="9">Relax Music</div> 
-        <div data-type="music" data-mode="relax_list" class="btn list-btn" tabindex="10">Lists</div>
-
-        <div data-type="music" data-mode="pmb" class="btn" tabindex="11">PMB Music</div> 
-        <div data-type="music" data-mode="pmb_list" class="btn list-btn" tabindex="12">Lists</div>
-
-        <div data-type="music" data-mode="boiler" class="btn" tabindex="13">Boiler Room</div> 
-        <div data-type="music" data-mode="boiler_list" class="btn list-btn" tabindex="14">Lists</div>
-
-        <div data-type="music" data-mode="majestic" class="btn" tabindex="15">Majestic Casual</div> 
-        <div data-type="music" data-mode="majestic_list" class="btn list-btn" tabindex="16">Lists</div>
-
-        <div data-type="music" data-mode="love" class="btn" style="grid-column: span 1;" tabindex="17">Love Songs</div> 
-        <div data-type="music" data-mode="slowrock" class="btn" tabindex="18">Slow Rock</div> 
-        <div data-type="music" data-mode="rap" class="btn full-row" tabindex="19">RAP Fight</div> 
+    <div class="close-menu-btn" onclick="closeSubMenu()">
+        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
     </div>
 
-</div>
+    <div class="music-header">Music Discovery</div>
+
+    <div class="music-grid-container">
+        <div class="feature-row">
+            <div class="feature-btn" onclick="handleNav('/music-grid?genre=Live Concerts')">LIVE CONCERTS</div>
+            <div class="feature-btn" onclick="handleNav('/music-grid?genre=Full Albums')">FULL ALBUMS</div>
+        </div>
+
+        <div class="music-group energy-smooth" onclick="handleNav('/music-grid?genre=Blues')">
+            <div class="main-genre-btn">Blues</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Blues VEVO')">VEVO</span>
+        </div>
+        <div class="music-group energy-high" onclick="handleNav('/music-grid?genre=Rock')">
+            <div class="main-genre-btn">Rock</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Rock VEVO')">VEVO</span>
+        </div>
+        <div class="music-group energy-smooth" onclick="handleNav('/music-grid?genre=Jazz')">
+            <div class="main-genre-btn">Jazz</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Jazz VEVO')">VEVO</span>
+        </div>
+        <div class="music-group energy-smooth" onclick="handleNav('/music-grid?genre=Classic music')">
+            <div class="main-genre-btn">Classic</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Classic music VEVO')">VEVO</span>
+        </div>
+        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Relax music')">
+            <div class="main-genre-btn">Relax</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Relax music vevo')">VEVO</span>
+        </div>
+        
+        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Pop')">
+            <div class="main-genre-btn">Pop</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Pop VEVO')">VEVO</span>
+        </div>
+        <div class="music-group energy-high" onclick="handleNav('/music-grid?genre=Alternative Pop')">
+            <div class="main-genre-btn">Alternative</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Alternative Pop Vevo')">VEVO</span>
+        </div>
+        <div class="music-group energy-high" onclick="handleNav('/music-grid?genre=Industrial music')">
+            <div class="main-genre-btn">Industrial</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Industrial music vevo')">VEVO</span>
+        </div>      
+        <div class="music-group energy-high" onclick="handleNav('/music-grid?genre=Punk music')">
+            <div class="main-genre-btn">Punk</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Punk music VEVO')">VEVO</span>
+        </div>
+        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Electronic Dance')">
+            <div class="main-genre-btn">Electronic</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Techno Mix')">VEVO</span>
+        </div>
+
+        <div class="music-group energy-soul" onclick="handleNav('/music-grid?genre=Fado musica')">
+            <div class="main-genre-btn">Fado</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Fado musica vevo')">VEVO</span>
+        </div>
+        <div class="music-group energy-soul" onclick="handleNav('/music-grid?genre=Reggae Roots')">
+            <div class="main-genre-btn">Reggae</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Reggae vevo')">VEVO</span>
+        </div>
+        <div class="music-group energy-soul" onclick="handleNav('/music-grid?genre=Soul RnB')">
+            <div class="main-genre-btn">Soul</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=RnB VEVO')">VEVO</span>
+        </div>
+        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Deep House')">
+            <div class="main-genre-btn">House</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=House Mix vevo')">VEVO</span>
+        </div>
+        <div class="music-group energy-smooth" onclick="handleNav('/music-grid?genre=Acoustic')">
+            <div class="main-genre-btn">Unplug</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Acoustic VEVO')">VEVO</span>
+        </div>
+    </div> </div>

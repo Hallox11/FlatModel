@@ -1,0 +1,225 @@
+<style>
+    /* Scope everything to #erotic-module */
+    #erotic-module {
+        width: 1280px;
+        height: 720px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+        position: relative;
+        background: #111;
+    }
+
+    #erotic-module .nav-bar {
+        padding: 15px 25px;
+        display: flex;
+        gap: 12px;
+        background: #0b5b5b; /* Erotic Green theme */
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        border-bottom: 2px solid yellowgreen;
+    }
+
+    #erotic-module .nav-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: gold;
+        margin-right: 20px;
+        line-height: 45px;
+    }
+
+    #erotic-module .cat-modal-btn {
+        padding: 0 20px;
+        color: #fff;
+        background: #333;
+        border: 1px solid yellowgreen;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 45px;
+    }
+
+    /* Modal Styling */
+    #erotic-cat-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 1280px;
+        height: 720px;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        width: 90%;
+        max-width: 1000px;
+    }
+
+    .cat-item {
+        background: #1a1a1a;
+        padding: 20px;
+        border: 1px solid #444;
+        color: gold;
+        text-align: center;
+        cursor: pointer;
+        font-size: 24px;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    .cat-item:hover { background: yellowgreen; color: #000; border-color: #fff; }
+
+    /* Grid Layout */
+    #erotic-module .video-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+        padding: 20px 40px;
+        box-sizing: border-box;
+    }
+
+    #erotic-module .video-card {
+        background: #161616;
+        overflow: hidden;
+        display: flex;
+        height: 285px;
+        flex-direction: column;
+        transition: transform 0.2s;
+        border: 2px solid #b9b3b3;
+        cursor: pointer;
+    }
+
+    #erotic-module .video-card:hover {
+        transform: translateY(-5px);
+        border-color: yellowgreen !important;
+    }
+
+    #erotic-module .thumb-wrap {
+         width: 100%; 
+         height: 100%;
+         aspect-ratio: 2 / 3; 
+         overflow: hidden; 
+         background: #000; }
+
+    #erotic-module .thumb-wrap img {
+width: 100%;
+    height: 100%;
+    /* Add a max-width to prevent them from growing too large */
+
+  
+        }
+
+    #erotic-module .video-title {
+         font-size: 11px;
+          padding: 0px 10px; 
+          color: #eee;
+           text-align: center;
+            text-transform: uppercase;
+             overflow: hidden; }
+
+    #erotic-module .close-btn {
+        background: #222;
+        color: #ff4444;
+        border: 1px solid #ff4444;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+    }
+
+    #erotic-module::-webkit-scrollbar { width: 12px; }
+    #erotic-module::-webkit-scrollbar-track { background: #333; }
+    #erotic-module::-webkit-scrollbar-thumb { background: yellowgreen; border-radius: 10px; }
+</style>
+
+<div id="erotic-module">
+    <div class="nav-bar">
+        <div class="nav-title">WORLDWIDE EROTIC: <%= tag %></div>
+        <button class="cat-modal-btn" onclick="toggleEroticModal(true)">Select Decade</button>
+        <button class="close-btn" onclick="handleNav('/xxx-index')">✕</button>
+    </div>
+
+    <div id="erotic-cat-modal">
+        <h2 style="color: gold; margin-bottom: 20px; font-size: 40px;">SELECT DECADE</h2>
+        <div class="cat-grid">
+            <% ["1960", "1970", "1980", "1990", "2000", "2010", "2020"].forEach(year => { %>
+                <div class="cat-item" onclick="selectDecade('<%= year %>')"><%= year %>'s</div>
+            <% }) %>
+        </div>
+        <p onclick="toggleEroticModal(false)" style="margin-top: 30px; cursor: pointer; color: #888; font-size: 20px;">[ CLOSE ]</p>
+    </div>
+
+    <div class="video-grid">
+        <% if (videos && videos.length > 0) { %>
+            <% videos.forEach(v => { %>
+                <div class="video-card" onclick="playErotic('<%= v.streamUrl %>', '<%= v.title %>')">
+                    <div class="thumb-wrap">
+                        <img src="<%= v.thumbnail %>" loading="lazy" alt="movie poster">
+                    </div>
+                    <p class="video-title"><%= v.title %></p>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <div style="grid-column: span 4; text-align: center; padding: 50px; color: gold; font-size: 24px;">
+                No movies found for this decade.
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<script>
+function toggleEroticModal(show) {
+    $('#erotic-cat-modal').css('display', show ? 'flex' : 'none');
+    
+    // Global sync for everyone in the room
+    if (window.socket && !window.isRemoteAction) {
+        socket.emit('state_sync', {
+            type: 'erotic_modal',
+            show: show
+        });
+    }
+}
+
+function selectDecade(year) {
+    toggleEroticModal(false);
+    // Path matches your sltv.js route
+    handleNav('/erotic-grid?decade=' + year);
+}
+
+function playErotic(streamUrl, title) {
+    if (!streamUrl || streamUrl === 'null') {
+        alert("Direct stream not found for this title.");
+        return;
+    }
+    // Navigate to your existing xxx-player
+    const playerUrl = `/xxx-player?stream=${encodeURIComponent(streamUrl)}&title=${encodeURIComponent(title)}`;
+    handleNav(playerUrl);
+}
+
+// Socket Sync for Erotic Modal
+if (window.socket) {
+    socket.off('erotic_modal_sync').on('state_sync', (data) => {
+        if (data.type === 'erotic_modal') {
+            window.isRemoteAction = true;
+            $('#erotic-cat-modal').css('display', data.show ? 'flex' : 'none');
+            setTimeout(() => { window.isRemoteAction = false; }, 100);
+        }
+    });
+}
+</script>

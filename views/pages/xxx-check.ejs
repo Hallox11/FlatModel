@@ -1,43 +1,37 @@
 <style>
 /* --- Overlay Container (Wraps your content) --- */
 #restricted-overlay {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 900px;
-    height: 500px;
-    background: rgba(0, 0, 0, 0.7); /* The Semi-Transparent Layer */
-    backdrop-filter: blur(15px); /* Optional Blur for Premium feel */
-    border: 3px solid #ff4d4d; /* Border matching the warning title */
-    border-radius: 20px;
-    padding: 30px;
-    box-sizing: border-box;
+    width: 800px;
+    padding: 25px;
+    background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.5));
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers items horizontally */
-    justify-content: center; /* Centers items vertically */
-    z-index: 1000;
+    align-items: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+    margin: 20px auto;
+    position: relative; /* Essential for the close button positioning */
 }
 
 /* --- Centered Text Styling --- */
 #title {
-    font-size: 55px;
-    font-weight: 600;
-    color: #ff4d4d;
+    font-size: 40px;
+    font-weight: 400;
+    color: #f81919;
     text-transform: uppercase;
     margin-bottom: 20px;
 }
 
 .line {
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 200;
     color: white;
     margin: 5px 0;
 }
 
+#l2 { color: #2ecc71; } /* Yellow accent line */
 #l3 { color: #f1c40f; } /* Yellow accent line */
-
 /* --- Password Input --- */
 #myPsw {
     width: 350px;
@@ -51,39 +45,41 @@
     margin: 30px 0;
 }
 
-/* --- The Cross Button Design --- */
-/* Centering the button and styling the 'Cross' design */
-#backBut {
-    margin-top: 20px;
-    background: rgba(241, 196, 15, 0.1); /* Subtle yellow tint */
-    border: 2px solid #f1c40f;
-    color: #f1c40f;
-    padding: 12px 30px;
-    font-size: 22px;
-    font-weight: 600;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
+    /* 2. The Circular Close Button (Top Right) */
+.close-menu-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 10;
 }
 
-#backBut .cross-icon {
-    font-size: 24px;
-    font-weight: bold;
+.close-menu-btn:hover {
+    background: #ff4b2b;
+    border-color: #ff4b2b;
+    transform: scale(1.1);
 }
 
-#backBut:hover {
-    background: #f1c40f;
-    color: #000;
-    box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
-}
 </style>
 
 <body> 
+
 <div id="restricted-overlay">
+   
+    <div class="close-menu-btn" onclick="closeSubMenu()">
+        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
+    </div>
+
     <div id="title">Attention to Adult Content</div>
 
     <div id="l1" class="line">( the following pages are for adult viewers only )</div>
@@ -94,13 +90,12 @@
     <p id="errorMsg" style="display:none; color:#ff4d4d; font-weight:600;"></p>
 
     <button id='errorBut' onclick="tryAgain();" class="btn" style="display:none;">TRY AGAIN</button>
-    <button id='backBut' onclick="back();" class="btn-cross">BACK ✕</button>
+
 </div>
 
 <script>
-    var socket;
-    var myRoom = 'Lobby';
-
+    
+   
     window.onload = function() {
         const params = new URLSearchParams(window.location.search);
         myRoom = params.get('room') || 'Lobby';

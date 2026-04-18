@@ -1,145 +1,219 @@
-
 <style>
-    /* 1. Wrapper to activate the Gold/Movie Theme */
-    #movies-menu-wrapper {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 800px;
-        animation: fadeIn 0.4s ease-out;
-    }
+/* ============================================================
+   CINEMA HUB - PREMIUM TV INTERFACE (MUSIC DESIGN LOGIC)
+   ============================================================ */
 
-    /* 2. The Circular Close Button (Top Right) */
-    #movies-menu-wrapper .close-btn {
+#movies-menu-wrapper {
+    width: 1050px;
+    padding: 25px;
+    background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.5));
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+    margin: 20px auto;
+    position: relative; /* Essential for the close button positioning */
+}
+
+#movies-menu-wrapper .movies-header {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
+
+.movies-grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
+    width: 100%;
+}
+
+.feature-row {
+    grid-column: span 5;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.feature-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 22px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+}
+
+.feature-btn:hover { background: white; color: black; }
+
+.movie-group {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.movie-group:hover {
+    transform: translateY(-5px); /* Changed from 0px to create a lift effect */
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.main-title-btn {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.sub-list-btn {
+    font-size: 0.70rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ACTION / TRENDING: Red */
+.cat-action { border-color: rgba(255, 75, 43, 0.3); }
+.cat-action .main-title-btn { color: #ff4b2b; }
+.cat-action .sub-list-btn { color: #ff4b2b; border-color: rgba(255, 75, 43, 0.4); }
+.cat-action .sub-list-btn:hover { background: #ff4b2b; color: white; }
+
+/* KIDS / ANIMATION: Cyan */
+.cat-kids { border-color: rgba(0, 212, 255, 0.3); }
+.cat-kids .main-title-btn { color: #00d4ff; }
+.cat-kids .sub-list-btn { color: #00d4ff; border-color: rgba(0, 212, 255, 0.4); }
+.cat-kids .sub-list-btn:hover { background: #00d4ff; color: white; }
+
+/* CLASSIC / WESTERN: Amber */
+.cat-classic { border-color: rgba(255, 179, 71, 0.3); }
+.cat-classic .main-title-btn { color: #ffb347; }
+.cat-classic .sub-list-btn { color: #ffb347; border-color: rgba(255, 179, 71, 0.4); }
+.cat-classic .sub-list-btn:hover { background: #ffb347; color: white; }
+
+/* DOCUMENTARY / HISTORY: Purple */
+.cat-docs { border-color: rgba(189, 0, 255, 0.3); }
+.cat-docs .main-title-btn { color: #bd00ff; }
+.cat-docs .sub-list-btn { color: #bd00ff; border-color: rgba(189, 0, 255, 0.4); }
+.cat-docs .sub-list-btn:hover { background: #bd00ff; color: white; }
+
+.close-menu-btn {
         position: absolute;
-        top: -10px;
-        right: 0px;
-        width: 50px;
-        height: 50px;
-        background: rgba(0, 0, 0, 0.6);
-        border: 2px solid #ffcc00; /* Cinema Gold Color */
+        top: 25px;
+        right: 25px;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 50%;
         color: white;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        z-index: 110;
-        transition: all 0.2s ease;
-        outline: none;
+        transition: 0.2s;
+        z-index: 10;
     }
 
-    #movies-menu-wrapper .close-btn:hover, 
-    #movies-menu-wrapper .close-btn:focus {
-        background: #ffcc00;
-        color: black;
-        transform: scale(1.1) rotate(90deg);
-        box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
-    }
-
-    /* 3. Title Styling */
-    #movies-menu-wrapper #title {
-        font-size: 30px;
-        color: #ffcc00;
-        text-transform: uppercase;
-        margin-bottom: 25px;
-        letter-spacing: 4px;
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    }
-
-    /* 4. The Grid Container - 2 Columns */
-    #movies-menu-wrapper .conteiner {
-        display: grid !important;
-        grid-template-columns: 2fr 1fr !important; /* Larger main button, smaller list button */
-        gap: 12px !important;
-        width: 100% !important;
-        max-height: 480px;
-        overflow-y: auto;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 204, 0, 0.1);
-    }
-
-    /* 5. Movie Button Styling */
-    #movies-menu-wrapper .btn {
-        background: rgba(255, 204, 0, 0.05) !important;
-        border: 1px solid rgba(255, 204, 0, 0.2) !important;
-        border-radius: 12px;
-        padding: 22px 15px !important;
-        font-size: 20px;
-        color: white !important;
-        text-align: center;
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
-        cursor: pointer;
-    }
-
-    /* Special style for "Lists" buttons */
-    #movies-menu-wrapper .list-btn {
-        background: rgba(255, 255, 255, 0.05) !important;
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    #movies-menu-wrapper .btn:focus, 
-    #movies-menu-wrapper .btn:hover {
-        background: #ffcc00 !important;
-        color: #000 !important;
-        transform: scale(1.03);
-        outline: none;
-        box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
-    }
-
-    /* Full-Width Override */
-    #movies-menu-wrapper .full-row {
-        grid-column: span 2;
-    }
-
-    /* Hide scrollbar */
-    #movies-menu-wrapper .conteiner::-webkit-scrollbar { width: 0px; }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+.close-menu-btn:hover {
+        background: #ff0000;
+        border-color: #ff0000;
+        transform: scale(1.1);
     }
 </style>
 
 <div id="movies-menu-wrapper">
+
+    <div class="close-menu-btn" onclick="closeSubMenu()">
+        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
+    </div>
     
-    <button class="close-btn" onclick="closeSubMenu()" tabindex="50">
-        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    </button>
+    <div class="movies-header">Cinema Hub</div>
 
-    <div id="title">Movies Menu</div>
+    <div class="movies-grid-container">
+        <div class="feature-row">
+            <div class="feature-btn" onclick="handleNav('/movies-grid?genre=mixmovies&menu=/movies-menu')">MIX SEARCH</div>
+            <div class="feature-btn" onclick="handleNav('/movies-grid?genre=movie trailers&menu=/movies-menu')">TRAILERS</div>
+            <div class="feature-btn" onclick="handleNav('/movies-grid?genre=movie central&menu=/movies-menu')">MOVIE CENTRAL</div>
+        </div>
 
-    <div class="conteiner">
-        <div data-type="movie" data-mode="mixmovies" class="btn full-row" tabindex="1">YT Mix Search Movies</div> 
-        <div data-type="movie" data-mode="movie_trailers" class="btn full-row" tabindex="2">Movie Trailers</div> 
-        
-        <div data-type="movie" data-mode="mojo" class="btn full-row" tabindex="3">WatchMojo</div> 
-        <div data-type="movie" data-mode="movie_central" class="btn full-row" tabindex="4">Movie Central</div> 
-        <div data-type="movie" data-mode="popcornflix" class="btn full-row" tabindex="5">PopcornFlix</div> 
-        <div data-type="movie" data-mode="v_movies" class="btn full-row" tabindex="6">V Movies</div> 
+        <div class="movie-group cat-action" onclick="handleNav('/movies-grid?genre=watchmojo&menu=/movies-menu')">
+            <div class="main-title-btn">WatchMojo</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=popcornflix&menu=/movies-menu')">POPCORNFLIX</span>
+        </div>
 
-        <div data-type="movie" data-mode="retrospective" class="btn" tabindex="7">Retrospective</div> 
-        <div data-type="movie" data-mode="retrospective_list" class="btn list-btn" tabindex="8">Lists</div>
+        <div class="movie-group cat-action" onclick="handleNav('/movies-grid?genre=v movies&menu=/movies-menu')">
+            <div class="main-title-btn">V Movies</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=full movies&menu=/movies-menu')">FULL MOVIES</span>
+        </div>
 
-        <div data-type="movie" data-mode="western" class="btn" tabindex="9">Western Movies</div> 
-        <div data-type="movie" data-mode="western_list" class="btn list-btn" tabindex="10">Lists</div>
+        <div class="movie-group cat-classic" onclick="handleNav('/movies-grid?genre=retrospective&menu=/movies-menu')">
+            <div class="main-title-btn">Retro</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=retrospective list&menu=/movies-menu')">VIEW LISTS</span>
+        </div>
 
-        <div data-type="movie" data-mode="mr_bean" class="btn" tabindex="11">Mr. Bean</div> 
-        <div data-type="movie" data-mode="mr_bean_list" class="btn list-btn" tabindex="12">Lists</div>
+        <div class="movie-group cat-classic" onclick="handleNav('/movies-grid?genre=western&menu=/movies-menu')">
+            <div class="main-title-btn">Western</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=western list&menu=/movies-menu')">VIEW LISTS</span>
+        </div>
 
-        <div data-type="movie" data-mode="pink_panther" class="btn" tabindex="13">Pink Panther</div>
-        <div data-type="movie" data-mode="warner_kids" class="btn" tabindex="14">Warner Bros Kids</div> 
+        <div class="movie-group cat-kids" onclick="handleNav('/movies-grid?genre=mr bean&menu=/movies-menu')">
+            <div class="main-title-btn">Mr. Bean</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=mr bean comedy&menu=/movies-menu')">COMEDY</span>
+        </div>
+
+        <div class="movie-group cat-kids" onclick="handleNav('/movies-grid?genre=pink panther&menu=/movies-menu')">
+            <div class="main-title-btn">Pink Panther</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=cartoons&menu=/movies-menu')">CARTOONS</span>
+        </div>
+
+        <div class="movie-group cat-kids" onclick="handleNav('/movies-grid?genre=warner kids&menu=/movies-menu')">
+            <div class="main-title-btn">Warner Kids</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=kids movies&menu=/movies-menu')">KIDS LISTS</span>
+        </div>
+
+        <div class="movie-group cat-docs" onclick="handleNav('/movies-grid?genre=documentaries&menu=/movies-menu')">
+            <div class="main-title-btn">Docs</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=history documentary&menu=/movies-menu')">HISTORY</span>
+        </div>
+
+        <div class="movie-group cat-action" onclick="handleNav('/movies-grid?genre=action movies&menu=/movies-menu')">
+            <div class="main-title-btn">Action</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=thriller movies&menu=/movies-menu')">THRILLERS</span>
+        </div>
+
+        <div class="movie-group cat-classic" onclick="handleNav('/movies-grid?genre=scifi movies&menu=/movies-menu')">
+            <div class="main-title-btn">Sci-Fi</div>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=scifi classics&menu=/movies-menu')">CLASSICS</span>
+        </div>
     </div>
 
 </div>

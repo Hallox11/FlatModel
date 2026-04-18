@@ -12,7 +12,7 @@
         color: white;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         position: relative;
-        background:  rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.5);
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
@@ -20,7 +20,7 @@
     /* TOP DIAL SECTION */
     .dial-container {
         position: relative;
-        top:50px;
+        top: 50px;
         width: 100%;
         overflow: hidden;
         padding: 20px 0;
@@ -64,7 +64,7 @@
         scroll-snap-align: center;
         user-select: none;
         text-transform: uppercase;
-        letter-spacing: 2;
+        letter-spacing: 2px;
     }
 
     .station.active {
@@ -94,14 +94,14 @@
         width: 180px;
         height: 180px;
         background: rgba(0,0,0,0.5);
-        
         border-radius: 50%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 25px rgba(255, 216, 107, 0.4);
         position: relative;
+        border: 1px solid rgba(255,216,107,0.1);
     }
 
     #freq_display {
@@ -109,19 +109,16 @@
         font-size: 40px;
         color: #ffb090;
         text-shadow: 0 0 10px var(--accent);
-        font-weight: 400;
     }
 
     .mhz-label {
         font-size: 16px;
         color: rgba(255,216,107,0.6);
         letter-spacing: 1px;
-        margin-top: 2px;
     }
 
-    /* SIDE ARROWS */
     .side-arrow {
-        background:rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.5);
         border: 1px solid rgba(255,255,255,0.1);
         color: white;
         width: 60px;
@@ -132,14 +129,13 @@
         justify-content: center;
         cursor: pointer;
         transition: 0.3s;
-        opacity: 0.5;
-                box-shadow: 0 0 25px rgba(255, 216, 107, 0.4);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     .side-arrow:hover {
-        opacity: 1;
         background: rgba(255,216,107,0.1);
         border-color: var(--accent);
         color: var(--accent);
+        transform: scale(1.1);
     }
 
     #station_display { 
@@ -150,13 +146,12 @@
         text-transform: uppercase;    
     }
     
-    
-        #status_text { 
-            font-size: 20px; 
-            color: rgba(255,255,255,0.4); 
-            text-transform: uppercase; 
-            margin-bottom: 20px; 
-            letter-spacing: 2px; }
+    #status_text { 
+        font-size: 20px; 
+        color: rgba(255,255,255,0.4); 
+        text-transform: uppercase; 
+        letter-spacing: 2px; 
+    }
 
     #sl-radio-master-container .close-btn {
         position: absolute;
@@ -164,7 +159,7 @@
         right: 70px; 
         width: 45px;
         height: 45px;
-        border: 1px solid black;
+        border: 1px solid rgba(255,255,255,0.2);
         background: rgba(0, 0, 0, 0.6);
         border-radius: 50%;
         color: white;
@@ -174,18 +169,8 @@
         cursor: pointer;
         z-index: 110;
         transition: all 0.2s ease;
-        outline: none;
     }
-
-    #equalizer {
-    width: 300px;
-    height: 40px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    background: rgba(0, 0, 0, 0.2);
-    /* Reflects the accent color from your :root */
-    border-bottom: 1px solid rgba(255, 216, 107, 0.2);
-}
+    #sl-radio-master-container .close-btn:hover { background: #ff4444; border-color: #ff4444; }
 </style>
 
 <div id="sl-radio-master-container">
@@ -210,27 +195,24 @@
     </div>
 
     <div id="radio_player_ui">
-<div class="display-wrapper">
-    <button class="side-arrow" onclick="window.stepStation(-1)">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    </button>
+        <div class="display-wrapper">
+            <button class="side-arrow" onclick="window.stepStation(-1)">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
 
-    <div class="glass-display">
-        <div id="freq_display">88.0</div>
-        <div class="mhz-label">MHz</div>
-    </div>
+            <div class="glass-display">
+                <div id="freq_display">88.0</div>
+                <div class="mhz-label">MHz</div>
+            </div>
 
-    <button class="side-arrow" onclick="window.stepStation(1)">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </button>
-</div>
-
-<!-- Simple Equalizer Canvas -->
-<canvas id="equalizer" width="300" height="40" style="display: block; margin: 10px auto;"></canvas>
+            <button class="side-arrow" onclick="window.stepStation(1)">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
 
         <div id="station_display">Off Air</div>
         <div id="status_text">Tune the radio</div>
-        <audio id="sl_native_player"></audio>
+        <audio id="sl_native_player" crossorigin="anonymous"></audio>
     </div>
 </div>
 
@@ -247,102 +229,90 @@
     let startX;
     let scrollLeft;
     let tuneTimeout;
+    let lastSyncedIndex = -1; // ✅ Evita emissões repetidas do mesmo index
 
-    audio.volume = 1.0;
+    function updateUI(index) {
+        stations.forEach(s => s.classList.remove("active"));
+        const target = stations[index];
+        if (target) {
+            target.classList.add("active");
+            display.textContent = target.textContent;
+            const fakeFreq = (88.0 + (index * 2.1)).toFixed(1);
+            freqDisplay.textContent = fakeFreq;
+        }
+    }
 
+    function loadStream(station, isRemote = false) {
+        const url = station.getAttribute('data-stream');
+        if (audio.src !== url) {
+            audio.pause();
+            audio.src = url;
+            audio.load();
+            
+            statusText.textContent = isRemote ? 'Synced with Room...' : 'Connecting...';
+            
+            audio.play().catch(err => { 
+                statusText.textContent = "Interaction Required"; 
+            });
 
+            audio.onplaying = () => { statusText.textContent = 'Live Audio Stream'; };
+            audio.onerror = () => { statusText.textContent = 'Station Offline'; };
+        }
+    }
 
-window.stepStation = function(dir) {
-    const activeIdx = stations.findIndex(s => s.classList.contains('active'));
-    let nextIdx = activeIdx + dir;
-    
-    if (nextIdx >= 0 && nextIdx < stations.length) {
-        const target = stations[nextIdx];
-        
-        // 1. Move our own dial
+    // ✅ Função centralizada para sintonizar (com flag de bloqueio de socket)
+    function tuneTo(index, isRemote = false) {
+        if (index < 0 || index >= stations.length) return;
+        if (index === lastSyncedIndex && !isRemote) return; // ✅ Bloqueia duplicados locais
+
+        const target = stations[index];
+        lastSyncedIndex = index;
+
+        // Mover o dial visualmente
         dial.scrollTo({
             left: target.offsetLeft - (dial.offsetWidth / 2) + (target.offsetWidth / 2),
             behavior: 'smooth'
         });
 
-        // 2. TELL THE SERVER (So others move too)
-        // We manually emit here because 'isDown' is false during a button click
-        socket.emit('sync_radio_dial', { index: nextIdx });
+        updateUI(index);
+        loadStream(target, isRemote);
+
+        // ✅ SÓ emite se NÃO for um comando vindo de fora
+        if (!isRemote && window.socket) {
+            window.socket.emit('sync_radio_dial', { index: index });
+        }
     }
-};
 
-function loadStream(station) {
-    const url = station.getAttribute('data-stream');
+    window.stepStation = function(dir) {
+        const activeIdx = stations.findIndex(s => s.classList.contains('active'));
+        tuneTo(activeIdx + dir, false);
+    };
 
-    // 1. Check if we are actually switching to a NEW url
-    if (audio.src !== url) {
-        
-        // 2. KILL THE PREVIOUS STREAM COMPLETELY
-        audio.pause();
-        audio.src = ""; // Clear the source
-        audio.load();   // Force the browser to dump the buffer
-        
-        display.textContent = station.textContent;
-        statusText.textContent = 'Connecting...';
+    function handleManualSelection() {
+        if (!dial || isDown) return;
+        const center = dial.getBoundingClientRect().left + (dial.offsetWidth / 2);
+        let closestIdx = 0;
+        let minDist = Infinity;
 
-        // 3. SET THE NEW STREAM
-        audio.src = url;
-        
-        // We use a slight delay or a direct play call
-        audio.play().catch((err) => { 
-            console.log("Autoplay blocked or stream error:", err);
-            statusText.textContent = "Click to Resume"; 
+        stations.forEach((station, idx) => {
+            const stationCenter = station.getBoundingClientRect().left + (station.offsetWidth / 2);
+            const dist = Math.abs(center - stationCenter);
+            if (dist < minDist) {
+                minDist = dist;
+                closestIdx = idx;
+            }
         });
 
-        audio.onplaying = () => { 
-            statusText.textContent = 'Live Audio Stream'; 
-        };
-        
-        audio.onerror = () => { 
-            statusText.textContent = 'Station Offline'; 
-        };
-    }
-}
-
-function updateActive() {
-    if (!dial) return;
-    const center = dial.getBoundingClientRect().left + (dial.offsetWidth / 2);
-    let closest = null;
-    let minDist = Infinity;
-
-    stations.forEach(station => {
-        const stationCenter = station.getBoundingClientRect().left + (station.offsetWidth / 2);
-        const dist = Math.abs(center - stationCenter);
-        if (dist < minDist) {
-            minDist = dist;
-            closest = station;
-        }
-    });
-
-    stations.forEach(s => s.classList.remove("active"));
-    
-    if (closest) {
-        closest.classList.add("active");
-        const idx = stations.indexOf(closest);
-
-        // Update the MHz frequency display (88.0 + index logic)
-        const fakeFreq = (88.0 + (idx * 2.1)).toFixed(1);
-        document.getElementById("freq_display").textContent = fakeFreq;
+        updateUI(closestIdx);
 
         clearTimeout(tuneTimeout);
         tuneTimeout = setTimeout(() => {
-            // SYNC LOGIC: Only tell the server if WE are the ones moving it
-            if (isDown) {
-                socket.emit('sync_radio_dial', { index: idx });
-            }
-            
-            // Load the actual audio stream
-            if (!isDown) loadStream(closest);
-        }, 300);
+            tuneTo(closestIdx, false);
+        }, 350);
     }
-}
 
-dial.addEventListener("mousedown", (e) => {
+    // --- EVENTOS DO DIAL ---
+    dial.addEventListener("mousedown", (e) => {
         isDown = true;
         dial.style.scrollSnapType = "none";
         dial.style.scrollBehavior = "auto";
@@ -355,7 +325,7 @@ dial.addEventListener("mousedown", (e) => {
         isDown = false;
         dial.style.scrollSnapType = "x mandatory";
         dial.style.scrollBehavior = "smooth";
-        updateActive();
+        handleManualSelection();
     });
 
     dial.addEventListener("mousemove", (e) => {
@@ -363,58 +333,45 @@ dial.addEventListener("mousedown", (e) => {
         e.preventDefault();
         const x = e.pageX - dial.offsetLeft;
         dial.scrollLeft = scrollLeft - (x - startX) * 1.5;
-        updateActive();
     });
 
     dial.addEventListener("scroll", () => {
-        if (!isDown) updateActive();
+        if (!isDown) handleManualSelection();
     });
 
-    // Listen for other users moving the dial
-// Listen for the broadcast from the server
-socket.on('update_radio_ui', (data) => {
-    const target = stations[data.index];
-    if (target) {
-        // Stop current audio before moving
-        audio.pause();
-        audio.src = "";
-        
-        dial.scrollTo({
-            left: target.offsetLeft - (dial.offsetWidth / 2) + (target.offsetWidth / 2),
-            behavior: 'smooth'
-        });
+    // --- SOCKETS (RECEPÇÃO) ---
+// --- SOCKETS (RECEPÇÃO) ---
+if (window.socket) {
+    // 1. Ouvir atualizações em tempo real
+    window.socket.off('update_radio_ui').on('update_radio_ui', (data) => {
+        if (!isDown) tuneTo(data.index, true);
+    });
 
-        // The 'scroll' event listener you already have 
-        // will eventually call loadStream(target) once the slide finishes.
-    }
-});
+    // 2. Ouvir o estado global (Crucial para novos viewers)
+    window.socket.off('force_sync_arrival').on('force_sync_arrival', (state) => {
+        if (state.radioDialIndex !== undefined && state.radioDialIndex !== null) {
+            console.log("Sincronização imediata recebida:", state.radioDialIndex);
+            // Pequeno delay para garantir que o scroll funciona após render
+            setTimeout(() => tuneTo(state.radioDialIndex, true), 100);
+        }
+    });
 
-// --- STARTUP LOGIC ---
-    const startIdx = 5; // Change this number to start at any station (0-9)
-    const initialTarget = stations[startIdx];
-
-    if (initialTarget) {
-        // 1. Instantly snap the dial to the target (no smooth behavior for instant load)
-        dial.scrollLeft = initialTarget.offsetLeft - (dial.offsetWidth / 2) + (initialTarget.offsetWidth / 2);
-        
-        // 2. Set the active classes and UI text
-        initialTarget.classList.add("active");
-        display.textContent = initialTarget.textContent;
-        
-        // 3. Update Frequency Display
-        const fakeFreq = (88.0 + (startIdx * 2.1)).toFixed(1);
-        freqDisplay.textContent = fakeFreq;
-
-        // 4. Load the stream immediately
-        loadStream(initialTarget);
-    } else {
-        // Fallback if index 5 doesn't exist
-        updateActive();
-    }
-
-    updateActive();
+    // 3. Pedir o estado explicitamente ao entrar
+    window.socket.emit('request_current_state');
 }
 
-
-
+// --- STARTUP LOGIC ---
+// Em vez de forçar o index 5 logo de cara, vamos verificar o estado global primeiro
+$(document).ready(function() {
+    // Se o socket já tem a info, ele vai disparar o force_sync_arrival.
+    // Caso contrário, esperamos um pouco e se nada acontecer, usamos o index 5 como último recurso.
+    setTimeout(() => {
+        const hasActive = stations.some(s => s.classList.contains('active'));
+        if (!hasActive) {
+            console.log("Nenhum estado recebido, usando fallback index 5");
+            tuneTo(5, true);
+        }
+    }, 1200); // Aumentamos ligeiramente para dar tempo ao socket
+});
+}
 </script>

@@ -1,284 +1,271 @@
-<!-- SETTINGS MODULE (AJAX FRAGMENT) -->
 <style>
-    /* CSS ESPECÍFICO DO MÓDULO */
-    #settings_wrapper {
-        width: 1280px;
-        height: 720px;
-        color: #fff;
-        font-family: 'Fira Sans', sans-serif;
-        position: relative;
+    /* Reset e Variáveis - Design Glassmorphism Moderno */
+    :root { 
+        --accent: #ffa260; 
+        --success: #2ecc71; 
+        --error: #ff6b6b;
+        --bg-panel: rgba(255, 255, 255, 0.03); 
+        --glass-border: rgba(255, 255, 255, 0.08);
+        --text-main: #fff;
     }
 
-    #main_header {
-        position: absolute;
-        top: 30px;
-        left: 520px;
-        font-size: 25px;
-        font-weight: 400;
-        color: orange;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin: 0;
-    }
+    * { box-sizing: border-box; outline: none; }
 
-    #msg p {
-        position: absolute;
-        top: 65px;
-        left: 200px;
-        color: #f1c40f;
-        font-size: 21px;
-    }
-
-    [class^="conteiner"] {
-        position: absolute;
-        top: 120px;
-        height: 520px;
-        width: 280px;
-        background: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(10px);
-        border: 2px solid #ffa260;
-        border-radius: 15px;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-
-    .conteiner1 { left: 50px; }
-    .conteiner2 { left: 350px; }
-    .conteiner3 { left: 650px; }
-    .conteiner4 { left: 950px; height: 565px; }
-
-    .btn {
-        display: block;
-        width: 90%;
-        margin: 8px auto;
-        padding: 8px;
-        font-size: 22px;
-        text-decoration: none;
-        color: white;
-        background: rgba(255, 255, 255, 0.05);
-        border: 2px solid #ffa260;
-        border-radius: 8px;
-        cursor: pointer;
-        text-align: center;
-    }
-
-    .btn:hover {
-        background: #2ecc71;
-        color: #000;
-        transform: scale(1.05);
-    }
-
-    .nav-arrows { position: absolute; z-index: 100; display: flex; gap: 10px; left: 961px; width: 260px; justify-content: space-between; }
-    #nav_row { top: 370px; }
-    #zom_row { top: 423px; }
-    #scr_row { top: 476px; }
-    #web_row { top: 529px; }
-    #bp_row  { top: 582px; }
-
-    .arrow-btn { width: 45%; padding: 5px; font-weight: bold; border: 2px solid #ffa260; color: white; background: rgba(0,0,0,0.5); border-radius: 5px; cursor: pointer; text-align: center; }
-    .arrow-btn:hover { background: #2ecc71; color: #000; }
-
-    #back_overlay {
-        position: absolute;
-        top: 655px;
-        left: 550px;
-        width: 180px;
-        color: #f1c40f;
-        border: 2px solid #f1c40f;
-        background: none;
-        border-radius: 8px;
-        font-size: 30px;
-        cursor: pointer;
-    }
-
-    .sent { background: #2ecc71 !important; color: #000 !important; }
-
-
-    /* Split button container */
-    .btn-group {
+    #settings_wrapper { 
+        width: 1280px; 
+        height: 720px; 
+        color: var(--text-main); 
+        font-family: 'Poppins', sans-serif; 
+        position: relative; 
+        background: rgba(0,0,0,0.9);
+        overflow: hidden;
         display: flex;
-        width: 90%;
-        margin: 8px auto;
-        gap: 2px; /* Small gap between segments */
+        flex-direction: column; 
+        box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
     }
 
-    .btn-split {
-        flex: 1;
-        padding: 8px 0;
-        font-size: 18px; /* Slightly smaller to fit 3 words */
-        text-decoration: none;
-        color: white;
-        background: rgba(255, 255, 255, 0.05);
-        border: 2px solid #ffa260;
-        cursor: pointer;
-        text-align: center;
-        transition: 0.2s;
-    }
-
-    .btn-left { border-radius: 8px 0 0 8px; }
-    .btn-center { border-radius: 0; }
-    .btn-right { border-radius: 0 8px 8px 0; }
-
-    .btn-split:hover {
-        background: #2ecc71;
-        color: #000;
-    }
-
-        #settings_wrapper .close-btn {
-        position: absolute;
-        top: 10px;
-        left: 1200px;
-        width: 50px;
-        height: 50px;
-        background: rgba(0, 0, 0, 0.6);
-        border: 2px solid black; /* Music Accent Color */
-        border-radius: 50%;
-        color: white;
+    /* Header Area */
+    #main_header_area {
+        flex-shrink: 0;
+        height: 90px;
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
-        z-index: 110;
-        transition: all 0.2s ease;
-        outline: none;
+        position: relative;
+        background: rgba(0, 0, 0, 0.3); 
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--glass-border);
+        z-index: 20;
     }
 
-    #settings_wrapper .close-btn:hover, 
-    #settings_wrapper .close-btn:focus {
-        color: white;
-        transform: scale(1.3) ;
-        box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    #main_header { 
+        font-size: 26px; 
+        color: var(--accent); 
+        text-transform: uppercase; 
+        letter-spacing: 3px;
+        font-weight: 600;
+        margin: 0;
     }
+
+    /* Connection Indicator UI */
+    #connection-container {
+        position: absolute;
+        left: 30px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 15px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(5px);
+        transition: all 0.4s ease;
+    }
+
+    #tv-info { display: flex; flex-direction: column; line-height: 1.2; }
+    #status-text { font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--error); transition: color 0.4s ease; }
+    #tv-location { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+    #status-dot { width: 8px; height: 8px; background: var(--error); border-radius: 50%; box-shadow: 0 0 8px var(--error); transition: all 0.4s ease; }
+
+    /* Online State Class */
+    .online-active #status-dot { background: var(--success); box-shadow: 0 0 12px var(--success); }
+    .online-active #status-text { color: var(--success); }
+    .online-active #connection-container { border-color: rgba(46, 204, 113, 0.2); background: rgba(46, 204, 113, 0.05); }
+
+    /* Layout Columns */
+    #settings_scroll_content {
+        flex-grow: 1;
+        overflow-y: auto; 
+        padding: 40px 60px;
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+    }
+
+    .conteiner-col { 
+        width: 275px; 
+        background: var(--bg-panel); 
+        backdrop-filter: blur(25px);
+        border: 1px solid var(--glass-border); 
+        border-radius: 20px;
+        padding: 25px; 
+        min-height: 520px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .section-title { 
+        text-align: center; margin-bottom: 25px; font-weight: 600; font-size: 16px;
+        color: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(255,162,96,0.15);
+        padding-bottom: 12px; text-transform: uppercase;
+    }
+
+    .btn1 { 
+        display: block; width: 100%; margin: 14px 0; padding: 14px; 
+        font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.8); 
+        background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); 
+        border-radius: 12px; cursor: pointer; transition: all 0.3s ease;
+        letter-spacing: 2px;
+    }
+
+    .btn1:hover { 
+        background: rgba(235, 18, 18, 0.1) !important; 
+        color: #777; }
+    
+    .sent { background: var(--success) !important; color: #000 !important; }
+
+    .btn-group { display: flex; margin: 12px 0; }
+    .btn-split { flex: 1; padding: 14px 0; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); cursor: pointer; }
+    .btn-left { border-radius: 12px 0 0 12px; border-right: none; }
+    .btn-right { border-radius: 0 12px 12px 0; border-left: none; }
+    .btn-center { cursor: default; background: rgba(255, 162, 96, 0.05); color: var(--accent); border-left: none; border-right: none; }
+
+    .close-btn { position: absolute; right: 40px; width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.6); cursor: pointer; font-size: 28px; }
+.btn-center {
+    flex: 1.2; /* Makes the middle label slightly wider than the buttons */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
 </style>
 
 <div id="settings_wrapper">
-    <h1 id='main_header'>ON-SCREEN SETTINGS</h1>
-
-    <div id="msg">
-        <p>On-screen settings not working? Click the right frame button for a SL Hud</p>
-    </div>
-
-    <!-- SETAS DE NAVEGAÇÃO -->
-
-
-    <!-- COLUNAS -->
-    <div class="conteiner1">
-        <p style="font-size:28px; text-align:center;">Frame Textures</p>
-        <a onclick="cmd('texture','14c859c9-b22a-d4b0-2ee5-f17b6edacd70',this)" class="btn">Texture 01</a>
-        <a onclick="cmd('texture','5b76a72b-fcbb-83e5-6fe2-7cbb3d128601',this)" class="btn">Texture 02</a>
-        <a onclick="cmd('texture','23d2f974-8e1a-8c32-f7e3-4f1f18117c50',this)" class="btn">Texture 03</a>
-        <a onclick="cmd('texture','33a30f78-0f71-b4dc-243c-c45a29dd0348',this)" class="btn">Texture 04</a>
-        <a onclick="cmd('texture','dca8b93b-ee7e-cea0-346f-1e78257c9828',this)" class="btn">Texture 05</a>
-        <a onclick="cmd('texture','c3743161-f03a-9015-b614-f3fe0dc5aaa3',this)" class="btn">Texture 06</a>
-    </div>
-
-    <div class="conteiner2">
-        <p style="font-size:28px; text-align:center;">Aspect Ratio</p>
-        <a onclick="cmd('resize','',this)"     class="btn">--- RESIZE +++</a>
-        <a onclick="cmd('ratio','16/9',this)"  class="btn">16/9 fullHD</a>
-        <a onclick="cmd('ratio','21/9',this)"  class="btn">21/9 Cinema</a>
-        <a onclick="cmd('ratio','4/3',this)"   class="btn">4/3 oldTV</a>
-        <a onclick="cmd('ratio','3/2',this)"  class="btn">3/2 35mm</a>
-        <a onclick="cmd('ratio','16/10',this)"  class="btn">16/10 Cinema</a>
-        <a onclick="cmd('ratio','4/3',this)"   class="btn">4/3 oldTV</a>
-    </div>
-
-    <div class="conteiner3">
-        <p style="font-size:28px; text-align:center;">Portrait / Page</p>
-        <a onclick="cmd('ratio','1/1',this)"   class="btn">1/1 square</a>
-        <a onclick="cmd('ratio','9/16',this)"  class="btn">9/16 phone</a>
-        <a onclick="cmd('ratio','A4',this)"    class="btn">A4 page</a>
-        <a onclick="cmd('ratio','2/3',this)"   class="btn">2/3 Portaite 1</a>
-        <a onclick="cmd('ratio','4/5',this)"  class="btn">4/5 Portait22</a>
-        <a onclick="cmd('ratio','10/16',this)"    class="btn">10/16 Portait3</a>
-    </div>
-
-<div class="conteiner4">
-        <p style="font-size:28px; text-align:center;">Mode</p>
-        
-        <div class="btn-group">
-            <a onclick="cmd('wall','',this)" class="btn-split btn-left" title="Hide Legs">WALL</a>
-            <a onclick="cmd('wall','',this)" class="btn-split btn-center">MODE</a>
-            <a onclick="cmd('stand','',this)" class="btn-split btn-right" title="Show Legs">STAND</a>
+    <div id="main_header_area">
+        <div id="connection-container">
+            <div id="status-dot"></div>
+            <div id="tv-info">
+                <span id="status-text">OFFLINE</span>
+                <small id="tv-location">Waiting for Signal...</small>
+            </div>
         </div>
-        <div class="btn-group">
-            <a onclick="cmd('frame_0ff','',this)" class="btn-split btn-left" title="Hide Legs">HIDE</a>
-            <a onclick="cmd('wall','',this)" class="btn-split btn-center">FRAME</a>
-            <a onclick="cmd('frame_on','',this)" class="btn-split btn-right" title="Show Legs">SHOW</a>
-        </div>
-                <div class="btn-group">
-            <a onclick="cmd('button_off','',this)" class="btn-split btn-left" title="Hide Legs">HIDE</a>
-            <a onclick="cmd('wall','',this)" class="btn-split btn-center">BUTTONS</a>
-            <a onclick="cmd('button_on','',this)" class="btn-split btn-right" title="Show Legs">SHOW</a>
+        <h1 id='main_header'>TV Settings</h1>
+        <button class="close-btn" onclick="closeSettings()">&times;</button>
+    </div>
+
+    <div id="settings_scroll_content">
+        <div class="conteiner-col">
+            <p class="section-title">Textures</p>
+            <button onclick="cmd('texture','14c859c9-b22a-d4b0-2ee5-f17b6edacd70',this)" class="btn1">Carbon</button>
+            <button onclick="cmd('texture','gold',this)" class="btn1">Gold</button>
+            <button onclick="cmd('texture','matte',this)" class="btn1">Matte</button>
         </div>
 
+        <div class="conteiner-col">
+            <p class="section-title">Aspect Ratio</p>
+            <button onclick="cmd('ratio','3/2',this)" class="btn1">3/2   35mm filme</button>
+            <button onclick="cmd('ratio','4/3',this)" class="btn1">4/3   classic Tv</button>
+            <button onclick="cmd('ratio','16/9',this)" class="btn1">16/9   fullHDmovies</button>
+            <button onclick="cmd('ratio','18/9',this)" class="btn1">18/9   wideHDmovies</button>
+            <button onclick="cmd('ratio','21/9',this)" class="btn1">21/9   cinemaScope</button>
+        </div>
 
-        <a onclick="cmd('reset','',this)" class="btn">RESET</a>
+        <div class="conteiner-col">
+            <p class="section-title">Visuals</p>
+            <button onclick="cmd('glow','on',this)" class="btn1">Glow On</button>
+            <button onclick="cmd('glow','off',this)" class="btn1">Glow Off</button>
+        </div>
+
+<div class="conteiner-col">
+    <p class="section-title">System</p>
+
+    <div class="btn-group">
+        <button onclick="cmd('legs','hide',this)" class="btn-split btn-left">HIDE</button>
+        <div class="btn-split btn-center">LEGS</div>
+        <button onclick="cmd('legs','show',this)" class="btn-split btn-right">SHOW</button>
     </div>
 
-    <!-- BOTÃO PARA FECHAR O OVERLAY -->
-    <button class="close-btn" onclick="closeSubMenu()" tabindex="30">
-        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    </button>
+    <div class="btn-group">
+        <button onclick="cmd('frame','hide',this)" class="btn-split btn-left">HIDE</button>
+        <div class="btn-split btn-center">FRAME</div>
+        <button onclick="cmd('frame','show',this)" class="btn-split btn-right">SHOW</button>
+    </div>
+
+    <div class="btn-group">
+        <button onclick="cmd('buttons','hide',this)" class="btn-split btn-left">HIDE</button>
+        <div class="btn-split btn-center">BUTTONS</div>
+        <button onclick="cmd('buttons','show',this)" class="btn-split btn-right">SHOW</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button onclick="cmd('reboot','',this)" class="btn1" style="color: #3498db; margin: 5px 0;">RESTART</button>
+        <button onclick="cmd('reset','',this)" class="btn1" style="color: #e74c3c; margin: 5px 0;">RESET</button>
+    </div>
+</div>
+
+<div class="conteiner-col">
+    <p class="section-title">Scale Control</p>
+    
+    <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+        <button onclick="cmd('SCALE','0.05',this)" class="btn1" style="flex:1">+5%</button>
+        <button onclick="cmd('SCALE','0.10',this)" class="btn1" style="flex:1">+10%</button>
+        <button onclick="cmd('SCALE','0.20',this)" class="btn1" style="flex:1">+20%</button>
+    </div>
+
+    <div style="display: flex; gap: 5px;">
+        <button onclick="cmd('SCALE','-0.05',this)" class="btn1" style="flex:1">-5%</button>
+        <button onclick="cmd('SCALE','-0.10',this)" class="btn1" style="flex:1">-10%</button>
+        <button onclick="cmd('SCALE','-0.20',this)" class="btn1" style="flex:1">-20%</button>
+    </div>
+
+    <button onclick="cmd('RESIZE','',this)" class="btn1" style="color: var(--accent); margin-top: 20px;">ADVANCED MENU</button>
+</div>
+
+    </div>
 </div>
 
 <script>
     (function() {
-        const BASE_URL = "<%- baseUrl %>";
-        var valWeb = 0.5, valScr = 0.5, bgIdx = 1;
-        
-        // ✅ ID vem diretamente do servidor — sem depender de sessão
-        let myTvId = "<%- tvId %>" || null;
-
-        if (myTvId && myTvId !== "null") {
-            console.log("[Identity] Locked to TV ID:", myTvId);
-        } else {
-            console.error("[Identity] No TV ID found. Commands won't work.");
+        // --- SOCKET LOGIC ---
+        // Ensure socket is available (it's initialized in your main index.ejs)
+        if (typeof socket !== 'undefined') {
+            
+            // This listens for the 'tv_registered' event you already have in your node.js /register route!
+            socket.on('tv_registered', function(data) {
+                console.log("TV Signal Received:", data);
+                
+                // Turn UI Online
+                $('#connection-container').addClass('online-active');
+                $('#status-text').text('ONLINE');
+                $('#tv-location').text('Region: ' + (data.land_name || 'Active'));
+                
+                // Optional: Auto-offline after 1 minute of silence
+                clearTimeout(window.offlineTimer);
+                window.offlineTimer = setTimeout(() => {
+                    $('#connection-container').removeClass('online-active');
+                    $('#status-text').text('OFFLINE');
+                    $('#tv-location').text('Signal Lost');
+                }, 60000);
+            });
         }
 
+
+        const TV_ID = "<%= tvId %>";
+        // --- COMMAND LOGIC ---
         window.cmd = function(command, value, el) {
-            if (!myTvId || myTvId === "null") {
-                console.error("[CMD] No target TV. Aborting.");
-                return;
-            }
-            if(el) {
-                $(el).addClass('sent');
-                setTimeout(() => { $(el).removeClass('sent'); }, 200);
+            if(el) { 
+                $(el).addClass('sent'); 
+                setTimeout(() => $(el).removeClass('sent'), 300); 
             }
 
             $.ajax({
                 type: 'POST',
-                url: BASE_URL + '/send-command',
+                url: '/send-command',
                 contentType: 'application/json',
-                data: JSON.stringify({ command, value, target_id: myTvId }),
-                success: (res) => console.log('Command sent:', command),
-                error: (x) => console.error('Error:', x.status)
+                data: JSON.stringify({ command: command, value: value, TV_ID:TV_ID }),
+                success: (res) => { console.log('Sent'); },
+                error: (err) => { 
+                    $('#connection-container').removeClass('online-active');
+                    $('#status-text').text('OFFLINE');
+                }
             });
         };
 
-        window.hide_web = function(dir, el) {
-            valWeb = (dir === "UP") ? Math.min(1.0, +(valWeb + 0.1).toFixed(1)) : Math.max(0.2, +(valWeb - 0.1).toFixed(1));
-            cmd('web_alpha', String(valWeb), el);
-        };
-
-        window.hide_scr = function(dir, el) {
-            valScr = (dir === "UP") ? Math.min(1.0, +(valScr + 0.1).toFixed(1)) : Math.max(0.1, +(valScr - 0.1).toFixed(1));
-            cmd('screen_alpha', String(valScr), el);
-        };
-
-        window.background = function(dir, el) {
-            bgIdx = (dir === "UP") ? bgIdx + 1 : Math.max(1, bgIdx - 1);
-            cmd('background', String(bgIdx), el);
-        };
-
         window.closeSettings = function() {
-            $('#overlay-content').fadeOut().html('');
-            if(typeof socket !== 'undefined') {
-                socket.emit('mirror_ajax_nav', { path: null, action: 'CLOSE' });
-            }
+            $('#overlay-content').fadeOut(200);
         };
     })();
 </script>

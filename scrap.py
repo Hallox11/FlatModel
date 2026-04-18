@@ -66,7 +66,8 @@ def scrape_page_range(base_url, start_page=3, end_page=5, folder="alternative_mo
         print(f"\n✅ Batch complete! Check the '{folder}' folder.")
 
 # The URL from your request
-url = "https://modelsociety.com/images?sort=newest&filter=allimages&cat=13"
+#url = "https://modelsociety.com/images?sort=newest&filter=allimages&cat=13"
+url = "https://modelsociety.com/images?sort=newest&filter=allimages&cat=37"
 
 # Run it for pages 3, 4, and 5
-scrape_page_range(url, start_page=6, end_page=10)
+scrape_page_range(url, start_page=1, end_page=10)

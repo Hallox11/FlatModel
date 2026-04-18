@@ -1,8 +1,9 @@
 <style>
     /* Fixed Container to prevent horizontal scroll at 1280px */
     #flickr-wrapper { 
-        width: 1240px; 
-        margin: 0 auto; 
+        
+        width: 1260px; 
+        margin-right: 10px; 
         overflow: hidden; 
         position: relative; 
         top:15px;
@@ -123,7 +124,7 @@
     position: fixed;
     top: 5px;
     z-index: 1000;
-    width: 100%;
+    width: 99%;
     box-sizing: border-box;
 }
 
@@ -284,19 +285,14 @@
 
 /* The "Remote Viewing" Label */
 
-
 </style>
 
 <div id="flickr-wrapper"> 
     <div  id="flickr-main-ui">
 <div id="flickr-nav-container">
             <div class="nav-group">
-                <button class="modern-btn" onclick="window.showFavoritesPage()">
-                    <span class="btn-icon">📂</span> CHANNELS
-                </button>
-                <button class="modern-btn" onclick="window.showCategoriesPage()">
-                    <span class="btn-icon">🏷️</span> CATEGORIES
-                </button>
+                <button class="modern-btn" onclick="window.showFavoritesPage()">CHANNELS</button>
+                <button class="modern-btn" onclick="window.showCategoriesPage()">CATEGORIES</button>
             </div>
 
             <div class="search-pill-container">

@@ -1,5 +1,9 @@
-
 <style>
+    /* Dynamic Theme Colors */
+    :root {
+        --accent-color: <%= (origin === 'music') ? '#00d4ff' : '#ff0000' %>;
+    }
+
     #player-wrapper {
         position: fixed;
         top: 0px; left: 0px;
@@ -12,94 +16,85 @@
 
     .player-controls {
         position: absolute;
-        top: 420px;
-        left: 668px;
+        top: 30px; /* Moved to top for better visibility */
+        right: 30px;
         z-index: 2100;
         opacity: 0;
         transition: opacity 0.4s ease;
         pointer-events: none;
     }
 
-
     .backBut {
- position: absolute;
-        top: -10px;
-        right: 0px;
-        width: 50px;
-        height: 50px;
-        background: rgba(0, 0, 0, 0.3);
-        border: 2px solid #ff6300; /* Music Accent Color */
+        width: 60px;
+        height: 60px;
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid var(--accent-color); /* Dynamically set */
         border-radius: 50%;
         color: white;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        z-index: 110;
         transition: all 0.2s ease;
         outline: none;
+        backdrop-filter: blur(5px);
     }
 
     .backBut:hover { 
-        background: rgba(0, 0, 0, 0.6);
-        color:red;
-        scale: 1.2;
-         }
+        background: var(--accent-color);
+        color: black;
+        transform: scale(1.1);
+    }
 </style>
 
 <div id="player-wrapper">
     <div id="player-container"></div>
     <div class="player-controls">
-       
-        <button class="backBut" onclick="goToYoutubeGrid()" tabindex="50">
-        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    </button>
-       
+        <button class="backBut" onclick="exitPlayer()" title="Go Back">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
     </div>
 </div>
 
 
 <script>
 
-function goToYoutubeGrid() {
-    console.log("Exiting player...");
-    
-    // 1. Informar o servidor (Manter como está, está correto)
-    if (typeof socket !== 'undefined') {
-        socket.emit('report_current_time', {
-            videoId: null, 
-            time: 0,
-            paused: true 
-        });
-    }
+function exitPlayer() {
+    const origin = "<%= origin %>";
+    const target = "<%= targetID %>";
+    const scroll = "<%= scrollPos %>";
+    const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
 
-    // 2. Cleanup (Manter como está)
-    if (window.ytPlayerInstance) {
-        try {
-            if (typeof window.ytPlayerInstance.stopVideo === 'function') window.ytPlayerInstance.stopVideo();
-            if (typeof window.ytPlayerInstance.destroy === 'function') window.ytPlayerInstance.destroy();
-        } catch(e) { console.warn("Cleanup error", e); }
-        window.ytPlayerInstance = null;
-    }
+    let returnUrl = "";
 
-    // 3. Captura os dados do EJS
-const bID = "<%= (typeof targetID !== 'undefined') ? targetID : '' %>";
-    const bMode = "<%= (typeof targetMode !== 'undefined') ? targetMode : 'search' %>";
-    const bScroll = "<%= (typeof scrollPos !== 'undefined') ? scrollPos : '0' %>";
-    const source = "<%= (typeof origin !== 'undefined') ? origin : 'youtube' %>";
-    
-    // Construct the return URL
-    // If mode is channel, we add isChannel=true; otherwise, it's a standard search
-    const channelParam = (bMode === 'channel') ? '&isChannel=true' : '';
-    
-    const returnUrl = `/${source}?id=${encodeURIComponent(bID)}${channelParam}&scrollPos=${bScroll}`;
-    
-    console.log("Returning to:", returnUrl);
-    handleNav(returnUrl); 
+    if (origin === 'grid') {
+        // Universal: return to whatever grid we came from, with the right menu
+        returnUrl = `/music-grid?genre=${encodeURIComponent(target)}&menu=${encodeURIComponent(menu)}&scrollPos=${scroll}`;
+    } else if (origin === 'music') {
+        returnUrl = `/music-grid?genre=${encodeURIComponent(target)}&scrollPos=${scroll}`;
+    } else if (origin === 'youtube') {
+        returnUrl = `/youtube?tag=${encodeURIComponent(target)}&scrollPos=${scroll}`;
+    } else {
+        returnUrl = '/';
+    }
+console.log("*** PLAYER EXIT ***")    
+console.log("origin: ", origin)
+console.log("target: ", target)
+console.log("menu: ", menu)
+console.log("scroll: ", scroll)
+console.log("*******************")  
+
+    if (typeof handleNav === "function") {
+        handleNav(returnUrl);
+    } else {
+        window.parent.postMessage({ action: 'nav', path: returnUrl }, '*');
+    }
 }
+
+
 (function() {
     // 1. Setup local variables
     const video_id = "<%= (typeof videoId !== 'undefined') ? videoId : '' %>";
@@ -144,23 +139,26 @@ playerVars: {
 },
             events: {
 'onReady': (event) => {
-    console.log("Player Ready");
-
-    // ← ADD THIS: seek to sync time if a new arrival
-    console.log("Player Ready");
-    console.log("syncTargetTime:", window.syncTargetTime); // ← ADD
-    console.log("syncIsPaused:", window.syncIsPaused);     // ← ADD
-
     if (window.syncTargetTime && window.syncTargetTime > 0) {
-        console.log("Seeking to sync time:", window.syncTargetTime);
-        event.target.seekTo(window.syncTargetTime, true);
+        
+        // Compensa o tempo desde que o estado foi recebido até o player estar pronto
+        const elapsed = window.syncArrivalTime 
+            ? (Date.now() - window.syncArrivalTime) / 1000 
+            : 0;
+        const compensatedTime = window.syncTargetTime + elapsed;
+
+        console.log("Sync elapsed compensation:", elapsed, "s");
+        console.log("Seeking to compensated time:", compensatedTime);
+
+        event.target.seekTo(compensatedTime, true);
         if (window.syncIsPaused) {
             event.target.pauseVideo();
         } else {
             event.target.playVideo();
         }
         window.syncTargetTime = null;
-        window.syncIsPaused = null;
+        window.syncIsPaused   = null;
+        window.syncArrivalTime = null; // ← limpar também
     }
 
     // Heartbeat logic
@@ -227,9 +225,10 @@ playerVars: {
     if (typeof socket !== 'undefined') {
         socket.off('Play').off('Pause');
         socket.on('Play', (time) => {
-            window.ytPlayerInstance.pauseVideo();
+          
             isRemoteCommand = true;
             window.ytPlayerInstance.seekTo(time, true);
+              window.ytPlayerInstance.pauseVideo();
             window.ytPlayerInstance.playVideo();
             setTimeout(() => isRemoteCommand = false, 1000);
         });
@@ -243,6 +242,12 @@ playerVars: {
 
 
     ///////////////////////////////////////77
-    
+    console.log("*** PLAYER OPEN ***")
+console.log("videoID:", "<%= videoId %>")
+console.log("origin:", "<%= origin %>")
+console.log("target:", "<%= targetID %>")
+console.log("menu:  ", "<%= typeof menu !== 'undefined' ? menu : 'UNDEFINED' %>")
+console.log("scroll:", "<%= scrollPos %>")
+console.log("*******************")
 })();
 </script>
