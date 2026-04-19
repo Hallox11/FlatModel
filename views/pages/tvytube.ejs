@@ -1,5 +1,4 @@
 <style>
-    /* Dynamic Theme Colors */
     :root {
         --accent-color: <%= (origin === 'music') ? '#00d4ff' : '#ff0000' %>;
     }
@@ -14,9 +13,18 @@
     }
     #player-container { width: 100%; height: 100%; }
 
+    #click-shield {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: 2050;
+        pointer-events: none;
+        cursor: pointer;
+    }
+
     .player-controls {
         position: absolute;
-        top: 30px; /* Moved to top for better visibility */
+        top: 30px;
         right: 30px;
         z-index: 2100;
         opacity: 0;
@@ -25,10 +33,13 @@
     }
 
     .backBut {
-        width: 60px;
-        height: 60px;
-        background: rgba(0, 0, 0, 0.6);
-        border: 2px solid var(--accent-color); /* Dynamically set */
+        position: fixed;
+        top: 410px;
+        left: 614px;
+        width: 55px;
+        height: 55px;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid transparent;
         border-radius: 50%;
         color: white;
         display: flex;
@@ -37,18 +48,67 @@
         cursor: pointer;
         transition: all 0.2s ease;
         outline: none;
-        backdrop-filter: blur(5px);
+        pointer-events: auto;
     }
 
-    .backBut:hover { 
+    .backBut:hover {
         background: var(--accent-color);
-        color: black;
+        color: white;
         transform: scale(1.1);
+    }
+
+    #msg {
+        position: fixed;
+        top: 180px;
+        left: 370px;
+        font-weight: 400;
+        letter-spacing: 1.0px;
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        padding: 7px 20px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-size: 15px;
+    }
+    #msgBox {
+        position: fixed;
+        top: 160px;
+        left: 220px;
+        width: 835px;
+        height: 140px;
+        font-weight: 400;
+        letter-spacing: 1.0px;
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        padding: 7px 20px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-size: 15px;
+    }
+    #cover {
+        position: fixed;
+        top: 660px;
+        left: 10px;
+        width: 1250px;
+        height: 50px;
+        background: red;
     }
 </style>
 
 <div id="player-wrapper">
     <div id="player-container"></div>
+
+    <!-- Click throttle shield: sits above player, below controls -->
+    <div id="click-shield"></div>
+
     <div class="player-controls">
         <button class="backBut" onclick="exitPlayer()" title="Go Back">
             <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -56,52 +116,62 @@
                 <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
         </button>
+        <div id="msgBox">
+        <div style="color: rgb(169, 235, 38);" id="msg">Tip: Use the 'Gear Icon' to select the highest quality available.</div>
+        <div style="top:220px;left:250px;color:#fb5e5e" id="msg">If the video won't play, it might be due to age/region restrictions or it has been removed.</div>
+        <div style="top:260px;left:480px;color: rgb(244, 244, 24);" id="msg">restart video or return to grid</div>
+        </div>
+
     </div>
 </div>
 
+<div id="cover"></div>
 
 <script>
-
 function exitPlayer() {
     const origin = "<%= origin %>";
     const target = "<%= targetID %>";
     const scroll = "<%= scrollPos %>";
     const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
-
     let returnUrl = "";
 
-    if (origin === 'grid') {
-        // Universal: return to whatever grid we came from, with the right menu
-        returnUrl = `/music-grid?genre=${encodeURIComponent(target)}&menu=${encodeURIComponent(menu)}&scrollPos=${scroll}`;
-    } else if (origin === 'music') {
-        returnUrl = `/music-grid?genre=${encodeURIComponent(target)}&scrollPos=${scroll}`;
-    } else if (origin === 'youtube') {
-        returnUrl = `/youtube?tag=${encodeURIComponent(target)}&scrollPos=${scroll}`;
-    } else {
-        returnUrl = '/';
-    }
-console.log("*** PLAYER EXIT ***")    
-console.log("origin: ", origin)
-console.log("target: ", target)
-console.log("menu: ", menu)
-console.log("scroll: ", scroll)
-console.log("*******************")  
+if (origin === 'grid') {
+    let gridRoute = '/music-grid'; // default
+    if (menu.includes('movies'))   gridRoute = '/movies-grid';
+    if (menu.includes('youtube'))  gridRoute = '/youtube-grid';
+    returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&menu=${encodeURIComponent(menu)}&scrollPos=${scroll}`;
+}
 
     if (typeof handleNav === "function") {
+        window.pendingScrollRestore = parseInt(scroll) || 0;
         handleNav(returnUrl);
     } else {
         window.parent.postMessage({ action: 'nav', path: returnUrl }, '*');
     }
 }
 
-
 (function() {
-    // 1. Setup local variables
     const video_id = "<%= (typeof videoId !== 'undefined') ? videoId : '' %>";
     let isRemoteCommand = false;
     let emitTimer = null;
 
-    // 2. The Cleanup Function (Crucial for AJAX)
+    // --- Click throttle shield ---
+    const CLICK_THROTTLE_MS = 1000;
+    let clickShieldActive = false;
+
+    function activateClickShield() {
+        if (clickShieldActive) return;
+        const shield = document.getElementById('click-shield');
+        if (!shield) return;
+        clickShieldActive = true;
+        shield.style.pointerEvents = 'auto';
+        setTimeout(() => {
+            shield.style.pointerEvents = 'none';
+            clickShieldActive = false;
+        }, CLICK_THROTTLE_MS);
+    }
+    // --- End click throttle shield ---
+
     function purgePriorPlayer() {
         if (window.ytPlayerInstance) {
             try {
@@ -116,86 +186,76 @@ console.log("*******************")
         }
     }
 
-    // 3. The Actual Builder
     window.renderYTPlayer = function() {
         if (!video_id || !document.getElementById('player-container')) return;
-        
         purgePriorPlayer();
 
-        console.log("Building player for:", video_id);
         window.ytPlayerInstance = new YT.Player('player-container', {
             videoId: video_id,
-playerVars: { 
-    'autoplay': 1,      // keep — starts video on load
-    'controls': 1,      // keep — but consider your use case (see below)
-    'rel': 0,           // keep — prevents related videos hijacking the player
-    'disablekb': 0,     // disable keyboard shortcuts — prevents local-only seeks
-    'fs': 0,            // disable fullscreen button — keeps layout consistent for all viewers
-    'modestbranding': 1, // removes YouTube logo clutter
-    'iv_load_policy': 3, // hides video annotations
-    'cc_load_policy': 0, // no forced captions
-    'loop': 1,
-
-},
+            playerVars: {
+                'autoplay': 1,
+                'controls': 1,
+                'rel': 0,
+                'disablekb': 0,
+                'fs': 0,
+                'modestbranding': 1,
+                'iv_load_policy': 3,
+                'cc_load_policy': 0,
+                'loop': 1
+            },
             events: {
-'onReady': (event) => {
-    if (window.syncTargetTime && window.syncTargetTime > 0) {
-        
-        // Compensa o tempo desde que o estado foi recebido até o player estar pronto
-        const elapsed = window.syncArrivalTime 
-            ? (Date.now() - window.syncArrivalTime) / 1000 
-            : 0;
-        const compensatedTime = window.syncTargetTime + elapsed;
+                'onReady': (event) => {
+                    if (window.syncTargetTime && window.syncTargetTime > 0) {
+                        const elapsed = window.syncArrivalTime ? (Date.now() - window.syncArrivalTime) / 1000 : 0;
+                        const compensatedTime = window.syncTargetTime + elapsed;
+                        event.target.seekTo(compensatedTime, true);
+                        if (window.syncIsPaused) {
+                            event.target.pauseVideo();
+                        } else {
+                            event.target.playVideo();
+                        }
+                        window.syncTargetTime = null;
+                        window.syncIsPaused = null;
+                        window.syncArrivalTime = null;
+                    }
 
-        console.log("Sync elapsed compensation:", elapsed, "s");
-        console.log("Seeking to compensated time:", compensatedTime);
+                    window.heartbeatInterval = setInterval(() => {
+                        if (window.ytPlayerInstance && window.ytPlayerInstance.getCurrentTime) {
+                            socket.emit('report_current_time', {
+                                time: window.ytPlayerInstance.getCurrentTime(),
+                                paused: window.ytPlayerInstance.getPlayerState() !== YT.PlayerState.PLAYING,
+                                videoId: video_id
+                            });
+                        }
+                    }, 1000);
+                },
 
-        event.target.seekTo(compensatedTime, true);
-        if (window.syncIsPaused) {
-            event.target.pauseVideo();
-        } else {
-            event.target.playVideo();
-        }
-        window.syncTargetTime = null;
-        window.syncIsPaused   = null;
-        window.syncArrivalTime = null; // ← limpar também
-    }
-
-    // Heartbeat logic
-    window.heartbeatInterval = setInterval(() => {
-        if (window.ytPlayerInstance && window.ytPlayerInstance.getCurrentTime) {
-            socket.emit('report_current_time', {
-                time: window.ytPlayerInstance.getCurrentTime(),
-                paused: window.ytPlayerInstance.getPlayerState() !== YT.PlayerState.PLAYING,
-                videoId: video_id 
-            });
-        }
-    }, 1000);
-},
-                'onStateChange': (event) => {
-
-    if (event.data === YT.PlayerState.UNSTARTED) {
-        console.warn("Video unavailable or invalid ID:", video_id);
-        // Show the back button so the user can escape
-        const controls = document.querySelector('.player-controls');
-        if (controls) {
-            controls.style.opacity = '1';
-            controls.style.pointerEvents = 'auto';
-        }
-        return;
-    }
-
-                    // Show BACK when paused/stopped/ended, hide when playing
+                'onError': (event) => {
+                    console.error("YouTube Player Error:", event.data);
                     const controls = document.querySelector('.player-controls');
                     if (controls) {
-                        const playing = event.data === YT.PlayerState.PLAYING;
-                        controls.style.opacity = playing ? '0' : '1';
-                        controls.style.pointerEvents = playing ? 'none' : 'auto';
+                        controls.style.opacity = '1';
+                        controls.style.pointerEvents = 'auto';
+                    }
+                },
+
+                'onStateChange': (event) => {
+                    const controls = document.querySelector('.player-controls');
+                    if (controls) {
+                        const showBack = (event.data !== YT.PlayerState.PLAYING && event.data !== YT.PlayerState.BUFFERING);
+                        controls.style.opacity = showBack ? '1' : '0';
+                        controls.style.pointerEvents = showBack ? 'auto' : 'none';
+                    }
+
+                    // Activate shield on play/pause transitions to prevent quick re-clicks causing desync
+                    if (event.data === YT.PlayerState.PLAYING || event.data === YT.PlayerState.PAUSED) {
+                        activateClickShield();
                     }
 
                     if (isRemoteCommand) return;
                     clearTimeout(emitTimer);
                     emitTimer = setTimeout(() => {
+                        if (!window.ytPlayerInstance) return;
                         const currentTime = window.ytPlayerInstance.getCurrentTime();
                         if (event.data === YT.PlayerState.PLAYING) {
                             socket.emit('toPlay', currentTime);
@@ -208,46 +268,32 @@ playerVars: {
         });
     };
 
-    // 4. Execution Trigger
-    // Check if YT is already loaded globally
     if (window.YT && window.YT.Player) {
-        // Give AJAX 50ms to finish painting the div to the screen
         setTimeout(window.renderYTPlayer, 50);
     } else {
-        // First time loading the site? Load the script.
         window.onYouTubeIframeAPIReady = window.renderYTPlayer;
         if (!$('script[src*="youtube.com/iframe_api"]').length) {
             $.getScript("https://www.youtube.com/iframe_api");
         }
     }
 
-    // 5. Socket Listeners (Fresh start)
     if (typeof socket !== 'undefined') {
         socket.off('Play').off('Pause');
         socket.on('Play', (time) => {
-          
+            if (!window.ytPlayerInstance) return;
             isRemoteCommand = true;
             window.ytPlayerInstance.seekTo(time, true);
-              window.ytPlayerInstance.pauseVideo();
+            
             window.ytPlayerInstance.playVideo();
             setTimeout(() => isRemoteCommand = false, 1000);
         });
         socket.on('Pause', (time) => {
+            if (!window.ytPlayerInstance) return;
             isRemoteCommand = true;
             window.ytPlayerInstance.pauseVideo();
             window.ytPlayerInstance.seekTo(time, true);
             setTimeout(() => isRemoteCommand = false, 1000);
         });
     }
-
-
-    ///////////////////////////////////////77
-    console.log("*** PLAYER OPEN ***")
-console.log("videoID:", "<%= videoId %>")
-console.log("origin:", "<%= origin %>")
-console.log("target:", "<%= targetID %>")
-console.log("menu:  ", "<%= typeof menu !== 'undefined' ? menu : 'UNDEFINED' %>")
-console.log("scroll:", "<%= scrollPos %>")
-console.log("*******************")
 })();
 </script>

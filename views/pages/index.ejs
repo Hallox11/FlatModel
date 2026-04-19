@@ -9,8 +9,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
     <script src="./js/myScripts.js"></script>
+    <link rel="stylesheet" href="./styles/main.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -31,14 +33,14 @@
     }
 
     /* --- GRID & MAIN BUTTONS --- */
-    #main-grid {
+#main-grid {
         width: 1100px; display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 35px; padding: 20px; margin-bottom: 60px;
         transition: all 0.4s ease;
-    }
+}
 
-    .btn {
+.btn {
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
         backdrop-filter: blur(5px); 
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -50,8 +52,8 @@
         transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
         outline: none; text-transform: uppercase; letter-spacing: 2px;
-    }
-        .btn:hover { 
+}
+.btn:hover { 
         backdrop-filter: blur(15px) !important; 
         border: 1px solid white !important; 
         background-color: rgba(0, 0, 0, 0.5) !important; 
@@ -60,19 +62,18 @@
         transform: scale(1.1); 
         z-index: 100; 
         transition: all 0.1s ease-in-out; 
-    }
+}
 
     /* --- BOTTOM LAYOUT --- */
-    .status-bar {
+.status-bar {
         position: absolute; bottom: 40px; left: 40px; 
         width: 1200px; display: flex;
         align-items: flex-end; justify-content: flex-end;
         pointer-events: none;
-    }
+}
 
     /* --- CONTROL PANEL --- */
 
-/* Base State */
 #controls {
     position: absolute;
     bottom: 30px;
@@ -93,103 +94,121 @@
 }
 
     /* --- NAV BUTTONS --- */
-    .nav-btn-glass {
-        background: transparent; border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px; color: white; padding: 8px 15px;
+.nav-btn-glass {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+        backdrop-filter: blur(5px); 
+         border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px; 
+        color: white;
+         padding: 8px 15px;
         font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
         display: flex; align-items: center; gap: 10px;
         cursor: pointer; transition: all 0.3s ease;
        
-    }
+}
 
-    .nav-btn-glass:hover {
-        background: rgba(255, 255, 255, 0.2);
+.nav-btn-glass:hover {
+        background: rgba(0, 0, 0, 0.8);
         border-color: rgba(255, 255, 255, 0.3);
-        transform: translateY(-3px); color: var(--accent);
-    }
-
+        transform: scale(1.0);
+}
 
     /* --- BURGER BUTTON --- */
-    #burger-menu-btn {
+#burger-menu-btn {
         position: absolute; bottom: 30px; left: 50%;
         transform: translateX(-50%);
-        width: 60px; height: 60px; border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
+        width: 56px; height: 56px; border-radius: 50%;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+        backdrop-filter: blur(5px); 
+        box-shadow: 0 0px 11px 0 rgba(0, 0, 0, 0.5);
         border: 1px solid rgba(255, 255, 255, 0.2);
         color: white; cursor: pointer; z-index: 1000;
         display: flex; align-items: center; justify-content: center;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+       
+}
 
-    #burger-menu-btn.hide { opacity: 0 !important; visibility: hidden !important; pointer-events: none; }
-
+#burger-menu-btn.hide { 
+        opacity: 0 !important; 
+        visibility: hidden !important;
+        pointer-events: none; 
+}
+.material-symbols-rounded {
+    font-size: 30px;
+    font-weight: 200;
+}
     /* --- CLOCK & DATE --- */
-    .clock-glass {
         background: transparent; padding: 10px 25px;
         text-align: right; min-width: 180px;
         font-variant-numeric: tabular-nums;
         pointer-events: auto; opacity: 1;
         transition: all 0.3s ease;
-    }
 
-    #hour { font-size: 2.2rem; font-weight: 200; line-height: 1; margin-bottom: 4px; }
-    #date-display { color: var(--accent); font-size: 0.95rem; opacity: 1; }
+
+#hour { font-size: 2.2rem; font-weight: 200; line-height: 1; margin-bottom: 4px; }
+#date-display { color: var(--accent); font-size: 0.95rem; opacity: 1; }
 
     /* --- SLIDERS & OVERLAYS --- */
-    #sub-content-overlay {
+#sub-content-overlay {
         display: none; position: absolute; inset: 0;
         width: 1280px; height: 720px;
         flex-direction: column; align-items: center; justify-content: center;
         z-index: 100;
-    }
+}
 
 #theme-slider {
-    position: absolute; bottom: 120px; width: 100%; height: 140px;
+    position: absolute;
+     bottom: 110px;
+      width: 100%;
+       height: 140px;
+       padding: 10px 10px;
     display: none; z-index: 50;
     overflow: hidden;   /* ← ADD THIS */
     cursor: grab;       /* ← ADD THIS */
 }
 
-    #theme-track { display: flex; gap: 15px; padding: 0 40px; transition: transform 0.3s ease; }
+#theme-track { display: flex; gap: 15px; padding: 0 40px; transition: transform 0.3s ease; }
 
-    .theme-thumb {
+.theme-thumb {
         min-width: 200px; height: 120px; border-radius: 12px;
         background: no-repeat center / cover;
         cursor: pointer; border: 2px solid rgba(255,255,255,0.2);
         transition: transform 0.2s ease, border 0.2s;
-    }
+}
 
 .theme-thumb.active { 
-    border: 3px solid rgba(255, 255, 255, 0.8); 
-    transform: scale(1.05); 
+    border: 1px solid rgba(255, 255, 255, 0.8); 
+    transform: scale(1.1); 
 }
 
     /* --- CONTRAST MODES --- */
-    body.dark-text, 
-    body.dark-text #sub-content-overlay *, 
-    body.dark-text #main-grid * {
+body.dark-text, 
+body.dark-text #sub-content-overlay *, 
+body.dark-text #main-grid * {
         --text-color: #000000 !important;
         color: #000000 !important; font-weight: 600;
-    }
+}
 
-    body.dark-text .btn, 
-    body.dark-text .nav-btn-glass, 
-    body.dark-text .clock-glass {
+body.dark-text .btn, 
+body.dark-text .nav-btn-glass, 
+body.dark-text .clock-glass {
         border-color: rgba(0, 0, 0, 0.3) !important;
         text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.3);
-    }
+}
 
-    body.dark-text .material-symbols-rounded, 
-    body.dark-text svg {
+body.dark-text .material-symbols-rounded, 
+body.dark-text svg {
         color: #000000 !important; stroke: #000000 !important;
-    }
+}
 
     /* --- UTILS --- */
-    #vers { position: absolute; bottom: 10px; width: 100%; text-align: center; font-size: 0.7rem; opacity: 0.3; pointer-events: none; }
-    
+#vers {
+        position: absolute; bottom: 10px; width: 100%; text-align: center; font-size: 0.7rem; opacity: 0.3; pointer-events: none; }
+   
+        
 
-    
-    .remote-hover { 
+
+/* Specific sync for the Main Grid Buttons */
+#main-grid .btn.remote-hover {
         backdrop-filter: blur(15px) !important; 
         border: 1px solid white !important; 
         background-color: rgba(0, 0, 0, 0.5) !important; 
@@ -198,7 +217,9 @@
         transform: scale(1.1); 
         z-index: 100; 
         transition: all 0.1s ease-in-out; 
-    }
+}
+
+
 
 </style>
 </head>
@@ -241,29 +262,30 @@
 
 <!-- 3. The Sliding Control Panel (Top Layer) -->
 <div class="controls" id="controls">
-    <button class="nav-btn-glass" onclick="changeBackground('prev')">
+    <button style="margin-right: 3px;" class="nav-btn-glass" onclick="changeBackground('prev')">
         <span class="material-symbols-rounded">arrow_back</span>
     </button>
     <button class="nav-btn-glass" onclick="toggleThemeSlider()">
         <span class="material-symbols-rounded">palette</span>
         <span>Theme</span>
     </button>
-        <button class="nav-btn-glass" onclick="changeBackground('next')">
+        <button style="margin-left: 3px;" class="nav-btn-glass" onclick="changeBackground('next')">
         <span class="material-symbols-rounded">arrow_forward</span>
     </button>
+    <!--
     <button class="nav-btn-glass" onclick="toggleTextContrast()">
         <span class="material-symbols-rounded">contrast</span>
         <span>Text</span>
     </button>
-
-    <button class="nav-btn-glass" onclick="handleNav('help')">
+     -->
+    <button style="margin-left: 10px;" class="nav-btn-glass" onclick="handleNav('help')">
         <span class="material-symbols-rounded">help</span>
     </button>
-    <button class="nav-btn-glass" onclick="openSettings()">
+    <button style="margin-left: 5px;" class="nav-btn-glass" onclick="openSettings()">
         <span class="material-symbols-rounded">settings</span>
     </button>
-    <button class="nav-btn-glass" style="width: 55px;color: #ff5555!important;" onclick="toggleControls()">
-        <span class="material-symbols-rounded">close</span>
+    <button class="nav-btn-glass" style="margin-left: 10px; width: 58px;color: #ff5555!important;" onclick="toggleControls()">
+        <span style="font-weight: 600; font-size: 30px; " class="material-symbols-rounded">close</span>
         <span></span>
     </button>
 </div>

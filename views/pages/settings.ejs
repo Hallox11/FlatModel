@@ -230,7 +230,7 @@
                 // Turn UI Online
                 $('#connection-container').addClass('online-active');
                 $('#status-text').text('ONLINE');
-                $('#tv-location').text('Region: ' + (data.land_name || 'Active'));
+                $('#tv-location').text('Region: ' + (data.location || 'Active'));
                 
                 // Optional: Auto-offline after 1 minute of silence
                 clearTimeout(window.offlineTimer);
@@ -245,25 +245,35 @@
 
         const TV_ID = "<%= tvId %>";
         // --- COMMAND LOGIC ---
-        window.cmd = function(command, value, el) {
-            if(el) { 
-                $(el).addClass('sent'); 
-                setTimeout(() => $(el).removeClass('sent'), 300); 
-            }
+window.cmd = function(command, value, el) {
+    const sessionId = localStorage.getItem("sessionId");
 
-            $.ajax({
-                type: 'POST',
-                url: '/send-command',
-                contentType: 'application/json',
-                data: JSON.stringify({ command: command, value: value, TV_ID:TV_ID }),
-                success: (res) => { console.log('Sent'); },
-                error: (err) => { 
-                    $('#connection-container').removeClass('online-active');
-                    $('#status-text').text('OFFLINE');
-                }
-            });
-        };
+    if (!sessionId) {
+        console.warn("No session — access denied");
+        return;
+    }
 
+    if(el) { 
+        $(el).addClass('sent'); 
+        setTimeout(() => $(el).removeClass('sent'), 300); 
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: '/send-command',
+        contentType: 'application/json',
+        data: JSON.stringify({ 
+            command: command, 
+            value: value, 
+            sessionId: sessionId   // ✅ THIS is the key
+        }),
+        success: () => console.log('Sent'),
+        error: () => {
+            $('#connection-container').removeClass('online-active');
+            $('#status-text').text('OFFLINE');
+        }
+    });
+};
         window.closeSettings = function() {
             $('#overlay-content').fadeOut(200);
         };

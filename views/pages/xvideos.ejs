@@ -1,193 +1,229 @@
 <style>
-    /* Scope everything to #xxx-module to ignore CSS from other pages */
+    /* 1. ESTRUTURA PRINCIPAL */
     #xxx-module {
-        width: 1240px;
+        width: 1280px;
         height: 720px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        color: #fff;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        overflow: hidden;
+        font-family: 'Outfit', sans-serif;
         position: relative;
     }
 
-    #xxx-module .nav-bar {
-        padding: 15px 25px;
+    /* 2. NAV BAR ESTILO SL */
+    .sl-nav-header {
+        height: 75px;
+        padding: 0 40px;
         display: flex;
-        gap: 12px;
-        background: #111;
-        position: sticky;
-        top: 0;
-        z-index: 99;
-        border-bottom: 1px solid #222;
-    }
-
-    #xxx-module #xxx-search-input {
-        flex-grow: 1;
-        background: #222;
-        color: #fff;
-        border: 1px solid #444;
-        padding: 12px;
-        border-radius: 4px;
-        font-size: 16px;
-    }
-
-    #xxx-module .search-btn, #xxx-module .cat-modal-btn {
-        padding: 0 20px;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: bold;
-        text-transform: uppercase;
-        height: 45px;
-    }
-
-    #xxx-module .search-btn { background: #f00; }
-    #xxx-module .cat-modal-btn { background: #333; border: 1px solid #ffa260; color: #ffa260; }
-
-    /* Modal Styling */
-    #xxx-cat-modal {
-        display: none;
-        position: fixed; /* Fixed to the 1280x720 viewport */
-        top: 0;
-        left: 0;
-        width: 1280px;
-        height: 720px;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 9999;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
-    }
-
-    .cat-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        width: 90%;
-        max-width: 1000px;
-    }
-
-    .cat-item {
-        background: #1a1a1a;
-        padding: 15px;
-        border: 1px solid #444;
-        color: #ffa260;
-        text-align: center;
-        cursor: pointer;
-        font-weight: bold;
-        transition: 0.2s;
-    }
-
-    .cat-item:hover { background: #ffa260; color: #000; border-color: #fff; }
-
-    /* Grid Layout */
-    #xxx-module .video-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-        padding: 25px;
+        background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0) 100%);
+        flex-shrink: 0;
+        z-index: 100;
         box-sizing: border-box;
     }
 
-    #xxx-module .video-card {
-        background: #161616;
-        overflow: hidden;
+    .nav-left .current-tag {
         display: flex;
         flex-direction: column;
+        line-height: 1.2;
+        min-width: 160px;
+    }
+
+    .nav-left .current-tag span { font-size: 20px; font-weight: 400; letter-spacing: 1px; }
+    .nav-left .current-tag small { font-size: 13px; color: #f00; text-transform: uppercase; font-weight: bold; }
+
+    .category-chips { display: flex; gap: 8px; margin-left: 20px; align-items: center; }
+
+    .chip { 
+        background: rgba(255,255,255,0.05);
+        border: 1px solid #444;
+        color: white; 
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 14px;
+        transition: 0.2s;
+    }
+
+    .chip.active { background: rgba(255, 204, 0, 0.1); border-color: #ffcc00; color: #ffcc00; }
+    .chip:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+    .nav-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+
+    #xxx-search-input {
+        background: rgba(26, 26, 26, 0.8);
+        border: 1px solid #333;
+        color: #fff;
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-size: 13px;
+        width: 180px;
+        outline: none;
+    }
+
+    .exit-btn {
+        background: rgba(51, 51, 51, 0.8);
+        border: 1px solid #444;
+        color: #fff;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; font-size: 18px;
+    }
+
+    /* 3. MODAL DE CATEGORIAS (DESIGN PREMIUM) */
+    #xxx-cat-modal {
+        display: none;
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle, rgba(20,20,20,0.98) 0%, rgba(0,0,0,1) 100%);
+        z-index: 9999;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+        box-sizing: border-box;
+    }
+
+    .cat-scroll-wrapper { width: 100%; max-width: 1100px; overflow-y: auto; margin: 20px 0; }
+    .category-map { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    
+    .cat-map-btn {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid #333;
+        color: #ccc;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 13px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    .cat-map-btn:hover { background: #f00; color: #fff; border-color: #f00; transform: scale(1.05); }
+
+    /* 4. SCROLL VERMELHO */
+    #xxx-scroll-content {
+        flex-grow: 1;
+        width: 1240px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin-left: 20px;
+    }
+
+    #xxx-scroll-content::-webkit-scrollbar { width: 10px; }
+    #xxx-scroll-content::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
+    #xxx-scroll-content::-webkit-scrollbar-thumb { 
+        background: #ff0000; 
+        border-radius: 10px; 
+        border: 2px solid rgba(0, 0, 0, 0.4); 
+    }
+
+    /* 5. GRID E CARDS (4 COLUNAS) */
+    .video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 10px 20px; }
+    
+    .video-card {
+        background: #111;
+        border: 1px solid #222;
         transition: transform 0.2s;
-        border: 2px solid #a79d9d;
+        cursor: pointer;
     }
+    .video-card:hover { border: 2px solid yellow; transform: scale(1.02); }
 
-    #xxx-module .video-card:hover {
-        transform: translateY(-5px);
-        border-color: yellow !important;
+    .thumb-wrap { width: 100%; aspect-ratio: 4 / 2.7; background: #000; overflow: hidden; }
+    .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+    .video-title { 
+        font-size: 10.5px; 
+        line-height: 1.3;
+         padding: 8px; 
+         color: #ccc; 
+         text-align: center;
+        text-transform: uppercase;
+         display: -webkit-box; 
+        -webkit-box-orient: vertical;
+        letter-spacing: 1.1px;
+         overflow: hidden;
+          height: 21px;
+           margin: 0;
     }
-
-    #xxx-module .thumb-wrap { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
-    #xxx-module .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; }
-    #xxx-module .video-title { font-size: 10px; padding: 10px; color: #eee; text-align: center; text-transform: uppercase; }
-
-#xxx-module .close-btn {
-    background: #222;
-    color: #ff4444;
-    border: 1px solid #ff4444;
-    border-radius: 50%; /* Circular button */
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s;
-    flex-shrink: 0;
-}
-
-#xxx-module .close-btn:hover {
-    background: #ff4444;
-    color: #fff;
-    box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
-}
-
-    #yt-content-scroll::-webkit-scrollbar { width: 12px; }
-    #yt-content-scroll::-webkit-scrollbar-track { background: #333; border-radius: 10px; }
-    #yt-content-scroll::-webkit-scrollbar-thumb { background: red; border-radius: 10px; }
-
 </style>
 
 <div id="xxx-module">
-    <div class="nav-bar">
-        <input type="text" id="xxx-search-input" value="<%= tag %>" placeholder="Search videos...">
-        <button class="search-btn" onclick="xxxSearch()">Search</button>
-        <button class="cat-modal-btn" onclick="toggleCatModal(true)">Categories</button>
-        <button class="close-btn" onclick="handleNav('/xxx-index')">✕</button>
+    <div id="xxx-cat-modal">
+        <h2 style="letter-spacing: 4px; font-weight: 200;">CATEGORIES</h2>
+        <div class="cat-scroll-wrapper">
+            <div class="category-map" id="modal-cat-grid">
+                <% XXX_CATEGORIES.forEach(cat => { %>
+                    <button class="cat-map-btn" onclick="selectCat('<%= cat %>')">
+                        <%= cat %>
+                    </button>
+                <% }) %>
+            </div>
+        </div>
+        <button class="chip" style="border-color: #f00; color: #f00; padding: 10px 30px;" onclick="toggleCatModal(false)">CLOSE</button>
     </div>
 
-    <div id="xxx-cat-modal">
-        <h2 style="color: #ffa260; margin-bottom: 20px;">SELECT CATEGORY</h2>
-        <div class="cat-grid">
-            <% ["3some", "POV", "Asian", "Latina", "Milf", "Amateur", "Anal", "VR", "Handjob", "College", "Outdoor", "Solo"].forEach(c => { %>
-                <div class="cat-item" onclick="selectCat('<%= c %>')"><%= c %></div>
+    <nav class="sl-nav-header">
+        <div class="nav-left">
+            <div class="current-tag">
+                <span>HARDCORE</span>
+                <small id="active-tag-display"><%= tag %></small>
+            </div>
+        </div>
+
+        <div class="category-chips" id="quick-chips">
+            <% XXX_CATEGORIES.slice(0, 7).forEach(cat => { %>
+                <button class="chip <%= tag === cat ? 'active' : '' %>" 
+                        onclick="selectCat('<%= cat %>')">
+                    <%= cat %>
+                </button>
+            <% }) %>
+            <button class="chip" onclick="toggleCatModal(true)">...</button>
+        </div>
+
+        <div class="nav-right">
+            <input type="text" id="xxx-search-input" value="<%= tag %>" placeholder="Search..." onkeyup="if(event.key === 'Enter') xxxSearch()">
+            <button class="exit-btn" onclick="handleNav('/xxx-index')">✕</button>
+        </div>
+    </nav>
+
+    <div id="xxx-scroll-content">
+        <div class="video-grid">
+            <% videos.forEach(v => { %>
+                <div class="video-card" data-url="<%= v.pageUrl %>" data-title="<%= v.title %>" onclick="playXXX(this)">
+                    <div class="thumb-wrap">
+                        <img src="<%= v.thumbnail %>" loading="lazy">
+                    </div>
+                    <p class="video-title"><%= v.title %></p>
+                </div>
             <% }) %>
         </div>
-        <p onclick="toggleCatModal(false)" style="margin-top: 30px; cursor: pointer; color: #888;">[ CLOSE ]</p>
-    </div>
-
-    <div class="video-grid">
-        <% videos.forEach(v => { %>
-            <div class="video-card" data-url="<%= v.pageUrl %>" data-title="<%= v.title %>" onclick="playXXX(this)">
-                <div class="thumb-wrap">
-                    <img src="<%= v.thumbnail %>" alt="video thumbnail">
-                </div>
-                <p class="video-title"><%= v.title %></p>
-            </div>
-        <% }) %>
     </div>
 </div>
 
 <script>
-// --- MODAL LOGIC ---
-function toggleCatModal(show) {
+// Mantemos as funções globais para os cliques funcionarem
+window.toggleCatModal = function(show) {
     $('#xxx-cat-modal').css('display', show ? 'flex' : 'none');
-    
-    // Sync modal state to others
     if (window.socket && !window.isRemoteAction) {
-        socket.emit('state_sync', {
-            type: 'xxx_modal',
-            show: show
-        });
+        socket.emit('state_sync', { type: 'xxx_modal', show: show, room: window.myRoom });
     }
-}
+};
 
-function selectCat(cat) {
+window.selectCat = function(cat) {
     toggleCatModal(false);
     handleNav('/xvideos-grid?tag=' + encodeURIComponent(cat));
-}
+};
 
-// --- VIDEO PLAYER ---
+window.xxxSearch = function() {
+    const val = document.getElementById('xxx-search-input').value;
+    handleNav('/xvideos-grid?tag=' + encodeURIComponent(val));
+};
+
+// Player e Sincronização de Scroll (Mantidos)
 async function playXXX(el) {
     const url = el.getAttribute('data-url');
     const title = el.getAttribute('data-title');
@@ -195,44 +231,30 @@ async function playXXX(el) {
         const res = await fetch('/get-xxx-stream?url=' + encodeURIComponent(url));
         const data = await res.json();
         if (data.streamUrl) {
-            const playerUrl = `/xxx-player?stream=${encodeURIComponent(data.streamUrl)}&title=${encodeURIComponent(title)}`;
-            handleNav(playerUrl); 
+            handleNav(`/xxx-player?stream=${encodeURIComponent(data.streamUrl)}&title=${encodeURIComponent(title)}`); 
         }
-    } catch (e) { console.error("Stream fetch failed", e); }
+    } catch (e) { console.error("Error", e); }
 }
 
-function xxxSearch() {
-    const val = document.getElementById('xxx-search-input').value;
-    handleNav('/xvideos-grid?tag=' + encodeURIComponent(val));
-}
-
-// --- SCROLL SYNC ---
-$('#xxx-module').on('scroll', function() {
-    if (window.isSyncing) return; 
-    if (window.socket && window.socket.connected) {
-        window.socket.emit('state_sync', {
-            type: 'scroll',
-            position: $(this).scrollTop(),
-            room: window.myRoom
-        });
-    }
+$('#xxx-scroll-content').on('scroll', function() {
+    if (window.isSyncing || !window.socket) return; 
+    socket.emit('state_sync', { type: 'scroll', position: $(this).scrollTop(), room: window.myRoom });
 });
 
-// --- REMOTE SOCKET LISTENER ---
-// Ensure this is globally available or added to your main listener
-socket.off('state_sync').on('state_sync', (data) => {
-    if (data.type === 'scroll') {
-        const $target = $('#xxx-module');
-        if ($target.length) {
+// Listener do Socket
+if(window.socket) {
+    socket.off('state_sync').on('state_sync', (data) => {
+        if (data.type === 'scroll') {
+            const $target = $('#xxx-scroll-content');
             window.isSyncing = true;
             $target.scrollTop(data.position);
             setTimeout(() => { window.isSyncing = false; }, 50);
         }
-    }
-    if (data.type === 'xxx_modal') {
-        window.isRemoteAction = true;
-        $('#xxx-cat-modal').css('display', data.show ? 'flex' : 'none');
-        setTimeout(() => { window.isRemoteAction = false; }, 100);
-    }
-});
+        if (data.type === 'xxx_modal') {
+            window.isRemoteAction = true;
+            $('#xxx-cat-modal').css('display', data.show ? 'flex' : 'none');
+            setTimeout(() => { window.isRemoteAction = false; }, 100);
+        }
+    });
+}
 </script>

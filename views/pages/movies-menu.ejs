@@ -26,6 +26,7 @@
     letter-spacing: 7px;
     margin-bottom: 35px;
     opacity: 0.9;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .movies-grid-container {
@@ -57,7 +58,10 @@
     transition: all 0.3s ease;
 }
 
-.feature-btn:hover { background: white; color: black; }
+.feature-btn:hover { 
+    background: white; 
+    color: black; 
+}
 
 .movie-group {
     background: rgba(0, 0, 0, 0.4);
@@ -74,9 +78,9 @@
 }
 
 .movie-group:hover {
-    transform: translateY(-5px); /* Changed from 0px to create a lift effect */
+    transform: scale(1.07); /* Changed from 0px to create a lift effect */
     background: rgba(0, 0, 0, 0.7);
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 .main-title-btn {
@@ -125,29 +129,28 @@
 .cat-docs .sub-list-btn { color: #bd00ff; border-color: rgba(189, 0, 255, 0.4); }
 .cat-docs .sub-list-btn:hover { background: #bd00ff; color: white; }
 
-.close-menu-btn {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-        width: 45px;
-        height: 45px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: 0.2s;
-        z-index: 10;
-    }
 
-.close-menu-btn:hover {
-        background: #ff0000;
-        border-color: #ff0000;
-        transform: scale(1.1);
-    }
+
+/* Remote Hover for the Movie Cards */
+.movie-group.remote-hover {
+    transform: scale(1.07); /* Changed from 0px to create a lift effect */
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Remote Hover for the Feature Buttons (Top Row) */
+.feature-btn.remote-hover {
+    background: white;
+    color: black;
+}
+
+/* Remote Hover for the Sub-buttons (the pills) */
+.sub-list-btn.remote-hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+
 </style>
 
 <div id="movies-menu-wrapper">

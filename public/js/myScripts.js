@@ -22,6 +22,7 @@ const NAV_CONFIG = {
         'movies': '/movies-menu',
         'sl-destinations': '/sl-destinations',
         'flickr': '/flickr',
+        'flickr-grid': '/flickr-grid',
         'youtube': '/youtube-menu',
         'settings': '/settings',
         'tvytube': '/tvytube',
@@ -93,6 +94,10 @@ const NAV_CONFIG = {
     }
 };
 
+
+
+
+
 // ===============================
 // UTILITY FUNCTIONS
 // ===============================
@@ -128,6 +133,48 @@ function toggleTextContrast(isRemote = false) {
     }
 }
 
+
+$(document).ready(function() {
+    // 1. Aplicar contraste guardado (Pode manter aqui)
+    if (localStorage.getItem("text_contrast") === "dark") {
+        $('body').addClass('dark-text');
+    }
+
+    // 2. Lógica de Acesso e Segurança
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+
+    // EXCEPÇÃO PARA MODO DEVELOPER
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.warn("Developer Mode: Ignorando validação de token.");
+        // Se não houver room no URL, define um padrão para não quebrar o socket
+        if (!window.myRoom) window.myRoom = 'Lobby'; 
+        return; // Sai da função aqui, permitindo que a app carregue
+    }
+
+    // VALIDAÇÃO PARA PRODUÇÃO (ONLINE)
+    if (!token) {
+        window.location.href = '/access-denied';
+        return;
+    }
+
+    $.get(`/validate-token?token=${token}`)
+        .done(function(data) {
+            if (data.valid) {
+                console.log("✅ Access granted for:", data.owner);
+                window.history.replaceState({}, '', '/');
+            } else {
+                window.location.href = '/access-denied';
+            }
+        })
+        .fail(function() {
+            window.location.href = '/access-denied';
+        });
+});
+
+
+
+/*
 $(document).ready(function() {
     if (localStorage.getItem("text_contrast") === "dark") {
         $('body').addClass('dark-text');
@@ -158,6 +205,12 @@ $(document).ready(function() {
             window.location.href = '/access-denied';
         });
 });
+*/
+
+
+
+
+
 // ===============================
 // CORE NAVIGATION FUNCTION
 // ===============================
@@ -400,7 +453,7 @@ window.killRadio = function() {
 // ===============================
 // HOVER & INPUT SYNC (senders only — no listener here)
 // ===============================
-const syncSelectors = '.btn, .video-card, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip';
+const syncSelectors = '.close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn,.tag-card, .action-btn, .cat-item, .fav-item';
 
 $(document).on('mouseenter mouseleave', syncSelectors, function(e) {
     if (window.isRemoteAction) return;
@@ -548,42 +601,75 @@ if (state.currentBg) {
                     break;
                 }
 
+                // --- Update these blocks in your Global Script ---
+
                 case 'yt_cat_modal': {
-                    const $modal = $('#yt-cat-modal');
+                    const $modal = $('#yt-cat-modal-new'); // Added '-new'
                     if ($modal.length) {
                         window.isRemoteAction = true;
                         $modal.css('display', data.show ? 'flex' : 'none');
+                        
+                        // IMPORTANT: If opening, we must trigger the render function
+                        if (data.show && typeof renderCategories === 'function') {
+                            renderCategories();
+                        }
+                        
                         setTimeout(() => { window.isRemoteAction = false; }, 100);
                     }
                     break;
                 }
 
                 case 'yt_fav_modal': {
-                    const $modal = $('#yt-fav-modal');
+                    const $modal = $('#yt-fav-modal-new'); // Added '-new'
                     if ($modal.length) {
                         window.isRemoteAction = true;
                         $modal.css('display', data.show ? 'flex' : 'none');
+                        
+                        // IMPORTANT: If opening, we must trigger the render function
+                        if (data.show && typeof renderFavorites === 'function') {
+                            renderFavorites();
+                        }
+                        
                         setTimeout(() => { window.isRemoteAction = false; }, 100);
                     }
                     break;
                 }
+                // --- DENTRO DO SWITCH (data.type) NO SEU ARQUIVO GLOBAL ---
 
-case 'scroll': {
-    // Add #grid-content to this priority list
-    const $scrollTarget = $('#grid-content').length        ? $('#grid-content') :
-                          $('#yt-content-scroll').length   ? $('#yt-content-scroll') :
-                          $('#xxx-module').length          ? $('#xxx-module') :
-                          $('#flickr-results-grid').length ? $('#flickr-results-grid') :
-                          $('#conteiner');
+                case 'xxx_modal': {
+                    const $modal = $('#xxx-cat-modal');
+                    if ($modal.length) {
+                        console.log("Recebendo comando remoto para XXX Modal:", data.show);
+                        window.isRemoteAction = true;
+                        
+                        // Ativa ou esconde o modal para o outro espectador
+                        $modal.css('display', data.show ? 'flex' : 'none');
+                        
+                        // Se estiver abrindo, garante que a interface interna esteja pronta
+                        if (data.show && typeof initInterface === 'function') {
+                            initInterface();
+                        }
+                        
+                        setTimeout(() => { window.isRemoteAction = false; }, 100);
+                    }
+                    break;
+                }
+                case 'scroll': {
+                    // Add #grid-content to this priority list
+                    const $scrollTarget = $('#grid-content').length        ? $('#grid-content') :
+                                        $('#yt-content-scroll').length   ? $('#yt-content-scroll') :
+                                        $('#xxx-module').length          ? $('#xxx-module') :
+                                        $('#flickr-results-grid').length ? $('#flickr-results-grid') :
+                                        $('#conteiner');
 
-    if ($scrollTarget.length > 0) {
-        window.isSyncing = true;
-        $scrollTarget.scrollTop(data.position);
-        // Using a slightly longer timeout to ensure smooth handling
-        setTimeout(() => { window.isSyncing = false; }, 100);
-    }
-    break;
-}
+                    if ($scrollTarget.length > 0) {
+                        window.isSyncing = true;
+                        $scrollTarget.scrollTop(data.position);
+                        // Using a slightly longer timeout to ensure smooth handling
+                        setTimeout(() => { window.isSyncing = false; }, 100);
+                    }
+                    break;
+                }
 
                 case 'start_slideshow':
                     if (typeof window.startSlideshow === 'function') {

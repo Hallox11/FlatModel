@@ -1,39 +1,19 @@
 'use strict';
 
-/**
- * xvideosScraper.js
- * -----------------
- * Standalone module for scraping xvideos search results and extracting HLS streams.
- *
- * Usage:
- *   const xvideosScraper = require('./xvideosScraper');
- *
- *   // Search + cache by tag
- *   const videos = await xvideosScraper.getVideos({ tag: 'jazz' });
- *
- *   // Force a fresh scrape
- *   const videos = await xvideosScraper.refreshVideos({ tag: 'jazz' });
- *
- *   // Extract HLS stream URL from a video page
- *   const streamUrl = await xvideosScraper.getStream('https://www.xvideos.com/video...');
- */
-
 const axios   = require('axios');
 const cheerio = require('cheerio');
 const fs      = require('fs');
 const path    = require('path');
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
-
-const CACHE_DIR        = path.join(__dirname, 'cache/xxx');
-const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 hours
+const CACHE_DIR      = path.join(__dirname, 'cache/xxx');
+const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 horas
 const DEFAULT_LIMIT    = 100;
 const MAX_PAGES        = 5;
 const BASE_URL         = 'https://www.xvideos.com';
-const USER_AGENT       = 'Mozilla/5.0';
+const USER_AGENT       = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
-
 function ensureCacheDir() {
     if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR, { recursive: true });
 }
@@ -49,12 +29,17 @@ function loadCache(tag) {
 
     const stats   = fs.statSync(file);
     const isFresh = (Date.now() - stats.mtimeMs) < CACHE_EXPIRATION;
-    if (!isFresh) return null;
+    
+    if (!isFresh) {
+        console.log(`[XV CACHE] Stale: ${tag}`);
+        return null;
+    }
 
     try {
+        const data = JSON.parse(fs.readFileSync(file, 'utf8'));
         console.log(`[XV CACHE] Hit: ${tag}`);
-        return JSON.parse(fs.readFileSync(file, 'utf8'));
-    } catch {
+        return data;
+    } catch (e) {
         return null;
     }
 }
@@ -66,66 +51,80 @@ function saveCache(tag, data) {
 
 // ─── CORE SCRAPER ─────────────────────────────────────────────────────────────
 
-/**
- * Scrapes xvideos search results for a given tag.
- * Paginates up to MAX_PAGES or until the limit is reached.
- *
- * @param {string} tag    Search keyword
- * @param {number} limit  Max number of videos to return (default 100)
- * @returns {Promise<Array>}
- */
 async function scrapeVideos(tag = 'top', limit = DEFAULT_LIMIT) {
     console.log(`[XV SCRAPE] Fetching: "${tag}" (limit: ${limit})`);
-
     const videos = [];
     let page = 1;
 
+    // Ajuste da URL: Se a tag for 'top', usamos a home, senão usamos a busca
+    const getUrl = (p) => {
+        if (tag.toLowerCase() === 'top') return `${BASE_URL}/best/1080p/${p}`;
+        return `${BASE_URL}/?k=${encodeURIComponent(tag)}&p=${p}`;
+    };
+
     while (videos.length < limit && page <= MAX_PAGES) {
         try {
-            const url      = `${BASE_URL}/?k=${encodeURIComponent(tag)}&durf=1080p&p=${page}`;
+            const url = getUrl(page);
             const response = await axios.get(url, { headers: { 'User-Agent': USER_AGENT } });
-            const $        = cheerio.load(response.data);
-            const items    = $('.thumb-block');
+            const $ = cheerio.load(response.data);
+            const items = $('.thumb-block');
 
-            if (items.length === 0) break; // No more results
+            if (items.length === 0) break;
 
             items.each((i, el) => {
-                if (videos.length >= limit) return false; // Stop early
+                if (videos.length >= limit) return false;
 
-                const title    = $(el).find('p.title a').attr('title') || '';
-                const pageUrl  = $(el).find('p.title a').attr('href');
+                const title = $(el).find('p.title a').attr('title') || '';
+                const pageUrl = $(el).find('p.title a').attr('href');
                 const thumbnail = $(el).find('img').attr('data-src') || $(el).find('img').attr('src');
 
                 if (title && pageUrl) {
                     videos.push({
-                        title:    title.replace(/'/g, '&apos;'), // Sanitize for inline JS
+                        title: title.replace(/'/g, '&apos;'),
                         thumbnail,
-                        pageUrl:  pageUrl.startsWith('http') ? pageUrl : `${BASE_URL}${pageUrl}`
+                        pageUrl: pageUrl.startsWith('http') ? pageUrl : `${BASE_URL}${pageUrl}`
                     });
                 }
             });
-
             page++;
         } catch (err) {
             console.error(`[XV SCRAPE] Error on page ${page}:`, err.message);
             break;
         }
     }
-
-    console.log(`[XV SCRAPE] Done. Found ${videos.length} videos for "${tag}"`);
     return videos;
 }
 
+// ─── PUBLIC API ───────────────────────────────────────────────────────────────
+
 /**
- * Extracts the HLS (.m3u8) stream URL from an xvideos video page.
- *
- * @param {string} videoPageUrl  Full URL of the xvideos video page
- * @returns {Promise<string|null>}  The HLS stream URL, or null if not found
+ * Esta é a função que a sua rota chama. 
+ * Ela agora recebe a tag corretamente e usa o sistema de cache por arquivo.
  */
+async function getVideos(tag = 'Hardcore') {
+    // 1. Tentar carregar do cache de arquivo primeiro
+    const cachedData = loadCache(tag);
+    if (cachedData) return cachedData;
+
+    // 2. Se não houver cache, faz o scrape real
+    try {
+        const videos = await scrapeVideos(tag);
+        
+        // 3. Se encontrou vídeos, salva no cache
+        if (videos && videos.length > 0) {
+            saveCache(tag, videos);
+        }
+        return videos;
+    } catch (error) {
+        console.error(`[XV Scraper] Erro geral:`, error.message);
+        return [];
+    }
+}
+
 async function getStream(videoPageUrl) {
     try {
         const response = await axios.get(videoPageUrl, { headers: { 'User-Agent': USER_AGENT } });
-        const match    = response.data.match(/html5player\.setVideoHLS\(['"](.*?)['"]\)/);
+        const match = response.data.match(/html5player\.setVideoHLS\(['"](.*?)['"]\)/);
         return match ? match[1] : null;
     } catch (err) {
         console.error('[XV STREAM] Failed to extract stream:', err.message);
@@ -133,44 +132,13 @@ async function getStream(videoPageUrl) {
     }
 }
 
-// ─── PUBLIC API ───────────────────────────────────────────────────────────────
-
-/**
- * Returns videos for a given tag.
- * Checks the 24-hour cache first; scrapes live if stale or missing.
- *
- * @param {object} options
- * @param {string} options.tag    Search keyword (default: 'top')
- * @param {number} options.limit  Max results (default: 100)
- * @returns {Promise<Array>}
- */
-async function getVideos({ tag = 'top', limit = DEFAULT_LIMIT } = {}) {
-    ensureCacheDir();
-
-    const cached = loadCache(tag);
-    if (cached) return cached;
-
-    const videos = await scrapeVideos(tag, limit);
-    if (videos.length > 0) saveCache(tag, videos);
-    return videos;
-}
-
-/**
- * Forces a fresh scrape, bypassing the cache.
- *
- * @param {object} options
- * @param {string} options.tag
- * @param {number} options.limit
- * @returns {Promise<Array>}
- */
-async function refreshVideos({ tag = 'top', limit = DEFAULT_LIMIT } = {}) {
-    const videos = await scrapeVideos(tag, limit);
+async function refreshVideos(tag = 'top') {
+    const videos = await scrapeVideos(tag);
     if (videos.length > 0) saveCache(tag, videos);
     return videos;
 }
 
 // ─── EXPORTS ──────────────────────────────────────────────────────────────────
-
 module.exports = {
     getVideos,
     refreshVideos,

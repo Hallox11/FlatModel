@@ -117,14 +117,20 @@
 /* Circular Back Button Styling */
 /* Layout & Navigation */
 #flickr-nav-container {
+    width: 100%;
+    height: 60px; /* Um pouco maior para suavizar o fade */
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 5px 25px;
-    position: fixed;
-    top: 5px;
-    z-index: 1000;
-    width: 99%;
+    align-items: center;
+    padding: 0 60px;
+    /* Efeito de Fade Moderno */
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 0.5) 80%, 
+        rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 100;
+    flex-shrink: 0; 
     box-sizing: border-box;
 }
 
@@ -347,79 +353,43 @@
 
 <script>
 (function() {
-    const FLICKR_KEY = "<%= apiKey %>";
     window.currentPhotos = [];
     window.currentIndex = 0;
-    window.isSyncingScroll = false;
 
-    // --- 1. THE ONLY SEARCH FUNCTION (Consolidated) ---
-window.runFlickrSearch = function(manualQuery = null, incomingPhotos = null, isRemote = false) {
-    const tags = manualQuery || $('#flickr-search').val();
-    
-    // 1. Local UI Reset
-    $('#favorites-manager, #categories-manager, #flickr-results-grid').hide();
-    $('#flickr-loader').fadeIn(100); 
+    window.runFlickrSearch = function(manualQuery = null) {
+        const tags = manualQuery || $('#flickr-search').val();
+        if (!tags) return;
 
-    // 2. SYNC: Tell others to show the loader IMMEDIATELY
-    if (window.socket && !isRemote && tags) {
-        window.socket.emit('state_sync', {
-            type: 'flickr_loading_start',
-            query: tags,
-            room: window.myRoom
+        $('#flickr-loader').show();
+        $('#flickr-results-grid').hide();
+
+        // CHAMA O SEU SERVIDOR, NÃO O FLICKR DIRETAMENTE
+        $.getJSON(`/api/flickr/search?tags=${encodeURIComponent(tags)}`, function(photos) {
+            window.currentPhotos = photos;
+            renderGrid(photos);
+            $('#flickr-loader').hide();
+            $('#flickr-results-grid').fadeIn();
+
+            // Sincroniza via socket que uma nova busca foi feita
+            if (window.socket) {
+                window.socket.emit('state_sync', { 
+                    type: 'flickr_results_sync', 
+                    photos: photos, 
+                    query: tags,
+                    room: window.myRoom 
+                });
+            }
         });
-    }
+    };
 
-    // 3. If photos already arrived via sync from someone else
-    if (incomingPhotos) {
-        $('#flickr-search').val(tags);
-        $('#flickr-loader').hide();
-        $('#flickr-results-grid').show();
-        window.renderGrid(incomingPhotos);
-        return; 
-    }
-
-    if (!tags) {
-        $('#flickr-loader').hide();
-        return;
-    }
-
-    // 4. Fetch from Flickr
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${FLICKR_KEY}&text=${encodeURIComponent(tags)}&format=json&nojsoncallback=1&per_page=50&sort=interestingness-desc`;
-    
-    $.getJSON(url, function(data) {
-        const photos = data.photos?.photo || [];
-        
-        // Success: Hide loader and show grid
-        $('#flickr-loader').hide();
-        $('#flickr-results-grid').show();
-        window.renderGrid(photos);
-
-        // 5. SYNC: Send the final results to everyone
-        if (window.socket && !isRemote) { 
-            window.socket.emit('state_sync', {
-                type: 'flickr_results_sync',
-                query: tags,
-                photos: photos, 
-                room: window.myRoom
-            });
-        }
-    });
-};
-
-
-window.renderGrid = function(photos) {
-        window.currentPhotos = photos;
-        if (!photos.length) {
-            $('#flickr-results-grid').html('<p style="color:gray; padding:20px;">No photos found.</p>');
-            return;
-        }
+    window.renderGrid = function(photos) {
         let html = photos.map((p, i) => `
             <div class="flickr-card" id="card-${i}" onclick="window.startSlideshow(${i})">
-                <img src="https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_z.jpg" onload="window.resizeGridItem(${i})">
+                <img src="https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_z.jpg" 
+                     onload="window.resizeGridItem(${i})">
             </div>`).join('');
         $('#flickr-results-grid').html(html);
     };
-
     window.resizeGridItem = function(index) {
         const item = document.getElementById(`card-${index}`);
         const grid = document.getElementById('flickr-results-grid');

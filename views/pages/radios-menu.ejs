@@ -33,10 +33,10 @@
 
     /* 5. Radio Root Buttons */
     #sl-radio-wrapper .btn {
-     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-            backdrop-filter: blur(5px); 
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+        backdrop-filter: blur(5px); 
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 12px;
         padding: 40px 20px !important;
         font-size: 22px;
@@ -57,29 +57,22 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-.close-menu-btn {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-        width: 45px;
-        height: 45px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: 0.2s;
-        z-index: 10;
-    }
 
-.close-menu-btn:hover {
-        background: #ff0000;
-        border-color: #ff0000;
-        transform: scale(1.1);
-    }
+/* Sync the remote hover to match the Goldenrod theme */
+/* --- MULTI-USER SYNC --- */
+
+/* Golden highlight for remote users on Radio buttons */
+#sl-radio-wrapper .btn.remote-hover {
+        backdrop-filter: blur(15px) !important; 
+        border: 1px solid white !important; 
+        background-color: rgba(0, 0, 0, 0.5) !important; 
+        color: white !important; 
+        font-size: 1.35rem; 
+        transform: scale(1.1); 
+        z-index: 100; 
+        transition: all 0.1s ease-in-out; 
+}
+
 
 </style>
 

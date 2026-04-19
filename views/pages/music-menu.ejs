@@ -23,9 +23,10 @@
     font-weight: 400;
     color: white;
     text-transform: uppercase;
-    letter-spacing: 10px;
+    letter-spacing: 7px;
     margin-bottom: 35px;
     opacity: 0.9;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .music-grid-container {
@@ -57,7 +58,11 @@
     transition: all 0.3s ease;
 }
 
-.feature-btn:hover { background: white; color: black; border-color: white; }
+.feature-btn:hover { 
+    background: white; 
+    color: black;
+    border-color: white;
+}
 
 .music-group {
     background: rgba(0, 0, 0, 0.4);
@@ -74,9 +79,9 @@
 }
 
 .music-group:hover {
-    transform: translateY(-5px); /* Changed from 0px to create a lift effect */
+    transform: scale(1.07); /* Changed from 0px to create a lift effect */
     background: rgba(0, 0, 0, 0.7);
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
 .main-genre-btn {
@@ -118,29 +123,28 @@
 .energy-soul .main-genre-btn1 { color: #d385ee; border-color: rgba(189, 0, 255, 0.6); }
 .energy-soul .main-genre-btn1:hover { background: #d385ee; color: white; }
 
-.close-menu-btn {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.2s;
-    z-index: 10;
+
+
+/* This allows the socket to trigger the hover style remotely */
+.music-group.remote-hover {
+    transform: scale(1.07); /* Changed from 0px to create a lift effect */
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.8);
 }
 
-.close-menu-btn:hover {
-    background: #ff4b2b;
-    border-color: #ff4b2b;
-    transform: scale(1.1);
+.feature-btn.remote-hover {
+    background: white;
+    color: black;
+    border-color: white;
 }
+
+.main-genre-btn1.remote-hover {
+    background: rgba(255, 255, 255, 0.2); /* Subtle highlight for remote users */
+    transform: scale(1.05);
+}
+
+
+
 </style>
 
 <div id="music-menu-wrapper">
@@ -176,10 +180,14 @@
             <div class="main-genre-btn">Relax</div>
             <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Relax music vevo')">VEVO</span>
         </div>
-        
+
         <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Pop')">
             <div class="main-genre-btn">Pop</div>
             <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Pop VEVO')">VEVO</span>
+        </div>
+        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Deep House')">
+            <div class="main-genre-btn">House</div>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=House Mix vevo')">VEVO</span>
         </div>
         <div class="music-group energy-high" onclick="handleNav('/music-grid?genre=Alternative Pop')">
             <div class="main-genre-btn">Alternative</div>
@@ -210,12 +218,11 @@
             <div class="main-genre-btn">Soul</div>
             <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=RnB VEVO')">VEVO</span>
         </div>
-        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Deep House')">
-            <div class="main-genre-btn">House</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=House Mix vevo')">VEVO</span>
-        </div>
+
         <div class="music-group energy-smooth" onclick="handleNav('/music-grid?genre=Acoustic')">
             <div class="main-genre-btn">Unplug</div>
             <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Acoustic VEVO')">VEVO</span>
         </div>
-    </div> </div>
+
+</div> 
+</div>
