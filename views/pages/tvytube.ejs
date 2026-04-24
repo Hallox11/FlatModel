@@ -60,10 +60,10 @@
     #msg {
         position: fixed;
         top: 180px;
-        left: 370px;
+        left: 320px;
         font-weight: 400;
         letter-spacing: 1.0px;
-        background: rgba(0, 0, 0, 0.7);
+
         border: 1px solid transparent;
         border-radius: 10px;
         padding: 7px 20px;
@@ -72,7 +72,7 @@
         align-items: center;
         justify-content: center;
         text-transform: uppercase;
-        font-size: 15px;
+        font-size: 18px;
     }
     #msgBox {
         position: fixed;
@@ -118,7 +118,7 @@
         </button>
         <div id="msgBox">
         <div style="color: rgb(169, 235, 38);" id="msg">Tip: Use the 'Gear Icon' to select the highest quality available.</div>
-        <div style="top:220px;left:250px;color:#fb5e5e" id="msg">If the video won't play, it might be due to age/region restrictions or it has been removed.</div>
+        <div style="top:220px;left:210px;color:#fb5e5e" id="msg">Video won't play, it might be due to age/region restrictions or it has been removed.</div>
         <div style="top:260px;left:480px;color: rgb(244, 244, 24);" id="msg">restart video or return to grid</div>
         </div>
 
@@ -135,7 +135,9 @@ function exitPlayer() {
     const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
     let returnUrl = "";
 
-if (origin === 'grid') {
+if (origin === 'live-tv') {
+    returnUrl = '/live-tv';
+} else if (origin === 'grid') {
     let gridRoute = '/music-grid'; // default
     if (menu.includes('movies'))   gridRoute = '/movies-grid';
     if (menu.includes('youtube'))  gridRoute = '/youtube-grid';

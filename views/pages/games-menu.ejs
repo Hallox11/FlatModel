@@ -1,0 +1,129 @@
+<style>
+#games-menu-module {
+    width: 1280px; height: 720px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    font-family: 'Fira Sans', sans-serif; color: white;
+    background: #000;
+    gap: 50px;
+}
+
+#games-close {
+    position: absolute; top: 20px; left: 20px;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
+    color: white; padding: 7px 14px; font-size: 0.78rem;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 6px;
+    cursor: pointer; transition: all 0.2s; z-index: 200;
+}
+#games-close:hover { border-color: rgba(255,255,255,0.5); }
+
+.games-title {
+    font-size: 0.75rem; letter-spacing: 6px;
+    text-transform: uppercase; opacity: 0.3;
+}
+
+#games-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 960px;
+}
+
+.game-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-top-color: rgba(255,255,255,0.18);
+    border-radius: 18px;
+    padding: 36px 20px 28px;
+    cursor: pointer; text-align: center;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 16px;
+    transition: all 0.22s cubic-bezier(0.25,0.8,0.25,1);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        0 8px 28px rgba(0,0,0,0.5);
+    position: relative; overflow: hidden;
+}
+.game-card::before {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0; width: 3px;
+    border-radius: 18px 0 0 18px;
+    background: var(--card-color, rgba(255,255,255,0.2));
+}
+.game-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    border-color: rgba(255,255,255,0.25);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 20px 48px rgba(0,0,0,0.7),
+        0 0 24px var(--card-glow, rgba(255,255,255,0.05));
+}
+
+.game-card:nth-child(1) { --card-color: #daa520; --card-glow: rgba(218,165,32,0.12); }
+.game-card:nth-child(2) { --card-color: #2ecc71; --card-glow: rgba(46,204,113,0.12); }
+.game-card:nth-child(3) { --card-color: #9b59b6; --card-glow: rgba(155,89,182,0.12); }
+.game-card:nth-child(4) { --card-color: #3498db; --card-glow: rgba(52,152,219,0.12); }
+
+.game-emoji { font-size: 3rem; line-height: 1; }
+
+.game-name {
+    font-size: 1rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2.5px;
+    color: #fff;
+}
+.game-desc {
+    font-size: 0.68rem; letter-spacing: 1.5px;
+    text-transform: uppercase; opacity: 0.35;
+    line-height: 1.6;
+}
+.game-players {
+    font-size: 0.6rem; letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    opacity: 0.6;
+}
+</style>
+
+<div id="games-menu-module">
+    <button id="games-close" onclick="closeSubMenu()">
+        <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span> Back
+    </button>
+
+    <div class="games-title">Choose a Game</div>
+
+    <div id="games-grid">
+        <div class="game-card" onclick="handleNav('quiz')">
+            <div class="game-emoji">🎯</div>
+            <div class="game-name">Trivia Quiz</div>
+            <div class="game-desc">10 questions<br>race against the clock</div>
+            <div class="game-players">2 – 8 players</div>
+        </div>
+
+        <div class="game-card" onclick="handleNav('truth-or-myth')">
+            <div class="game-emoji">✅</div>
+            <div class="game-name">True or Myth</div>
+            <div class="game-desc">fact or fiction<br>vote before time runs out</div>
+            <div class="game-players">1 – 8 players</div>
+        </div>
+
+        <div class="game-card" onclick="handleNav('who-am-i')">
+            <div class="game-emoji">🕵️</div>
+            <div class="game-name">Who Am I?</div>
+            <div class="game-desc">yes · no · maybe<br>guess the character</div>
+            <div class="game-players">2 – 6 players</div>
+        </div>
+
+        <div class="game-card" onclick="handleNav('this-or-that')">
+            <div class="game-emoji">⚡</div>
+            <div class="game-name">This or That</div>
+            <div class="game-desc">pick your side<br>see what others chose</div>
+            <div class="game-players">1 – 8 players</div>
+        </div>
+    </div>
+</div>

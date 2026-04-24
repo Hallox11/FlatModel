@@ -1,121 +1,408 @@
-<style>
-    /* 1. Wrapper for Goldenrod Theme */
-    #inter-radio-wrapper {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 700px; /* Matching the first radio list width */
-        animation: fadeIn 0.4s ease-out;
-    }
-
-    /* 2. Circular Close Button (Top Right) */
-    #inter-radio-wrapper .close-btn {
-        position: absolute;
-        top: -10px;
-        right: -50px; /* Offset to the side of the list */
-        width: 45px;
-        height: 45px;
-        border: 1px solid black;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 50%;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 110;
-        transition: all 0.2s ease;
-        outline: none;
-    }
-
-    #inter-radio-wrapper .close-btn:hover, 
-    #inter-radio-wrapper .close-btn:focus {
-        color: white;
-        transform: scale(1.3) ;
-        box-shadow: 0 0 15px rgba(218, 165, 32, 0.5);
-    }
-
-    /* 3. Title Styling */
-    #inter-radio-wrapper #title {
-        font-size: 28px;
-        color: #564f4f;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        letter-spacing: 4px;
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    }
-
-    /* 4. The Scrollable List Container */
-    #inter-radio-wrapper .conteiner {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-        width: 100% !important;
-        height: 500px !important;
-        padding: 10px 20px;
-        overflow-y: auto;
-
-    }
-
-    /* 5. List Item Button Styling */
-    #inter-radio-wrapper .btn {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
-        backdrop-filter: blur(5px) !important; 
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 10px;
-        padding: 18px 25px !important;
-        font-size: 20px;
-        color: white !important;
-        text-align: center !important;
-        display: flex !important;
-        align-items: center;
-        width: 100%;
-        min-height: 60px;
-        transition: all 0.2s ease;
-        cursor: pointer;
-        box-sizing: border-box; /* Ensures padding doesn't break width */
-    }
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Radio Explorer</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            width: 100vw; height: 100vh;
+            overflow: hidden;
+            background: #0f0f0f url('https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=2070') no-repeat center center fixed;
+            background-size: cover;
+            color: white; font-family: 'Segoe UI', sans-serif;
+            display: flex; flex-direction: column;
+        }
 
 
+        /* --- Global Explorer (The Menu) --- */
+        #inter-radio-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 850px;
+            margin: 40px auto;
+            animation: fadeIn 0.4s ease-out;
+        }
 
-    /* 6. Back to Main Button (Styled exactly like list buttons) */
-    .back-btn {
-        margin-top: 20px;
-        justify-content: center !important; /* Center the "Back" text */
-    }
+        .flex-row { display: flex; gap: 20px; width: 100%; justify-content: space-between; }
 
-    /* Hide scrollbar */
-    #inter-radio-wrapper .conteiner::-webkit-scrollbar { width: 0px; }
+        .column-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-</style>
+        .column-header {
+            font-size: 16px; color: #DAA520;
+            text-transform: uppercase; margin-bottom: 10px;
+            letter-spacing: 2px; text-align: center;
+        }
 
-<div id="inter-radio-wrapper">
-    
-    <button class="close-btn" onclick="closeSubMenu()" tabindex="40">
-        <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    </button>
+        .scroll-container {
+            display: flex; flex-direction: column; gap: 8px;
+            width: 100%; height: 350px;
+            overflow-y: auto; padding-right: 5px;
+        }
 
-    <div id="title">World Radios</div>
+        /* --- Buttons & Inputs --- */
+        .btnr {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white; padding: 10px 15px;
+            border-radius: 8px; cursor: pointer; font-size: 16px;
+            transition: all 0.2s; text-align: center;
+            text-transform: uppercase;
+        }
+        .btnr:hover { background: rgba(218, 165, 32, 0.3); border-color: #DAA520; }
+        .back-btn { background: #e74c3c; border: none; font-weight: bold; width: 80px; }
 
-    <div class="conteiner">
-        <div class="btn" data-type="radio" data-mode="pt" tabindex="1">Portugal Radios</div>  
-        <div class="btn" data-type="radio" data-mode="nz" tabindex="2">New Zealand Radios</div>
-        <div class="btn" data-type="radio" data-mode="es" tabindex="3">Spain Radios</div>  
-        <div class="btn" data-type="radio" data-mode="br" tabindex="4">Brasil Radios</div>  
-        <div class="btn" data-type="radio" data-mode="fr" tabindex="5">France Radios</div>  
-        <div class="btn" data-type="radio" data-mode="it" tabindex="6">Italian Radios</div>  
-        <div class="btn" data-type="radio" data-mode="mr" tabindex="7">Marroc Radios</div>
+        .search-field {
+            margin-top: 15px; width: 100%; padding: 10px;
+            border-radius: 8px; border: 1px solid rgba(218, 165, 32, 0.4);
+            background: rgba(0, 0, 0, 0.5); color: white; outline: none;
+        }
+
+        /* --- Radio Results Grid --- */
+        .content-area { flex-grow: 1; overflow-y: auto; padding: 20px; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px; max-width: 1200px; margin: 0 auto;
+        }
+        .radio-card {
+            background: rgba(0, 0, 0, 0.7); border-radius: 10px; padding: 15px;
+            text-align: center; cursor: pointer; transition: 0.2s;
+            border: 1px solid transparent; height: 160px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .radio-card:hover { border: 2px solid #2cf3de; transform: translateY(-3px); }
+        .radio-card img { width: 65px; height: 65px; object-fit: contain; background: white; border-radius: 5px; margin-bottom: 10px; }
+        .radio-card p { margin: 0; font-size: 13px; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        .fav-btn {
+            position: absolute; top: 8px; right: 8px;
+            background: rgba(0, 0, 0, 0.5); border: none; color: white;
+            border-radius: 50%; width: 26px; height: 26px; cursor: pointer;
+        }
+        .fav-btn.active { color: #e74c3c; }
+
+        /* Custom Scrollbar */
+        .scroll-container::-webkit-scrollbar { width: 4px; }
+        .scroll-container::-webkit-scrollbar-thumb { background: #DAA520; border-radius: 10px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  /* Modern Glassmorphism Header */
+/* Container for the fixed header */
+.header-controls {
+    width: 100%;
+    height: 80px;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center; /* Centers the 1280px inner content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* The 1280px Constraint Wrapper */
+.header-inner {
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+/* LEFT: Station Branding */
+.header-info {
+    flex: 1; /* Pushes center content to middle */
+    min-width: 0;
+}
+
+.header-info h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #2cf3de; /* Goldenrod */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#status-text {
+    margin-top: 4px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+}
+
+/* CENTER: Central Control Unit */
+.player-tools {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+#play-pause-btn {
+    background: #ffffff;
+    color: #000000 !important;
+    border: none;
+    padding: 5px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 110px;
+}
+
+#play-pause-btn:hover {
+    background: #DAA520;
+    transform: scale(1.05);
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+}
+
+.volume-container span {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+/* Custom Volume Slider Styling */
+#volume-slider {
+    width: 100px;
+    cursor: pointer;
+    accent-color: #2cf3de;
+}
+
+/* RIGHT: Navigation Area */
+.header-navigation {
+    flex: 1; /* Matches Left size to keep Center perfectly aligned */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.back-btn {
+    background: #e74c3c !important; /* Bold Red */
+    border: none !important;
+    color: white !important;
+    padding: 5px 0px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+    filter: brightness(1.2);
+    transform: translateX(-5px); /* Subtle visual hint */
+}
+
+/* Adjust Content Area to not hide under fixed header */
+.content-area {
+    margin-top: 100px; 
+    padding-top: 20px;
+}
+  </style>
+</head>
+<body>
+
+<header class="header-controls">
+    <div class="header-inner">
+        
+        <div class="header-info">
+            <h1 id="main-title">Radios Explorer</h1>
+            <p id="status-text">Select a station to begin</p>
+        </div>
+
+        <div class="player-tools">
+            <audio id="audio-player"></audio>
+            <button class="btn" onclick="togglePlay()" id="play-pause-btn">Play</button>
+            
+            <div class="volume-container">
+                <span>VOL</span>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1" oninput="changeVolume(this.value)">
+            </div>
+        </div>
+
+        <div class="header-navigation">
+            <button class="btn back-btn" id="global-back-btn" onclick="showMenu()" style="display:none;">BACK</button>
+        </div>
+
+    </div>
+</header>
+
+<div class="content-area">
+    <div id="inter-radio-wrapper">
+        <div class="flex-row">
+            <div class="column-section">
+                <div class="column-header">By Country</div>
+                <div class="scroll-container" id="country-list">
+                    <div class="btnr" onclick="loadRadioData('country', 'pt', 'Portugal')">Portugal</div>  
+                    <div class="btnr" onclick="loadRadioData('country', 'br', 'Brasil')">Brasil</div>  
+                    <div class="btnr" onclick="loadRadioData('country', 'nz', 'New Zealand')">New Zealand</div>
+                    <div class="btnr" onclick="loadRadioData('country', 'es', 'Spain')">Spain</div>  
+                    <div class="btnr" onclick="loadRadioData('country', 'fr', 'France')">France</div>  
+                    <div class="btnr" onclick="loadRadioData('country', 'it', 'Italy')">Italy</div>  
+                    <div class="btnr" onclick="loadRadioData('country', 'us', 'USA')">USA</div>
+                </div>
+                <input type="text" class="search-field" placeholder="Search country..." onkeyup="filterList('country-list', this.value)">
+            </div>
+
+            <div class="column-section">
+                <div class="column-header">By Genre</div>
+                <div class="scroll-container" id="genre-list">
+                    <div class="btnr" onclick="loadRadioData('tag', 'jazz', 'Jazz')">Jazz</div>
+                    <div class="btnr" onclick="loadRadioData('tag', 'rock', 'Rock')">Rock</div>
+                    <div class="btnr" onclick="loadRadioData('tag', 'pop', 'Pop')">Pop</div>
+                    <div class="btnr" onclick="loadRadioData('tag', 'chillout', 'Chillout')">Chillout</div>
+                    <div class="btnr" onclick="loadRadioData('tag', 'disco', 'Disco')">Disco</div>
+                    <div class="btnr" onclick="loadRadioData('tag', 'classical', 'Classical')">Classical</div>
+                    <div class="btnr" onclick="loadRadioData('tag', 'electronic', 'Electronic')">Electronic</div>
+                </div>
+                <input type="text" class="search-field" placeholder="Search genre..." onkeyup="filterList('genre-list', this.value)">
+            </div>
+        </div>
     </div>
 
-
-
+    <div id="radio-grid" class="grid-container" style="display: none;"></div>
 </div>
+
+<script>
+    const player = document.getElementById('audio-player');
+    const playBtn = document.getElementById('play-pause-btn');
+    const menu = document.getElementById('inter-radio-wrapper');
+    const grid = document.getElementById('radio-grid');
+    const backBtn = document.getElementById('global-back-btn');
+    let isFetching = false;
+
+    // Unified Logic for Fetching
+    async function loadRadioData(type, value, displayName) {
+        if (isFetching) return;
+        isFetching = true;
+
+        menu.style.display = 'none';
+        backBtn.style.display = 'block';
+        grid.style.display = 'grid';
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:50px;">Loading ${displayName} stations...</div>`;
+        
+        document.getElementById('main-title').innerText = displayName;
+        document.getElementById('status-text').innerText = "Fetching the best streams...";
+
+        const endpoint = type === 'country' 
+            ? `https://de1.api.radio-browser.info/json/stations/bycountrycodeexact/${value}`
+            : `https://de1.api.radio-browser.info/json/stations/bytag/${value}`;
+
+        try {
+            const response = await fetch(`${endpoint}?order=clickcount&reverse=true&limit=100`);
+            const stations = await response.json();
+            renderGrid(stations);
+        } catch (error) {
+            grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center;">Failed to load stations.</div>';
+        } finally {
+            isFetching = false;
+        }
+    }
+
+    function renderGrid(stations) {
+        grid.innerHTML = '';
+        const seenNames = [];
+        let count = 0;
+
+        stations.forEach(station => {
+            const name = station.name.trim();
+            const hasLogo = station.favicon && station.favicon.startsWith('http');
+            
+            if (hasLogo && !seenNames.includes(name.toLowerCase()) && count < 60) {
+                seenNames.push(name.toLowerCase());
+                count++;
+
+                const card = document.createElement('div');
+                card.className = 'radio-card';
+                card.innerHTML = `
+                    <button class="fav-btn" onclick="toggleFavorite(event, '${encodeURIComponent(JSON.stringify(station))}')">❤</button>
+                    <img src="${station.favicon}" onerror="this.src='https://via.placeholder.com/60/222/fff?text=Radio';">
+                    <p title="${name}">${name}</p>
+                `;
+                card.onclick = () => playRadio(station.url_resolved, name);
+                grid.appendChild(card);
+            }
+        });
+        document.getElementById('status-text').innerText = `Found ${count} stations.`;
+    }
+
+    function showMenu() {
+        grid.style.display = 'none';
+        backBtn.style.display = 'none';
+        menu.style.display = 'flex';
+        document.getElementById('main-title').innerText = "Global Explorer";
+        document.getElementById('status-text').innerText = "Select a station";
+    }
+
+    function playRadio(url, name) {
+        document.getElementById('status-text').innerText = "Now Playing: " + name;
+        player.src = url;
+        player.play();
+        playBtn.innerText = "Pause";
+    }
+
+    function togglePlay() {
+        if (!player.src) return;
+        player.paused ? (player.play(), playBtn.innerText = "Pause") : (player.pause(), playBtn.innerText = "Play");
+    }
+
+    function changeVolume(val) { player.volume = val; }
+
+    function filterList(containerId, query) {
+        const buttons = document.getElementById(containerId).getElementsByClassName('btn');
+        const filter = query.toLowerCase();
+        for (let btn of buttons) {
+            btn.style.display = btn.innerText.toLowerCase().includes(filter) ? "" : "none";
+        }
+    }
+
+    async function toggleFavorite(event, data) {
+        event.stopPropagation();
+        const btn = event.currentTarget;
+        btn.classList.toggle('active');
+        // Add your /radio-favorites fetch call here if the backend is ready
+    }
+</script>
+</body>
+</html>

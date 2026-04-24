@@ -1,27 +1,9 @@
 [
   {
-    "title": "Bellisseria Birthday Bash",
-    "desc": "Bellisseria Birthday Bash brings a week-long celebration to the Fairgrounds with tours, live DJs, and collectible passport stamps. Visitors can explore by air, sea, and land, take part in driving and flying challenges, and join community ceremonies from April 14–20. Learn more at gazetteorg.wordpress.com",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dff1addaf6c3810a573fd9_69dff0e72b117731935154.jpeg",
-    "teleportUrl": "secondlife://Bellisseria%20Birthday%20Bash/128/128/2"
-  },
-  {
-    "title": "Burn2 - Burnal Equinox",
-    "desc": "Experience BURN2, the festival of community, art, and fire that brings the culture and cool of Burning Man to the metaverse. The current event: Burnal Equinox - Below the Surface, runs from April 17 to 19, 2026, and features an immersive underwater experience with live DJs, reactive visuals, and interactive spaces for dancing, exploration, and social connection. Learn more at www.burn2.org",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dfee698999cada5a23c9ff_69dfee14557ad804352575.jpeg",
-    "teleportUrl": "secondlife://Burn2%20-%20Burnal%20Equinox/128/128/2"
-  },
-  {
-    "title": "Willowmere",
-    "desc": "Welcome to Willowmere, a hidden little coffee shop nestled in nature, created as a peaceful place to slow down, unwind, and just breathe.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dfec8356224d0620192140_69dfd4d83b3de671746710.jpeg",
-    "teleportUrl": "secondlife://Willowmere/128/128/2"
-  },
-  {
-    "title": "KT RENTALS",
-    "desc": "At KT RENTALS, furnished or unfurnished skyboxes are available for different prices: 50-75-100-150-500 L$ week, with a 10% discount for 4 weeks.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e5005b8eb75bbde876a99a_69e500059d39b024240501.jpeg",
-    "teleportUrl": "secondlife://KT%20RENTALS/128/128/2"
+    "title": "Fantasy Faire",
+    "desc": "The Fairelands have returned! From the 23rd of April to the 10th of May, 20 incredible regions of extraordinary beauty bring the magic of Fantasy Faire to life once more, all in support of Relay For Life and the American Cancer Society's goal of a world without cancer. For eighteen days, become immersed in a world of enchantment where you can shop, enjoy fantasy art and performances, discover roleplay opportunities, and hear award-winning fantasy authors, all to a soundtrack provided by Fantasy Faire Radio. Come to the Faire, become part of the story, before the Fairelands once again recede into the mists for another year! Follow all the events at fantasyfairesl.wordpress.com",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ea6c5aa84db86ba6bfa78d_69e9183918949730116663.jpeg",
+    "teleportUrl": "secondlife://Fantasy%20Faire/128/128/2"
   },
   {
     "title": "Tiger Lily Art Gallery",
@@ -30,16 +12,16 @@
     "teleportUrl": "secondlife://Tiger%20Lily%20Art%20Gallery/128/128/2"
   },
   {
-    "title": "Velvet Bohème",
-    "desc": "Lose yourself in Velvet Bohème, a two-week boho festival blending shopping, art, music, and literature in Second Life. Shop, soak up the atmosphere, or catch a live singer or DJ from partner venues Altitude and Sanctum. Open April 4 to 18, 2026.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69de82a5f91f95c18682d16c_69de8200d88dd678998315.jpeg",
-    "teleportUrl": "secondlife://Velvet%20Boh%C3%A8me/128/128/2"
+    "title": "Torvaldsburg Village",
+    "desc": "Located along the southern borders of Torvaldsland on the waters edge, across from the Northern Forest lies the small Gorean Village of Torvaldsburg, founded by the Stromberg Clan. True BTB Gor where warriors rule with an iron fist. All craftsmen welcome.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ea2e73f85656a8c708bdfc_69ea2e4e112e8053447407.jpeg",
+    "teleportUrl": "secondlife://Torvaldsburg%20Village/128/128/2"
   },
   {
-    "title": "Skill Gaming Region: Spin City Games",
-    "desc": "Spin City Games is a skill gaming destination focused on spinning wheels, jackpots, and replay-based games. Visitors can test their luck with contests, slide games, and high roller options, with freeplay and noob-friendly areas for easy entry.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e0f82d24af50325d94b3b2_69e0f7d109c17209814523.jpeg",
-    "teleportUrl": "secondlife://Skill%20Gaming%20Region%3A%20Spin%20City%20Games/128/128/2"
+    "title": "Port Talis",
+    "desc": "Port Talis is a Gorean port city shaped by its people, where leadership shifts through roleplay and every choice carries weight. Cultures and castes intersect in a living story driven by conflict, ambition, and personal growth, with an emphasis on character depth and evolving narratives.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e7936b3d54696506cbd4c2_69e79354c3e1f398387664.jpeg",
+    "teleportUrl": "secondlife://Port%20Talis/128/128/2"
   },
   {
     "title": "Tsumori City",
@@ -54,10 +36,16 @@
     "teleportUrl": "secondlife://Tsumori%20Hanami/128/128/2"
   },
   {
-    "title": "Illuminating Machinima at SLEA",
-    "desc": "Calling all machinima artists! Step into SLVCG's 2nd Annual Illuminating Machinima at SLEA, a full region designed as a cinematic playground, featuring four unique, genre-themed environments by talented designers and artists. Explore a haunted swamp, a vibrant waterfront skate park, an anime-inspired toon land, and a neon-lit Neo Japan city. Capture your next story and bring your vision to life!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e0eb0d8f6ea81541889cfb_69e0e961f24d5134487871.png",
-    "teleportUrl": "secondlife://Illuminating%20Machinima%20at%20SLEA/128/128/2"
+    "title": "Velvet Bohème",
+    "desc": "Lose yourself in Velvet Bohème, a two-week boho festival blending shopping, art, music, and literature in Second Life. Shop, soak up the atmosphere, or catch a live singer or DJ from partner venues Altitude and Sanctum. Open April 4 to 18, 2026.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69de82a5f91f95c18682d16c_69de8200d88dd678998315.jpeg",
+    "teleportUrl": "secondlife://Velvet%20Boh%C3%A8me/128/128/2"
+  },
+  {
+    "title": "BADU - VIETNAM",
+    "desc": "Explore the beauty of Vietnam, Asharhia's new destination, inspired by the iconic Golden Bridge. Walk across the famous golden pathway held by giant hands, surrounded by mountains and lush scenery. Perfect for relaxing, exploring, and taking photos.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e78a0cfba869f1bc5e9a55_69e789ae8d214543175036.jpeg",
+    "teleportUrl": "secondlife://BADU%20-%20VIETNAM/128/128/2"
   },
   {
     "title": "Velvet Bohème idkytevs",
@@ -66,70 +54,34 @@
     "teleportUrl": "secondlife://Velvet%20Boh%C3%A8me%20idkytevs/128/128/2"
   },
   {
-    "title": "Summit Adventures",
-    "desc": "Step into a world where the future meets escape. Summit Adventures is a premier destination in Second Life designed for connection, exploration, and unforgettable moments. From thrilling rides and immersive attractions to peaceful spaces and luxury environments, every detail is crafted to elevate your experience. Whether you're spending time with family, enjoying a night with friends, or discovering something new, Summit offers the perfect balance of excitement and atmosphere. This is more than a destination. It’s an experience. The future awaits.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e23e6a37004b75ab0fb47c_69e23e048c40f773277672.png",
-    "teleportUrl": "secondlife://Summit%20Adventures/128/128/2"
-  },
-  {
-    "title": "Whispering Wild Rose",
-    "desc": "Whispering Wild Rose is a rock club centered around music, live DJs, and community gatherings. Home to the Skullfire WW MC, it offers a dedicated motorcycle track alongside spaces to relax, connect, and enjoy events with hosts and fellow visitors.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e239bc27867f3a14de96d4_69e23985a09d5161316816.jpeg",
-    "teleportUrl": "secondlife://Whispering%20Wild%20Rose/128/128/2"
-  },
-  {
-    "title": "Sandcastles",
-    "desc": "Welcome to Sandcastles Adventure Park! Ride the rush of towering tsunami waves, sail out to open seas, then hit the track for high-speed racing across massive double-region courses designed for cars and bikes. Step into mystery at Merlin’s Cave and have your fortune told, or head over to the Gaming Lodge to try your luck with Greedy and classic casino games. Take to the skies or sea with a full range of free rentals—boats, submarines, balloon, sailboats, planes, helicopters, and windsurfing. Enjoy the park's diverse wildlife and dive deeper into nature at the underwater park. Looking for something more relaxing? Discover hidden romantic spots perfect for couples, or explore countless scenic locations across the region. Don’t miss the satellite destination in Bay City, where you can enjoy horseback riding and open-road driving adventures. Bring a friend—or someone special—and experience escape at Sandcastles.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69de471adb86355f1d2c420c_69de4689329c2637229812.jpeg",
-    "teleportUrl": "secondlife://Sandcastles/128/128/2"
-  },
-  {
     "title": "Norway Racing Festival yrTsIZhi",
     "desc": "Norway Racing Festival is a multi-day virtual motorsport event hosted in Second Life, bringing together racing enthusiasts, drivers, performers, and creators from around the world. The festival features races, drift shows, live performances, contests, and community-driven activities, all designed to create an immersive and exciting motorsport experience. The event runs from March 16th through the grand finale on the 22nd. Learn more at nrfevent.com",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b837ab7f0c2139550968ce_69b8375abab94920853424.jpeg",
     "teleportUrl": "secondlife://Norway%20Racing%20Festival%20yrTsIZhi/128/128/2"
   },
   {
-    "title": "Pand’Onsen",
-    "desc": "Pand’Onsen (Pandimonium) is a Japanese-inspired destination centered on combat and training. Visitors can explore dojos, practice with katana and other weapons, and take part in sparring and role play. The region blends traditional and urban elements, with spaces for training, combat, and casual activities.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e4fe05e39d7f15c4ebde64_69e4fd665d410758542428.jpeg",
-    "teleportUrl": "secondlife://Pand%E2%80%99Onsen/128/128/2"
+    "title": "Everwild Resort & Spa",
+    "desc": "Everwild Resort and Spa is where luxury meets wild adventure. Set in a lush, tropical-inspired escape, Everwild blends high-end relaxation with unforgettable experiences. Unwind in the spa and wellness centre with soothing treatments, steam rooms, and tranquil spaces designed to melt everything away. Stay in one of the family-friendly themed lodges or enjoy a romantic hideaway designed for couples.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ea2d85044b6f3c3b5bc711_69ea2d177ca76117260760.jpeg",
+    "teleportUrl": "secondlife://Everwild%20Resort%20%26%20Spa/128/128/2"
   },
   {
-    "title": "GUY Magazine PRIDE in Space 2026",
+    "title": "GUY Magazine PRIDE in Space 2026 DoIZENVX",
     "desc": "GUY Magazine PRIDE in Space 2026 is this year’s installment of GUY Magazine’s annual Pride festival, hosted at The Portal. It features shopping, games, carnival rides, live acts, and parties throughout June, with an opening celebration on May 31 and events like live dance shows and a K-pop concert.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e23b9ab08fec83e059553c_69e23a53dca38689958232.jpeg",
-    "teleportUrl": "secondlife://GUY%20Magazine%20PRIDE%20in%20Space%202026/128/128/2"
+    "teleportUrl": "secondlife://GUY%20Magazine%20PRIDE%20in%20Space%202026%20DoIZENVX/128/128/2"
   },
   {
-    "title": "All Out Music",
-    "desc": "All Out Music is a vibrant dance club where every event feels like a celebration. DJs spin feel-good hits from the 50s to today, including pop, rock, R&B, country, EDM, and more, keeping the dance floor alive from start to finish. With dynamic lighting, an upbeat crowd, and nonstop energy, it’s the perfect place to let loose, dance, and enjoy an unforgettable time.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69094b83cc7c9dfb793fd0b8_69094b590f44a894697740.jpeg",
-    "teleportUrl": "secondlife://All%20Out%20Music/128/128/2"
+    "title": "Bellisseria Birthday Bash QxuptISy",
+    "desc": "Bellisseria Birthday Bash brings a week-long celebration to the Fairgrounds with tours, live DJs, and collectible passport stamps. Visitors can explore by air, sea, and land, take part in driving and flying challenges, and join community ceremonies from April 14–20. Learn more at gazetteorg.wordpress.com",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dff1addaf6c3810a573fd9_69dff0e72b117731935154.jpeg",
+    "teleportUrl": "secondlife://Bellisseria%20Birthday%20Bash%20QxuptISy/128/128/2"
   },
   {
-    "title": "White Valley",
-    "desc": "White Valley is a ski resort with a variety of activities. You can rent a cabin in the mountains for a week or more, enjoying the mountains and winter sports. You'll find ski slopes, a large ice rink, a games room, a natural hot spring, a spa, and more. Come and relax, breathe in the fresh air, and enjoy!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e4f42a9ead1fd55f99f189_69e4f3818ca51415206699.jpeg",
-    "teleportUrl": "secondlife://White%20Valley/128/128/2"
-  },
-  {
-    "title": "Excalibur Club",
-    "desc": "Excalibur Club is an Italian dance destination focused on live DJs and singers, where visitors gather to enjoy music, dance, and spend time together in a lively atmosphere. The space encourages a friendly, respectful environment for shared moments and entertainment. Club per passare bei momnenti insieme con bella musica dove si balla e si sta in allegria.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69df85639d4cebe00d55ffdc_69df8533dde7b748462229.jpeg",
-    "teleportUrl": "secondlife://Excalibur%20Club/128/128/2"
-  },
-  {
-    "title": "Etopia Earth Day Celebrations",
-    "desc": "To help celebrate Earth Day for 2026, you're invited to explore, engage, and enjoy exhibits, activities, and discussions related to the theme \"Our power, Our Planet\". From wetlands exploration to bike trails, train rides to meditation spots, conversations and resources to cafes and gondola rides. Celebrations will kick off on 17 April and close with an Earth Day dance on 23 April at Etopia in Second Life.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dd0dfc64d92d874577d880_69dd0d912e8cc055570551.jpeg",
-    "teleportUrl": "secondlife://Etopia%20Earth%20Day%20Celebrations/128/128/2"
-  },
-  {
-    "title": "Nitroglobus Roof Gallery",
-    "desc": "Nitroglobus Gallery is a Second Life art gallery that shows impressive exhibitions and installations of both emerging and well-known artists and is owned and curated by Dido Haas. The current exhibition is INFINITY WALL by Bamboo Barnes. The exhibit reveals her deepest feelings: uncertainty, vulnerability, and a quiet pain that has been lingering with her. The result is a powerful and intimate body of work that invites you to look closer.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69df86cc4a544119e3018822_69df86305e9f8142290686.jpeg",
-    "teleportUrl": "secondlife://Nitroglobus%20Roof%20Gallery/128/128/2"
+    "title": "You're ACE Child Abuse Help Center",
+    "desc": "You're ACE Child Abuse Help Center is a nonprofit organisation with the mission of raising awareness of ACEs (Adverse Childhood Experiences) and offers educational resources to help survivors of child abuse and trauma. Located in the General rated region of Rebeck, it is open to all.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e8ea1474da3b221dc734d0_69e8e9b4e1396234868049.jpeg",
+    "teleportUrl": "secondlife://You're%20ACE%20Child%20Abuse%20Help%20Center/128/128/2"
   },
   {
     "title": "Bid the Lindens Bald bUOYCQwW",
@@ -138,15 +90,15 @@
     "teleportUrl": "secondlife://Bid%20the%20Lindens%20Bald%20bUOYCQwW/128/128/2"
   },
   {
+    "title": "Etopia Earth Day Celebrations",
+    "desc": "To help celebrate Earth Day for 2026, you're invited to explore, engage, and enjoy exhibits, activities, and discussions related to the theme \"Our power, Our Planet\". From wetlands exploration to bike trails, train rides to meditation spots, conversations and resources to cafes and gondola rides. Celebrations will kick off on 17 April and close with an Earth Day dance on 23 April at Etopia in Second Life.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dd0dfc64d92d874577d880_69dd0d912e8cc055570551.jpeg",
+    "teleportUrl": "secondlife://Etopia%20Earth%20Day%20Celebrations/128/128/2"
+  },
+  {
     "title": "VWBPE 2026 Conference BzfnytvE",
     "desc": "The Virtual Worlds Best Practices in Education Conference runs March 19–21, 2026. This open conference is organized by educators to showcase learning, tools, and methods for virtual environments. Join the event for three days of lectures, workshops, discussions, games, and more - including a keynote speech by the Founder of Second Life, Philip Rosedale, and interviews with other Linden Lab executives. Learn more at vwbpe.org",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b9be9b8921f19a0cb1a71a_69b9bdd3e3738993876568.jpeg",
     "teleportUrl": "secondlife://VWBPE%202026%20Conference%20BzfnytvE/128/128/2"
-  },
-  {
-    "title": "Oulbury",
-    "desc": "Oulbury is a curated coastal roleplay destination built around a “cozy horror” atmosphere, where slow-burn storytelling and supernatural elements shape everyday life. Set on a fog-covered North Atlantic island, the town blends quiet routines with subtle unease. Regular events, environmental systems like dynamic weather, and interconnected spaces create a living world where the atmosphere is as important as the story.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69de453c8e238707814ed8d5_69de45010aeb8770356194.jpeg",
-    "teleportUrl": "secondlife://Oulbury/128/128/2"
   }
 ]

@@ -71,11 +71,12 @@
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
-    padding: 3px 25px;
+    padding: 5px 25px;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 400;
     transition: 0.3s;
+    font-size: 16px;
 }
 
 .back-button:hover {
@@ -91,18 +92,20 @@
 }
 
 .card {
-    background: #111;
+    background: #161616a3;
     border-radius: 0px;
     overflow: hidden;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    border: 2px solid rgba(228, 224, 224, 0.1);
+    border: none; /* remove border entirely */
+    outline: 1px solid white; /* use outline instead */
+    will-change: transform;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
 }
 
 .card:hover {
-    transform: scale(1.02);
-    border-color: #fffb00;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transform: scale(1.0);
+    outline: 2px solid #fffb00; /* grows outside, never touches image */
 }
 
 .card-media { position: relative; aspect-ratio: 16/9; }
@@ -111,15 +114,30 @@
 .play-hint {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: 0.2s;
 }
+
+.play-hint {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.2s;
+}
+
 .card:hover .play-hint { opacity: 1; }
 
+.card:hover .play-hint i {
+    transform: scale(1); /* subtle grow on hover */
+}
 .card-info { padding: 5px 15px; }
 .title {
     font-size: 0.9rem;
@@ -131,8 +149,8 @@
 }
 
 .subtitle {
-    font-size: 0.85rem;
-    color: #ff6060;
+    font-size: 14px;
+    color: #ffd700;
     text-transform: uppercase;
     font-weight: 400;
     margin: 0;
@@ -155,6 +173,16 @@
 .badge.music   { background: #00d4ff; color: #000; }
 .badge.movies  { background: #ff4b2b; color: #fff; }
 .badge.youtube { background: #ff0000; color: #fff; }
+
+
+.card.remote-hover {
+    transform: scale(1.02);
+    outline: 2px solid #fffb00;
+}
+
+.card.remote-hover .play-hint {
+    opacity: 1;
+}
 </style>
 
 <div class="tv-screen">
@@ -171,7 +199,14 @@
                 <div class="card" onclick="playMedia('<%= item.id %>', '<%= type %>')">
 <div class="card-media">
     <img src="<%= item.thumbnail %>" loading="lazy">
-    <div class="play-hint"><i class="fas fa-play"></i></div>
+
+<div class="play-hint">
+    <svg viewBox="0 0 24 24" width="56" height="56">
+        <circle cx="12" cy="12" r="12" fill="rgba(0,212,255,0.85)"/>
+        <polygon points="9,7 19,12 9,17" fill="white"/>
+    </svg>
+</div>
+
     <% if (item.badge) { %>
         <span class="badge <%= type %>"><%= item.badge %></span>
     <% } %>
@@ -212,20 +247,6 @@ function playMedia(id) {
 var scrollContainer = document.getElementById('grid-content');
 
 // Restore scroll position on load
-(function() {
-    const savedScroll = parseInt('<%= typeof scrollPos !== "undefined" ? scrollPos : 0 %>') || 0;
-    console.log('[GRID SCROLL] savedScroll from EJS:', savedScroll);
-
-    if (savedScroll > 0) {
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                const container = document.getElementById('grid-content');
-                if (container) container.scrollTop = savedScroll;
-            });
-        });
-    }
-})();
-
 
 scrollContainer.addEventListener('scroll', function() {
     if (window.isSyncing) return; // ← this must be here

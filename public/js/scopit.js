@@ -5,7 +5,7 @@ const fs = require('fs');
 
 
 function getGifts(siteUrl,callback){
-                            
+                    siteUrl="https://www.scoop.it/topic/second-life-freebies-und-mehr"        
     videosArray=[];
 request(siteUrl, function (error, response, html) {
 
@@ -37,14 +37,14 @@ if (!error && response.statusCode == 200) {
         date=date.replace(/^\s+|\s+$/gm,'');
         comtitle=comtitle.replace(/^\s+|\s+$/gm,'');
         comdesc=comdesc.replace(/^\s+|\s+$/gm,'');
-/*
+
     console.log("title: " + title)
     console.log("desc: " + desc)
     console.log("date: " + date)
     console.log("image: " + image)
     console.log("ComTitle: " + comtitle)
     console.log("ComDesc: " + comdesc)
-*/
+
 console.log("url: " + url)
  const video= {
                     'title':title,
@@ -65,7 +65,7 @@ console.log("url: " + url)
            
                 
             }); // ENDS FILE WRITE
-            callback(null, videosArray);
+         //   callback(null, videosArray);
   }
 });
 }
@@ -89,6 +89,6 @@ function getSite(siteUrl,callback){
    
  });
  }
-
+getGifts()
 
   module.exports = {getGifts, getSite}

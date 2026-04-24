@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, user-scalable=no">
+    <title>Freebies - Smart TV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/myScripts.js"></script>
+
+<style>
+    :root {
+        --accent: #daa520;
+        --glass: rgba(255, 255, 255, 0.08);
+        --text-color: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        width: 1280px; height: 720px;
+        background: #111 no-repeat center center fixed;
+        background-size: cover;
+        color: var(--text-color);
+        font-family: 'Fira Sans', sans-serif;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    #header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 30px 14px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-shrink: 0;
+    }
+
+    #header h1 {
+        font-size: 1.1rem;
+        font-weight: 200;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--accent);
+    }
+
+    .header-back {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 8px;
+        color: white;
+        font-family: 'Fira Sans', sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 6px 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .header-back:hover {
+        background: rgba(255,255,255,0.15);
+        border-color: rgba(255,255,255,0.4);
+    }
+
+    #item-count {
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.4);
+        letter-spacing: 1px;
+    }
+
+    /* ── LAYOUT TOGGLE ── */
+    #layout-btns {
+        display: flex;
+        gap: 6px;
+    }
+
+    .layout-btn {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 8px;
+        color: rgba(255,255,255,0.45);
+        cursor: pointer;
+        padding: 6px 10px;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        transition: all 0.2s ease;
+    }
+
+    .layout-btn:hover {
+        background: rgba(255,255,255,0.12);
+        border-color: rgba(255,255,255,0.3);
+        color: white;
+    }
+
+    .layout-btn.active {
+        background: rgba(218,165,32,0.15);
+        border-color: rgba(218,165,32,0.5);
+        color: var(--accent);
+    }
+
+    .layout-icon {
+        display: grid;
+        gap: 2px;
+    }
+
+    .layout-icon span {
+        display: block;
+        height: 8px;
+        background: currentColor;
+        border-radius: 1px;
+        opacity: 0.8;
+    }
+
+    /* ── GRID CONTAINER ── */
+    #grid-scroll {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 20px 24px 24px;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(218,165,32,0.4) transparent;
+    }
+
+    #grid-scroll::-webkit-scrollbar { width: 4px; }
+    #grid-scroll::-webkit-scrollbar-track { background: transparent; }
+    #grid-scroll::-webkit-scrollbar-thumb { background: rgba(218,165,32,0.4); border-radius: 2px; }
+
+    /* ── CARD GRID ── */
+    #freebies-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+    }
+
+    /* ── CARD ── */
+    .freebie-card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .freebie-card:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(218,165,32,0.5);
+        transform: translateY(-2px);
+    }
+
+    .card-img-wrap {
+        width: 100%;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: rgba(0,0,0,0.3);
+    }
+
+    .card-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .freebie-card:hover .card-img-wrap img {
+        transform: scale(1.04);
+    }
+
+    .card-no-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        background: rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .card-no-img span {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.2);
+    }
+
+    .card-body {
+        padding: 10px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        flex: 1;
+    }
+
+    .card-meta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.65rem;
+        color: rgba(255,255,255,0.35);
+        letter-spacing: 0.5px;
+    }
+
+    .card-meta-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+        flex-shrink: 0;
+    }
+
+    .card-title {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: rgba(255,255,255,0.9);
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .card-desc {
+        font-size: 0.68rem;
+        color: rgba(255,255,255,0.45);
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        flex: 1;
+    }
+
+    .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        margin-top: 4px;
+    }
+
+    .card-domain {
+        font-size: 0.62rem;
+        color: rgba(255,255,255,0.25);
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 110px;
+    }
+
+    .card-read {
+        font-size: 0.62rem;
+        color: var(--accent);
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        transition: opacity 0.2s;
+    }
+
+    .card-read:hover { opacity: 0.7; }
+
+    /* ── TELEPORT BUTTON ── */
+    .card-img-wrap {
+        position: relative;
+    }
+
+    .tp-btn {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        background: rgba(0,0,0,0.75);
+        border: 1px solid rgba(218,165,32,0.6);
+        border-radius: 8px;
+        color: var(--accent);
+        padding: 5px 10px;
+        font-family: 'Fira Sans', sans-serif;
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        backdrop-filter: blur(4px);
+        transition: all 0.2s ease;
+        z-index: 10;
+    }
+
+    .tp-btn:hover {
+        background: rgba(218,165,32,0.25);
+        border-color: var(--accent);
+        transform: scale(1.05);
+    }
+
+    .tp-btn svg {
+        width: 11px;
+        height: 11px;
+        fill: currentColor;
+        flex-shrink: 0;
+    }
+
+    /* ── LOADING / EMPTY STATES ── */
+    #loading-state, #empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 12px;
+        color: rgba(255,255,255,0.3);
+    }
+
+    #loading-state .spinner {
+        width: 28px; height: 28px;
+        border: 2px solid rgba(218,165,32,0.2);
+        border-top-color: var(--accent);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #loading-state p, #empty-state p {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header">
+    <button class="header-back" onclick="handleNav('back')">← Back</button>
+    <h1>✦ Freebies</h1>
+    <div style="display:flex; align-items:center; gap:16px;">
+        <span id="item-count"></span>
+        <div id="layout-btns">
+            <!-- 2 columns -->
+            <button class="layout-btn" onclick="setLayout(2)" title="2 columns">
+                <div class="layout-icon" style="grid-template-columns: 1fr 1fr; width:18px;">
+                    <span></span><span></span>
+                    <span></span><span></span>
+                </div>
+            </button>
+            <!-- 3 columns -->
+            <button class="layout-btn" onclick="setLayout(3)" title="3 columns">
+                <div class="layout-icon" style="grid-template-columns: 1fr 1fr 1fr; width:18px;">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                </div>
+            </button>
+            <!-- 4 columns -->
+            <button class="layout-btn active" onclick="setLayout(4)" title="4 columns">
+                <div class="layout-icon" style="grid-template-columns: 1fr 1fr 1fr 1fr; width:18px;">
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div id="grid-scroll">
+    <div id="loading-state">
+        <div class="spinner"></div>
+        <p>Loading freebies...</p>
+    </div>
+    <div id="empty-state" style="display:none;">
+        <p>No items found</p>
+    </div>
+    <div id="freebies-grid" style="display:none;"></div>
+</div>
+
+<script>
+(function() {
+
+    // expose only what onclick attributes need
+    window.setLayout = function(cols) {
+        const grid = document.getElementById('freebies-grid');
+        grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        document.querySelectorAll('.layout-btn').forEach((btn, i) => {
+            btn.classList.toggle('active', [2, 3, 4][i] === cols);
+        });
+        localStorage.setItem('freebies_cols', cols);
+    };
+
+    const TP_ICON = `<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`;
+
+    function getDomain(url) {
+        try { return new URL(url).hostname.replace('www.', ''); }
+        catch { return ''; }
+    }
+
+    function buildCard(item) {
+        const domain = getDomain(item.url);
+        const tpBtn = item.slurl
+            ? `<a class="tp-btn" href="${item.slurl}" onclick="event.stopPropagation()" title="Teleport to location">${TP_ICON} Teleport</a>`
+            : '';
+        const imgHtml = item.image
+            ? `<div class="card-img-wrap"><img src="${item.image}" alt="" loading="lazy" onerror="this.style.display='none'">${tpBtn}</div>`
+            : `<div class="card-no-img"><span>No Image</span>${tpBtn}</div>`;
+
+        return `
+            <div class="freebie-card" onclick="window.open('${item.url}', '_blank')">
+                ${imgHtml}
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="card-meta-dot"></span>
+                        <span>${item.date || ''}</span>
+                    </div>
+                    <div class="card-title">${item.title}</div>
+                    ${item.desc ? `<div class="card-desc">${item.desc}</div>` : ''}
+                    <div class="card-footer">
+                        <span class="card-domain">${domain}</span>
+                        <a class="card-read" href="${item.url}" target="_blank" onclick="event.stopPropagation()">Read more →</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    async function loadFreebies() {
+        try {
+            const res   = await fetch('/api/freebies');
+            const items = await res.json();
+
+            document.getElementById('loading-state').style.display = 'none';
+
+            if (!items.length) {
+                document.getElementById('empty-state').style.display = 'flex';
+                return;
+            }
+
+            document.getElementById('item-count').textContent = `${items.length} items`;
+            document.getElementById('freebies-grid').innerHTML = items.map(buildCard).join('');
+            document.getElementById('freebies-grid').style.display = 'grid';
+
+            const savedCols = parseInt(localStorage.getItem('freebies_cols')) || 4;
+            window.setLayout(savedCols);
+
+        } catch (err) {
+            console.error('[Freebies] Failed to load:', err);
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('empty-state').style.display = 'flex';
+        }
+    }
+
+    loadFreebies();
+
+})();
+</script>
+
+</body>
+</html>

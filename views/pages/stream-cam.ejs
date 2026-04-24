@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, user-scalable=no">
+    <title>Stream Cam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            width: 100vw; height: 100vh;
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Fira Sans', sans-serif;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        /* ── IDLE SCREEN ───────────────────────────── */
+        #sc-idle {
+            display: flex; flex-direction: column;
+            align-items: center; gap: 28px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        #sc-idle .sc-title {
+            font-size: 1rem; font-weight: 200;
+            letter-spacing: 6px; text-transform: uppercase;
+            opacity: 0.4;
+        }
+
+        #sc-start-btn {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: linear-gradient(135deg, rgba(231,76,60,0.3), rgba(231,76,60,0.1));
+            border: 1px solid rgba(231,76,60,0.5);
+            color: white; cursor: pointer;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 6px;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 30px rgba(231,76,60,0.15);
+        }
+        #sc-start-btn:hover {
+            background: rgba(231,76,60,0.4);
+            border-color: #e74c3c;
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(231,76,60,0.3);
+        }
+        #sc-start-btn .material-symbols-rounded { font-size: 2.2rem; }
+        #sc-start-btn span.label {
+            font-size: 0.65rem; text-transform: uppercase;
+            letter-spacing: 2px; opacity: 0.7;
+        }
+
+        #sc-room-info {
+            font-size: 0.7rem; opacity: 0.3;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        /* ── LIVE SCREEN ───────────────────────────── */
+        #sc-live {
+            display: none; width: 100vw; height: 100vh;
+            flex-direction: column; position: relative;
+        }
+
+        #sc-preview {
+            flex: 1; background: #000;
+            object-fit: contain; width: 100%; display: block;
+        }
+
+        /* ── BOTTOM BAR ────────────────────────────── */
+        #sc-bar {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 70px; display: flex; align-items: center;
+            padding: 0 24px; gap: 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+        }
+
+        .sc-pill {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50px; padding: 8px 18px;
+            font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px;
+        }
+
+        .sc-live-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: #e74c3c; animation: scBlink 1.5s infinite;
+        }
+
+        #sc-viewer-count {
+            margin-left: auto;
+            font-size: 0.7rem; opacity: 0.4;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        #sc-stop-btn {
+            background: rgba(231,76,60,0.15);
+            border: 1px solid rgba(231,76,60,0.4);
+            border-radius: 50px; color: white; cursor: pointer;
+            padding: 8px 20px; font-size: 0.72rem;
+            font-family: 'Fira Sans', sans-serif;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            display: flex; align-items: center; gap: 6px;
+            transition: all 0.2s ease;
+        }
+        #sc-stop-btn:hover { background: rgba(231,76,60,0.35); border-color: #e74c3c; }
+
+        /* ── STATUS ────────────────────────────────── */
+        #sc-status {
+            position: fixed; bottom: 80px; left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px; padding: 8px 20px;
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;
+            opacity: 0; transition: opacity 0.3s; pointer-events: none;
+            white-space: nowrap;
+        }
+        #sc-status.show { opacity: 1; }
+
+        @keyframes fadeIn  { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes scBlink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    </style>
+</head>
+<body>
+
+    <!-- IDLE: before sharing -->
+    <div id="sc-idle">
+        <div class="sc-title">Second Life Stream Cam</div>
+        <button id="sc-start-btn" onclick="scStart()">
+            <span class="material-symbols-rounded">videocam</span>
+            <span class="label">Go Live</span>
+        </button>
+        <div id="sc-room-info">Room: <span id="sc-room-label">Lobby</span></div>
+    </div>
+
+    <!-- LIVE: while sharing -->
+    <div id="sc-live">
+        <video id="sc-preview" muted autoplay playsinline></video>
+        <div id="sc-bar">
+            <div class="sc-pill">
+                <div class="sc-live-dot"></div>
+                <span>Live</span>
+            </div>
+            <div class="sc-pill" id="sc-peer-status">Waiting for viewers...</div>
+            <span id="sc-viewer-count"></span>
+            <button id="sc-stop-btn" onclick="scStop()">
+                <span class="material-symbols-rounded" style="font-size:15px;">stop</span>
+                Stop Stream
+            </button>
+        </div>
+    </div>
+
+    <div id="sc-status"></div>
+
+<script>
+(function () {
+    // ── CONFIG ───────────────────────────────────────────────
+    const params  = new URLSearchParams(window.location.search);
+    const myRoom  = params.get('room') || 'Lobby';
+    const GS_ROOM = myRoom;
+
+    document.getElementById('sc-room-label').textContent = myRoom;
+
+    const PEER_CONFIG = {
+        host:   window.location.hostname,
+        port:   window.location.port || 443,
+        path:   '/peerjs',
+        secure: window.location.protocol === 'https:',
+        debug:  0
+    };
+
+    // ── STATE ────────────────────────────────────────────────
+    const socket   = io();
+    let peer       = null;
+    let gameStream = null;
+    let viewers    = 0;
+    const activeCalls = [];
+
+    socket.emit('join-room-sc', { room: GS_ROOM });
+const token = '<%= token %>';
+socket.emit('validate-stream-cam', { token });
+    // ── STATUS TOAST ─────────────────────────────────────────
+    let statusTimer;
+    function showStatus(msg) {
+        const el = document.getElementById('sc-status');
+        el.textContent = msg;
+        el.classList.add('show');
+        clearTimeout(statusTimer);
+        statusTimer = setTimeout(() => el.classList.remove('show'), 2500);
+    }
+
+    // ── START ────────────────────────────────────────────────
+    window.scStart = async function () {
+        try {
+            gameStream = await navigator.mediaDevices.getDisplayMedia({
+                video: { frameRate: 60, preferCurrentTab: false },
+                audio: true
+            });
+        } catch (e) {
+            showStatus('Screen capture cancelled');
+            return;
+        }
+
+        // Show live UI
+        document.getElementById('sc-preview').srcObject = gameStream;
+        document.getElementById('sc-idle').style.display = 'none';
+        document.getElementById('sc-live').style.display = 'flex';
+
+        // Init PeerJS
+        peer = new Peer(undefined, PEER_CONFIG);
+
+        peer.on('open', function (id) {
+            console.log('[SC] Streamer PeerID:', id);
+            socket.emit('gs_join', { room: GS_ROOM, role: 'streamer', peerId: id });
+            socket.emit('gs_stream_started', { room: GS_ROOM });
+            showStatus('Live — waiting for viewers');
+        });
+
+        peer.on('error', function (err) {
+            console.error('[SC] Peer error:', err);
+            showStatus('Connection error: ' + err.type);
+        });
+
+        // When a viewer joins, call them
+        socket.on('gs_viewer_joined', function (data) {
+            console.log('[SC] Viewer joined:', data.peerId);
+            callViewer(data.peerId);
+        });
+
+        // If user stops sharing via browser UI
+        gameStream.getVideoTracks()[0].onended = function () {
+            scStop();
+        };
+    };
+
+    function callViewer(viewerPeerId) {
+        if (!gameStream || !peer) return;
+        const call = peer.call(viewerPeerId, gameStream);
+        activeCalls.push(call);
+        viewers++;
+        updateViewerCount();
+
+        call.on('close', function () {
+            viewers = Math.max(0, viewers - 1);
+            updateViewerCount();
+        });
+        call.on('error', function (err) {
+            console.error('[SC] Call error:', err);
+        });
+
+        document.getElementById('sc-peer-status').textContent =
+            viewers + ' viewer' + (viewers !== 1 ? 's' : '') + ' connected';
+    }
+
+    function updateViewerCount() {
+        const el = document.getElementById('sc-viewer-count');
+        el.textContent = viewers > 0 ? viewers + ' watching' : '';
+    }
+
+    // ── STOP ─────────────────────────────────────────────────
+    window.scStop = function () {
+        if (gameStream) {
+            gameStream.getTracks().forEach(t => t.stop());
+            gameStream = null;
+        }
+        activeCalls.forEach(c => c.close());
+        activeCalls.length = 0;
+
+        if (peer)   { peer.destroy(); peer = null; }
+
+        socket.emit('gs_leave',        { room: GS_ROOM });
+        socket.emit('gs_stream_stopped', { room: GS_ROOM });
+
+        document.getElementById('sc-live').style.display = 'none';
+        document.getElementById('sc-idle').style.display = 'flex';
+        document.getElementById('sc-preview').srcObject  = null;
+        viewers = 0;
+        showStatus('Stream stopped');
+    };
+
+})();
+</script>
+</body>
+</html>

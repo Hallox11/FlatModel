@@ -1,0 +1,59 @@
+[
+  { "id": "euronews",     "name": "Euronews",            "cat": "news",          "emoji": "🇪🇺", "active": true, "type": "yt", "ytId": "pykpO5kQJ98" },
+  { "id": "skynews_yt",   "name": "Sky News",            "cat": "news",          "emoji": "🇬🇧", "active": true, "type": "yt",  "ytId": "YDvsBbKfLPA" },
+  { "id": "france24",     "name": "France 24",           "cat": "news",          "emoji": "🇫🇷", "active": true, "type": "yt", "ytId": "Ap-UM1O9RBU" },
+  { "id": "channels",     "name": "Channels",           "cat": "news",          "emoji": "🇫🇷", "active": true, "type": "yt", "ytId": "d4zDorDl5UE" },
+  { "id": "geo_news",     "name": "Geo News",           "cat": "news",          "emoji": "🇫🇷", "active": true, "type": "yt", "ytId": "_FwympjOSNE" },
+  { "id": "live_earth",     "name": "Live Earth",           "cat": "news",          "emoji": "🇫🇷", "active": true, "type": "yt", "ytId": "fO9e9jnhYK8" },
+  { "id": "abc_news",     "name": "ABC News",           "cat": "news",          "emoji": "🇫🇷", "active": true, "type": "yt", "ytId": "iipR5yUp36o" },
+  { "id": "aljazeera",     "name": "Al Jazeera Live",           "cat": "news",          "emoji": "🇫🇷", "active": true, "type": "yt", "ytId": "gCNeDWCI0vo" },
+
+
+  { "id": "bbc",          "name": "BBC News",            "cat": "news",          "emoji": "🇬🇧", "active": true, "type": "hls", "url": "https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/pc_hd_abr_v2.m3u8" },
+  { "id": "dw",           "name": "DW News",             "cat": "news",          "emoji": "🇩🇪", "active": true, "type": "hls", "url": "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8" },
+  { "id": "aljazeera",    "name": "Al Jazeera",          "cat": "news",          "emoji": "📡",  "active": true, "type": "hls", "url": "https://live-hls-web-aja.getaj.net/AJE/index.m3u8" },
+  { "id": "bloomberg",    "name": "Bloomberg",           "cat": "news",          "emoji": "💹",  "active": true, "type": "hls", "url": "https://bloomberg-bloomberg-1-eu.samsung.wurl.tv/manifest/playlist.m3u8" },
+  { "id": "cgtn",         "name": "CGTN",                "cat": "news",          "emoji": "🇨🇳", "active": true, "type": "hls", "url": "https://news.cgtn.com/resource/live/english/cgtn-news.m3u8" },
+
+  { "id": "bbc_yt",       "name": "BBC News Live",       "cat": "news",          "emoji": "🇬🇧", "active": true, "type": "yt",  "ytId": "w_Ma8oQLmSM" },
+  { "id": "aljazeera_yt", "name": "Al Jazeera Live",     "cat": "news",          "emoji": "📡",  "active": true, "type": "yt",  "ytId": "h3MuIUNCCzI" },
+  { "id": "dw_yt",        "name": "DW News Live",        "cat": "news",          "emoji": "🇩🇪", "active": true, "type": "yt",  "ytId": "5OGCjAiRXWA" },
+  { "id": "france24_yt",  "name": "France 24 Live",      "cat": "news",          "emoji": "🇫🇷", "active": true, "type": "yt",  "ytId": "Ap-UM1O9RBU" },
+  { "id": "abc_us_yt",    "name": "ABC News (US)",       "cat": "news",          "emoji": "🇺🇸", "active": true, "type": "yt",  "ytId": "vOTiJkg1voo" },
+  { "id": "abc_au_yt",    "name": "ABC News (AU)",       "cat": "news",          "emoji": "🇦🇺", "active": true, "type": "yt",  "ytId": "vOTiJkg1voo" },
+  { "id": "nbc_yt",       "name": "NBC News NOW",        "cat": "news",          "emoji": "🇺🇸", "active": true, "type": "yt",  "ytId": "HAb0Ek0sPqs" },
+  { "id": "fox_yt",       "name": "LiveNOW from FOX",    "cat": "news",          "emoji": "🦊",  "active": true, "type": "yt",  "ytId": "GiIBLR_iHfA" },
+  { "id": "cgtn_yt",      "name": "CGTN Live",           "cat": "news",          "emoji": "🇨🇳", "active": true, "type": "yt",  "ytId": "B3_5IXRL0Gs" },
+  { "id": "trt_yt",       "name": "TRT World",           "cat": "news",          "emoji": "🇹🇷", "active": true, "type": "yt",  "ytId": "8RMqCBFSFLo" },
+  { "id": "wion_yt",      "name": "WION",                "cat": "news",          "emoji": "🌏",  "active": true, "type": "yt",  "ytId": "ZSu8Ds-vNT8" },
+  { "id": "timesnow_yt",  "name": "Times Now",           "cat": "news",          "emoji": "🇮🇳", "active": true, "type": "yt",  "ytId": "N50C9qF5sCY" },
+
+  { "id": "eurosport",    "name": "Eurosport",           "cat": "sports",        "emoji": "🏆",  "active": true, "type": "hls", "url": "https://rakuten-eurosport-1-eu.samsung.wurl.tv/manifest/playlist.m3u8" },
+  { "id": "redbull",      "name": "Red Bull TV",         "cat": "sports",        "emoji": "🐂",  "active": true, "type": "hls", "url": "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8" },
+  { "id": "fight",        "name": "Fight Network",       "cat": "sports",        "emoji": "🥊",  "active": true, "type": "hls", "url": "https://fightnetwork-fightnetwork-1-na.samsung.wurl.tv/manifest/playlist.m3u8" },
+  { "id": "tennis",       "name": "Tennis Channel",      "cat": "sports",        "emoji": "🎾",  "active": true, "type": "hls", "url": "https://rakuten-tennis-1-eu.samsung.wurl.tv/manifest/playlist.m3u8" },
+
+  { "id": "nasa",         "name": "NASA TV",             "cat": "entertainment", "emoji": "🚀",  "active": true, "type": "hls", "url": "https://nasatv-lh.akamaihd.net/i/NASATV_1@131621/master.m3u8" },
+  { "id": "docubox",      "name": "DocuBox",             "cat": "entertainment", "emoji": "🎬",  "active": true, "type": "hls", "url": "https://rakuten-docubox-1-eu.samsung.wurl.tv/manifest/playlist.m3u8" },
+  { "id": "horror",       "name": "Horror Box",          "cat": "entertainment", "emoji": "👻",  "active": true, "type": "hls", "url": "https://rakuten-horrorbox-1-eu.samsung.wurl.tv/manifest/playlist.m3u8" },
+  { "id": "action",       "name": "Action Movies",       "cat": "entertainment", "emoji": "💥",  "active": true, "type": "hls", "url": "https://rakuten-actionmovies-1-eu.samsung.wurl.tv/manifest/playlist.m3u8" },
+  { "id": "thriller",     "name": "Thriller Box",        "cat": "entertainment", "emoji": "🔪",  "active": true, "type": "hls", "url": "https://rakuten-thrillerbox-1-eu.samsung.wurl.tv/manifest/playlist.m3u8" },
+  { "id": "comedy",       "name": "Comedy 24",           "cat": "entertainment", "emoji": "😂",  "active": true, "type": "hls", "url": "https://rakuten-comedy24-1-eu.samsung.wurl.tv/manifest/playlist.m3u8" },
+  { "id": "classic",      "name": "Classic Movies",      "cat": "entertainment", "emoji": "🎞️", "active": true, "type": "hls", "url": "https://rakuten-classicmovies-1-eu.samsung.wurl.tv/manifest/playlist.m3u8" },
+
+  { "id": "nasa_yt",       "name": "NASA ISS Live",       "cat": "entertainment", "emoji": "🚀",  "active": true, "type": "yt",  "ytId": "P57_x4NsnCE" },
+  { "id": "smithsonian_yt","name": "Smithsonian Channel", "cat": "entertainment", "emoji": "🏛️", "active": true, "type": "yt",  "ytId": "oGQ0P8CoNiA" },
+  { "id": "rt_doc_yt",     "name": "RT Documentary",      "cat": "entertainment", "emoji": "🎥",  "active": true, "type": "yt",  "ytId": "yaqeQFruZnA" },
+  { "id": "earth_tv_yt",   "name": "Earth TV",            "cat": "entertainment", "emoji": "🌍",  "active": true, "type": "yt",  "ytId": "JYGJDsQfPIU" },
+  { "id": "nature_yt",     "name": "Nature Relaxation",   "cat": "entertainment", "emoji": "🌿",  "active": true, "type": "yt",  "ytId": "Klmn5o_pzD8" },
+  { "id": "fireplace_yt",  "name": "Fireplace 4K",        "cat": "entertainment", "emoji": "🔥",  "active": true, "type": "yt",  "ytId": "ruLBmpRrIPc" },
+  { "id": "ocean_yt",      "name": "Ocean Sounds",        "cat": "entertainment", "emoji": "🌊",  "active": true, "type": "yt",  "ytId": "LqSn4PcPPOQ" },
+
+  { "id": "lofi_girl_yt",  "name": "Lofi Girl",           "cat": "music",         "emoji": "🎵",  "active": true, "type": "yt",  "ytId": "jfKfPfyJRdk" },
+  { "id": "lofi_synth_yt", "name": "Lofi Synthwave",      "cat": "music",         "emoji": "🌆",  "active": true, "type": "yt",  "ytId": "4xDzrJKXOOY" },
+  { "id": "chillhop_yt",   "name": "Chillhop Music",      "cat": "music",         "emoji": "🦔",  "active": true, "type": "yt",  "ytId": "5yx6BWlEVcY" },
+  { "id": "jazz_yt",       "name": "Jazz & Bossa Nova",   "cat": "music",         "emoji": "🎷",  "active": true, "type": "yt",  "ytId": "Dx5qFachd3A" },
+  { "id": "classical_yt",  "name": "Classical Radio",     "cat": "music",         "emoji": "🎻",  "active": true, "type": "yt",  "ytId": "zY8SYMNlYUE" },
+  { "id": "ambient_yt",    "name": "Space Ambient",       "cat": "music",         "emoji": "🌌",  "active": true, "type": "yt",  "ytId": "7NOSDKb0HlU" }
+
+]

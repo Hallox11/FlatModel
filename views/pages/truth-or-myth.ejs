@@ -1,0 +1,334 @@
+<style>
+#tom-module {
+    width: 1280px; height: 720px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    font-family: 'Fira Sans', sans-serif; color: white;
+    background: #000;
+}
+
+#tom-close {
+    position: absolute; top: 20px; left: 20px;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
+    color: white; padding: 7px 14px; font-size: 0.78rem;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 6px;
+    cursor: pointer; transition: all 0.2s; z-index: 200;
+}
+#tom-close:hover { border-color: rgba(255,255,255,0.5); }
+
+.tom-screen {
+    display: none; flex-direction: column;
+    align-items: center; justify-content: center;
+    width: 100%; height: 100%;
+    animation: tomFade 0.4s ease;
+}
+.tom-screen.active { display: flex; }
+
+/* ── LOBBY ── */
+#tom-lobby { gap: 28px; }
+.tom-title { font-size: 2.4rem; font-weight: 200; letter-spacing: 8px; text-transform: uppercase; }
+.tom-subtitle { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; }
+
+#tom-players-list { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 800px; }
+.tom-chip {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 50px; padding: 7px 18px;
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 8px;
+}
+.tom-chip-dot { width: 6px; height: 6px; border-radius: 50%; background: #2ecc71; }
+
+.tom-name-row { display: flex; gap: 10px; align-items: center; }
+#tom-name-input {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px; color: white; padding: 12px 20px;
+    font-size: 0.9rem; font-family: 'Fira Sans', sans-serif;
+    outline: none; width: 220px; text-align: center; letter-spacing: 1px;
+}
+#tom-name-input:focus { border-color: #2ecc71; }
+#tom-name-input::placeholder { opacity: 0.3; }
+
+.tom-btn {
+    background: linear-gradient(135deg, rgba(46,204,113,0.25), rgba(46,204,113,0.08));
+    border: 1px solid rgba(46,204,113,0.45); border-radius: 10px;
+    color: white; cursor: pointer; padding: 12px 28px;
+    font-size: 0.82rem; font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase; letter-spacing: 2px; transition: all 0.2s;
+}
+.tom-btn:hover { background: rgba(46,204,113,0.35); transform: scale(1.03); }
+.tom-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
+
+/* ── STATEMENT SCREEN ── */
+#tom-statement { gap: 0; }
+
+#tom-progress-wrap { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.08); }
+#tom-progress-bar  { height: 100%; background: #2ecc71; transition: width 0.3s ease; }
+
+#tom-q-counter { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; margin-bottom: 20px; }
+
+#tom-statement-text {
+    font-size: 1.9rem; font-weight: 200; text-align: center;
+    max-width: 860px; line-height: 1.5; padding: 0 40px;
+    margin-bottom: 50px;
+}
+
+#tom-vote-row { display: flex; gap: 24px; }
+
+.tom-vote-btn {
+    width: 240px; height: 120px; border-radius: 18px;
+    border: 2px solid; cursor: pointer;
+    font-size: 1.5rem; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; transition: all 0.18s ease;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    font-family: 'Fira Sans', sans-serif;
+}
+.tom-vote-btn .vote-icon { font-size: 2.2rem; }
+.tom-vote-btn.truth  { background: rgba(46,204,113,0.1);  border-color: rgba(46,204,113,0.4);  color: #2ecc71; }
+.tom-vote-btn.myth   { background: rgba(231,76,60,0.1);   border-color: rgba(231,76,60,0.4);   color: #e74c3c; }
+.tom-vote-btn.truth:hover:not(:disabled) { background: rgba(46,204,113,0.25); border-color: #2ecc71; transform: scale(1.05); }
+.tom-vote-btn.myth:hover:not(:disabled)  { background: rgba(231,76,60,0.25);  border-color: #e74c3c;  transform: scale(1.05); }
+.tom-vote-btn.selected { opacity: 1; transform: scale(1.06); }
+.tom-vote-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+
+/* timer bar */
+#tom-timer-bar-wrap { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: rgba(255,255,255,0.06); }
+#tom-timer-bar { height: 100%; background: #daa520; transition: width 0.1s linear; }
+
+/* wait message */
+#tom-wait-msg { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; margin-top: 20px; }
+
+/* ── REVEAL SCREEN ── */
+#tom-reveal { gap: 22px; }
+.reveal-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4; }
+.reveal-answer {
+    font-size: 2.4rem; font-weight: 200; letter-spacing: 4px;
+}
+.reveal-answer.truth { color: #2ecc71; }
+.reveal-answer.myth  { color: #e74c3c; }
+.reveal-explanation  { font-size: 0.95rem; opacity: 0.6; text-align: center; max-width: 700px; line-height: 1.6; }
+
+#tom-reveal-scores { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.tom-rscard {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 14px 22px; text-align: center; min-width: 130px;
+}
+.tom-rscard.correct { border-color: #2ecc71; background: rgba(46,204,113,0.08); }
+.tom-rscard.wrong   { border-color: #e74c3c; background: rgba(231,76,60,0.06); }
+.tom-rscard .rs-name { font-size: 0.72rem; opacity: 0.55; text-transform: uppercase; letter-spacing: 1px; }
+.tom-rscard .rs-pts  { font-size: 1.7rem; font-weight: 200; color: #daa520; }
+
+/* ── FINAL ── */
+#tom-final { gap: 28px; }
+.tom-podium { display: flex; align-items: flex-end; gap: 20px; }
+.tom-podium-place { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.tom-podium-bar {
+    width: 120px; background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14); border-radius: 8px 8px 0 0;
+    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 12px;
+}
+.tom-podium-bar.first  { height: 160px; border-color: #daa520; background: rgba(218,165,32,0.09); }
+.tom-podium-bar.second { height: 120px; }
+.tom-podium-bar.third  { height: 90px; }
+.tom-medal  { font-size: 2rem; }
+.tom-pname  { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+.tom-pscore { font-size: 0.95rem; color: #daa520; }
+
+@keyframes tomFade { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+</style>
+
+<div id="tom-module">
+    <button id="tom-close" onclick="tomClose()">
+        <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span> Back
+    </button>
+
+    <!-- LOBBY -->
+    <div id="tom-lobby" class="tom-screen active">
+        <div class="tom-title">✅ True or Myth</div>
+        <div class="tom-subtitle">10 Statements · Fact or Fiction</div>
+        <div id="tom-players-list"></div>
+        <div class="tom-name-row">
+            <input id="tom-name-input" type="text" placeholder="Your name..." maxlength="16">
+            <button class="tom-btn" onclick="tomJoin()">Join</button>
+        </div>
+        <button class="tom-btn" id="tom-start-btn" onclick="tomStart()" disabled>Start Game</button>
+    </div>
+
+    <!-- STATEMENT -->
+    <div id="tom-statement" class="tom-screen">
+        <div id="tom-progress-wrap"><div id="tom-progress-bar" style="width:0%"></div></div>
+        <div id="tom-q-counter">Statement 1 of 10</div>
+        <div id="tom-statement-text">Loading...</div>
+        <div id="tom-vote-row">
+            <button class="tom-vote-btn truth" onclick="tomVote('true', this)">
+                <span class="vote-icon">✅</span> True
+            </button>
+            <button class="tom-vote-btn myth" onclick="tomVote('false', this)">
+                <span class="vote-icon">❌</span> Myth
+            </button>
+        </div>
+        <div id="tom-wait-msg" style="display:none;">Waiting for others...</div>
+        <div id="tom-timer-bar-wrap"><div id="tom-timer-bar" style="width:100%"></div></div>
+    </div>
+
+    <!-- REVEAL -->
+    <div id="tom-reveal" class="tom-screen">
+        <div class="reveal-label">The answer is</div>
+        <div class="reveal-answer" id="tom-reveal-answer">TRUE</div>
+        <div class="reveal-explanation" id="tom-reveal-explanation"></div>
+        <div id="tom-reveal-scores"></div>
+        <div style="font-size:0.68rem;opacity:0.35;letter-spacing:2px;text-transform:uppercase;" id="tom-next-label">Next in 4s...</div>
+    </div>
+
+    <!-- FINAL -->
+    <div id="tom-final" class="tom-screen">
+        <div class="tom-title" style="font-size:1.8rem;">Game Over</div>
+        <div class="tom-podium" id="tom-podium"></div>
+        <button class="tom-btn" onclick="tomReset()">Play Again</button>
+    </div>
+</div>
+
+<script>
+(function () {
+    const socket = window.socket;
+    if (!socket) { console.error('[TrueOrMyth] No socket'); return; }
+    const myRoom = window.myRoom || 'Lobby';
+
+    let myName    = null;
+    let players   = {};
+    let voted     = false;
+    let timerInt  = null;
+    let timeLeft  = 15;
+    const TOTAL   = 10;
+    const TIME    = 15;
+
+    // ── SCREENS ──
+    function show(id) {
+        document.querySelectorAll('.tom-screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+
+    function renderPlayers() {
+        const list = document.getElementById('tom-players-list');
+        const entries = Object.values(players);
+        list.innerHTML = entries.length
+            ? entries.map(p => `<div class="tom-chip"><div class="tom-chip-dot"></div>${p.name}</div>`).join('')
+            : '<div style="opacity:0.3;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;">No players yet</div>';
+        document.getElementById('tom-start-btn').disabled = entries.length < 1;
+    }
+
+    window.tomJoin = function () {
+        const name = document.getElementById('tom-name-input').value.trim();
+        if (!name) return;
+        myName = name;
+        socket.emit('tom_join', { room: myRoom, name });
+        document.getElementById('tom-name-input').disabled = true;
+        document.querySelector('.tom-name-row .tom-btn').disabled = true;
+    };
+
+    window.tomStart = function () { socket.emit('tom_start', { room: myRoom }); };
+
+    window.tomVote = function (vote, btn) {
+        if (voted) return;
+        voted = true;
+        clearInterval(timerInt);
+        document.querySelectorAll('.tom-vote-btn').forEach(b => { b.disabled = true; });
+        btn.classList.add('selected');
+        document.getElementById('tom-wait-msg').style.display = 'block';
+        socket.emit('tom_vote', { room: myRoom, vote, timeLeft });
+    };
+
+    function startTimer() {
+        clearInterval(timerInt);
+        timeLeft = TIME;
+        timerInt = setInterval(() => {
+            timeLeft = Math.max(0, timeLeft - 0.1);
+            document.getElementById('tom-timer-bar').style.width = `${(timeLeft / TIME) * 100}%`;
+            if (timeLeft <= 0) {
+                clearInterval(timerInt);
+                if (!voted) {
+                    voted = true;
+                    document.querySelectorAll('.tom-vote-btn').forEach(b => b.disabled = true);
+                    socket.emit('tom_vote', { room: myRoom, vote: null, timeLeft: 0 });
+                }
+            }
+        }, 100);
+    }
+
+    window.tomReset = function () {
+        players = {}; myName = null; voted = false;
+        clearInterval(timerInt);
+        document.getElementById('tom-name-input').disabled = false;
+        document.getElementById('tom-name-input').value = '';
+        document.querySelector('.tom-name-row .tom-btn').disabled = false;
+        socket.emit('tom_reset', { room: myRoom });
+        renderPlayers();
+        show('tom-lobby');
+    };
+
+    window.tomClose = function () {
+        clearInterval(timerInt);
+        socket.emit('tom_leave', { room: myRoom });
+        if (typeof closeSubMenu === 'function') closeSubMenu();
+    };
+
+    // ── SOCKET EVENTS ──
+    socket.on('tom_players_update', d => { players = d.players; renderPlayers(); });
+
+    socket.on('tom_statement', d => {
+        voted = false;
+        document.getElementById('tom-q-counter').textContent = `Statement ${d.index + 1} of ${TOTAL}`;
+        document.getElementById('tom-statement-text').textContent = d.statement;
+        document.getElementById('tom-progress-bar').style.width = `${(d.index / TOTAL) * 100}%`;
+        document.querySelectorAll('.tom-vote-btn').forEach(b => { b.disabled = false; b.classList.remove('selected'); });
+        document.getElementById('tom-wait-msg').style.display = 'none';
+        document.getElementById('tom-timer-bar').style.width = '100%';
+        startTimer();
+        show('tom-statement');
+    });
+
+    socket.on('tom_reveal', d => {
+        clearInterval(timerInt);
+        const el = document.getElementById('tom-reveal-answer');
+        el.textContent = d.correct === 'true' ? '✅ TRUE' : '❌ MYTH';
+        el.className = 'reveal-answer ' + (d.correct === 'true' ? 'truth' : 'myth');
+        document.getElementById('tom-reveal-explanation').textContent = d.explanation || '';
+
+        Object.entries(d.scores).forEach(([id, pts]) => { if (players[id]) players[id].score = pts; });
+
+        document.getElementById('tom-reveal-scores').innerHTML = Object.values(players)
+            .sort((a,b) => b.score - a.score)
+            .map(p => {
+                const correct = d.votes[p.id] === d.correct;
+                return `<div class="tom-rscard ${correct ? 'correct' : 'wrong'}">
+                    <div class="rs-name">${p.name}</div>
+                    <div class="rs-pts">${p.score}</div>
+                </div>`;
+            }).join('');
+        show('tom-reveal');
+    });
+
+    socket.on('tom_final', d => {
+        const sorted = Object.values(players)
+            .map(p => ({ ...p, score: d.scores[p.id] || p.score }))
+            .sort((a,b) => b.score - a.score);
+        const order = [sorted[1], sorted[0], sorted[2]].filter(Boolean);
+        const bars  = ['second','first','third'];
+        const medals= ['🥈','🥇','🥉'];
+        document.getElementById('tom-podium').innerHTML = order.map((p,i) => `
+            <div class="tom-podium-place">
+                <div class="tom-pname">${p.name}</div>
+                <div class="tom-pscore">${p.score} pts</div>
+                <div class="tom-podium-bar ${bars[i]}"><div class="tom-medal">${medals[i]}</div></div>
+            </div>`).join('');
+        show('tom-final');
+    });
+
+    socket.on('tom_reset', () => tomReset());
+
+    renderPlayers();
+})();
+</script>

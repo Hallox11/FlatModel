@@ -12,23 +12,188 @@ const xvideosScraper = require('./Xvideosscraper');
 const eroticScraper  = require('./eroticScraper');
 const youtubeScraper = require('./youtubeScraper');
 const ytMusicScraper = require('./ytMusicScraper');
+const flickrController = require('./flickrController');
+const freebiesScraper = require('./freebiesScraper');
+
 
 const MY_SECRET = process.env.MY_SECRET || "MyUltraSecret123"; // ⚠️ move to .env
 const favPath   = path.join(__dirname, 'favorites.json');
-
+const radioFavPath = path.join(__dirname, 'config', 'favorites-radios.json');
+// Ensure the config folder and file exist
+if (!fs.existsSync(path.join(__dirname, 'config'))) fs.mkdirSync(path.join(__dirname, 'config'));
+if (!fs.existsSync(radioFavPath)) fs.writeFileSync(radioFavPath, JSON.stringify([]));
 if (!fs.existsSync(favPath)) fs.writeFileSync(favPath, JSON.stringify([]));
 
 // Factory — receives shared state from sltv.js
 module.exports = function createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SESSION_TTL, FIXED_ROOM }) {
 
+// ── RADIO FAVORITES ENDPOINT ────────────────────────────────
+router.post('/radio-favorites', (req, res) => {
+    const newStation = req.body;
+    
+    // 1. Get the country code from the station object (fallback to 'unknown')
+    // Radio-browser API usually provides 'countrycode' (e.g., "PT", "BR")
+    const countryCode = (newStation.countrycode || 'unknown').toLowerCase();
+    
+    // 2. Define the path: config/favorites/radios/pt.json
+    const dirPath = path.join(__dirname, 'config', 'favorites', 'radios');
+    const filePath = path.join(dirPath, `${countryCode}.json`);
+
+    // 3. Ensure the folder structure exists
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath, { recursive: true });
+    }
+
+    // 4. Read the specific country file
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        let favorites = [];
+        
+        if (!err && data) {
+            try {
+                favorites = JSON.parse(data);
+            } catch (parseErr) {
+                favorites = [];
+            }
+        }
+
+        // 5. Duplicate check within that country
+        const exists = favorites.some(f => f.url_resolved === newStation.url_resolved);
+
+        if (!exists) {
+            favorites.push(newStation);
+            fs.writeFile(filePath, JSON.stringify(favorites, null, 2), (writeErr) => {
+                if (writeErr) {
+                    console.error("[Radio Save] Write Error:", writeErr);
+                    return res.status(500).json({ error: "Failed to save" });
+                }
+                res.json({ message: `Saved to ${countryCode}.json!` });
+            });
+        } else {
+            res.status(400).json({ message: "Station already in favorites." });
+        }
+    });
+});
+
+router.get('/games-menu',    (req, res) => res.render('pages/games-menu'));
+router.get('/quiz',          (req, res) => res.render('pages/quiz'));
+router.get('/truth-or-myth', (req, res) => res.render('pages/truth-or-myth'));
+router.get('/who-am-i',      (req, res) => res.render('pages/who-am-i'));
+router.get('/this-or-that',  (req, res) => res.render('pages/this-or-that'));
+
+router.get('/freebies', (req, res) => res.render('pages/freebies'));
+
+// API endpoint
+router.get('/api/freebies', async (req, res) => {
+    try {
+        const items = await freebiesScraper.getGifts();
+        res.json(items);
+    } catch (err) {
+        console.error('[Freebies Route] Error:', err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+// ============================================================
+// ADD TO routes.js
+// ============================================================
+
+// ── LIVE TV PAGE ─────────────────────────────────────────────
+router.get('/live-tv', (req, res) => res.render('pages/live-tv'));
+
+// ── HLS PROXY ────────────────────────────────────────────────
+router.get('/hls-proxy', async (req, res) => {
+    const streamUrl = req.query.url;
+    if (!streamUrl) return res.status(400).send('Missing url param');
+
+    try {
+        const response = await axios.get(streamUrl, {
+            responseType: 'arraybuffer',
+            timeout: 10000,
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (compatible; IPTV-Player)',
+                'Referer': streamUrl,
+                'Origin': new URL(streamUrl).origin
+            }
+        });
+
+        const contentType = response.headers['content-type'] || '';
+
+        if (streamUrl.endsWith('.m3u8') || contentType.includes('mpegurl') || contentType.includes('x-mpegURL')) {
+            let playlist = Buffer.from(response.data).toString('utf-8');
+            const baseUrl = streamUrl.substring(0, streamUrl.lastIndexOf('/') + 1);
+
+            playlist = playlist.replace(/^(?!#)(.+\.m3u8.*)$/gm, (match) => {
+                const absolute = match.startsWith('http') ? match : baseUrl + match;
+                return `/hls-proxy?url=${encodeURIComponent(absolute)}`;
+            });
+            playlist = playlist.replace(/^(?!#)(.+\.ts.*)$/gm, (match) => {
+                const absolute = match.startsWith('http') ? match : baseUrl + match;
+                return `/hls-proxy?url=${encodeURIComponent(absolute)}`;
+            });
+
+            res.setHeader('Content-Type', 'application/vnd.apple.mpegurl');
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Cache-Control', 'no-cache');
+            return res.send(playlist);
+        }
+
+        res.setHeader('Content-Type', contentType || 'video/mp2t');
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Cache-Control', 'no-cache');
+        res.send(Buffer.from(response.data));
+
+    } catch (err) {
+        console.error('[HLS Proxy] Error:', err.message);
+        res.status(502).send('Stream unavailable');
+    }
+});
+
+// ── CHANNELS FROM JSON ───────────────────────────────────────
+// Reads channels.json, returns only active:true entries.
+// Edit channels.json to add/remove/toggle channels — no restart needed.
+const CHANNELS_PATH = path.join(__dirname, 'channels.json');
+
+router.get('/api/channels', (req, res) => {
+    try {
+        const raw      = fs.readFileSync(CHANNELS_PATH, 'utf-8');
+        const all      = JSON.parse(raw);
+        const active   = all.filter(ch => ch.active !== false);
+        res.json(active);
+    } catch (err) {
+        console.error('[Channels] Failed to read channels.json:', err.message);
+        res.status(500).json({ error: 'Could not load channels' });
+    }
+});
 
 /////////////////////////////
 // Rota para simular o comportamento da TV LSL
-
+/*
 router.post('/dev/mock-tv', (req, res) => {
     console.log("[DEV MODE] TV recebeu comando:", req.body);
     res.status(200).send("OK");
 });
+*/
+router.get('/game-stream', (req, res) => {
+    res.render('pages/game-stream');  // renders views/game-stream.ejs
+    // OR if you serve EJS fragments directly as HTML:
+    // res.sendFile(path.join(__dirname, 'views', 'game-stream.ejs'));
+});
+////////////////77
+////////////////////////////////////////////////////
+// Gera um token temporário só para a stream cam
+router.get('/stream-cam', (req, res) => {
+    const token = crypto.randomBytes(16).toString('hex');
+    pendingTokens[token] = { 
+        owner: 'stream-cam',
+        object_id: 'stream-cam',
+        expires: Date.now() + 5 * 60 * 1000 
+    };
+    // Redireciona para a página principal com o token no URL
+    // O myScripts.js vai validar e permitir acesso normalmente
+    res.redirect(`/?token=${token}&goto=stream-cam`);
+});
+router.get('/stream-cam-page', (req, res) => res.render('pages/stream-cam'));
+
+
 
     /////////////////////////////////////////////////
     // GET /api/tvs
@@ -54,94 +219,100 @@ router.post('/dev/mock-tv', (req, res) => {
 
     /////////////////////////////////////////////////
     // REGISTER ENDPOINT (LSL Handshake)
-    router.post('/register', async (req, res) => {
-        const {
-            secret, owner, creator, clicker, status, land_name,
-            land_id, pos, object_id, serial, url
-        } = req.body;
+router.post('/register', async (req, res) => {
+    const {
+        secret, owner, creator, clicker, status, land_name,
+        land_id, pos, object_id, serial, url
+    } = req.body;
 
-        const tvIp = tvRegistry[object_id]?.ip || null;
+    const tvIp = tvRegistry[object_id]?.ip || req.ip;
 
-        console.log("***************************************");
-        console.log(`[Register] object_id: ${object_id} | owner: ${owner} | status: ${status}`);
-        console.log("***************************************");
+    console.log("***************************************");
+    console.log(`[Register] object_id: ${object_id} | owner: ${owner} | status: ${status}`);
+    console.log("***************************************");
 
-        // 1. VALIDAÇÃO DO SEGREDO
-        if (secret !== MY_SECRET) {
-            console.warn(`[Security] Denied register attempt`);
-            return res.status(403).send("Denied");
+    // 1. VALIDAÇÃO DO SEGREDO
+    if (secret !== MY_SECRET) {
+        console.warn(`[Security] Denied register attempt`);
+        return res.status(403).send("Denied");
+    }
+
+    // 2. HISTÓRICO DE INTERAÇÕES (DB)
+    db.run(
+        `INSERT INTO interactions (owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url],
+        (err) => { if (err) console.error("[Interactions] DB Error:", err.message); }
+    );
+
+    // 3. MAPEAMENTO DE SESSÃO
+    if (clicker && clicker !== "Unknown" && object_id) {
+        clickerSessionMap.set(clicker, {
+            object_id,
+            expires: Date.now() + SESSION_TTL
+        });
+    }
+
+    // 4. TRATAMENTO DE TV_OFF (Caso a TV esteja desligando)
+    if (!object_id || !url || status === 'TV_OFF') {
+        console.log(`[Registry] TV_OFF or no URL — cleaning up for ${object_id}`);
+        if (object_id) {
+            tvRegistry[object_id] = { url, status, serial, owner, land: land_name, room: `room_${land_id}`, ip: tvIp };
+            _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip: tvIp });
+            io.emit('tv_registered', { object_id, id: object_id, location: land_name, status: "OFFLINE" });
+        }
+        return res.status(200).json({ status: "success", target_id: object_id });
+    }
+
+    // 5. CALLBACK À TV (VERIFICAÇÃO)
+    try {
+        console.log(`[Verify] Calling back TV ${object_id} at ${url}`);
+
+        const verifyResponse = await axios.post(url, `verify|${MY_SECRET}:${owner}`, {
+            headers: { 'Content-Type': 'text/plain' },
+            timeout: 10000
+        });
+
+        if (verifyResponse.data !== 'VERIFIED') {
+            console.warn(`[Verify] ❌ TV ${object_id} not verified:`, verifyResponse.data);
+            return res.status(403).send("Verification failed");
         }
 
-        // 2. HISTÓRICO DE INTERAÇÕES
-        db.run(
-            `INSERT INTO interactions (owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url)
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url],
-            (err) => { if (err) console.error("[Interactions] DB Error:", err.message); }
-        );
+        console.log(`[Verify] ✅ TV ${object_id} verified OK`);
 
-        // 3. MAPEAMENTO DE SESSÃO
-        if (clicker && clicker !== "Unknown" && object_id) {
-            clickerSessionMap.set(clicker, {
-                object_id,
-                expires: Date.now() + SESSION_TTL
-            });
+        // 6. REGISTO EM MEMÓRIA E PERSISTÊNCIA
+        tvRegistry[object_id] = { url, status, serial, owner, land: land_name, room: `room_${land_id}`, ip: tvIp };
+        _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip: tvIp });
+
+        // 7. EMIT SOCKET (Aqui a bolinha fica verde no Front-end)
+        io.emit('tv_registered', { 
+            object_id: object_id, 
+            id: object_id, 
+            location: land_name,
+            status: "ONLINE" 
+        });
+
+        if (clicker && clicker !== "Unknown") {
             io.to(FIXED_ROOM).emit('tv_registered', { clicker, object_id });
         }
 
-        // 4. TV_OFF — skips verification
-        if (!object_id || !url || status === 'TV_OFF') {
-            console.log(`[Registry] TV_OFF or no URL — skipping verification for ${object_id}`);
+        // 8. GERA TOKEN PARA A SESSÃO
+        const token = crypto.randomBytes(16).toString('hex');
+        pendingTokens[token] = { object_id, owner, expires: Date.now() + 30000 };
+        
+        console.log(`[Token] Generated for ${object_id}: ${token}`);
 
-            if (object_id) {
-                tvRegistry[object_id] = { url, status, serial, owner, land: land_name, room: `room_${land_id}`, ip: tvIp };
-                _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip: tvIp });
-                io.emit('tv_registered', { id: object_id, location: land_name });
-            }
+        return res.status(200).json({ 
+            status: "success", 
+            target_id: object_id, 
+            token: token 
+        });
 
-            return res.status(200).json({ status: "success", target_id: object_id });
-        }
-
-        // 5. CALLBACK À TV — verifica se o segredo e owner batem certo
-        try {
-            console.log(`[Verify] Calling back TV ${object_id} at ${url}`);
-
-            const verifyResponse = await axios.post(url, `verify|${MY_SECRET}:${owner}`, {
-                headers: { 'Content-Type': 'text/plain' },
-                timeout: 10000
-            });
-
-            if (verifyResponse.data !== 'VERIFIED') {
-                console.warn(`[Verify] ❌ TV ${object_id} not verified:`, verifyResponse.data);
-                return res.status(403).send("Verification failed");
-            }
-
-            console.log(`[Verify] ✅ TV ${object_id} verified OK`);
-
-            // 6. REGISTO EM MEMÓRIA
-            tvRegistry[object_id] = { url, status, serial, owner, land: land_name, room: `room_${land_id}`, ip: tvIp };
-
-            // 7. EMIT tv_registered
-            io.emit('tv_registered', { id: object_id, location: land_name });
-            if (clicker && clicker !== "Unknown") {
-                io.to(FIXED_ROOM).emit('tv_registered', { clicker, object_id });
-            }
-
-            // 8. PERSISTÊNCIA NO SQLite
-            _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip: tvIp });
-
-            // 9. GERA TOKEN ONE-TIME
-            const token = crypto.randomBytes(16).toString('hex');
-            pendingTokens[token] = { object_id, owner, expires: Date.now() + 30000 };
-            console.log(`[Token] Generated for ${object_id}: ${token}`);
-
-            return res.status(200).json({ status: "success", target_id: object_id, token });
-
-        } catch (err) {
-            console.warn(`[Verify] ❌ TV ${object_id} unreachable:`, err.message);
-            return res.status(403).send("Verification failed - TV unreachable");
-        }
-    });
+    } catch (err) {
+        console.warn(`[Verify] ❌ TV ${object_id} unreachable:`, err.message);
+        return res.status(403).send("Verification failed - TV unreachable");
+    }
+});
 
     /////////////////////////////////////////////////
     // VALIDATE TOKEN
@@ -196,38 +367,60 @@ router.post('/dev/mock-tv', (req, res) => {
 
     // SEND COMMAND
     // ✅ Fixed: prefers object_id lookup in tvRegistry; falls back to global_TV_Url for legacy clients
-    router.post('/send-command', async (req, res) => {
-        const { object_id, command, value } = req.body;
-        console.log("Command sent:", command, "| Value:", value, "| Target:", object_id || 'global');
+router.post('/send-command', (req, res) => {
+    const { command, value } = req.body;
+    
+    // Recupera o ID da TV que associamos na sessão lá no GET /
+    const tvId = req.session.activeTvId;
 
-        let targetUrl;
+    if (!tvId || !tvRegistry[tvId]) {
+        console.error("[Command] Tentativa de comando sem sessão ativa.");
+        return res.status(401).json({ error: "Nenhuma TV vinculada a esta sessão" });
+    }
 
-        if (object_id && tvRegistry[object_id]?.url) {
-            targetUrl = tvRegistry[object_id].url;
-        } else {
-            targetUrl = global_TV_Url;
-        }
+    const tvUrl = tvRegistry[tvId].url;
 
-        if (!targetUrl) {
-            return res.status(404).send("Nenhuma TV ativa encontrada.");
-        }
-
-        try {
-            await axios.post(targetUrl, `${command}|${value}`, {
-                headers: { 'Content-Type': 'text/plain' }
-            });
-            res.send({ success: true });
-        } catch (error) {
-            console.error("[Command Error]", error.message);
-            res.status(500).send("Erro ao enviar para o Second Life.");
-        }
+    axios.post(tvUrl, `${command}|${value}`, {
+        headers: { 'Content-Type': 'text/plain' },
+        timeout: 5000
+    })
+    .then(() => res.json({ success: "ok" }))
+    .catch(err => {
+        console.error(`[Command] Erro ao enviar para TV ${tvId}:`, err.message);
+        res.status(500).json({ error: "TV offline ou inalcançável" });
     });
-
+});
+////////////////////////////////////////
+// check tv status
+router.get('/check-status/:id', (req, res) => {
+    const tvId = req.params.id;
+    const tv = tvRegistry[tvId];
+    console.log(tv.status)
+    if (tv && tv.status !== 'TV_OFF') {
+        return res.json({ online: true, location: tv.land });
+    }
+    res.json({ online: false });
+});
     ///////////////////////////////////////////////////////
     // MAIN PAGE
-    router.get('/', (req, res) => {
-        res.render('pages/index');
-    });
+// ── MAIN PAGE ────────────────────────────────────────────────
+router.get('/', (req, res) => {
+    // 1. Tentar pegar o ID da TV pela query string
+    const tvId = req.query.id || req.query.token;
+
+    if (tvId) {
+        // Se o que recebemos for um TOKEN temporário, precisamos achar o object_id real
+        if (pendingTokens[tvId]) {
+            req.session.activeTvId = pendingTokens[tvId].object_id;
+        } else {
+            // Se for o ID direto
+            req.session.activeTvId = tvId;
+        }
+        console.log(`[Session] Usuário vinculado à TV: ${req.session.activeTvId}`);
+    }
+
+    res.render('pages/index', { tvId: req.session.activeTvId });
+});
 
     router.get('/tv-dashboard', (req, res) => res.render('pages/tv-dashboard'));
 
@@ -413,7 +606,27 @@ router.post('/dev/mock-tv', (req, res) => {
     router.get('/help',     (req, res) => res.render('pages/help'));
     router.get('/browsers', (req, res) => res.render('pages/browsers'));
 
-const axios = require('axios'); // Certifique-se de que o axios está instalado
+
+router.get('/settings', (req, res) => {
+    // 1. Busca o ID gravado na sessão do navegador
+    const tvId = req.session.activeTvId;
+
+    console.log(`[Settings] Sessão ID: ${req.sessionID} | TV Vinculada: ${tvId}`);
+
+    // 2. Verifica se o ID existe e se a TV ainda está no registro (memória)
+    if (tvId && tvRegistry[tvId]) {
+        // Use 'pages/settings' se o arquivo estiver na pasta views/pages/
+        res.render('pages/settings', { 
+            tvId: tvId,
+            dados: tvRegistry[tvId]
+        });
+    } else {
+        console.warn(`[Settings] Acesso negado ou sessão expirada para IP: ${req.ip}`);
+        // Renderiza a página com tvId null para mostrar mensagem de "Offline" ou "Reconecte"
+        res.render('pages/settings', { tvId: null, dados: null });
+    }
+});
+
 
 // 1. Rota para carregar a página
 router.get('/flickr', (req, res) => {
@@ -424,51 +637,42 @@ router.get('/flickr', (req, res) => {
 
 // 2. Rota da API de Busca (Onde o erro 500 acontece)
 router.get('/api/flickr/search', async (req, res) => {
-    const { tags } = req.query;
-    
-    // Teste direto com a string (sem process.env)
-    const TEST_KEY = 'c90dea5c7207bea531ac489747938f44'; 
+    // 1. Pegamos 'tags' e 'sort' da query string
+    const { tags, sort } = req.query;
+
+    if (!tags) {
+        return res.status(400).json({ error: "Tags are required" });
+    }
 
     try {
-        const response = await axios.get('https://www.flickr.com/services/rest/', {
-            params: {
-                method: 'flickr.photos.search',
-                api_key: TEST_KEY, // Use a variável de teste aqui
-                text: tags,
-                format: 'json',
-                nojsoncallback: 1,
-                per_page: 50,
-                sort: 'interestingness-desc'
-            }
-        });
-        console.log(response)
-        res.json(response.data.photos.photo);
+        // 2. Passamos o parâmetro 'sort' para o controller. 
+        // Se 'sort' não existir na URL, o controller usará o padrão.
+        const photos = await flickrController.searchPhotos(tags, sort);
+        res.json(photos);
     } catch (error) {
-        console.error("ERRO REAL:", error.message);
+        console.error("Route Error:", error.message);
+        
+        if (error.message.includes('429') || error.message.includes('Rate limit')) {
+            return res.status(429).json({ error: "Flickr rate limit reached." });
+        }
+        
         res.status(500).json({ error: error.message });
     }
 });
 
-    router.get('/settings', (req, res) => {
-        const isAjax    = req.xhr || req.headers.accept.indexOf('json') > -1;
-        const fullBaseUrl = `https://${req.get('host')}`;
-        const userIp    = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+// Rota para buscar fotos de um canal específico (User ID)
+router.get('/api/flickr/channel/:userId', async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        // Chama o controller que você já tem para buscar as fotos
+        const photos = await flickrController.getChannelPhotos(userId); 
+        res.json(photos);
+    } catch (error) {
+        console.error("Erro na rota de canal:", error.message);
+        res.status(500).json({ error: "Erro ao buscar fotos do canal" });
+    }
+});
 
-        let tvId = req.query.tv;
-        if (!tvId) {
-            const foundTvId = Object.keys(tvRegistry).find(id => tvRegistry[id].ip === userIp);
-            if (foundTvId) {
-                tvId = foundTvId;
-                console.log(`[Settings] Auto-detected TV: ${tvId} via IP: ${userIp}`);
-            }
-        }
-
-        if (isAjax) {
-            return res.render('pages/settings', { baseUrl: fullBaseUrl, tvId, layout: false });
-        } else {
-            return res.render('pages/index', { baseUrl: fullBaseUrl });
-        }
-    });
 
     ///////////////////////////////////////////////////////////
     // FLICKR FAVORITES
@@ -496,7 +700,7 @@ router.get('/api/flickr/search', async (req, res) => {
     router.get('/xxx-index',    (req, res) => res.render('pages/xxx-index'));
     router.get('/xxx-browsers', (req, res) => res.render('pages/xxx-browsers'));
 
-router.get('/xvideos-grid', async (req, res) => {
+    router.get('/xvideos-grid', async (req, res) => {
     // 1. Pegamos a tag da URL ou usamos 'Hardcore' como padrão
     const { tag = 'Hardcore' } = req.query; 
     
@@ -532,7 +736,7 @@ router.get('/xvideos-grid', async (req, res) => {
         console.error('[XXX Route] Erro Crítico:', err);
         res.status(500).send('Erro ao carregar vídeos: ' + err.message);
     }
-});
+    });
 
     router.get('/get-xxx-stream', async (req, res) => {
         const streamUrl = await xvideosScraper.getStream(req.query.url);

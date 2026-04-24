@@ -1,0 +1,418 @@
+<style>
+/* ── GAME STREAM FRAGMENT ─────────────────────────── */
+#game-stream-module {
+    width: 1280px; height: 720px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    font-family: 'Fira Sans', sans-serif;
+    color: white;
+}
+
+/* ── CLOSE BUTTON ─────────────────────────────────── */
+#gs-close-btn {
+    position: absolute; top: 20px; left: 20px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px; color: white;
+    padding: 8px 16px; font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer; transition: all 0.2s ease;
+    z-index: 200;
+}
+#gs-close-btn:hover { background: rgba(0,0,0,0.9); border-color: rgba(255,255,255,0.5); }
+
+/* ── ROLE SELECTOR ────────────────────────────────── */
+#gs-role-selector {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 30px;
+    animation: fadeInUp 0.4s ease;
+}
+#gs-role-selector h2 {
+    font-size: 1.4rem; font-weight: 200;
+    letter-spacing: 4px; text-transform: uppercase;
+    opacity: 0.8; margin: 0;
+}
+.gs-role-btns { display: flex; gap: 20px; }
+
+.gs-role-btn {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-top-color: rgba(255,255,255,0.3);
+    border-radius: 14px; padding: 35px 50px;
+    color: white; cursor: pointer;
+    text-align: center; min-width: 220px;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.gs-role-btn:hover {
+    transform: scale(1.07);
+    border-color: white;
+    background: rgba(0,0,0,0.5);
+}
+.gs-role-btn .gs-icon {
+    font-size: 2.5rem; margin-bottom: 12px;
+    display: block;
+}
+.gs-role-btn .gs-label {
+    font-size: 1.1rem; text-transform: uppercase;
+    letter-spacing: 2px; display: block;
+}
+.gs-role-btn .gs-desc {
+    font-size: 0.75rem; opacity: 0.6;
+    margin-top: 6px; display: block;
+}
+
+/* ── STREAMER UI ──────────────────────────────────── */
+#gs-streamer-ui, #gs-viewer-ui {
+    display: none; flex-direction: column;
+    align-items: center; width: 100%; height: 100%;
+    animation: fadeInUp 0.4s ease;
+}
+
+/* Preview video (streamer) */
+#gs-local-preview {
+    width: 720px; height: 405px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: #000;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    margin-top: 40px;
+}
+
+/* Remote video (viewer) */
+#gs-remote-video {
+    width: 1280px; height: 720px;
+    object-fit: contain;
+    background: #000;
+    position: absolute; inset: 0;
+}
+
+/* ── STATUS BAR ───────────────────────────────────── */
+#gs-status-bar {
+    position: absolute; bottom: 28px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; align-items: center; gap: 14px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px; padding: 10px 24px;
+    font-size: 0.85rem; letter-spacing: 1px;
+    z-index: 150;
+}
+
+#gs-status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #666; transition: background 0.3s;
+}
+#gs-status-dot.live { background: #e74c3c; box-shadow: 0 0 8px #e74c3c; animation: pulse 1.5s infinite; }
+#gs-status-dot.connecting { background: #f39c12; }
+#gs-status-dot.waiting { background: #3498db; }
+
+#gs-status-text { text-transform: uppercase; letter-spacing: 2px; opacity: 0.9; }
+
+/* ── STREAM BUTTON ────────────────────────────────── */
+#gs-share-btn {
+    margin-top: 22px;
+    background: linear-gradient(135deg, rgba(46,204,113,0.3), rgba(46,204,113,0.1));
+    border: 1px solid rgba(46,204,113,0.5);
+    border-radius: 12px; padding: 14px 36px;
+    color: white; cursor: pointer; font-family: 'Fira Sans', sans-serif;
+    font-size: 0.9rem; text-transform: uppercase;
+    letter-spacing: 2px; transition: all 0.2s ease;
+    display: flex; align-items: center; gap: 10px;
+}
+#gs-share-btn:hover { background: rgba(46,204,113,0.4); border-color: #2ecc71; transform: scale(1.03); }
+#gs-share-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+/* ── UNMUTE BUTTON ────────────────────────────────── */
+#gs-unmute-btn {
+    position: absolute; bottom: 90px; right: 30px;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px; padding: 10px 20px;
+    color: white; cursor: pointer; font-family: 'Fira Sans', sans-serif;
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
+    display: none; z-index: 200;
+    transition: all 0.2s ease;
+}
+#gs-unmute-btn:hover { border-color: white; }
+
+/* ── VIEWER WAITING ───────────────────────────────── */
+#gs-waiting-screen {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 20px; position: absolute; inset: 0;
+}
+#gs-waiting-screen .gs-spinner {
+    width: 48px; height: 48px;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-top-color: rgba(255,255,255,0.6);
+    border-radius: 50%; animation: spin 1s linear infinite;
+}
+#gs-waiting-screen p {
+    font-size: 0.85rem; text-transform: uppercase;
+    letter-spacing: 3px; opacity: 0.5; margin: 0;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+</style>
+
+<div id="game-stream-module">
+
+    <!-- CLOSE BUTTON -->
+    <button id="gs-close-btn" onclick="gsClose()">
+        <span class="material-symbols-rounded" style="font-size:18px;">arrow_back</span>
+        Back
+    </button>
+
+    <!-- ① ROLE SELECTOR -->
+    <div id="gs-role-selector">
+        <h2>Game Stream</h2>
+        <div class="gs-role-btns">
+            <div class="gs-role-btn" onclick="gsInitStreamer()">
+                <span class="gs-icon material-symbols-rounded">cast</span>
+                <span class="gs-label">Streamer</span>
+                <span class="gs-desc">Share your screen</span>
+            </div>
+            <div class="gs-role-btn" onclick="gsInitViewer()">
+                <span class="gs-icon material-symbols-rounded">tv</span>
+                <span class="gs-label">Viewer</span>
+                <span class="gs-desc">Watch the stream</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ② STREAMER UI -->
+    <div id="gs-streamer-ui">
+        <video id="gs-local-preview" muted autoplay playsinline></video>
+        <button id="gs-share-btn" onclick="gsStartCapture()">
+            <span class="material-symbols-rounded" style="font-size:18px;">screen_share</span>
+            Start Sharing Screen
+        </button>
+    </div>
+
+    <!-- ③ VIEWER UI -->
+    <div id="gs-viewer-ui">
+        <div id="gs-waiting-screen">
+            <div class="gs-spinner"></div>
+            <p>Waiting for streamer...</p>
+        </div>
+        <video id="gs-remote-video" autoplay playsinline muted></video>
+        <button id="gs-unmute-btn" onclick="gsUnmute()">🔇 Enable Sound</button>
+    </div>
+
+    <!-- STATUS BAR (shared) -->
+    <div id="gs-status-bar">
+        <div id="gs-status-dot"></div>
+        <span id="gs-status-text">Select a role</span>
+    </div>
+
+</div>
+
+<script>
+(function() {
+    // ── CONFIG ──────────────────────────────────────────────
+    // PeerJS server is hosted on the same server as flatTV
+const PEER_CONFIG = {
+    host: window.location.hostname,
+    port: window.location.port || 443,
+    path: '/peerjs',
+    secure: window.location.protocol === 'https:',
+    debug: 1  // ← muda para 1 temporariamente para ver logs
+};
+
+    // ── STATE ────────────────────────────────────────────────
+    let peer = null;
+    let gameStream = null;
+    let myRole = null; // 'streamer' | 'viewer'
+    const socket = window.socket;
+    const myRoom = window.myRoom || 'Lobby';
+    // Use a sub-room so it doesn't conflict with other flatTV socket events
+    const GS_ROOM = `gs_${myRoom}`;
+
+    // ── STATUS HELPERS ───────────────────────────────────────
+    function setStatus(text, state) {
+        // state: 'idle' | 'waiting' | 'connecting' | 'live'
+        document.getElementById('gs-status-text').textContent = text;
+        const dot = document.getElementById('gs-status-dot');
+        dot.className = '';
+        if (state) dot.classList.add(state);
+    }
+
+    // ── CLOSE / CLEANUP ──────────────────────────────────────
+    window.gsClose = function() {
+        // Notify room that this user left the stream
+        if (socket && socket.connected) {
+            socket.emit('gs_leave', { room: GS_ROOM });
+        }
+        // Stop any active screen capture
+        if (gameStream) {
+            gameStream.getTracks().forEach(t => t.stop());
+            gameStream = null;
+        }
+        // Destroy PeerJS instance
+        if (peer) { peer.destroy(); peer = null; }
+
+        // Remove socket listeners added by this module
+        socket.off('gs_viewer_joined');
+        socket.off('gs_streamer_present');
+        socket.off('gs_streamer_left');
+
+        // Navigate back using flatTV's closeSubMenu
+        if (typeof closeSubMenu === 'function') closeSubMenu();
+    };
+
+    // ── ROLE: STREAMER ───────────────────────────────────────
+    window.gsInitStreamer = function() {
+        myRole = 'streamer';
+        document.getElementById('gs-role-selector').style.display = 'none';
+        document.getElementById('gs-streamer-ui').style.display = 'flex';
+        setStatus('Ready — click to share screen', 'waiting');
+
+        // Create peer
+        peer = new Peer(undefined, PEER_CONFIG);
+
+        peer.on('open', function(id) {
+            console.log('[GS] Streamer PeerID:', id);
+            // Tell the room we are the streamer
+            socket.emit('gs_join', { room: GS_ROOM, role: 'streamer', peerId: id });
+        });
+
+        peer.on('error', function(err) {
+            console.error('[GS] Peer error:', err);
+            setStatus('Connection error', 'idle');
+        });
+
+        // When a viewer joins, call them
+        socket.on('gs_viewer_joined', function(data) {
+            console.log('[GS] Viewer joined:', data.peerId);
+            if (gameStream) {
+                callViewer(data.peerId);
+            } else {
+                // Store peerId, call when stream starts
+                window._gsPendingViewers = window._gsPendingViewers || [];
+                window._gsPendingViewers.push(data.peerId);
+            }
+        });
+    };
+
+    window.gsStartCapture = async function() {
+        try {
+            gameStream = await navigator.mediaDevices.getDisplayMedia({
+                video: { frameRate: 60, preferCurrentTab: true },
+                audio: true
+            });
+            document.getElementById('gs-local-preview').srcObject = gameStream;
+            document.getElementById('gs-share-btn').disabled = true;
+            document.getElementById('gs-share-btn').innerHTML = '<span class="material-symbols-rounded" style="font-size:18px;">screen_share</span> Live';
+            setStatus('Live — sharing screen', 'live');
+
+            // Notify room that stream is now active
+            socket.emit('gs_stream_started', { room: GS_ROOM });
+
+            // Call any viewers who joined before capture started
+            if (window._gsPendingViewers) {
+                window._gsPendingViewers.forEach(callViewer);
+                window._gsPendingViewers = [];
+            }
+
+            // Handle if streamer stops sharing via browser UI
+            gameStream.getVideoTracks()[0].onended = function() {
+                setStatus('Screen share stopped', 'idle');
+                document.getElementById('gs-share-btn').disabled = false;
+                document.getElementById('gs-share-btn').innerHTML = '<span class="material-symbols-rounded" style="font-size:18px;">screen_share</span> Start Sharing Screen';
+                gameStream = null;
+                socket.emit('gs_stream_stopped', { room: GS_ROOM });
+            };
+
+        } catch(e) {
+            console.error('[GS] Capture failed:', e);
+            setStatus('Screen capture cancelled', 'idle');
+        }
+    };
+
+    function callViewer(viewerPeerId) {
+        if (!gameStream || !peer) return;
+        console.log('[GS] Calling viewer:', viewerPeerId);
+        const call = peer.call(viewerPeerId, gameStream);
+        call.on('error', function(err) { console.error('[GS] Call error:', err); });
+    }
+
+    // ── ROLE: VIEWER ─────────────────────────────────────────
+    window.gsInitViewer = function() {
+        myRole = 'viewer';
+        document.getElementById('gs-role-selector').style.display = 'none';
+        document.getElementById('gs-viewer-ui').style.display = 'flex';
+        setStatus('Waiting for streamer...', 'waiting');
+
+        peer = new Peer(undefined, PEER_CONFIG);
+
+        peer.on('open', function(id) {
+            console.log('[GS] Viewer PeerID:', id);
+            socket.emit('gs_join', { room: GS_ROOM, role: 'viewer', peerId: id });
+        });
+
+        peer.on('error', function(err) {
+            console.error('[GS] Peer error:', err);
+            setStatus('Connection error', 'idle');
+        });
+
+        // Receive incoming call from streamer
+        peer.on('call', function(call) {
+            console.log('[GS] Incoming call from streamer');
+            setStatus('Connecting...', 'connecting');
+            call.answer(); // No stream to send back
+
+            call.on('stream', function(incomingStream) {
+                console.log('[GS] Stream received!');
+                const video = document.getElementById('gs-remote-video');
+                const waiting = document.getElementById('gs-waiting-screen');
+                
+                video.srcObject = incomingStream;
+                waiting.style.display = 'none';
+                video.play().catch(() => {});
+                document.getElementById('gs-unmute-btn').style.display = 'block';
+                setStatus('Live', 'live');
+            });
+
+            call.on('close', function() {
+                setStatus('Stream ended', 'idle');
+                document.getElementById('gs-waiting-screen').style.display = 'flex';
+                document.getElementById('gs-remote-video').srcObject = null;
+                document.getElementById('gs-unmute-btn').style.display = 'none';
+            });
+        });
+
+        // If streamer disconnects
+        socket.on('gs_streamer_left', function() {
+            setStatus('Streamer disconnected', 'idle');
+            document.getElementById('gs-waiting-screen').style.display = 'flex';
+            document.getElementById('gs-remote-video').srcObject = null;
+            document.getElementById('gs-unmute-btn').style.display = 'none';
+        });
+    };
+
+    window.gsUnmute = function() {
+        const video = document.getElementById('gs-remote-video');
+        video.muted = false;
+        document.getElementById('gs-unmute-btn').textContent = '🔊 Sound On';
+        document.getElementById('gs-unmute-btn').style.opacity = '0.5';
+    };
+
+})();
+</script>

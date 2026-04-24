@@ -1,0 +1,387 @@
+<style>
+#tot-module {
+    width: 1280px; height: 720px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    font-family: 'Fira Sans', sans-serif; color: white;
+    background: #000;
+}
+#tot-close {
+    position: absolute; top: 20px; left: 20px;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
+    color: white; padding: 7px 14px; font-size: 0.78rem;
+    font-family: 'Fira Sans', sans-serif; text-transform: uppercase;
+    letter-spacing: 1px; display: flex; align-items: center; gap: 6px;
+    cursor: pointer; transition: all 0.2s; z-index: 200;
+}
+#tot-close:hover { border-color: rgba(255,255,255,0.5); }
+
+.tot-screen {
+    display: none; flex-direction: column;
+    align-items: center; justify-content: center;
+    width: 100%; height: 100%;
+    animation: totFade 0.4s ease;
+}
+.tot-screen.active { display: flex; }
+
+/* ── LOBBY ── */
+#tot-lobby { gap: 28px; }
+.tot-title    { font-size: 2.4rem; font-weight: 200; letter-spacing: 8px; text-transform: uppercase; }
+.tot-subtitle { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; }
+
+#tot-players-list { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 800px; }
+.tot-chip {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 50px; padding: 7px 18px; font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 8px;
+}
+.tot-chip-dot { width: 6px; height: 6px; border-radius: 50%; background: #3498db; }
+
+.tot-name-row { display: flex; gap: 10px; align-items: center; }
+#tot-name-input {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px; color: white; padding: 12px 20px; font-size: 0.9rem;
+    font-family: 'Fira Sans', sans-serif; outline: none;
+    width: 220px; text-align: center; letter-spacing: 1px;
+}
+#tot-name-input:focus { border-color: #3498db; }
+#tot-name-input::placeholder { opacity: 0.3; }
+
+.tot-btn {
+    background: linear-gradient(135deg, rgba(52,152,219,0.25), rgba(52,152,219,0.08));
+    border: 1px solid rgba(52,152,219,0.45); border-radius: 10px;
+    color: white; cursor: pointer; padding: 12px 28px;
+    font-size: 0.82rem; font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase; letter-spacing: 2px; transition: all 0.2s;
+}
+.tot-btn:hover { background: rgba(52,152,219,0.35); transform: scale(1.03); }
+.tot-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
+
+/* ── VOTE SCREEN ── */
+#tot-vote { gap: 0; }
+
+#tot-q-counter {
+    position: absolute; top: 24px;
+    font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.3;
+}
+
+#tot-question {
+    font-size: 1.3rem; font-weight: 200; letter-spacing: 2px;
+    text-transform: uppercase; opacity: 0.45; margin-bottom: 40px; text-align: center;
+}
+
+/* the two big choice panels */
+#tot-choices {
+    display: flex; width: 100%; height: 460px; position: relative;
+}
+.tot-choice {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px; cursor: pointer;
+    transition: all 0.2s ease; position: relative; overflow: hidden;
+}
+.tot-choice:first-child {
+    background: linear-gradient(135deg, rgba(52,152,219,0.12), rgba(52,152,219,0.04));
+    border-right: 1px solid rgba(255,255,255,0.06);
+}
+.tot-choice:last-child {
+    background: linear-gradient(135deg, rgba(231,76,60,0.12), rgba(231,76,60,0.04));
+    border-left: 1px solid rgba(255,255,255,0.06);
+}
+.tot-choice:first-child:hover:not(.voted) { background: rgba(52,152,219,0.22); }
+.tot-choice:last-child:hover:not(.voted)  { background: rgba(231,76,60,0.22); }
+.tot-choice.voted { pointer-events: none; }
+.tot-choice.selected:first-child { background: rgba(52,152,219,0.28); }
+.tot-choice.selected:last-child  { background: rgba(231,76,60,0.28); }
+
+/* OR divider */
+#tot-or {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #0a0a0a; border: 2px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6;
+    z-index: 10;
+}
+
+.tot-choice-emoji { font-size: 3.5rem; transition: transform 0.2s; }
+.tot-choice:hover .tot-choice-emoji { transform: scale(1.15); }
+.tot-choice-label {
+    font-size: 1.8rem; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; text-align: center; padding: 0 40px;
+    line-height: 1.2;
+}
+.tot-choice:first-child .tot-choice-label { color: #5dade2; }
+.tot-choice:last-child  .tot-choice-label { color: #ec7063; }
+
+/* vote progress bars — shown after voting */
+.tot-bar-wrap {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 5px; background: rgba(255,255,255,0.06);
+    display: none;
+}
+.tot-bar { height: 100%; transition: width 0.6s ease; }
+.tot-choice:first-child .tot-bar { background: #3498db; }
+.tot-choice:last-child  .tot-bar { background: #e74c3c; }
+
+.tot-pct {
+    position: absolute; bottom: 14px;
+    font-size: 2rem; font-weight: 700; opacity: 0;
+    transition: opacity 0.4s ease 0.3s;
+}
+.tot-choice:first-child .tot-pct { color: #5dade2; }
+.tot-choice:last-child  .tot-pct { color: #ec7063; }
+
+/* voter names shown below */
+#tot-voter-names {
+    position: absolute; bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    max-width: 900px; pointer-events: none;
+}
+.tot-voter-tag {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px; padding: 4px 12px;
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* timer bar */
+#tot-timer-wrap { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.06); }
+#tot-timer-bar  { height: 100%; background: #daa520; transition: width 0.1s linear; }
+
+/* ── RESULTS ── */
+#tot-results { gap: 28px; }
+.tot-result-question { font-size: 1rem; opacity: 0.4; letter-spacing: 2px; text-transform: uppercase; }
+.tot-result-bars { display: flex; gap: 30px; align-items: flex-end; }
+.tot-result-col  { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 200px; }
+.tot-result-bar-wrap {
+    width: 100%; background: rgba(255,255,255,0.06);
+    border-radius: 8px 8px 0 0; height: 200px;
+    display: flex; align-items: flex-end; overflow: hidden;
+}
+.tot-result-fill { width: 100%; transition: height 0.8s cubic-bezier(0.25,0.8,0.25,1); border-radius: 6px 6px 0 0; }
+.tot-result-col:first-child .tot-result-fill { background: linear-gradient(to top, #2980b9, #5dade2); }
+.tot-result-col:last-child  .tot-result-fill { background: linear-gradient(to top, #c0392b, #ec7063); }
+.tot-result-pct   { font-size: 2.2rem; font-weight: 700; }
+.tot-result-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; text-align: center; }
+.tot-result-col:first-child .tot-result-pct { color: #5dade2; }
+.tot-result-col:last-child  .tot-result-pct { color: #ec7063; }
+.tot-result-winner { font-size: 1.1rem; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase; }
+
+@keyframes totFade { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+</style>
+
+<div id="tot-module">
+    <button id="tot-close" onclick="totClose()">
+        <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span> Back
+    </button>
+
+    <!-- LOBBY -->
+    <div id="tot-lobby" class="tot-screen active">
+        <div class="tot-title">⚡ This or That</div>
+        <div class="tot-subtitle">Vote · Reveal · Debate</div>
+        <div id="tot-players-list"></div>
+        <div class="tot-name-row">
+            <input id="tot-name-input" type="text" placeholder="Your name..." maxlength="16">
+            <button class="tot-btn" onclick="totJoin()">Join</button>
+        </div>
+        <button class="tot-btn" id="tot-start-btn" onclick="totStart()" disabled>Start</button>
+    </div>
+
+    <!-- VOTE -->
+    <div id="tot-vote" class="tot-screen">
+        <div id="tot-q-counter">Round 1 of 10</div>
+        <div id="tot-question">Which would you rather?</div>
+        <div id="tot-choices">
+            <div class="tot-choice" id="tot-a" onclick="totVote('A')">
+                <div class="tot-choice-emoji" id="tot-emoji-a">🏖️</div>
+                <div class="tot-choice-label" id="tot-label-a">Beach</div>
+                <div class="tot-pct" id="tot-pct-a">0%</div>
+                <div class="tot-bar-wrap"><div class="tot-bar" id="tot-bar-a" style="width:0%"></div></div>
+            </div>
+            <div id="tot-or">OR</div>
+            <div class="tot-choice" id="tot-b" onclick="totVote('B')">
+                <div class="tot-choice-emoji" id="tot-emoji-b">🏔️</div>
+                <div class="tot-choice-label" id="tot-label-b">Mountains</div>
+                <div class="tot-pct" id="tot-pct-b">0%</div>
+                <div class="tot-bar-wrap"><div class="tot-bar" id="tot-bar-b" style="width:0%"></div></div>
+            </div>
+        </div>
+        <div id="tot-voter-names"></div>
+        <div id="tot-timer-wrap"><div id="tot-timer-bar" style="width:100%"></div></div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="tot-results" class="tot-screen">
+        <div class="tot-result-question" id="tot-result-q">Which would you rather?</div>
+        <div class="tot-result-bars">
+            <div class="tot-result-col">
+                <div class="tot-result-pct" id="tot-res-pct-a">0%</div>
+                <div class="tot-result-bar-wrap"><div class="tot-result-fill" id="tot-res-bar-a" style="height:0%"></div></div>
+                <div class="tot-result-label" id="tot-res-label-a">Option A</div>
+            </div>
+            <div class="tot-result-col">
+                <div class="tot-result-pct" id="tot-res-pct-b">0%</div>
+                <div class="tot-result-bar-wrap"><div class="tot-result-fill" id="tot-res-bar-b" style="height:0%"></div></div>
+                <div class="tot-result-label" id="tot-res-label-b">Option B</div>
+            </div>
+        </div>
+        <div class="tot-result-winner" id="tot-result-winner"></div>
+        <div style="font-size:0.68rem;opacity:0.3;letter-spacing:2px;text-transform:uppercase;">Next round in 4s...</div>
+    </div>
+</div>
+
+<script>
+(function () {
+    const socket = window.socket;
+    if (!socket) return;
+    const myRoom = window.myRoom || 'Lobby';
+
+    let myName   = null;
+    let players  = {};
+    let voted    = false;
+    let timerInt = null;
+    let timeLeft = 12;
+    const TIME   = 12;
+
+    function show(id) {
+        document.querySelectorAll('.tot-screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+
+    function renderPlayers() {
+        const list = document.getElementById('tot-players-list');
+        const entries = Object.values(players);
+        list.innerHTML = entries.length
+            ? entries.map(p => `<div class="tot-chip"><div class="tot-chip-dot"></div>${p.name}</div>`).join('')
+            : '<div style="opacity:0.3;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;">No players yet</div>';
+        document.getElementById('tot-start-btn').disabled = entries.length < 1;
+    }
+
+    window.totJoin = function () {
+        const name = document.getElementById('tot-name-input').value.trim();
+        if (!name) return;
+        myName = name;
+        socket.emit('tot_join', { room: myRoom, name });
+        document.getElementById('tot-name-input').disabled = true;
+        document.querySelector('.tot-name-row .tot-btn').disabled = true;
+    };
+
+    window.totStart = function () { socket.emit('tot_start', { room: myRoom }); };
+
+    window.totVote = function (choice) {
+        if (voted) return;
+        voted = true;
+        clearInterval(timerInt);
+        document.getElementById('tot-a').classList.add('voted');
+        document.getElementById('tot-b').classList.add('voted');
+        document.getElementById(`tot-${choice.toLowerCase()}`).classList.add('selected');
+        socket.emit('tot_vote', { room: myRoom, choice });
+    };
+
+    function startTimer() {
+        clearInterval(timerInt);
+        timeLeft = TIME;
+        document.getElementById('tot-timer-bar').style.width = '100%';
+        timerInt = setInterval(() => {
+            timeLeft = Math.max(0, timeLeft - 0.1);
+            document.getElementById('tot-timer-bar').style.width = `${(timeLeft / TIME) * 100}%`;
+            if (timeLeft <= 0) {
+                clearInterval(timerInt);
+                if (!voted) {
+                    voted = true;
+                    socket.emit('tot_vote', { room: myRoom, choice: null });
+                }
+            }
+        }, 100);
+    }
+
+    function showLiveVotes(votesA, votesB, names) {
+        const total = votesA + votesB;
+        const pA = total ? Math.round((votesA / total) * 100) : 50;
+        const pB = total ? Math.round((votesB / total) * 100) : 50;
+
+        document.querySelectorAll('.tot-bar-wrap').forEach(b => b.style.display = 'block');
+        document.getElementById('tot-bar-a').style.width = `${pA}%`;
+        document.getElementById('tot-bar-b').style.width = `${pB}%`;
+
+        const pa = document.getElementById('tot-pct-a');
+        const pb = document.getElementById('tot-pct-b');
+        pa.textContent = `${pA}%`; pa.style.opacity = '1';
+        pb.textContent = `${pB}%`; pb.style.opacity = '1';
+
+        // voter name tags
+        document.getElementById('tot-voter-names').innerHTML = names
+            .map(n => `<div class="tot-voter-tag">${n}</div>`).join('');
+    }
+
+    window.totClose = function () {
+        clearInterval(timerInt);
+        socket.emit('tot_leave', { room: myRoom });
+        if (typeof closeSubMenu === 'function') closeSubMenu();
+    };
+
+    // ── SOCKET EVENTS ──
+    socket.on('tot_players_update', d => { players = d.players; renderPlayers(); });
+
+    socket.on('tot_round', d => {
+        voted = false;
+        document.getElementById('tot-q-counter').textContent = `Round ${d.index + 1} of ${d.total}`;
+        document.getElementById('tot-question').textContent = d.question;
+        document.getElementById('tot-emoji-a').textContent  = d.emojiA || '🅰️';
+        document.getElementById('tot-emoji-b').textContent  = d.emojiB || '🅱️';
+        document.getElementById('tot-label-a').textContent  = d.optionA;
+        document.getElementById('tot-label-b').textContent  = d.optionB;
+
+        // reset state
+        ['tot-a','tot-b'].forEach(id => {
+            const el = document.getElementById(id);
+            el.classList.remove('voted','selected');
+        });
+        document.querySelectorAll('.tot-bar-wrap').forEach(b => b.style.display = 'none');
+        document.querySelectorAll('.tot-pct').forEach(p => { p.textContent = ''; p.style.opacity = '0'; });
+        document.getElementById('tot-voter-names').innerHTML = '';
+
+        startTimer();
+        show('tot-vote');
+    });
+
+    socket.on('tot_vote_update', d => {
+        showLiveVotes(d.votesA, d.votesB, d.names || []);
+    });
+
+    socket.on('tot_round_result', d => {
+        clearInterval(timerInt);
+        const total = d.votesA + d.votesB || 1;
+        const pA = Math.round((d.votesA / total) * 100);
+        const pB = Math.round((d.votesB / total) * 100);
+
+        document.getElementById('tot-result-q').textContent = d.question;
+        document.getElementById('tot-res-label-a').textContent = d.optionA;
+        document.getElementById('tot-res-label-b').textContent = d.optionB;
+        document.getElementById('tot-res-pct-a').textContent = `${pA}%`;
+        document.getElementById('tot-res-pct-b').textContent = `${pB}%`;
+
+        // animate bars
+        setTimeout(() => {
+            document.getElementById('tot-res-bar-a').style.height = `${pA}%`;
+            document.getElementById('tot-res-bar-b').style.height = `${pB}%`;
+        }, 100);
+
+        const winner = pA > pB ? d.optionA : pB > pA ? d.optionB : 'It\'s a tie!';
+        document.getElementById('tot-result-winner').textContent =
+            pA !== pB ? `${winner} wins this round` : "It's a tie! 🤝";
+
+        show('tot-results');
+    });
+
+    socket.on('tot_game_end', () => {
+        if (typeof closeSubMenu === 'function') closeSubMenu();
+    });
+
+    renderPlayers();
+})();
+</script>

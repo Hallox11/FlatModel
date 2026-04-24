@@ -35,6 +35,15 @@ const NAV_CONFIG = {
         'xxx-player': '/xxx-player',
         'ytmusic_player': '/music/ytmusic',
         'browsers': '/browsers',
+        'game-stream': '/game-stream',
+        'stream-cam': '/stream-cam-page',
+        'live-tv': '/live-tv',
+        'games': '/games-menu',
+        'quiz': '/quiz',
+        'truth-or-myth': '/truth-or-myth',
+        'who-am-i': '/who-am-i',
+        'this-or-that': '/this-or-that',
+        'freebies': '/freebies',
         'help': '/help'
     },
 
@@ -158,18 +167,26 @@ $(document).ready(function() {
         return;
     }
 
-    $.get(`/validate-token?token=${token}`)
-        .done(function(data) {
-            if (data.valid) {
-                console.log("✅ Access granted for:", data.owner);
-                window.history.replaceState({}, '', '/');
-            } else {
-                window.location.href = '/access-denied';
+$.get(`/validate-token?token=${token}`)
+    .done(function(data) {
+        if (data.valid) {
+            console.log("✅ Access granted for:", data.owner);
+            window.history.replaceState({}, '', '/');
+            
+            // ← ADICIONA ISTO:
+            const goto = params.get('goto');
+            if (goto === 'stream-cam') {
+                // Espera o DOM estar pronto antes de navegar
+                setTimeout(() => handleNav('stream-cam'), 500);
             }
-        })
-        .fail(function() {
+
+        } else {
             window.location.href = '/access-denied';
-        });
+        }
+    })
+    .fail(function() {
+        window.location.href = '/access-denied';
+    });
 });
 
 
@@ -453,7 +470,7 @@ window.killRadio = function() {
 // ===============================
 // HOVER & INPUT SYNC (senders only — no listener here)
 // ===============================
-const syncSelectors = '.close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn,.tag-card, .action-btn, .cat-item, .fav-item';
+const syncSelectors = '.card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn,.tag-card, .action-btn, .cat-item, .fav-item';
 
 $(document).on('mouseenter mouseleave', syncSelectors, function(e) {
     if (window.isRemoteAction) return;
@@ -727,6 +744,10 @@ if (state.currentBg) {
                     $('#flickr-loader').fadeIn(100);
                     break;
 
+                case 'flickr_layout_change':
+                   // Alguém mudou o layout! Vamos mudar o nosso também.
+                    window.changeLayout(data.layoutType, null, true);
+                    break;
 
                 case 'radio_hash_change':
                     window.isRemoteAction = true;

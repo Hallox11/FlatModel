@@ -8,6 +8,8 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
     <script src="./js/myScripts.js"></script>
@@ -136,16 +138,19 @@
     font-size: 30px;
     font-weight: 200;
 }
+
+
     /* --- CLOCK & DATE --- */
+    .clock-glass {
         background: transparent; padding: 10px 25px;
         text-align: right; min-width: 180px;
         font-variant-numeric: tabular-nums;
         pointer-events: auto; opacity: 1;
         transition: all 0.3s ease;
+    }
 
-
-#hour { font-size: 2.2rem; font-weight: 200; line-height: 1; margin-bottom: 4px; }
-#date-display { color: var(--accent); font-size: 0.95rem; opacity: 1; }
+    #hour { font-size: 2.2rem; font-weight: 200; line-height: 1; margin-bottom: 4px; }
+    #date-display { color: var(--accent); font-size: 0.95rem; opacity: 1; }
 
     /* --- SLIDERS & OVERLAYS --- */
 #sub-content-overlay {
@@ -232,13 +237,13 @@ body.dark-text svg {
     <div data-type="menu" data-mode="movies" class="btn">Movies</div>
     <div data-type="menu" data-mode="youtube" class="btn">YouTube</div>
     <div data-type="menu" data-mode="xxx" class="btn">XXX</div>
-<div data-type="menu" 
-     data-mode="/sl-destinations?tag=Editor Picks&url=https://secondlife.com/destination-guide/editor-picks" 
-     class="btn">
-     Second Life
-</div>
+    <div data-type="menu" data-mode="/sl-destinations?tag=Editor Picks&url=https://secondlife.com/destination-guide/editor-picks" class="btn">Second Life</div>
     <div data-type="menu" data-mode="flickr" class="btn">Flickr</div>
     <div data-type="menu" data-mode="browsers" class="btn">Browsers</div>
+    <div data-type="menu" data-mode="game-stream" class="btn">Game Stream</div>
+    <div data-type="menu" data-mode="live-tv" class="btn">Live TV</div>
+    <div data-type="menu" data-mode="games" class="btn">Games</div>
+    <div data-type="menu" data-mode="freebies" class="btn">Freebies</div>
 </div>
 
 <div id="sub-content-overlay"></div>
@@ -526,38 +531,10 @@ fetch('/api/backgrounds')
 
 
 function openSettings() {
-    // 1. Hide the controls first so they don't stay on screen
-    hideAllUI();
-
-    // 2. Hide the main grid with a nice transition
-    $('#main-grid').css({'opacity': '0', 'transform': 'scale(0.9)', 'pointer-events': 'none'});
-    $('.status-bar').fadeOut(200);
-    $('#burger-menu-btn').fadeOut(200);
-
-    // 3. AJAX call to fetch the settings page
-    $.ajax({
-        url: '/settings', // The route that renders settings.ejs
-        type: 'GET',
-        success: function(data) {
-            $('#sub-content-overlay').html(data).fadeIn(300).css('display', 'flex');
-            
-            // Sync with other viewers if needed
-            if (window.socket) {
-                window.socket.emit('mirror_ajax_nav', { 
-                    action: 'OPEN', 
-                    path: '/settings', 
-                    room: myRoom 
-                });
-            }
-        },
-        error: function(err) {
-            console.error("Error loading settings:", err);
-            // Revert UI if it fails
-            $('#main-grid').css({'opacity': '1', 'transform': 'scale(1)', 'pointer-events': 'auto'});
-            $('#burger-menu-btn').fadeIn(200);
-        }
-    });
+    handleNav('settings');
 }
+
+
 // ── DELEGATED EVENTS ──────────────────────────────────
 $(document).on('click', '.theme-thumb', function() {
     updateBG(backPics[$(this).data('index')], true);

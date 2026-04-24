@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session'); // 1. Importar o módulo de sessão
 
 require('dotenv').config();
 const app = express();
@@ -6,7 +7,7 @@ const http = require('http');
 var path = require('path');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
+
 const axios = require('axios');
 const PORT = process.env.PORT || 3000;
 const fs = require('fs');
@@ -14,12 +15,32 @@ const sqlite3 = require('sqlite3').verbose();
 
 const createRouter = require('./routes');
 const initSocketIO = require('./socket');
+const { ExpressPeerServer } = require('peer');
 
+// --- MIDDLEWARES BASE ---
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
+
+// 2. CONFIGURAÇÃO DA SESSÃO (Deve vir antes das rotas e depois do parser de JSON)
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'sltv_secret_key_123', // Use uma string forte no .env
+    resave: false,
+    saveUninitialized: true,
+    cookie: { 
+        secure: false, // Defina como true se estiver usando HTTPS
+        maxAge: 24 * 60 * 60 * 1000 // A sessão dura 24 horas
+    }
+}));
+
 app.use('/backgrounds', express.static(path.join(__dirname, 'backgrounds')));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+
+const io = new Server(server, {
+    allowEIO3: true,
+    perMessageDeflate: false,
+    httpCompression: false
+});
 
 /////////////////////////////////////////////////
 // SHARED STATE
@@ -31,7 +52,14 @@ const MODES = {
     FLICKR: 'FLICKR',
     XXX: 'XXX',
     SETTINGS: 'SETTINGS',
-    BROWSER: 'BROWSER'
+    BROWSER: 'BROWSER',
+    // New modes
+    MOVIES: 'MOVIES',
+    GAME_STREAM: 'GAME_STREAM',
+    LIVE_TV: 'LIVE_TV',
+    GAMES: 'GAMES',
+    FREEBIES: 'FREEBIES',
+    SECOND_LIFE: 'SECOND_LIFE'
 };
 
 let lobbyState = {
@@ -49,7 +77,12 @@ let lobbyState = {
     radioDialIndex: null,
     flickrQuery: '',
     flickrActiveImage: null,
-    flickrIsSlideshow: false
+    flickrIsSlideshow: false,
+    // New mode states (add only what needs shared state)
+    movieQuery: null,
+    liveChannel: null,
+    gameStreamUrl: null,
+    currentGame: null
 };
 
 let tvRegistry    = {};
@@ -96,7 +129,7 @@ db.serialize(() => {
 });
 
 /////////////////////////////////////////////////
-// ROUTES
+// ROUTES (Agora com suporte a sessão)
 app.use(createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SESSION_TTL, FIXED_ROOM }));
 
 /////////////////////////////////////////////////
@@ -104,7 +137,7 @@ app.use(createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SES
 initSocketIO(io, lobbyState, FIXED_ROOM);
 
 /////////////////////////////////////////////////
-// TV PING — every 5 minutes (was incorrectly 10s before)
+// TV PING
 const PING_INTERVAL = parseInt(process.env.PING_INTERVAL_MS) || 5 * 60 * 1000;
 
 async function pingTvs() {
@@ -129,4 +162,14 @@ async function pingTvs() {
 setInterval(pingTvs, PING_INTERVAL);
 
 /////////////////////////////////////////////////
-server.listen(PORT, () => console.log(`Listening on ${PORT}`));
+// PEER SERVER
+const peerServer = ExpressPeerServer(server, {
+    debug: false,
+    path: '/'
+});
+app.use('/peerjs', peerServer);
+
+// START SERVER
+server.listen(PORT, () => {
+    console.log(`Listening on ${PORT}`);
+});
