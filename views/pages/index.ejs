@@ -10,6 +10,13 @@
     <script src="/socket.io/socket.io.js"></script>
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 
+<script>
+    window.__ROOM__   = '<%= room %>';
+    window.__TV_ID__  = '<%= tvId || "" %>';
+    window.myName     = '<%= clicker || "" %>';  // avatar name of whoever clicked this TV
+</script>
+
+
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
     <script src="./js/myScripts.js"></script>
@@ -38,7 +45,7 @@
 #main-grid {
         width: 1100px; display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 35px; padding: 20px; margin-bottom: 60px;
+        gap: 35px; padding: 20px; margin-bottom: 110px;
         transition: all 0.4s ease;
 }
 
@@ -162,7 +169,7 @@
 
 #theme-slider {
     position: absolute;
-     bottom: 110px;
+     bottom: 80px;
       width: 100%;
        height: 140px;
        padding: 10px 10px;
@@ -224,7 +231,210 @@ body.dark-text svg {
         transition: all 0.1s ease-in-out; 
 }
 
+/* ── ROOM INDICATOR ── */
+#room-indicator {
+    position: absolute;
+    top: 18px; right: 24px;
+    display: flex; align-items: center; gap: 7px;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(218,165,32,0.25);
+    border-radius: 20px;
+    padding: 5px 14px 5px 10px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    z-index: 500;
+    transition: all 0.2s ease;
+}
+#room-indicator:hover {
+    border-color: rgba(218,165,32,0.6);
+    background: rgba(0,0,0,0.65);
+}
+#room-indicator-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4caf7d;
+    animation: pulse-dot 2s infinite;
+}
+#room-indicator-code {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+}
 
+/* ── ROOM PANEL ── */
+#room-panel {
+    position: absolute;
+    top: 52px; right: 24px;
+    width: 300px;
+    background: rgba(10,10,10,0.92);
+    border: 1px solid rgba(218,165,32,0.3);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    backdrop-filter: blur(16px);
+    z-index: 499;
+    animation: fadeInDown 0.2s ease;
+}
+#room-panel.open { display: flex; }
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.room-panel-label {
+    font-size: 0.58rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(218,165,32,0.7);
+}
+
+#room-code-display {
+    flex: 1;
+    background: rgba(218,165,32,0.08);
+    border: 1px solid rgba(218,165,32,0.3);
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    color: #daa520;
+    text-align: center;
+}
+
+.room-panel-input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 0.8rem;
+    color: white;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.room-panel-input:focus { border-color: rgba(218,165,32,0.4); }
+.room-panel-input::placeholder { color: rgba(255,255,255,0.2); }
+
+.room-panel-btn {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: white;
+    padding: 9px 14px;
+    cursor: pointer;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+.room-panel-btn:hover { border-color: rgba(255,255,255,0.35); }
+.room-panel-btn.accent {
+    background: rgba(218,165,32,0.15);
+    border-color: rgba(218,165,32,0.4);
+    color: #daa520;
+}
+.room-panel-btn.accent:hover { background: rgba(218,165,32,0.28); }
+
+#room-panel-feedback {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    text-align: center;
+    min-height: 14px;
+    color: rgba(255,255,255,0.3);
+    transition: color 0.2s;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+}
+
+/* ── GAME STREAM TOAST ── */
+#gs-stream-toast {
+    position: absolute;
+    top: 24px; left: 50%;
+    transform: translateX(-50%) translateY(-120px);
+    display: flex; align-items: center; gap: 14px;
+    background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(20,20,20,0.96));
+    border: 1px solid rgba(46,204,113,0.35);
+    border-top-color: rgba(46,204,113,0.6);
+    border-radius: 14px;
+    padding: 14px 20px;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(46,204,113,0.1);
+    z-index: 9999;
+    transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    min-width: 360px;
+}
+#gs-stream-toast.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+#gs-stream-toast .gs-toast-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    background: #2ecc71;
+    box-shadow: 0 0 8px #2ecc71;
+    animation: pulse-dot 1.5s infinite;
+}
+#gs-stream-toast .gs-toast-text {
+    flex: 1;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+}
+#gs-stream-toast .gs-toast-text strong {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+#gs-toast-open-btn {
+    background: linear-gradient(135deg, rgba(46,204,113,0.25), rgba(46,204,113,0.1));
+    border: 1px solid rgba(46,204,113,0.5);
+    border-radius: 10px;
+    color: #2ecc71;
+    padding: 9px 16px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    display: flex; align-items: center; gap: 6px;
+    flex-shrink: 0;
+}
+#gs-toast-open-btn:hover {
+    background: rgba(46,204,113,0.35);
+    border-color: #2ecc71;
+    transform: scale(1.04);
+}
+#gs-toast-dismiss-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.25);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 16px;
+    line-height: 1;
+    transition: color 0.2s;
+    flex-shrink: 0;
+}
+#gs-toast-dismiss-btn:hover { color: rgba(255,255,255,0.6); }
 
 </style>
 </head>
@@ -237,13 +447,16 @@ body.dark-text svg {
     <div data-type="menu" data-mode="movies" class="btn">Movies</div>
     <div data-type="menu" data-mode="youtube" class="btn">YouTube</div>
     <div data-type="menu" data-mode="xxx" class="btn">XXX</div>
-    <div data-type="menu" data-mode="/sl-destinations?tag=Editor Picks&url=https://secondlife.com/destination-guide/editor-picks" class="btn">Second Life</div>
+    <div data-type="menu" data-mode="sl-destinations" class="btn">Second Life</div>       
     <div data-type="menu" data-mode="flickr" class="btn">Flickr</div>
     <div data-type="menu" data-mode="browsers" class="btn">Browsers</div>
     <div data-type="menu" data-mode="game-stream" class="btn">Game Stream</div>
     <div data-type="menu" data-mode="live-tv" class="btn">Live TV</div>
     <div data-type="menu" data-mode="games" class="btn">Games</div>
     <div data-type="menu" data-mode="freebies" class="btn">Freebies</div>
+    <div id="room-manager" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; display: flex; gap: 10px;">
+
+</div>
 </div>
 
 <div id="sub-content-overlay"></div>
@@ -294,6 +507,43 @@ body.dark-text svg {
         <span></span>
     </button>
 </div>
+<!-- ROOM INDICATOR -->
+<div id="room-indicator" onclick="toggleRoomPanel()" title="Room">
+    <span id="room-indicator-dot"></span>
+    <span id="room-indicator-code">——</span>
+</div>
+
+<!-- ROOM PANEL -->
+<div id="room-panel">
+    <div class="room-panel-label">My Room</div>
+    <div style="display:flex;gap:8px;align-items:center;">
+        <div id="room-code-display">——</div>
+        <button class="room-panel-btn accent" onclick="copyRoomLink()">Copy Link</button>
+    </div>
+    <hr style="border:none;border-top:1px solid rgba(255,255,255,0.07);margin:0;">
+    <div class="room-panel-label">Join Another TV</div>
+    <div style="display:flex;gap:8px;">
+        <input id="room-join-input" type="text" placeholder="Room code..."
+            class="room-panel-input"
+            onkeydown="if(event.key==='Enter') joinRoomFromPanel()">
+        <button class="room-panel-btn" onclick="joinRoomFromPanel()">Join</button>
+    </div>
+    <div id="room-panel-feedback"></div>
+</div>
+
+<!-- GAME STREAM TOAST — shown to viewers when a stream starts in this room -->
+<div id="gs-stream-toast">
+    <div class="gs-toast-dot"></div>
+    <div class="gs-toast-text">
+        <strong>Game Stream Live</strong>
+        Someone is streaming in this room
+    </div>
+    <button id="gs-toast-open-btn" onclick="gsToastOpen()">
+        <span class="material-symbols-rounded" style="font-size:15px;">open_in_new</span>
+        Watch
+    </button>
+    <button id="gs-toast-dismiss-btn" onclick="gsToastDismiss()" title="Dismiss">✕</button>
+</div>
 
 <script>
 
@@ -304,6 +554,24 @@ let index = 0;
 let sliderOffset = 0;
 
 let isMenuOpen = false; // Renamed for clarity
+
+
+
+function shareRoom() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[data-mode="share"]');
+        const original = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.style.borderColor = '#4caf7d';
+        btn.style.color = '#4caf7d';
+        setTimeout(() => {
+            btn.textContent = original;
+            btn.style.borderColor = '';
+            btn.style.color = '';
+        }, 2000);
+    });
+}
+
 
 function syncUI(action) {
     if (action === 'open') {
@@ -540,6 +808,103 @@ $(document).on('click', '.theme-thumb', function() {
     updateBG(backPics[$(this).data('index')], true);
 });
 
+/////////////////////////////////////////////////777
+(function() {
+    // Init — show current room in indicator
+    function initRoomIndicator() {
+        const room = window.myRoom || 'Lobby';
+        document.getElementById('room-indicator-code').textContent = room;
+        document.getElementById('room-code-display').textContent   = room;
+    }
+
+    // Wait for myRoom to be set
+    const roomCheck = setInterval(() => {
+        if (window.myRoom) { initRoomIndicator(); clearInterval(roomCheck); }
+    }, 100);
+
+    let panelOpen = false;
+
+    window.toggleRoomPanel = function() {
+        panelOpen = !panelOpen;
+        document.getElementById('room-panel').classList.toggle('open', panelOpen);
+        if (panelOpen) {
+            // Refresh code in case room changed
+            const room = window.myRoom || 'Lobby';
+            document.getElementById('room-indicator-code').textContent = room;
+            document.getElementById('room-code-display').textContent   = room;
+        }
+    };
+
+    window.copyRoomLink = function() {
+        const url = window.location.origin + '/?room=' + encodeURIComponent(window.myRoom || 'Lobby');
+        navigator.clipboard.writeText(url).then(() => {
+            setRoomFeedback('✓ Link copied!', '#4caf7d');
+        });
+    };
+
+    window.joinRoomFromPanel = function() {
+        const code = document.getElementById('room-join-input').value.trim();
+        if (!code) { setRoomFeedback('Enter a room code', '#e05555'); return; }
+
+        if (window.socket) {
+            window.socket.emit('switch_room', { room: code });
+            window.myRoom = code;
+            document.getElementById('room-indicator-code').textContent = code;
+            document.getElementById('room-code-display').textContent   = code;
+            document.getElementById('room-join-input').value = '';
+            setRoomFeedback('✓ Joined: ' + code, '#4caf7d');
+        } else {
+            setRoomFeedback('Socket not connected', '#e05555');
+        }
+    };
+
+    function setRoomFeedback(msg, color) {
+        const fb = document.getElementById('room-panel-feedback');
+        fb.textContent = msg;
+        fb.style.color = color;
+        setTimeout(() => { fb.textContent = ''; fb.style.color = ''; }, 3000);
+    }
+
+    // Close panel when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!panelOpen) return;
+        const panel     = document.getElementById('room-panel');
+        const indicator = document.getElementById('room-indicator');
+        if (!panel.contains(e.target) && !indicator.contains(e.target)) {
+            panelOpen = false;
+            panel.classList.remove('open');
+        }
+    });
+})();
+
+// ── GAME STREAM TOAST ─────────────────────────────────
+(function() {
+    let toastTimer = null;
+
+    window.gsToastShow = function() {
+        const toast = document.getElementById('gs-stream-toast');
+        if (!toast) return;
+        toast.classList.add('visible');
+        // Auto-dismiss after 12 seconds
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(window.gsToastDismiss, 12000);
+    };
+
+    window.gsToastDismiss = function() {
+        clearTimeout(toastTimer);
+        const toast = document.getElementById('gs-stream-toast');
+        if (toast) toast.classList.remove('visible');
+    };
+
+    window.gsToastOpen = function() {
+        // Opens the viewer page in a new browser tab/window
+        // Points to /stream-cam-page with the current room so it connects to the right stream
+        const room = window.myRoom || 'Lobby';
+        const url  = window.location.origin + '/stream-cam-page?room=' + encodeURIComponent(room);
+        window.open(url, '_blank');
+        window.gsToastDismiss();
+    };
+})();
 </script>
 </body>
 </html>

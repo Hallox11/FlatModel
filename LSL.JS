@@ -9,72 +9,122 @@ key last_clicker;
 string nearby_list;
 string current_trigger;
 
+
+
 integer screen;
-integer legs;
+integer legs=1;
 rotation rot;  
-integer frame;
-integer logo_face=4;
+integer frame=2;
+
+integer button_face=0;
+integer screen_face=1;
+integer frame_face=2;
+integer logo_face=3;
+integer back_face=4; 
+integer web_face=5;
+
 integer button;
 integer menu;
-integer back; 
-integer screen_face=0;
-integer web_face=6;
 
-set_ratio (string ratio)
+float pulse = 0.5;
+integer pulsing = FALSE;
+
+
+set_model(string model)
 {
-    if (ratio=="16/9")
+    if(model=="model1")
     {
-        turn (frame,<0.0,0,0>,<0.0,0,0>);
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.001300, 0.423000, -0.072700>]);            
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<1.801111, 1.024194, 0.025895>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_POS_LOCAL,<-0.001259, -0.083008, -0.059608>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_SIZE,<0.037459, 0.011921, 0.011133>]);
-        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<1.137360, 0.447706, 0.286745>]);
-        llResetOtherScript("WebTV_resize");
+            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, back_face]);
+            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face, llList2Vector(params, 0), 0.8]);
+            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), 0.8]);
     }
-    else if (ratio=="21/9")
+    if(model=="model2")
     {
-        turn (frame,<0.0,0,0>,<0.0,0,0>);
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.001300, 0.423000, -0.072700>]);            
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<2.389770, 1.024194, 0.025895>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_POS_LOCAL,<-0.001259, -0.083008, -0.059608>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_SIZE,<0.037459, 0.011921, 0.011133>]);
-        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<1.137360, 0.447706, 0.286745>]);
-        llResetOtherScript("WebTV_resize");
-    }    
-    else if (ratio=="4/3")
-    {
-        turn (frame,<0.0,0,0>,<0.0,0,0>);
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.001300, 0.423000, -0.072700>]);            
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<1.365580, 1.024194, 0.025895>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_POS_LOCAL,<-0.001259, -0.083008, -0.059608>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_SIZE,<0.037459, 0.011921, 0.011133>]);
-        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<0.713959, 0.447706, 0.286745>]);
-        llResetOtherScript("WebTV_resize");
+            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, back_face]);
+            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face, llList2Vector(params, 0), 1]);
+            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), 1]);
     }
-    else if (ratio=="3/2")
+}
+set_ambilight(float intensity)
+{
+    // Cores sugeridas: 
+    // <0.2, 0.4, 1.0> (Azul Neon)
+    // <1.0, 1.0, 1.0> (Branco Quente)
+    vector light_color = <0.2, 0.5, 1.0>; 
+    llOwnerSay("LIGHT ON");
+    float radius = 4.0;    // Raio menor para concentrar o efeito perto da parede
+    float falloff = 2.0;   // Falloff máximo para a luz ser bem suave e dispersa
+
+    if (intensity > 0.0)
     {
-        turn (frame,<0.0,0,0>,<0.0,0,0>);
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.001300, 0.423000, -0.072700>]);            
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<1.536280, 1.024194, 0.025895>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_POS_LOCAL,<-0.001259, -0.083008, -0.059608>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_SIZE,<0.037459, 0.011921, 0.011133>]);
-        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<0.879593, 0.447706, 0.286745>]);
-        llResetOtherScript("WebTV_resize");
-    }   
-    else if (ratio=="18/9")
+        // Aplicamos ao Link da carcaça ou ao Root
+        llSetLinkPrimitiveParamsFast(LINK_THIS, [
+            PRIM_POINT_LIGHT, TRUE, light_color, intensity, radius, falloff,
+            // Opcional: Um leve brilho nas bordas externas (Glow)
+            PRIM_GLOW, ALL_SIDES, 0.05 * intensity 
+        ]);
+    }
+    else
     {
-        turn (frame,<0.0,0,0>,<0.0,0,0>);
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.001300, 0.423000, -0.072700>]);            
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<2.048380, 1.024194, 0.025895>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_POS_LOCAL,<-0.001259, -0.083008, -0.059608>]);
-        llSetLinkPrimitiveParamsFast(button, [ PRIM_SIZE,<0.037459, 0.011921, 0.011133>]);
-        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<1.137360, 0.447706, 0.286745>]);
-        llResetOtherScript("WebTV_resize");
-    }             
+        llSetLinkPrimitiveParamsFast(LINK_THIS, [PRIM_POINT_LIGHT, FALSE, <0,0,0>, 0, 0, 0]);
+    }
+}
+set_ratio(string ratio)
+{
+    // 1. Pegar o tamanho atual do frame
+    list params = llGetLinkPrimitiveParams(frame, [PRIM_SIZE]);
+    vector current_size = llList2Vector(params, 0);
+    float h = current_size.y; // Usamos a altura (Y no frame) como base constante
+    float new_w;              // Nova largura (X no frame)
+    
+    // 2. Determinar a nova largura baseada no ratio
+    if (ratio == "16/9")      new_w = h * (16.0 / 9.0);
+    else if (ratio == "21/9") new_w = h * (21.0 / 9.0);
+    else if (ratio == "4/3")  new_w = h * (4.0 / 3.0);
+    else if (ratio == "3/2")  new_w = h * (3.5 / 2.0); // Ajuste fino para o seu 3/2
+    else if (ratio == "18/9") new_w = h * (18.0 / 9.0);
+    else return; // Se não for um ratio conhecido, ignora
+
+    // 3. Aplicar ao Frame
+    // Mantemos a altura (Y) e profundidade (Z) e mudamos apenas a largura (X)
+    llSetLinkPrimitiveParamsFast(frame, [PRIM_SIZE, <new_w, h, current_size.z>]);
+
+    // 4. Ajustar as Pernas (Legs) proporcionalmente
+    // Geralmente as pernas seguem a largura da TV. 
+    // Baseado no seu código original, a largura da perna é ~63% da largura do frame
+    float leg_w = new_w * 0.631; 
+    list leg_params = llGetLinkPrimitiveParams(legs, [PRIM_SIZE]);
+    vector current_leg = llList2Vector(leg_params, 0);
+    llSetLinkPrimitiveParamsFast(legs, [PRIM_SIZE, <leg_w, current_leg.y, current_leg.z>]);
+
+    // 5. Resetar o script de ajuste fino (opcional, dependendo de como ele funciona)
+    llResetOtherScript("WebTV_resize");
+    
+    llOwnerSay("Ratio ajustado para " + ratio + " mantendo a altura de " + (string)h + "m");
 }
 
-////////////////////////////////////////////////////////////////////////////////
+set_preset(string mode)
+{
+     if (mode=="default")
+    {
+        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.004300, 1.340200, -0.230200>]);            
+        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<5.705921, 3.244647, 0.082034>]);
+        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<3.603157, 1.418333, 0.908407>]);
+    }
+         if (mode=="outside")
+    {
+        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.001800, 0.558400, -0.095900>]);            
+        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<2.377467, 1.351936, 0.034181>]);
+        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<1.501315, 0.590972, 0.378503>]);
+    }
+         if (mode=="cinema")
+    {
+        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.001300, 0.423000, -0.072700>]);            
+        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<1.801111, 1.024194, 0.025895>]);
+        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<1.137360, 0.447706, 0.286745>]);
+    }
+}
+
 turn(integer link, vector angle1, vector angle2)
 {
     angle1 *= DEG_TO_RAD;
@@ -110,7 +160,7 @@ turn(integer link, vector angle1, vector angle2)
     }
 }         
 
-////////////////////////////////////////////////////////////////////////////////
+
 generate_serial()
 {
     string owner_name = llKey2Name(llGetOwner());
@@ -118,13 +168,12 @@ generate_serial()
     string unique_part = llToUpper(llGetSubString(obj_uuid, 24, 35));
     my_serial = "TV-" + owner_name + "-" + unique_part;
 }
-
-/////////////////////////////////////////////////////////////////////////////////////// 
 set_texture(string uuid)
 {
     llSetLinkPrimitiveParamsFast(legs,  [PRIM_TEXTURE, 0, uuid, <1,1,1>, <0,0,0>, PI/2]);
     llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, 1, uuid, <1,1,1>, <0,0,0>, PI/2]);
     llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, 2, uuid, <1,1,1>, <0,0,0>, PI/2]);
+    llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, 3, uuid, <1,1,1>, <0,0,0>, PI/2]);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////// 
@@ -146,23 +195,12 @@ set_home_url(string home_url)
 } 
 
 /////////////////////////////////////////////////////////////////////////////////
-GetLinkNum()
-{             
-    integer primCount = llGetNumberOfPrims(); 
-    integer i; 
-    for (i=0; i<primCount+1; i++)   
-    {   
-        if (llGetLinkName(i)=="frame")  frame=i; 
-        if (llGetLinkName(i)=="button") button=i;
-        if (llGetLinkName(i)=="Curve Smart-Tv Premium Edition v3.8") legs=i;
-        legs=1;
-    } 
-}
+
 
 //////////////////////////////////////////////////////////////////////////////////
 update_web_screen()
 {
-    llSetLinkMedia(3, 6, [
+    llSetLinkMedia(frame, web_face, [
         PRIM_MEDIA_CURRENT_URL,  BASE_URL, 
         PRIM_MEDIA_HOME_URL,     BASE_URL,
         PRIM_MEDIA_AUTO_PLAY,    TRUE,
@@ -174,13 +212,20 @@ update_web_screen()
 //////////////////////////////////////////////////////////////////////////////////
 register_tv(key user_id, string trigger)
 {
-    GetLinkNum();
+
     last_clicker    = user_id;
     current_trigger = trigger;
     llOwnerSay("Ligando ao servidor... [" + trigger + "]");
     url_request = llRequestSecureURL();
 }
-
+//////////////////////////////////////////////////////////////////////////////////
+vector HexToVector(string hex) {
+    if (llGetSubString(hex, 0, 0) == "#") hex = llGetSubString(hex, 1, -1);
+    integer r = (integer)("0x" + llGetSubString(hex, 0, 1));
+    integer g = (integer)("0x" + llGetSubString(hex, 2, 3));
+    integer b = (integer)("0x" + llGetSubString(hex, 4, 5));
+    return <r / 255.0, g / 255.0, b / 255.0>;
+}
 //////////////////////////////////////////////////////////////////////////////////
 init(key user_id, string status)
 {
@@ -220,7 +265,7 @@ init(key user_id, string status)
 
         llReleaseURL(my_url);
         my_url = "";
-        llClearLinkMedia(3, 6);
+        llClearLinkMedia(frame, web_face);
     }
 }
 
@@ -228,7 +273,6 @@ default {
 
 state_entry()
 {
-    GetLinkNum();
     generate_serial();
 }
 
@@ -240,25 +284,7 @@ link_message(integer sn, integer num, string msg, key id)
 
 touch_start(integer n)
 {
-    /*
-    key user = llDetectedKey(0);
-    last_clicker = user;
 
-    string params = "object_id=" + (string)llGetKey() + 
-                    "&secret="   + llEscapeURL(SECRET) +
-                    "&TV_url="   + llEscapeURL(my_url) + 
-                    "&clicker="  + llEscapeURL(llKey2Name(user));
-
-    llOwnerSay("Sincronizando controle...");
-
-    llHTTPRequest(BASE_URL + "/activate", [
-        HTTP_METHOD,        "POST",
-        HTTP_MIMETYPE,      "application/x-www-form-urlencoded",
-        HTTP_CUSTOM_HEADER, "ngrok-skip-browser-warning", "true"
-    ], params);
-
-    update_web_screen(); 
-    */
 }
 
 sensor(integer num)
@@ -340,42 +366,96 @@ http_request(key id, string method, string body)
         llHTTPResponse(id, 200, "TV is available");
         llOwnerSay("Comando recebido: " + cmd + " com valor: " + val);
 
-        if (cmd=="legs" && val=="hide") { llSetLinkPrimitiveParamsFast(legs, [ PRIM_COLOR, ALL_SIDES,<1.0,1.0,1.0>,0.0]); }
-        if (cmd=="legs" && val=="show") { llSetLinkPrimitiveParamsFast(legs, [ PRIM_COLOR, ALL_SIDES,<1.0,1.0,1.0>,1.0]); }
-
-        if (cmd=="buttons" && val=="hide") { llSetLinkPrimitiveParamsFast(button, [ PRIM_COLOR, ALL_SIDES,<1.0,1.0,1.0>,0.0]); }
-        if (cmd=="buttons" && val=="show") { llSetLinkPrimitiveParamsFast(button, [ PRIM_COLOR, 1,<1.0,1.0,1.0>,1.0]);  
-                                             llSetLinkPrimitiveParamsFast(button, [ PRIM_COLOR, 3,<1.0,1.0,1.0>,1.0]); 
-                                             llSetLinkPrimitiveParamsFast(button, [ PRIM_COLOR, 0,<1.0,1.0,1.0>,1.0]); }        
+        if (cmd=="legs" && val=="hide") { llSetLinkAlpha(legs, 0.0, ALL_SIDES);}
+        if (cmd=="legs" && val=="show") {llSetLinkAlpha(legs, 1.0, ALL_SIDES);}
         
         if (cmd=="frame" && val=="hide") { llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 1,<1.0,1.0,1.0>,0.0]);
                                            llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 2,<1.0,1.0,1.0>,0.0]); 
+                                           llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 3,<1.0,1.0,1.0>,0.0]);
                                            llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 0,<1.0,1.0,1.0>,0.0]); }
                                             
         if (cmd=="frame" && val=="show") { llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 1,<1.0,1.0,1.0>,1.0]);
                                            llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 2,<1.0,1.0,1.0>,1.0]);    
+                                           llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 3,<1.0,1.0,1.0>,1.0]); 
                                            llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 0,<1.0,1.0,1.0>,1.0]); }
-                                           
-        if (val=="3/2")  { set_ratio("3/2");  }   
-        if (val=="4/3")  { set_ratio("4/3");  }     
-        if (val=="16/9") { set_ratio("16/9"); }  
-        if (val=="18/9") { set_ratio("18/9"); }    
-        if (val=="21/9") { set_ratio("21/9"); }  
-        
+// SET MODEL 
+        if (cmd == "model") 
+        {
+            if (val == "model1")       set_model("model1");
+            else if (val == "model2")  set_model("model2");
+            else if (val == "model3")  set_model("model3");
+            llOwnerSay("Model Preset: " + val);
+        }
+// SET SCREEN RATIO                                           
+        if (cmd=="ratio")  { set_ratio(val);  } 
+//////////////////////////////////////////////////////////////////////
+// SET TEXTURE        
         if (cmd=="texture") { set_texture(val); }
-
+/////////////////////////////////////////////////////////////////////
+// SET SCALE AND PRESET SCALE
         if (cmd=="SCALE") {
             llMessageLinked(LINK_THIS, 100, val, ""); 
             llOwnerSay("Resizing by " + val);
         }
-        if (cmd=="SCALE_DEFAULT") {
-            { set_ratio("default"); } 
-            llOwnerSay("Setting Default Size");
+        if (cmd == "PRESET") 
+        {
+            if (val == "house")         set_preset("default");
+            else if (val == "outside")  set_preset("outside");
+            else if (val == "cinema")   set_preset("cinema");
+            llOwnerSay("Preset de ambiente aplicado: " + val);
         }
-        if (cmd=="SCALE_CINEMA") {
-            { set_ratio("cinema"); } 
-            llOwnerSay("Setting Cinema Size");
+/////////////////////////////////////////////////////////////////////        
+// SET LIGTH
+        if (cmd == "LIGHT_ALL") {
+        // Pegamos a cor (índice 1) e a intensidade (índice 2)
+        vector g_LightColor = (vector)llList2String(parse, 1);
+        float  g_LightIntensity = (float)llList2String(parse, 2);
+
+        if (g_LightIntensity > 0.0) {
+            llOwnerSay("Luz Ligada: Cor " + (string)g_LightColor + " Brilho: " + (string)g_LightIntensity);
+            llSetLinkPrimitiveParamsFast(3, [PRIM_POINT_LIGHT, TRUE, g_LightColor, g_LightIntensity, 8.0, 1.5]);
+            llSetLinkPrimitiveParamsFast(1, [PRIM_POINT_LIGHT, TRUE, g_LightColor, g_LightIntensity, 8.0, 1.5]);
+        } else {
+            llOwnerSay("Luz Desligada");
+            llSetLinkPrimitiveParamsFast(3, [PRIM_POINT_LIGHT, FALSE, <0,0,0>, 0, 0, 0]);
+            llSetLinkPrimitiveParamsFast(1, [PRIM_POINT_LIGHT, FALSE, <0,0,0>, 0, 0, 0]);
         }
+    }
+
+/////////////////////////////////////////////////////////////////
+        
+        // Muda a cor da carcaça traseira (logo_face)
+        if (cmd == "back_color") {
+            vector col = HexToVector(val);
+            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face, col, 1.0]);
+            llOwnerSay("Cor da traseira atualizada.");
+        }
+
+        // Ajusta a transparência da traseira (Relativo +/-)
+        if (cmd == "back_alpha") {
+            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, back_face]);
+            float currentAlpha = llList2Float(params, 1);
+            float newAlpha = currentAlpha + (float)val;
+            if(newAlpha > 1.0) newAlpha = 1.0; if(newAlpha < 0.0) newAlpha = 0.0;
+            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face, llList2Vector(params, 0), newAlpha]);
+        }
+
+        // Ajusta a transparência da tela (Relativo +/-)
+        if (cmd == "screen_alpha") {
+            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, screen_face]);
+            float currentAlpha = llList2Float(params, 1);
+            float newAlpha = currentAlpha + (float)val;
+            if(newAlpha > 1.0) newAlpha = 1.0; if(newAlpha < 0.0) newAlpha = 0.0;
+            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), newAlpha]);
+        }
+        
+        // Define transparência absoluta (usado pelo botão SOLID)
+        if (cmd == "screen_alpha_set") {
+            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, screen_face]);
+            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), (float)val]);
+        }
+        
+        
     }
 }
 
@@ -398,7 +478,7 @@ http_response(key request_id, integer status, list metadata, string body)
             llOwnerSay("⚠️ Token não recebido, abrindo sem verificação");
         }
 
-        llSetLinkMedia(3, 6, [
+        llSetLinkMedia(frame, web_face, [
             PRIM_MEDIA_CURRENT_URL,  app_url,
             PRIM_MEDIA_HOME_URL,     app_url,
             PRIM_MEDIA_AUTO_PLAY,    TRUE,
@@ -414,5 +494,10 @@ on_rez(integer param)
     current_trigger = "rezz"; 
     register_tv(llGetOwner(), "rezz");
 }
-
+timer()
+{
+    pulse += 0.1;
+    if (pulse > 1.0) pulse = 0.4;
+    set_ambilight(pulse);
+}
 } // end default

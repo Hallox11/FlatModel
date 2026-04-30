@@ -45,51 +45,61 @@ const io = new Server(server, {
 /////////////////////////////////////////////////
 // SHARED STATE
 const MODES = {
-    HOME: 'HOME',
-    RADIO: 'RADIO',
-    YOUTUBE: 'YOUTUBE',
-    MUSIC: 'MUSIC',
-    FLICKR: 'FLICKR',
-    XXX: 'XXX',
-    SETTINGS: 'SETTINGS',
-    BROWSER: 'BROWSER',
-    // New modes
-    MOVIES: 'MOVIES',
+    HOME:        'HOME',
+    RADIO:       'RADIO',
+    YOUTUBE:     'YOUTUBE',
+    MUSIC:       'MUSIC',
+    FLICKR:      'FLICKR',
+    XXX:         'XXX',
+    SETTINGS:    'SETTINGS',
+    BROWSER:     'BROWSER',
+    MOVIES:      'MOVIES',
     GAME_STREAM: 'GAME_STREAM',
-    LIVE_TV: 'LIVE_TV',
-    GAMES: 'GAMES',
-    FREEBIES: 'FREEBIES',
+    LIVE_TV:     'LIVE_TV',
+    GAMES:       'GAMES',
+    FREEBIES:    'FREEBIES',
     SECOND_LIFE: 'SECOND_LIFE'
 };
 
-let lobbyState = {
-    currentMode: MODES.HOME,
-    ajaxPath: null,
-    lastUpdate: Date.now(),
-    currentBg: null,
-    textContrast: 'light',
-    videoId: null,
-    videoTimestamp: 0,
-    videoPaused: true,
-    videoOrigin: 'youtube',
-    radioStream: null,
-    radioName: null,
-    radioDialIndex: null,
-    flickrQuery: '',
-    flickrActiveImage: null,
-    flickrIsSlideshow: false,
-    // New mode states (add only what needs shared state)
-    movieQuery: null,
-    liveChannel: null,
-    gameStreamUrl: null,
-    currentGame: null
-};
+// Instead of a single lobbyState, each TV room gets its own state
+const roomStates = {};
 
-let tvRegistry    = {};
+function getRoomState(room) {
+    if (!roomStates[room]) {
+        roomStates[room] = {
+            currentMode:      MODES.HOME,
+            ajaxPath:         null,
+            lastUpdate:       Date.now(),
+            currentBg:        null,
+            textContrast:     'light',
+            videoId:          null,
+            videoTimestamp:   0,
+            videoPaused:      true,
+            videoOrigin:      'youtube',
+            radioStream:      null,
+            radioName:        null,
+            radioDialIndex:   null,
+            flickrQuery:      '',
+            flickrActiveImage: null,
+            flickrIsSlideshow: false,
+            movieQuery:       null,
+            liveChannel:      null,
+            gameStreamUrl:    null,
+            currentGame:      null
+        };
+        console.log(`[Room] Created state for room: ${room}`);
+    }
+    return roomStates[room];
+}
+
+// Keep FIXED_ROOM as the global fallback for TV-less viewers
+const FIXED_ROOM = "Lobby";
+
+let tvRegistry          = {};
 const pendingTokens     = {};
 const clickerSessionMap = new Map();
 const SESSION_TTL       = 30 * 1000;
-const FIXED_ROOM        = "Lobby";
+
 
 /////////////////////////////////////////////////
 // DATABASE
@@ -134,7 +144,7 @@ app.use(createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SES
 
 /////////////////////////////////////////////////
 // SOCKET.IO
-initSocketIO(io, lobbyState, FIXED_ROOM);
+initSocketIO(io, getRoomState, FIXED_ROOM, clickerSessionMap, tvRegistry);
 
 /////////////////////////////////////////////////
 // TV PING

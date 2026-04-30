@@ -17,12 +17,14 @@ const freebiesScraper = require('./freebiesScraper');
 
 
 const MY_SECRET = process.env.MY_SECRET || "MyUltraSecret123"; // ⚠️ move to .env
-const favPath   = path.join(__dirname, 'favorites.json');
+
 const radioFavPath = path.join(__dirname, 'config', 'favorites-radios.json');
 // Ensure the config folder and file exist
 if (!fs.existsSync(path.join(__dirname, 'config'))) fs.mkdirSync(path.join(__dirname, 'config'));
 if (!fs.existsSync(radioFavPath)) fs.writeFileSync(radioFavPath, JSON.stringify([]));
-if (!fs.existsSync(favPath)) fs.writeFileSync(favPath, JSON.stringify([]));
+
+const flickrFav   = path.join(__dirname, 'config','flickr','flickr-fav.json');
+if (!fs.existsSync(flickrFav)) fs.writeFileSync(flickrFav, JSON.stringify([]));
 
 // Factory — receives shared state from sltv.js
 module.exports = function createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SESSION_TTL, FIXED_ROOM }) {
@@ -74,11 +76,11 @@ router.post('/radio-favorites', (req, res) => {
     });
 });
 
-router.get('/games-menu',    (req, res) => res.render('pages/games-menu'));
-router.get('/quiz',          (req, res) => res.render('pages/quiz'));
-router.get('/truth-or-myth', (req, res) => res.render('pages/truth-or-myth'));
-router.get('/who-am-i',      (req, res) => res.render('pages/who-am-i'));
-router.get('/this-or-that',  (req, res) => res.render('pages/this-or-that'));
+router.get('/games-menu',    (req, res) => res.render('pages/games/games-menu'));
+router.get('/quiz',          (req, res) => res.render('pages/games/quiz'));
+router.get('/truth-or-myth', (req, res) => res.render('pages/games/truth-or-myth'));
+router.get('/who-am-i',      (req, res) => res.render('pages/games/who-am-i'));
+router.get('/this-or-that',  (req, res) => res.render('pages/games/this-or-that'));
 
 router.get('/freebies', (req, res) => res.render('pages/freebies'));
 
@@ -191,7 +193,10 @@ router.get('/stream-cam', (req, res) => {
     // O myScripts.js vai validar e permitir acesso normalmente
     res.redirect(`/?token=${token}&goto=stream-cam`);
 });
-router.get('/stream-cam-page', (req, res) => res.render('pages/stream-cam'));
+router.get('/stream-cam-page', (req, res) => {
+    const room = req.query.room || 'Lobby';
+    res.render('pages/stream-cam', { room });
+});
 
 
 
@@ -390,57 +395,102 @@ router.post('/send-command', (req, res) => {
         res.status(500).json({ error: "TV offline ou inalcançável" });
     });
 });
+/////////////////////////////////////////
+// Dentro do module.exports = function createRouter(...)
+// A rota deve ser adicionada dentro do module.exports do createRouter
+router.get('/check-room/:roomId', (req, res) => {
+    // No Express, usamos req.params para parâmetros de rota (:roomId)
+    const roomId = req.params.roomId; 
+
+    // Verificamos na base de dados (db) se essa TV existe e está ONLINE
+    db.get(`SELECT object_id FROM tv_registry WHERE object_id = ? AND status = 'ONLINE'`, [roomId], (err, row) => {
+        if (err) {
+            console.error("Erro ao verificar sala:", err);
+            return res.status(500).json({ active: false });
+        }
+        
+        if (row) {
+            // Se encontrou a linha, a sala está ativa
+            return res.json({ active: true });
+        } else {
+            // Se não encontrou, ou está offline ou não existe
+            return res.json({ active: false });
+        }
+    });
+});
 ////////////////////////////////////////
 // check tv status
 router.get('/check-status/:id', (req, res) => {
     const tvId = req.params.id;
     const tv = tvRegistry[tvId];
-    console.log(tv.status)
-    if (tv && tv.status !== 'TV_OFF') {
+
+    // Verifica primeiro se a TV existe no objeto, depois o status
+    if (tv && tv.status && tv.status !== 'TV_OFF') {
+        console.log(`Status da TV ${tvId}: ${tv.status}`);
         return res.json({ online: true, location: tv.land });
     }
+    
     res.json({ online: false });
 });
     ///////////////////////////////////////////////////////
     // MAIN PAGE
 // ── MAIN PAGE ────────────────────────────────────────────────
 router.get('/', (req, res) => {
-    // 1. Tentar pegar o ID da TV pela query string
     const tvId = req.query.id || req.query.token;
 
-    if (tvId) {
-        // Se o que recebemos for um TOKEN temporário, precisamos achar o object_id real
+    // ── DEMO TOKEN ───────────────────────────────────────────
+    // Set DEMO_TOKEN in .env  →  open /?demo=<your_token>&tv=<object_id>
+    // tv param is optional; defaults to 'demo-tv'
+    const DEMO_TOKEN = process.env.DEMO_TOKEN;
+    if (DEMO_TOKEN && req.query.demo === DEMO_TOKEN) {
+        req.session.activeTvId = req.query.tv || 'demo-tv';
+        console.log(`[Demo] Access granted — TV: ${req.session.activeTvId}`);
+    } else if (tvId) {
+    // ────────────────────────────────────────────────────────
         if (pendingTokens[tvId]) {
             req.session.activeTvId = pendingTokens[tvId].object_id;
         } else {
-            // Se for o ID direto
             req.session.activeTvId = tvId;
         }
-        console.log(`[Session] Usuário vinculado à TV: ${req.session.activeTvId}`);
+        console.log(`[Session] TV vinculada: ${req.session.activeTvId}`);
     }
 
-    res.render('pages/index', { tvId: req.session.activeTvId });
+    // The room defaults to the TV's object_id — each TV has its own room
+    // If no TV is linked, falls back to 'Lobby'
+    const defaultRoom = req.session.activeTvId || 'Lobby';
+    const room        = req.query.room || defaultRoom;
+
+    // Find clicker name for this session
+    let clickerName = '';
+    if (req.session.activeTvId) {
+        for (const [name, sess] of clickerSessionMap.entries()) {
+            if (sess.object_id === req.session.activeTvId) {
+                clickerName = name;
+                break;
+            }
+        }
+    }
+
+    res.render('pages/index', {
+        tvId:    req.session.activeTvId,
+        room:    room,
+        clicker: clickerName
+    });
 });
 
     router.get('/tv-dashboard', (req, res) => res.render('pages/tv-dashboard'));
 
     ////////////////////////////////////////////////////////////////////////////
     // RADIOS
-    router.get('/radios-menu',          (req, res) => res.render('pages/radios-menu'));
+    router.get('/radios/radios-menu',          (req, res) => res.render('pages/radios/radios-menu'));
     router.get('/radios/sl-radio',      (req, res) => res.render('pages/radios/sl-radio'));
     router.get('/radios/inter-radio',   (req, res) => res.render('pages/radios/inter-radio'));
     router.get('/radios/pt',            (req, res) => res.render('pages/radios/pt'));
-    router.get('/radios/nz',            (req, res) => res.render('pages/radios/nz'));
-    router.get('/radios/es',            (req, res) => res.render('pages/radios/es'));
-    router.get('/radios/br',            (req, res) => res.render('pages/radios/br'));
-    router.get('/radios/uk',            (req, res) => res.render('pages/radios/uk'));
-    router.get('/radios/fr',            (req, res) => res.render('pages/radios/fr'));
-    router.get('/radios/it',            (req, res) => res.render('pages/radios/it'));
-    router.get('/radios/mr',            (req, res) => res.render('pages/radios/mr'));
+
 
     //////////////////////////////////////////////////////////////////////////
     // MUSIC
-    router.get('/music-menu', (req, res) => res.render('pages/music-menu'));
+    router.get('/music-menu', (req, res) => res.render('pages/music/music-menu'));
 
     router.get('/music-grid', async (req, res) => {
         const query     = req.query.genre || req.query.q || 'Blues';
@@ -474,7 +524,7 @@ router.get('/', (req, res) => {
 
     //////////////////////////////////////////////////////////////////////////
     // MOVIES
-    router.get('/movies-menu', (req, res) => res.render('pages/movies-menu'));
+    router.get('/movies-menu', (req, res) => res.render('pages/movies/movies-menu'));
 
     router.get('/movies-grid', async (req, res) => {
         console.log('[movies-grid] params:', req.query);
@@ -509,7 +559,7 @@ router.get('/', (req, res) => {
     ///////////////////////////////////////////////////////////////////
     // YOUTUBE
     router.get('/youtube-menu', (req, res) => {
-        res.render('pages/youtube-menu', { title: "YouTube Search", req });
+        res.render('pages/youtube/youtube-menu', { title: "YouTube Search", req });
     });
 
     router.get('/youtube-grid', async (req, res) => {
@@ -552,35 +602,13 @@ router.get('/', (req, res) => {
 
             const videos = await youtubeScraper.getVideos(tag, isChannel);
 
-            res.render('pages/youtube', {
+            res.render('pages/youtube/youtube', {
                 videos, favorites: favoritesData, tag, isChannel, scrollPos, req
             });
         } catch (err) {
             console.error("❌ ROUTE ERROR:", err.message);
-            res.render('pages/youtube', { videos: [], favorites: favoritesData, tag, isChannel, scrollPos, req });
+            res.render('pages/youtube/youtube', { videos: [], favorites: favoritesData, tag, isChannel, scrollPos, req });
         }
-    });
-
-    router.get('/youtube-favorites', async (req, res) => {
-        try {
-            const ytFavPath = path.join(__dirname, 'config', 'YT-favorites.json');
-            const favorites = JSON.parse(fs.readFileSync(ytFavPath, 'utf8'));
-            res.render('fragments/youtube-favorites-menu', { favorites, room: req.query.room });
-        } catch (err) {
-            res.status(500).send("Error loading favorites");
-        }
-    });
-
-    router.get('/youtube/refresh', async (req, res) => {
-        const tag       = req.query.tag || 'secondlife';
-        const isChannel = req.query.isChannel === 'true';
-        const cacheDir  = path.join(__dirname, 'cache/youtube');
-        const prefix    = isChannel ? 'chan' : 'tag';
-        const safeQuery = tag.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-        const cacheFile = path.join(cacheDir, `yt_${prefix}_${safeQuery}.json`);
-
-        if (fs.existsSync(cacheFile)) fs.unlinkSync(cacheFile);
-        res.redirect(`/youtube?tag=${encodeURIComponent(tag)}&isChannel=${isChannel}`);
     });
 
     router.get('/api/quota', (req, res) => {
@@ -630,7 +658,7 @@ router.get('/settings', (req, res) => {
 
 // 1. Rota para carregar a página
 router.get('/flickr', (req, res) => {
-    res.render('pages/flickr', {
+    res.render('pages/flickr/flickr', {
         theme: 'goldenrod'
     });
 });
@@ -676,29 +704,24 @@ router.get('/api/flickr/channel/:userId', async (req, res) => {
 
     ///////////////////////////////////////////////////////////
     // FLICKR FAVORITES
-    router.get('/api/favorites', async (req, res) => {
-        try {
-            const data = await fs.promises.readFile(favPath, 'utf8');
-            res.json(JSON.parse(data));
-        } catch (err) {
-            res.status(500).send("Error reading favorites");
-        }
-    });
+router.get('/api/favorites', async (req, res) => {
+    try {
 
-    router.post('/api/favorites/channels', (req, res) => {
-        const { name, id } = req.body;
-        let data = JSON.parse(fs.readFileSync(favPath));
-        if (Array.isArray(data) || !data) data = {};
-        data[name] = id;
-        fs.writeFileSync(favPath, JSON.stringify(data, null, 2));
-        res.json({ success: true });
-    });
+        const fs = require('fs').promises; 
+        const data = await fs.readFile(flickrFav, 'utf8');
+        res.json(JSON.parse(data));
+
+    } catch (err) {
+        console.error("ERRO NO GET FAVORITES:", err.message);
+        res.status(500).json({}); 
+    }
+});
 
     ///////////////////////////////////////////////////////////////////
     // XXX
-    router.get('/xxx-check',    (req, res) => res.render('pages/xxx-check'));
-    router.get('/xxx-index',    (req, res) => res.render('pages/xxx-index'));
-    router.get('/xxx-browsers', (req, res) => res.render('pages/xxx-browsers'));
+    router.get('/xxx-check',    (req, res) => res.render('pages/xxx/xxx-check'));
+    router.get('/xxx-index',    (req, res) => res.render('pages/xxx/xxx-index'));
+    router.get('/xxx-browsers', (req, res) => res.render('pages/xxx/xxx-browsers'));
 
     router.get('/xvideos-grid', async (req, res) => {
     // 1. Pegamos a tag da URL ou usamos 'Hardcore' como padrão
@@ -726,7 +749,7 @@ router.get('/api/flickr/channel/:userId', async (req, res) => {
         const videos = await xvideosScraper.getVideos(tag);
 
         // 5. Renderizar a página
-        res.render('pages/xvideos', { 
+        res.render('pages/xxx/xvideos', { 
             videos, 
             tag, 
             XXX_CATEGORIES 
@@ -745,7 +768,7 @@ router.get('/api/flickr/channel/:userId', async (req, res) => {
     });
 
     router.get('/xxx-player', (req, res) => {
-        res.render('pages/xxx_player', { stream: req.query.stream, title: req.query.title });
+        res.render('pages/xxx/xxx_player', { stream: req.query.stream, title: req.query.title });
     });
 
     ///////////////////////////////////////////////////////////////////
@@ -753,7 +776,7 @@ router.get('/api/flickr/channel/:userId', async (req, res) => {
     router.get('/erotic-grid', async (req, res) => {
         try {
             const videos = await eroticScraper.getEroticVideos('https://eroticmv.com/category/genre/classic-erotica/');
-            res.render('pages/eroticVideos', { videos, tag: 'Erotic Movies' });
+            res.render('pages/xxx/eroticVideos', { videos, tag: 'Erotic Movies' });
         } catch (err) {
             console.error('[Erotic Route] Error:', err);
             res.status(500).send('Failed to load erotic movies.');
@@ -762,19 +785,26 @@ router.get('/api/flickr/channel/:userId', async (req, res) => {
 
     ///////////////////////////////////////////////////////////////////
     // SECOND LIFE DESTINATIONS
-    router.get('/sl-destinations', async (req, res) => {
-        const { url, tag = 'General' } = req.query;
-        try {
-            const [destinations, favorites] = await Promise.all([
-                slScraper.getDestinations({ url, tag }),
-                Promise.resolve(slScraper.getFavorites())
-            ]);
-            res.render('pages/sl_grid', { destinations, tag, favorites });
-        } catch (err) {
-            console.error('[SL Route] Error:', err);
-            res.status(500).send('Failed to load destinations.');
-        }
-    });
+router.get('/sl-destinations', async (req, res) => {
+    // Definimos os valores padrão aqui:
+    // Se 'tag' não vier na query, usa 'Editor Picks'
+    // Se 'url' não vier na query, usa a URL oficial dos Editor Picks
+    const tag = req.query.tag || "Art";
+    const url = req.query.url || "https://secondlife.com/destinations/art/galleries";
+
+    try {
+        // Executamos o scraper com os valores (sejam os vindos da query ou os padrão)
+        const [destinations, favorites] = await Promise.all([
+            slScraper.getDestinations({ url, tag }),
+            slScraper.getFavorites() // Removi o Promise.resolve desnecessário
+        ]);
+
+        res.render('pages/secondlife/sl_grid', { destinations, tag, favorites });
+    } catch (err) {
+        console.error('[SL Route] Error:', err);
+        res.status(500).send('Failed to load destinations.');
+    }
+});
 
     ///////////////////////////////////////////////////////////////////
     // PLAYER

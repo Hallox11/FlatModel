@@ -183,8 +183,9 @@
     const activeCalls = [];
 
     socket.emit('join-room-sc', { room: GS_ROOM });
-const token = '<%= token %>';
-socket.emit('validate-stream-cam', { token });
+    // Token is injected server-side by EJS — validates this is a legitimate stream-cam session
+    const token = '<%= typeof token !== "undefined" ? token : "" %>';
+    if (token) socket.emit('validate-stream-cam', { token });
     // ── STATUS TOAST ─────────────────────────────────────────
     let statusTimer;
     function showStatus(msg) {
@@ -227,10 +228,18 @@ socket.emit('validate-stream-cam', { token });
             showStatus('Connection error: ' + err.type);
         });
 
-        // When a viewer joins, call them
+        // When a viewer joins after streamer is live
         socket.on('gs_viewer_joined', function (data) {
             console.log('[SC] Viewer joined:', data.peerId);
             callViewer(data.peerId);
+        });
+
+        // Viewers that were waiting before the streamer connected
+        socket.on('gs_pending_viewers', function (data) {
+            console.log('[SC] Pending viewers:', data.peerIds);
+            if (Array.isArray(data.peerIds)) {
+                data.peerIds.forEach(callViewer);
+            }
         });
 
         // If user stops sharing via browser UI
@@ -274,8 +283,12 @@ socket.emit('validate-stream-cam', { token });
 
         if (peer)   { peer.destroy(); peer = null; }
 
-        socket.emit('gs_leave',        { room: GS_ROOM });
+        socket.emit('gs_leave',          { room: GS_ROOM });
         socket.emit('gs_stream_stopped', { room: GS_ROOM });
+
+        // Remove listeners so re-starting stream doesn't duplicate them
+        socket.off('gs_viewer_joined');
+        socket.off('gs_pending_viewers');
 
         document.getElementById('sc-live').style.display = 'none';
         document.getElementById('sc-idle').style.display = 'flex';

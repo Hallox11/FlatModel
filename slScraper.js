@@ -3,19 +3,9 @@
 /**
  * slScraper.js
  * ------------
- * Standalone module for scraping the Second Life Destination Guide.
- *
- * Usage:
- *   const slScraper = require('./slScraper');
- *
- *   // Scrape + cache a category
- *   const destinations = await slScraper.getDestinations({
- *       url: 'https://secondlife.com/destination-guide/art',
- *       tag: 'Art'
- *   });
- *
- *   // Load saved favorites
- *   const favorites = slScraper.getFavorites();
+ * Scrapes the Second Life Destination Guide.
+ * - Listing page: gets title, thumbnail, desc, detail link
+ * - Detail page:  gets the real teleport SLurl from #dg-entry-CTA
  */
 
 const { chromium } = require('playwright');
@@ -25,7 +15,7 @@ const path          = require('path');
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 
 const CACHE_DIR        = path.join(__dirname, 'cache/sl');
-const FAV_PATH         = path.join(CACHE_DIR, 'sl-fav.json');
+const FAV_PATH         = path.join(__dirname, 'config/sl/sl-fav.json');
 const CACHE_EXPIRATION = 48 * 60 * 60 * 1000; // 48 hours
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
@@ -43,7 +33,7 @@ function loadCache(tag) {
     const file = cacheFilePath(tag);
     if (!fs.existsSync(file)) return null;
 
-    const stats = fs.statSync(file);
+    const stats   = fs.statSync(file);
     const isFresh = (Date.now() - stats.mtimeMs) < CACHE_EXPIRATION;
     if (!isFresh) return null;
 
@@ -62,43 +52,85 @@ function saveCache(tag, data) {
 
 // ─── CORE SCRAPER ─────────────────────────────────────────────────────────────
 
-/**
- * Scrapes the SL Destination Guide for a given category URL.
- * Returns an array of destination objects, or [] on failure.
- *
- * @param {string} categoryUrl  Full URL of the SL destination guide page
- * @returns {Promise<Array>}
- */
 async function scrapeSLDestinations(categoryUrl) {
-    console.log(`[SL SCRAPE] Fetching: ${categoryUrl}`);
+    console.log(`[SL SCRAPE] Fetching listing: ${categoryUrl}`);
 
     const browser = await chromium.launch({ headless: true });
     const page    = await browser.newPage();
 
     try {
+        // ── STEP 1: Scrape the listing page ──────────────────
         await page.goto(categoryUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
         await page.waitForSelector('.dg-collection-item', { timeout: 10000 });
 
         const results = await page.$$eval('.dg-collection-item', items =>
             items.map(item => {
-                const titleNode  = item.querySelector('.dg2-destination-title-h2, .dg2-destination-title-h3');
-                const title      = titleNode?.innerText.trim() || 'Unknown';
-                const img        = item.querySelector('img.dg2-lg-feature-image');
-                const thumbnail  = img?.getAttribute('data-src') || img?.src || '';
-                const teleportUrl = `secondlife://${encodeURIComponent(title)}/128/128/2`;
-                const desc       = item.querySelector('.dg-destination-description')?.innerText.trim() || '';
+                const titleNode = item.querySelector('.dg2-destination-title-h2, .dg2-destination-title-h3');
+                const title     = titleNode?.innerText.trim() || 'Unknown';
+                const img       = item.querySelector('img.dg2-lg-feature-image');
+                const thumbnail = img?.getAttribute('data-src') || img?.src || '';
+                const desc      = item.querySelector('.dg-destination-description')?.innerText.trim() || '';
+                const detailLink = item.querySelector('a')?.href || '';
 
-                return { title, desc, thumbnail, teleportUrl };
+                return { title, desc, thumbnail, detailLink, teleportUrl: null };
             })
         );
 
-        await browser.close();
+        // Drop entries without thumbnail or broken SVG placeholders
+        const filtered = results.filter(r => r.thumbnail && !r.thumbnail.includes('.svg'));
 
-        // Drop entries with no thumbnail or broken SVG placeholders
-        return results.filter(r => r.thumbnail && !r.thumbnail.includes('.svg'));
+        console.log(`[SL SCRAPE] Found ${filtered.length} destinations — fetching SLurls...`);
+
+        // ── STEP 2: Visit each detail page to get the real SLurl ──
+        for (const dest of filtered) {
+            if (!dest.detailLink) continue;
+
+            try {
+                await page.goto(dest.detailLink, {
+                    waitUntil: 'domcontentloaded',
+                    timeout: 15000
+                });
+
+                // The CTA block has two links:
+                // [0] = "Visit on Web" or similar
+                // [1] = the actual secondlife:// teleport link
+                const slurl = await page.$eval(
+                    '#dg-entry-CTA a:nth-child(2)',
+                    el => el.href
+                ).catch(() => null);
+
+                // Fallback: scan all links for a secondlife:// href
+                if (!slurl) {
+                    const fallback = await page.$$eval('a[href]', links => {
+                        const match = links.find(l =>
+                            l.href.startsWith('secondlife://') ||
+                            l.href.includes('maps.secondlife.com/secondlife/')
+                        );
+                        return match ? match.href : null;
+                    }).catch(() => null);
+
+                    dest.teleportUrl = fallback;
+                } else {
+                    dest.teleportUrl = slurl;
+                }
+
+                if (dest.teleportUrl) {
+                    console.log(`[SL SCRAPE] ✓ SLurl for "${dest.title}": ${dest.teleportUrl}`);
+                } else {
+                    console.log(`[SL SCRAPE] ✗ No SLurl found for "${dest.title}"`);
+                }
+
+            } catch (err) {
+                console.warn(`[SL SCRAPE] Detail page failed for "${dest.title}":`, err.message);
+                dest.teleportUrl = null;
+            }
+        }
+
+        await browser.close();
+        return filtered;
 
     } catch (err) {
-        console.error('[SL SCRAPE] Error:', err.message);
+        console.error('[SL SCRAPE] Fatal error:', err.message);
         await browser.close();
         return [];
     }
@@ -109,44 +141,28 @@ async function scrapeSLDestinations(categoryUrl) {
 /**
  * Returns destinations for a given tag/category.
  * Checks the 48-hour cache first; scrapes live if stale or missing.
- *
- * @param {object} options
- * @param {string} options.url   Category URL on secondlife.com
- * @param {string} options.tag   Human-readable tag used as cache key (e.g. "Art")
- * @returns {Promise<Array>}
  */
 async function getDestinations({ url, tag = 'General' }) {
     ensureCacheDir();
 
-    // 1. Return cached data if still fresh
     const cached = loadCache(tag);
     if (cached) return cached;
 
-    // 2. Nothing in cache (or stale) — scrape live
     if (!url) {
         console.warn('[SL SCRAPER] No URL provided and cache is empty for tag:', tag);
         return [];
     }
 
     const destinations = await scrapeSLDestinations(url);
-
-    // 3. Persist to cache
     if (destinations.length > 0) saveCache(tag, destinations);
-
     return destinations;
 }
 
 /**
  * Forces a fresh scrape, ignoring the cache.
- *
- * @param {object} options
- * @param {string} options.url
- * @param {string} options.tag
- * @returns {Promise<Array>}
  */
 async function refreshDestinations({ url, tag = 'General' }) {
     if (!url) return [];
-
     const destinations = await scrapeSLDestinations(url);
     if (destinations.length > 0) saveCache(tag, destinations);
     return destinations;
@@ -154,9 +170,6 @@ async function refreshDestinations({ url, tag = 'General' }) {
 
 /**
  * Loads the SL favorites list from disk.
- * Returns [] if the file doesn't exist yet.
- *
- * @returns {Array}
  */
 function getFavorites() {
     if (!fs.existsSync(FAV_PATH)) return [];
@@ -169,11 +182,11 @@ function getFavorites() {
 
 /**
  * Saves a favorites list to disk.
- *
- * @param {Array} favorites
  */
 function saveFavorites(favorites) {
     ensureCacheDir();
+    const dir = path.dirname(FAV_PATH);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(FAV_PATH, JSON.stringify(favorites, null, 2));
 }
 

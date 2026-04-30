@@ -1,10 +1,33 @@
 // ===============================
 // GLOBAL CONFIG
 // ===============================
-window.socket = io(); // Initialize immediately
-window.isRemoteAction = false;
 const params = new URLSearchParams(window.location.search);
-window.myRoom = params.get('room') || 'Lobby';  // ← define AQUI, globalmente
+window.myRoom = params.get('room') || window.__ROOM__ || 'Lobby';
+
+// Pass room in handshake so socket.js knows which room to join
+window.socket = io({ query: { room: window.myRoom } });
+window.isRemoteAction = false;
+
+
+
+// Função para entrar numa sala específica (ex: 'Global')
+function joinGlobalRoom() {
+    const newRoom = 'Global_Public';
+    window.myRoom = newRoom;
+    socket.emit('switch_room', { room: newRoom });
+    const newUrl = window.location.origin + '/?room=' + newRoom;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+    alert("Entraste na Sala Global!");
+}
+
+// Função para partilhar a tua sala atual
+function shareMyRoom() {
+    const shareLink = window.location.origin + '/?room=' + encodeURIComponent(window.myRoom);
+    navigator.clipboard.writeText(shareLink).then(() => {
+        alert("Link da tua sala copiado! Envia a outros espectadores para eles sincronizarem contigo.");
+    });
+}
+
 
 
 // ===============================
@@ -14,7 +37,7 @@ const NAV_CONFIG = {
 
     // --- AJAX MENUS (Fragments) ---
     menus: {
-        'radios': '/radios-menu',
+        'radios': '/radios/radios-menu',
         'inter-radio': '/radios/inter-radio',
         'sl-radio': '/radios/sl-radio',
         'music': '/music-menu',
@@ -144,88 +167,68 @@ function toggleTextContrast(isRemote = false) {
 
 
 $(document).ready(function() {
-    // 1. Aplicar contraste guardado (Pode manter aqui)
+    // 1. Aplicar contraste guardado
     if (localStorage.getItem("text_contrast") === "dark") {
         $('body').addClass('dark-text');
     }
 
-    // 2. Lógica de Acesso e Segurança
     const params = new URLSearchParams(window.location.search);
     const token = params.get('token');
+    const roomId = window.myRoom; // ID da TV definido no Global Config
 
     // EXCEPÇÃO PARA MODO DEVELOPER
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.warn("Developer Mode: Ignorando validação de token.");
-        // Se não houver room no URL, define um padrão para não quebrar o socket
-        if (!window.myRoom) window.myRoom = 'Lobby'; 
-        return; // Sai da função aqui, permitindo que a app carregue
-    }
-
-    // VALIDAÇÃO PARA PRODUÇÃO (ONLINE)
-    if (!token) {
-        window.location.href = '/access-denied';
+        console.warn("Dev Mode: Ignorando validações de segurança.");
         return;
     }
 
-$.get(`/validate-token?token=${token}`)
-    .done(function(data) {
-        if (data.valid) {
-            console.log("✅ Access granted for:", data.owner);
-            window.history.replaceState({}, '', '/');
-            
-            // ← ADICIONA ISTO:
-            const goto = params.get('goto');
-            if (goto === 'stream-cam') {
-                // Espera o DOM estar pronto antes de navegar
-                setTimeout(() => handleNav('stream-cam'), 500);
-            }
+    // --- LÓGICA DE ACESSO: STATUS -> TOKEN ---
 
-        } else {
-            window.location.href = '/access-denied';
-        }
-    })
-    .fail(function() {
-        window.location.href = '/access-denied';
-    });
-});
-
-
-
-/*
-$(document).ready(function() {
-    if (localStorage.getItem("text_contrast") === "dark") {
-        $('body').addClass('dark-text');
-    }
-});
-$(document).ready(function() {
-    const params = new URLSearchParams(window.location.search);
-    const token  = params.get('token');
-
-    if (!token) {
-        // Sem token — acesso direto não autorizado
-        window.location.href = '/access-denied';
-        return;
-    }
-
-    $.get(`/validate-token?token=${token}`)
+    // Passo 1: Verificar se a TV já está online no registro de memória
+    $.get(`/check-status/${roomId}`)
         .done(function(data) {
-            if (data.valid) {
-                console.log("✅ Access granted for:", data.owner);
-                // Remove o token da URL sem recarregar
-                window.history.replaceState({}, '', '/');
-                // App continua a carregar normalmente
-            } else {
-                window.location.href = '/access-denied';
+            if (data.online) {
+                // A TV já está a funcionar. Acesso total como Viewer.
+                console.log("✅ Acesso concedido: TV está Online.");
+                
+                // Limpamos o token do URL para segurança e estética, mantendo a room
+                if (token) {
+                    window.history.replaceState({}, '', `/?room=${roomId}`);
+                }
+            } 
+            else {
+                // Passo 2: TV não está online. Precisamos obrigatoriamente de um token.
+                console.log("⚠️ TV não detectada como Online. Verificando token...");
+
+                if (!token) {
+                    // Sem TV online e sem token no URL = Bloqueio
+                    console.error("❌ Acesso negado: TV offline e nenhum token fornecido.");
+                    window.location.href = '/access-denied';
+                } else {
+                    // Tentar validar o token que veio no URL
+                    $.get(`/validate-token?token=${token}`)
+                        .done(function(valData) {
+                            if (valData.valid) {
+                                console.log("✅ Token validado! Bem-vindo, Owner.");
+                                // Limpa o token para evitar reutilização acidental
+                                window.history.replaceState({}, '', `/?room=${roomId}`);
+                            } else {
+                                console.error("❌ Token inválido ou expirado.");
+                                window.location.href = '/access-denied';
+                            }
+                        })
+                        .fail(function() {
+                            window.location.href = '/access-denied';
+                        });
+                }
             }
         })
         .fail(function() {
+            // Em caso de erro crítico no servidor
+            console.error("Erro na comunicação com o servidor de validação.");
             window.location.href = '/access-denied';
         });
 });
-*/
-
-
-
 
 
 // ===============================
@@ -264,14 +267,15 @@ function handleNav(mode, isRemote = false) {
             mode: mode, 
             route: finalUrl,
             path: finalUrl,
-            room: myRoom
+            room: window.myRoom
         });
 
         if (!finalUrl.includes('tvytube')) {
             window.socket.emit('report_current_time', {
                 videoId: null,
                 time: 0,
-                paused: true
+                paused: true,
+                room: window.myRoom
             });
         }
     }
@@ -334,13 +338,14 @@ function closeSubMenu(isRemote = false) {
         window.socket.emit('report_current_time', { 
             videoId: null, 
             time: 0, 
-            paused: true 
+            paused: true,
+            room: window.myRoom
         });
 
         window.socket.emit('mirror_ajax_nav', { 
             action: 'CLOSE', 
-            path: '/', 
-            room: myRoom 
+            path: '/',
+            room: window.myRoom
         });
     }
 
@@ -433,28 +438,12 @@ $(document).on('click', '.btn', function(e) {
             }
             return;
         } else {
-            return handleNav('/radios-menu'); 
+            return handleNav('/radios/radios-menu'); 
         }
     }
 });
 
-// ===============================
-// SCROLL SYNC
-// ===============================
-let scrollTimeout;
-// Locate this in your GLOBAL config
-$(document).on('scroll', '#conteiner, .conteiner, #xxx-module, #grid-content', function() {
-    if (socket && socket.connected && !window.isSyncing) { 
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            socket.emit('state_sync', {
-                type: 'scroll',
-                position: $(this).scrollTop(),
-                room: myRoom
-            });
-        }, 50); 
-    }
-});
+
 
 window.killRadio = function() {
     const audio = document.getElementById('sl_native_player');
@@ -470,7 +459,7 @@ window.killRadio = function() {
 // ===============================
 // HOVER & INPUT SYNC (senders only — no listener here)
 // ===============================
-const syncSelectors = '.card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn,.tag-card, .action-btn, .cat-item, .fav-item';
+const syncSelectors = '.chip, .list-row, .card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn, .tag-card, .action-btn, .cat-item, .fav-item, .card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn,.tag-card, .action-btn, .cat-item, .fav-item';
 
 $(document).on('mouseenter mouseleave', syncSelectors, function(e) {
     if (window.isRemoteAction) return;
@@ -509,6 +498,35 @@ function aplicarBackground(url) {
         'background-attachment': 'fixed'
     });
 }
+
+// ===============================
+// SCROLL SYNC (VERSÃO CORRIGIDA)
+// ===============================
+let scrollTimeout;
+
+// Todos os seletores dentro de UMA única string
+const globalScrollTargets = '#sl-main-scroll-area, #conteiner, .conteiner, #xxx-module, #grid-content, #yt-content-scroll';
+
+$(document).on('scroll', globalScrollTargets, function() {
+    // 1. Só envia se o socket existir e se não for um scroll vindo de fora (remote)
+    if (window.socket && window.socket.connected && !window.isSyncing) { 
+        
+        const $el = $(this);
+        // Descobrir qual o ID ou Classe do elemento que disparou o scroll
+        const activeSelector = $el.attr('id') ? '#' + $el.attr('id') : '.conteiner';
+
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            // Enviamos a posição em pixels (scrollTop)
+            socket.emit('state_sync', {
+                type: 'scroll',
+                selector: activeSelector, // <-- Adicionamos isto para o outro saber ONDE rolar
+                position: $el.scrollTop(),
+                room: window.myRoom
+            });
+        }, 50); 
+    }
+});
 // ===============================
 // SOCKET INITIALIZATION
 // ===============================
@@ -584,7 +602,10 @@ if (state.currentBg) {
             }
         });
 
-
+socket.on('room_switched', function(data) {
+    window.myRoom = data.room;
+    console.log('[Room] Switched to:', data.room);
+});
         
         // -------------------------------------------------------
         // state_sync — SINGLE unified listener (was duplicated)
@@ -822,6 +843,17 @@ socket.on('mirror_ajax_nav', function(data) {
         socket.on('openPage', function(fullRoute) {
             console.log("Global Nav Triggered:", fullRoute);
             handleNav(fullRoute, true);
+        });
+
+        // ── GAME STREAM — viewer toast ────────────────────────
+        socket.on('gs_stream_started', function() {
+            if (typeof window.gsToastShow === 'function') window.gsToastShow();
+        });
+        socket.on('gs_stream_stopped', function() {
+            if (typeof window.gsToastDismiss === 'function') window.gsToastDismiss();
+        });
+        socket.on('gs_streamer_left', function() {
+            if (typeof window.gsToastDismiss === 'function') window.gsToastDismiss();
         });
 
     } else {
