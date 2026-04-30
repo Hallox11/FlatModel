@@ -1,408 +1,370 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Radio Explorer</title>
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0; padding: 0;
-            width: 100vw; height: 100vh;
-            overflow: hidden;
-            background: #0f0f0f url('https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=2070') no-repeat center center fixed;
-            background-size: cover;
-            color: white; font-family: 'Segoe UI', sans-serif;
-            display: flex; flex-direction: column;
-        }
+<style>
+    #inter-radio-root * { box-sizing: border-box; }
 
+    #inter-radio-root {
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        background: #0f0f0f url('https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=2070') no-repeat center center;
+        background-size: cover;
+        color: white;
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
 
-        /* --- Global Explorer (The Menu) --- */
-        #inter-radio-wrapper {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 850px;
-            margin: 40px auto;
-            animation: fadeIn 0.4s ease-out;
-        }
+    /* ── HEADER ─────────────────────────────────────────── */
+    #ir-header {
+        width: 100%;
+        height: 80px;
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(15px) saturate(150%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        flex-shrink: 0;
+        z-index: 10;
+    }
 
-        .flex-row { display: flex; gap: 20px; width: 100%; justify-content: space-between; }
+    .ir-header-info { flex: 1; min-width: 0; }
+    .ir-header-info h1 {
+        margin: 0; font-size: 24px; color: #2cf3de;
+        text-transform: uppercase; letter-spacing: 3px;
+        font-weight: 400; white-space: nowrap;
+        overflow: hidden; text-overflow: ellipsis;
+    }
+    #ir-status { margin-top: 4px; font-size: 16px; color: rgba(255,255,255,0.95); font-weight: 400; }
 
-        .column-section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .ir-player-tools {
+        flex: 0 1 auto;
+        display: flex; align-items: center;
+        background: rgba(255,255,255,0.05);
+        padding: 12px 25px; border-radius: 15px;
+        border: 1px solid rgba(255,255,255,0.1);
+        gap: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
 
-        .column-header {
-            font-size: 16px; color: #DAA520;
-            text-transform: uppercase; margin-bottom: 10px;
-            letter-spacing: 2px; text-align: center;
-        }
+    #ir-play-btn {
+        background: #ffffff; color: #000 !important;
+        border: none; padding: 5px 24px;
+        border-radius: 8px; font-weight: 600; font-size: 18px;
+        text-transform: uppercase; cursor: pointer;
+        transition: all 0.2s ease; min-width: 110px;
+    }
+    #ir-play-btn:hover { background: #DAA520; transform: scale(1.05); }
 
-        .scroll-container {
-            display: flex; flex-direction: column; gap: 8px;
-            width: 100%; height: 350px;
-            overflow-y: auto; padding-right: 5px;
-        }
+    .ir-vol { display: flex; align-items: center; gap: 12px; color: #fff; }
+    .ir-vol span { font-size: 15px; font-weight: 600; letter-spacing: 1px; opacity: 0.7; }
+    #ir-volume { width: 100px; cursor: pointer; accent-color: #2cf3de; }
 
-        /* --- Buttons & Inputs --- */
-        .btnr {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white; padding: 10px 15px;
-            border-radius: 8px; cursor: pointer; font-size: 16px;
-            transition: all 0.2s; text-align: center;
-            text-transform: uppercase;
-        }
-        .btnr:hover { background: rgba(218, 165, 32, 0.3); border-color: #DAA520; }
-        .back-btn { background: #e74c3c; border: none; font-weight: bold; width: 80px; }
+    .ir-header-nav { flex: 1; display: flex; justify-content: flex-end; gap: 10px; }
 
-        .search-field {
-            margin-top: 15px; width: 100%; padding: 10px;
-            border-radius: 8px; border: 1px solid rgba(218, 165, 32, 0.4);
-            background: rgba(0, 0, 0, 0.5); color: white; outline: none;
-        }
+    .ir-back-btn {
+        background: #e74c3c !important; border: none !important;
+        color: white !important; padding: 8px 20px !important;
+        border-radius: 8px !important; font-weight: 600 !important;
+        text-transform: uppercase; letter-spacing: 1px;
+        cursor: pointer; font-size: 16px;
+        transition: all 0.2s ease;
+    }
+    .ir-back-btn:hover { filter: brightness(1.2); transform: translateX(-4px); }
 
-        /* --- Radio Results Grid --- */
-        .content-area { flex-grow: 1; overflow-y: auto; padding: 20px; }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px; max-width: 1200px; margin: 0 auto;
-        }
-        .radio-card {
-            background: rgba(0, 0, 0, 0.7); border-radius: 10px; padding: 15px;
-            text-align: center; cursor: pointer; transition: 0.2s;
-            border: 1px solid transparent; height: 160px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            position: relative;
-        }
-        .radio-card:hover { border: 2px solid #2cf3de; transform: translateY(-3px); }
-        .radio-card img { width: 65px; height: 65px; object-fit: contain; background: white; border-radius: 5px; margin-bottom: 10px; }
-        .radio-card p { margin: 0; font-size: 13px; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    /* ── CONTENT ─────────────────────────────────────────── */
+    #ir-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 30px;
+    }
+    #ir-content::-webkit-scrollbar { width: 4px; }
+    #ir-content::-webkit-scrollbar-thumb { background: #DAA520; border-radius: 10px; }
 
-        .fav-btn {
-            position: absolute; top: 8px; right: 8px;
-            background: rgba(0, 0, 0, 0.5); border: none; color: white;
-            border-radius: 50%; width: 26px; height: 26px; cursor: pointer;
-        }
-        .fav-btn.active { color: #e74c3c; }
+    /* ── MENU ─────────────────────────────────────────────── */
+    #ir-menu {
+        display: flex; gap: 20px; width: 850px;
+        margin: 10px auto; animation: ir-fadeIn 0.4s ease-out;
+    }
 
-        /* Custom Scrollbar */
-        .scroll-container::-webkit-scrollbar { width: 4px; }
-        .scroll-container::-webkit-scrollbar-thumb { background: #DAA520; border-radius: 10px; }
+    .ir-column {
+        flex: 1; display: flex; flex-direction: column;
+        background: rgba(0,0,0,0.6); backdrop-filter: blur(10px);
+        border-radius: 15px; padding: 15px;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .ir-col-header {
+        font-size: 16px; color: #DAA520;
+        text-transform: uppercase; margin-bottom: 10px;
+        letter-spacing: 2px; text-align: center;
+    }
+    .ir-scroll {
+        display: flex; flex-direction: column; gap: 8px;
+        height: 350px; overflow-y: auto; padding-right: 5px;
+    }
+    .ir-scroll::-webkit-scrollbar { width: 4px; }
+    .ir-scroll::-webkit-scrollbar-thumb { background: #DAA520; border-radius: 10px; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-  
-  /* Modern Glassmorphism Header */
-/* Container for the fixed header */
-.header-controls {
-    width: 100%;
-    height: 80px;
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(15px) saturate(150%);
-    -webkit-backdrop-filter: blur(15px) saturate(150%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: center; /* Centers the 1280px inner content */
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
+    .ir-btn {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: white; padding: 10px 15px;
+        border-radius: 8px; cursor: pointer; font-size: 16px;
+        transition: all 0.2s; text-align: center; text-transform: uppercase;
+    }
+    .ir-btn:hover { background: rgba(218,165,32,0.3); border-color: #DAA520; }
 
-/* The 1280px Constraint Wrapper */
-.header-inner {
-    width: 100%;
-    max-width: 1280px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
-}
+    .ir-search {
+        margin-top: 15px; width: 100%; padding: 10px;
+        border-radius: 8px; border: 1px solid rgba(218,165,32,0.4);
+        background: rgba(0,0,0,0.5); color: white; outline: none;
+        font-size: 14px;
+    }
 
-/* LEFT: Station Branding */
-.header-info {
-    flex: 1; /* Pushes center content to middle */
-    min-width: 0;
-}
+    /* ── GRID ─────────────────────────────────────────────── */
+    #ir-grid {
+        display: none;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px; max-width: 1200px; margin: 0 auto;
+        animation: ir-fadeIn 0.3s ease-out;
+    }
 
-.header-info h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #2cf3de; /* Goldenrod */
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 400;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+    .ir-card {
+        background: rgba(0,0,0,0.7); border-radius: 10px; padding: 15px;
+        text-align: center; cursor: pointer; transition: 0.2s;
+        border: 1px solid transparent; height: 160px;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        position: relative;
+    }
+    .ir-card:hover { border: 2px solid #2cf3de; transform: translateY(-3px); }
+    .ir-card img {
+        width: 65px; height: 65px; object-fit: contain;
+        background: white; border-radius: 5px; margin-bottom: 10px;
+    }
+    .ir-card p {
+        margin: 0; font-size: 13px; width: 100%;
+        overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
 
-#status-text {
-    margin-top: 4px;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 400;
-}
+    .ir-fav-btn {
+        position: absolute; top: 8px; right: 8px;
+        background: rgba(0,0,0,0.5); border: none; color: white;
+        border-radius: 50%; width: 26px; height: 26px; cursor: pointer;
+        font-size: 14px; display: flex; align-items: center; justify-content: center;
+    }
+    .ir-fav-btn.active { color: #e74c3c; }
 
-/* CENTER: Central Control Unit */
-.player-tools {
-    flex: 0 1 auto;
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 12px 25px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    gap: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
+    @keyframes ir-fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+</style>
 
-#play-pause-btn {
-    background: #ffffff;
-    color: #000000 !important;
-    border: none;
-    padding: 5px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 18px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    min-width: 110px;
-}
+<div id="inter-radio-root">
 
-#play-pause-btn:hover {
-    background: #DAA520;
-    transform: scale(1.05);
-}
-
-.volume-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #fff;
-}
-
-.volume-container span {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    opacity: 0.7;
-}
-
-/* Custom Volume Slider Styling */
-#volume-slider {
-    width: 100px;
-    cursor: pointer;
-    accent-color: #2cf3de;
-}
-
-/* RIGHT: Navigation Area */
-.header-navigation {
-    flex: 1; /* Matches Left size to keep Center perfectly aligned */
-    display: flex;
-    justify-content: flex-end;
-}
-
-.back-btn {
-    background: #e74c3c !important; /* Bold Red */
-    border: none !important;
-    color: white !important;
-    padding: 5px 0px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: all 0.2s ease;
-}
-
-.back-btn:hover {
-    filter: brightness(1.2);
-    transform: translateX(-5px); /* Subtle visual hint */
-}
-
-/* Adjust Content Area to not hide under fixed header */
-.content-area {
-    margin-top: 100px; 
-    padding-top: 20px;
-}
-  </style>
-</head>
-<body>
-
-<header class="header-controls">
-    <div class="header-inner">
-        
-        <div class="header-info">
-            <h1 id="main-title">Radios Explorer</h1>
-            <p id="status-text">Select a station to begin</p>
+    <header id="ir-header">
+        <div class="ir-header-info">
+            <h1 id="ir-title">Radios Explorer</h1>
+            <p id="ir-status">Select a station to begin</p>
         </div>
 
-        <div class="player-tools">
-            <audio id="audio-player"></audio>
-            <button class="btn" onclick="togglePlay()" id="play-pause-btn">Play</button>
-            
-            <div class="volume-container">
+        <div class="ir-player-tools">
+            <audio id="ir-audio"></audio>
+            <button id="ir-play-btn" onclick="irTogglePlay()">Play</button>
+            <div class="ir-vol">
                 <span>VOL</span>
-                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1" oninput="changeVolume(this.value)">
+                <input type="range" id="ir-volume" min="0" max="1" step="0.1" value="1"
+                       oninput="document.getElementById('ir-audio').volume = this.value">
             </div>
         </div>
 
-        <div class="header-navigation">
-            <button class="btn back-btn" id="global-back-btn" onclick="showMenu()" style="display:none;">BACK</button>
+        <div class="ir-header-nav">
+            <!-- Back to grid→menu shown when in grid view -->
+            <button class="ir-back-btn" id="ir-grid-back" style="display:none"
+                    onclick="irShowMenu()">&#8592; Back</button>
+            <!-- Back to previous page (radios-menu) — always visible -->
+            <button class="ir-back-btn" onclick="irExit()">&#8592; Radios</button>
         </div>
+    </header>
+
+    <div id="ir-content">
+
+        <!-- MENU -->
+        <div id="ir-menu">
+            <div class="ir-column">
+                <div class="ir-col-header">By Country</div>
+                <div class="ir-scroll" id="ir-country-list">
+                    <div class="ir-btn" onclick="irLoad('country','pt','Portugal')">Portugal</div>
+                    <div class="ir-btn" onclick="irLoad('country','br','Brasil')">Brasil</div>
+                    <div class="ir-btn" onclick="irLoad('country','nz','New Zealand')">New Zealand</div>
+                    <div class="ir-btn" onclick="irLoad('country','es','Spain')">Spain</div>
+                    <div class="ir-btn" onclick="irLoad('country','fr','France')">France</div>
+                    <div class="ir-btn" onclick="irLoad('country','it','Italy')">Italy</div>
+                    <div class="ir-btn" onclick="irLoad('country','us','USA')">USA</div>
+                </div>
+                <input class="ir-search" placeholder="Search country..."
+                       oninput="irFilter('ir-country-list', this.value)">
+            </div>
+
+            <div class="ir-column">
+                <div class="ir-col-header">By Genre</div>
+                <div class="ir-scroll" id="ir-genre-list">
+                    <div class="ir-btn" onclick="irLoad('tag','jazz','Jazz')">Jazz</div>
+                    <div class="ir-btn" onclick="irLoad('tag','rock','Rock')">Rock</div>
+                    <div class="ir-btn" onclick="irLoad('tag','pop','Pop')">Pop</div>
+                    <div class="ir-btn" onclick="irLoad('tag','chillout','Chillout')">Chillout</div>
+                    <div class="ir-btn" onclick="irLoad('tag','disco','Disco')">Disco</div>
+                    <div class="ir-btn" onclick="irLoad('tag','classical','Classical')">Classical</div>
+                    <div class="ir-btn" onclick="irLoad('tag','electronic','Electronic')">Electronic</div>
+                </div>
+                <input class="ir-search" placeholder="Search genre..."
+                       oninput="irFilter('ir-genre-list', this.value)">
+            </div>
+        </div>
+
+        <!-- GRID -->
+        <div id="ir-grid"></div>
 
     </div>
-</header>
-
-<div class="content-area">
-    <div id="inter-radio-wrapper">
-        <div class="flex-row">
-            <div class="column-section">
-                <div class="column-header">By Country</div>
-                <div class="scroll-container" id="country-list">
-                    <div class="btnr" onclick="loadRadioData('country', 'pt', 'Portugal')">Portugal</div>  
-                    <div class="btnr" onclick="loadRadioData('country', 'br', 'Brasil')">Brasil</div>  
-                    <div class="btnr" onclick="loadRadioData('country', 'nz', 'New Zealand')">New Zealand</div>
-                    <div class="btnr" onclick="loadRadioData('country', 'es', 'Spain')">Spain</div>  
-                    <div class="btnr" onclick="loadRadioData('country', 'fr', 'France')">France</div>  
-                    <div class="btnr" onclick="loadRadioData('country', 'it', 'Italy')">Italy</div>  
-                    <div class="btnr" onclick="loadRadioData('country', 'us', 'USA')">USA</div>
-                </div>
-                <input type="text" class="search-field" placeholder="Search country..." onkeyup="filterList('country-list', this.value)">
-            </div>
-
-            <div class="column-section">
-                <div class="column-header">By Genre</div>
-                <div class="scroll-container" id="genre-list">
-                    <div class="btnr" onclick="loadRadioData('tag', 'jazz', 'Jazz')">Jazz</div>
-                    <div class="btnr" onclick="loadRadioData('tag', 'rock', 'Rock')">Rock</div>
-                    <div class="btnr" onclick="loadRadioData('tag', 'pop', 'Pop')">Pop</div>
-                    <div class="btnr" onclick="loadRadioData('tag', 'chillout', 'Chillout')">Chillout</div>
-                    <div class="btnr" onclick="loadRadioData('tag', 'disco', 'Disco')">Disco</div>
-                    <div class="btnr" onclick="loadRadioData('tag', 'classical', 'Classical')">Classical</div>
-                    <div class="btnr" onclick="loadRadioData('tag', 'electronic', 'Electronic')">Electronic</div>
-                </div>
-                <input type="text" class="search-field" placeholder="Search genre..." onkeyup="filterList('genre-list', this.value)">
-            </div>
-        </div>
-    </div>
-
-    <div id="radio-grid" class="grid-container" style="display: none;"></div>
 </div>
 
 <script>
-    const player = document.getElementById('audio-player');
-    const playBtn = document.getElementById('play-pause-btn');
-    const menu = document.getElementById('inter-radio-wrapper');
-    const grid = document.getElementById('radio-grid');
-    const backBtn = document.getElementById('global-back-btn');
-    let isFetching = false;
+(function() {
+    const audio   = document.getElementById('ir-audio');
+    const playBtn = document.getElementById('ir-play-btn');
+    const menu    = document.getElementById('ir-menu');
+    const grid    = document.getElementById('ir-grid');
+    const gridBack = document.getElementById('ir-grid-back');
+    let fetching  = false;
 
-    // Unified Logic for Fetching
-    async function loadRadioData(type, value, displayName) {
-        if (isFetching) return;
-        isFetching = true;
+    // ── NAV ──────────────────────────────────────────────
+    window.irExit = function() {
+        // Stop audio before leaving
+        audio.pause(); audio.src = '';
+        if (typeof closeSubMenu === 'function') {
+            // Go back to radios-menu (previous page in the overlay system)
+            if (window.socket) {
+                window.socket.emit('mirror_ajax_nav', {
+                    mode: 'radios', route: '/radios/radios-menu',
+                    path: '/radios/radios-menu', room: window.myRoom
+                });
+            }
+            if (typeof handleNav === 'function') handleNav('radios', true);
+            // Actually navigate
+            handleNav('radios');
+        }
+    };
+
+    window.irShowMenu = function() {
+        grid.style.display = 'none';
+        gridBack.style.display = 'none';
+        menu.style.display = 'flex';
+        document.getElementById('ir-title').innerText  = 'Radios Explorer';
+        document.getElementById('ir-status').innerText = 'Select a station to begin';
+    };
+
+    // ── FETCH ─────────────────────────────────────────────
+    window.irLoad = async function(type, value, label) {
+        if (fetching) return;
+        fetching = true;
 
         menu.style.display = 'none';
-        backBtn.style.display = 'block';
         grid.style.display = 'grid';
-        grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:50px;">Loading ${displayName} stations...</div>`;
-        
-        document.getElementById('main-title').innerText = displayName;
-        document.getElementById('status-text').innerText = "Fetching the best streams...";
+        gridBack.style.display = 'block';
+        grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:50px;color:rgba(255,255,255,0.6)">Loading ${label} stations…</div>`;
 
-        const endpoint = type === 'country' 
-            ? `https://de1.api.radio-browser.info/json/stations/bycountrycodeexact/${value}`
-            : `https://de1.api.radio-browser.info/json/stations/bytag/${value}`;
+        document.getElementById('ir-title').innerText  = label;
+        document.getElementById('ir-status').innerText = 'Fetching streams…';
+
+        const url = type === 'country'
+            ? `https://de1.api.radio-browser.info/json/stations/bycountrycodeexact/${value}?order=clickcount&reverse=true&limit=100`
+            : `https://de1.api.radio-browser.info/json/stations/bytag/${value}?order=clickcount&reverse=true&limit=100`;
 
         try {
-            const response = await fetch(`${endpoint}?order=clickcount&reverse=true&limit=100`);
-            const stations = await response.json();
-            renderGrid(stations);
-        } catch (error) {
-            grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center;">Failed to load stations.</div>';
+            const res      = await fetch(url);
+            const stations = await res.json();
+            irRender(stations);
+        } catch (e) {
+            grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:50px;">Failed to load stations.</div>';
         } finally {
-            isFetching = false;
+            fetching = false;
         }
-    }
+    };
 
-    function renderGrid(stations) {
+    function irRender(stations) {
         grid.innerHTML = '';
-        const seenNames = [];
-        let count = 0;
+        const seen = []; let count = 0;
 
-        stations.forEach(station => {
-            const name = station.name.trim();
-            const hasLogo = station.favicon && station.favicon.startsWith('http');
-            
-            if (hasLogo && !seenNames.includes(name.toLowerCase()) && count < 60) {
-                seenNames.push(name.toLowerCase());
-                count++;
+        stations.forEach(s => {
+            const name = s.name.trim();
+            if (!s.favicon || !s.favicon.startsWith('http')) return;
+            if (seen.includes(name.toLowerCase()) || count >= 60) return;
+            seen.push(name.toLowerCase()); count++;
 
-                const card = document.createElement('div');
-                card.className = 'radio-card';
-                card.innerHTML = `
-                    <button class="fav-btn" onclick="toggleFavorite(event, '${encodeURIComponent(JSON.stringify(station))}')">❤</button>
-                    <img src="${station.favicon}" onerror="this.src='https://via.placeholder.com/60/222/fff?text=Radio';">
-                    <p title="${name}">${name}</p>
-                `;
-                card.onclick = () => playRadio(station.url_resolved, name);
-                grid.appendChild(card);
-            }
+            const card = document.createElement('div');
+            card.className = 'ir-card';
+            card.innerHTML = `
+                <button class="ir-fav-btn" title="Favourite">&#10084;</button>
+                <img src="${s.favicon}" onerror="this.src='https://placehold.co/60x60/222/fff?text=R'">
+                <p title="${name}">${name}</p>
+            `;
+            card.querySelector('.ir-fav-btn').addEventListener('click', (e) => {
+                e.stopPropagation();
+                irFav(e.currentTarget, s);
+            });
+            card.addEventListener('click', () => irPlay(s.url_resolved, name));
+            grid.appendChild(card);
         });
-        document.getElementById('status-text').innerText = `Found ${count} stations.`;
+
+        document.getElementById('ir-status').innerText = `Found ${count} stations`;
     }
 
-    function showMenu() {
-        grid.style.display = 'none';
-        backBtn.style.display = 'none';
-        menu.style.display = 'flex';
-        document.getElementById('main-title').innerText = "Global Explorer";
-        document.getElementById('status-text').innerText = "Select a station";
-    }
+    // ── PLAYBACK ──────────────────────────────────────────
+    window.irPlay = function(url, name) {
+        document.getElementById('ir-status').innerText = 'Now Playing: ' + name;
+        audio.src = url;
+        audio.play();
+        playBtn.innerText = 'Pause';
 
-    function playRadio(url, name) {
-        document.getElementById('status-text').innerText = "Now Playing: " + name;
-        player.src = url;
-        player.play();
-        playBtn.innerText = "Pause";
-    }
-
-    function togglePlay() {
-        if (!player.src) return;
-        player.paused ? (player.play(), playBtn.innerText = "Pause") : (player.pause(), playBtn.innerText = "Play");
-    }
-
-    function changeVolume(val) { player.volume = val; }
-
-    function filterList(containerId, query) {
-        const buttons = document.getElementById(containerId).getElementsByClassName('btn');
-        const filter = query.toLowerCase();
-        for (let btn of buttons) {
-            btn.style.display = btn.innerText.toLowerCase().includes(filter) ? "" : "none";
+        // Sync to room via socket (same pattern as sl-radio)
+        if (window.socket && window.myRoom) {
+            window.socket.emit('TuneRadio', {
+                stream: url, name: name, room: window.myRoom
+            });
         }
+    };
+
+    window.irTogglePlay = function() {
+        if (!audio.src) return;
+        if (audio.paused) { audio.play(); playBtn.innerText = 'Pause'; }
+        else              { audio.pause(); playBtn.innerText = 'Play'; }
+    };
+
+    // ── FILTER ───────────────────────────────────────────
+    window.irFilter = function(id, q) {
+        const f = q.toLowerCase();
+        document.querySelectorAll(`#${id} .ir-btn`).forEach(b => {
+            b.style.display = b.innerText.toLowerCase().includes(f) ? '' : 'none';
+        });
+    };
+
+    // ── FAVOURITES ────────────────────────────────────────
+    async function irFav(btn, station) {
+        btn.classList.toggle('active');
+        try {
+            await fetch('/radio-favorites', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(station)
+            });
+        } catch(e) { console.warn('[ir] fav save failed', e); }
     }
 
-    async function toggleFavorite(event, data) {
-        event.stopPropagation();
-        const btn = event.currentTarget;
-        btn.classList.toggle('active');
-        // Add your /radio-favorites fetch call here if the backend is ready
-    }
+    // ── CLEANUP on overlay close ──────────────────────────
+    // If the parent closes the overlay, stop audio
+    document.addEventListener('closeSubMenu', function() {
+        audio.pause(); audio.src = '';
+    });
+})();
 </script>
-</body>
-</html>
