@@ -1,0 +1,374 @@
+<style>
+#wai-module {
+    width: 1280px; height: 720px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    font-family: 'Fira Sans', sans-serif; color: white;
+    background: #000;
+}
+#wai-close {
+    position: absolute; top: 20px; left: 20px;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
+    color: white; padding: 7px 14px; font-size: 0.78rem;
+    font-family: 'Fira Sans', sans-serif; text-transform: uppercase;
+    letter-spacing: 1px; display: flex; align-items: center; gap: 6px;
+    cursor: pointer; transition: all 0.2s; z-index: 200;
+}
+#wai-close:hover { border-color: rgba(255,255,255,0.5); }
+
+.wai-screen {
+    display: none; flex-direction: column;
+    align-items: center; justify-content: center;
+    width: 100%; height: 100%;
+    animation: waiFade 0.4s ease;
+}
+.wai-screen.active { display: flex; }
+
+/* ── LOBBY ── */
+#wai-lobby { gap: 28px; }
+.wai-title    { font-size: 2.4rem; font-weight: 200; letter-spacing: 8px; text-transform: uppercase; }
+.wai-subtitle { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; }
+
+#wai-players-list { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 800px; }
+.wai-chip {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 50px; padding: 7px 18px; font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 8px;
+}
+.wai-chip-dot { width: 6px; height: 6px; border-radius: 50%; background: #9b59b6; }
+
+.wai-name-row { display: flex; gap: 10px; align-items: center; }
+#wai-name-input {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px; color: white; padding: 12px 20px; font-size: 0.9rem;
+    font-family: 'Fira Sans', sans-serif; outline: none;
+    width: 220px; text-align: center; letter-spacing: 1px;
+}
+#wai-name-input:focus { border-color: #9b59b6; }
+#wai-name-input::placeholder { opacity: 0.3; }
+
+.wai-btn {
+    background: linear-gradient(135deg, rgba(155,89,182,0.25), rgba(155,89,182,0.08));
+    border: 1px solid rgba(155,89,182,0.45); border-radius: 10px;
+    color: white; cursor: pointer; padding: 12px 28px;
+    font-size: 0.82rem; font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase; letter-spacing: 2px; transition: all 0.2s;
+}
+.wai-btn:hover { background: rgba(155,89,182,0.35); transform: scale(1.03); }
+.wai-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
+.wai-btn.gold { background: linear-gradient(135deg, rgba(218,165,32,0.25), rgba(218,165,32,0.08)); border-color: rgba(218,165,32,0.45); }
+.wai-btn.gold:hover { background: rgba(218,165,32,0.35); }
+
+/* ── GAME SCREEN ── */
+#wai-game { gap: 0; justify-content: flex-start; padding-top: 0; }
+
+/* top bar */
+#wai-topbar {
+    width: 100%; height: 70px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+#wai-turn-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.5; }
+#wai-turn-name  { font-size: 1.1rem; font-weight: 600; color: #9b59b6; }
+#wai-lives { display: flex; gap: 6px; font-size: 1.2rem; }
+
+/* center area */
+#wai-center {
+    flex: 1; width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 20px; padding: 30px 60px;
+}
+
+/* the big word on screen — hidden from guesser */
+#wai-word-display {
+    font-size: 4rem; font-weight: 700; letter-spacing: 6px;
+    text-transform: uppercase; text-align: center;
+    color: #daa520;
+    text-shadow: 0 0 40px rgba(218,165,32,0.3);
+}
+#wai-word-hidden {
+    font-size: 1.2rem; letter-spacing: 4px; opacity: 0.25;
+    text-transform: uppercase;
+}
+
+/* questions log */
+#wai-qa-log {
+    width: 100%; max-width: 900px; max-height: 220px;
+    overflow-y: auto; display: flex; flex-direction: column; gap: 8px;
+}
+#wai-qa-log::-webkit-scrollbar { width: 2px; }
+.wai-qa-item {
+    display: flex; gap: 12px; align-items: center;
+    padding: 10px 16px; border-radius: 10px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.88rem;
+}
+.wai-qa-q    { flex: 1; opacity: 0.8; }
+.wai-qa-ans  { font-weight: 700; letter-spacing: 1px; font-size: 0.8rem; }
+.wai-qa-ans.yes  { color: #2ecc71; }
+.wai-qa-ans.no   { color: #e74c3c; }
+.wai-qa-ans.maybe{ color: #f39c12; }
+
+/* input row for guesser */
+#wai-input-row {
+    display: flex; gap: 10px; align-items: center;
+    width: 100%; max-width: 700px;
+}
+#wai-question-input {
+    flex: 1; background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
+    color: white; padding: 12px 20px; font-size: 0.9rem;
+    font-family: 'Fira Sans', sans-serif; outline: none; letter-spacing: 0.5px;
+}
+#wai-question-input:focus { border-color: #9b59b6; }
+#wai-question-input::placeholder { opacity: 0.3; }
+
+/* answer buttons for audience */
+#wai-answer-row {
+    display: flex; gap: 12px;
+}
+.wai-ans-btn {
+    padding: 12px 32px; border-radius: 12px; cursor: pointer;
+    font-size: 0.88rem; font-family: 'Fira Sans', sans-serif;
+    font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    border: 2px solid; transition: all 0.15s ease;
+}
+.wai-ans-btn.yes   { background: rgba(46,204,113,0.12);  border-color: rgba(46,204,113,0.4); color: #2ecc71; }
+.wai-ans-btn.no    { background: rgba(231,76,60,0.12);   border-color: rgba(231,76,60,0.4);  color: #e74c3c; }
+.wai-ans-btn.maybe { background: rgba(243,156,18,0.12);  border-color: rgba(243,156,18,0.4); color: #f39c12; }
+.wai-ans-btn:hover { transform: scale(1.05); filter: brightness(1.3); }
+
+/* ── WIN SCREEN ── */
+#wai-win { gap: 24px; }
+.wai-win-label { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4; }
+.wai-win-word  { font-size: 3rem; font-weight: 700; color: #daa520; letter-spacing: 4px; text-transform: uppercase; }
+.wai-win-player{ font-size: 1.4rem; font-weight: 200; }
+.wai-win-player span { color: #9b59b6; }
+
+@keyframes waiFade { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+</style>
+
+<div id="wai-module">
+    <button id="wai-close" onclick="waiClose()">
+        <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span> Back
+    </button>
+
+    <!-- LOBBY -->
+    <div id="wai-lobby" class="wai-screen active">
+        <div class="wai-title">🕵️ Who Am I?</div>
+        <div class="wai-subtitle">Yes · No · Maybe — Guess the character</div>
+        <div id="wai-players-list"></div>
+        <div class="wai-name-row">
+            <input id="wai-name-input" type="text" placeholder="Your name..." maxlength="16">
+            <button class="wai-btn" onclick="waiJoin()">Join</button>
+        </div>
+        <button class="wai-btn gold" id="wai-start-btn" onclick="waiStart()" disabled>Start Game</button>
+    </div>
+
+    <!-- GAME -->
+    <div id="wai-game" class="wai-screen">
+        <div id="wai-topbar">
+            <div>
+                <div id="wai-turn-label">Guessing</div>
+                <div id="wai-turn-name">—</div>
+            </div>
+            <div id="wai-lives">❤️ ❤️ ❤️</div>
+            <div id="wai-questions-left" style="font-size:0.72rem;opacity:0.4;letter-spacing:2px;text-transform:uppercase;">20 questions left</div>
+        </div>
+
+        <div id="wai-center">
+            <!-- shown to everyone except the guesser -->
+            <div id="wai-word-display" style="display:none;"></div>
+            <!-- shown only to guesser -->
+            <div id="wai-word-hidden">❓ You are someone... ask yes/no questions</div>
+
+            <div id="wai-qa-log"></div>
+
+            <!-- guesser: type a question -->
+            <div id="wai-input-row" style="display:none;">
+                <input id="wai-question-input" type="text" placeholder="Ask a yes/no question..." maxlength="80">
+                <button class="wai-btn" onclick="waiAsk()">Ask</button>
+                <button class="wai-btn gold" onclick="waiGuess()">I Know!</button>
+            </div>
+
+            <!-- audience: answer the question -->
+            <div id="wai-answer-row" style="display:none;">
+                <button class="wai-ans-btn yes"   onclick="waiAnswer('yes')">✅ Yes</button>
+                <button class="wai-ans-btn maybe" onclick="waiAnswer('maybe')">🤔 Maybe</button>
+                <button class="wai-ans-btn no"    onclick="waiAnswer('no')">❌ No</button>
+            </div>
+
+            <div id="wai-pending-q" style="display:none;font-size:1.1rem;opacity:0.6;text-align:center;max-width:700px;font-style:italic;"></div>
+        </div>
+    </div>
+
+    <!-- WIN -->
+    <div id="wai-win" class="wai-screen">
+        <div class="wai-win-label">The answer was</div>
+        <div class="wai-win-word" id="wai-win-word"></div>
+        <div class="wai-win-player" id="wai-win-player"></div>
+        <div style="display:flex;gap:12px;margin-top:10px;">
+            <button class="wai-btn gold" onclick="waiNextRound()">Next Round</button>
+            <button class="wai-btn" onclick="waiClose()">Exit</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    const socket = window.socket;
+    if (!socket) return;
+    const myRoom = window.myRoom || 'Lobby';
+
+    let myName        = null;
+    let players       = {};
+    let mySocketId    = socket.id;
+    let currentGuesser = null;
+    let isGuesser     = false;
+    let questionsLeft = 20;
+    let lives         = 3;
+
+    function show(id) {
+        document.querySelectorAll('.wai-screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+
+    function renderPlayers() {
+        const list = document.getElementById('wai-players-list');
+        const entries = Object.values(players);
+        list.innerHTML = entries.length
+            ? entries.map(p => `<div class="wai-chip"><div class="wai-chip-dot"></div>${p.name}</div>`).join('')
+            : '<div style="opacity:0.3;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;">No players yet</div>';
+        document.getElementById('wai-start-btn').disabled = entries.length < 2;
+    }
+
+    window.waiJoin = function () {
+        const name = document.getElementById('wai-name-input').value.trim();
+        if (!name) return;
+        myName = name;
+        mySocketId = socket.id;
+        socket.emit('wai_join', { room: myRoom, name });
+        document.getElementById('wai-name-input').disabled = true;
+        document.querySelector('.wai-name-row .wai-btn').disabled = true;
+    };
+
+    window.waiStart = function () { socket.emit('wai_start', { room: myRoom }); };
+
+    window.waiAsk = function () {
+        const q = document.getElementById('wai-question-input').value.trim();
+        if (!q) return;
+        socket.emit('wai_ask', { room: myRoom, question: q });
+        document.getElementById('wai-question-input').value = '';
+        document.getElementById('wai-input-row').style.display = 'none';
+        document.getElementById('wai-pending-q').style.display = 'block';
+        document.getElementById('wai-pending-q').textContent = `"${q}"`;
+    };
+
+    window.waiAnswer = function (ans) {
+        socket.emit('wai_answer', { room: myRoom, answer: ans });
+        document.getElementById('wai-answer-row').style.display = 'none';
+    };
+
+    window.waiGuess = function () {
+        const guess = prompt('Who are you?');
+        if (guess) socket.emit('wai_guess', { room: myRoom, guess });
+    };
+
+    window.waiNextRound = function () { socket.emit('wai_next_round', { room: myRoom }); };
+
+    window.waiClose = function () {
+        socket.emit('wai_leave', { room: myRoom });
+        if (typeof closeSubMenu === 'function') closeSubMenu();
+    };
+
+    function updateUI(guesserName, qLeft, liv) {
+        document.getElementById('wai-turn-name').textContent = guesserName || '—';
+        document.getElementById('wai-questions-left').textContent = `${qLeft} questions left`;
+        document.getElementById('wai-lives').textContent = '❤️'.repeat(liv) + '🖤'.repeat(3 - liv);
+    }
+
+    // ── SOCKET EVENTS ──
+    socket.on('wai_players_update', d => { players = d.players; renderPlayers(); });
+
+    socket.on('wai_round_start', d => {
+        currentGuesser = d.guesserId;
+        isGuesser      = (socket.id === d.guesserId);
+        questionsLeft  = d.questionsLeft || 20;
+        lives          = d.lives || 3;
+
+        document.getElementById('wai-qa-log').innerHTML = '';
+        document.getElementById('wai-pending-q').style.display = 'none';
+
+        updateUI(d.guesserName, questionsLeft, lives);
+
+        if (isGuesser) {
+            document.getElementById('wai-word-display').style.display = 'none';
+            document.getElementById('wai-word-hidden').style.display = 'block';
+            document.getElementById('wai-input-row').style.display = 'flex';
+            document.getElementById('wai-answer-row').style.display = 'none';
+        } else {
+            document.getElementById('wai-word-display').style.display = 'block';
+            document.getElementById('wai-word-display').textContent = d.word;
+            document.getElementById('wai-word-hidden').style.display = 'none';
+            document.getElementById('wai-input-row').style.display = 'none';
+            document.getElementById('wai-answer-row').style.display = 'none';
+        }
+
+        show('wai-game');
+    });
+
+    socket.on('wai_question', d => {
+        document.getElementById('wai-pending-q').style.display = 'block';
+        document.getElementById('wai-pending-q').textContent = `"${d.question}"`;
+
+        if (!isGuesser) {
+            document.getElementById('wai-answer-row').style.display = 'flex';
+        }
+        document.getElementById('wai-input-row').style.display = 'none';
+    });
+
+    socket.on('wai_answered', d => {
+        questionsLeft = d.questionsLeft;
+        updateUI(document.getElementById('wai-turn-name').textContent, questionsLeft, lives);
+
+        const log = document.getElementById('wai-qa-log');
+        const cls = d.answer === 'yes' ? 'yes' : d.answer === 'no' ? 'no' : 'maybe';
+        const label = d.answer === 'yes' ? '✅ YES' : d.answer === 'no' ? '❌ NO' : '🤔 MAYBE';
+        log.innerHTML += `<div class="wai-qa-item"><div class="wai-qa-q">${d.question}</div><div class="wai-qa-ans ${cls}">${label}</div></div>`;
+        log.scrollTop = log.scrollHeight;
+
+        document.getElementById('wai-pending-q').style.display = 'none';
+        document.getElementById('wai-answer-row').style.display = 'none';
+
+        if (isGuesser) {
+            document.getElementById('wai-input-row').style.display = 'flex';
+        }
+    });
+
+    socket.on('wai_wrong_guess', d => {
+        lives = d.lives;
+        updateUI(document.getElementById('wai-turn-name').textContent, questionsLeft, lives);
+        if (isGuesser) {
+            document.getElementById('wai-input-row').style.display = 'flex';
+        }
+    });
+
+    socket.on('wai_round_end', d => {
+        document.getElementById('wai-win-word').textContent = d.word;
+        document.getElementById('wai-win-player').innerHTML = d.won
+            ? `<span>${d.guesserName}</span> got it! 🎉`
+            : `Nobody guessed — it was <span>${d.word}</span>`;
+        show('wai-win');
+    });
+
+    socket.on('wai_players_update', d => { players = d.players; renderPlayers(); });
+
+    renderPlayers();
+})();
+</script>
