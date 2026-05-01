@@ -203,23 +203,20 @@ router.get('/stream-cam-page', (req, res) => {
     /////////////////////////////////////////////////
     // GET /api/tvs
     router.get('/api/tvs', (req, res) => {
-        db.all(`SELECT * FROM tv_registry ORDER BY last_seen DESC`, [], (err, rows) => {
-            if (err) return res.status(500).json({ error: err.message });
+        try {
+            const rows = db.prepare(`SELECT * FROM tv_registry ORDER BY last_seen DESC`).all();
             res.json(rows);
-        });
+        } catch (err) { res.status(500).json({ error: err.message }); }
     });
 
     // GET /api/interactions  (+ optional pagination: ?limit=100&offset=0)
     router.get('/api/interactions', (req, res) => {
         const limit  = parseInt(req.query.limit)  || 200;
         const offset = parseInt(req.query.offset) || 0;
-        db.all(`SELECT * FROM interactions ORDER BY timestamp DESC LIMIT ? OFFSET ?`,
-            [limit, offset],
-            (err, rows) => {
-                if (err) return res.status(500).json({ error: err.message });
-                res.json(rows);
-            }
-        );
+        try {
+            const rows = db.prepare(`SELECT * FROM interactions ORDER BY timestamp DESC LIMIT ? OFFSET ?`).all(limit, offset);
+            res.json(rows);
+        } catch (err) { res.status(500).json({ error: err.message }); }
     });
 
     /////////////////////////////////////////////////
@@ -243,12 +240,11 @@ router.post('/register', async (req, res) => {
     }
 
     // 2. HISTÓRICO DE INTERAÇÕES (DB)
-    db.run(
-        `INSERT INTO interactions (owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url],
-        (err) => { if (err) console.error("[Interactions] DB Error:", err.message); }
-    );
+    try {
+        db.prepare(`INSERT INTO interactions (owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+          .run(owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url);
+    } catch (err) { console.error("[Interactions] DB Error:", err.message); }
 
     // 3. MAPEAMENTO DE SESSÃO
     if (clicker && clicker !== "Unknown" && object_id) {
@@ -403,20 +399,13 @@ router.get('/check-room/:roomId', (req, res) => {
     const roomId = req.params.roomId; 
 
     // Verificamos na base de dados (db) se essa TV existe e está ONLINE
-    db.get(`SELECT object_id FROM tv_registry WHERE object_id = ? AND status = 'ONLINE'`, [roomId], (err, row) => {
-        if (err) {
-            console.error("Erro ao verificar sala:", err);
-            return res.status(500).json({ active: false });
-        }
-        
-        if (row) {
-            // Se encontrou a linha, a sala está ativa
-            return res.json({ active: true });
-        } else {
-            // Se não encontrou, ou está offline ou não existe
-            return res.json({ active: false });
-        }
-    });
+    try {
+        const row = db.prepare(`SELECT object_id FROM tv_registry WHERE object_id = ? AND status = 'ONLINE'`).get(roomId);
+        return res.json({ active: !!row });
+    } catch (err) {
+        console.error("Erro ao verificar sala:", err);
+        return res.status(500).json({ active: false });
+    }
 });
 ////////////////////////////////////////
 // check tv status
@@ -438,15 +427,7 @@ router.get('/check-status/:id', (req, res) => {
 router.get('/', (req, res) => {
     const tvId = req.query.id || req.query.token;
 
-    // ── DEMO TOKEN ───────────────────────────────────────────
-    // Set DEMO_TOKEN in .env  →  open /?demo=<your_token>&tv=<object_id>
-    // tv param is optional; defaults to 'demo-tv'
-    const DEMO_TOKEN = process.env.DEMO_TOKEN;
-    if (DEMO_TOKEN && req.query.demo === DEMO_TOKEN) {
-        req.session.activeTvId = req.query.tv || 'demo-tv';
-        console.log(`[Demo] Access granted — TV: ${req.session.activeTvId}`);
-    } else if (tvId) {
-    // ────────────────────────────────────────────────────────
+    if (tvId) {
         if (pendingTokens[tvId]) {
             req.session.activeTvId = pendingTokens[tvId].object_id;
         } else {
@@ -827,21 +808,22 @@ router.get('/sl-destinations', async (req, res) => {
 ///////////////////////////////////////////////////////////////////
 // Helper: upsert TV in SQLite
 function _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip }) {
-    db.run(`
-        INSERT INTO tv_registry (object_id, status, serial, url, owner, land, room, ip, last_seen)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
-        ON CONFLICT(object_id) DO UPDATE SET
-            status    = excluded.status,
-            serial    = excluded.serial,
-            url       = excluded.url,
-            owner     = excluded.owner,
-            land      = excluded.land,
-            room      = excluded.room,
-            ip        = excluded.ip,
-            last_seen = CURRENT_TIMESTAMP
-    `, [object_id, status, serial, url, owner, land_name, `room_${land_id}`, ip],
-    (err) => {
-        if (err) console.error("[Registry] DB Error:", err.message);
-        else console.log(`[Registry] TV ${object_id} synced`);
-    });
+    try {
+        db.prepare(`
+            INSERT INTO tv_registry (object_id, status, serial, url, owner, land, room, ip, last_seen)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+            ON CONFLICT(object_id) DO UPDATE SET
+                status    = excluded.status,
+                serial    = excluded.serial,
+                url       = excluded.url,
+                owner     = excluded.owner,
+                land      = excluded.land,
+                room      = excluded.room,
+                ip        = excluded.ip,
+                last_seen = CURRENT_TIMESTAMP
+        `).run(object_id, status, serial, url, owner, land_name, `room_${land_id}`, ip);
+        console.log(`[Registry] TV ${object_id} synced`);
+    } catch (err) {
+        console.error("[Registry] DB Error:", err.message);
+    }
 }

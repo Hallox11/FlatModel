@@ -11,7 +11,7 @@ const { Server } = require("socket.io");
 const axios = require('axios');
 const PORT = process.env.PORT || 3000;
 const fs = require('fs');
-const sqlite3 = require('sqlite3').verbose();
+const Database = require('better-sqlite3');
 
 const createRouter = require('./routes');
 const initSocketIO = require('./socket');
@@ -39,7 +39,10 @@ app.set('view engine', 'ejs');
 const io = new Server(server, {
     allowEIO3: true,
     perMessageDeflate: false,
-    httpCompression: false
+    httpCompression: false,
+    pingTimeout:    60000,  // SL browser is slow — 60s before disconnect
+    pingInterval:   25000,  // keep-alive pulse (default)
+    upgradeTimeout: 10000   // more time to upgrade polling → websocket
 });
 
 /////////////////////////////////////////////////
@@ -103,13 +106,11 @@ const SESSION_TTL       = 30 * 1000;
 
 /////////////////////////////////////////////////
 // DATABASE
-const db = new sqlite3.Database('./sltv_data.sqlite', (err) => {
-    if (err) console.error("Database opening error:", err.message);
-    else console.log("Connected to SQLite database.");
-});
+const db = new Database('./sltv_data.sqlite');
+console.log("Connected to SQLite database.");
 
-db.serialize(() => {
-    db.run(`CREATE TABLE IF NOT EXISTS interactions (
+db.exec(`
+    CREATE TABLE IF NOT EXISTS interactions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         owner TEXT,
         creator TEXT,
@@ -122,21 +123,20 @@ db.serialize(() => {
         serial TEXT,
         url TEXT,
         timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-    )`);
-
-    db.run(`CREATE TABLE IF NOT EXISTS tv_registry (
+    );
+    CREATE TABLE IF NOT EXISTS tv_registry (
         object_id TEXT PRIMARY KEY,
         url TEXT,
-        status,
-        status2,
-        serial,
+        status TEXT,
+        status2 TEXT,
+        serial TEXT,
         owner TEXT,
         land TEXT,
         room TEXT,
-        ip,
+        ip TEXT,
         last_seen DATETIME
-    )`);
-});
+    );
+`);
 
 /////////////////////////////////////////////////
 // ROUTES (Agora com suporte a sessão)
@@ -151,22 +151,20 @@ initSocketIO(io, getRoomState, FIXED_ROOM, clickerSessionMap, tvRegistry);
 const PING_INTERVAL = parseInt(process.env.PING_INTERVAL_MS) || 5 * 60 * 1000;
 
 async function pingTvs() {
-    db.all(`SELECT object_id, url FROM tv_registry`, [], async (err, rows) => {
-        if (err) return console.error(err);
+    const rows = db.prepare(`SELECT object_id, url FROM tv_registry`).all();
 
-        for (const tv of rows) {
-            try {
-                await axios.post(tv.url, "ping|", {
-                    headers: { 'Content-Type': 'text/plain' },
-                    timeout: 5000
-                });
-                db.run(`UPDATE tv_registry SET status = 'ONLINE', last_seen = CURRENT_TIMESTAMP WHERE object_id = ?`, [tv.object_id]);
-                console.log(`TV ${tv.object_id} is still rezzed.`);
-            } catch (error) {
-                db.run(`UPDATE tv_registry SET status = 'OFFLINE' WHERE object_id = ?`, [tv.object_id]);
-            }
+    for (const tv of rows) {
+        try {
+            await axios.post(tv.url, "ping|", {
+                headers: { 'Content-Type': 'text/plain' },
+                timeout: 5000
+            });
+            db.prepare(`UPDATE tv_registry SET status = 'ONLINE', last_seen = CURRENT_TIMESTAMP WHERE object_id = ?`).run(tv.object_id);
+            console.log(`TV ${tv.object_id} is still rezzed.`);
+        } catch (error) {
+            db.prepare(`UPDATE tv_registry SET status = 'OFFLINE' WHERE object_id = ?`).run(tv.object_id);
         }
-    });
+    }
 }
 
 setInterval(pingTvs, PING_INTERVAL);
