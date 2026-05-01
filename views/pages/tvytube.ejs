@@ -203,7 +203,9 @@ if (origin === 'live-tv') {
                 'modestbranding': 1,
                 'iv_load_policy': 3,
                 'cc_load_policy': 0,
-                'loop': 1
+                'loop': 1,
+                'origin': window.location.origin, // Isso diz ao YT que seu site é seguro
+                'enablejsapi': 1
             },
             events: {
                 'onReady': (event) => {
