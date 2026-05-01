@@ -285,7 +285,7 @@ if (origin === 'live-tv') {
             if (!window.ytPlayerInstance) return;
             isRemoteCommand = true;
             window.ytPlayerInstance.seekTo(time, true);
-            
+            window.ytPlayerInstance.pauseVideo();
             window.ytPlayerInstance.playVideo();
             setTimeout(() => isRemoteCommand = false, 1000);
         });
