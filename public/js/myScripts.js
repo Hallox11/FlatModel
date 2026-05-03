@@ -289,6 +289,7 @@ function handleNav(mode, isRemote = false) {
         $('#theme-slider').fadeOut(200);
         $('#burger-menu-btn').fadeOut(200); // Hide burger on sub-pages
         $('#controls').removeClass('active').fadeOut(200); // Close controls if open
+        $('#room-indicator').fadeOut(200).addClass('hidden');
         // ----------------------------------------------
 
         if (window.ytPlayerInstance) {
@@ -361,7 +362,7 @@ function closeSubMenu(isRemote = false) {
         // --- RESTORE UI ELEMENTS ---
         $('.status-bar').fadeIn(200);
         $('#burger-menu-btn').fadeIn(200); // Add this line!
-        
+        $('#room-indicator').removeClass('hidden').fadeIn(200);
         // Optional: If you want the theme slider to stay hidden 
         // until the burger is clicked, change this to .hide()
         $('#theme-slider').fadeOut(200); 
@@ -459,7 +460,7 @@ window.killRadio = function() {
 // ===============================
 // HOVER & INPUT SYNC (senders only — no listener here)
 // ===============================
-const syncSelectors = '.chip, .list-row, .card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn, .tag-card, .action-btn, .cat-item, .fav-item, .card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn,.tag-card, .action-btn, .cat-item, .fav-item';
+const syncSelectors = '.chip, .list-row, .card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn, .tag-card, .action-btn, .fav-item';
 
 $(document).on('mouseenter mouseleave', syncSelectors, function(e) {
     if (window.isRemoteAction) return;
@@ -524,7 +525,7 @@ $(document).on('scroll', globalScrollTargets, function() {
                 position: $el.scrollTop(),
                 room: window.myRoom
             });
-        }, 50); 
+        }, 150); 
     }
 });
 // ===============================
@@ -787,13 +788,17 @@ socket.on('room_switched', function(data) {
 socket.on('mirror_ajax_nav', function(data) {
     if (data.action === 'CLOSE') {
         closeSubMenu(true); 
-        // --- ADD THIS ---
         $('#burger-menu-btn').fadeIn(200);
         $('.status-bar').fadeIn(200);
+        // ADICIONE ESTA LINHA:
+        $('#room-indicator').removeClass('hidden').fadeIn(200);
     } else if (data.mode) {
         $('.status-bar').fadeOut(200);
         $('#theme-slider').fadeOut(200);
-        $('#burger-menu-btn').fadeOut(200); // --- ADD THIS ---
+        $('#burger-menu-btn').fadeOut(200);
+        // ADICIONE ESTA LINHA:
+        $('#room-indicator').fadeOut(200).addClass('hidden');
+        
         $('#main-grid').hide();
         handleNav(data.mode, true); 
     }

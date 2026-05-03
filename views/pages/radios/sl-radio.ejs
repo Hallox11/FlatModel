@@ -7,7 +7,6 @@
     #sl-radio-master-container {
         height: 720px;
         width: 1280px;
-        margin: auto;
         padding: 40px 20px;
         color: white;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -153,30 +152,13 @@
         letter-spacing: 2px; 
     }
 
-    #sl-radio-master-container .close-btn {
-        position: absolute;
-        top: 20px;
-        right: 70px; 
-        width: 45px;
-        height: 45px;
-        border: 1px solid rgba(255,255,255,0.2);
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 50%;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 110;
-        transition: all 0.2s ease;
-    }
-    #sl-radio-master-container .close-btn:hover { background: #ff4444; border-color: #ff4444; }
+
 </style>
 
 <div id="sl-radio-master-container">
-    <button class="close-btn" onclick="closeSubMenu()">
-        <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="3" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    </button>
+    <div style="top:30px;left:1215px" class="close-menu-btn" onclick="slExit()">
+        <span class="material-symbols-rounded">close</span>
+    </div>
 
     <div class="dial-container">
         <div class="dial-needle"></div>
@@ -230,6 +212,24 @@
     let scrollLeft;
     let tuneTimeout;
     let lastSyncedIndex = -1; // ✅ Evita emissões repetidas do mesmo index
+
+
+    window.slExit = function() {
+        // Stop audio before leaving
+        audio.pause(); audio.src = '';
+        if (typeof closeSubMenu === 'function') {
+            // Go back to radios-menu (previous page in the overlay system)
+            if (window.socket) {
+                window.socket.emit('mirror_ajax_nav', {
+                    mode: 'radios', route: '/radios/radios-menu',
+                    path: '/radios/radios-menu', room: window.myRoom
+                });
+            }
+            if (typeof handleNav === 'function') handleNav('radios', true);
+            // Actually navigate
+            handleNav('radios');
+        }
+    };
 
     function updateUI(index) {
         stations.forEach(s => s.classList.remove("active"));

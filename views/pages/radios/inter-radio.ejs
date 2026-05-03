@@ -5,7 +5,6 @@
         width: 1280px;
         height: 720px;
         overflow: hidden;
-        background: #0f0f0f url('https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=2070') no-repeat center center;
         background-size: cover;
         color: white;
         font-family: 'Segoe UI', sans-serif;
@@ -89,7 +88,7 @@
 
     .ir-column {
         flex: 1; display: flex; flex-direction: column;
-        background: rgba(0,0,0,0.6); backdrop-filter: blur(10px);
+
         border-radius: 15px; padding: 15px;
         border: 1px solid rgba(255,255,255,0.1);
     }
@@ -100,16 +99,16 @@
     }
     .ir-scroll {
         display: flex; flex-direction: column; gap: 8px;
-        height: 350px; overflow-y: auto; padding-right: 5px;
+        height: 360px; overflow-y: auto; padding-right: 5px;
     }
     .ir-scroll::-webkit-scrollbar { width: 4px; }
     .ir-scroll::-webkit-scrollbar-thumb { background: #DAA520; border-radius: 10px; }
 
     .ir-btn {
-        background: rgba(255,255,255,0.1);
+        background: rgba(0,0,0,0.5);
         border: 1px solid rgba(255,255,255,0.2);
         color: white; padding: 10px 15px;
-        border-radius: 8px; cursor: pointer; font-size: 16px;
+        border-radius: 8px; cursor: pointer; font-size: 17px;letter-spacing: 1.2px;;
         transition: all 0.2s; text-align: center; text-transform: uppercase;
     }
     .ir-btn:hover { background: rgba(218,165,32,0.3); border-color: #DAA520; }
@@ -130,7 +129,7 @@
     }
 
     .ir-card {
-        background: rgba(0,0,0,0.7); border-radius: 10px; padding: 15px;
+        background: rgba(0,0,0,0.4); border-radius: 10px; padding: 15px;
         text-align: center; cursor: pointer; transition: 0.2s;
         border: 1px solid transparent; height: 160px;
         display: flex; flex-direction: column;

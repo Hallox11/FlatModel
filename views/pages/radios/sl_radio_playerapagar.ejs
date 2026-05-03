@@ -2,11 +2,9 @@
     
     <div id='title_bar' style="font-size:24px; color:var(--accent, goldenrod); margin-bottom:20px; letter-spacing:2px;">Second Life Radio Service</div>          
 
-    <button id="back_btn" onclick="goBack()" style="position:absolute; top:20px; right:20px; background:none; border:none; cursor:pointer; color:white;">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18M6 6L18 18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </button>
+    <div class="close-menu-btn" onclick="goBack()">
+        <span class="material-symbols-rounded">close</span>
+    </div>
 
     <div id="radio_glass" style="width:200px; height:200px; background:rgba(255,255,255,0.05); border:1px solid var(--accent, goldenrod); border-radius:15px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; box-shadow: 0 0 20px rgba(218, 165, 32, 0.2);">
         <svg width="80" height="80" viewBox="0 0 24 24" fill="var(--accent, goldenrod)">

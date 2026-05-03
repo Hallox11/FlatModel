@@ -138,6 +138,12 @@ db.exec(`
     );
 `);
 
+// On startup: mark all TVs offline in DB and clear in-memory registry.
+// This prevents stale TV_ON entries from a previous session causing
+// the browser to think a TV is online before it has re-registered.
+db.prepare(`UPDATE tv_registry SET status = 'OFFLINE'`).run();
+console.log("[Registry] All TVs marked OFFLINE on startup.");
+
 /////////////////////////////////////////////////
 // ROUTES (Agora com suporte a sessão)
 app.use(createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SESSION_TTL, FIXED_ROOM }));

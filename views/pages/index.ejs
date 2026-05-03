@@ -843,19 +843,22 @@ $(document).on('click', '.theme-thumb', function() {
     };
 
     window.joinRoomFromPanel = function() {
-        const code = document.getElementById('room-join-input').value.trim();
-        if (!code) { setRoomFeedback('Enter a room code', '#e05555'); return; }
+        const raw  = document.getElementById('room-join-input').value.trim();
+        if (!raw) { setRoomFeedback('Enter a room code or URL', '#e05555'); return; }
 
-        if (window.socket) {
-            window.socket.emit('switch_room', { room: code });
-            window.myRoom = code;
-            document.getElementById('room-indicator-code').textContent = code;
-            document.getElementById('room-code-display').textContent   = code;
-            document.getElementById('room-join-input').value = '';
-            setRoomFeedback('✓ Joined: ' + code, '#4caf7d');
-        } else {
-            setRoomFeedback('Socket not connected', '#e05555');
-        }
+        // Accept either a full URL or just the room code
+        let code = raw;
+        try {
+            const parsed = new URL(raw);
+            code = parsed.searchParams.get('room') || raw;
+        } catch(e) { /* not a URL, use as-is */ }
+
+        if (!code) { setRoomFeedback('Invalid room code', '#e05555'); return; }
+
+        setRoomFeedback('Joining…', 'rgba(255,255,255,0.4)');
+
+        // Navigate to the new room — full page load ensures clean state
+        window.location.href = window.location.origin + '/?room=' + encodeURIComponent(code);
     };
 
     function setRoomFeedback(msg, color) {

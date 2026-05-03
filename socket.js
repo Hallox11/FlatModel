@@ -154,7 +154,6 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
     io.on('connection', function(socket) {
 
         // ── DETERMINE ROOM ────────────────────────────────────
-        // Client passes ?room=TVID in the socket handshake query
         const clientRoom = socket.handshake.query.room || FIXED_ROOM;
         const state      = getRoomState(clientRoom);
 
@@ -561,7 +560,7 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
                 }
             });
 
-            // Reset room state if empty
+            // Reset room state immediately if empty
             const room = io.sockets.adapter.rooms.get(clientRoom);
             if (!room || room.size === 0) {
                 console.log(`[Room] Empty: ${clientRoom} — resetting state`);

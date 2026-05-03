@@ -260,6 +260,13 @@ router.post('/register', async (req, res) => {
         if (object_id) {
             tvRegistry[object_id] = { url, status, serial, owner, land: land_name, room: `room_${land_id}`, ip: tvIp };
             _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip: tvIp });
+
+            // Remove any roomId aliases pointing to this TV
+            Object.keys(tvRegistry).forEach(k => {
+                if (k !== object_id && tvRegistry[k]?.object_id_ref === object_id) {
+                    delete tvRegistry[k];
+                }
+            });
             io.emit('tv_registered', { object_id, id: object_id, location: land_name, status: "OFFLINE" });
         }
         return res.status(200).json({ status: "success", target_id: object_id });
@@ -297,16 +304,21 @@ router.post('/register', async (req, res) => {
             io.to(FIXED_ROOM).emit('tv_registered', { clicker, object_id });
         }
 
-        // 8. GERA TOKEN PARA A SESSÃO
-        const token = crypto.randomBytes(16).toString('hex');
-        pendingTokens[token] = { object_id, owner, expires: Date.now() + 30000 };
-        
-        console.log(`[Token] Generated for ${object_id}: ${token}`);
+        // 8. GERA TOKEN E ROOM ID PARA A SESSÃO
+        const token  = crypto.randomBytes(16).toString('hex');
+        const roomId = crypto.randomBytes(8).toString('hex');
+        pendingTokens[token] = { object_id, owner, roomId, expires: Date.now() + 30000 };
+
+        // Keep roomId → object_id entry so check-status works for shared URLs
+        tvRegistry[roomId] = { ...tvRegistry[object_id], object_id_ref: object_id };
+
+        console.log(`[Token] Generated for ${object_id}: ${token} | room: ${roomId}`);
 
         return res.status(200).json({ 
-            status: "success", 
+            status:    "success", 
             target_id: object_id, 
-            token: token 
+            token:     token,
+            room:      roomId
         });
 
     } catch (err) {
@@ -413,7 +425,8 @@ router.get('/check-status/:id', (req, res) => {
     const tvId = req.params.id;
     const tv = tvRegistry[tvId];
 
-    // Verifica primeiro se a TV existe no objeto, depois o status
+    console.log(`[check-status] id=${tvId} | found=${!!tv} | status=${tv?.status}`);
+
     if (tv && tv.status && tv.status !== 'TV_OFF') {
         console.log(`Status da TV ${tvId}: ${tv.status}`);
         return res.json({ online: true, location: tv.land });
