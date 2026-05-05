@@ -158,7 +158,7 @@ if (origin === 'live-tv') {
     let emitTimer = null;
 
     // --- Click throttle shield ---
-    const CLICK_THROTTLE_MS = 1000;
+    const CLICK_THROTTLE_MS = 1200;
     let clickShieldActive = false;
 
     function activateClickShield() {
@@ -231,7 +231,7 @@ if (origin === 'live-tv') {
                                 videoId: video_id
                             });
                         }
-                    }, 5000);
+                    }, 1000);
                 },
 
                 'onError': (event) => {
@@ -245,6 +245,14 @@ if (origin === 'live-tv') {
 
                 'onStateChange': (event) => {
                     const controls = document.querySelector('.player-controls');
+
+// Lógica de Loop: Se o vídeo terminar, volta ao início e dá play
+    if (event.data === YT.PlayerState.ENDED) {
+        event.target.seekTo(0);
+        event.target.playVideo();
+        return; // Sai da função para não executar a lógica de opacidade abaixo
+    }
+
                     if (controls) {
                         const showBack = (event.data !== YT.PlayerState.PLAYING && event.data !== YT.PlayerState.BUFFERING);
                         controls.style.opacity = showBack ? '1' : '0';

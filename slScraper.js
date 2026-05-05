@@ -3,14 +3,12 @@
 /**
  * slScraper.js
  * ------------
- * Scrapes the Second Life Destination Guide.
- * - Listing page: gets title, thumbnail, desc, detail link
- * - Detail page:  gets the real teleport SLurl from #dg-entry-CTA
+ * Otimizado: Carrega a lista rapidamente e busca o Teleport apenas sob demanda.
  */
 
 const { chromium } = require('playwright');
-const fs            = require('fs');
-const path          = require('path');
+const fs           = require('fs');
+const path         = require('path');
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 
@@ -53,13 +51,13 @@ function saveCache(tag, data) {
 // ─── CORE SCRAPER ─────────────────────────────────────────────────────────────
 
 async function scrapeSLDestinations(categoryUrl) {
-    console.log(`[SL SCRAPE] Fetching listing: ${categoryUrl}`);
+    console.log(`[SL SCRAPE] Fetching listing (Fast Scan): ${categoryUrl}`);
 
     const browser = await chromium.launch({ headless: true });
     const page    = await browser.newPage();
 
     try {
-        // ── STEP 1: Scrape the listing page ──────────────────
+        // ── STEP 1: Apenas a página de listagem ──────────────────
         await page.goto(categoryUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
         await page.waitForSelector('.dg-collection-item', { timeout: 10000 });
 
@@ -72,59 +70,14 @@ async function scrapeSLDestinations(categoryUrl) {
                 const desc      = item.querySelector('.dg-destination-description')?.innerText.trim() || '';
                 const detailLink = item.querySelector('a')?.href || '';
 
+                // Já não buscamos o teleport aqui para ser mais rápido
                 return { title, desc, thumbnail, detailLink, teleportUrl: null };
             })
         );
 
-        // Drop entries without thumbnail or broken SVG placeholders
         const filtered = results.filter(r => r.thumbnail && !r.thumbnail.includes('.svg'));
-
-        console.log(`[SL SCRAPE] Found ${filtered.length} destinations — fetching SLurls...`);
-
-        // ── STEP 2: Visit each detail page to get the real SLurl ──
-        for (const dest of filtered) {
-            if (!dest.detailLink) continue;
-
-            try {
-                await page.goto(dest.detailLink, {
-                    waitUntil: 'domcontentloaded',
-                    timeout: 15000
-                });
-
-                // The CTA block has two links:
-                // [0] = "Visit on Web" or similar
-                // [1] = the actual secondlife:// teleport link
-                const slurl = await page.$eval(
-                    '#dg-entry-CTA a:nth-child(2)',
-                    el => el.href
-                ).catch(() => null);
-
-                // Fallback: scan all links for a secondlife:// href
-                if (!slurl) {
-                    const fallback = await page.$$eval('a[href]', links => {
-                        const match = links.find(l =>
-                            l.href.startsWith('secondlife://') ||
-                            l.href.includes('maps.secondlife.com/secondlife/')
-                        );
-                        return match ? match.href : null;
-                    }).catch(() => null);
-
-                    dest.teleportUrl = fallback;
-                } else {
-                    dest.teleportUrl = slurl;
-                }
-
-                if (dest.teleportUrl) {
-                    console.log(`[SL SCRAPE] ✓ SLurl for "${dest.title}": ${dest.teleportUrl}`);
-                } else {
-                    console.log(`[SL SCRAPE] ✗ No SLurl found for "${dest.title}"`);
-                }
-
-            } catch (err) {
-                console.warn(`[SL SCRAPE] Detail page failed for "${dest.title}":`, err.message);
-                dest.teleportUrl = null;
-            }
-        }
+        
+        console.log(`[SL SCRAPE] Found ${filtered.length} destinations. Ready for on-demand teleport.`);
 
         await browser.close();
         return filtered;
@@ -139,28 +92,57 @@ async function scrapeSLDestinations(categoryUrl) {
 // ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
 /**
- * Returns destinations for a given tag/category.
- * Checks the 48-hour cache first; scrapes live if stale or missing.
+ * Nova Função: Busca o teleport apenas quando o botão é clicado.
  */
+async function getTeleportOnDemand(detailLink) {
+    if (!detailLink) return null;
+    console.log(`[SL SCRAPE] Fetching SLurl on-demand for: ${detailLink}`);
+
+    const browser = await chromium.launch({ headless: true });
+    const page    = await browser.newPage();
+
+    try {
+        await page.goto(detailLink, { waitUntil: 'domcontentloaded', timeout: 15000 });
+
+        // Tenta o seletor padrão do CTA
+        let slurl = await page.$eval(
+            '#dg-entry-CTA a:nth-child(2)',
+            el => el.href
+        ).catch(() => null);
+
+        // Fallback: Procura por qualquer link secondlife://
+        if (!slurl) {
+            slurl = await page.$$eval('a[href]', links => {
+                const match = links.find(l =>
+                    l.href.startsWith('secondlife://') ||
+                    l.href.includes('maps.secondlife.com/secondlife/')
+                );
+                return match ? match.href : null;
+            }).catch(() => null);
+        }
+
+        await browser.close();
+        return slurl;
+    } catch (err) {
+        console.error(`[SL SCRAPE] Failed to get teleport for ${detailLink}:`, err.message);
+        await browser.close();
+        return null;
+    }
+}
+
 async function getDestinations({ url, tag = 'General' }) {
     ensureCacheDir();
 
     const cached = loadCache(tag);
     if (cached) return cached;
 
-    if (!url) {
-        console.warn('[SL SCRAPER] No URL provided and cache is empty for tag:', tag);
-        return [];
-    }
+    if (!url) return [];
 
     const destinations = await scrapeSLDestinations(url);
     if (destinations.length > 0) saveCache(tag, destinations);
     return destinations;
 }
 
-/**
- * Forces a fresh scrape, ignoring the cache.
- */
 async function refreshDestinations({ url, tag = 'General' }) {
     if (!url) return [];
     const destinations = await scrapeSLDestinations(url);
@@ -168,9 +150,6 @@ async function refreshDestinations({ url, tag = 'General' }) {
     return destinations;
 }
 
-/**
- * Loads the SL favorites list from disk.
- */
 function getFavorites() {
     if (!fs.existsSync(FAV_PATH)) return [];
     try {
@@ -180,9 +159,6 @@ function getFavorites() {
     }
 }
 
-/**
- * Saves a favorites list to disk.
- */
 function saveFavorites(favorites) {
     ensureCacheDir();
     const dir = path.dirname(FAV_PATH);
@@ -195,6 +171,7 @@ function saveFavorites(favorites) {
 module.exports = {
     getDestinations,
     refreshDestinations,
+    getTeleportOnDemand, // Exportada para ser usada na nova rota
     getFavorites,
     saveFavorites
 };

@@ -262,78 +262,110 @@ body.dark-text svg {
     color: rgba(255,255,255,0.6);
 }
 
+/* ── ROOM PANEL OVERLAY ── */
+#room-panel-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 498;
+    display: none;
+    animation: fadeOverlay 0.2s ease;
+}
+#room-panel-overlay.open { display: block; }
+@keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
+
 /* ── ROOM PANEL ── */
 #room-panel {
     position: absolute;
-    top: 52px; right: 24px;
-    width: 300px;
-    background: rgba(10,10,10,0.92);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    background: rgba(10,10,12,0.96);
     border: 1px solid rgba(218,165,32,0.3);
-    border-radius: 14px;
-    padding: 18px 20px;
+    border-radius: 20px;
+    padding: 32px 32px 28px;
     display: none;
     flex-direction: column;
-    gap: 12px;
-    backdrop-filter: blur(16px);
+    gap: 20px;
+    backdrop-filter: blur(24px);
     z-index: 499;
-    animation: fadeInDown 0.2s ease;
+    animation: fadeInScale 0.22s ease;
 }
 #room-panel.open { display: flex; }
 
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-8px); }
-    to   { opacity: 1; transform: translateY(0); }
+@keyframes fadeInScale {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.96); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 
+#room-panel-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.5); cursor: pointer; font-size: 16px;
+    display: flex; align-items: center; justify-content: center; transition: 0.2s;
+}
+#room-panel-close:hover { background: #c0392b; border-color: #c0392b; color: #fff; }
+
 .room-panel-label {
-    font-size: 0.58rem;
+    font-size: 0.9rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: rgba(218,165,32,0.7);
+    color: #ffc32c;
+    margin-bottom: -8px;
+}
+
+.room-panel-hint {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.55;
+    margin-top: 0px;
+    text-align: center;
 }
 
 #room-code-display {
     flex: 1;
     background: rgba(218,165,32,0.08);
     border: 1px solid rgba(218,165,32,0.3);
-    border-radius: 8px;
-    padding: 9px 14px;
-    font-size: 0.9rem;
+    border-radius: 10px;
+    padding: 11px 16px;
+    font-size: 1rem;
     letter-spacing: 4px;
     color: #daa520;
     text-align: center;
+    font-family: 'Fira Sans', monospace;
 }
 
 .room-panel-input {
     flex: 1;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-    padding: 9px 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 10px;
+    padding: 11px 14px;
     font-family: 'Fira Sans', sans-serif;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: white;
     outline: none;
     transition: border-color 0.2s;
 }
-.room-panel-input:focus { border-color: rgba(218,165,32,0.4); }
+.room-panel-input:focus { border-color: rgba(218,165,32,0.5); }
 .room-panel-input::placeholder { color: rgba(255,255,255,0.2); }
 
 .room-panel-btn {
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
+    border-radius: 10px;
     color: white;
-    padding: 9px 14px;
+    padding: 11px 18px;
     cursor: pointer;
     font-family: 'Fira Sans', sans-serif;
-    font-size: 0.62rem;
+    font-size: 0.9rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: all 0.2s;
     white-space: nowrap;
 }
-.room-panel-btn:hover { border-color: rgba(255,255,255,0.35); }
+.room-panel-btn:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.3); }
 .room-panel-btn.accent {
     background: rgba(218,165,32,0.15);
     border-color: rgba(218,165,32,0.4);
@@ -342,11 +374,11 @@ body.dark-text svg {
 .room-panel-btn.accent:hover { background: rgba(218,165,32,0.28); }
 
 #room-panel-feedback {
-    font-size: 0.6rem;
-    letter-spacing: 1px;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
     text-align: center;
-    min-height: 14px;
-    color: rgba(255,255,255,0.3);
+    min-height: 16px;
+    color: rgba(255,255,255,0.8);
     transition: color 0.2s;
 }
 
@@ -513,21 +545,31 @@ body.dark-text svg {
     <span id="room-indicator-code">——</span>
 </div>
 
+<!-- ROOM PANEL OVERLAY -->
+<div id="room-panel-overlay" onclick="toggleRoomPanel()"></div>
+
 <!-- ROOM PANEL -->
 <div id="room-panel">
+    <button id="room-panel-close" onclick="toggleRoomPanel()">✕</button>
+
     <div class="room-panel-label">My Room</div>
-    <div style="display:flex;gap:8px;align-items:center;">
+    <div style="display:flex;gap:10px;align-items:center;">
         <div id="room-code-display">——</div>
         <button class="room-panel-btn accent" onclick="copyRoomLink()">Copy Link</button>
     </div>
+    <p class="room-panel-hint">Share this link with friends, they'll join your room and watch everything in sync with you.</p>
+
     <hr style="border:none;border-top:1px solid rgba(255,255,255,0.07);margin:0;">
+
     <div class="room-panel-label">Join Another TV</div>
-    <div style="display:flex;gap:8px;">
-        <input id="room-join-input" type="text" placeholder="Room code..."
+    <div style="display:flex;gap:10px;">
+        <input id="room-join-input" type="text" placeholder="Paste room code or full URL..."
             class="room-panel-input"
             onkeydown="if(event.key==='Enter') joinRoomFromPanel()">
         <button class="room-panel-btn" onclick="joinRoomFromPanel()">Join</button>
     </div>
+    <p class="room-panel-hint">Got a link from someone else's TV? Paste it above and both TV´s will sync up instantly.</p>
+
     <div id="room-panel-feedback"></div>
 </div>
 
@@ -827,8 +869,8 @@ $(document).on('click', '.theme-thumb', function() {
     window.toggleRoomPanel = function() {
         panelOpen = !panelOpen;
         document.getElementById('room-panel').classList.toggle('open', panelOpen);
+        document.getElementById('room-panel-overlay').classList.toggle('open', panelOpen);
         if (panelOpen) {
-            // Refresh code in case room changed
             const room = window.myRoom || 'Lobby';
             document.getElementById('room-indicator-code').textContent = room;
             document.getElementById('room-code-display').textContent   = room;
@@ -843,10 +885,10 @@ $(document).on('click', '.theme-thumb', function() {
     };
 
     window.joinRoomFromPanel = function() {
-        const raw  = document.getElementById('room-join-input').value.trim();
+        const raw = document.getElementById('room-join-input').value.trim();
         if (!raw) { setRoomFeedback('Enter a room code or URL', '#e05555'); return; }
 
-        // Accept either a full URL or just the room code
+        // Accept full URL or just the room code
         let code = raw;
         try {
             const parsed = new URL(raw);
@@ -856,8 +898,6 @@ $(document).on('click', '.theme-thumb', function() {
         if (!code) { setRoomFeedback('Invalid room code', '#e05555'); return; }
 
         setRoomFeedback('Joining…', 'rgba(255,255,255,0.4)');
-
-        // Navigate to the new room — full page load ensures clean state
         window.location.href = window.location.origin + '/?room=' + encodeURIComponent(code);
     };
 
@@ -873,9 +913,11 @@ $(document).on('click', '.theme-thumb', function() {
         if (!panelOpen) return;
         const panel     = document.getElementById('room-panel');
         const indicator = document.getElementById('room-indicator');
-        if (!panel.contains(e.target) && !indicator.contains(e.target)) {
+        const overlay   = document.getElementById('room-panel-overlay');
+        if (!panel.contains(e.target) && !indicator.contains(e.target) && !overlay.contains(e.target)) {
             panelOpen = false;
             panel.classList.remove('open');
+            overlay.classList.remove('open');
         }
     });
 })();

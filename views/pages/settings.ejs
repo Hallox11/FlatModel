@@ -10,44 +10,26 @@
         --accent: #ffa260; 
         --success: #2ecc71; 
         --error: #ff6b6b;
-        --bg-panel: rgba(255, 255, 255, 0.03); 
+        --bg-panel: rgba(0, 0, 0, 0.8); 
         --glass-border: rgba(255, 255, 255, 0.08);
         --text-main: #fff;
     }
 
-    * { 
-        box-sizing: border-box; 
-        outline: none; 
-        margin: 0; 
-        padding: 0; 
-    }
+    * { box-sizing: border-box; outline: none; margin: 0; padding: 0; }
 
     #settings_wrapper { 
-        width: 1280px; 
-        height: 720px; 
-        color: var(--text-main); 
-        font-family: 'Inter', sans-serif; 
-        position: relative; 
-        overflow: hidden; 
-        display: flex; 
-        flex-direction: column; 
-        box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
-        background: #0d0d0d;
+        width: 1280px; height: 720px; color: var(--text-main); 
+        font-family: 'Inter', sans-serif; position: relative; overflow: hidden; 
+        display: flex; flex-direction: column; box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
     }
 
     #main_header_area {
-        flex-shrink: 0; height: 90px; display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0; height: 70px; display: flex; align-items: center; justify-content: center;
         background: rgba(0,0,0,0.3); backdrop-filter: blur(15px);
         border-bottom: 1px solid var(--glass-border); z-index: 20;
     }
 
-    #main_header { 
-        font-size: 26px; 
-        color: var(--accent); 
-        text-transform: uppercase; 
-        letter-spacing: 3px; 
-        font-weight: 700; 
-    }
+    #main_header { font-size: 26px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; }
 
     #connection-container {
         position: absolute; left: 30px; display: flex; align-items: center; gap: 12px;
@@ -64,48 +46,44 @@
     }
 
     .conteiner-col { 
-        width: 230px; background: var(--bg-panel); backdrop-filter: blur(25px);
+        width: 230px; background: var(--bg-panel); 
         border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px;
     }
 
     .section-title { 
         text-align: center; margin-bottom: 15px; font-weight: 700; font-size: 12px;
         color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,162,96,0.15);
-        padding-bottom: 10px; text-transform: uppercase;
-        letter-spacing: 0.05em;
+        padding-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em;
     }
 
-    /* Standard Button style */
     .btn1 { 
-        display: block; 
-        width: 100%; 
-        margin: 5px 0; 
-        padding: 10px 12px; 
-        font-size: 15px; 
-        font-weight: 400; 
-        color: rgba(255,255,255,0.9); 
-        background: rgba(255,255,255,0.05); 
-        border: 1px solid var(--glass-border);
-        border-radius: 12px; 
-        cursor: pointer; 
-        transition: all 0.2s ease;
-        font-family: 'Inter', sans-serif;
-        letter-spacing: -0.01em;
+        display: block; width: 100%; margin: 5px 0; padding: 10px 12px; 
+        font-size: 15px; font-weight: 400; color: rgba(255,255,255,1); 
+        background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+        border-radius: 12px; cursor: pointer; transition: all 0.2s ease;
+        font-family: 'Inter', sans-serif; letter-spacing: -0.01em;
     }
 
-    /* Smaller variant button style */
     .btn2 { 
         display: block; width: 100%; margin: 0px 0; padding: 6px 10px; 
-        font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.8); 
+        font-size: 12px; font-weight: 400; color: rgba(255,255,255,1); 
         background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
         border-radius: 10px; cursor: pointer; transition: 0.3s; 
         font-family: 'Inter', sans-serif;
     }
 
-    .btn1:hover, .btn2:hover { 
-        background: rgba(255,162,96,0.12); 
-        color: var(--accent); 
-        border-color: rgba(255,162,96,0.3);
+    .btn1:hover, .btn2:hover { background: rgba(255,162,96,0.12); color: var(--accent); border-color: rgba(255,162,96,0.3); }
+    .btn1.active { background: rgba(255,255,255,0.04); color: rgba(255,255,255,1); border-color: var(--glass-border); }
+    .btn1.active::before {
+        content: '';
+        display: inline-block;
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-right: 10px;
+        vertical-align: middle;
+        flex-shrink: 0;
+        box-shadow: 0 0 6px var(--accent);
     }
 
     .sent { background: var(--success) !important; color: #000 !important; }
@@ -120,7 +98,17 @@
     .btn-group { display: flex; margin: 12px 0; }
     .btn-split { flex: 1; padding: 10px 0; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); cursor: pointer; font-family: 'Inter', sans-serif; transition: 0.2s; }
     .btn-split:hover { background: rgba(255,162,96,0.1); color: var(--accent); }
-    .btn-split.active { background: var(--accent); color: #000; border-color: var(--accent); }
+    .btn-split.active { background: rgba(255,255,255,0.04); color: rgba(255,255,255,1); border-color: var(--glass-border); position: relative; }
+    .btn-split.active::before {
+        content: '';
+        display: inline-block;
+        width: 5px; height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-right: 6px;
+        vertical-align: middle;
+        box-shadow: 0 0 5px var(--accent);
+    }
     .btn-left  { border-radius: 10px 0 0 10px; }
     .btn-right { border-radius: 0 10px 10px 0; }
     .btn-center-label { flex: 1.2; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800; color: var(--accent); background: rgba(255,162,96,0.05); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
@@ -162,36 +150,26 @@
     .hint-text { font-size: 10px; color: rgba(255,255,255,0.25); text-align: center; line-height: 1.4; margin-top: 8px; font-weight: 400; }
 
     .close-menu-btn {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-        width: 45px;
-        height: 45px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: 0.2s;
-        z-index: 1000;
-        box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.6);
+        position: absolute; top: 25px; right: 25px; width: 45px; height: 45px;
+        background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 50%; color: white; display: flex; align-items: center;
+        justify-content: center; cursor: pointer; transition: 0.2s; z-index: 1000;
+        box-shadow: 0 0px 15px 0 rgba(0,0,0,0.6);
     }
+    .close-menu-btn:hover { background: #ff0000; border-color: #ff0000; transform: scale(1.1); }
 
-    .close-menu-btn:hover {
-        background: #ff0000;
-        border-color: #ff0000;
-        transform: scale(1.1);
-    }
+    /* Model selector row */
+    .model-row { display: flex; gap: 4px; margin: 5px 0; }
+    .btn-model { flex: 1; padding: 10px 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; text-align: center; }
+    .btn-model:first-child { border-radius: 10px 0 0 10px; }
+    .btn-model:last-child  { border-radius: 0 10px 10px 0; }
+    .btn-model:hover { background: rgba(255,162,96,0.12); color: var(--accent); border-color: rgba(255,162,96,0.3); }
+    .btn-model.active { background: var(--accent); color: #000; border-color: var(--accent); }
 </style>
-
-
 </head>
 <body>
 <div id="settings_wrapper">
-            <div class="close-menu-btn" onclick="closeSubMenu()">
+    <div style="top:15px" class="close-menu-btn" onclick="closeSubMenu()">
         <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
     </div>
     <div id="main_header_area">
@@ -201,7 +179,7 @@
                 <span id="status-text" style="font-size:11px; font-weight:800; color:var(--error);">OFFLINE</span>
             </div>
         </div>
-        <h1 id="main_header">TV Premium Settings</h1>
+        <h1 id="main_header">On-Screen Settings</h1>
     </div>
 
     <div id="settings_scroll_content">
@@ -209,14 +187,18 @@
         <!-- Column 1: Frame Design -->
         <div class="conteiner-col">
             <p class="section-title">TV Frame Design</p>
-            <button onclick="cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1">Carbon Fiber</button>
-            <button onclick="cmd('texture','93327059-ece0-aafa-571c-dba95b08855f',this)"   class="btn1">Polished Gold</button>
-            <button onclick="cmd('texture','a77d6f20-7f3f-f504-dd8b-0e3c73204aa2',this)"  class="btn1">Matte Black</button>
-            <button onclick="cmd('texture','b2be259c-509f-02de-c704-32ebaa91c99e',this)"  class="btn1">New</button>
-            <span class="label-mini">Set Back Color</span>
-            <div id="grid-back" class="color-grid-static"></div>
+            <button onclick="setActive('texture',this);cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1" data-group="texture">Carbon Fiber</button>
+            <button onclick="setActive('texture',this);cmd('texture','93327059-ece0-aafa-571c-dba95b08855f',this)"   class="btn1" data-group="texture">Polished Gold</button>
+            <button onclick="setActive('texture',this);cmd('texture','a77d6f20-7f3f-f504-dd8b-0e3c73204aa2',this)"  class="btn1" data-group="texture">Matte Black</button>
+            <button onclick="setActive('texture',this);cmd('texture','b2be259c-509f-02de-c704-32ebaa91c99e',this)"  class="btn1" data-group="texture">New</button>
 
-            <button onclick="cmd('model','reset',this)" class="btn1" style="margin-top:25px; font-size:11px; border-color:var(--accent);">RESET LOOK</button>
+            <!-- Model selector — moved from System, replaces Set Back Color -->
+            <span class="label-mini">Model</span>
+            <button class="btn1" id="model-1" onclick="setModel('model1',this)" data-group="model">Model 1</button>
+            <button class="btn1" id="model-2" onclick="setModel('model2',this)" data-group="model">Model 2</button>
+            <button class="btn1" id="model-3" onclick="setModel('model3',this)" data-group="model">Model 3</button>
+
+            <button onclick="cmd('model','reset',this)" class="btn1" style="margin-top:14px; font-size:11px; border-color:var(--accent);">RESET LOOK</button>
         </div>
 
         <!-- Column 2: Lighting -->
@@ -226,7 +208,6 @@
             <span class="label-mini">Color</span>
             <div id="grid-light" class="color-grid-static"></div>
 
-            <!-- Ambilight -->
             <div class="divider" style="margin-top:14px;"></div>
             <span class="label-mini">Ambilight</span>
             <div class="ctrl-row">
@@ -245,7 +226,6 @@
                 <button class="btn-half" id="ambi-off" onclick="setAmbi(false)">OFF</button>
             </div>
 
-            <!-- Frame Neon -->
             <div class="divider" style="margin-top:14px;"></div>
             <span class="label-mini">Frame Neon</span>
             <div class="ctrl-row">
@@ -269,51 +249,50 @@
         </div>
 
         <!-- Column 3: Shape & Size -->
-<!-- Column 3: Shape & Size -->
-<div class="conteiner-col">
-    <p class="section-title">Shape & Size</p>
-    <button onclick="cmd('ratio','3/2',this)"   class="btn1">3:2 Classic</button>
-    <button onclick="cmd('ratio','4/3',this)"   class="btn1">4:3 Retro</button>
-    <button onclick="cmd('ratio','16/9',this)" class="btn1">16:9 Modern</button>
-    <button onclick="cmd('ratio','21/9',this)" class="btn1">21:9 Cinema</button>
+        <div class="conteiner-col">
+            <p class="section-title">Shape & Size</p>
+            <button onclick="setActive('ratio',this);cmd('ratio','3/2',this)"  class="btn1" data-group="ratio">3:2 Classic</button>
+            <button onclick="setActive('ratio',this);cmd('ratio','4/3',this)"  class="btn1" data-group="ratio">4:3 Retro</button>
+            <button onclick="setActive('ratio',this);cmd('ratio','16/9',this)" class="btn1" data-group="ratio">16:9 Modern</button>
+            <button onclick="setActive('ratio',this);cmd('ratio','21/9',this)" class="btn1" data-group="ratio">21:9 Cinema</button>
 
-    <p class="section-title" style="margin-top:20px;">Scale Control</p>
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:4px;">
-        <!-- 5% Pair -->
-        <button onclick="cmd('SCALE','-0.05',this)" class="btn2">−5%</button>
-        <button onclick="cmd('SCALE','0.05',this)"  class="btn2">+5%</button>
-        <!-- 10% Pair -->
-        <button onclick="cmd('SCALE','-0.10',this)" class="btn2">−10%</button>
-        <button onclick="cmd('SCALE','0.10',this)"  class="btn2">+10%</button>
-        <!-- 20% Pair -->
-        <button onclick="cmd('SCALE','-0.20',this)" class="btn2">−20%</button>
-        <button onclick="cmd('SCALE','0.20',this)"  class="btn2">+20%</button>
-    </div>
+            <p class="section-title" style="margin-top:20px;">Scale Control</p>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:4px;">
+                <button onclick="cmd('SCALE','-0.05',this)" class="btn2">−5%</button>
+                <button onclick="cmd('SCALE','0.05',this)"  class="btn2">+5%</button>
+                <button onclick="cmd('SCALE','-0.10',this)" class="btn2">−10%</button>
+                <button onclick="cmd('SCALE','0.10',this)"  class="btn2">+10%</button>
+                <button onclick="cmd('SCALE','-0.20',this)" class="btn2">−20%</button>
+                <button onclick="cmd('SCALE','0.20',this)"  class="btn2">+20%</button>
+            </div>
 
-    <!-- Mode Buttons (No Label) -->
-    <div style="margin-top:20px;">
-        <button onclick="cmd('ENVIRONMENT','house',this)" class="btn1">House Mode</button>
-        <button onclick="cmd('ENVIRONMENT','outside',this)" class="btn1">Outside Mode</button>
-        <button onclick="cmd('PRESET','cinema',this)" class="btn1" style="color:var(--accent);">Cinema Mode</button>
-    </div>
-</div>
+            <div style="margin-top:20px;">
+                <button onclick="setActive('env',this);cmd('ENVIRONMENT','house',this)"   class="btn1" data-group="env">House Mode</button>
+                <button onclick="setActive('env',this);cmd('ENVIRONMENT','outside',this)" class="btn1" data-group="env">Outside Mode</button>
+                <button onclick="setActive('env',this);cmd('PRESET','cinema',this)"       class="btn1" data-group="env" style="color:var(--accent);">Cinema Mode</button>
+            </div>
+        </div>
 
         <!-- Column 4: System -->
         <div class="conteiner-col">
             <p class="section-title">System</p>
             <div class="btn-group">
-                <button onclick="cmd('legs','hide',this)" class="btn-split btn-left">HIDE</button>
+                <button onclick="setActive('legs',this);cmd('legs','hide',this)" class="btn-split btn-left" data-group="legs">HIDE</button>
                 <div class="btn-center-label">LEGS</div>
-                <button onclick="cmd('legs','show',this)" class="btn-split btn-right">SHOW</button>
+                <button onclick="setActive('legs',this);cmd('legs','show',this)" class="btn-split btn-right" data-group="legs">SHOW</button>
             </div>
             <div class="btn-group">
-                <button onclick="cmd('browser','hide',this)" class="btn-split btn-left">HIDE</button>
+                <button onclick="setActive('browser',this);cmd('browser','hide',this)" class="btn-split btn-left" data-group="browser">HIDE</button>
                 <div class="btn-center-label">BROWSER</div>
-                <button onclick="cmd('browser','show',this)" class="btn-split btn-right">SHOW</button>
+                <button onclick="setActive('browser',this);cmd('browser','show',this)" class="btn-split btn-right" data-group="browser">SHOW</button>
             </div>
-            
-            <button onclick="cmd('reboot','',this)"   class="btn1" style="color:#3498db; margin-top:25px;">RESTART TV</button>
-            <button onclick="cmd('reset','',this)"    class="btn1" style="color:#e74c3c;">FACTORY RESET</button>
+
+            <!-- Set Back Color — moved here from Frame Design -->
+            <span class="label-mini">Set Back Color</span>
+            <div id="grid-back" class="color-grid-static"></div>
+
+            <button onclick="cmd('reboot','',this)"  class="btn1" style="color:#3498db; margin-top:20px;">RESTART TV</button>
+            <button onclick="cmd('reset','',this)"   class="btn1" style="color:#e74c3c;">FACTORY RESET</button>
         </div>
 
     </div>
@@ -335,10 +314,10 @@
     ];
 
     let selectedHex = null;
-    let ambiOn       = false;
-    let ambiInt      = 1.0;
-    let neonState    = 'off';  // 'off' | 'fixed' | 'cycle'
-    let neonSpeed    = 0.10;
+    let ambiOn      = false;
+    let ambiInt     = 1.0;
+    let neonState   = 'off';
+    let neonSpeed   = 0.10;
 
     function hexToSL(hex) {
         const r = (parseInt(hex.slice(1,3),16)/255).toFixed(2);
@@ -354,13 +333,11 @@
     function updateUI() {
         const hex = selectedHex || '#333333';
 
-        // Ambilight
         document.getElementById('ambi-dot').style.background = hex;
         document.getElementById('ambi-pct').textContent = Math.round(ambiInt * 100) + '%';
         document.getElementById('ambi-on').classList.toggle('active', ambiOn);
         document.getElementById('ambi-off').classList.toggle('active', !ambiOn);
 
-        // Neon dot + value display
         const neonDot = document.getElementById('neon-dot');
         const neonPct = document.getElementById('neon-pct');
         const neonSub = document.getElementById('neon-sub');
@@ -373,7 +350,7 @@
         } else if (neonState === 'fixed') {
             neonDot.style.background = hex;
             neonDot.style.borderRadius = '3px';
-            neonPct.textContent = selectedHex ? '—' : '—';
+            neonPct.textContent = '—';
             neonSub.textContent = 'fixed color';
         } else {
             neonDot.style.background = '#333';
@@ -382,13 +359,23 @@
             neonSub.textContent = 'off';
         }
 
-        // Neon state buttons
         document.getElementById('neon-off').classList.toggle('active',   neonState === 'off');
         document.getElementById('neon-fixed').classList.toggle('active', neonState === 'fixed');
         document.getElementById('neon-cycle').classList.toggle('active', neonState === 'cycle');
     }
 
-    // ── Ambilight ──
+    // Universal active highlight — clears group, marks clicked button
+    window.setActive = function(group, el) {
+        document.querySelectorAll(`[data-group="${group}"]`)
+            .forEach(b => b.classList.remove('active'));
+        el.classList.add('active');
+    };
+
+    window.setModel = function(model, el) {
+        setActive('model', el);
+        cmd('model', model);
+    };
+
     window.setAmbi = function(on) {
         ambiOn = on;
         updateUI();
@@ -402,7 +389,6 @@
         if (ambiOn && selectedHex) cmd('ambi_intensity', ambiInt.toFixed(1));
     };
 
-    // ── Neon ──
     window.setNeon = function(state) {
         neonState = state;
         updateUI();
@@ -420,11 +406,9 @@
     window.adjustSpeed = function(v) {
         neonSpeed = Math.min(0.5, Math.max(0.02, +(neonSpeed + v).toFixed(2)));
         updateUI();
-        // speed buttons only do something in cycle mode
         if (neonState === 'cycle') cmd('neon_speed', neonSpeed.toFixed(2));
     };
 
-    // ── Generic sender ──
     window.cmd = function(command, value, el) {
         if (!TV_ID || TV_ID === 'undefined') return;
         if (el) { $(el).addClass('sent'); setTimeout(() => $(el).removeClass('sent'), 300); }
@@ -438,7 +422,6 @@
         });
     };
 
-    // ── Render grids ──
     function renderGrids() {
         const backContainer = document.getElementById('grid-back');
         premiumPalette.forEach(hex => {
@@ -459,7 +442,6 @@
                 lContainer.querySelectorAll('.color-square').forEach(s => s.classList.remove('selected'));
                 d.classList.add('selected');
                 updateUI();
-                // only apply to active systems — neon cycling is never overridden by color pick
                 if (ambiOn)                cmd('LIGHT_ALL',   hexToSL(hex));
                 if (neonState === 'fixed') cmd('neon_color', hexToSL(hex));
             };

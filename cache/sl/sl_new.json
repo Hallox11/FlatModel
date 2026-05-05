@@ -1,116 +1,170 @@
 [
   {
-    "title": "Fantasy Faire",
-    "desc": "The Fairelands have returned! From the 23rd of April to the 10th of May, 20 incredible regions of extraordinary beauty bring the magic of Fantasy Faire to life once more, all in support of Relay For Life and the American Cancer Society's goal of a world without cancer. For eighteen days, become immersed in a world of enchantment where you can shop, enjoy fantasy art and performances, discover roleplay opportunities, and hear award-winning fantasy authors, all to a soundtrack provided by Fantasy Faire Radio. Come to the Faire, become part of the story, before the Fairelands once again recede into the mists for another year! Follow all the events at fantasyfairesl.wordpress.com",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ea6c5aa84db86ba6bfa78d_69e9183918949730116663.jpeg",
-    "teleportUrl": "secondlife://Fantasy%20Faire/128/128/2"
-  },
-  {
-    "title": "Camp Cheertastic 2026",
-    "desc": "Get ready to cheer your heart out! Camp Cheertastic is back and bigger than ever! SL's premier cheer event returns for its third year! From Friday, April 24th to Sunday, May 3rd, cheerleaders and dance performers from all across Second Life are invited to attend for ten days of skills, fun, learning, and community. Whether you are brand new to cheer or a seasoned squad veteran, this camp has something amazing in store for you!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69eb15162c52906272d4838e_69ea7e55cacdd342209581.jpeg",
-    "teleportUrl": "secondlife://Camp%20Cheertastic%202026/128/128/2"
-  },
-  {
-    "title": "TheNest - Sunbird Emberwood",
-    "desc": "Welcome to TheNest Sunbird Emberwood, a quiet forest village where time slows and a hint of magic lingers. Wander freely, lose yourself among the trees, and let dusk lead the way.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69eba48560dec8f3aecc9d8b_69eba3885479c317337836.jpeg",
-    "teleportUrl": "secondlife://TheNest%20-%20Sunbird%20Emberwood/128/128/2"
+    "title": "Chess Nebula",
+    "desc": "Chess Nebula is a welcoming forest destination centered around the game of chess. Visitors can play matches in a calm, friendly setting suited for both beginners and experienced players. It offers a relaxed space to learn, practice, and enjoy the game among others who share the same interest.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f4be334d1149f17cc46122_69f4be0a10364642886681.png",
+    "detailLink": "https://secondlife.com/destination/chess-nebula",
+    "teleportUrl": null
   },
   {
     "title": "Velvet Bohème",
     "desc": "Lose yourself in Velvet Bohème, a two-week boho festival blending shopping, art, music, and literature in Second Life. Shop, soak up the atmosphere, or catch a live singer or DJ from partner venues Altitude and Sanctum. Open April 4 to 18, 2026.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69de82a5f91f95c18682d16c_69de8200d88dd678998315.jpeg",
-    "teleportUrl": "secondlife://Velvet%20Boh%C3%A8me/128/128/2"
+    "detailLink": "https://secondlife.com/destination/velvet-boheme-f1faa",
+    "teleportUrl": null
   },
   {
-    "title": "Torvaldsburg Village",
-    "desc": "Located along the southern borders of Torvaldsland on the waters edge, across from the Northern Forest lies the small Gorean Village of Torvaldsburg, founded by the Stromberg Clan. True BTB Gor where warriors rule with an iron fist. All craftsmen welcome.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ea2e73f85656a8c708bdfc_69ea2e4e112e8053447407.jpeg",
-    "teleportUrl": "secondlife://Torvaldsburg%20Village/128/128/2"
-  },
-  {
-    "title": "Tiger Lily Art Gallery",
-    "desc": "A gallery exploring the dark side of human nature through the power of expressive painting and the ascetic aesthetics of neo-primitivism.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e4f8db9ead1fd55f9a71fc_69e4f84be3cb8168055446.jpeg",
-    "teleportUrl": "secondlife://Tiger%20Lily%20Art%20Gallery/128/128/2"
+    "title": "Grand Harbor Isle",
+    "desc": "Grand Harbor Isle is a scenic, car-free coastal destination set in Lake Serene. Designed for exploration and relaxation, the island features a detailed waterfront town, forest trails, waterfalls, beaches, and elevated viewpoints throughout. Visitors can explore by foot, bike, or horse, with rezers available across the region. The town includes a mix of storefronts, apartments, and rental homes, along with the Grand Harbor Hotel for short stays. A central Welcome Center provides information on rentals, hotel availability, and key landmarks. Grand Harbor Isle is ideal for photography, casual exploration, and social visits. No roleplay is required, though light roleplay is welcome.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f3860695fc281b2cdb616c_69f385331bee4177064334.jpeg",
+    "detailLink": "https://secondlife.com/destination/grand-harbor-isle",
+    "teleportUrl": null
   },
   {
     "title": "Etopia Earth Day Celebrations AIDFZyTo",
     "desc": "To help celebrate Earth Day for 2026, you're invited to explore, engage, and enjoy exhibits, activities, and discussions related to the theme \"Our power, Our Planet\". From wetlands exploration to bike trails, train rides to meditation spots, conversations and resources to cafes and gondola rides. Celebrations will kick off on 17 April and close with an Earth Day dance on 23 April at Etopia in Second Life.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dd0dfc64d92d874577d880_69dd0d912e8cc055570551.jpeg",
-    "teleportUrl": "secondlife://Etopia%20Earth%20Day%20Celebrations%20AIDFZyTo/128/128/2"
+    "detailLink": "https://secondlife.com/destination/etopia-earth-day-celebrations-AIDFZyTo",
+    "teleportUrl": null
   },
   {
-    "title": "Port Talis",
-    "desc": "Port Talis is a Gorean port city shaped by its people, where leadership shifts through roleplay and every choice carries weight. Cultures and castes intersect in a living story driven by conflict, ambition, and personal growth, with an emphasis on character depth and evolving narratives.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e7936b3d54696506cbd4c2_69e79354c3e1f398387664.jpeg",
-    "teleportUrl": "secondlife://Port%20Talis/128/128/2"
+    "title": "L'aEvo",
+    "desc": "L'aEvo is a quiet garden retreat set among trees and gentle paths. Visitors can relax by the water, gather around a fire pit, or enjoy game tables for casual play and conversation. The space invites small groups seeking calm, connection, and a romantic outdoor setting.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f8aabb9a758a4e65533a99_69f8aa9db13de573018834.jpeg",
+    "detailLink": "https://secondlife.com/destination/laevo",
+    "teleportUrl": null
+  },
+  {
+    "title": "CHECK POINT",
+    "desc": "Check Point is an international club and social hub known for its relaxed atmosphere and wide mix of music, including rock, pop, house, soul, and techno. Guests can dance, chat, and unwind with DJs from across Europe in a welcoming setting. CHECK POINT der ultimative Treffpunkt für Leute die ein angenehmes Ambiente und Musik in allen Facetten lieben.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f742be9fd193fd6c3b8117_69f7428974bd0370316430.jpeg",
+    "detailLink": "https://secondlife.com/destination/check-point",
+    "teleportUrl": null
   },
   {
     "title": "Velvet Bohème idkytevs",
     "desc": "Lose yourself in Velvet Bohème, a two-week boho festival blending shopping, art, music, and literature in Second Life. Shop, soak up the atmosphere, or catch a live singer or DJ from partner venues Altitude and Sanctum. Open April 4 to 18, 2026.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69de82a5f91f95c18682d16c_69de8200d88dd678998315.jpeg",
-    "teleportUrl": "secondlife://Velvet%20Boh%C3%A8me%20idkytevs/128/128/2"
+    "detailLink": "https://secondlife.com/destination/velvet-boheme-idkytevs",
+    "teleportUrl": null
   },
   {
-    "title": "Everwild Resort & Spa",
-    "desc": "Everwild Resort and Spa is where luxury meets wild adventure. Set in a lush, tropical-inspired escape, Everwild blends high-end relaxation with unforgettable experiences. Unwind in the spa and wellness centre with soothing treatments, steam rooms, and tranquil spaces designed to melt everything away. Stay in one of the family-friendly themed lodges or enjoy a romantic hideaway designed for couples.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ea2d85044b6f3c3b5bc711_69ea2d177ca76117260760.jpeg",
-    "teleportUrl": "secondlife://Everwild%20Resort%20%26%20Spa/128/128/2"
-  },
-  {
-    "title": "Tsumori City",
-    "desc": "Discover Tsumori City, a peaceful yet vibrant mountain side destination near the scenic Hanami Path, where rich cultural influences blend with modern city life, surrounded by cherry blossoms, riverside walkways, and towering peaks, offering a warm, welcoming atmosphere filled with activities, good food, and beautiful places to explore.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e4fc25a4b3885e3fe48588_69e4fbc45721a644234479.jpeg",
-    "teleportUrl": "secondlife://Tsumori%20City/128/128/2"
-  },
-  {
-    "title": "Tsumori Hanami",
-    "desc": "Along the quiet stretch of the Hanami Path, Tsumori Hanami unfolds in drifting petals, soft flowing water, and peaceful seasonal blooms. Visitors can follow the path through gentle scenery and calming light, enjoying a slow, soothing atmosphere perfect for quiet walks, reflection, and photography, with the cozy Sage Panda Café just a short stroll away for anyone wanting a warm treat nearby.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e4fb33e39d7f15c4ead48c_69e4fab2517ef547484321.jpeg",
-    "teleportUrl": "secondlife://Tsumori%20Hanami/128/128/2"
+    "title": "Zoo-Palooza 6 - Hamtopia",
+    "desc": "The Bellisseria Animal Sanctuary presents Hamtopia! Hamtopia is an innovative, eco-sustainable zoo designed to revolutionize the way humans interact with animals and nature in the future. Set within a sprawling bio-atmosphere that mimics various global ecosystems. The event opens on Saturday, May 2nd, 2026, and runs until Saturday, May 30th, 2026.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f5a113e1168f3fff784442_69f4eb66645f7602135496.jpeg",
+    "detailLink": "https://secondlife.com/destination/zoopalooza",
+    "teleportUrl": null
   },
   {
     "title": "Norway Racing Festival yrTsIZhi",
     "desc": "Norway Racing Festival is a multi-day virtual motorsport event hosted in Second Life, bringing together racing enthusiasts, drivers, performers, and creators from around the world. The festival features races, drift shows, live performances, contests, and community-driven activities, all designed to create an immersive and exciting motorsport experience. The event runs from March 16th through the grand finale on the 22nd. Learn more at nrfevent.com",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b837ab7f0c2139550968ce_69b8375abab94920853424.jpeg",
-    "teleportUrl": "secondlife://Norway%20Racing%20Festival%20yrTsIZhi/128/128/2"
+    "detailLink": "https://secondlife.com/destination/norway-racing-festival-yrTsIZhi",
+    "teleportUrl": null
   },
   {
-    "title": "BADU - VIETNAM",
-    "desc": "Explore the beauty of Vietnam, Asharhia's new destination, inspired by the iconic Golden Bridge. Walk across the famous golden pathway held by giant hands, surrounded by mountains and lush scenery. Perfect for relaxing, exploring, and taking photos.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e78a0cfba869f1bc5e9a55_69e789ae8d214543175036.jpeg",
-    "teleportUrl": "secondlife://BADU%20-%20VIETNAM/128/128/2"
+    "title": "Vanity Poses",
+    "desc": "Vanity Poses offers a wide range of high-quality single and couple poses for photos, profiles, and creative shoots. Styles range from casual to formal and intimate, with new releases added weekly.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f8f2eb3ecb34a201705e1e_69f8f25d99a85447184921.jpeg",
+    "detailLink": "https://secondlife.com/destination/vanity-poses",
+    "teleportUrl": null
+  },
+  {
+    "title": "SONANCE",
+    "desc": "Established in 2023, SONANCE is a nightclub complex and music collective in Second Life, embracing underground culture while curating immersive events and forward-thinking lineups every week. No rules. No lights. Only instinct.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f4a46bfdfe28877ac4a02c_68dd325313ccf328373435.png",
+    "detailLink": "https://secondlife.com/destination/sonance",
+    "teleportUrl": null
+  },
+  {
+    "title": "Ashram de Kuan Yin",
+    "desc": "Kuan Yin's Ashram is a living space of silence, created to welcome those who feel the call to slow down, breathe, and listen to their own soul. Inspired by the compassionate energy of Kuan Yin, this ashram does not impose paths, practices, or beliefs. Here, each being is respected in their own rhythm, in their own time, and in their unique way of feeling. The environment fosters presence, gentleness, and inner listening, a gentle invitation to the peace that already dwells within you.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f3addb54c15c4160758d9e_692cb1e5ac4f4843496590.jpeg",
+    "detailLink": "https://secondlife.com/destination/ashram-de-kuan-yin",
+    "teleportUrl": null
+  },
+  {
+    "title": "Steel Havoc MC & Club",
+    "desc": "Steel Havoc MC & Club brings a gritty biker club atmosphere with pulsing lights and a focus on music and crowd energy. Expect sets spanning many genres, including rock, with a space built for loud nights, social connection, and high-energy events.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f8a7ed5d798e0732e000ec_69f8a7afa63c4853413807.jpeg",
+    "detailLink": "https://secondlife.com/destination/steel-havoc-mc-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "Night Wish Shores",
+    "desc": "Night Wish Shores calls to all dreamers. A quiet ribbon of moonlit sand where wishes rise like fireflies. Here, the waves murmur secrets, the reeds hum soft lullabies, and the night itself leans close, inviting you to listen.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f5eb9a703caea2cdb1dd03_69f5eb6f411b9153476510.jpeg",
+    "detailLink": "https://secondlife.com/destination/night-wish-shores",
+    "teleportUrl": null
+  },
+  {
+    "title": "Isle Of Cernunnos Aquatic Life",
+    "desc": "Isle of Cernunnos Aquatic Life is an adult coastal escape with forests, reefs, and quiet beaches. Visitors can explore above and below the water, relax in scenic hangout spots, or enjoy private floating and underwater rentals. It offers space for roleplay, connection, and peaceful downtime.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f4ab7393446fa01b682e6d_69f4ab0bdbc5d047680639.jpeg",
+    "detailLink": "https://secondlife.com/destination/isle-of-cernunnos",
+    "teleportUrl": null
+  },
+  {
+    "title": "Whispering Event",
+    "desc": "Whispering Event is a monthly shopping event open from the 1st to the 22nd of each month, featuring rotating exclusives across fashion, tattoos, and decor. Set in a gothic-inspired space with modern touches, it offers a curated marketplace for creators and shoppers to connect each round.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f4a7b23e3e079a67f3f604_69f4a784e82a2469619955.jpeg",
+    "detailLink": "https://secondlife.com/destination/whispering-event",
+    "teleportUrl": null
   },
   {
     "title": "GUY Magazine PRIDE in Space 2026 DoIZENVX",
     "desc": "GUY Magazine PRIDE in Space 2026 is this year’s installment of GUY Magazine’s annual Pride festival, hosted at The Portal. It features shopping, games, carnival rides, live acts, and parties throughout June, with an opening celebration on May 31 and events like live dance shows and a K-pop concert.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e23b9ab08fec83e059553c_69e23a53dca38689958232.jpeg",
-    "teleportUrl": "secondlife://GUY%20Magazine%20PRIDE%20in%20Space%202026%20DoIZENVX/128/128/2"
+    "detailLink": "https://secondlife.com/destination/guy-magazine-pride-in-space-DoIZENVX",
+    "teleportUrl": null
   },
   {
     "title": "Bellisseria Birthday Bash QxuptISy",
     "desc": "Bellisseria Birthday Bash brings a week-long celebration to the Fairgrounds with tours, live DJs, and collectible passport stamps. Visitors can explore by air, sea, and land, take part in driving and flying challenges, and join community ceremonies from April 14–20. Learn more at gazetteorg.wordpress.com",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dff1addaf6c3810a573fd9_69dff0e72b117731935154.jpeg",
-    "teleportUrl": "secondlife://Bellisseria%20Birthday%20Bash%20QxuptISy/128/128/2"
+    "detailLink": "https://secondlife.com/destination/bellisseria-anniversary-QxuptISy",
+    "teleportUrl": null
   },
   {
-    "title": "You're ACE Child Abuse Help Center",
-    "desc": "You're ACE Child Abuse Help Center is a nonprofit organisation with the mission of raising awareness of ACEs (Adverse Childhood Experiences) and offers educational resources to help survivors of child abuse and trauma. Located in the General rated region of Rebeck, it is open to all.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e8ea1474da3b221dc734d0_69e8e9b4e1396234868049.jpeg",
-    "teleportUrl": "secondlife://You're%20ACE%20Child%20Abuse%20Help%20Center/128/128/2"
+    "title": "AISM Event 2026",
+    "desc": "From May 15th to May 30th, 2026, step into a world of music, entertainment, and solidarity with AISM 2026! An exceptional event, a marathon of entertainment in Second Life, entirely dedicated to supporting AISM in its fight against multiple sclerosis. Get ready for hours of fun, wild dances, and breathtaking performances! Visit and experience unforgettable moments, all for a noble cause.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f8a9cd0c3a7e2878c21e30_69f8a960e49af263951476.jpeg",
+    "detailLink": "https://secondlife.com/destination/aism",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Studio Event",
+    "desc": "The Studio is a shopping event from Juniper Events and Space Cadet. At The Studio, you will find the latest poses, props, backdrops, and lighting kits to make your avatar shine! The event runs from May 1st to 11th. Learn more at juniperevents.net",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f5eb2486e3bd8d6f847a6b_69f5eacce1436866651567.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-studio-event",
+    "teleportUrl": null
+  },
+  {
+    "title": "Melanoma Awareness Gallery",
+    "desc": "May is Melanoma Awareness Month, and the Melanoma Awareness Gallery is an educational event committed to increasing awareness of melanoma prevention and early detection. Running May 1 to May 31, 2026, it features updated art photography, a Journey of Hope, and spaces to learn, reflect, and honor survivors and those lost.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f5e94795e1ca01d1539aad_682360e7994f5186372804.jpeg",
+    "detailLink": "https://secondlife.com/destination/melanoma-awareness-gallery",
+    "teleportUrl": null
   },
   {
     "title": "Bid the Lindens Bald bUOYCQwW",
     "desc": "Bid the Lindens & Moles Bald returns for its 10th annual showdown in support of Relay For Life in Second Life. Teams of Lindens and Moles literally put their hair on the line. Residents vote with their donations: the teams that raise the most keep their locks, while the team that raises the least will go bald until the next birthday celebrations. Voting opens during RelayStock on April 10 and runs through April 15, culminating in the always-entertaining Haircut Party from 12:00–2:30 PM SLT, with the clippers coming out at 2:15 PM SLT. Learn more at relayrockers.org/bidthelindensbald",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dd1c0cd19b53d141965a5e_69dd1a3de608e465148499.jpeg",
-    "teleportUrl": "secondlife://Bid%20the%20Lindens%20Bald%20bUOYCQwW/128/128/2"
+    "detailLink": "https://secondlife.com/destination/bid-the-lindens-bald-bUOYCQwW",
+    "teleportUrl": null
   },
   {
     "title": "VWBPE 2026 Conference BzfnytvE",
     "desc": "The Virtual Worlds Best Practices in Education Conference runs March 19–21, 2026. This open conference is organized by educators to showcase learning, tools, and methods for virtual environments. Join the event for three days of lectures, workshops, discussions, games, and more - including a keynote speech by the Founder of Second Life, Philip Rosedale, and interviews with other Linden Lab executives. Learn more at vwbpe.org",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b9be9b8921f19a0cb1a71a_69b9bdd3e3738993876568.jpeg",
-    "teleportUrl": "secondlife://VWBPE%202026%20Conference%20BzfnytvE/128/128/2"
+    "detailLink": "https://secondlife.com/destination/vwbpe-BzfnytvE",
+    "teleportUrl": null
+  },
+  {
+    "title": "Isle of Anu Aquatic Life",
+    "desc": "Isle of Anu Aquatic Life is an adult aquatic destination with merfolk themes, underwater spaces, and social hangouts. It serves as a gathering place for the Safe Water Foundation, with areas for swimming, relaxing, and connecting. Teleport pads lead to more spots across the region.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f4aafb26a903f5b7a709c2_69f4aac02a6a0632025460.jpeg",
+    "detailLink": "https://secondlife.com/destination/isle-of-anu-aquatic-life",
+    "teleportUrl": null
   }
 ]

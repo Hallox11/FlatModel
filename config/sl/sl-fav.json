@@ -2,21 +2,21 @@
   { "name": "Popular", "url": "https://secondlife.com/destinations/popular" },
   { "name": "New", "url": "https://secondlife.com/destinations/new" },
   
-  { "name": "Editor", "url": "https://secondlife.com/destinations/editorspicks" },
+  { "name": "Editor", "url": "https://secondlife.com/destinations/editor" },
     { "name": "Art", "url": "https://secondlife.com/destinations/galleries" },
-  { "name": "Nightclubs", "url": "https://secondlife.com/destinations/nightclubs" },
-  { "name": "Photogenic", "url": "https://secondlife.com/destinations/photogenic" },
+  { "name": "Nightclubs", "url": "https://secondlife.com/destinations/music/djs" },
+  { "name": "Photogenic", "url": "https://secondlife.com/destinations/photospots" },
   { "name": "Beaches", "url": "https://secondlife.com/destinations/beaches" },
   { "name": "Live Music", "url": "https://secondlife.com/destinations/music" },
 
-  { "name": "Featured", "url": "https://secondlife.com/destinations/featured" },
-  { "name": "Shopping Events", "url": "https://secondlife.com/destinations/shopping" },
-
+  { "name": "Featured", "url": "https://secondlife.com/destinations/events" },
+  { "name": "Shopping Events", "url": "https://secondlife.com/destinations/shopping-events" },
+ { "name": "Romance", "url": "https://secondlife.com/destinations/romance" },
 
 
 
   { "name": "Nature & Parks", "url": "https://secondlife.com/destinations/nature" },
-  { "name": "Adventure & Fantasy", "url": "https://secondlife.com/destinations/fantasy" },
+  { "name": "Adventure & Fantasy", "url": "https://secondlife.com/destinations/adventure" },
   { "name": "Fashion", "url": "https://secondlife.com/destinations/fashion" },
   { "name": "Cafes & Hangouts", "url": "https://secondlife.com/destinations/cafes" },
   { "name": "Anthro/Furry", "url": "https://secondlife.com/destinations/furry" },

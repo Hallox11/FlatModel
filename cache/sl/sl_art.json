@@ -1,632 +1,646 @@
 [
   {
-    "title": "Cedarbridge Gallery & Artists Community",
-    "desc": "Cedarbridge Gallery & Artists Community aims to help artists display their artwork. It offers a community feel, a place to sit and chat, develop ideas together, and enjoy the creative experience.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b00d0ab78bc83ad9e186ad_69b00ca9cf147700171508.jpeg",
-    "detailLink": "https://secondlife.com/destination/cedarbridge-gallery",
-    "teleportUrl": "secondlife://Rolling%20Meadows/203/226/3498"
+    "title": "Tiger Lily Art Gallery",
+    "desc": "A gallery exploring the dark side of human nature through the power of expressive painting and the ascetic aesthetics of neo-primitivism.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e4f8db9ead1fd55f9a71fc_69e4f84be3cb8168055446.jpeg",
+    "detailLink": "https://secondlife.com/destination/tiger-lily-art-gallery",
+    "teleportUrl": null
   },
   {
     "title": "The Jennifer Steele Gallery & Cafe",
     "desc": "The Jennifer Steele Gallery & Cafe has original Art by real-life Canadian artist Jennifer Steele including paintings, photography, drawings, sculpture, abstract, realism, expressionism, impressionism, and the Artist's Cafe!",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4ace12b320e702aefd87_61cbb00849735540928163.jpeg",
     "detailLink": "https://secondlife.com/destination/jennifer-steele-gallery",
-    "teleportUrl": "secondlife://Girotte/43/158/39"
-  },
-  {
-    "title": "OBSIDIA",
-    "desc": "OBSIDIA is a remote and enigmatic place, suspended between the present and the unknown, somewhere between tranquility and unease, where reality seems to dissolve. It may feel like an escape from everything, yet there is always a lingering sense that something more awaits, something yet to be discovered.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/683c4863758ebc7ce2df054e_683c4805158e7056590183.jpeg",
-    "detailLink": "https://secondlife.com/destination/obsidia",
-    "teleportUrl": "secondlife://Midnight%20Garden/39/153/27"
-  },
-  {
-    "title": "Wizardly Art Gallery",
-    "desc": "Wizardly Art Gallery is a place where the soul rests and the mind finds harmony. Need some exclusives for your home decor - come and take a unique masterpiece to your home. Come, explore, relax, and enjoy.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63642dfffc2cea52a8def270_63642de6c6965044138616.jpeg",
-    "detailLink": "https://secondlife.com/destination/wizardly-art-gallery",
-    "teleportUrl": "secondlife://Summer%20Sands/116/229/23"
-  },
-  {
-    "title": "Malina - Back to Black",
-    "desc": "You are invited to a compelling exhibition of black-and-white photography by the artist, Malina Emerald. Enter a world stripped of color, where the profound depth and drama of the subject matter are revealed through the masterful use of monochrome. Malina’s work is a powerful exploration of light and shadow, relying purely on the interplay between black, white, and subtle grey tones.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/691b1d64e7f1e832b5ed99ed_691b1cd6c8b8a668276048.jpeg",
-    "detailLink": "https://secondlife.com/destination/malinas-galerie",
-    "teleportUrl": "secondlife://Shimai/33/11/23"
-  },
-  {
-    "title": "KOO store",
-    "desc": "KOO Store at Motherland carries random things by Eupalinos Ugajin, including PBR materials, 3D sculptures, some cats, and a green dinosaur.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/672e0d2fbee7d1fa2ad4d384_672e0cfcdfd83351565679.jpeg",
-    "detailLink": "https://secondlife.com/destination/koo-store",
-    "teleportUrl": "secondlife://Motherland/54/127/54"
-  },
-  {
-    "title": "The Lost Unicorn Gallery",
-    "desc": "Art gallery specializing in fantasy artwork, most created here in SL by some of the best artists in world! They have monthly exhibits and events to enjoy!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4ba2d28c82217561d74d_610d8039c8603050164537.jpeg",
-    "detailLink": "https://secondlife.com/destination/lost-unicorn-gallery",
-    "teleportUrl": "secondlife://Lost%20Unicorn%20Gallery/125/218/27"
-  },
-  {
-    "title": "Selen's Gallery",
-    "desc": "Selen’s gallery, open since 2020, has original art by the French digital artist on 2 levels, including a machinima room. The gallery has also extensions exhibiting a new round of other 2D and 3D artists every 3 months.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6573762bd4d882c5a2bcdb9b_6570b45532cc1598537071.jpeg",
-    "detailLink": "https://secondlife.com/destination/selens-gallery",
-    "teleportUrl": "secondlife://Royale/201/222/1101"
-  },
-  {
-    "title": "Kultivate Arts",
-    "desc": "Kultivate Arts features four art galleries that showcase the art of both new and established artists in the virtual world of Second Life. The arts center also has two venues and an attached scenic region for photographers and artists to explore. For more info: www.kultivatemagazine.com",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/666c251ee2754979f8bf4de4_666c23f19e708365781537.jpeg",
-    "detailLink": "https://secondlife.com/destination/kultivate-arts",
-    "teleportUrl": "secondlife://Water%20Haven/76/156/31"
-  },
-  {
-    "title": "Morris Code Studios",
-    "desc": "Morris Code studios features the artwork of Poppy Morris. This little city and the surrounding area give a nod to solarpunk and lunarpunk aesthetics, while existing in an imaginary landscape.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69149f3458406d92568fae5e_69149eba4e0b2020904807.jpeg",
-    "detailLink": "https://secondlife.com/destination/morris-code-studios",
-    "teleportUrl": "secondlife://Shubelik/93/111/3104"
-  },
-  {
-    "title": "Yobe Gallery - Yoko Ayukawa Exhibition",
-    "desc": "Japanese RL artist Yoko Ayukawa presents an art exhibition at Yobe Gallery. You will find yourself surrounded by vibrant colors and whimsical artworks that will bring a feeling of joy and youthfulness to your heart. While the gallery itself is small and cozy, the space is still open and welcoming. More information about the artist yobe.com",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa605375bc301230c0b90e_5fcd57d48fa11993429433.jpeg",
-    "detailLink": "https://secondlife.com/destination/yobe-gallery",
-    "teleportUrl": "secondlife://Glaze/204/164/21"
-  },
-  {
-    "title": "The Vordun Museum and Gallery",
-    "desc": "The Vordun Museum and Gallery is an art and history experience like no other in Second Life! Browse the many galleries and exhibits, then enjoy a coffee in the Common Grounds cafe.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa54b7cc5376a36a42f631_5d2d0a9722339175674267.jpeg",
-    "detailLink": "https://secondlife.com/destination/vordun-museum-and-gallery",
-    "teleportUrl": "secondlife://Vordun/155/228/29"
-  },
-  {
-    "title": "Isme Fine Arts",
-    "desc": "Isme Fine Arts Galleries house the sensual real-life art of Lisisme Dubrovna and 7 more galleries featuring many others. Lisisme has shown in galleries all over SL and is one of the few in SL to show RL artwork that uses traditional media of sculpture and etching, lithograph, and pen and ink. 3D scans of her sculptures are mesh in SL.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa0c8860ed15efbd5ddc52_607c29d6a3537024223994.jpeg",
-    "detailLink": "https://secondlife.com/destination/isme-fine-arts",
-    "teleportUrl": "secondlife://Grand%20Canyon%20South/166/46/23"
-  },
-  {
-    "title": "Digital Arts Gallery",
-    "desc": "The Digital Arts Gallery hosts artists and exhibitions year-round. They are a group of artists who enjoy sharing art and ideas about art and work with up-and-coming and established artists. The work they exhibit varies from photography to sculpture, to interactive, and also work in between.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/693882b22feb46290f6908c9_6938823bd96ef802410049.jpeg",
-    "detailLink": "https://secondlife.com/destination/dag",
-    "teleportUrl": "secondlife://Acrocorinth/187/73/90"
-  },
-  {
-    "title": "Subcutan Art Gallery",
-    "desc": "The Subcutan Main Gallery and central teleporting point to all Subcutan Galleries and the beautiful Japanese garden for walking, recharging, or simply relaxing.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6683e635f5f6dce6fbadaffd_6683e5e39476d338219918.png",
-    "detailLink": "https://secondlife.com/destination/subcutan-art-gallery",
-    "teleportUrl": "secondlife://Cobain%20Lane/75/194/36"
+    "teleportUrl": null
   },
   {
     "title": "Virtual Hotel Chelsea",
     "desc": "Virtual Hotel Chelsea was created in 2009 and is a faithful replica of the famed New York Bohemian hangout that was home to many famous and infamous guests. Come and attend the weekly live music events (accomplished musicians play their own instruments) or take a stroll around the surrounding streets which house over 40 amazing art galleries, or maybe join a tour of the hotel itself to discover its secrets and history.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa0a99bf14ffb0b3b8c12b_4ff320f86d030845956125.jpeg",
     "detailLink": "https://secondlife.com/destination/hotel-chelsea",
-    "teleportUrl": "secondlife://Lanestris/104/178/104"
+    "teleportUrl": null
   },
   {
-    "title": "Tiger Lily Art Gallery",
-    "desc": "A gallery exploring the dark side of human nature through the power of expressive painting and the ascetic aesthetics of neo-primitivism.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e4f8db9ead1fd55f9a71fc_69e4f84be3cb8168055446.jpeg",
-    "detailLink": "https://secondlife.com/destination/tiger-lily-art-gallery",
-    "teleportUrl": "secondlife://Selvaggia/101/170/2494"
+    "title": "Wizardly Art Gallery",
+    "desc": "Wizardly Art Gallery is a place where the soul rests and the mind finds harmony. Need some exclusives for your home decor - come and take a unique masterpiece to your home. Come, explore, relax, and enjoy.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63642dfffc2cea52a8def270_63642de6c6965044138616.jpeg",
+    "detailLink": "https://secondlife.com/destination/wizardly-art-gallery",
+    "teleportUrl": null
   },
   {
-    "title": "Vivienne's Art Gallery",
-    "desc": "Vivienne’s Art Gallery in the sky features a modern exhibition space with vibrant digital artworks. Visitors can explore colorful marine and landscape art with detailed compositions in a quiet setting designed for browsing and photography.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c2910d0b9fd6df18804f99_69c2901a0fff7457621881.jpeg",
-    "detailLink": "https://secondlife.com/destination/viviennes-art-gallery",
-    "teleportUrl": "secondlife://Kuaki%20Cove/37/224/3868"
+    "title": "The Lost Unicorn Gallery",
+    "desc": "Art gallery specializing in fantasy artwork, most created here in SL by some of the best artists in world! They have monthly exhibits and events to enjoy!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4ba2d28c82217561d74d_610d8039c8603050164537.jpeg",
+    "detailLink": "https://secondlife.com/destination/lost-unicorn-gallery",
+    "teleportUrl": null
   },
   {
-    "title": "Kitten Art Gallery",
-    "desc": "Welcome to Kitten Art Gallery, a delightful destination where creativity purrs in every corner. Discover beautiful artworks, a warm and inviting gallery setting, and a unique atmosphere that blends artistic expression with the playful spirit of cats. Ideal for art enthusiasts, explorers, photographers, and anyone seeking a peaceful and memorable stop in Second Life. Come enjoy inspiration!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69bd5a8478dacea22f30d035_69bd5a32f1ebb472972547.jpeg",
-    "detailLink": "https://secondlife.com/destination/kitten-art-gallery",
-    "teleportUrl": "secondlife://Fantasy%20Island/21/93/43"
+    "title": "Cedarbridge Gallery & Artists Community",
+    "desc": "Cedarbridge Gallery & Artists Community aims to help artists display their artwork. It offers a community feel, a place to sit and chat, develop ideas together, and enjoy the creative experience.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b00d0ab78bc83ad9e186ad_69b00ca9cf147700171508.jpeg",
+    "detailLink": "https://secondlife.com/destination/cedarbridge-gallery",
+    "teleportUrl": null
   },
   {
-    "title": "Algorithmic Dreams Art",
-    "desc": "Located along Route 8A in The Bend, Algorithmic Dreams by Alan showcases vibrant wall art in various styles from modern digital design to soft watercolors. Visitors can explore a diverse collection of romantic portraits, serene landscapes, and expressive animal art. Each piece combines digital artistry with emotional warmth, perfect for both homes and businesses.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6785209e06f2e2c56304abdc_6785203645431636964454.jpeg",
-    "detailLink": "https://secondlife.com/destination/algorithmic-dreams-art",
-    "teleportUrl": "secondlife://Keyano/202/41/85"
+    "title": "OBSIDIA",
+    "desc": "OBSIDIA is a remote and enigmatic place, suspended between the present and the unknown, somewhere between tranquility and unease, where reality seems to dissolve. It may feel like an escape from everything, yet there is always a lingering sense that something more awaits, something yet to be discovered.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/683c4863758ebc7ce2df054e_683c4805158e7056590183.jpeg",
+    "detailLink": "https://secondlife.com/destination/obsidia",
+    "teleportUrl": null
   },
   {
-    "title": "Idyll Whispers Art Gallery",
-    "desc": "Idyll Whispers features artwork by Denali. The gallery is a place of peace, a place to restore your soul. As you tour the gallery and it's surroundings, may you listen for the whispers of inspiration and discover the creative spirit that resides in us all.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64da2a39852b7ae71e0191bd_64da2a0483a80707599933.jpeg",
-    "detailLink": "https://secondlife.com/destination/idyll-whispers-art-gallery",
-    "teleportUrl": "secondlife://Spode/60/68/4034"
-  },
-  {
-    "title": "Elven Falls",
-    "desc": "Elven Falls is a UK and USA based art orientated community with galleries, stores, and unique housing.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63f3c4e74f7a866139fea882_63f3c4c4966f8333161795.jpeg",
-    "detailLink": "https://secondlife.com/destination/elven-falls",
-    "teleportUrl": "secondlife://Elven%20Falls/92/42/21"
-  },
-  {
-    "title": "Serena Arts Center",
-    "desc": "Serena Arts Center is a place for artists to show their works. \"Landscapes From a Lost World\" by Blip Mumfuzz is the latest in a series of exhibitions hosted here. Blip Mumfuzz, an artist known for her distinctive visual style and immersive exhibitions, has created a strong artistic experience that paints a haunting picture of our future.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/682c919473372b7356c7b064_682c90fcbffde848661826.jpeg",
-    "detailLink": "https://secondlife.com/destination/serena-arts-center",
-    "teleportUrl": "secondlife://SERENA%20HUB/160/170/4018"
-  },
-  {
-    "title": "Summer'S ArtisanS",
-    "desc": "Imaginative art gallery, handbuilt with love. Future expositions will be held, till that time it's open for the public. It is mysterious, relaxing, and Flickr friendly.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa442034b354c20f9c02f7_61f0a222d69e2230461994.jpeg",
-    "detailLink": "https://secondlife.com/destination/summers-artisans",
-    "teleportUrl": "secondlife://Ashcrest/169/230/23"
-  },
-  {
-    "title": "Shui Mo Gallery",
-    "desc": "Explore the artwork of Resident FionaFei at the Shiu Mo Gallery. Shui Mo, meaning \"ink\" in Chinese, is a series of installations created in the style of Chinese ink brush painting, depicting a common theme or landscape seen in many traditional Chinese paintings.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa3e7612b320a014a9814c_5dfa78f07b271617127839.png",
-    "detailLink": "https://secondlife.com/destination/shui-mo-gallery",
-    "teleportUrl": "secondlife://Dreams/149/42/2554"
-  },
-  {
-    "title": "ArtCare Gallery",
-    "desc": "ArtCare Gallery is a very large art venue, including 5 levels The Gallery welcomes you with a public garden that serves as a gateway into a wonderful collection of SL art. It is highly recommended to use the shared environment!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a8edf79a0e7162cff40a2b_6128155fa30cc242790889.jpeg",
-    "detailLink": "https://secondlife.com/destination/artcare-gallery",
-    "teleportUrl": "secondlife://Emotion/208/200/22"
-  },
-  {
-    "title": "Monnada Art Gallery",
-    "desc": "Monnada Art Gallery is currently featuring the exhibit Tales of Hallucinations by Night Lefevre. Tales of Hallucinations is a thought-provoking art show that reimagines classic tales through the lens of artificial intelligence. In this exhibition, human prompts are used as catalysts for AI-generated artworks and poems, breathing life into timeless stories and myths.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/694019350332c5bf64a54d00_694018db8d1ed634275216.png",
-    "detailLink": "https://secondlife.com/destination/monnada-art-gallery",
-    "teleportUrl": "secondlife://Villareal/213/210/22"
-  },
-  {
-    "title": "Infinite Art Gallery",
-    "desc": "Infinite Art Gallery is a contemporary virtual space in Second Life dedicated to showcasing diverse, forward-thinking digital art. The gallery features a wide range of styles and themes - from abstract and experimental to emotional, environmental, and conceptual. With a focus on inclusivity, mentorship, and creative exchange, Infinite Art Gallery invites visitors to explore immersive works and experience art as a universal language that inspires connection and self-expression.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68a4920cc9b7b28763eb162b_68a491bc58fe7378199760.png",
-    "detailLink": "https://secondlife.com/destination/infinite-art-gallery",
-    "teleportUrl": "secondlife://TheRefuge/91/153/3018"
-  },
-  {
-    "title": "Scirocco Art Galleries and Gardens",
-    "desc": "Explore the unique Scirocco Art Galleries where creative art meets architectural design! The galleries are presented by Miles Cantelou, who is a professional painter with a passion for abstract expressionism art. These galleries offer a balance of RL artwork, SL created images, photography, and a dedicated gallery showing creative work by other SL artists.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/696fb0f31a32522803980a07_696fb0b941d10516304324.jpeg",
-    "detailLink": "https://secondlife.com/destination/scirocco-art-gallery",
-    "teleportUrl": "secondlife://Power%20Point/135/221/1001"
-  },
-  {
-    "title": "Souland Gallery",
-    "desc": "A realm where art meets soul, Souland Gallery is dedicated to showcasing breathtaking creations from talented artists across Second Life. This gallery is a haven for those who cherish the beauty of artistic expression and the connections it inspires.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67587c3b9ec9bc2912fc9550_67587c00af6ae510414122.jpeg",
-    "detailLink": "https://secondlife.com/destination/souland-gallery",
-    "teleportUrl": "secondlife://Moordon/149/84/2002"
-  },
-  {
-    "title": "The Tudors Art Gallery",
-    "desc": "Come and have a look at the photography art captured by Alex Tudor, with imagery formed by his fantasy as well as inspired by photogenic Second Life destinations. Every view tells its own tale as well as the angle used, with that moment captured on the canvas forever.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66ecda559e9615b19ecaef78_66ecd99167656421974453.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-tudors-art-gallery",
-    "teleportUrl": "secondlife://Camembert/225/5/21"
-  },
-  {
-    "title": "Leyenda Designs",
-    "desc": "Leyenda Designs is a decor store and art gallery offering a curated collection of statues, fountains, and backdrops, catering to a variety of aesthetic preferences. Visitors can explore an array of art pieces, each designed to enhance virtual environments. Custom requests are welcomed, allowing for personalized creations that meet specific needs and visions.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/669e6c0ed9e1fb0c27736ef7_669e6bf560275942152383.jpeg",
-    "detailLink": "https://secondlife.com/destination/leyenda-designs",
-    "teleportUrl": "secondlife://RothKo/116/172/3902"
-  },
-  {
-    "title": "The Studio Collection",
-    "desc": "The Studio Collection features a curated gallery of small installations, models, and works in progress on the ground level. A collection of artwork from noted artists is displayed upstairs. Visitors can also explore “All the Songs We Never Sang,” a thoughtful installation located on a platform above.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6841dcabb2366e581d649571_6841dc4521e1b710603704.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-studio-collection",
-    "teleportUrl": "secondlife://Asgard%20Aito/244/245/807"
-  },
-  {
-    "title": "Zoe Gallery",
-    "desc": "The Zoe Gallery showcases a collection of Friedl Aigner's artworks, featuring Austrian and South French landscape drawings and paintings. These pieces, primarily from the 1980s and 1990s, reflect Aigner's real-life inspirations and artistic endeavors, offering visitors a diverse visual experience.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65ef0712e9a817c0855c203b_65eefbb0511e2622156523.jpeg",
-    "detailLink": "https://secondlife.com/destination/zoe-gallery",
-    "teleportUrl": "secondlife://Zoe/251/241/27"
-  },
-  {
-    "title": "Salient Contemporary Art Gallery",
-    "desc": "Salient Contemporary Art Gallery promotes a vibrant and inclusive arts and culture experience in SL and beyond. This gallery is a curated, rotational gallery exhibition space for emerging artists focused on non-second life-related work.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/657dcb19814c59390631e59a_657dcb039c127394363245.jpeg",
-    "detailLink": "https://secondlife.com/destination/salient-contemporary-art-gallery",
-    "teleportUrl": "secondlife://Sunell/24/7/53"
-  },
-  {
-    "title": "NUNA",
-    "desc": "NUNA is an arts ecosystem, a region of themed galleries with experimental works by living artists, real world and virtual, and a collection of culturally significant pieces. NUNA has an education focus. Artworks on display are captioned and contextualised; the goal is to display art in context so that it can be better understood.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/652d8f3334f60bcf69221747_652d8c259fc0e664382964.png",
-    "detailLink": "https://secondlife.com/destination/nuna",
-    "teleportUrl": "secondlife://Cultural%20Harbour/67/70/23"
-  },
-  {
-    "title": "Palace of Fine Art",
-    "desc": "Welcome to the Palace of Fine Art, on the canals in the heart of beautiful Bay City. The Palace is home to the Evergarden Gallery and All the Best café where you can enjoy an afternoon in the luxurious art museum, explore the gardens, shop, and relax with friends. Take the Bay City Ferry, ride the bus, or take the teleport. Only the finest make it to the Palace!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64e34f9ddd1351de1cd15a81_64e34f69eb3fb257910522.jpeg",
-    "detailLink": "https://secondlife.com/destination/palace-of-fine-art",
-    "teleportUrl": "secondlife://Bay%20City%20-%20Argos/231/140/25"
-  },
-  {
-    "title": "Andante Gallery",
-    "desc": "Andante Gallery on the Surplus Motors region proudly presents a variety of artists rotating on a monthly basis.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/640a74e2b9a8a5c4fec3c853_6254b1b2915e0457632990.jpeg",
-    "detailLink": "https://secondlife.com/destination/andante-gallery",
-    "teleportUrl": "secondlife://Amityville/138/102/24"
-  },
-  {
-    "title": "Rainbow Painters Art Gallery",
-    "desc": "Rainbow Painters is an Art Gallery and Live Music Centre that welcomes new and established artists to display their art at no cost. Typically they show 50 artists and change out every six weeks.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa356aff21d42cb3d0659b_629a9f0a09e18388062159.jpeg",
-    "detailLink": "https://secondlife.com/destination/rainbow-painters-art-gallery",
-    "teleportUrl": "secondlife://Chadara/203/58/22"
-  },
-  {
-    "title": "Peter Vos Museum",
-    "desc": "Explore the artwork and creations of Dutch artist Peter Vos in this loving exhibit curated by his son Sander. More info at: nwn.blogs.com/nwn/2016/08/peter-vos-museum-second-life-1.html",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa320d4e2969f6b0269021_57b245b459402312158692.jpeg",
-    "detailLink": "https://secondlife.com/destination/peter-vos-museum",
-    "teleportUrl": "secondlife://Gergonne/43/84/77"
-  },
-  {
-    "title": "Moya Museum",
-    "desc": "The Moya Museum of Contemporary Art presents a retrospective of the works of French artist Patrick Moya from 1974 to the present day. It is one of the main buildings in the Moya Islands.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68b5b06328a1826fa0222b16_68b5b00f30494107837275.jpeg",
-    "detailLink": "https://secondlife.com/destination/moya",
-    "teleportUrl": "secondlife://Moya/153/139/21"
-  },
-  {
-    "title": "Nitroglobus Roof Gallery",
-    "desc": "Nitroglobus Gallery is a Second Life art gallery that shows impressive exhibitions and installations of both emerging and well-known artists and is owned and curated by Dido Haas. The current exhibition is INFINITY WALL by Bamboo Barnes. The exhibit reveals her deepest feelings: uncertainty, vulnerability, and a quiet pain that has been lingering with her. The result is a powerful and intimate body of work that invites you to look closer.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69df86cc4a544119e3018822_69df86305e9f8142290686.jpeg",
-    "detailLink": "https://secondlife.com/destination/nitroglobus-gallery",
-    "teleportUrl": "secondlife://Sunshine%20Homestead/36/22/1001"
-  },
-  {
-    "title": "Maps of Second Life",
-    "desc": "The exhibit Maps of Second Life curated by Professor Juliana Lethdetter, shows information and art on virtual cartography in Second Life.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa17bd59c9794500a7993d_4ff72b79d62a7164754737.png",
-    "detailLink": "https://secondlife.com/destination/maps-of-second-life",
-    "teleportUrl": "secondlife://New%20Kadath/34/59/23"
-  },
-  {
-    "title": "Center Ground Gallery of Art",
-    "desc": "The Center Ground Gallery of Art is an ongoing collection of the original Art of JudiLynn, curated by JudiLynn India and hosted on the Center Ground Region by Luchenpur Darwin. The gallery has been in operation since 2012 and has hosted many other real-world artists as well. It's also a great spot for relaxing with a board game, enjoying the stream, and dancing.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/668e97b3435a77c97240dc03_668e9749604dd914259664.jpeg",
-    "detailLink": "https://secondlife.com/destination/center-ground-gallery-of-art",
-    "teleportUrl": "secondlife://Han%20Loso/185/46/65"
-  },
-  {
-    "title": "Gallery of Nim's Art",
-    "desc": "Nim’s Art Gallery features fine art, photos, and relief-style images, with select pieces available for purchase. Visitors can also request custom artwork. The space includes profile-style imagery and showcases work in both English and German.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69d510d3704d3b7a8fccd271_69d5106511803243639947.jpeg",
-    "detailLink": "https://secondlife.com/destination/nims-art-gallery",
-    "teleportUrl": "secondlife://Aleah/249/224/2001"
-  },
-  {
-    "title": "Faith Maxwell Sculpture Gallery bFktrzPc",
-    "desc": "Faith Maxwell Sculpture Gallery presents contemporary and abstract 3D wall sculptures that explore emotion and form. Visitors can view pieces like “Peaceful Movement” and “Broken,” each reflecting personal expression through color, texture, and design.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69cc19d4f815308390ee7827_69cc196752760184389134.jpeg",
-    "detailLink": "https://secondlife.com/destination/faith-maxwell-sculpture-gallery-bFktrzPc",
-    "teleportUrl": "secondlife://Serena%20Amalfi/26/127/2481"
-  },
-  {
-    "title": "Lucid Dreams",
-    "desc": "Lucid Dreams is where music and art come alive and move together in perfect unison. There are over a dozen AI artists and galleries, each complete with a music venue. Dance amidst the beautiful works of art to the sounds of some of the greatest live musicians in Second Life! Celebrating art and music created by Second Life residents.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ba954eafc0c3f90d523aa4_69ba94e38731d034027116.jpeg",
-    "detailLink": "https://secondlife.com/destination/lucid-dreams",
-    "teleportUrl": "secondlife://Lucid%20Dreams/131/151/22"
-  },
-  {
-    "title": "Renoird Art Gallery",
-    "desc": "The Renoird Art Gallery at Selva Amazonica is a place that has been entirely designed around an Amazon Rainforest concept, blending art with nature.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b6bfbc0603157dab76739f_69b6bf8e9909a642897529.jpeg",
-    "detailLink": "https://secondlife.com/destination/renoird-art-gallery",
-    "teleportUrl": "secondlife://Selva%20Amazonica/221/55/31"
-  },
-  {
-    "title": "A Space Between Art Gallery and Hangout hjDnpceF",
-    "desc": "A Space Between Art has it all! It's an Art Gallery and Hangout that is voice-friendly, has art for sale, and other activities, including movies, swimming, games, Linden Camping, and a drum circle. Visit and join the group.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69594e04e1fdefb4d9c0c768_69594d9f2b576008080942.jpeg",
-    "detailLink": "https://secondlife.com/destination/a-space-between-art-gallery-hjDnpceF",
-    "teleportUrl": "secondlife://Couture%20Way/214/76/21"
-  },
-  {
-    "title": "Time Lost Art",
-    "desc": "Time Lost Art is an art gallery in Bay City dedicated to the appreciation of the arts.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69457179bb169927d9929a97_6945712a3d558226202382.jpeg",
-    "detailLink": "https://secondlife.com/destination/time-lost-art",
-    "teleportUrl": "secondlife://Bay%20City%20-%20Maddequet/238/60/26"
-  },
-  {
-    "title": "SLRandom ArtCrew",
-    "desc": "The SLRandom ArtCrew presents an experiential region that explores art, the Awareness Gallery, all set within an idyllic rural shire fantasy landscape.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6952e21940bb36f9a8bf3ebd_6952e1b1843a2004537701.jpeg",
-    "detailLink": "https://secondlife.com/destination/slrandom-artcrew",
-    "teleportUrl": "secondlife://The%20SLRandom%20ArtCrew/74/160/1102"
-  },
-  {
-    "title": "Artsville",
-    "desc": "Welcome to Artsville - where urban grit meets natural serenity. Explore a reimagined industrial district infused with art, music, and greenery. Wander through two immersive galleries, party in the lounge, or hang out at the retro diner bus nestled in a Bohemian garden. And before leaving, venture underground to discover a surreal lounge tucked within the abandoned subway station.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6911e71bc0e6400ce8ff0f9f_6911e68fc83fe730791048.png",
-    "detailLink": "https://secondlife.com/destination/artsville",
-    "teleportUrl": "secondlife://Isle%20of%20Thunder/47/190/31"
-  },
-  {
-    "title": "The Termites",
-    "desc": "A creative hub with nine themed stages combining light shows, music, dance, and art. The Termites also hosts galleries, artist platforms, and cultural events. It's a vibrant destination where imagination comes alive.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68e121f429cb4c114b4dda32_68e1217be4bdb141024094.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-termites",
-    "teleportUrl": "secondlife://Jina/103/138/21"
-  },
-  {
-    "title": "Black Vision Gallery LWBZAoQH",
-    "desc": "Black Vision Gallery showcases art celebrating Black African culture. Visitors can enjoy modern and old-school music, relax, shop, and take pieces home. The destination offers a space to learn, connect, and appreciate cultural expression.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/689c9afb1386d2443ed76ece_689c9aaef225a559030982.jpeg",
-    "detailLink": "https://secondlife.com/destination/black-vision-gallery-LWBZAoQH",
-    "teleportUrl": "secondlife://Parade%20Skies/92/84/263"
-  },
-  {
-    "title": "Deep End Records",
-    "desc": "Deep End Records is a small nostalgic experience in the form of an audio gallery. Do you ever miss the times when you could go to the mall and listen to music? Now you can relive this feeling while also exploring the creative talent of Second Life Residents.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/670a8d0d577413f4adb61016_670a8cac34b3c076116700.png",
-    "detailLink": "https://secondlife.com/destination/deep-end-records",
-    "teleportUrl": "secondlife://Neo%20Star/154/204/1182"
+    "title": "KOO store",
+    "desc": "KOO Store at Motherland carries random things by Eupalinos Ugajin, including PBR materials, 3D sculptures, some cats, and a green dinosaur.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/672e0d2fbee7d1fa2ad4d384_672e0cfcdfd83351565679.jpeg",
+    "detailLink": "https://secondlife.com/destination/koo-store",
+    "teleportUrl": null
   },
   {
     "title": "Better Together Forever Gallery",
     "desc": "Come enjoy the gallery and its grounds, which change with every passing season. Here, for your enjoyment, you will find digital art, a zen water garden, poetry readings, a film study featuring the top movies of the last 100 years, an ongoing seminar series featuring Latin American music genres and key composers, and live music from time to time. This is a place to relax and enjoy the arts in multiple forms. You are invited to come and join in the activities here.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/670c35f9f2286cc503573f69_670c35921b76e012118769.jpeg",
     "detailLink": "https://secondlife.com/destination/better-together-forever-gallery",
-    "teleportUrl": "secondlife://GEL%20Community%2042/76/173/26"
+    "teleportUrl": null
   },
   {
-    "title": "The Art of Milly Sharple MofwxXWR",
-    "desc": "This gallery features the unique and original fractal, digital, and abstract art of Milly Sharple. Constantly exploring various forms of digital art, the collection is continuously evolving and regularly updated.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66b4b10f35faad462e50a0a0_66b4b0a86e7c2034759732.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-art-of-milly-sharple-MofwxXWR",
-    "teleportUrl": "secondlife://Majic%20Happens/222/193/22"
+    "title": "Selen's Gallery",
+    "desc": "Selen’s gallery, open since 2020, has original art by the French digital artist on 2 levels, including a machinima room. The gallery has also extensions exhibiting a new round of other 2D and 3D artists every 3 months.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6573762bd4d882c5a2bcdb9b_6570b45532cc1598537071.jpeg",
+    "detailLink": "https://secondlife.com/destination/selens-gallery",
+    "teleportUrl": null
   },
   {
-    "title": "The Annex of Nitroglobus",
-    "desc": "The Annex is an extension to the main hall of the Nitroglobus Roof Gallery. It is a platform for emerging artists to showcase their work.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/685bf8954f4f2a5d1b7c78af_685bf82dbd691537243613.jpeg",
-    "detailLink": "https://secondlife.com/destination/annex-of-nitroglobus",
-    "teleportUrl": "secondlife://Sunshine%20Homestead/168/43/1001"
+    "title": "Monnada Art Gallery",
+    "desc": "Monnada Art Gallery is currently featuring the exhibit Tales of Hallucinations by Night Lefevre. Tales of Hallucinations is a thought-provoking art show that reimagines classic tales through the lens of artificial intelligence. In this exhibition, human prompts are used as catalysts for AI-generated artworks and poems, breathing life into timeless stories and myths.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/694019350332c5bf64a54d00_694018db8d1ed634275216.png",
+    "detailLink": "https://secondlife.com/destination/monnada-art-gallery",
+    "teleportUrl": null
   },
   {
-    "title": "Kondor Art Center",
-    "desc": "The Kondor Art Center is a place for Art, Photography, Installations, Music, Dance, Theatre, and other cultural events in Second Life. Composed by the Kondor Art Gallery (1 and 2), the Kondor Art Garden, the Kondor Art Square, the Kondor Art Club, the Museum, and other small art galleries, the Kondor Art Center has one cultural event each week.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/664b371c48f7cb13d578dd6b_664b36c57bbab091770238.jpeg",
-    "detailLink": "https://secondlife.com/destination/kondor-art-center",
-    "teleportUrl": "secondlife://Royal%20Tea/154/71/401"
+    "title": "Malina - Back to Black",
+    "desc": "You are invited to a compelling exhibition of black-and-white photography by the artist, Malina Emerald. Enter a world stripped of color, where the profound depth and drama of the subject matter are revealed through the masterful use of monochrome. Malina’s work is a powerful exploration of light and shadow, relying purely on the interplay between black, white, and subtle grey tones.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/691b1d64e7f1e832b5ed99ed_691b1cd6c8b8a668276048.jpeg",
+    "detailLink": "https://secondlife.com/destination/malinas-galerie",
+    "teleportUrl": null
   },
   {
-    "title": "Glimpses of the Sanctuary",
-    "desc": "Glimpses of the Sanctuary is an immersive experience as seen through the eyes of Photographer Tallis Blackwood. Please turn up sounds, lower music and use the shared environment. Allow yourself to be transported to the secret home of the Lotus! Enjoy!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/664354aa2fc37a5504272cb9_6643542f95f45537153011.jpeg",
-    "detailLink": "https://secondlife.com/destination/glimpses-of-the-sanctuary",
-    "teleportUrl": "secondlife://Gaia%20Rising/249/25/4003"
+    "title": "Morris Code Studios",
+    "desc": "Morris Code studios features the artwork of Poppy Morris. This little city and the surrounding area give a nod to solarpunk and lunarpunk aesthetics, while existing in an imaginary landscape.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69149f3458406d92568fae5e_69149eba4e0b2020904807.jpeg",
+    "detailLink": "https://secondlife.com/destination/morris-code-studios",
+    "teleportUrl": null
   },
   {
-    "title": "Hypnagogia Gallery",
-    "desc": "Hypnagogia is the eclectic photography of Hepburn. Her work varies from Whimsical to somewhat Macabre. She is also an accomplished landscape and portrait artist. Some works are available to purchase.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66435343e3d8ed416196cd22_664352ed65e9a237879041.jpeg",
-    "detailLink": "https://secondlife.com/destination/hypnagogia-gallery",
-    "teleportUrl": "secondlife://Gaia%20Rising%20Outerbanks/228/135/2001"
+    "title": "Isme Fine Arts",
+    "desc": "Isme Fine Arts Galleries house the sensual real-life art of Lisisme Dubrovna and 7 more galleries featuring many others. Lisisme has shown in galleries all over SL and is one of the few in SL to show RL artwork that uses traditional media of sculpture and etching, lithograph, and pen and ink. 3D scans of her sculptures are mesh in SL.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa0c8860ed15efbd5ddc52_607c29d6a3537024223994.jpeg",
+    "detailLink": "https://secondlife.com/destination/isme-fine-arts",
+    "teleportUrl": null
   },
   {
-    "title": "The Carbone Studio",
-    "desc": "The Carbone Studio presents the artworks of Milena Carbone which includes her writings, her pictorial works, and choreographies. It is also a pleasant relaxing place, with its dance room that broadcasts music videos on a giant screen 24 hours a day.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65e8708174e95b73d878f035_65e8700e9250b755145090.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-carbone-studio",
-    "teleportUrl": "secondlife://Woiler/187/176/2501"
+    "title": "Vivienne's Art Gallery",
+    "desc": "Vivienne’s Art Gallery in the sky features a modern exhibition space with vibrant digital artworks. Visitors can explore colorful marine and landscape art with detailed compositions in a quiet setting designed for browsing and photography.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c2910d0b9fd6df18804f99_69c2901a0fff7457621881.jpeg",
+    "detailLink": "https://secondlife.com/destination/viviennes-art-gallery",
+    "teleportUrl": null
   },
   {
-    "title": "Art Galerie HaXue",
-    "desc": "HaXue is an international art gallery and haven spanning six floors, all crafted with Second Life's integrated tools. It's a place for dreams, friendship, and artistic exchange, complete with gardens, events, and a warm, welcoming atmosphere. Your creative spirit is always welcome here.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/673b40dd66a2a075883a47ae_673b40b2707f9748104413.jpeg",
-    "detailLink": "https://secondlife.com/destination/art-galerie-Haxue",
-    "teleportUrl": "secondlife://Sexy%20Bay/34/23/23"
+    "title": "Lucid Dreams",
+    "desc": "Lucid Dreams is where music and art come alive and move together in perfect unison. There are over a dozen AI artists and galleries, each complete with a music venue. Dance amidst the beautiful works of art to the sounds of some of the greatest live musicians in Second Life! Celebrating art and music created by Second Life residents.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ba954eafc0c3f90d523aa4_69ba94e38731d034027116.jpeg",
+    "detailLink": "https://secondlife.com/destination/lucid-dreams",
+    "teleportUrl": null
   },
   {
-    "title": "Premier Business Center",
-    "desc": "The Premier Business Center (PBC) is a multicultural business center, virtual museum, and art space focused on education, history, and cultural impact. Its Cultural Arts Center and Black History Museum are open daily for self-guided exploration, featuring exhibits on Black history, civil rights, innovation, and creative achievement through rotating displays and art. Visit every weekend throughout the month for special Black History Month events, with the kick-off event on February 8th.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6984b9035849c10b6274b622_6984b820d6d0a115844764.jpeg",
-    "detailLink": "https://secondlife.com/destination/pbc",
-    "teleportUrl": "secondlife://PBC/85/79/3001"
+    "title": "Deep End Records",
+    "desc": "Deep End Records is a small nostalgic experience in the form of an audio gallery. Do you ever miss the times when you could go to the mall and listen to music? Now you can relive this feeling while also exploring the creative talent of Second Life Residents.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/670a8d0d577413f4adb61016_670a8cac34b3c076116700.png",
+    "detailLink": "https://secondlife.com/destination/deep-end-records",
+    "teleportUrl": null
   },
   {
-    "title": "Centauria Community Gallery",
-    "desc": "An art gallery focused on fantasy and story-telling with regular exhibits and events. It is a part of the Centauria Community Regions.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/659aab4f98c99caa894839aa_659aaab64da54661134177.jpeg",
-    "detailLink": "https://secondlife.com/destination/centauria-community-gallery",
-    "teleportUrl": "secondlife://Sea%20of%20Beckoning/159/97/23"
+    "title": "Kultivate Arts",
+    "desc": "Kultivate Arts features four art galleries that showcase the art of both new and established artists in the virtual world of Second Life. The arts center also has two venues and an attached scenic region for photographers and artists to explore. For more info: www.kultivatemagazine.com",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/666c251ee2754979f8bf4de4_666c23f19e708365781537.jpeg",
+    "detailLink": "https://secondlife.com/destination/kultivate-arts",
+    "teleportUrl": null
   },
   {
-    "title": "HeArt & Soul Gallery",
-    "desc": "The HeArt & Soul Gallery welcomes you to explore art that touches your heart, your soul, and your mind. The exhibiting artists change bi-monthly, with different themes, different styles, and different perspectives.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65454b200a4af5b8bea0f92c_6545499266233297237674.jpeg",
-    "detailLink": "https://secondlife.com/destination/heart-soul-gallery",
-    "teleportUrl": "secondlife://Durdane/211/209/78"
+    "title": "Serena Arts Center",
+    "desc": "Serena Arts Center is a place for artists to show their works. \"Landscapes From a Lost World\" by Blip Mumfuzz is the latest in a series of exhibitions hosted here. Blip Mumfuzz, an artist known for her distinctive visual style and immersive exhibitions, has created a strong artistic experience that paints a haunting picture of our future.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/682c919473372b7356c7b064_682c90fcbffde848661826.jpeg",
+    "detailLink": "https://secondlife.com/destination/serena-arts-center",
+    "teleportUrl": null
   },
   {
-    "title": "Michiel Bechir Gallery",
-    "desc": "The Michiel Bechir Gallery is a place for both Second Life photographers and people who are interested in art. There are monthly events with a DJ or a live artist.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/650a040ae677ecebb4b1175c_650a03a38e795467683917.jpeg",
-    "detailLink": "https://secondlife.com/destination/michiel-bechir-gallery",
-    "teleportUrl": "secondlife://Embrace/34/223/2502"
-  },
-  {
-    "title": "BOSL Innovation Pavillion",
-    "desc": "BOSL Innovation Pavillion is home to the Best of Second Life Magazine brand which promotes all things fashion-related. Find some of the best designers, models, magazines, pageants, art shows, and more! You can also visit the winery, cafe, gardens, and the Art Gallery which showcases some of the best artists in Second Life.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64f238a4b9f51b92c08627a8_64f2373f9601f713690929.jpeg",
-    "detailLink": "https://secondlife.com/destination/bosl-innovation-pavillion",
-    "teleportUrl": "secondlife://BOSL%20INNOVATION%20PAVILLION/213/162/34"
-  },
-  {
-    "title": "LiThO",
-    "desc": "LiThO is a tiny art(ist) Café . Have a seat and take a coffee and cake, and enjoy the awesome artworks of several international artists, or just relax with your friends at this cosy and comfy spot within the Corsica South Coasters mainland community. Artwork exhibitions and artists change monthly, so don't forget to stop by again!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64f09683a9d2a9ef6e28fb04_64f09659ba00b881308136.jpeg",
-    "detailLink": "https://secondlife.com/destination/litho",
-    "teleportUrl": "secondlife://Durdane/107/167/57"
-  },
-  {
-    "title": "Cloud Galleries",
-    "desc": "Cloud Galleries is a sky art district above Corsica in Corsica South Coasters, curated by Owl Dragonash. Rotating exhibitions by resident and guest artists unfold across connected sky spaces, with seasonal installations woven throughout the corridor. Visitors can walk directly to NovaOwl’s Sky Gallery and Late Night Lounge, as well as Ceakay Ballyhoo’s installation area and evolving seasons.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/642d74763bb7f1b00be51f39_642d74407ba4e307665695.jpeg",
-    "detailLink": "https://secondlife.com/destination/cloud-galleries",
-    "teleportUrl": "secondlife://Novatron/39/164/1001"
-  },
-  {
-    "title": "The Hannington Arts Foundation",
-    "desc": "The Hannington Arts Foundation at Xeltentat Enterprises features Second Life artists at their Memory Gongs collaborative galleries. It's three galleries built together, each with their distinctive style, to show Second Life pictures, First Life pictures, and Erotic pictures. It's a collaborative effort that features photographs from Sweet Susanowa, Violaine, and Therese Carfagno. The pictures are for sale at different prices. The galleries are built to be walker-friendly, and in between, there are places to sit down and relax.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63dd5afeba077cb72d77e5a0_63dd5ada65654077146273.jpeg",
-    "detailLink": "https://secondlife.com/destination/haf",
-    "teleportUrl": "secondlife://Xeltentat%20Enterprises/116/135/3333"
+    "title": "The Vordun Museum and Gallery",
+    "desc": "The Vordun Museum and Gallery is an art and history experience like no other in Second Life! Browse the many galleries and exhibits, then enjoy a coffee in the Common Grounds cafe.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa54b7cc5376a36a42f631_5d2d0a9722339175674267.jpeg",
+    "detailLink": "https://secondlife.com/destination/vordun-museum-and-gallery",
+    "teleportUrl": null
   },
   {
     "title": "GANADARA Gallery",
     "desc": "GANADARA presents artists’ work in a manner that encourages both newfound appreciation and deeper understanding, focusing on the finest art created in Second Life. This rich, vivid context serves to expand the field of Second Life art and the significance of its most stellar artists and has encouraged collaborative relationships with talented people.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63d2a3bfb2204bbb8ba0e118_63d2a3ac53893946847366.jpeg",
     "detailLink": "https://secondlife.com/destination/ganadara-gallery",
-    "teleportUrl": "secondlife://Elmira/187/61/30"
+    "teleportUrl": null
   },
   {
-    "title": "Starborn",
-    "desc": "A Beautiful Seaside Gallery in which the main building exhibits Photo Art of Lizbeth Morningstar and the Annex exhibits different Featured Artists’ works monthly. Gallery owner Lizbeth appreciates how diversified SL artists are and hopes that with more venues available for artists' exhibitions, the more fertile SL art is. Come chill with art, a lovely beach, a fascinating sea view, and soothing music.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/637e39c9eb4615bf0e911509_637e39a60d663105380520.jpeg",
-    "detailLink": "https://secondlife.com/destination/starborn",
-    "teleportUrl": "secondlife://Starborn/87/26/22"
+    "title": "Center Ground Gallery of Art",
+    "desc": "The Center Ground Gallery of Art is an ongoing collection of the original Art of JudiLynn, curated by JudiLynn India and hosted on the Center Ground Region by Luchenpur Darwin. The gallery has been in operation since 2012 and has hosted many other real-world artists as well. It's also a great spot for relaxing with a board game, enjoying the stream, and dancing.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/668e97b3435a77c97240dc03_668e9749604dd914259664.jpeg",
+    "detailLink": "https://secondlife.com/destination/center-ground-gallery-of-art",
+    "teleportUrl": null
   },
   {
-    "title": "Bear Castle",
-    "desc": "Come see the creativity of 600+ Linden Bears & Mole Bears, collected by multiple Residents over the years. Also, pick up a free box of Bears for your own collection!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6303f75feb87a35f557e8702_61697f46908d9856390634.jpeg",
-    "detailLink": "https://secondlife.com/destination/bear-castle",
-    "teleportUrl": "secondlife://Dechene/137/111/101"
+    "title": "Gallery of Nim's Art",
+    "desc": "Nim’s Art Gallery features fine art, photos, and relief-style images, with select pieces available for purchase. Visitors can also request custom artwork. The space includes profile-style imagery and showcases work in both English and German.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69d510d3704d3b7a8fccd271_69d5106511803243639947.jpeg",
+    "detailLink": "https://secondlife.com/destination/nims-art-gallery",
+    "teleportUrl": null
   },
   {
-    "title": "Ravens Eye Gallery",
-    "desc": "Ravens Eye Gallery showcases original SL Photography by Raven Arcana with impressions of virtual landscapes.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/676d68e5d1f98439f2a3ccab_676d6871422b8712816829.jpeg",
-    "detailLink": "https://secondlife.com/destination/ravens-eye-gallery",
-    "teleportUrl": "secondlife://Meandering%20Brook/33/196/2001"
+    "title": "Algorithmic Dreams Art",
+    "desc": "Located along Route 8A in The Bend, Algorithmic Dreams by Alan showcases vibrant wall art in various styles from modern digital design to soft watercolors. Visitors can explore a diverse collection of romantic portraits, serene landscapes, and expressive animal art. Each piece combines digital artistry with emotional warmth, perfect for both homes and businesses.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6785209e06f2e2c56304abdc_6785203645431636964454.jpeg",
+    "detailLink": "https://secondlife.com/destination/algorithmic-dreams-art",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Tudors Art Gallery",
+    "desc": "Come and have a look at the photography art captured by Alex Tudor, with imagery formed by his fantasy as well as inspired by photogenic Second Life destinations. Every view tells its own tale as well as the angle used, with that moment captured on the canvas forever.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66ecda559e9615b19ecaef78_66ecd99167656421974453.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-tudors-art-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Leyenda Designs",
+    "desc": "Leyenda Designs is a decor store and art gallery offering a curated collection of statues, fountains, and backdrops, catering to a variety of aesthetic preferences. Visitors can explore an array of art pieces, each designed to enhance virtual environments. Custom requests are welcomed, allowing for personalized creations that meet specific needs and visions.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/669e6c0ed9e1fb0c27736ef7_669e6bf560275942152383.jpeg",
+    "detailLink": "https://secondlife.com/destination/leyenda-designs",
+    "teleportUrl": null
+  },
+  {
+    "title": "Subcutan Art Gallery",
+    "desc": "The Subcutan Main Gallery and central teleporting point to all Subcutan Galleries and the beautiful Japanese garden for walking, recharging, or simply relaxing.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6683e635f5f6dce6fbadaffd_6683e5e39476d338219918.png",
+    "detailLink": "https://secondlife.com/destination/subcutan-art-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Zoe Gallery",
+    "desc": "The Zoe Gallery showcases a collection of Friedl Aigner's artworks, featuring Austrian and South French landscape drawings and paintings. These pieces, primarily from the 1980s and 1990s, reflect Aigner's real-life inspirations and artistic endeavors, offering visitors a diverse visual experience.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65ef0712e9a817c0855c203b_65eefbb0511e2622156523.jpeg",
+    "detailLink": "https://secondlife.com/destination/zoe-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Carbone Studio",
+    "desc": "The Carbone Studio presents the artworks of Milena Carbone which includes her writings, her pictorial works, and choreographies. It is also a pleasant relaxing place, with its dance room that broadcasts music videos on a giant screen 24 hours a day.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65e8708174e95b73d878f035_65e8700e9250b755145090.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-carbone-studio",
+    "teleportUrl": null
+  },
+  {
+    "title": "NUNA",
+    "desc": "NUNA is an arts ecosystem, a region of themed galleries with experimental works by living artists, real world and virtual, and a collection of culturally significant pieces. NUNA has an education focus. Artworks on display are captioned and contextualised; the goal is to display art in context so that it can be better understood.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/652d8f3334f60bcf69221747_652d8c259fc0e664382964.png",
+    "detailLink": "https://secondlife.com/destination/nuna",
+    "teleportUrl": null
+  },
+  {
+    "title": "Andante Gallery",
+    "desc": "Andante Gallery on the Surplus Motors region proudly presents a variety of artists rotating on a monthly basis.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/640a74e2b9a8a5c4fec3c853_6254b1b2915e0457632990.jpeg",
+    "detailLink": "https://secondlife.com/destination/andante-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Elven Falls",
+    "desc": "Elven Falls is a UK and USA based art orientated community with galleries, stores, and unique housing.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63f3c4e74f7a866139fea882_63f3c4c4966f8333161795.jpeg",
+    "detailLink": "https://secondlife.com/destination/elven-falls",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Hannington Arts Foundation",
+    "desc": "The Hannington Arts Foundation at Xeltentat Enterprises features Second Life artists at their Memory Gongs collaborative galleries. It's three galleries built together, each with their distinctive style, to show Second Life pictures, First Life pictures, and Erotic pictures. It's a collaborative effort that features photographs from Sweet Susanowa, Violaine, and Therese Carfagno. The pictures are for sale at different prices. The galleries are built to be walker-friendly, and in between, there are places to sit down and relax.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63dd5afeba077cb72d77e5a0_63dd5ada65654077146273.jpeg",
+    "detailLink": "https://secondlife.com/destination/haf",
+    "teleportUrl": null
   },
   {
     "title": "Toy's Art Gallery",
     "desc": "Toy's Art Gallery is a five-floor gallery of Toysoldier Thor's eclectic styles of digital art. Tour through his gallery of over 80 works encompassing real and Second Life photography and 3d mesh sculptures. Visitors are encouraged to touch each piece, and will be presented with a notecard of the artist's comments about each one. All art is available for sale.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62b36cb6a1ccb1fd27de4906_6307.jpg",
     "detailLink": "https://secondlife.com/destination/mirages-of-art",
-    "teleportUrl": "secondlife://Lafew/212/179/80"
+    "teleportUrl": null
+  },
+  {
+    "title": "Summer'S ArtisanS",
+    "desc": "Imaginative art gallery, handbuilt with love. Future expositions will be held, till that time it's open for the public. It is mysterious, relaxing, and Flickr friendly.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa442034b354c20f9c02f7_61f0a222d69e2230461994.jpeg",
+    "detailLink": "https://secondlife.com/destination/summers-artisans",
+    "teleportUrl": null
+  },
+  {
+    "title": "Shui Mo Gallery",
+    "desc": "Explore the artwork of Resident FionaFei at the Shiu Mo Gallery. Shui Mo, meaning \"ink\" in Chinese, is a series of installations created in the style of Chinese ink brush painting, depicting a common theme or landscape seen in many traditional Chinese paintings.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa3e7612b320a014a9814c_5dfa78f07b271617127839.png",
+    "detailLink": "https://secondlife.com/destination/shui-mo-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Rainbow Painters Art Gallery",
+    "desc": "Rainbow Painters is an Art Gallery and Live Music Centre that welcomes new and established artists to display their art at no cost. Typically they show 50 artists and change out every six weeks.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa356aff21d42cb3d0659b_629a9f0a09e18388062159.jpeg",
+    "detailLink": "https://secondlife.com/destination/rainbow-painters-art-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Peter Vos Museum",
+    "desc": "Explore the artwork and creations of Dutch artist Peter Vos in this loving exhibit curated by his son Sander. More info at: nwn.blogs.com/nwn/2016/08/peter-vos-museum-second-life-1.html",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa320d4e2969f6b0269021_57b245b459402312158692.jpeg",
+    "detailLink": "https://secondlife.com/destination/peter-vos-museum",
+    "teleportUrl": null
+  },
+  {
+    "title": "Maps of Second Life",
+    "desc": "The exhibit Maps of Second Life curated by Professor Juliana Lethdetter, shows information and art on virtual cartography in Second Life.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa17bd59c9794500a7993d_4ff72b79d62a7164754737.png",
+    "detailLink": "https://secondlife.com/destination/maps-of-second-life",
+    "teleportUrl": null
+  },
+  {
+    "title": "Melanoma Awareness Gallery",
+    "desc": "May is Melanoma Awareness Month, and the Melanoma Awareness Gallery is an educational event committed to increasing awareness of melanoma prevention and early detection. Running May 1 to May 31, 2026, it features updated art photography, a Journey of Hope, and spaces to learn, reflect, and honor survivors and those lost.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f5e94795e1ca01d1539aad_682360e7994f5186372804.jpeg",
+    "detailLink": "https://secondlife.com/destination/melanoma-awareness-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "UNITY Art Gallery",
+    "desc": "UNITY Art Gallery is a vibrant space where art goes beyond the canvas and becomes an experience. Here, artists, musicians, writers, and creators come together to share their vision and build an atmosphere where every visitor becomes part of the moment.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f0efab3a72a215215694bd_69f0ef3a4b7e7008651576.png",
+    "detailLink": "https://secondlife.com/destination/unity-art-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Faith Maxwell Sculpture Gallery bFktrzPc",
+    "desc": "Faith Maxwell Sculpture Gallery presents contemporary and abstract 3D wall sculptures that explore emotion and form. Visitors can view pieces like “Peaceful Movement” and “Broken,” each reflecting personal expression through color, texture, and design.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69cc19d4f815308390ee7827_69cc196752760184389134.jpeg",
+    "detailLink": "https://secondlife.com/destination/faith-maxwell-sculpture-gallery-bFktrzPc",
+    "teleportUrl": null
+  },
+  {
+    "title": "Kitten Art Gallery BZFufNto",
+    "desc": "Welcome to Kitten Art Gallery, a delightful destination where creativity purrs in every corner. Discover beautiful artworks, a warm and inviting gallery setting, and a unique atmosphere that blends artistic expression with the playful spirit of cats. Ideal for art enthusiasts, explorers, photographers, and anyone seeking a peaceful and memorable stop in Second Life. Come enjoy inspiration!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69bd5a8478dacea22f30d035_69bd5a32f1ebb472972547.jpeg",
+    "detailLink": "https://secondlife.com/destination/kitten-art-gallery-BZFufNto",
+    "teleportUrl": null
+  },
+  {
+    "title": "Renoird Art Gallery",
+    "desc": "The Renoird Art Gallery at Selva Amazonica is a place that has been entirely designed around an Amazon Rainforest concept, blending art with nature.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b6bfbc0603157dab76739f_69b6bf8e9909a642897529.jpeg",
+    "detailLink": "https://secondlife.com/destination/renoird-art-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "A Space Between Art Gallery and Hangout hjDnpceF",
+    "desc": "A Space Between Art has it all! It's an Art Gallery and Hangout that is voice-friendly, has art for sale, and other activities, including movies, swimming, games, Linden Camping, and a drum circle. Visit and join the group.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69594e04e1fdefb4d9c0c768_69594d9f2b576008080942.jpeg",
+    "detailLink": "https://secondlife.com/destination/a-space-between-art-gallery-hjDnpceF",
+    "teleportUrl": null
+  },
+  {
+    "title": "Time Lost Art",
+    "desc": "Time Lost Art is an art gallery in Bay City dedicated to the appreciation of the arts.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69457179bb169927d9929a97_6945712a3d558226202382.jpeg",
+    "detailLink": "https://secondlife.com/destination/time-lost-art",
+    "teleportUrl": null
+  },
+  {
+    "title": "SLRandom ArtCrew",
+    "desc": "The SLRandom ArtCrew presents an experiential region that explores art, the Awareness Gallery, all set within an idyllic rural shire fantasy landscape.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6952e21940bb36f9a8bf3ebd_6952e1b1843a2004537701.jpeg",
+    "detailLink": "https://secondlife.com/destination/slrandom-artcrew",
+    "teleportUrl": null
+  },
+  {
+    "title": "Digital Arts Gallery",
+    "desc": "The Digital Arts Gallery hosts artists and exhibitions year-round. They are a group of artists who enjoy sharing art and ideas about art and work with up-and-coming and established artists. The work they exhibit varies from photography to sculpture, to interactive, and also work in between.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/693882b22feb46290f6908c9_6938823bd96ef802410049.jpeg",
+    "detailLink": "https://secondlife.com/destination/dag",
+    "teleportUrl": null
+  },
+  {
+    "title": "Artsville",
+    "desc": "Welcome to Artsville - where urban grit meets natural serenity. Explore a reimagined industrial district infused with art, music, and greenery. Wander through two immersive galleries, party in the lounge, or hang out at the retro diner bus nestled in a Bohemian garden. And before leaving, venture underground to discover a surreal lounge tucked within the abandoned subway station.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6911e71bc0e6400ce8ff0f9f_6911e68fc83fe730791048.png",
+    "detailLink": "https://secondlife.com/destination/artsville",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Termites",
+    "desc": "A creative hub with nine themed stages combining light shows, music, dance, and art. The Termites also hosts galleries, artist platforms, and cultural events. It's a vibrant destination where imagination comes alive.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68e121f429cb4c114b4dda32_68e1217be4bdb141024094.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-termites",
+    "teleportUrl": null
+  },
+  {
+    "title": "Infinite Art Gallery",
+    "desc": "Infinite Art Gallery is a contemporary virtual space in Second Life dedicated to showcasing diverse, forward-thinking digital art. The gallery features a wide range of styles and themes - from abstract and experimental to emotional, environmental, and conceptual. With a focus on inclusivity, mentorship, and creative exchange, Infinite Art Gallery invites visitors to explore immersive works and experience art as a universal language that inspires connection and self-expression.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68a4920cc9b7b28763eb162b_68a491bc58fe7378199760.png",
+    "detailLink": "https://secondlife.com/destination/infinite-art-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Black Vision Gallery LWBZAoQH",
+    "desc": "Black Vision Gallery showcases art celebrating Black African culture. Visitors can enjoy modern and old-school music, relax, shop, and take pieces home. The destination offers a space to learn, connect, and appreciate cultural expression.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/689c9afb1386d2443ed76ece_689c9aaef225a559030982.jpeg",
+    "detailLink": "https://secondlife.com/destination/black-vision-gallery-LWBZAoQH",
+    "teleportUrl": null
+  },
+  {
+    "title": "Scirocco Art Galleries and Gardens",
+    "desc": "Explore the unique Scirocco Art Galleries where creative art meets architectural design! The galleries are presented by Miles Cantelou, who is a professional painter with a passion for abstract expressionism art. These galleries offer a balance of RL artwork, SL created images, photography, and a dedicated gallery showing creative work by other SL artists.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/696fb0f31a32522803980a07_696fb0b941d10516304324.jpeg",
+    "detailLink": "https://secondlife.com/destination/scirocco-art-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Souland Gallery",
+    "desc": "A realm where art meets soul, Souland Gallery is dedicated to showcasing breathtaking creations from talented artists across Second Life. This gallery is a haven for those who cherish the beauty of artistic expression and the connections it inspires.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67587c3b9ec9bc2912fc9550_67587c00af6ae510414122.jpeg",
+    "detailLink": "https://secondlife.com/destination/souland-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Art of Milly Sharple MofwxXWR",
+    "desc": "This gallery features the unique and original fractal, digital, and abstract art of Milly Sharple. Constantly exploring various forms of digital art, the collection is continuously evolving and regularly updated.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66b4b10f35faad462e50a0a0_66b4b0a86e7c2034759732.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-art-of-milly-sharple-MofwxXWR",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Annex of Nitroglobus",
+    "desc": "The Annex is an extension to the main hall of the Nitroglobus Roof Gallery. It is a platform for emerging artists to showcase their work.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/685bf8954f4f2a5d1b7c78af_685bf82dbd691537243613.jpeg",
+    "detailLink": "https://secondlife.com/destination/annex-of-nitroglobus",
+    "teleportUrl": null
+  },
+  {
+    "title": "Kondor Art Center",
+    "desc": "The Kondor Art Center is a place for Art, Photography, Installations, Music, Dance, Theatre, and other cultural events in Second Life. Composed by the Kondor Art Gallery (1 and 2), the Kondor Art Garden, the Kondor Art Square, the Kondor Art Club, the Museum, and other small art galleries, the Kondor Art Center has one cultural event each week.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/664b371c48f7cb13d578dd6b_664b36c57bbab091770238.jpeg",
+    "detailLink": "https://secondlife.com/destination/kondor-art-center",
+    "teleportUrl": null
+  },
+  {
+    "title": "Glimpses of the Sanctuary",
+    "desc": "Glimpses of the Sanctuary is an immersive experience as seen through the eyes of Photographer Tallis Blackwood. Please turn up sounds, lower music and use the shared environment. Allow yourself to be transported to the secret home of the Lotus! Enjoy!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/664354aa2fc37a5504272cb9_6643542f95f45537153011.jpeg",
+    "detailLink": "https://secondlife.com/destination/glimpses-of-the-sanctuary",
+    "teleportUrl": null
+  },
+  {
+    "title": "Hypnagogia Gallery",
+    "desc": "Hypnagogia is the eclectic photography of Hepburn. Her work varies from Whimsical to somewhat Macabre. She is also an accomplished landscape and portrait artist. Some works are available to purchase.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66435343e3d8ed416196cd22_664352ed65e9a237879041.jpeg",
+    "detailLink": "https://secondlife.com/destination/hypnagogia-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Studio Collection",
+    "desc": "The Studio Collection features a curated gallery of small installations, models, and works in progress on the ground level. A collection of artwork from noted artists is displayed upstairs. Visitors can also explore “All the Songs We Never Sang,” a thoughtful installation located on a platform above.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6841dcabb2366e581d649571_6841dc4521e1b710603704.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-studio-collection",
+    "teleportUrl": null
+  },
+  {
+    "title": "Art Galerie HaXue",
+    "desc": "HaXue is an international art gallery and haven spanning six floors, all crafted with Second Life's integrated tools. It's a place for dreams, friendship, and artistic exchange, complete with gardens, events, and a warm, welcoming atmosphere. Your creative spirit is always welcome here.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/673b40dd66a2a075883a47ae_673b40b2707f9748104413.jpeg",
+    "detailLink": "https://secondlife.com/destination/art-galerie-Haxue",
+    "teleportUrl": null
+  },
+  {
+    "title": "Premier Business Center",
+    "desc": "The Premier Business Center (PBC) is a multicultural business center, virtual museum, and art space focused on education, history, and cultural impact. Its Cultural Arts Center and Black History Museum are open daily for self-guided exploration, featuring exhibits on Black history, civil rights, innovation, and creative achievement through rotating displays and art. Visit every weekend throughout the month for special Black History Month events, with the kick-off event on February 8th.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6984b9035849c10b6274b622_6984b820d6d0a115844764.jpeg",
+    "detailLink": "https://secondlife.com/destination/pbc",
+    "teleportUrl": null
+  },
+  {
+    "title": "Centauria Community Gallery",
+    "desc": "An art gallery focused on fantasy and story-telling with regular exhibits and events. It is a part of the Centauria Community Regions.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/659aab4f98c99caa894839aa_659aaab64da54661134177.jpeg",
+    "detailLink": "https://secondlife.com/destination/centauria-community-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Salient Contemporary Art Gallery",
+    "desc": "Salient Contemporary Art Gallery promotes a vibrant and inclusive arts and culture experience in SL and beyond. This gallery is a curated, rotational gallery exhibition space for emerging artists focused on non-second life-related work.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/657dcb19814c59390631e59a_657dcb039c127394363245.jpeg",
+    "detailLink": "https://secondlife.com/destination/salient-contemporary-art-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "HeArt & Soul Gallery",
+    "desc": "The HeArt & Soul Gallery welcomes you to explore art that touches your heart, your soul, and your mind. The exhibiting artists change bi-monthly, with different themes, different styles, and different perspectives.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65454b200a4af5b8bea0f92c_6545499266233297237674.jpeg",
+    "detailLink": "https://secondlife.com/destination/heart-soul-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Michiel Bechir Gallery",
+    "desc": "The Michiel Bechir Gallery is a place for both Second Life photographers and people who are interested in art. There are monthly events with a DJ or a live artist.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/650a040ae677ecebb4b1175c_650a03a38e795467683917.jpeg",
+    "detailLink": "https://secondlife.com/destination/michiel-bechir-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "BOSL Innovation Pavillion",
+    "desc": "BOSL Innovation Pavillion is home to the Best of Second Life Magazine brand which promotes all things fashion-related. Find some of the best designers, models, magazines, pageants, art shows, and more! You can also visit the winery, cafe, gardens, and the Art Gallery which showcases some of the best artists in Second Life.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64f238a4b9f51b92c08627a8_64f2373f9601f713690929.jpeg",
+    "detailLink": "https://secondlife.com/destination/bosl-innovation-pavillion",
+    "teleportUrl": null
+  },
+  {
+    "title": "LiThO",
+    "desc": "LiThO is a tiny art(ist) Café . Have a seat and take a coffee and cake, and enjoy the awesome artworks of several international artists, or just relax with your friends at this cosy and comfy spot within the Corsica South Coasters mainland community. Artwork exhibitions and artists change monthly, so don't forget to stop by again!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64f09683a9d2a9ef6e28fb04_64f09659ba00b881308136.jpeg",
+    "detailLink": "https://secondlife.com/destination/litho",
+    "teleportUrl": null
+  },
+  {
+    "title": "Palace of Fine Art",
+    "desc": "Welcome to the Palace of Fine Art, on the canals in the heart of beautiful Bay City. The Palace is home to the Evergarden Gallery and All the Best café where you can enjoy an afternoon in the luxurious art museum, explore the gardens, shop, and relax with friends. Take the Bay City Ferry, ride the bus, or take the teleport. Only the finest make it to the Palace!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64e34f9ddd1351de1cd15a81_64e34f69eb3fb257910522.jpeg",
+    "detailLink": "https://secondlife.com/destination/palace-of-fine-art",
+    "teleportUrl": null
+  },
+  {
+    "title": "Idyll Whispers Art Gallery",
+    "desc": "Idyll Whispers features artwork by Denali. The gallery is a place of peace, a place to restore your soul. As you tour the gallery and it's surroundings, may you listen for the whispers of inspiration and discover the creative spirit that resides in us all.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64da2a39852b7ae71e0191bd_64da2a0483a80707599933.jpeg",
+    "detailLink": "https://secondlife.com/destination/idyll-whispers-art-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Cloud Galleries",
+    "desc": "Cloud Galleries is a sky art district above Corsica in Corsica South Coasters, curated by Owl Dragonash. Rotating exhibitions by resident and guest artists unfold across connected sky spaces, with seasonal installations woven throughout the corridor. Visitors can walk directly to NovaOwl’s Sky Gallery and Late Night Lounge, as well as Ceakay Ballyhoo’s installation area and evolving seasons.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/642d74763bb7f1b00be51f39_642d74407ba4e307665695.jpeg",
+    "detailLink": "https://secondlife.com/destination/cloud-galleries",
+    "teleportUrl": null
+  },
+  {
+    "title": "Starborn",
+    "desc": "A Beautiful Seaside Gallery in which the main building exhibits Photo Art of Lizbeth Morningstar and the Annex exhibits different Featured Artists’ works monthly. Gallery owner Lizbeth appreciates how diversified SL artists are and hopes that with more venues available for artists' exhibitions, the more fertile SL art is. Come chill with art, a lovely beach, a fascinating sea view, and soothing music.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/637e39c9eb4615bf0e911509_637e39a60d663105380520.jpeg",
+    "detailLink": "https://secondlife.com/destination/starborn",
+    "teleportUrl": null
+  },
+  {
+    "title": "Bear Castle",
+    "desc": "Come see the creativity of 600+ Linden Bears & Mole Bears, collected by multiple Residents over the years. Also, pick up a free box of Bears for your own collection!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6303f75feb87a35f557e8702_61697f46908d9856390634.jpeg",
+    "detailLink": "https://secondlife.com/destination/bear-castle",
+    "teleportUrl": null
+  },
+  {
+    "title": "Ravens Eye Gallery",
+    "desc": "Ravens Eye Gallery showcases original SL Photography by Raven Arcana with impressions of virtual landscapes.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/676d68e5d1f98439f2a3ccab_676d6871422b8712816829.jpeg",
+    "detailLink": "https://secondlife.com/destination/ravens-eye-gallery",
+    "teleportUrl": null
+  },
+  {
+    "title": "Yobe Gallery - Yoko Ayukawa Exhibition",
+    "desc": "Japanese RL artist Yoko Ayukawa presents an art exhibition at Yobe Gallery. You will find yourself surrounded by vibrant colors and whimsical artworks that will bring a feeling of joy and youthfulness to your heart. While the gallery itself is small and cozy, the space is still open and welcoming. More information about the artist yobe.com",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa605375bc301230c0b90e_5fcd57d48fa11993429433.jpeg",
+    "detailLink": "https://secondlife.com/destination/yobe-gallery",
+    "teleportUrl": null
   },
   {
     "title": "The Retreat",
     "desc": "The Retreat is a beautiful hang-out with a lush garden, art gallery and the Basement Club. Enjoy, take pictures and bring friends to this wonderful place!",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4e4dc767236bbaa22f70_5d4364db91d75130255579.jpeg",
     "detailLink": "https://secondlife.com/destination/retreat",
-    "teleportUrl": "secondlife://Monty/204/13/80"
+    "teleportUrl": null
   },
   {
     "title": "GBTH - Art Incubator BtTkVbSc",
     "desc": "GBTH - Art Incubator is an SL-based experimental arts space consisting of 8+ dedicated gallery spaces. To GBTH (Grab By The Horns) is to take courageous initiative in guiding the boundlessness of artistry, making the conceptual tangible. Here they facilitate artists and makers alike to actualize installation, photographic, sculptural, and community-based works. Everyone is welcome to visit and explore. Closing permanently on March 31st.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63b9ad77ce07d82259bbaaf4_63b9ad30dcf17828799991.png",
     "detailLink": "https://secondlife.com/destination/gbth-BtTkVbSc",
-    "teleportUrl": "secondlife://GBTH/95/226/35"
+    "teleportUrl": null
   },
   {
     "title": "The Free Museum",
     "desc": "The Free Museum contains over 70 works by some of the best artists in Second Life, and visitors are invited to take a free copy of every work exhibited. There is nothing for sale or any solicitations. And it is newcomer friendly: there are simple instructions on how to take a work home and how to resize it to fit your home. It is a great introduction to the art world of Second Life.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa49b6d28c822bf26023fb_61d8a94b6f4ef861293813.jpeg",
     "detailLink": "https://secondlife.com/destination/the-free-museum",
-    "teleportUrl": "secondlife://Leodegrance/169/204/67"
+    "teleportUrl": null
   },
   {
     "title": "The Aho Museum",
     "desc": "Located on the Northwestern Michigan College campus, this gallery features regularly rotating exhibits from a variety of artists. Outside is an intriguing selection of sculpture, and the adjoining Ars Simulacra island plays host to the work of many creative NMC artists in SL.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa476c0c0e8a5ef82e10c3_2613.jpeg",
     "detailLink": "https://secondlife.com/destination/the-aho-museum",
-    "teleportUrl": "secondlife://NMC%20Campus%20West/248/127/23"
+    "teleportUrl": null
   },
   {
     "title": "Second Life Endowment For The Arts",
     "desc": "Use the Second Life Endowment For The Arts (SLEA) experience to visit 9 regions of diverse creativity representing the many levels of virtual art in SL, including 2 & 3D, Theater, Literature, Visual, Machinima, Art Education, and Media Art. Cost-free grants are awarded! Learn more at sleagrants.com",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa3b49a1de7b4a1daaa04a_5fdc130eb3101368377590.png",
     "detailLink": "https://secondlife.com/destination/slea",
-    "teleportUrl": "secondlife://SLEA1/122/117/23"
+    "teleportUrl": null
   },
   {
     "title": "Renaissance Gallery",
     "desc": "As the name suggests, this gallery showcases artwork from the late Middle Ages, when artists like Leonardo and Botticelli were at their peak. Small, but a must-see for fans of this period.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa37ed35cef0417d57ceef_3172.jpeg",
     "detailLink": "https://secondlife.com/destination/renaissance-gallery",
-    "teleportUrl": "secondlife://Chilbo/156/208/117"
+    "teleportUrl": null
   },
   {
     "title": "Recalcitrante Gallery",
     "desc": "Take a ride with I am Free’s Ducati motorbike in her personal gallery, Recalcitrante Gallery, and take a look at her photos and installations. There is always a DJ booth ready to welcome you if you want to organize an evening and new exhibitions every few months. The music is curated by The Globalconnection which is available on the parcels audio stream.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66be053aaa406a5561fec33c_66be05111b883114451970.png",
     "detailLink": "https://secondlife.com/destination/recalcitrante-gallery",
-    "teleportUrl": "secondlife://The%20Globalconnection/146/38/3517"
+    "teleportUrl": null
+  },
+  {
+    "title": "Moya Museum",
+    "desc": "The Moya Museum of Contemporary Art presents a retrospective of the works of French artist Patrick Moya from 1974 to the present day. It is one of the main buildings in the Moya Islands.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68b5b06328a1826fa0222b16_68b5b00f30494107837275.jpeg",
+    "detailLink": "https://secondlife.com/destination/moya",
+    "teleportUrl": null
   },
   {
     "title": "Peace is a Choice Gallery",
     "desc": "For over 13+yrs this Non-Profit Foundation has been presenting some of the finest art, sculptures, mesh & non-mesh installations within Second Life!",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa30f85e463270769a7bd3_572900318c408911774094.jpeg",
     "detailLink": "https://secondlife.com/destination/peace-is-a-choice-gallery",
-    "teleportUrl": "secondlife://Jaxipun/80/245/22"
+    "teleportUrl": null
   },
   {
     "title": "NovaOwl",
     "desc": "NovaOwl is an international community and destination on the mainland continent of Corsica located on Novatron. It is a hangout and meeting place with regularly scheduled events. There is a cafe, fishing contests, boat rezzing areas, and an Art Gallery on a waterfront location.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa2124bd7abbe481c565cf_62508d1fd0dce043889896.jpeg",
     "detailLink": "https://secondlife.com/destination/novaowl",
-    "teleportUrl": "secondlife://Novatron/132/102/23"
+    "teleportUrl": null
+  },
+  {
+    "title": "Nitroglobus Roof Gallery",
+    "desc": "Nitroglobus Gallery is a Second Life art gallery that shows impressive exhibitions and installations of both emerging and well-known artists and is owned and curated by Dido Haas. The current exhibition is INFINITY WALL by Bamboo Barnes. The exhibit reveals her deepest feelings: uncertainty, vulnerability, and a quiet pain that has been lingering with her. The result is a powerful and intimate body of work that invites you to look closer.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69df86cc4a544119e3018822_69df86305e9f8142290686.jpeg",
+    "detailLink": "https://secondlife.com/destination/nitroglobus-gallery",
+    "teleportUrl": null
   },
   {
     "title": "MEROE Museum",
     "desc": "MEROE Museum is the Home of Black and Aboriginal cultures in Second Life. The Museum's purpose is to provide a safe space for the repository of black culture from across the diaspora, and a place for dialog in an effort to resolve many of the conflicts that plague our communities.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa199f0966ca36f74607fb_61e47da71279e412750742.jpeg",
     "detailLink": "https://secondlife.com/destination/meroe-museum",
-    "teleportUrl": "secondlife://Joffy/114/133/54"
+    "teleportUrl": null
   },
   {
     "title": "Fondazione Isabella e Walter Madoi",
     "desc": "Explore a space devoted to Italian artist and sculptor Walter Madoi. Established by his Foundation, this official space features highlights from his massive collection of oil paintings, sculptures and fresco projects.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa02de4ea31018918eb92e_3506.jpeg",
     "detailLink": "https://secondlife.com/destination/fondazione-isabella-e-walter-madoi",
-    "teleportUrl": "secondlife://New%20Tolmussen/27/37/27"
+    "teleportUrl": null
   },
   {
     "title": "CK's Corner",
     "desc": "CK's Corner is a beautifully decorated part of mainland where you can find Ceakay Ballyhoo's art gallery, her collection of art from SL artists, The Roofgarden Galleries, a butterfly conservatory, and a camp. CK's Corner is part of Corsica South Coasters and is nearby the Corsica Tourist Center.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a8f937d05d657b847250ec_625639a14d882524987547.jpeg",
     "detailLink": "https://secondlife.com/destination/cks-corner",
-    "teleportUrl": "secondlife://Sunstream/214/21/45"
+    "teleportUrl": null
   },
   {
     "title": "Cape Able Art Gallery",
     "desc": "The Cape Able Art Gallery is a beautiful, eclectic gallery hosting art exhibits by deaf and/or disabled artists. Exhibits change quarterly. Artists can be contacted privately for the sale of their works. Cape Able is a nonprofit, Virtual Ability Inc. owned region. The latest exhibit is Latté Foam Etchings by DocNeuro Cyants. This exhibit will be open throughout the month of May.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6813cf9c1fa35b5bdeaa5aa0_6813cf56afb51142803236.jpeg",
     "detailLink": "https://secondlife.com/destination/capeable",
-    "teleportUrl": "secondlife://Cape%20Able/119/120/23"
+    "teleportUrl": null
   },
   {
     "title": "ArtSpace UTSA",
     "desc": "ArtSpace UTSA is a gallery located on the virtual campus of the University of Texas at San Antonio. New exhibits will open roughly ever other month.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a8edfdc970acddfeaaa998_5759bb48f2977689960080.jpeg",
     "detailLink": "https://secondlife.com/destination/artspace-utsa",
-    "teleportUrl": "secondlife://TejanoTech/185/128/77"
+    "teleportUrl": null
+  },
+  {
+    "title": "ArtCare Gallery",
+    "desc": "ArtCare Gallery is a very large art venue, including 5 levels The Gallery welcomes you with a public garden that serves as a gateway into a wonderful collection of SL art. It is highly recommended to use the shared environment!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a8edf79a0e7162cff40a2b_6128155fa30cc242790889.jpeg",
+    "detailLink": "https://secondlife.com/destination/artcare-gallery",
+    "teleportUrl": null
   }
 ]

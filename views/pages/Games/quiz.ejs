@@ -26,6 +26,7 @@
     align-items: center; justify-content: center;
     width: 100%; height: 100%;
     animation: qFadeIn 0.4s ease;
+    background: #000000c9;
 }
 .quiz-screen.active { display: flex; }
 
@@ -38,7 +39,7 @@
 }
 .quiz-subtitle {
     font-size: 0.8rem; letter-spacing: 3px;
-    text-transform: uppercase; opacity: 0.4;
+    text-transform: uppercase; opacity: 0.9;
 }
 
 #quiz-players-list {
@@ -68,7 +69,7 @@
     transition: border-color 0.2s;
 }
 #quiz-name-input:focus { border-color: #daa520; }
-#quiz-name-input::placeholder { opacity: 0.3; }
+#quiz-name-input::placeholder { opacity: 0.8; }
 
 .quiz-btn {
     background: linear-gradient(135deg, rgba(218,165,32,0.3), rgba(218,165,32,0.1));
@@ -79,7 +80,7 @@
     transition: all 0.2s ease;
 }
 .quiz-btn:hover { background: rgba(218,165,32,0.4); border-color: #daa520; transform: scale(1.03); }
-.quiz-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
+.quiz-btn:disabled { opacity: 0.9; cursor: not-allowed; transform: none; }
 .quiz-btn.red { background: rgba(231,76,60,0.2); border-color: rgba(231,76,60,0.5); }
 .quiz-btn.red:hover { background: rgba(231,76,60,0.4); border-color: #e74c3c; }
 .quiz-btn.green { background: rgba(46,204,113,0.2); border-color: rgba(46,204,113,0.5); }
@@ -93,7 +94,7 @@
 }
 .countdown-label {
     font-size: 0.75rem; letter-spacing: 4px;
-    text-transform: uppercase; opacity: 0.4;
+    text-transform: uppercase; opacity: 0.7;
 }
 
 /* ── QUESTION ── */
@@ -127,7 +128,7 @@
 
 #quiz-q-number {
     font-size: 0.7rem; letter-spacing: 3px;
-    text-transform: uppercase; opacity: 0.4; margin-bottom: 16px;
+    text-transform: uppercase; opacity: 0.7; margin-bottom: 16px;
 }
 #quiz-question-text {
     font-size: 1.6rem; font-weight: 200; text-align: center;
@@ -158,7 +159,7 @@
 .quiz-answer:disabled { cursor: not-allowed; }
 .quiz-answer.selected { border-color: #daa520; background: rgba(218,165,32,0.15); }
 .quiz-answer.correct  { border-color: #2ecc71; background: rgba(46,204,113,0.2); }
-.quiz-answer.wrong    { border-color: #e74c3c; background: rgba(231,76,60,0.15); opacity: 0.6; }
+.quiz-answer.wrong    { border-color: #e74c3c; background: rgba(231,76,60,0.15); opacity: 0.8; }
 
 .answer-letter {
     width: 28px; height: 28px; border-radius: 50%;
@@ -187,7 +188,7 @@
 #qs-result { gap: 24px; }
 .result-answer-reveal {
     font-size: 0.8rem; letter-spacing: 2px;
-    text-transform: uppercase; opacity: 0.5;
+    text-transform: uppercase; opacity: 0.8;
 }
 .result-correct-answer {
     font-size: 1.4rem; color: #2ecc71;
@@ -204,7 +205,7 @@
     transition: all 0.3s ease;
 }
 .result-score-card.got-it { border-color: #2ecc71; }
-.result-score-card .rs-name { font-size: 0.75rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
+.result-score-card .rs-name { font-size: 0.75rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
 .result-score-card .rs-pts  { font-size: 1.8rem; font-weight: 200; color: #daa520; }
 
 /* ── FINAL ── */
@@ -277,7 +278,7 @@
         <div class="result-answer-reveal">Correct Answer</div>
         <div class="result-correct-answer" id="result-correct-text"></div>
         <div class="result-scores" id="result-scores"></div>
-        <div id="result-next-label" style="font-size:0.7rem;opacity:0.4;letter-spacing:2px;text-transform:uppercase;">Next question in 3s...</div>
+        <div id="result-next-label" style="font-size:0.9rem;opacity:0.8;letter-spacing:2px;text-transform:uppercase;">Next question in 3s...</div>
     </div>
 
     <!-- FINAL PODIUM -->
@@ -318,7 +319,7 @@ if (!socket) { console.error('[Quiz] Socket not found'); return; }
         const entries = Object.values(players);
         list.innerHTML = entries.length
             ? entries.map(p => `<div class="quiz-player-chip"><div class="chip-dot"></div>${p.name}</div>`).join('')
-            : '<div style="opacity:0.3;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;">No players yet</div>';
+            : '<div style="opacity:0.3;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">No players yet</div>';
         document.getElementById('quiz-start-btn').disabled = entries.length < 1;
     }
 

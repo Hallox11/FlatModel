@@ -82,11 +82,13 @@ router.get('/truth-or-myth', (req, res) => res.render('pages/games/truth-or-myth
 router.get('/who-am-i',      (req, res) => res.render('pages/games/who-am-i'));
 router.get('/this-or-that',  (req, res) => res.render('pages/games/this-or-that'));
 
+// 1. Página principal de Freebies
 router.get('/freebies', (req, res) => res.render('pages/freebies'));
 
-// API endpoint
+// 2. API para listar os presentes (Gifts)
 router.get('/api/freebies', async (req, res) => {
     try {
+        // Usa a variável que já foi declarada no topo do ficheiro
         const items = await freebiesScraper.getGifts();
         res.json(items);
     } catch (err) {
@@ -94,6 +96,32 @@ router.get('/api/freebies', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+// 3. API para extrair o Teleport (SLURL)
+// CORRIGIDO: de 'routers' para 'router'
+router.get('/api/freebies/teleport', async (req, res) => {
+    try {
+        const { articleUrl } = req.query;
+        
+        if (!articleUrl) {
+            return res.status(400).json({ error: "URL do artigo em falta" });
+        }
+
+        // Não faças 'require' aqui dentro de novo. 
+        // Usa a variável 'freebiesScraper' que já tens no topo do ficheiro.
+        const slurl = await freebiesScraper.extractSlurl(articleUrl);
+
+        if (slurl) {
+            res.json({ teleportUrl: slurl });
+        } else {
+            res.json({ teleportUrl: null });
+        }
+    } catch (err) {
+        console.error("ERRO NO TELEPORT SCRAPER:", err.message);
+        res.status(500).json({ error: "Erro ao extrair o link de teleport" });
+    }
+});
+
 // ============================================================
 // ADD TO routes.js
 // ============================================================
@@ -800,6 +828,27 @@ router.get('/sl-destinations', async (req, res) => {
     }
 });
 
+
+// Rota para buscar o teleport apenas "on-demand"
+router.get('/api/sl/teleport', async (req, res) => {
+    // Usamos 'detailLink' para bater com o que o EJS envia
+    const { detailLink } = req.query; 
+
+    if (!detailLink) {
+        return res.status(400).json({ error: "URL em falta" });
+    }
+
+    try {
+        // O nome correto da função exportada no seu slScraper.js
+        const teleportLink = await slScraper.getTeleportOnDemand(detailLink);
+        
+        // Retornamos 'teleportUrl' para o fetch do EJS receber corretamente
+        res.json({ teleportUrl: teleportLink }); 
+    } catch (err) {
+        console.error('[Teleport Error]:', err);
+        res.status(500).json({ error: "Não foi possível obter o teleport" });
+    }
+});
     ///////////////////////////////////////////////////////////////////
     // PLAYER
     router.get('/tvytube', (req, res) => {

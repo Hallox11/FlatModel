@@ -7,175 +7,122 @@ const fs      = require('fs');
 
 const CACHE_DIR  = path.join(__dirname, 'cache/freebies');
 const CACHE_FILE = path.join(CACHE_DIR, 'freebies.json');
-const CACHE_TTL  = 30 * 60 * 1000; // 30 minutes
+const CACHE_TTL  = 30 * 60 * 1000; 
 const SITE_URL   = 'https://www.scoop.it/topic/second-life-freebies-und-mehr';
 const PAGES      = [1, 2, 3, 4];
 
-// Strict SLurl pattern
 const SLURL_RE = /(?:secondlife:\/\/|https?:\/\/maps\.secondlife\.com\/secondlife\/)[^\s"'<>]+/i;
 
-if (!fs.existsSync(CACHE_DIR)) {
-    fs.mkdirSync(CACHE_DIR, { recursive: true });
-}
+const HUMAN_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'
+};
+
+if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR, { recursive: true });
 
 function readCache() {
     try {
         if (!fs.existsSync(CACHE_FILE)) return null;
         const { timestamp, items } = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
-        if (Date.now() - timestamp > CACHE_TTL) return null;
-        return items;
-    } catch {
-        return null;
-    }
+        return (Date.now() - timestamp > CACHE_TTL) ? null : items;
+    } catch { return null; }
 }
 
 function writeCache(items) {
     try {
-        fs.writeFileSync(
-            CACHE_FILE,
-            JSON.stringify({ timestamp: Date.now(), items }, null, 2)
-        );
-    } catch (err) {
-        console.error('[Freebies Cache] Write error:', err.message);
-    }
+        fs.writeFileSync(CACHE_FILE, JSON.stringify({ timestamp: Date.now(), items }, null, 2));
+    } catch (err) { console.error('[Cache Error]:', err.message); }
 }
 
-// ✅ ONLY extract SLurl from article "Location:" field
+/**
+ * ESTA FUNÇÃO SÓ DEVE SER CHAMADA PELA ROTA DA API QUANDO CLICAM NO BOTÃO
+ */
 async function extractSlurl(articleUrl) {
-    if (!articleUrl || !articleUrl.startsWith('http')) return null;
-
     try {
-        const { data: html } = await axios.get(articleUrl, {
-            headers: { 'User-Agent': 'Mozilla/5.0' },
-            timeout: 10000
+        const response = await axios.get(articleUrl, {
+            headers: {
+                // Identifica o scraper como um Chrome no Windows
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Referer': 'https://www.teleporthub.com/category/freebies-2/' 
+            },
+            timeout: 10000 // 10 segundos de limite
         });
 
-        const $ = cheerio.load(html);
-        let slurl = null;
-
-        $('strong').each((_, el) => {
-            const text = $(el).text().trim().toLowerCase();
-
-            if (text.includes('location')) {
-                const link = $(el)
-                    .parent()
-                    .find('a[href*="maps.secondlife.com"], a[href^="secondlife://"]')
-                    .first()
-                    .attr('href');
-
-                if (link && SLURL_RE.test(link)) {
-                    slurl = link;
-                    return false; // break loop
-                }
-            }
-        });
-
-        return slurl;
+        const html = response.data;
+        // Aqui continuas com a tua lógica de extrair o link (regex ou cheerio)
+        const slurlMatch = html.match(/secondlife:\/\/app\/teleport\/[^\s"']+/);
+        
+        return slurlMatch ? slurlMatch[0] : null;
 
     } catch (err) {
-        console.log(`[SLurl ERROR] ${articleUrl}: ${err.message}`);
+        if (err.response && err.response.status === 403) {
+            console.error("ERRO 403: O site bloqueou o scraper. Verifica os Headers.");
+        } else {
+            console.error("Erro ao extrair SLURL:", err.message);
+        }
         return null;
     }
 }
 
 async function scrapePage(page) {
     const url = page === 1 ? SITE_URL : `${SITE_URL}?page=${page}`;
-    console.log(`[Freebies] Fetching page ${page}...`);
-
-    const { data: html } = await axios.get(url, {
-        headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' },
-        timeout: 15000
-    });
-
-    const $     = cheerio.load(html);
+    const { data: html } = await axios.get(url, { headers: HUMAN_HEADERS });
+    const $ = cheerio.load(html);
     const items = [];
 
     $('article').each((i, item) => {
         const $item = $(item);
-
-        let image =
-            $item.find('div.thisistherealimage img.postDisplayedImage').attr('src') ||
-            $item.find('div.thisistherealimage img').attr('data-src') ||
-            $item.find('div.post-image img').attr('src') ||
-            '';
-
-        if (image && image.startsWith('//')) {
-            image = 'https:' + image;
-        }
+        let image = $item.find('img.postDisplayedImage').attr('src') || 
+                    $item.find('img').attr('data-src') || '';
+        if (image.startsWith('//')) image = 'https:' + image;
 
         const titleLink = $item.find('.postTitleView a');
-        const url       = titleLink.attr('href') || '';
-        const title     = titleLink.text().trim();
-        const desc      = $item.find('.post-description, .tCustomization_post_description').text().trim();
-        const date      = $item.find('.tCustomization_post_metas span').first().text().trim();
+        const desc = $item.find('.post-description, .tCustomization_post_description').text().trim();
 
-        if (title && image) {
+        if (titleLink.text()) {
             items.push({
-                title,
-                url,
-                image,
-                desc,
-                date,
-                slurl: null
+                title: titleLink.text().trim(),
+                url: titleLink.attr('href') || '',
+                image: image,
+                desc: desc,
+                date: $item.find('.tCustomization_post_metas span').first().text().trim(),
+                slurl: null // SEMPRE NULL NO SCRAP INICIAL
             });
-        } else if (title) {
-            console.log(`[Scraper Debug] No image found for: ${title}`);
         }
     });
-
     return items;
 }
 
+/**
+ * SCRAPER PRINCIPAL: Rápido e sem acessos a sites externos bloqueados
+ */
 async function getGifts() {
     const cached = readCache();
-    if (cached) {
-        console.log('[Freebies] Cache hit');
-        return cached;
-    }
+    if (cached) return cached;
 
-    // 1. Scrape listing pages
-    const allItems = [];
+    let allItems = [];
     for (const page of PAGES) {
         try {
-            const items = await scrapePage(page);
-            allItems.push(...items);
-            console.log(`[Freebies] Page ${page}: ${items.length} items`);
-        } catch (err) {
-            console.error(`[Freebies] Page ${page} failed:`, err.message);
-        }
+            const pageItems = await scrapePage(page);
+            allItems.push(...pageItems);
+        } catch (err) { console.error(`Erro Scoop.it pág ${page}`); }
     }
 
-    // 2. Deduplicate by URL
     const seen = new Set();
     const deduped = allItems.filter(item => {
-        const cleanUrl = item.url.split('?')[0];
-        if (seen.has(cleanUrl)) return false;
-        seen.add(cleanUrl);
+        const id = item.url.split('?')[0];
+        if (seen.has(id)) return false;
+        seen.add(id);
         return true;
     });
 
-    // 3. Extract SLurls (batched)
-    console.log(`[Freebies] Extracting SLurls for ${deduped.length} items...`);
-
-    const BATCH = 5;
-    for (let i = 0; i < deduped.length; i += BATCH) {
-        const batch = deduped.slice(i, i + BATCH);
-
-        await Promise.all(
-            batch.map(async item => {
-                item.slurl = await extractSlurl(item.url);
-
-                if (item.slurl) {
-                    console.log(`[Freebies] SLurl found: ${item.slurl}`);
-                }
-            })
-        );
-    }
-
-    console.log(`[Freebies] Total after dedup: ${deduped.length}`);
-
+    // Removida toda a lógica de loops/batches e extractSlurl daqui!
+    console.log(`[Freebies] Cache atualizado com ${deduped.length} itens.`);
+    
     writeCache(deduped);
     return deduped;
 }
 
-module.exports = { getGifts };
+module.exports = { getGifts, extractSlurl };
