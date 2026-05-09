@@ -67,7 +67,11 @@ const NAV_CONFIG = {
         'who-am-i': '/who-am-i',
         'this-or-that': '/this-or-that',
         'freebies': '/freebies',
-        'help': '/help'
+        'help': '/help',
+        'clip-games': '/clip-games',
+        'tv-clip-games': '/tv-clip-games',
+        'watch-together': '/watch-together-menu',
+
     },
 
     // --- RADIO ROOT (Redirect Logic) ---
@@ -238,24 +242,29 @@ function handleNav(mode, isRemote = false) {
     if (!mode) return;
     window.killRadio();
 
-    // 1. Limpeza de listeners antigos
     if (window.socket) {
         window.socket.off('Play').off('Pause');
     }
 
-    const menuKey = Object.keys(NAV_CONFIG.menus).find(k => NAV_CONFIG.menus[k] === mode.split('?')[0]);
+    // --- CORREÇÃO AQUI ---
+    // 1. Extraímos o nome limpo (sem parâmetros)
+    const cleanPath = mode.split('?')[0]; 
+    
+    // 2. Verificamos se existe no NAV_CONFIG (tentando com e sem barra)
+    const isKnownMenu = !!NAV_CONFIG.menus[cleanPath] || 
+                        !!NAV_CONFIG.menus[cleanPath.replace(/^\//, '')] || // tenta sem barra
+                        !!Object.keys(NAV_CONFIG.menus).find(k => NAV_CONFIG.menus[k] === cleanPath || NAV_CONFIG.menus[k] === '/' + cleanPath);
 
-    let isAjaxMenu = !!NAV_CONFIG.menus[mode] || 
-                     !!menuKey ||
+    let isAjaxMenu = isKnownMenu || 
                      mode.includes('xxx') ||
-                     mode.includes('xvideos') ||
+                     mode.includes('clip-games') || // Força detecção para clip-games
+                     mode.includes('tv-clip-games') || 
                      mode.includes('music/') ||  
                      mode.includes('movies/') || 
                      mode.includes('radios/') || 
                      mode.includes('tvytube') || 
                      mode.includes('ytmusic') || 
                      mode.includes('youtube') ||
-                     mode.includes('radio_player') ||
                      mode.includes('-menu');
 
     let targetUrl = NAV_CONFIG.menus[mode] || mode;

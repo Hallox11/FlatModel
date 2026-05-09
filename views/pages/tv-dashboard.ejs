@@ -303,6 +303,44 @@
             margin: 1px;
         }
 
+        /* ── COMMAND BUTTONS ── */
+        .cmd-btns {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .cmd-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            padding: 4px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .cmd-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .cmd-btn.danger:hover {
+            border-color: var(--off);
+            color: var(--off);
+            background: var(--off-bg);
+        }
+
+        .cmd-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
         /* ── EMPTY / LOADING ── */
         .state-msg {
             text-align: center;
@@ -366,6 +404,31 @@
 
         .dot-btn .dot { width: 7px; height: 7px; border-radius: 50%; }
         .dot-btn.active-filter { border-color: var(--border-hover); background: var(--surface2); color: var(--text); }
+
+        /* ── TOAST NOTIFICATIONS ── */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px 18px;
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--text);
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .toast.success { border-color: var(--on); color: var(--on); }
+        .toast.error { border-color: var(--off); color: var(--off); }
+
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -569,12 +632,9 @@ function triggerBadge(trigger) {
 }
 
 function statusBadge(status) {
-    // Standardize labels for better UI
     let cls = 'off';
     let label = status || 'OFFLINE';
-console.log(status)
-    // Logic: If status is TV_ON or ONLINE, show green.
-    // If status is TV_OFF or OFFLINE, show red.
+
     if (status === 'TV_ON' || status === 'ONLINE') {
         cls = 'on';
         label = (status === 'TV_ON') ? 'TV ON' : 'ONLINE';
@@ -596,9 +656,53 @@ function fmtTime(ts) {
          + ' <br>' + d.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' });
 }
 
-function fmtNearby(nearby) {
-    if (!nearby || nearby === 'None' || nearby === 'none') return '<span style="color:var(--text-dim)">—</span>';
-    return nearby.split(',').map(n => `<span class="nearby-pill">${n.trim()}</span>`).join('');
+function commandButtons(objectId, status) {
+    const isOnline = status === 'TV_ON' || status === 'ONLINE';
+    const disabled = !isOnline ? 'disabled' : '';
+    
+    return `
+        <div class="cmd-btns">
+            <button class="cmd-btn" onclick="sendCommand('${objectId}', 'reset')" ${disabled}>Reset</button>
+            <button class="cmd-btn danger" onclick="sendCommand('${objectId}', 'kill')" ${disabled}>Kill</button>
+        </div>
+    `;
+}
+
+async function sendCommand(objectId, command) {
+    const endpoint = `/api/tv-command/${command}`;
+    
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ object_id: objectId })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            showToast(`✓ ${command.toUpperCase()} command sent to ${objectId}`, 'success');
+            
+            // Refresh data after a short delay to show updated status
+            setTimeout(() => loadData(), 1000);
+        } else {
+            showToast(`✗ Failed: ${result.error}`, 'error');
+        }
+    } catch (error) {
+        showToast(`✗ Network error: ${error.message}`, 'error');
+    }
+}
+
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.animation = 'slideIn 0.3s ease reverse';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
 }
 
 function renderRegistry(rows) {
@@ -612,6 +716,7 @@ function renderRegistry(rows) {
                 <th>Land</th>
                 <th>Url</th>
                 <th>Last seen</th>
+                <th>Commands</th>
             </tr>
         </thead>
         <tbody>
@@ -623,6 +728,7 @@ function renderRegistry(rows) {
                 <td class="land" title="${r.land || ''}">${r.land || '—'}</td>
                 <td class="pos">${(r.url || '—')}</td>
                 <td class="ts">${fmtTime(r.last_seen)}</td>
+                <td>${commandButtons(r.object_id, r.status)}</td>
             </tr>
         `).join('')}
         </tbody>
@@ -641,7 +747,6 @@ function renderInteractions(rows) {
                 <th>Owner</th>
                 <th>Land</th>
                 <th>Position</th>
-
             </tr>
         </thead>
         <tbody>
@@ -654,9 +759,6 @@ function renderInteractions(rows) {
                 <td>${r.owner || '—'}</td>
                 <td class="land" title="${r.land_name || ''}">${r.land_name || '—'}</td>
                 <td class="pos">${r.pos || '—'}</td>
-
-
-
             </tr>
         `).join('')}
         </tbody>

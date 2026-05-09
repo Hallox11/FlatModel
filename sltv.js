@@ -61,7 +61,11 @@ const MODES = {
     LIVE_TV:     'LIVE_TV',
     GAMES:       'GAMES',
     FREEBIES:    'FREEBIES',
-    SECOND_LIFE: 'SECOND_LIFE'
+    SECOND_LIFE: 'SECOND_LIFE',
+    WATCH_TOGETHER: 'WATCH_TOGETHER',
+    KOSMI:       'KOSMI',
+    CYTUBE:      'CYTUBE',
+    CLIP_GAMES:  'CLIP_GAMES'
 };
 
 // Instead of a single lobbyState, each TV room gets its own state

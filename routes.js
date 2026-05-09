@@ -82,6 +82,24 @@ router.get('/truth-or-myth', (req, res) => res.render('pages/games/truth-or-myth
 router.get('/who-am-i',      (req, res) => res.render('pages/games/who-am-i'));
 router.get('/this-or-that',  (req, res) => res.render('pages/games/this-or-that'));
 
+router.get('/clip-games', (req, res) => res.render('pages/games/clip-games')); 
+router.get('/tv-clip-games', (req, res) => res.render('pages/games/tv-clip-games'));
+// ── WATCH TOGETHER MENU ──────────────────────────────────────
+router.get('/watch-together-menu', (req, res) => res.render('pages/watch-together/watch-together-menu'));
+
+// ── KOSMI INTEGRATION ────────────────────────────────────────
+router.get('/kosmi', (req, res) => {
+    const roomId = req.query.room || '';
+    res.render('pages/watch-together/kosmi', { roomId });
+});
+
+// ── CYTUBE INTEGRATION ───────────────────────────────────────
+router.get('/cytube', (req, res) => {
+    const channel = req.query.channel || '';
+    res.render('pages/watch-together/cytube', { channel });
+});
+
+
 // 1. Página principal de Freebies
 router.get('/freebies', (req, res) => res.render('pages/freebies'));
 
@@ -245,6 +263,103 @@ router.get('/stream-cam-page', (req, res) => {
             const rows = db.prepare(`SELECT * FROM interactions ORDER BY timestamp DESC LIMIT ? OFFSET ?`).all(limit, offset);
             res.json(rows);
         } catch (err) { res.status(500).json({ error: err.message }); }
+    });
+
+    /////////////////////////////////////////////////
+    // TV COMMAND ENDPOINTS
+    // POST /api/tv-command/reset
+    router.post('/api/tv-command/reset', async (req, res) => {
+        const { object_id } = req.body;
+        
+        if (!object_id) {
+            return res.status(400).json({ error: 'Missing object_id' });
+        }
+
+        const tv = tvRegistry[object_id];
+        if (!tv || !tv.url) {
+            return res.status(404).json({ error: 'TV not found or no URL registered' });
+        }
+
+        try {
+            console.log(`[Command] Sending RESET to TV ${object_id} at ${tv.url}`);
+            await axios.post(tv.url, 'reset|', {
+                headers: { 'Content-Type': 'text/plain' },
+                timeout: 5000
+            });
+            
+            res.json({ success: true, message: `Reset command sent to TV ${object_id}` });
+        } catch (error) {
+            console.error(`[Command] Failed to reset TV ${object_id}:`, error.message);
+            res.status(500).json({ error: 'Failed to send reset command', details: error.message });
+        }
+    });
+
+    // POST /api/tv-command/kill
+    router.post('/api/tv-command/kill', async (req, res) => {
+        const { object_id } = req.body;
+        
+        if (!object_id) {
+            return res.status(400).json({ error: 'Missing object_id' });
+        }
+
+        const tv = tvRegistry[object_id];
+        if (!tv || !tv.url) {
+            return res.status(404).json({ error: 'TV not found or no URL registered' });
+        }
+
+        try {
+            console.log(`[Command] Sending KILL to TV ${object_id} at ${tv.url}`);
+            await axios.post(tv.url, 'kill|', {
+                headers: { 'Content-Type': 'text/plain' },
+                timeout: 5000
+            });
+            
+            // Update registry to mark as offline
+            db.prepare(`UPDATE tv_registry SET status = 'OFFLINE' WHERE object_id = ?`).run(object_id);
+            if (tvRegistry[object_id]) {
+                tvRegistry[object_id].status = 'OFFLINE';
+            }
+            
+            // Emit update to connected clients
+            io.emit('tv_registered', { 
+                object_id: object_id, 
+                id: object_id, 
+                location: tv.land,
+                status: "OFFLINE" 
+            });
+            
+            res.json({ success: true, message: `Kill command sent to TV ${object_id}` });
+        } catch (error) {
+            console.error(`[Command] Failed to kill TV ${object_id}:`, error.message);
+            res.status(500).json({ error: 'Failed to send kill command', details: error.message });
+        }
+    });
+
+    // POST /api/tv-command/custom
+    router.post('/api/tv-command/custom', async (req, res) => {
+        const { object_id, command } = req.body;
+        
+        if (!object_id || !command) {
+            return res.status(400).json({ error: 'Missing object_id or command' });
+        }
+
+        const tv = tvRegistry[object_id];
+        if (!tv || !tv.url) {
+            return res.status(404).json({ error: 'TV not found or no URL registered' });
+        }
+
+        try {
+            console.log(`[Command] Sending custom command "${command}" to TV ${object_id} at ${tv.url}`);
+            await axios.post(tv.url, command, {
+                headers: { 'Content-Type': 'text/plain' },
+                timeout: 5000
+            });
+            
+            res.json({ success: true, message: `Command "${command}" sent to TV ${object_id}` });
+        } catch (error) {
+            console.error(`[Command] Failed to send command to TV ${object_id}:`, error.message);
+            res.status(500).json({ error: 'Failed to send custom command', details: error.message });
+        }
     });
 
     /////////////////////////////////////////////////

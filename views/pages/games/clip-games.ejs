@@ -1,0 +1,216 @@
+<!-- views/pages/games/clip-games.ejs -->
+<style>
+/* ==========================================================================
+   1. ESTRUTURA E LAYOUT PRINCIPAL
+   ========================================================================== */
+#clips-wrapper { 
+    width: 1280px; height: 720px;
+  
+    font-family: 'Fira Sans', sans-serif;
+    display: flex; flex-direction: column; 
+    overflow: hidden; position: relative;
+}
+
+/* Barra de Navegação Superior */
+#clips-nav {
+    width: 100%; height: 75px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 30px;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box; z-index: 100;
+}
+
+.nav-group { display: flex; gap: 12px; align-items: center; }
+
+.current-tag { display: flex; flex-direction: column; margin-right: 20px; }
+.current-tag span { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.current-tag small { color: #f39c12; font-size: 10px; letter-spacing: 1px; opacity: 0.8; }
+
+/* Botões de Categoria */
+.modern-btn {
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff; padding: 10px 18px; border-radius: 8px;
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
+}
+
+.modern-btn:hover, .active-filter-btn { 
+    background: #f39c12; color: #000; border-color: #f39c12; 
+}
+
+/* ==========================================================================
+   2. GRID DE JOGOS E CARTÕES
+   ========================================================================== */
+#clips-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 1200px;
+    margin-left: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* Scrollbar Customizada */
+#clips-grid::-webkit-scrollbar { width: 8px; }
+#clips-grid::-webkit-scrollbar-thumb { background: #f39c12; border-radius: 10px; }
+
+.game-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 1px;
+    cursor: pointer; text-align: center;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 12px;
+    transition: transform 0.2s ease;
+    position: relative;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+}
+
+
+
+.game-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.3); }
+
+/* Miniaturas das Imagens */
+.game-media {
+    width: 100%; height: 120px;
+    background: #111; border-radius: 12px;
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+.game-thumbnail { width: 100%; height: 100%;  }
+
+.game-name { 
+    font-size: 0.9rem; 
+    font-weight: 400; 
+    text-transform: uppercase; 
+    color: #fff; 
+    margin-top: 0px; 
+}
+
+/* Cores por Categoria */
+.cat-puzzle { --card-color: #3498db; }
+.cat-action { --card-color: #e74c3c; }
+.cat-arcade { --card-color: #2ecc71; }
+</style>
+
+<div id="clips-wrapper">
+    <nav id="clips-nav">
+        <div class="nav-group">
+            <div class="current-tag">
+                <span>Clip Games</span>
+                <small id="active-label">READY</small>
+            </div>
+            
+            <!-- Botões que carregam ficheiros JSON diretos -->
+            <button class="modern-btn cat-btn" onclick="loadCategory('puzzle')">Puzzle</button>
+            <button class="modern-btn cat-btn" onclick="loadCategory('action')">Action</button>
+            <button class="modern-btn cat-btn" onclick="loadCategory('arcade')">Arcade</button>
+            <button class="modern-btn cat-btn" onclick="loadCategory('brain')">Brain</button>
+        </div>
+
+        <button class="modern-btn" onclick="closeSubMenu()" style="border-color: #ff4444; color: #ff4444;">Back</button>
+    </nav>
+
+    <div id="clips-grid">
+        <!-- Conteúdo dinâmico -->
+    </div>
+</div>
+
+<script>
+/**
+ * 1. FUNÇÃO GLOBAL DE FALLBACK
+ * Evita o SyntaxError do jQuery ao não usar aspas complexas no HTML.
+ */
+window.handleImageError = function(img) {
+    const container = img.parentElement;
+    if (container) {
+        container.innerHTML = '<div style="font-size:3rem;">🎮</div>';
+    }
+};
+
+(function() {
+    const BASE_PATH = '/games/clip-games/';
+    let isFetching = false;
+
+    /**
+     * 2. CARREGAR CATEGORIA (Fetch Direto)
+     */
+    window.loadCategory = function(fileName) {
+        if (isFetching) return;
+        isFetching = true;
+
+        $('#active-label').text('LOADING ' + fileName.toUpperCase() + '...');
+        
+        // Faz o fetch direto para a pasta public/games/clip-games/
+        fetch(BASE_PATH + fileName)
+            .then(res => {
+                if (!res.ok) throw new Error('File not found');
+                return res.json();
+            })
+            .then(data => {
+                renderGrid(data, fileName);
+                $('#active-label').text(fileName.toUpperCase());
+                isFetching = false;
+            })
+            .catch(err => {
+                console.error("Erro no carregamento:", err);
+                $('#active-label').text('ERROR');
+                isFetching = false;
+            });
+    };
+
+    /**
+     * 3. RENDERIZAR GRID
+     */
+    function renderGrid(games, categoryName) {
+        const grid = $('#clips-grid');
+        
+        // Define classe visual baseada no nome do ficheiro
+        let colorClass = 'cat-arcade';
+        if(categoryName.includes('puzzle')) colorClass = 'cat-puzzle';
+        if(categoryName.includes('action')) colorClass = 'cat-action';
+
+        const html = games.map(game => {
+            // Verifica o campo "thumb" dos teus JSONs
+            const mediaContent = game.thumb ? 
+                `<img src="${game.thumb}" class="game-thumbnail" onerror="handleImageError(this)">` : 
+                `<div style="font-size:3rem;">🎮</div>`;
+
+            return `
+                <div class="game-card ${colorClass}" onclick="sendToPlayer('${game.url}')">
+                    <div class="game-media">${mediaContent}</div>
+                    <div class="game-name">${game.title}</div>
+                </div>
+            `;
+        }).join('');
+
+        // .html() do jQuery agora funciona sem erro de Syntax
+        grid.html(html);
+        grid.scrollTop(0);
+    }
+
+    /**
+     * 4. PLAYER NAVIGATION
+     */
+// In clip-games.ejs script section
+window.sendToPlayer = function(url, title) {
+    // Certifique-se de que não há espaços ou barras extras
+    const playerRoute = `tv-clip-games?videoId=${encodeURIComponent(url)}`;
+    
+    console.log("Navigando para:", playerRoute); // Verifique o console do browser
+    handleNav(playerRoute);
+};
+
+    /**
+     * 5. STARTUP
+     * Inicia diretamente com puzzle em vez de games.txt
+     */
+    $(document).ready(() => {
+        window.loadCategory('puzzle');
+    });
+
+})();
+</script>

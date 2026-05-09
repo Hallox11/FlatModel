@@ -31,6 +31,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     width: 960px;
+    grid-auto-rows: 1fr; /* Ensures cards in new rows have the same height */
 }
 
 .game-card {
@@ -67,7 +68,10 @@
 .game-card:nth-child(2) { --card-color: #2ecc71; --card-glow: rgba(46,204,113,0.12); }
 .game-card:nth-child(3) { --card-color: #9b59b6; --card-glow: rgba(155,89,182,0.12); }
 .game-card:nth-child(4) { --card-color: #3498db; --card-glow: rgba(52,152,219,0.12); }
-
+.game-card:nth-child(5) { 
+    --card-color: #f39c12; 
+    --card-glow: rgba(243, 156, 18, 0.12); 
+}
 .game-emoji { font-size: 3rem; line-height: 1; }
 
 .game-name {
@@ -125,5 +129,13 @@
             <div class="game-desc">pick your side<br>see what others chose</div>
             <div class="game-players">1 – 8 players</div>
         </div>
+
+        <!-- NEW CLIP GAMES BUTTON -->
+    <div class="game-card" onclick="handleNav('clip-games')">
+        <div class="game-emoji">🎬</div>
+        <div class="game-name">Clip Games</div>
+        <div class="game-desc">watch and play<br>trending addicting clips</div>
+        <div class="game-players">Public Feed</div>
+    </div>
     </div>
 </div>

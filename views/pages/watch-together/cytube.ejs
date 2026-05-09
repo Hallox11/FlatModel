@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyTube - Watch Together</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #0a0a0f;
+            color: #f0f0f0;
+            font-family: 'Space Mono', monospace;
+            overflow: hidden;
+        }
+
+        .header {
+            background: rgba(28, 28, 38, 0.95);
+            border-bottom: 2px solid rgba(123, 156, 255, 0.3);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            color: #7b9cff;
+            letter-spacing: 1px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .channel-input {
+            background: rgba(10, 10, 15, 0.8);
+            border: 1px solid rgba(123, 156, 255, 0.3);
+            color: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            width: 200px;
+        }
+
+        .channel-input:focus {
+            outline: none;
+            border-color: #7b9cff;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #7b9cff 0%, #5b7cdf 100%);
+            border: none;
+            color: #0a0a0f;
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(123, 156, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(28, 28, 38, 0.8);
+            border: 1px solid rgba(123, 156, 255, 0.3);
+            color: #7b9cff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(123, 156, 255, 0.2);
+        }
+
+        .info-banner {
+            background: rgba(123, 156, 255, 0.1);
+            border-bottom: 1px solid rgba(123, 156, 255, 0.3);
+            padding: 0.75rem 2rem;
+            font-size: 0.8rem;
+            color: #7b9cff;
+            text-align: center;
+        }
+
+        .info-banner a {
+            color: #a0b8ff;
+            text-decoration: underline;
+        }
+
+        #cytube-container {
+            width: 100%;
+            height: calc(100vh - 120px);
+            position: relative;
+        }
+
+        #cytube-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+        }
+
+        .placeholder-icon {
+            font-size: 5rem;
+        }
+
+        .placeholder h2 {
+            font-size: 2rem;
+            color: #7b9cff;
+            margin-bottom: 0.5rem;
+        }
+
+        .placeholder p {
+            color: #888;
+            font-size: 0.9rem;
+            max-width: 500px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .steps {
+            list-style: none;
+            max-width: 400px;
+        }
+
+        .steps li {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .steps li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #7b9cff;
+            font-size: 1.2rem;
+        }
+
+        .popular-channels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            max-width: 600px;
+            margin-top: 1rem;
+        }
+
+        .channel-chip {
+            background: rgba(123, 156, 255, 0.2);
+            border: 1px solid rgba(123, 156, 255, 0.3);
+            color: #7b9cff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .channel-chip:hover {
+            background: rgba(123, 156, 255, 0.3);
+            border-color: #7b9cff;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .controls {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .channel-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <span class="logo-icon">🎥</span>
+            <h1>CyTube Synchronized Player</h1>
+        </div>
+        <div class="controls">
+            <input type="text" 
+                   id="channel-input" 
+                   class="channel-input" 
+                   placeholder="Enter channel name..."
+                   value="<%= channel %>">
+            <button class="btn" onclick="loadChannel()">Load Channel</button>
+            <button class="btn btn-secondary" onclick="browseCyTube()">Browse</button>
+            <button class="btn btn-secondary" onclick="goBack()">← Back</button>
+        </div>
+    </div>
+
+    <div class="info-banner">
+        💡 Tip: Browse channels at <a href="https://cytu.be" target="_blank">cytu.be</a> or enter a channel name above
+    </div>
+
+    <div id="cytube-container">
+        <% if (channel) { %>
+            <iframe id="cytube-frame" 
+                    src="https://cytu.be/r/<%= channel %>" 
+                    allow="autoplay">
+            </iframe>
+        <% } else { %>
+            <div class="placeholder">
+                <span class="placeholder-icon">🎥</span>
+                <div style="text-align: center;">
+                    <h2>Synchronized Media Player</h2>
+                    <p>Enter a CyTube channel name above to start watching together with synchronized playback and chat.</p>
+                </div>
+                <ol class="steps">
+                    <li>Browse channels at <a href="https://cytu.be" target="_blank" style="color: #7b9cff;">cytu.be</a></li>
+                    <li>Copy the channel name from the URL (e.g., "mychannel")</li>
+                    <li>Paste it in the input field above</li>
+                    <li>Click "Load Channel" to join!</li>
+                </ol>
+                <p style="color: #666; font-size: 0.8rem; margin-top: 1rem;">Or try a popular channel:</p>
+                <div class="popular-channels">
+                    <span class="channel-chip" onclick="loadSpecificChannel('animu')">animu</span>
+                    <span class="channel-chip" onclick="loadSpecificChannel('videodrome')">videodrome</span>
+                    <span class="channel-chip" onclick="loadSpecificChannel('classic')">classic</span>
+                    <span class="channel-chip" onclick="loadSpecificChannel('8teen')">8teen</span>
+                    <span class="channel-chip" onclick="loadSpecificChannel('musicvids')">musicvids</span>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <script>
+        function loadChannel() {
+            const channel = document.getElementById('channel-input').value.trim();
+            if (channel) {
+                window.location.href = `/cytube?channel=${encodeURIComponent(channel)}`;
+            } else {
+                alert('Please enter a channel name');
+            }
+        }
+
+        function loadSpecificChannel(channelName) {
+            window.location.href = `/cytube?channel=${encodeURIComponent(channelName)}`;
+        }
+
+        function browseCyTube() {
+            window.open('https://cytu.be', '_blank');
+        }
+
+        function goBack() {
+            window.location.href = '/watch-together-menu';
+        }
+
+        // Allow Enter key to load channel
+        document.getElementById('channel-input')?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                loadChannel();
+            }
+        });
+    </script>
+</body>
+</html>
