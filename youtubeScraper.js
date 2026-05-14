@@ -51,43 +51,52 @@ function trackQuota(units) {
 
 // ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
-async function getVideos(tag, isChannel = false) {
+async function getVideos(tag, type = 'search') { // type can be 'search', 'channel', or 'playlist'
     ensureCacheDir();
-
-    // 1. Check Cache
-    const cached = loadCache(tag, isChannel);
+    
+    // Update cache logic to handle the new prefix
+    const cached = loadCache(tag, type); 
     if (cached) return cached;
 
-    // 2. Fetch Live from API
     const API_KEY = process.env.YOUTUBE_API_KEY;
-    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&relevanceLanguage=en&regionCode=US&key=${API_KEY}`;
-    
-    if (isChannel) {
-        url += `&channelId=${encodeURIComponent(tag)}&order=date`;
-    } else {
-        url += `&q=${encodeURIComponent(tag + " english")}`;
+    let url = "";
+
+    if (type === 'channel') {
+        url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&channelId=${encodeURIComponent(tag)}&order=date&key=${API_KEY}`;
+    } 
+    else if (type === 'playlist') {
+        // Use playlistItems endpoint for actual playlists
+        url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${encodeURIComponent(tag)}&key=${API_KEY}`;
+    } 
+    else {
+        // Standard keyword search
+        url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&q=${encodeURIComponent(tag)}&key=${API_KEY}`;
     }
 
     try {
-        console.log(`[YT API FETCH] Requesting: ${tag}`);
+        console.log(`[YT API FETCH] Mode: ${type} | Requesting: ${tag}`);
         const response = await fetch(url);
         if (!response.ok) throw new Error(`API Status ${response.status}`);
-
         const data = await response.json();
-        trackQuota(100); // API Search costs 100 units
+        
+        trackQuota(type === 'playlist' ? 1 : 100); // playlistItems is much cheaper (1 unit) than search (100 units)
 
-        const videos = data.items.map(i => ({
-            videoId: i.id.videoId,
-            title: i.snippet.title,
-            channel: i.snippet.channelTitle,
-            thumbnail: i.snippet.thumbnails.maxres?.url || i.snippet.thumbnails.high?.url || i.snippet.thumbnails.default?.url
-        }));
+        const videos = data.items.map(i => {
+            // Snippet structure is slightly different for playlistItems vs search
+            const snippet = i.snippet;
+            const id = type === 'playlist' ? snippet.resourceId.videoId : i.id.videoId;
+            
+            return {
+                videoId: id,
+                title: snippet.title,
+                channel: snippet.channelTitle,
+                thumbnail: snippet.thumbnails.maxres?.url || snippet.thumbnails.high?.url || snippet.thumbnails.default?.url
+            };
+        });
 
-        // 3. Save to Cache
         if (videos.length > 0) {
-            fs.writeFileSync(cacheFilePath(tag, isChannel), JSON.stringify(videos, null, 2));
+            fs.writeFileSync(cacheFilePath(tag, type), JSON.stringify(videos, null, 2));
         }
-
         return videos;
     } catch (err) {
         console.error('[YT API] Error:', err.message);

@@ -1,0 +1,770 @@
+<style>
+    #art-wrapper {
+        width: 1280px;
+        height: 720px;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        background: #050505;
+    }
+
+    #art-nav-container {
+        width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        z-index: 100;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        background: rgba(0,0,0,0.35);
+    }
+
+    .nav-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .current-tag span {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: goldenrod;
+    }
+
+    .current-tag small {
+        color: #888;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .modern-btn {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: #ddd;
+        padding: 8px 15px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: 0.2s;
+    }
+
+    .modern-btn:hover {
+        background: rgba(218,165,32,0.15);
+        border-color: goldenrod;
+        color: #fff;
+    }
+
+    .view-btn-active {
+        background: rgba(218,165,32,0.25);
+        border-color: goldenrod;
+    }
+
+    #art-search-input {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 8px 12px;
+        border-radius: 4px;
+        color: white;
+        outline: none;
+        width: 180px;
+        font-size: 13px;
+    }
+
+    #art-results-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 10px;
+        gap: 20px;
+        align-items: start;
+        width: 100%;
+        flex: 1;
+        min-height: 0;
+        padding: 20px 30px;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+
+    #art-results-grid::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #art-results-grid::-webkit-scrollbar-thumb {
+        background: goldenrod;
+        border-radius: 10px;
+    }
+
+    .art-card {
+        width: 100%;
+        background: #111;
+        border-radius: 6px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        grid-row-end: span 20;
+    }
+
+    .art-card:hover {
+        transform: translateY(-5px);
+        outline: 1px solid goldenrod;
+    }
+
+.art-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+    .art-card-info {
+        padding: 12px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .art-card-title {
+        font-size: 12px;
+        color: goldenrod;
+        margin-bottom: 4px;
+        font-weight: 600;
+    }
+
+    .art-card-artist {
+        font-size: 10px;
+        color: #888;
+    }
+
+    #art-loader {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 500;
+        text-align: center;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(218,165,32,0.1);
+        border-top: 3px solid goldenrod;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin-bottom: 10px;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+#art-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.98);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#art-ss-img {
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+    .ss-nav {
+        position: absolute;
+        top:50%;
+        transform:translateY(-50%);
+        background:none;
+        border:none;
+        color:white;
+        font-size:40px;
+        cursor:pointer;
+        padding: 20px;
+    }
+
+    .grid-cols-4 {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .error-state {
+        color: #ff7777;
+        font-size: 14px;
+        padding: 40px;
+    }
+</style>
+
+<div id="art-wrapper">
+
+    <div id="art-nav-container">
+
+        <div class="nav-group">
+            <div class="current-tag">
+                <span>ART GALLERY</span>
+                <small id="art-status">INITIALIZING...</small>
+            </div>
+        </div>
+
+        <div class="nav-group">
+            <input
+                id="art-search-input"
+                type="text"
+                placeholder="Search..."
+                onkeydown="if(event.key==='Enter') ArtGallery.fetchArtCollection(true)">
+                
+            <button class="modern-btn" onclick="ArtGallery.openSuggestions()">?</button>
+
+            <button class="modern-btn" onclick="ArtGallery.fetchArtCollection(false)">
+                Next Page →
+            </button>
+        </div>
+
+        <div class="nav-group">
+            <button class="modern-btn view-btn view-btn-active"
+                onclick="ArtGallery.changeArtLayout('4', this)">
+                4x
+            </button>
+
+            <button class="modern-btn view-btn"
+                onclick="ArtGallery.changeArtLayout('2', this)">
+                2x
+            </button>
+
+            <button class="modern-btn" onclick="closeSubMenu()">Close</button>
+        </div>
+    </div>
+
+    <div id="art-results-grid"></div>
+
+    <div id="art-loader">
+        <div class="spinner"></div>
+        <div style="color:goldenrod; font-size:10px; letter-spacing:2px;">
+            CURATING...
+        </div>
+    </div>
+
+    <div id="art-lightbox">
+
+        <button class="ss-nav"
+            style="left:20px;"
+            onclick="event.stopPropagation(); ArtGallery.prevArt()">
+            ❮
+        </button>
+
+        <button class="ss-nav"
+            style="right:20px;"
+            onclick="event.stopPropagation(); ArtGallery.nextArt()">
+            ❯
+        </button>
+
+        <img id="art-ss-img" src="">
+
+        <div style="position:absolute; bottom:40px; text-align:center; width:100%;">
+            <div id="art-ss-title" style="color:goldenrod; font-size:18px;"></div>
+            <div id="art-ss-artist" style="color:#888; font-size:14px;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const source =
+        window.pendingMuseumSource ||
+        urlParams.get('source') ||
+        'met';
+
+    const museumLabels = {
+        met: 'The MET (NY)',
+        aic: 'Chicago (AIC)',
+        cma: 'Cleveland (CMA)',
+        rijks: 'Rijksmuseum'
+    };
+
+    window.ArtGallery = {
+
+        currentMuseumSource: source,
+        currentArtworks: [],
+        allMetIDs: [],
+        currentPage: 0,
+        isFetchingArt: false,
+        artIndex: 0,
+        metObjectCache: {},
+
+        escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        },
+
+        async fetchArtCollection(isNewSearch = true) {
+
+            if (this.isFetchingArt) return;
+
+            this.isFetchingArt = true;
+
+            $('#art-loader').fadeIn(200);
+
+            const source = this.currentMuseumSource;
+
+            const query =
+                $('#art-search-input').val() || 'masterpiece';
+
+            if (isNewSearch) {
+
+                this.currentPage = 0;
+                this.allMetIDs = [];
+                this.currentArtworks = [];
+
+                $('#art-results-grid').empty();
+            }
+
+            try {
+
+                let loadedArt = [];
+
+                // =========================
+                // MET
+                // =========================
+
+if (source === 'met') {
+
+    // =========================================
+    // LOAD SEARCH IDS ONLY ONCE
+    // =========================================
+
+    if (this.allMetIDs.length === 0) {
+
+        const r = await fetch(
+            `https://collectionapi.metmuseum.org/public/collection/v1/search?isPublicDomain=true&q=${encodeURIComponent(query)}`,
+            {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }
+        );
+
+        if (!r.ok) {
+            throw new Error(`MET Search Error: ${r.status}`);
+        }
+
+        const d = await r.json();
+
+        this.allMetIDs = d.objectIDs || [];
+    }
+
+    // =========================================
+    // PAGINATION
+    // =========================================
+
+    const start = this.currentPage * 20;
+    const end = start + 20;
+
+    const ids = this.allMetIDs.slice(start, end);
+
+    // =========================================
+    // SAFE REQUEST LIMITING
+    // =========================================
+
+    const chunkSize = 2;
+
+    for (let i = 0; i < ids.length; i += chunkSize) {
+
+        const chunk = ids.slice(i, i + chunkSize);
+
+        const results = await Promise.all(
+
+            chunk.map(async id => {
+
+                try {
+
+                    // =========================================
+                    // CACHE
+                    // =========================================
+
+                    if (this.metObjectCache[id]) {
+                        return this.metObjectCache[id];
+                    }
+
+                    // =========================================
+                    // FETCH OBJECT
+                    // =========================================
+
+                    const res = await fetch(
+                        `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
+                        {
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        }
+                    );
+
+                    if (!res.ok) {
+
+                        console.warn(`MET object failed: ${id}`);
+
+                        return null;
+                    }
+
+                    const obj = await res.json();
+
+                    // =========================================
+                    // REQUIRE IMAGE
+                    // =========================================
+
+                    if (!obj.primaryImage) {
+                        return null;
+                    }
+
+                    // =========================================
+                    // USE FULL RESOLUTION IMAGE
+                    // =========================================
+                    //
+                    // primaryImageSmall = thumbnail
+                    // primaryImage      = full resolution
+                    //
+                    // You requested 1280px-quality images.
+                    //
+                    // MET full images are usually:
+                    // 2000px+
+                    // 3000px+
+                    // sometimes 5000px+
+                    //
+                    // Perfect for your 1280 gallery.
+                    //
+                    // =========================================
+
+                    const artwork = {
+
+                        title: obj.title || 'Untitled',
+
+                        artist:
+                            obj.artistDisplayName ||
+                            'Unknown Artist',
+
+                        // FULL SIZE IMAGE
+                        img: obj.primaryImage
+                    };
+
+                    // =========================================
+                    // SAVE CACHE
+                    // =========================================
+
+                    this.metObjectCache[id] = artwork;
+
+                    return artwork;
+
+                } catch (e) {
+
+                    console.warn('MET fetch failed:', e);
+
+                    return null;
+                }
+            })
+        );
+
+        // =========================================
+        // REMOVE FAILED ITEMS
+        // =========================================
+
+        loadedArt.push(
+            ...results.filter(Boolean)
+        );
+
+        // =========================================
+        // ANTI-403 DELAY
+        // =========================================
+
+        await new Promise(r =>
+            setTimeout(r, 500)
+        );
+    }
+}
+                // =========================
+                // CHICAGO
+                // =========================
+
+                else if (source === 'aic') {
+
+                    const r = await fetch(
+                        `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(query)}&limit=20&page=${this.currentPage + 1}&fields=title,artist_title,image_id`
+                    );
+
+                    const d = await r.json();
+
+                    loadedArt = d.data
+                        .filter(a => a.image_id)
+                        .map(a => ({
+                            title: a.title,
+                            artist: a.artist_title,
+                            img: `https://www.artic.edu/iiif/2/${a.image_id}/full/843,/0/default.jpg`
+                        }));
+                }
+
+                // =========================
+                // CLEVELAND
+                // =========================
+
+                else if (source === 'cma') {
+
+                    const r = await fetch(
+                        `https://openaccess-api.clevelandart.org/api/artworks/?q=${encodeURIComponent(query)}&limit=20&skip=${this.currentPage * 20}&has_image=1`
+                    );
+
+                    const d = await r.json();
+
+                    loadedArt = d.data.map(a => ({
+                        title: a.title,
+                        artist: a.creators?.[0]?.description || 'Unknown',
+                        img: a.images?.web?.url
+                    }));
+                }
+
+                // =========================
+                // RIJKS
+                // =========================
+
+                else if (source === 'rijks') {
+
+                    const key = 'fp9u7OxS';
+
+                    const targetUrl =
+                        `https://www.rijksmuseum.nl/api/en/collection?key=${key}&q=${encodeURIComponent(query)}&p=${this.currentPage + 1}&ps=20&format=json`;
+
+                    const proxiedUrl =
+                        `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+
+                    const r = await fetch(proxiedUrl);
+
+                    const responseData = await r.json();
+
+                    const d = JSON.parse(responseData.contents);
+
+                    if (d.artObjects) {
+
+                        loadedArt = d.artObjects.map(a => ({
+                            title: a.title,
+                            artist: a.principalOrFirstMaker || 'Unknown',
+                            img: a.webImage?.url
+                        }));
+                    }
+                }
+
+                if (loadedArt.length === 0) {
+
+                    $('#art-results-grid').html(`
+                        <div class="error-state">
+                            No artworks found.
+                        </div>
+                    `);
+
+                    return;
+                }
+
+                if (isNewSearch) {
+
+                    this.currentArtworks = loadedArt;
+
+                    this.renderArtGrid(loadedArt, false);
+
+                } else {
+
+                    this.currentArtworks.push(...loadedArt);
+
+                    this.renderArtGrid(loadedArt, true);
+                }
+
+                this.currentPage++;
+
+                $('#art-status').text(
+                    `${museumLabels[source]} - PAGE ${this.currentPage}`
+                );
+
+            } catch (e) {
+
+                console.error(e);
+
+                $('#art-results-grid').html(`
+                    <div class="error-state">
+                        Failed to load artworks.
+                    </div>
+                `);
+
+            } finally {
+
+                this.isFetchingArt = false;
+
+                $('#art-loader').fadeOut(200);
+            }
+        },
+
+renderArtGrid(newItems = [], append = false) {
+
+    const html = newItems.map((a, i) => {
+
+        const realIndex = append
+            ? this.currentArtworks.length - newItems.length + i
+            : i;
+
+        return `
+            <div class="art-card"
+                 id="art-card-${realIndex}"
+                 onclick="ArtGallery.openLightbox(${realIndex})">
+
+                <img
+                    src="${a.img}"
+                    loading="lazy"
+                    onload="ArtGallery.resizeArtItem(${realIndex})"
+                />
+
+                <div class="art-card-info">
+
+                    <div class="art-card-title">
+                        ${this.escapeHtml(a.title || 'Untitled')}
+                    </div>
+
+                    <div class="art-card-artist">
+                        ${this.escapeHtml(a.artist || 'Unknown')}
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+    }).join('');
+
+    if (append) {
+        $('#art-results-grid').append(html);
+    } else {
+        $('#art-results-grid').html(html);
+    }
+
+    requestAnimationFrame(() => {
+
+        this.currentArtworks.forEach((_, i) => {
+
+            this.resizeArtItem(i);
+
+        });
+
+    });
+},
+resizeArtItem(i) {
+
+            const item = document.getElementById(`art-card-${i}`);
+
+            if (!item) return;
+
+            requestAnimationFrame(() => {
+
+                const rowHeight = 10;
+                const rowGap = 20;
+
+                const h = item.getBoundingClientRect().height;
+
+                item.style.gridRowEnd =
+                    `span ${Math.ceil((h + rowGap) / (rowHeight + rowGap))}`;
+            });
+        },
+
+        changeArtLayout(n, btn) {
+
+            $('#art-results-grid')
+                .removeClass('grid-cols-4 grid-cols-2')
+                .addClass(`grid-cols-${n}`);
+
+            $('.view-btn')
+                .removeClass('view-btn-active');
+
+            $(btn)
+                .addClass('view-btn-active');
+
+            this.currentArtworks.forEach((_, i) =>
+                this.resizeArtItem(i)
+            );
+        },
+
+        openLightbox(i) {
+
+            this.artIndex = i;
+
+            const a = this.currentArtworks[i];
+
+            $('#art-ss-img').attr('src', a.img);
+            $('#art-ss-title').text(a.title);
+            $('#art-ss-artist').text(a.artist);
+
+            $('#art-lightbox')
+                .fadeIn(200)
+                .css('display', 'flex');
+        },
+
+        nextArt() {
+
+            this.artIndex =
+                (this.artIndex + 1) %
+                this.currentArtworks.length;
+
+            this.openLightbox(this.artIndex);
+        },
+
+        prevArt() {
+
+            this.artIndex =
+                (this.artIndex - 1 + this.currentArtworks.length) %
+                this.currentArtworks.length;
+
+            this.openLightbox(this.artIndex);
+        },
+
+        openSuggestions() {
+            $('#art-suggestions-modal')
+                .fadeIn(200)
+                .css('display', 'flex');
+        }
+    };
+
+    $('#art-lightbox').on('click', function (e) {
+
+        if (e.target === this) {
+
+            $(this).fadeOut(200);
+        }
+    });
+
+    $(document).ready(() => {
+
+        ArtGallery.fetchArtCollection(true);
+    });
+
+})();
+</script>

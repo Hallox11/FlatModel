@@ -43,9 +43,9 @@
 
     /* --- GRID & MAIN BUTTONS --- */
 #main-grid {
-        width: 1100px; display: grid;
+        width: 1050px; display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 35px; padding: 20px; margin-bottom: 110px;
+        gap: 25px; padding: 20px; margin-bottom: 110px;
         transition: all 0.4s ease;
 }
 
@@ -54,7 +54,7 @@
         backdrop-filter: blur(5px); 
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-top-color: rgba(255, 255, 255, 0.3);
-        border-radius: 12px; padding: 30px 10px;
+        border-radius: 12px; padding: 20px 10px;
         text-decoration: none; color: white; font-size: 1.4rem;
         text-align: center; display: flex; align-items: center;
         justify-content: center; cursor: pointer;
@@ -68,7 +68,7 @@
         background-color: rgba(0, 0, 0, 0.5) !important; 
         color: white !important; 
         font-size: 1.35rem; 
-        transform: scale(1.1); 
+        transform: scale(1.05); 
         z-index: 100; 
         transition: all 0.1s ease-in-out; 
 }
@@ -226,7 +226,7 @@ body.dark-text svg {
         background-color: rgba(0, 0, 0, 0.5) !important; 
         color: white !important; 
         font-size: 1.35rem; 
-        transform: scale(1.1); 
+        transform: scale(1.05); 
         z-index: 100; 
         transition: all 0.1s ease-in-out; 
 }
@@ -474,19 +474,23 @@ body.dark-text svg {
 <body>
 
 <div id="main-grid">
-    <div data-type="menu" data-mode="radios" class="btn">Radios</div>
-    <div data-type="menu" data-mode="music" class="btn">Music</div>
-    <div data-type="menu" data-mode="movies" class="btn">Movies</div>
     <div data-type="menu" data-mode="youtube" class="btn">YouTube</div>
+    <div data-type="menu" data-mode="movies" class="btn">Movies</div>
+    <div data-type="menu" data-mode="music" class="btn">Music</div>
+    <div data-type="menu" data-mode="radios" class="btn">Radios</div>
     <div data-type="menu" data-mode="xxx" class="btn">XXX</div>
-    <div data-type="menu" data-mode="sl-destinations" class="btn">Second Life</div>       
     <div data-type="menu" data-mode="flickr" class="btn">Flickr</div>
-    <div data-type="menu" data-mode="browsers" class="btn">Browsers</div>
+    <div data-type="menu" data-mode="sl-destinations" class="btn">Second Life</div>     
+    <div data-type="menu" data-mode="freebies" class="btn">Freebies</div>
+    <div data-type="menu" data-mode="watch-together" class="btn">Party Share</div>
     <div data-type="menu" data-mode="game-stream" class="btn">Game Stream</div>
-    <div data-type="menu" data-mode="watch-together" class="btn">Watch Together</div>
     <div data-type="menu" data-mode="live-tv" class="btn">Live TV</div>
     <div data-type="menu" data-mode="games" class="btn">Games</div>
-    <div data-type="menu" data-mode="freebies" class="btn">Freebies</div>
+    <div data-type="menu" data-mode="art-menu" class="btn">Art Gallery</div>
+    <div data-type="menu" data-mode="browsers" class="btn">Browsers</div>
+    <div data-type="menu" data-mode="browsers" class="btn">----</div>
+    <div data-type="menu" data-mode="browsers" class="btn">----</div>
+
     <div id="room-manager" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; display: flex; gap: 10px;">
 
 </div>

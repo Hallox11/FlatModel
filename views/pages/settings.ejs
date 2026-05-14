@@ -21,11 +21,11 @@
         width: 1280px; height: 720px; color: var(--text-main); 
         font-family: 'Inter', sans-serif; position: relative; overflow: hidden; 
         display: flex; flex-direction: column; box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+          background: rgba(0,0,0,0.6); 
     }
 
     #main_header_area {
         flex-shrink: 0; height: 70px; display: flex; align-items: center; justify-content: center;
-        background: rgba(0,0,0,0.3); backdrop-filter: blur(15px);
         border-bottom: 1px solid var(--glass-border); z-index: 20;
     }
 
@@ -41,9 +41,9 @@
     .online-active #status-dot { background: var(--success); box-shadow: 0 0 12px var(--success); }
 
     #settings_scroll_content {
-        flex-grow: 1; overflow-y: auto; padding: 30px 40px;
+        flex-grow: 1; overflow-y: auto; padding: 20px 40px;
         display: flex; gap: 20px; justify-content: center; align-items: flex-start;
-    }
+          }
 
     .conteiner-col { 
         width: 230px; background: var(--bg-panel); 
@@ -52,12 +52,12 @@
 
     .section-title { 
         text-align: center; margin-bottom: 15px; font-weight: 700; font-size: 12px;
-        color: rgba(255,255,255,0.9); border-bottom: 1px solid #ff8025eb;
-        padding-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em;
+        color: #ffb600; border-bottom: 1px solid #ff8025eb;
+        padding-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em;
     }
 
     .btn1 { 
-        display: block; width: 100%; margin: 5px 0; padding: 10px 12px; 
+        display: block; width: 100%; margin: 5px 0; padding: 8px 12px; 
         font-size: 15px; font-weight: 400; color: rgba(255,255,255,1); 
         background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
         border-radius: 12px; cursor: pointer; transition: all 0.2s ease;
@@ -96,7 +96,7 @@
     .label-mini { text-align: center; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; margin: 14px 0 5px 2px; display: block; letter-spacing: 0.03em; }
 
     .btn-group { display: flex; margin: 12px 0; }
-    .btn-split { flex: 1; padding: 10px 0; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); cursor: pointer; font-family: 'Inter', sans-serif; transition: 0.2s; }
+    .btn-split { flex: 1; padding: 10px 0; font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); cursor: pointer; font-family: 'Inter', sans-serif; transition: 0.2s; }
     .btn-split:hover { background: rgba(255,162,96,0.1); color: var(--accent); }
     .btn-split.active { background: rgba(255,255,255,0.04); color: rgba(255,255,255,1); border-color: var(--glass-border); position: relative; }
     .btn-split.active::before {
@@ -111,7 +111,7 @@
     }
     .btn-left  { border-radius: 10px 0 0 10px; }
     .btn-right { border-radius: 0 10px 10px 0; }
-    .btn-center-label { flex: 1.2; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800; color: var(--accent); background: rgba(255,162,96,0.05); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+    .btn-center-label { flex: 1.2; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 400; color: var(--accent); background: rgba(255,162,96,0.05); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
 
     .divider { height: 1px; background: var(--glass-border); margin: 8px 0; }
 
@@ -190,25 +190,29 @@
             <button onclick="setActive('texture',this);cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1" data-group="texture">Carbon Fiber</button>
             <button onclick="setActive('texture',this);cmd('texture','93327059-ece0-aafa-571c-dba95b08855f',this)"   class="btn1" data-group="texture">Polished Gold</button>
             <button onclick="setActive('texture',this);cmd('texture','a77d6f20-7f3f-f504-dd8b-0e3c73204aa2',this)"  class="btn1" data-group="texture">Matte Black</button>
-            <button onclick="setActive('texture',this);cmd('texture','b2be259c-509f-02de-c704-32ebaa91c99e',this)"  class="btn1" data-group="texture">New</button>
+            <button onclick="setActive('texture',this);cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">Wood</button>
 
             <!-- Model selector — moved from System, replaces Set Back Color -->
-            <span class="label-mini">Model</span>
+            <p style="margin-top: 15px;" class="section-title">STAND MODEL</p>
             <button class="btn1" id="model-1" onclick="setModel('model1',this)" data-group="model">Model 1</button>
             <button class="btn1" id="model-2" onclick="setModel('model2',this)" data-group="model">Model 2</button>
             <button class="btn1" id="model-3" onclick="setModel('model3',this)" data-group="model">Model 3</button>
 
-            <button onclick="cmd('model','reset',this)" class="btn1" style="margin-top:14px; font-size:11px; border-color:var(--accent);">RESET LOOK</button>
+            <p style="margin-top: 15px;" class="section-title">Set Back Color</p>
+            <div id="grid-back" class="color-grid-static"></div>
+
+            <button onclick="cmd('reset','visual')" class="btn1" style="font-size:12px; border-color:var(--accent);">FACTORY DEFAULT</button>
+
         </div>
 
         <!-- Column 2: Lighting -->
         <div class="conteiner-col">
-            <p class="section-title">Lighting</p>
+            <p class="section-title">AMBILIGHT & NEON</p>
 
             <span class="label-mini">Color</span>
             <div id="grid-light" class="color-grid-static"></div>
 
-            <span class="label-mini">Ambilight</span>
+            <span class="label-mini">LIGHT CONTROL</span>
                         <div class="onoff-row">
                 <button class="btn-half" id="ambi-on"  onclick="setAmbi(true)">ON</button>
                 <button class="btn-half" id="ambi-off" onclick="setAmbi(false)">OFF</button>
@@ -273,7 +277,9 @@
                 <button class="btn-third"         id="neon-cycle" onclick="setNeon('cycle')">CYCLE</button>
             </div>
 
-            <p class="hint-text">Ambilight and neon are independent.</p>
+
+            
+
         </div>
 
         <!-- Column 3: Shape & Size -->
@@ -295,10 +301,11 @@
             </div>
 
             <div style="margin-top:20px;">
-                <button onclick="setActive('env',this);cmd('ENVIRONMENT','house',this)"   class="btn1" data-group="env">House Mode</button>
-                <button onclick="setActive('env',this);cmd('ENVIRONMENT','outside',this)" class="btn1" data-group="env">Outside Mode</button>
-                <button onclick="setActive('env',this);cmd('PRESET','cinema',this)"       class="btn1" data-group="env" style="color:var(--accent);">Cinema Mode</button>
-            </div>
+                <button onclick="setActive('env',this);cmd('PRESET','house',this)"   class="btn1" data-group="env">House Mode</button>
+                <button onclick="setActive('env',this);cmd('PRESET','outside',this)" class="btn1" data-group="env">Outside Mode</button>
+                <button onclick="setActive('env',this);cmd('PRESET','cinema',this)"  class="btn1" data-group="env">Cinema Mode</button>
+            </div>   
+            <button onclick="cmd('reset','size')" class="btn1" style="font-size:12px; border-color:var(--accent);">FACTORY DEFAULT</button>
         </div>
 
         <!-- Column 4: System -->
@@ -310,18 +317,89 @@
                 <button onclick="setActive('legs',this);cmd('legs','show',this)" class="btn-split btn-right" data-group="legs">SHOW</button>
             </div>
             <div class="btn-group">
+                <button onclick="setActive('legs',this);cmd('frame','hide',this)" class="btn-split btn-left" data-group="legs">HIDE</button>
+                <div class="btn-center-label">FRAME</div>
+                <button onclick="setActive('legs',this);cmd('frame','show',this)" class="btn-split btn-right" data-group="legs">SHOW</button>
+            </div>
+            <div class="btn-group">
                 <button onclick="setActive('browser',this);cmd('browser','hide',this)" class="btn-split btn-left" data-group="browser">HIDE</button>
                 <div class="btn-center-label">BROWSER</div>
                 <button onclick="setActive('browser',this);cmd('browser','show',this)" class="btn-split btn-right" data-group="browser">SHOW</button>
             </div>
 
-            <!-- Set Back Color — moved here from Frame Design -->
-            <span class="label-mini">Set Back Color</span>
-            <div id="grid-back" class="color-grid-static"></div>
 
-            <button onclick="cmd('reboot','',this)"  class="btn1" style="color:#3498db; margin-top:20px;">RESTART TV</button>
-            <button onclick="cmd('reset','',this)"   class="btn1" style="color:#e74c3c;">FACTORY RESET</button>
+             <p style="margin-top: 15px;" class="section-title">Set Back Alpha</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-top: 5px;">
+                <button onclick="cmd('back_alpha','0.0',this)" class="btn2">0%</button>
+                <button onclick="cmd('back_alpha','0.1',this)" class="btn2">10%</button>
+                <button onclick="cmd('back_alpha','0.2',this)" class="btn2">20%</button>
+            </div>
+            <p style="margin-top: 15px;" class="section-title">Set Webscreen Alpha</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-top: 5px;">
+                <button onclick="cmd('web_alpha','0.0',this)" class="btn2">0%</button>
+                <button onclick="cmd('web_alpha','0.1',this)" class="btn2">10%</button>
+                <button onclick="cmd('web_alpha','0.2',this)" class="btn2">20%</button>
+            </div>
+
         </div>
+
+<!-- Column 5: Position & Rotation -->
+<!-- Column 5: Position & Rotation -->
+<div class="conteiner-col">
+    <p class="section-title">Position Control</p>
+    
+    <span class="label-mini">X Position (Left/Right)</span>
+    <div class="ctrl-row">
+        <button class="btn-adj" onclick="adjustPosX(-0.1)">−</button>
+        <div class="btn-value">
+            <span class="val-pct" id="pos-x">0.0</span>
+            <span class="val-sub">meters</span>
+        </div>
+        <button class="btn-adj" onclick="adjustPosX(0.1)">+</button>
+    </div>
+
+    <span class="label-mini">Y Position (Forward/Back)</span>
+    <div class="ctrl-row">
+        <button class="btn-adj" onclick="adjustPosY(-0.1)">−</button>
+        <div class="btn-value">
+            <span class="val-pct" id="pos-y">0.0</span>
+            <span class="val-sub">meters</span>
+        </div>
+        <button class="btn-adj" onclick="adjustPosY(0.1)">+</button>
+    </div>
+
+    <span class="label-mini">Z Position (Up/Down)</span>
+    <div class="ctrl-row">
+        <button class="btn-adj" onclick="adjustPosZ(-0.1)">−</button>
+        <div class="btn-value">
+            <span class="val-pct" id="pos-z">0.0</span>
+            <span class="val-sub">meters</span>
+        </div>
+        <button class="btn-adj" onclick="adjustPosZ(0.1)">+</button>
+    </div>
+
+    <div class="divider" style="margin-top:14px;"></div>
+
+    <p class="section-title">Rotation</p>
+    
+    <span class="label-mini">Horizontal (Y-Axis)</span>
+    <div class="ctrl-row">
+        <button class="btn-adj" onclick="adjustRotY(-5)">−5°</button>
+        <div class="btn-value">
+            <span class="val-pct" id="rot-y">0°</span>
+            <span class="val-sub">degrees</span>
+        </div>
+        <button class="btn-adj" onclick="adjustRotY(5)">+5°</button>
+    </div>
+
+
+
+    <div class="divider" style="margin-top:14px;"></div>
+
+    <button onclick="resetPos()" class="btn1" style="font-size:11px; border-color:var(--accent);">RESET POSITION</button>
+    <button onclick="resetRot()" class="btn1" style="font-size:11px; border-color:var(--accent); margin-top:5px;">RESET ROTATION</button>
+
+</div>
 
     </div>
 </div>
@@ -331,14 +409,14 @@
     const TV_ID = "<%= tvId %>";
 
     const premiumPalette = [
-        '#1a1a1a','#333333','#7f8c8d','#ecf0f1',
+        '#1a1a1a','#333333','#7f8c8d','#2c3e50',
         '#c0392b','#d35400','#f1c40f','#27ae60',
-        '#2980b9','#8e44ad','#ffa260','#2c3e50'
+        '#2980b9','#8e44ad'
     ];
     const lightPalette = [
         '#ffffff','#ffaa00','#ff0000','#ff00ff',
         '#0000ff','#00ffff','#00ff00','#ffff00',
-        '#ff5500','#7a00ff','#00ffaa','#111111'
+        '#ff5500','#7a00ff'
     ];
 
     let selectedHex = null;
@@ -502,6 +580,53 @@ window.adjustRange = function(v) {
         renderGrids();
         updateUI();
     });
+
+    // Position & Rotation tracking
+let posX = 0.0;
+let posY = 0.0;
+let posZ = 0.0;
+let rotY = 0;
+
+window.adjustPosX = function(v) {
+    posX = +(posX + v).toFixed(1);
+    document.getElementById('pos-x').textContent = posX.toFixed(1);
+    cmd('pos_x', posX.toFixed(1));
+};
+
+window.adjustPosY = function(v) {
+    posY = +(posY + v).toFixed(1);
+    document.getElementById('pos-y').textContent = posY.toFixed(1);
+    cmd('pos_y', posY.toFixed(1));
+};
+
+window.adjustPosZ = function(v) {
+    posZ = +(posZ + v).toFixed(1);
+    document.getElementById('pos-z').textContent = posZ.toFixed(1);
+    cmd('pos_z', posZ.toFixed(1));
+};
+
+window.adjustRotY = function(v) {
+    rotY = (rotY + v) % 360;
+    if (rotY < 0) rotY += 360;
+    document.getElementById('rot-y').textContent = rotY + '°';
+    cmd('rot_y', rotY.toString());
+};
+
+window.resetPos = function() {
+    posX = 0.0;
+    posY = 0.0;
+    posZ = 0.0;
+    document.getElementById('pos-x').textContent = '0.0';
+    document.getElementById('pos-y').textContent = '0.0';
+    document.getElementById('pos-z').textContent = '0.0';
+    cmd('pos_reset', '0');
+};
+
+window.resetRot = function() {
+    rotY = 0;
+    document.getElementById('rot-y').textContent = '0°';
+    cmd('rot_reset', '0');
+};
 </script>
 </body>
 </html>

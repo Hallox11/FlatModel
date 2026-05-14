@@ -4,15 +4,26 @@
         width: 1280px; height: 720px;
         color: #ffffff; font-family: 'Outfit', sans-serif;
         display: flex; flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(0, 0, 0, 0.0);
         
     }
 
     /* ── HEADER ── */
     .freebies-header {
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 18px 30px; border-bottom: 1px solid rgba(255,255,255,0.1);
-        flex-shrink: 0;
+    width: 100%;
+    height: 60px; /* Um pouco maior para suavizar o fade */
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    /* Efeito de Fade Moderno */
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 0.5) 80%, 
+        rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 100;
+    flex-shrink: 0; 
+    box-sizing: border-box;
     }
 
     .freebies-header h1 {
@@ -27,25 +38,58 @@
     }
 
     /* ── GRID SCROLL ── */
-    #freebies-grid-scroll {
-        flex: 1; overflow-y: auto; padding: 25px;
+    #content-wrapper {
+    flex-grow: 1;      
+    overflow-y: auto;  
+    overflow-x: hidden; 
+    padding: 7px 23px; 
+    box-sizing: border-box;
+    width: 1230px;
+    margin-left: 25px;
     }
 
-    #freebies-grid {
-        display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-    }
+/* 4. ESTILIZAÇÃO DA BARRA DE ROLAGEM (Red YouTube Style) */
+#content-wrapper::-webkit-scrollbar {
+    width: 15px;
+}
 
-    /* ── CARDS ── */
-    .freebie-card {
-        background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 12px; overflow: hidden; transition: all 0.3s ease;
-        position: relative;
-    }
+#content-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
 
-    .freebie-card:hover {
-        background: rgba(255,255,255,0.07); border-color: #ffcc00;
-        transform: translateY(-5px);
-    }
+#content-wrapper::-webkit-scrollbar-thumb {
+    background: #ff0000; 
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+
+#freebies-grid {
+    /* Use columns instead of grid for true masonry */
+    display: block; 
+    column-gap: 20px;
+    width: 100%;
+}
+
+.freebie-card {
+    background: rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.1); 
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+
+    /* CRITICAL FOR MASONRY: */
+    display: inline-block; /* Keeps the card from splitting between columns */
+    width: 100%;           /* Ensures card fills the column width */
+    margin-bottom: 20px;   /* The vertical gap between cards */
+    break-inside: avoid;   /* Modern browser instruction to not split card */
+}
+
+.freebie-card:hover {
+    background: rgba(0,0,0,0.7);
+    border-color: #ffcc00;
+}
 
 .card-img-wrap { 
         width: 100%; 
@@ -85,31 +129,42 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .card-body { padding: 15px; }
-    .card-title { font-size: 15px; font-weight: 600; color: #ffcc00; margin-bottom: 8px; line-height: 1.2; }
-    .card-desc { font-size: 13px; color: #bbb; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-title { font-size: 15px; font-weight: 400; color: #ffcc00; margin-bottom: 8px; line-height: 1.2; }
+    .card-desc { letter-spacing: 0.4px; font-size: 13px;font-weight: 400;  color: #f2f1f1; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
     .layout-btn {
         background: rgba(255,255,255,0.05); border: 1px solid #444;
         color: #888; padding: 6px 12px; border-radius: 6px; cursor: pointer;
     }
     .layout-btn.active { color: #ffcc00; border-color: #ffcc00; background: rgba(255,204,0,0.1); }
+
+    .close-menu-btn{
+        top: 13px;
+        right: 25px;
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
 </style>
 
 <div id="freebies-overlay-container">
     <div class="freebies-header">
-        <button class="header-back" onclick="closeSubMenu()">← Voltar</button>
-        <h1>✦ Freebies & Deals</h1>
+
+        <h1>Freebies & Deals</h1>
         <div style="display:flex; align-items:center; gap:20px;">
-            <span id="item-count" style="font-size: 12px; color: #666; letter-spacing: 1px;"></span>
-            <div id="layout-btns" style="display: flex; gap: 8px;">
+
+            <div id="layout-btns" style="display: flex; gap: 8px;margin-left: 100px;">
                 <button class="layout-btn" onclick="setFreebiesLayout(2)">2</button>
                 <button class="layout-btn" onclick="setFreebiesLayout(3)">3</button>
                 <button class="layout-btn active" onclick="setFreebiesLayout(4)">4</button>
             </div>
         </div>
+    <div class="close-menu-btn" onclick="closeSubMenu()">
+        <span class="material-symbols-rounded">close</span>
+    </div>
     </div>
 
-    <div id="freebies-grid-scroll">
+    <div id="content-wrapper">
         <div id="loading-freebies" style="text-align: center; margin-top: 150px;">
             <div style="font-size: 40px; animation: spin 2s linear infinite;">✦</div>
             <p style="color: #666; margin-top: 15px; letter-spacing: 2px;">A sintonizar ofertas...</p>
@@ -122,14 +177,16 @@
 (function() {
     const TP_ICON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`;
 
-    window.setFreebiesLayout = function(cols) {
-        $('#freebies-grid').css('grid-template-columns', `repeat(${cols}, 1fr)`);
-        $('.layout-btn').removeClass('active');
-        $(`.layout-btn`).each(function() {
-            if($(this).text() == cols) $(this).addClass('active');
-        });
-        localStorage.setItem('freebies_cols', cols);
-    };
+window.setFreebiesLayout = function(cols) {
+    // Update column-count instead of grid-template-columns
+    $('#freebies-grid').css('column-count', cols); 
+    
+    $('.layout-btn').removeClass('active');
+    $(`.layout-btn`).each(function() {
+        if($(this).text() == cols) $(this).addClass('active');
+    });
+    localStorage.setItem('freebies_cols', cols);
+};
 
     // FUNÇÃO ON-DEMAND: Agora chama a API para extrair o SLURL no clique
     window.handleFreebieTeleport = async function(articleUrl, btnId) {

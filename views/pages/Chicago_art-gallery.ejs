@@ -1,0 +1,601 @@
+<style>
+    /* ===== ART GALLERY ===== */
+
+    #art-wrapper {
+        width: 1280px;
+        height: 720px;
+        color: #fff;
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        background: #050505;
+    }
+
+    #art-nav-container {
+        width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        z-index: 100;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        background: rgba(0,0,0,0.35);
+    }
+
+    .nav-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .current-tag {
+        margin-right: 20px;
+    }
+
+    .current-tag span {
+        display: block;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: goldenrod;
+    }
+
+    .current-tag small {
+        color: #999;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .modern-btn {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: #ddd;
+        padding: 10px 14px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        margin-right: 8px;
+    }
+
+    .modern-btn:hover {
+        background: rgba(218,165,32,0.15);
+        border-color: goldenrod;
+        color: #fff;
+    }
+
+    .view-btn-active {
+        background: rgba(218,165,32,0.18);
+        border-color: goldenrod;
+        color: #fff;
+    }
+
+    #art-results-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-auto-rows: 20px;
+        gap: 15px;
+        align-items: start;
+
+        width: 1280px;
+        height: 650px;
+
+        padding: 20px 30px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    /* ===== GRID MODES ===== */
+
+    .grid-cols-4 {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .grid-cols-1 {
+        display: block !important;
+    }
+
+    .grid-cols-1 .art-card {
+        max-width: 700px;
+        margin: 0 auto 40px auto !important;
+    }
+
+    /* ===== CARDS ===== */
+
+    .art-card {
+        width: 100%;
+        cursor: pointer;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: transform 0.25s ease;
+        background: #111;
+        position: relative;
+    }
+
+    .art-card:hover {
+        transform: scale(1.015);
+        outline: 1px solid goldenrod;
+    }
+
+    .art-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    /* ===== LIGHTBOX ===== */
+
+    #art-lightbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 1280px;
+        height: 720px;
+
+        background: rgba(0,0,0,0.97);
+
+        display: none;
+        justify-content: center;
+        align-items: center;
+
+        z-index: 10000;
+        flex-direction: column;
+    }
+
+    #art-lightbox img {
+        max-width: 92%;
+        max-height: 82%;
+        box-shadow: 0 0 50px rgba(218,165,32,0.2);
+        border-radius: 2px;
+    }
+
+    #art-ss-info {
+        margin-top: 18px;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    #art-ss-title {
+        font-size: 18px;
+        color: goldenrod;
+        margin-bottom: 6px;
+    }
+
+    #art-ss-artist {
+        font-size: 14px;
+        color: #999;
+    }
+
+    /* ===== SLIDESHOW CONTROLS ===== */
+
+    .ss-close {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 34px;
+        cursor: pointer;
+        z-index: 10001;
+    }
+
+    .ss-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.08);
+        border: none;
+        color: white;
+        font-size: 42px;
+        width: 60px;
+        height: 80px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .ss-nav:hover {
+        background: rgba(218,165,32,0.2);
+    }
+
+    .ss-prev {
+        left: 20px;
+    }
+
+    .ss-next {
+        right: 20px;
+    }
+
+    /* ===== SCROLLBAR ===== */
+
+    #art-results-grid::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #art-results-grid::-webkit-scrollbar-thumb {
+        background: rgba(218,165,32,0.4);
+    }
+
+    .art-card-info {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+}
+
+.art-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: goldenrod;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.art-card-artist {
+    font-size: 11px;
+    color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</style>
+
+<div id="art-wrapper">
+
+    <div id="art-nav-container">
+
+<div class="nav-group" style="flex: 4;">
+    <div class="current-tag">
+        <span>ART GALLERY</span>
+        <small id="art-status">MASTERPIECES</small>
+    </div>
+
+    <div class="search-pill" style="margin-left: 15px; max-width: 250px; display: flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 2px 10px;">
+        <input id="art-search-input" type="text" placeholder="Search Artist or Style..." 
+               style="background: transparent; border: none; color: #fff; outline: none; font-size: 12px; width: 100%;"
+               onkeydown="if(event.key==='Enter') window.fetchArtCollection()">
+        <button onclick="window.fetchArtCollection()" class="search-go-btn" style="background: goldenrod; color: #000; border: none; border-radius: 4px; padding: 4px 10px; cursor: pointer; font-weight: bold;">GO</button>
+    </div>
+
+    <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.1); margin: 0 15px;"></div>
+    
+<button class="modern-btn"
+    onclick="
+        window.lastArtQuery = null;
+        window.fetchArtCollection();
+    ">
+    ↻ REFRESH
+</button>
+
+    <button class="modern-btn view-btn" onclick="window.changeArtLayout('4', this)">4x</button>
+    <button class="modern-btn view-btn" onclick="window.changeArtLayout('3', this)">3x</button>
+    <button class="modern-btn view-btn" onclick="window.changeArtLayout('2', this)">2x</button>
+    <button class="modern-btn view-btn" onclick="window.changeArtLayout('1', this)">1x</button>
+</div>
+
+        <button class="modern-btn" onclick="closeSubMenu();">
+            CLOSE
+        </button>
+
+    </div>
+
+    <div id="art-results-grid"></div>
+
+    <!-- LIGHTBOX -->
+
+    <div id="art-lightbox" onclick="window.exitArtSlideshow()">
+
+        <button class="ss-close"
+            onclick="event.stopPropagation(); window.exitArtSlideshow();">
+            &times;
+        </button>
+
+        <button class="ss-nav ss-prev"
+            onclick="event.stopPropagation(); window.prevArt();">
+            ❮
+        </button>
+
+        <button class="ss-nav ss-next"
+            onclick="event.stopPropagation(); window.nextArt();">
+            ❯
+        </button>
+
+        <img id="art-ss-img" src="">
+
+        <div id="art-ss-info">
+            <div id="art-ss-title"></div>
+            <div id="art-ss-artist"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+(function () {
+
+    let retryCount = 0;
+
+    window.currentArtworks = [];
+    window.artIndex = 0;
+
+    /* =========================================
+       FETCH COLLECTION
+    ========================================= */
+
+
+let currentPage = 1;
+
+window.lastArtQuery = null;
+window.isFetchingArt = false;
+
+window.fetchArtCollection = async function(isRemote = false) {
+    if (isRemote || window.isFetchingArt) return; 
+
+    const query = $('#art-search-input').val().trim() || "";
+    
+    // 1. Logic Check: If we already have results for this search, don't fetch again
+    if (query === window.lastArtQuery && window.currentArtworks.length > 0) {
+        console.log("Showing cached art results...");
+        return;
+    }
+
+    window.isFetchingArt = true;
+
+
+    const statusText = query ? `SEARCH: ${query.toUpperCase()}` : "MASTERPIECES";
+    $('#art-status').text(statusText);
+    $('#art-results-grid').html('<p style="text-align:center; padding:50px; color:goldenrod;">Curating Collection...</p>');
+    
+    try {
+        // 2. Safer Pagination: Lower the page range to avoid 403 blocks
+const page = currentPage;
+currentPage++;
+
+if (currentPage > 20) currentPage = 1;
+
+const searchPath = query
+    ? `q=${encodeURIComponent(query)}&query[term][is_public_domain]=true`
+    : `query[term][is_public_domain]=true`;
+
+        // Reduced limit slightly to 30 for faster loading on TV browsers
+        const url = `https://api.artic.edu/api/v1/artworks/search?${searchPath}&fields=id,title,image_id,artist_display&limit=30&page=${page}`;
+        
+        const resp = await fetch(url);
+        
+        if (!resp.ok) {
+            if(resp.status === 403) {
+                throw new Error("Museum deep-link limit reached. Try a specific search term.");
+            }
+            throw new Error(`API Error: ${resp.status}`);
+        }
+
+        const data = await resp.json();
+
+        if (data && data.data && data.data.length > 0) {
+                window.lastArtQuery = query;
+            window.currentArtworks = data.data.filter(a => a.image_id);
+            window.renderArtGrid();
+            
+            if (window.socket) {
+                window.socket.emit('state_sync', {
+                    type: 'art_results_sync',
+                    photos: window.currentArtworks,
+                    query: query,
+                    room: window.myRoom
+                });
+            }
+        } else {
+            $('#art-results-grid').html('<p style="text-align:center; padding:50px; color:#aaa;">No public domain art found for this topic.</p>');
+        }
+    } catch (e) {
+        console.error("Art Search Error:", e);
+        $('#art-results-grid').html(`<p style="text-align:center; padding:50px; color:red;">${e.message}</p>`);
+    } finally {
+        // 3. Prevent rapid clicking
+         window.isFetchingArt = false;
+    }
+};
+window.renderArtGrid = function() {
+    if (!window.currentArtworks.length) return;
+    
+    let html = window.currentArtworks.map((a, i) => {
+        // Clean up artist name (sometimes they are very long with dates)
+        const shortArtist = a.artist_display ? a.artist_display.split('\n')[0] : "Unknown Artist";
+        
+        return `
+            <div class="art-card" id="art-card-${i}" onclick="window.startArtSlideshow(${i})">
+                <img loading="lazy" src="https://www.artic.edu/iiif/2/${a.image_id}/full/1280,/0/default.jpg" 
+                     onload="window.resizeArtItem(${i})" 
+                     onerror="this.src='https://via.placeholder.com/400x300?text=Image+Unavailable'">
+                <div class="art-card-info">
+                    <div class="art-card-title">${a.title || 'Untitled'}</div>
+                    <div class="art-card-artist">${shortArtist}</div>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    $('#art-results-grid').html(html);
+};
+    /* =========================================
+       MASONRY RESIZE
+    ========================================= */
+
+window.resizeArtItem = function(index) {
+
+    const item = document.getElementById(`art-card-${index}`);
+    const grid = document.getElementById('art-results-grid');
+
+    if (!item || !grid) return;
+
+    // Skip masonry in single-column mode
+    if (grid.classList.contains('grid-cols-1')) return;
+
+    const img = item.querySelector('img');
+
+    if (!img.complete) return;
+
+    requestAnimationFrame(() => {
+
+        const rowHeight = 20;
+        const rowGap = 15;
+
+        // FULL rendered card height
+        const contentHeight = item.scrollHeight;
+
+        const rowSpan = Math.ceil(
+            (contentHeight + rowGap) / (rowHeight + rowGap)
+        );
+
+        item.style.gridRowEnd = `span ${rowSpan}`;
+
+    });
+};
+/* =========================================
+       LAYOUT SWITCH
+    ========================================= */
+
+    window.changeArtLayout = function (type, btn) {
+
+        const grid = $('#art-results-grid');
+
+        grid.removeClass(
+            'grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4'
+        );
+
+        $('.view-btn').removeClass('view-btn-active');
+
+        if (btn) {
+            $(btn).addClass('view-btn-active');
+        }
+
+        grid.addClass(`grid-cols-${type}`);
+
+        grid.scrollTop(0);
+
+        setTimeout(() => {
+
+            window.currentArtworks.forEach((_, i) => {
+                window.resizeArtItem(i);
+            });
+
+        }, 100);
+    };
+
+    /* =========================================
+       LIGHTBOX
+    ========================================= */
+
+    window.startArtSlideshow = function (index) {
+
+        window.artIndex = index;
+
+        window.updateArtLightbox();
+
+        $('#art-lightbox')
+            .fadeIn(200)
+            .css('display', 'flex');
+    };
+
+    window.updateArtLightbox = function () {
+
+        const a = window.currentArtworks[window.artIndex];
+
+        if (!a) return;
+
+        const url =
+            `https://www.artic.edu/iiif/2/${a.image_id}/full/1280,/0/default.jpg`;
+
+        $('#art-ss-img').attr('src', url);
+
+        $('#art-ss-title').text(a.title || "Untitled");
+
+        $('#art-ss-artist').text(
+            a.artist_display || "Unknown Artist"
+        );
+
+        if (window.socket) {
+
+            window.socket.emit('state_sync', {
+                type: 'art_display',
+                url: url,
+                room: window.myRoom
+            });
+
+        }
+    };
+
+    window.nextArt = function () {
+
+        window.artIndex =
+            (window.artIndex + 1) %
+            window.currentArtworks.length;
+
+        window.updateArtLightbox();
+    };
+
+    window.prevArt = function () {
+
+        window.artIndex =
+            (window.artIndex - 1 + window.currentArtworks.length) %
+            window.currentArtworks.length;
+
+        window.updateArtLightbox();
+    };
+
+    window.exitArtSlideshow = function () {
+
+        $('#art-lightbox').fadeOut(200);
+    };
+
+    /* =========================================
+       KEYBOARD CONTROLS
+    ========================================= */
+
+    document.addEventListener('keydown', function (e) {
+
+        if (!$('#art-lightbox').is(':visible')) return;
+
+        if (e.key === 'Escape') {
+            window.exitArtSlideshow();
+        }
+
+        if (e.key === 'ArrowRight') {
+            window.nextArt();
+        }
+
+        if (e.key === 'ArrowLeft') {
+            window.prevArt();
+        }
+    });
+
+    /* =========================================
+       INIT
+    ========================================= */
+
+    $(document).ready(function () {
+
+        window.fetchArtCollection();
+
+    });
+
+})();
+</script>

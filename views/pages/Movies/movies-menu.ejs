@@ -150,10 +150,39 @@
     transform: scale(1.05);
 }
 
+/* ADD TO YOUR STYLE BLOCK */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000; /* Solid black to ensure it hides the background */
+    display: none; /* We will change this to 'flex' via JS */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999; /* Higher than everything else */
+}
 
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    border-top: 6px solid #00d4ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 </style>
 
 <div id="movies-menu-wrapper">
+<!-- ADD INSIDE <div id="movies-menu-wrapper"> -->
+<div id="loader" class="loading-overlay">
+    <div class="spinner"></div>
+    <div style="margin-top: 15px; letter-spacing: 2px; font-weight: bold;">LOADING HUB...</div>
+</div>
 
     <div class="close-menu-btn" onclick="closeSubMenu()">
         <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
@@ -220,3 +249,19 @@
     </div>
 
 </div>
+<script>
+function triggerNav(url) {
+    // 1. Show loader immediately
+    const loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'flex';
+    
+    // 2. Small delay (optional, 10ms) to ensure DOM renders the loader before the heavy nav fetch
+    setTimeout(() => {
+        if (typeof handleNav === 'function') {
+            handleNav(url);
+        } else {
+            window.location.href = url;
+        }
+    }, 10);
+}
+</script>

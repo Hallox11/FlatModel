@@ -71,7 +71,8 @@ const NAV_CONFIG = {
         'clip-games': '/clip-games',
         'tv-clip-games': '/tv-clip-games',
         'watch-together': '/watch-together-menu',
-
+        'art-gallery': '/art-gallery',
+        'art-menu': '/art-menu',
     },
 
     // --- RADIO ROOT (Redirect Logic) ---
@@ -140,14 +141,16 @@ const NAV_CONFIG = {
 function cleanURL(path) {
     try {
         let url = new URL(path, window.location.origin);
-        url.searchParams.delete('room');
+        // Preserva o que já lá está (como ?source=met) e apenas garante a room
         if (typeof myRoom !== 'undefined' && myRoom) {
-            url.searchParams.append('room', myRoom);
+            url.searchParams.set('room', myRoom); // .set evita duplicados
         }
         return url.pathname + url.search;
     } catch (e) {
+        // Fallback simples se o path for relativo
         if (typeof myRoom !== 'undefined' && myRoom) {
-            return path.includes('?') ? path + "&room=" + myRoom : path + "?room=" + myRoom;
+            const separator = path.includes('?') ? '&' : '?';
+            return path.includes('room=') ? path : path + separator + "room=" + myRoom;
         }
         return path;
     }
@@ -239,6 +242,7 @@ $(document).ready(function() {
 // CORE NAVIGATION FUNCTION
 // ===============================
 function handleNav(mode, isRemote = false) {
+
     if (!mode) return;
     window.killRadio();
 
@@ -549,6 +553,14 @@ $(function() {
         // -------------------------------------------------------
 let syncArrivalDone = false;
      
+
+socket.on('gs_active_stream_detected', function(data) {
+    // You can use a confirm dialog or a custom HTML popup
+    const join = confirm("Someone is live streaming in this room! Would you like to join the Game Stream?");
+    if (join) {
+        handleNav('game-stream'); // This opens your game stream module automatically
+    }
+});
 
 
 socket.on('force_sync_arrival', function(state) {

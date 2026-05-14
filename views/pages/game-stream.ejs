@@ -326,6 +326,22 @@
             setStatus('Connection error', 'idle');
         });
 
+// When a viewer initializes the Game Stream module
+socket.on('gs_init_viewer', (data) => {
+    const room = data.room;
+    socket.join(room);
+    socket.gsRole = 'viewer';
+
+    const gs = gsRooms[room];
+    // Check if there is already a streamer
+    if (gs && gs.streamer) {
+        // Send a specific event to THIS user only
+        socket.emit('gs_active_stream_detected', {
+            streamerName: "Someone" // You can expand this with actual names
+        });
+    }
+});
+
         socket.on('gs_viewer_joined', function(data) {
             pendingViewers.push(data.peerId);
         });
@@ -341,6 +357,9 @@
             document.getElementById('gs-retry-btn').style.display          = 'none';
             setStatus('Live — stream running in your browser', 'live');
         });
+
+
+
 
         // Ask TV to send llLoadURL to the clicker
         gsRequestOpenUrl();

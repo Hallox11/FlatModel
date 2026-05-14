@@ -92,7 +92,17 @@ router.get('/kosmi', (req, res) => {
     const roomId = req.query.room || '';
     res.render('pages/watch-together/kosmi', { roomId });
 });
-
+///////////////////////////////////////////////////////77
+router.get('/art-gallery', (req, res) => {
+    res.render('pages/art-gallery', { 
+        room: req.query.room || 'Lobby' 
+    });
+});
+router.get('/art-menu', (req, res) => {
+    res.render('pages/art-menu', { 
+        room: req.query.room || 'Lobby' 
+    });
+});
 // ── CYTUBE INTEGRATION ───────────────────────────────────────
 router.get('/cytube', (req, res) => {
     const channel = req.query.channel || '';
@@ -699,54 +709,45 @@ router.get('/', (req, res) => {
         res.render('pages/youtube/youtube-menu', { title: "YouTube Search", req });
     });
 
-    router.get('/youtube-grid', async (req, res) => {
-        const query = req.query.genre || 'Trending';
-        const menu  = req.query.menu  || '/youtube-menu';
+router.get('/youtube-grid', async (req, res) => {
+    // 1. Capture all parameters
+    const query = req.query.genre || req.query.tag || 'Trending';
+    const menu = req.query.menu || '/youtube-menu';
+    const scrollPos = req.query.scrollPos || 0;
 
-        try {
-            const results = await youtubeScraper.getVideos(query, false);
+    // 2. Determine the Mode
+    // Logic: check 'mode' param first, then fallback to 'isChannel' boolean
+    let mode = 'search';
+    if (req.query.mode === 'playlist' || req.query.isPlaylist === 'true') {
+        mode = 'playlist';
+    } else if (req.query.isChannel === 'true') {
+        mode = 'channel';
+    }
 
-            res.render('pages/generic_grid', {
-                title:       `YouTube: ${query}`,
-                type:        "youtube",
-                searchQuery: query,
-                menu,
-                results: results.map(v => ({
-                    id:        v.videoId,
-                    title:     v.title,
-                    thumbnail: v.thumbnail,
-                    subtitle:  v.channel,
-                    badge:     "YT"
-                }))
-            });
-        } catch (err) {
-            res.status(500).send("Erro na busca do YouTube");
-        }
-    });
+    try {
+        // 3. Fetch data using the mode ('search', 'channel', or 'playlist')
+        const results = await youtubeScraper.getVideos(query, mode);
 
-    router.get('/youtube', async (req, res) => {
-        let favoritesData = [];
-        const ytFavPath   = path.join(__dirname, 'config', 'YT-favorites.json');
-        const tag         = req.query.tag      || 'secondlife';
-        const isChannel   = req.query.isChannel === 'true';
-        const scrollPos   = req.query.scrollPos || 0;
-
-        try {
-            if (fs.existsSync(ytFavPath)) {
-                const raw = fs.readFileSync(ytFavPath, 'utf8').trim();
-                if (raw) favoritesData = JSON.parse(raw);
-            }
-
-            const videos = await youtubeScraper.getVideos(tag, isChannel);
-
-            res.render('pages/youtube/youtube', {
-                videos, favorites: favoritesData, tag, isChannel, scrollPos, req
-            });
-        } catch (err) {
-            console.error("❌ ROUTE ERROR:", err.message);
-            res.render('pages/youtube/youtube', { videos: [], favorites: favoritesData, tag, isChannel, scrollPos, req });
-        }
-    });
+        // 4. Render the generic grid
+        res.render('pages/generic_grid', {
+            title: `YouTube ${mode.toUpperCase()}: ${query}`,
+            type: "youtube",
+            searchQuery: query,
+            menu,
+            scrollPos, 
+            results: results.map(v => ({
+                id: v.videoId,
+                title: v.title,
+                thumbnail: v.thumbnail, 
+                subtitle: v.channel, 
+                badge: mode === 'playlist' ? "PLAYLIST" : "YT" 
+            }))
+        });
+    } catch (err) {
+        console.error("❌ Unified Route Error:", err.message);
+        res.status(500).send("Error loading YouTube content");
+    }
+});
 
     router.get('/api/quota', (req, res) => {
         const quotaPath = path.join(__dirname, 'cache/youtube/quota.json');

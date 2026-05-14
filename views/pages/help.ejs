@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisa TV - Help & Instructions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            color: #f0f0f0;
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            overflow: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #daa520 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            background: rgba(28, 28, 38, 0.6);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            border-color: rgba(218, 165, 32, 0.4);
+            background: rgba(28, 28, 38, 0.8);
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #daa520;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2 .icon {
+            font-size: 2rem;
+        }
+
+        h3 {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: rgba(10, 10, 15, 0.6);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #daa520;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(218, 165, 32, 0.2);
+        }
+
+        .feature-card h4 {
+            color: #daa520;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin: 0;
+        }
+
+        .tip-box {
+            background: rgba(218, 165, 32, 0.1);
+            border-left: 4px solid #daa520;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .tip-box strong {
+            color: #ffd700;
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+            margin: 1.5rem 0;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: #0a0a0f;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            color: #ffd700;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer {
+            color: #aaa;
+            padding-left: 1.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(218, 165, 32, 0.2);
+            color: #daa520;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+            border: 1px solid rgba(218, 165, 32, 0.3);
+        }
+
+        .warning {
+            background: rgba(255, 85, 85, 0.1);
+            border-left: 4px solid #ff5555;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            color: #ffaaaa;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.4rem; }
+            .container { padding: 1rem; }
+            .section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📺 ANALISA TV</h1>
+            <p class="subtitle">Your Interactive Entertainment Hub</p>
+        </div>
+
+        <!-- WELCOME SECTION -->
+        <div class="section">
+            <h2><span class="icon">👋</span> Welcome!</h2>
+            <p>Welcome to Analisa TV - your all-in-one entertainment system for Second Life! This interactive TV gives you access to YouTube videos, music, movies, live streams, games, and much more, all synchronized with other viewers in the same room.</p>
+            <div class="tip-box">
+                <strong>💡 First Time Here?</strong> Just click the TV screen to start exploring! The menu is simple and intuitive - everything you need is one click away.
+            </div>
+        </div>
+
+        <!-- HOW TO USE -->
+        <div class="section">
+            <h2><span class="icon">🎮</span> How to Use</h2>
+            
+            <h3>Getting Started</h3>
+            <ol class="step-list">
+                <li><strong>Click the TV screen</strong> - This opens the main menu in your browser</li>
+                <li><strong>Choose what you want to watch</strong> - Select from the menu options (YouTube, Music, Movies, etc.)</li>
+                <li><strong>Enjoy!</strong> - The content plays on the TV screen for everyone in the room</li>
+            </ol>
+
+            <h3>Multi-User Experience</h3>
+            <p>This TV is synchronized! When someone changes the channel or plays a video, <strong>everyone in the same room sees the same thing at the same time</strong>. It's like watching TV together!</p>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Some venues may restrict control to specific users or staff. If you can't change channels, enjoy the content being shared!
+            </div>
+        </div>
+
+        <!-- AVAILABLE FEATURES -->
+        <div class="section">
+            <h2><span class="icon">✨</span> What's Available</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📺 YouTube</h4>
+                    <p>Watch any YouTube video. Search, browse, or paste a link!</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🎵 Music</h4>
+                    <p>Stream music from various sources. Perfect for parties and events!</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🎬 Movies</h4>
+                    <p>Browse and watch movies together. Great for movie nights!</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📻 Radio</h4>
+                    <p>Listen to live radio stations from around the world.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📸 Flickr</h4>
+                    <p>Display photo slideshows from Flickr. Great for events and galleries!</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📡 Live TV</h4>
+                    <p>Watch live television channels and streams.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🎮 Games</h4>
+                    <p>Interactive games and trivia you can play with others!</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🌐 Browser</h4>
+                    <p>Browse websites directly on the TV screen.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🎥 Game Streaming</h4>
+                    <p>Watch live game streams and esports.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🗺️ Second Life</h4>
+                    <p>Explore Second Life destinations and landmarks.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📺 Watch Together</h4>
+                    <p>Synchronized viewing with Kosmi and CyTube platforms.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🎁 Freebies</h4>
+                    <p>Discover free items and content in Second Life.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WATCH TOGETHER FEATURE -->
+        <div class="section">
+            <h2><span class="icon">🤝</span> Watch Together</h2>
+            <p>The Watch Together feature gives you three synchronized viewing options:</p>
+            
+            <h3>Built-in Sync System</h3>
+            <p>Our native streaming system with real-time synchronization. Perfect for live events and performances.</p>
+
+            <h3>Kosmi Integration</h3>
+            <p>Watch YouTube, Netflix, Prime Video together, plus screen sharing and built-in games. Great for movie nights!</p>
+
+            <h3>CyTube Integration</h3>
+            <p>Classic synchronized media player with playlist management and chat. Perfect for continuous streaming.</p>
+
+            <div class="tip-box">
+                <strong>💡 How it works:</strong> One person creates or joins a room, and everyone watches the same content at exactly the same time. It's like being in the same room watching the same screen!
+            </div>
+        </div>
+
+        <!-- TIPS & TRICKS -->
+        <div class="section">
+            <h2><span class="icon">💡</span> Tips & Tricks</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">🎯 Best Viewing Experience</div>
+                <div class="faq-answer">Position your camera to face the TV screen directly. Use Alt+Click to zoom in for a better view!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">🔊 No Sound?</div>
+                <div class="faq-answer">Make sure media is enabled in your viewer (Preferences → Sound & Media → "Play media attached to primitives"). Also check your system volume!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">⚡ Laggy Video?</div>
+                <div class="faq-answer">Lower your graphics settings or move closer to the TV. The TV streams at 1280x720 resolution for optimal performance.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">🌐 Browser Not Loading?</div>
+                <div class="faq-answer">Some viewers have stricter security settings. Try allowing the TV's URL in your viewer preferences under "Whitelist".</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">👥 Multiple Viewers</div>
+                <div class="faq-answer">Everyone in the same "room" sees the same content. If you want a private viewing experience, make sure you're in a unique room ID.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">📱 Control from Anywhere</div>
+                <div class="faq-answer">Once you've opened the TV menu in your browser, you can control it even if you walk away from the TV object!</div>
+            </div>
+        </div>
+
+        <!-- TROUBLESHOOTING -->
+        <div class="section">
+            <h2><span class="icon">🔧</span> Troubleshooting</h2>
+            
+            <h3>TV Screen is Black</h3>
+            <p><strong>Solution:</strong> Make sure "Play media attached to primitives" is enabled in your viewer settings. Right-click the TV and select "Play".</p>
+
+            <h3>Can't Click the TV</h3>
+            <p><strong>Solution:</strong> The TV might be locked to specific users. Contact the venue owner or staff.</p>
+
+            <h3>Menu Not Opening</h3>
+            <p><strong>Solution:</strong> Check if popups are blocked in your browser. Allow popups from this domain.</p>
+
+            <h3>Video Playing But No Picture</h3>
+            <p><strong>Solution:</strong> Refresh the TV by clicking it again. The source might have been removed or is unavailable.</p>
+
+            <h3>Out of Sync with Others</h3>
+            <p><strong>Solution:</strong> Refresh your browser or re-click the TV. You might be in a different room than other viewers.</p>
+
+            <div class="warning">
+                <strong>⚠️ Still Having Issues?</strong><br>
+                Contact the venue owner or staff. They can reset the TV system or help with specific configuration issues.
+            </div>
+        </div>
+
+        <!-- TECHNICAL INFO -->
+        <div class="section">
+            <h2><span class="icon">⚙️</span> Technical Information</h2>
+            
+            <h3>System Specs</h3>
+            <p>
+                <span class="badge">Resolution: 1280×720</span>
+                <span class="badge">Real-time Sync</span>
+                <span class="badge">Multi-room Support</span>
+                <span class="badge">Socket.IO Powered</span>
+            </p>
+
+            <h3>Supported Browsers</h3>
+            <p>The TV works best with modern browsers: Chrome, Firefox, Edge, Safari. Make sure your browser is up to date!</p>
+
+            <h3>Second Life Viewers</h3>
+            <p>Compatible with Firestorm, Official SL Viewer, and most third-party viewers that support media on a prim.</p>
+
+            <h3>Bandwidth Requirements</h3>
+            <p>For smooth streaming, we recommend at least 5 Mbps download speed. HD content may require more.</p>
+        </div>
+
+        <!-- ETIQUETTE -->
+        <div class="section">
+            <h2><span class="icon">🤝</span> Viewing Etiquette</h2>
+            
+            <p><strong>Be Respectful:</strong> Remember that what you play affects everyone watching! Choose content appropriate for the venue and audience.</p>
+            
+            <p><strong>Ask Before Changing:</strong> If others are watching, it's polite to ask before changing the channel or video.</p>
+            
+            <p><strong>Volume Awareness:</strong> Your system volume affects only you, but consider that others might have different volume preferences.</p>
+            
+            <p><strong>Report Issues:</strong> If you encounter inappropriate content or technical problems, notify the venue staff.</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="section" style="text-align: center; border: none; background: transparent;">
+            <p style="color: #666; font-size: 0.85rem;">
+                Analisa TV System<br>
+                Powered by Socket.IO • Built for Second Life<br>
+                Enjoy your entertainment experience! 🎬✨
+            </p>
+        </div>
+    </div>
+</body>
+</html>

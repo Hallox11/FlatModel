@@ -1,537 +1,194 @@
 <style>
-/* ── LIVE TV MODULE ───────────────────────────────────────────────── */
-#live-tv-module {
+/* ── HARDCODED YT CHANNELS ── */
+#yt-grid-module {
     width: 1280px; height: 720px;
-    display: flex; flex-direction: column;
-    position: relative; overflow: hidden;
-    font-family: 'Fira Sans', sans-serif;
-    color: white;
     background: transparent;
-}
-
-/* ── TOPBAR ───────────────────────────────────────────────────────── */
-#ltv-topbar {
-    position: absolute; top: 0; left: 0; right: 0; height: 64px;
-    display: flex; align-items: center; padding: 0 24px; gap: 16px;
-    z-index: 200;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, transparent 100%);
-}
-
-#ltv-back-btn {
-    background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-top-color: rgba(255,255,255,0.25);
-    border-radius: 12px; color: white;
-    padding: 8px 15px; font-size: 0.78rem;
     font-family: 'Fira Sans', sans-serif;
-    text-transform: uppercase; letter-spacing: 1.5px;
-    display: flex; align-items: center; gap: 8px;
-    cursor: pointer; transition: all 0.2s ease;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-}
-#ltv-back-btn:hover {
-    border-color: rgba(255,255,255,0.4);
-    background: rgba(0,0,0,0.8);
+    position: relative; overflow: hidden;
 }
 
-/* ── TABS ─────────────────────────────────────────────────────────── */
-.ltv-tabs { display: flex; gap: 6px; }
-
-.ltv-tab {
-    padding: 6px 18px; border-radius: 20px; cursor: pointer;
-    font-size: 0.68rem; text-transform: uppercase; letter-spacing: 2px;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-    backdrop-filter: blur(5px);
-    color: rgba(255,255,255,0.55);
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-.ltv-tab:hover {
-    border-color: rgba(255,255,255,0.25);
-    color: rgba(255,255,255,0.85);
-}
-.ltv-tab.active {
-    background: linear-gradient(135deg, rgba(218,165,32,0.25), rgba(218,165,32,0.08));
-    border-color: rgba(218,165,32,0.5);
-    border-top-color: rgba(218,165,32,0.7);
-    color: #daa520;
-    box-shadow: 0 4px 16px rgba(218,165,32,0.15);
+#yt-grid-header {
+    height: 70px; padding: 0 30px;
+    display: flex; align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
 }
 
-/* ── LOADING OVERLAY ──────────────────────────────────────────────── */
-#ltv-checking {
-    position: absolute; inset: 0; z-index: 300;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 18px;
-    background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
-}
-.ltv-check-spinner {
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-top-color: rgba(218,165,32,0.7);
-    animation: ltvSpin 0.9s linear infinite;
-}
-#ltv-checking p {
-    font-size: 0.65rem; text-transform: uppercase;
-    letter-spacing: 4px; opacity: 0.3; margin: 0;
-}
-
-/* ── GRID VIEW ────────────────────────────────────────────────────── */
-#ltv-grid-view {
-    position: absolute; inset: 0;
-    padding: 72px 22px 20px;
+.yt-grid-container {
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    height: 600px;
     overflow-y: auto;
 }
-#ltv-grid-view::-webkit-scrollbar { width: 2px; }
-#ltv-grid-view::-webkit-scrollbar-thumb {
-    background: rgba(218,165,32,0.2); border-radius: 2px;
-}
 
-#ltv-channel-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
-}
-
-/* ── CARD ─────────────────────────────────────────────────────────── */
-.ltv-card {
-    position: relative; cursor: pointer;
-    height: 158px; border-radius: 14px; overflow: hidden;
-    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255,255,255,0.08);
-    border-top-color: rgba(255,255,255,0.15);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.08);
-    backdrop-filter: blur(5px);
-    transition: transform 0.22s cubic-bezier(0.25,0.8,0.25,1),
-                box-shadow 0.22s ease,
-                border-color 0.22s ease;
-    display: flex; flex-direction: column;
-}
-.ltv-card:hover {
-    transform: translateY(-5px) scale(1.04);
-    border-color: rgba(255,255,255,0.3);
-    border-top-color: rgba(255,255,255,0.5);
-    box-shadow:
-        0 20px 48px rgba(0,0,0,0.7),
-        inset 0 1px 0 rgba(255,255,255,0.2),
-        0 0 0 1px rgba(255,255,255,0.06);
-    z-index: 10;
-}
-
-/* category accent line + tint */
-.ltv-card::before {
-    content: ''; position: absolute;
-    left: 0; top: 0; bottom: 0; width: 3px;
-    border-radius: 14px 0 0 14px;
-    background: var(--cat-color, rgba(218,165,32,0.4));
-}
-.ltv-card[data-cat="news"]          { --cat-color: #e74c3c; background: linear-gradient(135deg, rgba(231,76,60,0.08), rgba(0,0,0,0.3)); }
-.ltv-card[data-cat="sports"]        { --cat-color: #27ae60; background: linear-gradient(135deg, rgba(39,174,96,0.08), rgba(0,0,0,0.3)); }
-.ltv-card[data-cat="entertainment"] { --cat-color: #8e44ad; background: linear-gradient(135deg, rgba(142,68,173,0.08), rgba(0,0,0,0.3)); }
-.ltv-card[data-cat="music"]         { --cat-color: #2980b9; background: linear-gradient(135deg, rgba(41,128,185,0.08), rgba(0,0,0,0.3)); }
-
-/* category glow on hover */
-.ltv-card[data-cat="news"]:hover          { box-shadow: 0 20px 48px rgba(0,0,0,0.7), 0 0 28px rgba(231,76,60,0.15),  inset 0 1px 0 rgba(255,255,255,0.15); border-color: rgba(231,76,60,0.35); }
-.ltv-card[data-cat="sports"]:hover        { box-shadow: 0 20px 48px rgba(0,0,0,0.7), 0 0 28px rgba(39,174,96,0.15),  inset 0 1px 0 rgba(255,255,255,0.15); border-color: rgba(39,174,96,0.35); }
-.ltv-card[data-cat="entertainment"]:hover { box-shadow: 0 20px 48px rgba(0,0,0,0.7), 0 0 28px rgba(142,68,173,0.15), inset 0 1px 0 rgba(255,255,255,0.15); border-color: rgba(142,68,173,0.35); }
-.ltv-card[data-cat="music"]:hover         { box-shadow: 0 20px 48px rgba(0,0,0,0.7), 0 0 28px rgba(41,128,185,0.15),  inset 0 1px 0 rgba(255,255,255,0.15); border-color: rgba(41,128,185,0.35); }
-
-.ltv-card.yt-card { border-color: rgba(255,60,60,0.1); }
-.ltv-card.yt-card:hover { border-color: rgba(255,60,60,0.35); box-shadow: 0 20px 48px rgba(0,0,0,0.7), 0 0 28px rgba(255,60,60,0.12), inset 0 1px 0 rgba(255,255,255,0.15); }
-
-/* ── THUMBNAIL ────────────────────────────────────────────────────── */
-.ltv-card-logo {
-    width: 100%; flex: 1; position: relative;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-}
-.ltv-card-logo img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.3s ease; opacity: 0.9;
-}
-.ltv-card:hover .ltv-card-logo img { transform: scale(1.07); opacity: 1; }
-.ltv-card-logo::after {
-    content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(to bottom, transparent 25%, rgba(0,0,0,0.7) 100%);
-}
-.ltv-card-logo img ~ .ltv-card-fallback { display: none; }
-
-/* ── FALLBACK (no logo) ───────────────────────────────────────────── */
-.ltv-card-fallback {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 6px;
-    padding: 0 10px 24px;
-}
-.ltv-card-fallback .ltv-ch-label {
-    font-size: 0.95rem; font-weight: 600;
-    letter-spacing: 3px; text-transform: uppercase;
-    color: rgba(255,255,255,0.9); text-align: center;
-    line-height: 1.2;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.9);
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-    max-width: 100%;
-}
-.ltv-card-fallback .ltv-ch-sub {
-    font-size: 0.44rem; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--cat-color, rgba(218,165,32,0.6));
-}
-
-/* ── CHANNEL NAME ─────────────────────────────────────────────────── */
-.ltv-card-name {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 28px 12px 9px;
-    font-size: 0.62rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 2px;
-    color: rgba(255,255,255,0.9); line-height: 1;
-    text-align: center;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, transparent 100%);
-    pointer-events: none;
-}
-
-/* ── BADGES ───────────────────────────────────────────────────────── */
-.ltv-live-badge {
-    position: absolute; top: 8px; right: 8px;
-    background: rgba(231,76,60,0.85);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,100,100,0.3);
-    border-radius: 5px; padding: 2px 7px;
-    font-size: 0.42rem; letter-spacing: 2px; font-weight: 800; color: #fff;
-    box-shadow: 0 2px 8px rgba(231,76,60,0.5);
-    text-transform: uppercase;
-}
-.ltv-yt-badge {
-    position: absolute; top: 8px; left: 10px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,60,60,0.35);
-    border-radius: 5px; padding: 2px 7px;
-    font-size: 0.42rem; letter-spacing: 1.5px;
-    font-weight: 700; color: #ff6060;
-    text-transform: uppercase;
-}
-
-/* ── EMPTY STATE ──────────────────────────────────────────────────── */
-#ltv-empty {
-    display: none; position: absolute; inset: 68px 0 0;
-    flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 3px;
-    color: rgba(255,255,255,0.2);
-}
-
-/* ── PLAYER VIEW ──────────────────────────────────────────────────── */
-#ltv-player-view {
-    display: none; position: absolute; inset: 0; flex-direction: column;
-}
-#ltv-video-wrap { flex: 1; position: relative; background: #000; }
-#ltv-video      { width: 100%; height: 100%; object-fit: contain; display: block; }
-
-#ltv-error-msg {
-    display: none; position: absolute; inset: 0;
-    align-items: center; justify-content: center; flex-direction: column; gap: 14px;
-    background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
-    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 3px;
-    color: rgba(255,255,255,0.3);
-}
-
-/* ── PLAYER BAR ───────────────────────────────────────────────────── */
-#ltv-player-bar {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 68px;
-    display: flex; align-items: center; gap: 14px; padding: 0 24px;
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
-    z-index: 200;
-}
-
-.ltv-ctrl-btn {
-    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-    backdrop-filter: blur(5px);
+/* ── CHANNEL CARD ── */
+.ch-card {
+    background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.1);
-    border-top-color: rgba(255,255,255,0.22);
-    border-radius: 10px; color: white; cursor: pointer;
-    padding: 7px 15px; font-size: 0.68rem;
-    font-family: 'Fira Sans', sans-serif;
-    text-transform: uppercase; letter-spacing: 1.5px;
-    display: flex; align-items: center; gap: 7px;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    height: 150px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-.ltv-ctrl-btn:hover {
-    background: rgba(0,0,0,0.6);
-    border-color: rgba(255,255,255,0.3);
 }
 
-#ltv-channel-label {
-    font-size: 0.78rem; text-transform: uppercase;
-    letter-spacing: 3px; opacity: 0.75; font-weight: 400;
+.ch-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,0,0,0.5);
+    background: rgba(255,0,0,0.05);
 }
 
-.ltv-live-pill {
-    margin-left: auto; display: flex; align-items: center; gap: 8px;
-    background: rgba(231,76,60,0.12);
-    border: 1px solid rgba(231,76,60,0.3);
-    border-radius: 20px; padding: 5px 14px;
-    font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase;
-    color: rgba(255,120,100,0.9);
-}
-.ltv-live-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: #e74c3c;
-    box-shadow: 0 0 6px rgba(231,76,60,0.8);
-    animation: ltvBlink 1.5s infinite;
+.ch-thumb {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
 }
 
-/* ── LOADER ───────────────────────────────────────────────────────── */
-#ltv-loader {
-    display: none; position: absolute; inset: 0;
-    align-items: center; justify-content: center;
-    background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
-    z-index: 50; flex-direction: column; gap: 16px;
-}
-.ltv-spinner {
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-top-color: rgba(218,165,32,0.7);
-    animation: ltvSpin 0.9s linear infinite;
-}
-#ltv-loader p {
-    font-size: 0.65rem; text-transform: uppercase;
-    letter-spacing: 4px; opacity: 0.3; margin: 0;
+.ch-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 10px;
+    background: linear-gradient(to top, black, transparent);
+    text-align: center;
 }
 
-@keyframes ltvBlink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-@keyframes ltvSpin  { to{transform:rotate(360deg)} }
-
-/* ── CARD ENTER ANIMATION ─────────────────────────────────────────── */
-.ltv-card {
-    animation: ltvCardIn 0.35s ease backwards;
+.ch-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
 }
-@keyframes ltvCardIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
+
+.yt-label {
+    position: absolute; top: 8px; left: 8px;
+    background: #ff0000; color: white;
+    font-size: 0.45rem; font-weight: 900;
+    padding: 2px 6px; border-radius: 3px;
 }
 </style>
 
-<div id="live-tv-module">
-
-    <div id="ltv-checking">
-        <div class="ltv-check-spinner"></div>
-        <p>Loading channels...</p>
-    </div>
-
-    <div id="ltv-topbar">
-        <button id="ltv-back-btn" onclick="ltvExitModule()">
-            <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span>
-            Back
+<div id="yt-grid-module">
+    <div id="yt-grid-header">
+        <button class="ltv-ctrl-btn" onclick="closeSubMenu()">
+            <span class="material-symbols-rounded" style="font-size:16px;">arrow_back</span> BACK
         </button>
-        <div class="ltv-tabs">
-            <div class="ltv-tab active" onclick="ltvFilter('all',this)">All</div>
-            <div class="ltv-tab" onclick="ltvFilter('news',this)">News</div>
-            <div class="ltv-tab" onclick="ltvFilter('sports',this)">Sports</div>
-            <div class="ltv-tab" onclick="ltvFilter('entertainment',this)">Entertainment</div>
-            <div class="ltv-tab" onclick="ltvFilter('music',this)">Music</div>
-        </div>
+        <h2 style="margin-left: 20px; font-size: 0.9rem; letter-spacing: 3px; opacity: 0.6;">FEATURED CHANNELS</h2>
     </div>
 
-    <div id="ltv-grid-view">
-        <div id="ltv-channel-grid"></div>
-        <div id="ltv-empty">
-            <span class="material-symbols-rounded" style="font-size:2rem; opacity:0.3;">tv_off</span>
-            <span>No channels in this category</span>
+    <div class="yt-grid-container" id="channel-list-target">
         </div>
-    </div>
-
-    <div id="ltv-player-view">
-        <div id="ltv-video-wrap">
-            <video id="ltv-video" autoplay playsinline></video>
-            <div id="ltv-loader">
-                <div class="ltv-spinner"></div>
-                <p>Loading stream...</p>
-            </div>
-            <div id="ltv-error-msg">
-                <span class="material-symbols-rounded" style="font-size:2.2rem; opacity:0.25;">signal_disconnected</span>
-                <span>Stream unavailable</span>
-                <button class="ltv-ctrl-btn" style="margin-top:8px; opacity:1" onclick="ltvClosePlayer()">
-                    Try another channel
-                </button>
-            </div>
-        </div>
-        <div id="ltv-player-bar">
-            <button class="ltv-ctrl-btn" onclick="ltvClosePlayer()">
-                <span class="material-symbols-rounded" style="font-size:14px;">grid_view</span>
-                Channels
-            </button>
-            <span id="ltv-channel-label"></span>
-            <div class="ltv-live-pill">
-                <div class="ltv-live-dot"></div>
-                <span>Live</span>
-            </div>
-        </div>
-    </div>
-
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.7/dist/hls.min.js"></script>
-
 <script>
-(function () {
-    let ALL_CHANNELS  = [];
-    let currentFilter = 'all';
-    let hls           = null;
+(function() {
+    // ── EDIT YOUR CHANNELS HERE ───────────────────────────────
+const MY_CHANNELS = [
+    { name: "Euronews", id: "pykpO5kQJ98", img: "https://i.ytimg.com/vi/pykpO5kQJ98/hqdefault.jpg" },
+    { name: "Sky News", id: "YDvsBbKfLPA", img: "https://i.ytimg.com/vi/YDvsBbKfLPA/hqdefault.jpg" },
+    { name: "France 24", id: "Ap-UM1O9RBU", img: "https://i.ytimg.com/vi/Ap-UM1O9RBU/hqdefault.jpg" },
+    { name: "BBC News", id: "w_Ma8oQLmSM", img: "https://i.ytimg.com/vi/w_Ma8oQLmSM/hqdefault.jpg" },
+    { name: "Al Jazeera", id: "h3MuIUNCCzI", img: "https://i.ytimg.com/vi/h3MuIUNCCzI/hqdefault.jpg" },
+    { name: "DW News", id: "5OGCjAiRXWA", img: "https://i.ytimg.com/vi/5OGCjAiRXWA/hqdefault.jpg" },
 
-    // ── BACK ─────────────────────────────────────────────────
-    window.ltvExitModule = function () {
-        const video = document.getElementById('ltv-video');
-        if (hls)   { hls.destroy(); hls = null; }
-        if (video) { video.pause(); video.src = ''; }
-        if (typeof closeSubMenu === 'function') closeSubMenu();
-    };
+    // USA
+    { name: "NBC News", id: "aB-j8lhh0dQ", img: "https://i.ytimg.com/vi/aB-j8lhh0dQ/hqdefault.jpg" },
+    { name: "ABC News", id: "iipR5yUp36o", img: "https://i.ytimg.com/vi/iipR5yUp36o/hqdefault.jpg" },
+    { name: "CBS News", id: "Zw4kYXx8s4k", img: "https://i.ytimg.com/vi/Zw4kYXx8s4k/hqdefault.jpg" },
+    { name: "Bloomberg", id: "iEpJwprxDdk", img: "https://i.ytimg.com/vi/iEpJwprxDdk/hqdefault.jpg" },
+    { name: "CNBC", id: "9NyxcX3rhQs", img: "https://i.ytimg.com/vi/9NyxcX3rhQs/hqdefault.jpg" },
+    { name: "Reuters", id: "1GfC1y1pJtM", img: "https://i.ytimg.com/vi/1GfC1y1pJtM/hqdefault.jpg" },
+    { name: "Scripps News", id: "R4Bc6SFzGtM", img: "https://i.ytimg.com/vi/R4Bc6SFzGtM/hqdefault.jpg" },
+    { name: "LiveNOW FOX", id: "C96oohpWBGw", img: "https://i.ytimg.com/vi/C96oohpWBGw/hqdefault.jpg" },
+    { name: "Fox Weather", id: "wt6SIE7BXS8", img: "https://i.ytimg.com/vi/wt6SIE7BXS8/hqdefault.jpg" },
+    { name: "Yahoo Finance", id: "KQp-e_XQnDE", img: "https://i.ytimg.com/vi/KQp-e_XQnDE/hqdefault.jpg" },
 
-    // ── CLOSE PLAYER ─────────────────────────────────────────
-    window.ltvClosePlayer = function () {
-        const video = document.getElementById('ltv-video');
-        if (hls)   { hls.destroy(); hls = null; }
-        if (video) { video.pause(); video.src = ''; }
-        document.getElementById('ltv-player-view').style.display = 'none';
-        document.getElementById('ltv-grid-view').style.display   = 'block';
-        document.getElementById('ltv-topbar').style.display      = 'flex';
-    };
+    // Canada
+    { name: "CBC News", id: "5vfaDsMhCF4", img: "https://i.ytimg.com/vi/5vfaDsMhCF4/hqdefault.jpg" },
+    { name: "Global News", id: "sPgqEHsONK8", img: "https://i.ytimg.com/vi/sPgqEHsONK8/hqdefault.jpg" },
 
-    // ── PLAY ─────────────────────────────────────────────────
-    window.ltvPlay = function (id) {
-        const ch = ALL_CHANNELS.find(c => c.id === id);
-        if (!ch) return;
+    // Europe
+    { name: "TRT World", id: "7x0Rz8ot9JM", img: "https://i.ytimg.com/vi/7x0Rz8ot9JM/hqdefault.jpg" },
+    { name: "Africanews", id: "NQjabLGdP5g", img: "https://i.ytimg.com/vi/NQjabLGdP5g/hqdefault.jpg" },
 
-        document.getElementById('ltv-player-view').style.display = 'flex';
-        document.getElementById('ltv-grid-view').style.display   = 'none';
-        document.getElementById('ltv-topbar').style.display      = 'none';
-        document.getElementById('ltv-channel-label').innerText   = ch.name;
+    // Asia
+    { name: "NHK World Japan", id: "f0lYkdA-Gtw", img: "https://i.ytimg.com/vi/f0lYkdA-Gtw/hqdefault.jpg" },
+    { name: "WION", id: "mTvdXJA30OI", img: "https://i.ytimg.com/vi/mTvdXJA30OI/hqdefault.jpg" },
+    { name: "Channel NewsAsia", id: "XWq5kBlakcQ", img: "https://i.ytimg.com/vi/XWq5kBlakcQ/hqdefault.jpg" },
+    { name: "India Today", id: "d2P5W7c2N0g", img: "https://i.ytimg.com/vi/d2P5W7c2N0g/hqdefault.jpg" },
+    { name: "CNN-News18", id: "l_I4K2-Rr_Y", img: "https://i.ytimg.com/vi/l_I4K2-Rr_Y/hqdefault.jpg" },
+    { name: "NDTV", id: "x5MkVTvOViQ", img: "https://i.ytimg.com/vi/x5MkVTvOViQ/hqdefault.jpg" },
+    { name: "CGTN", id: "nK9xN6tX4lM", img: "https://i.ytimg.com/vi/nK9xN6tX4lM/hqdefault.jpg" },
+    { name: "Arirang TV", id: "Nr0dI9OY_S4", img: "https://i.ytimg.com/vi/Nr0dI9OY_S4/hqdefault.jpg" },
 
-        const video  = document.getElementById('ltv-video');
-        const loader = document.getElementById('ltv-loader');
-        const errMsg = document.getElementById('ltv-error-msg');
+    // Australia
+    { name: "ABC News Australia", id: "vOTiJkg1voo", img: "https://i.ytimg.com/vi/vOTiJkg1voo/hqdefault.jpg" },
+    { name: "9 News Australia", id: "9Auq9mYxFEE", img: "https://i.ytimg.com/vi/9Auq9mYxFEE/hqdefault.jpg" },
+    { name: "Sky News Australia", id: "Ngi9j-LRdWc", img: "https://i.ytimg.com/vi/Ngi9j-LRdWc/hqdefault.jpg" },
 
-        if (hls) hls.destroy();
-        video.style.display  = 'none';
-        errMsg.style.display = 'none';
-        loader.style.display = 'flex';
+{ name: "Times Square NYC", id: "1-iS7LArMPA", img: "https://i.ytimg.com/vi/1-iS7LArMPA/hqdefault.jpg" },
+{ name: "Tokyo Shibuya Crossing", id: "6dp-bvQ7RWo", img: "https://i.ytimg.com/vi/6dp-bvQ7RWo/hqdefault.jpg" },
+{ name: "Eiffel Tower Paris", id: "A15neGh1pwg", img: "https://i.ytimg.com/vi/A15neGh1pwg/hqdefault.jpg" },
+{ name: "Las Vegas Strip", id: "g29f2nm9_gg", img: "https://i.ytimg.com/vi/g29f2nm9_gg/hqdefault.jpg" },
+{ name: "Amsterdam Central", id: "T0RSxYKHHZQ", img: "https://i.ytimg.com/vi/T0RSxYKHHZQ/hqdefault.jpg" },
 
-        if (ch.type === 'yt') {
-            loader.style.display = 'none';
-            if (typeof handleNav === 'function') {
-                handleNav(`/tvytube?videoId=${ch.ytId}&origin=live-tv`);
-            }
-        } else {
-            video.style.display = 'block';
-            const proxyUrl = '/hls-proxy?url=' + encodeURIComponent(ch.url);
+{ name: "Waikiki Beach Hawaii", id: "q-_r3A1xSx0", img: "https://i.ytimg.com/vi/q-_r3A1xSx0/hqdefault.jpg" },
+{ name: "Miami Beach", id: "8YgwocSX4cQ", img: "https://i.ytimg.com/vi/8YgwocSX4cQ/hqdefault.jpg" },
+{ name: "Santa Monica Pier", id: "CmX5DFn5nS0", img: "https://i.ytimg.com/vi/CmX5DFn5nS0/hqdefault.jpg" },
+{ name: "Maldives Beach", id: "xvX_5ym_ajI", img: "https://i.ytimg.com/vi/xvX_5ym_ajI/hqdefault.jpg" },
 
-            if (Hls.isSupported()) {
-                hls = new Hls({ enableWorker: true });
-                hls.loadSource(proxyUrl);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, () => {
-                    loader.style.display = 'none';
-                    video.play().catch(() => {});
-                });
-                hls.on(Hls.Events.ERROR, (_, data) => {
-                    if (data.fatal) {
-                        loader.style.display = 'none';
-                        errMsg.style.display = 'flex';
-                    }
-                });
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = proxyUrl;
-                video.addEventListener('loadedmetadata', () => {
-                    loader.style.display = 'none';
-                    video.play().catch(() => {});
-                }, { once: true });
-                video.addEventListener('error', () => {
-                    loader.style.display = 'none';
-                    errMsg.style.display = 'flex';
-                }, { once: true });
-            } else {
-                loader.style.display = 'none';
-                errMsg.style.display = 'flex';
-            }
-        }
-    };
+{ name: "Northern Lights Iceland", id: "9Auq9mYxFEE", img: "https://i.ytimg.com/vi/9Auq9mYxFEE/hqdefault.jpg" },
+{ name: "Niagara Falls", id: "XWq5kBlakcQ", img: "https://i.ytimg.com/vi/XWq5kBlakcQ/hqdefault.jpg" },
+{ name: "Mount Fuji Japan", id: "Nr0dI9OY_S4", img: "https://i.ytimg.com/vi/Nr0dI9OY_S4/hqdefault.jpg" },
+{ name: "Yellowstone National Park", id: "f0lYkdA-Gtw", img: "https://i.ytimg.com/vi/f0lYkdA-Gtw/hqdefault.jpg" },
+{ name: "African Safari", id: "mTvdXJA30OI", img: "https://i.ytimg.com/vi/mTvdXJA30OI/hqdefault.jpg" },
 
-    // ── FILTER ───────────────────────────────────────────────
-    window.ltvFilter = function (cat, el) {
-        currentFilter = cat;
-        document.querySelectorAll('.ltv-tab').forEach(t => t.classList.remove('active'));
-        if (el) el.classList.add('active');
-        buildGrid();
-    };
+{ name: "ISS Live Earth View", id: "86YLFOog4GM", img: "https://i.ytimg.com/vi/86YLFOog4GM/hqdefault.jpg" },
+{ name: "NASA Live", id: "21X5lGlDOfg", img: "https://i.ytimg.com/vi/21X5lGlDOfg/hqdefault.jpg" },
+{ name: "SpaceX Starbase", id: "mhJRzQsLZGg", img: "https://i.ytimg.com/vi/mhJRzQsLZGg/hqdefault.jpg" },
 
-    // ── BUILD GRID ───────────────────────────────────────────
-    function buildGrid() {
-        const grid  = document.getElementById('ltv-channel-grid');
-        const empty = document.getElementById('ltv-empty');
-        if (!grid) return;
+{ name: "Tokyo Rail Live", id: "orSkP94M8YI", img: "https://i.ytimg.com/vi/orSkP94M8YI/hqdefault.jpg" },
+{ name: "Norway Train Journey", id: "DOYikXMP8JQ", img: "https://i.ytimg.com/vi/DOYikXMP8JQ/hqdefault.jpg" },
+{ name: "Duluth Harbor", id: "9kzM6Wl1sPU", img: "https://i.ytimg.com/vi/9kzM6Wl1sPU/hqdefault.jpg" },
 
-        const list = currentFilter === 'all'
-            ? ALL_CHANNELS
-            : ALL_CHANNELS.filter(c => c.cat === currentFilter);
+{ name: "Panda Cam", id: "Gm3bQVANtVo", img: "https://i.ytimg.com/vi/Gm3bQVANtVo/hqdefault.jpg" },
+{ name: "Eagle Nest Cam", id: "B4-L2nfGcuE", img: "https://i.ytimg.com/vi/B4-L2nfGcuE/hqdefault.jpg" },
+{ name: "Penguin Cam", id: "DjdUEyjx8GM", img: "https://i.ytimg.com/vi/DjdUEyjx8GM/hqdefault.jpg" },
+{ name: "Jellyfish Aquarium", id: "q1j9YbD2M4Q", img: "https://i.ytimg.com/vi/q1j9YbD2M4Q/hqdefault.jpg" },
+{ name: "Shark Cam", id: "tNkZsRW7h2c", img: "https://i.ytimg.com/vi/tNkZsRW7h2c/hqdefault.jpg" },
 
-        if (list.length === 0) {
-            grid.innerHTML      = '';
-            empty.style.display = 'flex';
-            return;
-        }
-        empty.style.display = 'none';
+{ name: "Storm Chaser Live", id: "d-V_YnmER0Y", img: "https://i.ytimg.com/vi/d-V_YnmER0Y/hqdefault.jpg" },
+{ name: "Volcano Live Cam", id: "YmP9eF1Qz2A", img: "https://i.ytimg.com/vi/YmP9eF1Qz2A/hqdefault.jpg" },
+{ name: "Hurricane Live Cam", id: "c7WxsmV9bqQ", img: "https://i.ytimg.com/vi/c7WxsmV9bqQ/hqdefault.jpg" },
+    
 
-        grid.innerHTML = list.map((ch, i) => {
-            const isYT  = ch.type === 'yt';
-            const badge = isYT
-                ? `<div class="ltv-yt-badge">▶ YouTube</div>`
-                : `<div class="ltv-live-badge">● Live</div>`;
+];
+    const target = document.getElementById('channel-list-target');
 
-            const logoImg = ch.logo
-                ? `<img src="${ch.logo}" alt="${ch.name}" onerror="this.style.display='none'">`
-                : '';
-
-            const fallback = `
-                <div class="ltv-card-fallback">
-                    <div class="ltv-ch-label">${ch.name}</div>
-                    <div class="ltv-ch-sub">${ch.cat}</div>
-                </div>`;
-
-            // staggered entrance animation
-            const delay = (i % 12) * 0.04;
-
-            return `
-                <div class="ltv-card${isYT ? ' yt-card' : ''}"
-                     data-cat="${ch.cat}"
-                     style="animation-delay:${delay}s"
-                     onclick="ltvPlay('${ch.id}')">
-                    <div class="ltv-card-logo">
-                        ${logoImg}
-                        ${fallback}
-                    </div>
-                    ${badge}
-                    <div class="ltv-card-name">${ch.name}</div>
-                </div>
-            `;
-        }).join('');
+    // ── CLICK HANDLER ──
+// In your hardcoded grid module script:
+window.launchChannel = function(videoId) {
+    // You must include 'origin=live-tv' so the player knows where to return
+    // You can leave 'targetID' empty since this is a hardcoded list
+    const targetUrl = `/tvytube?videoId=${videoId}&vq=hd720&origin=live-tv&targetID=hardcoded&menu=/live-tv&scrollPos=0`;
+    
+    if (typeof handleNav === 'function') {
+        handleNav(targetUrl);
+    } else {
+        window.location.href = targetUrl;
     }
-
-    // ── INIT ─────────────────────────────────────────────────
-    async function init() {
-        try {
-            const res = await fetch('/api/channels');
-            ALL_CHANNELS = await res.json();
-        } catch (e) {
-            console.warn('[LiveTV] Could not load channels:', e);
-            ALL_CHANNELS = [];
-        } finally {
-            document.getElementById('ltv-checking').style.display = 'none';
-            buildGrid();
-        }
-    }
-
-    init();
+};
+    // ── RENDER ──
+    target.innerHTML = MY_CHANNELS.map(ch => `
+        <div class="ch-card" onclick="launchChannel('${ch.id}')">
+            <div class="yt-label">YOUTUBE</div>
+            <img src="${ch.img}" class="ch-thumb" onerror="this.src='https://placehold.co/600x400/000000/FFFFFF?text=TV'">
+            <div class="ch-info">
+                <div class="ch-name">${ch.name}</div>
+            </div>
+        </div>
+    `).join('');
 })();
 </script>
