@@ -51,56 +51,78 @@ function trackQuota(units) {
 
 // ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
-async function getVideos(tag, type = 'search') { // type can be 'search', 'channel', or 'playlist'
+async function getVideos(tag, type = 'search', maxTotalResults = 50) { // Adicionado parâmetro de limite
     ensureCacheDir();
+    console.log(tag);
+    console.log(type);
     
     // Update cache logic to handle the new prefix
     const cached = loadCache(tag, type); 
     if (cached) return cached;
 
     const API_KEY = process.env.YOUTUBE_API_KEY;
-    let url = "";
-
-    if (type === 'channel') {
-        url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&channelId=${encodeURIComponent(tag)}&order=date&key=${API_KEY}`;
-    } 
-    else if (type === 'playlist') {
-        // Use playlistItems endpoint for actual playlists
-        url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${encodeURIComponent(tag)}&key=${API_KEY}`;
-    } 
-    else {
-        // Standard keyword search
-        url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&q=${encodeURIComponent(tag)}&key=${API_KEY}`;
-    }
+    let allVideos = [];
+    let nextPageToken = "";
 
     try {
         console.log(`[YT API FETCH] Mode: ${type} | Requesting: ${tag}`);
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`API Status ${response.status}`);
-        const data = await response.json();
-        
-        trackQuota(type === 'playlist' ? 1 : 100); // playlistItems is much cheaper (1 unit) than search (100 units)
 
-        const videos = data.items.map(i => {
-            // Snippet structure is slightly different for playlistItems vs search
-            const snippet = i.snippet;
-            const id = type === 'playlist' ? snippet.resourceId.videoId : i.id.videoId;
+        // Loop para paginação
+        while (allVideos.length < maxTotalResults) {
+            let url = "";
+            // Calcula quantos resultados faltam para não ultrapassar o maxTotalResults
+            const resultsToFetch = Math.min(50, maxTotalResults - allVideos.length);
+
+            if (type === 'channel') {
+                url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=${resultsToFetch}&channelId=${encodeURIComponent(tag)}&order=date&key=${API_KEY}`;
+            } 
+            else if (type === 'playlist') {
+                url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${resultsToFetch}&playlistId=${encodeURIComponent(tag)}&key=${API_KEY}`;
+            } 
+            else {
+                url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=${resultsToFetch}&q=${encodeURIComponent(tag)}&key=${API_KEY}`;
+            }
+
+            // Se tivermos um token de próxima página, adicionamos à URL
+            if (nextPageToken) {
+                url += `&pageToken=${nextPageToken}`;
+            }
+
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`API Status ${response.status}`);
             
-            return {
-                videoId: id,
-                title: snippet.title,
-                channel: snippet.channelTitle,
-                thumbnail: snippet.thumbnails.maxres?.url || snippet.thumbnails.high?.url || snippet.thumbnails.default?.url
-            };
-        });
+            const data = await response.json();
+            
+            trackQuota(type === 'playlist' ? 1 : 100);
 
-        if (videos.length > 0) {
-            fs.writeFileSync(cacheFilePath(tag, type), JSON.stringify(videos, null, 2));
+            const videos = data.items.map(i => {
+                const snippet = i.snippet;
+                const id = type === 'playlist' ? snippet.resourceId.videoId : i.id.videoId;
+                
+                return {
+                    videoId: id,
+                    title: snippet.title,
+                    channel: snippet.channelTitle,
+                    thumbnail: snippet.thumbnails.maxres?.url || snippet.thumbnails.high?.url || snippet.thumbnails.default?.url
+                };
+            });
+
+            allVideos = allVideos.concat(videos);
+            nextPageToken = data.nextPageToken;
+
+            // Se não houver mais páginas no YouTube, interrompe o loop
+            if (!nextPageToken) break;
         }
-        return videos;
+
+        if (allVideos.length > 0) {
+            fs.writeFileSync(cacheFilePath(tag, type), JSON.stringify(allVideos, null, 2));
+        }
+        
+        return allVideos;
+
     } catch (err) {
         console.error('[YT API] Error:', err.message);
-        return [];
+        return allVideos; // Retorna o que conseguiu buscar antes do erro
     }
 }
 

@@ -1,0 +1,89 @@
+<style>
+    #sb-module {
+        width: 1280px; height: 720px; display: flex; flex-direction: column;
+        background: #000; color: white; overflow: hidden; font-family: 'Outfit', sans-serif;
+    }
+    .sl-nav-header {
+        height: 75px; padding: 0 40px; display: flex; align-items: center;
+        background: linear-gradient(to bottom, #1a1a1a 0%, #000 100%);
+        border-bottom: 2px solid #ff0000;
+    }
+    .nav-left .current-tag span { font-size: 20px; color: #ff0000; font-weight: bold; }
+    .chip.active { background: rgba(255, 0, 0, 0.2); border-color: #ff0000; color: #fff; }
+    
+    #sb-scroll-content::-webkit-scrollbar-thumb { background: #ff0000; }
+    .video-card:hover { border: 2px solid #ff0000; transform: scale(1.02); }
+</style>
+
+<div id="sb-module">
+    <nav class="sl-nav-header">
+        <div class="nav-left">
+            <div class="current-tag">
+                <span>SPANKBANG</span>
+                <small id="active-tag-display"><%= tag %></small>
+            </div>
+        </div>
+
+        <div class="category-chips">
+            <% SP_CATEGORIES.slice(0, 7).forEach(cat => { %>
+                <button class="chip <%= tag === cat ? 'active' : '' %>" onclick="selectSB('<%= cat %>')">
+                    <%= cat %>
+                </button>
+            <% }) %>
+        </div>
+
+        <div class="nav-right">
+            <input type="text" id="sb-search-input" value="<%= tag %>" placeholder="Search SpankBang..." onkeyup="if(event.key === 'Enter') sbSearch()">
+            <button class="exit-btn" onclick="handleNav('/xxx-index')">✕</button>
+        </div>
+    </nav>
+
+    <div id="sb-scroll-content">
+        <div class="video-grid">
+            <% videos.forEach(v => { %>
+                <div class="video-card" data-url="<%= v.pageUrl %>" data-title="<%= v.title %>" onclick="playSB(this)">
+                    <div class="thumb-wrap">
+                        <img src="<%= v.thumbnail %>" loading="lazy">
+                    </div>
+                    <p class="video-title"><%= v.title %></p>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<script>
+window.selectSB = function(tag) {
+    handleNav('/spankbang-grid?tag=' + encodeURIComponent(tag));
+};
+
+window.sbSearch = function() {
+    const val = document.getElementById('sb-search-input').value;
+    handleNav('/spankbang-grid?tag=' + encodeURIComponent(val));
+};
+
+// Lógica crucial para o seu Shared System
+async function playSB(el) {
+    const pageUrl = el.getAttribute('data-url');
+    const title = el.getAttribute('data-title');
+
+    // 1. Mostra um loader se você tiver um
+    console.log("Iniciando extração...");
+
+    try {
+        // 2. Chama o scraper que criamos acima
+        const response = await fetch(`/get-sb-stream?url=${encodeURIComponent(pageUrl)}`);
+        const data = await response.json();
+
+        if (data.streamUrl) {
+            // 3. Envia para o seu player Video.js (IGUAL AO XVIDEOS)
+            // Agora o socket.emit('toPlay') vai funcionar porque é um MP4 direto!
+            handleNav(`/xxx-player?stream=${encodeURIComponent(data.streamUrl)}&title=${encodeURIComponent(title)}`);
+        } else {
+            alert("Erro ao carregar o vídeo. Tente outro.");
+        }
+    } catch (err) {
+        console.error("Erro na requisição:", err);
+    }
+}
+</script>

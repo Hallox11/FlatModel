@@ -299,13 +299,23 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
             state.lastUpdate     = Date.now();
         });
 
-        socket.on('toPlay', (data) => {
-            const time = typeof data === 'object' ? data.time : data;
-            state.videoTimestamp = time;
-            state.videoPaused    = false;
-            if (data.videoId) state.videoId = data.videoId;
-            io.to(clientRoom).emit('Play', time);
-        });
+// Locate this in your provided file:
+socket.on('toPlay', (data) => {
+    const time = typeof data === 'object' ? data.time : data;
+    const vId = typeof data === 'object' ? data.videoId : state.videoId;
+
+    state.videoTimestamp = time;
+    state.videoPaused    = false;
+    state.lastUpdate     = Date.now(); // <--- CRITICAL: Store the sync time
+    if (vId) state.videoId = vId;
+
+    // Send an OBJECT instead of just a number
+    io.to(clientRoom).emit('Play', {
+        timestamp: time,
+        lastUpdate: state.lastUpdate,
+        videoId: state.videoId
+    });
+});
 
         socket.on('toPause', (time) => {
             state.videoTimestamp = time;

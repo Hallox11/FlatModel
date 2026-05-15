@@ -1,0 +1,69 @@
+<style>
+    #ep-player-container {
+        width: 1280px;
+        height: 720px;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Outfit', sans-serif;
+        overflow: hidden;
+    }
+
+    .player-header {
+        height: 60px;
+        background: rgba(0,0,0,0.9);
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        border-bottom: 1px solid #333;
+    }
+
+    .back-btn {
+        background: #ff0055;
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 20px;
+        font-weight: bold;
+    }
+
+    .video-title-display {
+        color: #ccc;
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 900px;
+    }
+
+    .iframe-wrapper {
+        flex-grow: 1;
+        width: 100%;
+        background: #000;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
+
+<div id="ep-player-container">
+    <div class="player-header">
+        <button class="back-btn" onclick="handleNav('/eporner-grid')">← VOLTAR</button>
+        <div class="video-title-display"><%= title %></div>
+    </div>
+
+    <div class="iframe-wrapper">
+        <iframe 
+            src="<%= embedUrl %>" 
+            allowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            mozallowfullscreen="true"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>

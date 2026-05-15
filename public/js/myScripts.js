@@ -73,6 +73,11 @@ const NAV_CONFIG = {
         'watch-together': '/watch-together-menu',
         'art-gallery': '/art-gallery',
         'art-menu': '/art-menu',
+        'eporner':'/eporner-grid',
+         'eporner-player':'/eporner-player',
+         'eporner-player':'/eporner-player',
+         '/spankbang-grid':'/spankbang-grid',
+
     },
 
     // --- RADIO ROOT (Redirect Logic) ---

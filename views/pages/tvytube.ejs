@@ -291,19 +291,43 @@ if (origin === 'live-tv') {
 
     if (typeof socket !== 'undefined') {
         socket.off('Play').off('Pause');
-        socket.on('Play', (time) => {
-            if (!window.ytPlayerInstance) return;
-            isRemoteCommand = true;
-            window.ytPlayerInstance.seekTo(time, true);
-            window.ytPlayerInstance.pauseVideo();
-            window.ytPlayerInstance.playVideo();
-            setTimeout(() => isRemoteCommand = false, 1000);
-        });
+
+        
+socket.on('Play', (data) => {
+    if (!window.ytPlayerInstance) return;
+    
+    // 1. Prevent loopback
+    isRemoteCommand = true;
+
+    // 2. Parse the time safely (ensure it's a number)
+    const baseTime = parseFloat(data.timestamp) || 0;
+    const latency = (Date.now() - (data.lastUpdate || Date.now())) / 1000;
+    
+    // 3. Calculate actual time. 
+    // If it's a pause/play, latency is key. 
+    // If it's a fresh start, latency might be 0.
+    const actualCurrentTime = baseTime + latency;
+
+    console.log(`Syncing to: ${actualCurrentTime} (Base: ${baseTime}, Latency: ${latency})`);
+
+    // 4. Command the player
+    // Seek first, then play. Some players reset to 0 if play() is called before seek completes.
+    window.ytPlayerInstance.seekTo(actualCurrentTime, true);
+    
+    // Small delay can help some player APIs stabilize the seek before playing
+    setTimeout(() => {
+        window.ytPlayerInstance.playVideo();
+    }, 50);
+
+    setTimeout(() => isRemoteCommand = false, 1000);
+});
         socket.on('Pause', (time) => {
             if (!window.ytPlayerInstance) return;
             isRemoteCommand = true;
             window.ytPlayerInstance.pauseVideo();
             window.ytPlayerInstance.seekTo(time, true);
+            window.ytPlayerInstance.pauseVideo();
+
             setTimeout(() => isRemoteCommand = false, 1000);
         });
     }

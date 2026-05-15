@@ -674,33 +674,43 @@ router.get('/', (req, res) => {
     router.get('/movies-menu', (req, res) => res.render('pages/movies/movies-menu'));
 
     router.get('/movies-grid', async (req, res) => {
-        console.log('[movies-grid] params:', req.query);
-        const query     = req.query.genre || 'full movies action';
-        const scrollPos = req.query.scrollPos || 0;
-        const menu      = req.query.menu || '/movies-menu';
+    // 1. Capture all parameters
+    const query = req.query.genre || req.query.tag || 'Trending';
+    const menu = req.query.menu || '/movies-menu';
+    const scrollPos = req.query.scrollPos || 0;
 
-        try {
-            const results = await youtubeScraper.getVideos(query, false);
+    // 2. Determine the Mode
+    // Logic: check 'mode' param first, then fallback to 'isChannel' boolean
+    let mode = 'search';
+    if (req.query.mode === 'playlist' || req.query.isPlaylist === 'true') {
+        mode = 'playlist';
+    } else if (req.query.isChannel === 'true') {
+        mode = 'channel';
+    }
 
-            res.render('pages/generic_grid', {
-                title:       `Cinema: ${query.toUpperCase()}`,
-                type:        "movies",
-                searchQuery: query,
-                scrollPos,
-                menu,
-                req,
-                results: results.map(m => ({
-                    id:        m.videoId,
-                    title:     m.title,
-                    thumbnail: m.thumbnail,
-                    subtitle:  m.channel,
-                    badge:     "MOVIE"
-                }))
-            });
-        } catch (err) {
-            console.error("❌ Movies Route Error:", err);
-            res.status(500).send("Error loading movies via YouTube.");
-        }
+    try {
+        // 3. Fetch data using the mode ('search', 'channel', or 'playlist')
+        const results = await youtubeScraper.getVideos(query, mode);
+
+        // 4. Render the generic grid
+        res.render('pages/generic_grid', {
+            title: `Cinema ${mode.toUpperCase()}: ${query}`,
+            type: "movies",
+            searchQuery: query,
+            menu,
+            scrollPos, 
+            results: results.map(v => ({
+                id: v.videoId,
+                title: v.title,
+                thumbnail: v.thumbnail, 
+                subtitle: v.channel, 
+                badge: mode === 'playlist' ? "PLAYLIST" : "YT" 
+            }))
+        });
+    } catch (err) {
+        console.error("❌ Unified Route Error:", err.message);
+        res.status(500).send("Error loading YouTube content");
+    }
     });
 
     ///////////////////////////////////////////////////////////////////
@@ -982,7 +992,188 @@ router.get('/api/sl/teleport', async (req, res) => {
 
     return router;
 };
+/////////////////////////////////////////////////////////////////////
+/*
+router.get('/eporner-grid', async (req, res) => {
+    const tag = req.query.tag || 'popular';
+    const EP_CATEGORIES = ['Amateur', 'Anal', 'Babe', 'BBW', 'Big Tits', 'Blowjob', 'Cumshot', 'Ebony', 'Hardcore', 'Lesbian', 'MILF', 'Pornstar', 'Solo'];
 
+    // Criar um Controller para abortar a requisição se demorar muito
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000); // 8 segundos de limite
+
+    try {
+        const apiUrl = `https://www.eporner.com/api/v2/video/search/?query=${encodeURIComponent(tag)}&per_page=40&thumbsize=big`;
+        
+        console.log(`[EPORNER API] Requesting: ${apiUrl}`);
+
+        const response = await fetch(apiUrl, {
+            signal: controller.signal,
+            headers: { 
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36' 
+            }
+        });
+
+        clearTimeout(timeout); // Limpa o timeout se responder a tempo
+
+        if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+        
+        const data = await response.json();
+        
+        if (!data || !data.videos) {
+            console.log("[EPORNER API] No videos found");
+            return res.render('eporner-grid-template', { videos: [], tag, EP_CATEGORIES });
+        }
+
+        const videos = data.videos.map(v => ({
+            videoId: v.id,
+            title: v.title,
+            thumbnail: v.default_thumb.src
+        }));
+
+        res.render('pages/xxx/eporner', { videos, tag, EP_CATEGORIES });
+
+    } catch (err) {
+        clearTimeout(timeout);
+        console.error('[EPORNER ERROR]:', err.name === 'AbortError' ? 'Request Timeout' : err.message);
+        
+        // Renderiza vazio em caso de erro para não travar a interface do usuário
+        res.render('pages/xxx/eporner', { 
+            videos: [], 
+            tag: tag, 
+            EP_CATEGORIES: EP_CATEGORIES 
+        });
+    }
+});
+router.get('/eporner-player', (req, res) => {
+    const videoId = req.query.id;
+    const title = req.query.title || 'EPorner Video';
+
+    if (!videoId) {
+        return res.redirect('/eporner-grid');
+    }
+
+    // Construímos a URL de embed oficial
+    const embedUrl = `https://www.eporner.com/embed/${videoId}/`;
+
+    res.render('pages/xxx/eporner-player', { 
+        embedUrl, 
+        title 
+    });
+});*/
+///////////////////////////////////////////////////////////////////
+router.get('/get-sb-stream', async (req, res) => {
+    const videoUrl = req.query.url; // Ex: https://spankbang.com/5p5p5/video/...
+
+    if (!videoUrl) return res.status(400).json({ error: "URL is required" });
+
+    try {
+        const fullUrl = videoUrl.startsWith('http') ? videoUrl : `https://spankbang.com${videoUrl}`;
+        
+        console.log(`[SCRAPER] Extraindo de: ${fullUrl}`);
+
+        const { data } = await axios.get(fullUrl, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Cookie': 'sb_country=US;' // Ajuda a evitar alguns bloqueios regionais
+            }
+        });
+
+        const $ = cheerio.load(data);
+        
+        // O SpankBang guarda as qualidades de vídeo em tags <source> dentro do elemento <video>
+        // ou em variáveis dentro de um script. Vamos buscar o de melhor qualidade (720p ou 1080p).
+        let streamUrl = '';
+
+        // Tentativa 1: Buscar no elemento <video>
+        $('video source').each((i, el) => {
+            const src = $(el).attr('src');
+            if (src && src.includes('mp4')) {
+                streamUrl = src;
+            }
+        });
+
+        // Tentativa 2: Fallback para Regex se o HTML estiver mascarado
+        if (!streamUrl) {
+            const regex = /stream_url_720p\s*=\s*['"](.*?)['"]/;
+            const match = data.match(regex);
+            if (match && match[1]) streamUrl = match[1];
+        }
+
+        if (streamUrl) {
+            console.log("[SCRAPER] Sucesso! Stream encontrado.");
+            res.json({ streamUrl: streamUrl });
+        } else {
+            throw new Error("Não foi possível localizar o arquivo MP4");
+        }
+
+    } catch (err) {
+        console.error('[SCRAPER ERROR]:', err.message);
+        res.status(500).json({ error: "Falha ao extrair o vídeo. O site pode ter mudado a estrutura." });
+    }
+});
+router.get('/spankbang-grid', async (req, res) => {
+    const currentTag = req.query.tag || 'trending';
+    
+    // IMPORTANTE: Se a linha de baixo estiver comentada, 
+    // você precisa definir a variável videos antes do res.render
+    let videos = []; 
+    
+    // Quando você criar a função de busca, descomente aqui:
+     videos = await getSpankBangVideos(currentTag); 
+
+    res.render('pages/xxx/spankbang-grid', {
+        videos: videos, // Agora a variável existe!
+        tag: currentTag,
+        SP_CATEGORIES: ['Trending', 'New', 'Popular', 'Amateur', 'Anal', 'MILF']
+    });
+});
+async function getSpankBangVideos(tag) {
+    try {
+        // Formata a URL de busca do SpankBang
+        const url = `https://spankbang.com/s/${tag.replace(/\s+/g, '+')}/?o=all`;
+        
+const { data } = await axios.get(url, {
+    headers: { 
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+        'Referer': 'https://spankbang.com/',
+        'Sec-Ch-Ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+        'Sec-Ch-Ua-Mobile': '?0',
+        'Sec-Ch-Ua-Platform': '"Windows"',
+    }
+});
+
+        const $ = cheerio.load(data);
+        const videos = [];
+
+        // Varre os itens da grade de vídeos do site
+        $('.video-list .video-item').each((i, el) => {
+            const $el = $(el);
+            
+            // Extrai as informações básicas de cada card
+            const title = $el.find('a.n').text().trim();
+            const pageUrl = $el.find('a.n').attr('href'); // Ex: /12345/video/...
+            const thumbnail = $el.find('img').attr('data-src') || $el.find('img').attr('src');
+            
+            if (title && pageUrl) {
+                videos.push({
+                    title: title,
+                    pageUrl: pageUrl,
+                    thumbnail: thumbnail
+                });
+            }
+        });
+
+        return videos;
+    } catch (error) {
+        console.error("Erro no Scraping do SpankBang:", error.message);
+        return []; // Retorna lista vazia em caso de erro
+    }
+}
 ///////////////////////////////////////////////////////////////////
 // Helper: upsert TV in SQLite
 function _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip }) {

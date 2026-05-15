@@ -9,21 +9,21 @@
     "album": "YouTube"
   },
   {
+    "id": "fnPxkuFIA48",
+    "videoId": "fnPxkuFIA48",
+    "title": "Lady Gaga, Bruno Mars - Die With A Smile (Live in Las Vegas)",
+    "subtitle": "Bruno Mars",
+    "durationText": "4:42",
+    "thumbnail": "https://i.ytimg.com/vi/fnPxkuFIA48/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
     "id": "FmrGz8qSyrk",
     "videoId": "FmrGz8qSyrk",
     "title": "Red Hot Chili Peppers - Live at Slane Castle 2003 Full Concert (High Quality)",
     "subtitle": "joe_clark",
     "durationText": "1:41:57",
     "thumbnail": "https://i.ytimg.com/vi/FmrGz8qSyrk/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "SDDC-QdOR14",
-    "videoId": "SDDC-QdOR14",
-    "title": "LIVE IN MUNICH, 1997 - HIStory World Tour (Remastered 4K) | Michael Jackson",
-    "subtitle": "MJFV",
-    "durationText": "2:00:31",
-    "thumbnail": "https://i.ytimg.com/vi/SDDC-QdOR14/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -36,51 +36,6 @@
     "album": "YouTube"
   },
   {
-    "id": "xweRJNcDfOY",
-    "videoId": "xweRJNcDfOY",
-    "title": "The Cranberries - Beneath The Skin (Live in Paris, 1999) | Full Concert HD 1080p Remastered",
-    "subtitle": "RBD Brazil",
-    "durationText": "1:23:41",
-    "thumbnail": "https://i.ytimg.com/vi/xweRJNcDfOY/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "esdfjbZoZ_k",
-    "videoId": "esdfjbZoZ_k",
-    "title": "Eagles - Farewell Tour I: Live From Melbourne",
-    "subtitle": "uploader.JP8",
-    "durationText": "2:18:49",
-    "thumbnail": "https://i.ytimg.com/vi/esdfjbZoZ_k/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "cPzrZ-1g-7U",
-    "videoId": "cPzrZ-1g-7U",
-    "title": "Phil Collins - Finally...The First Farewell Tour Paris 2004",
-    "subtitle": "Red Dog",
-    "durationText": "2:12:46",
-    "thumbnail": "https://i.ytimg.com/vi/cPzrZ-1g-7U/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "fnPxkuFIA48",
-    "videoId": "fnPxkuFIA48",
-    "title": "Lady Gaga, Bruno Mars - Die With A Smile (Live in Las Vegas)",
-    "subtitle": "Bruno Mars",
-    "durationText": "4:42",
-    "thumbnail": "https://i.ytimg.com/vi/fnPxkuFIA48/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "UEc2os_rj6c",
-    "videoId": "UEc2os_rj6c",
-    "title": "The Cure - Full Concert [HD] | Live at Pinkpop 2012",
-    "subtitle": "Pinkpop Archive",
-    "durationText": "2:15:15",
-    "thumbnail": "https://i.ytimg.com/vi/UEc2os_rj6c/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
     "id": "bFqzXDf9AOM",
     "videoId": "bFqzXDf9AOM",
     "title": "AC/DC - Live At River Plate 2009 - (Full Concert - Remastered)",
@@ -90,39 +45,12 @@
     "album": "YouTube"
   },
   {
-    "id": "_HZM0QiuUS8",
-    "videoId": "_HZM0QiuUS8",
-    "title": "Goo Goo Dolls - Iris (Live in Buffalo, NY, 7/4/2004) [Official Video]",
-    "subtitle": "Goo Goo Dolls",
-    "durationText": "5:43",
-    "thumbnail": "https://i.ytimg.com/vi/_HZM0QiuUS8/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "Fpn1imb9qZg",
-    "videoId": "Fpn1imb9qZg",
-    "title": "Coldplay - A Sky Full Of Stars (Live at River Plate)",
-    "subtitle": "Coldplay",
-    "durationText": "4:49",
-    "thumbnail": "https://i.ytimg.com/vi/Fpn1imb9qZg/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "oUuur5PwDKw",
-    "videoId": "oUuur5PwDKw",
-    "title": "Paramore - Live At Bonnaroo Music Festival 2023 (Full Concert HD)",
-    "subtitle": "Hellboy",
-    "durationText": "1:11:22",
-    "thumbnail": "https://i.ytimg.com/vi/oUuur5PwDKw/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "p5TGgp8t440",
-    "videoId": "p5TGgp8t440",
-    "title": "Imagine Dragons - Thunder (Live in Vegas)",
-    "subtitle": "ImagineDragons",
-    "durationText": "4:33",
-    "thumbnail": "https://i.ytimg.com/vi/p5TGgp8t440/hqdefault.jpg",
+    "id": "xweRJNcDfOY",
+    "videoId": "xweRJNcDfOY",
+    "title": "The Cranberries - Beneath The Skin (Live in Paris, 1999) | Full Concert HD 1080p Remastered",
+    "subtitle": "RBD Brazil",
+    "durationText": "1:23:41",
+    "thumbnail": "https://i.ytimg.com/vi/xweRJNcDfOY/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -135,48 +63,30 @@
     "album": "YouTube"
   },
   {
-    "id": "i6cRXFs6BzI",
-    "videoId": "i6cRXFs6BzI",
-    "title": "BOB MARLEY Live in Santa Barbara 1979 FULL CONCERT",
-    "subtitle": "Herick Santos",
-    "durationText": "1:32:17",
-    "thumbnail": "https://i.ytimg.com/vi/i6cRXFs6BzI/hqdefault.jpg",
+    "id": "cPzrZ-1g-7U",
+    "videoId": "cPzrZ-1g-7U",
+    "title": "Phil Collins - Finally...The First Farewell Tour Paris 2004",
+    "subtitle": "Red Dog",
+    "durationText": "2:12:46",
+    "thumbnail": "https://i.ytimg.com/vi/cPzrZ-1g-7U/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "pPdLH_CtpJU",
-    "videoId": "pPdLH_CtpJU",
-    "title": "Simply Red - Live In Concert At Sydney Opera House (Full Concert)",
-    "subtitle": "Simply Red",
-    "durationText": "1:40:23",
-    "thumbnail": "https://i.ytimg.com/vi/pPdLH_CtpJU/hqdefault.jpg",
+    "id": "tjH-KxSHgBc",
+    "videoId": "tjH-KxSHgBc",
+    "title": "Teddy Swims - live at Lowlands 2024",
+    "subtitle": "3voor12",
+    "durationText": "57:16",
+    "thumbnail": "https://i.ytimg.com/vi/tjH-KxSHgBc/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "WIjcU9CZgbM",
-    "videoId": "WIjcU9CZgbM",
-    "title": "Gorillaz Live (YouTube Music Nights)",
-    "subtitle": "Gorillaz",
-    "durationText": "1:20:24",
-    "thumbnail": "https://i.ytimg.com/vi/WIjcU9CZgbM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "k0Ka-deab1s",
-    "videoId": "k0Ka-deab1s",
-    "title": "Ed Sheeran & Diljit Dosanjh - Shape of You x Naina (Live in Birmingham 2024)",
-    "subtitle": "Ed Sheeran",
-    "durationText": "5:02",
-    "thumbnail": "https://i.ytimg.com/vi/k0Ka-deab1s/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "YBrRJY_V1lc",
-    "videoId": "YBrRJY_V1lc",
-    "title": "Stevie Ray Vaughan - Full Concert [HD] | Live at The Capitol Theatre (1985) ",
-    "subtitle": "Live & Loud",
-    "durationText": "1:16:49",
-    "thumbnail": "https://i.ytimg.com/vi/YBrRJY_V1lc/hqdefault.jpg",
+    "id": "Fpn1imb9qZg",
+    "videoId": "Fpn1imb9qZg",
+    "title": "Coldplay - A Sky Full Of Stars (Live at River Plate)",
+    "subtitle": "Coldplay",
+    "durationText": "4:49",
+    "thumbnail": "https://i.ytimg.com/vi/Fpn1imb9qZg/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -189,21 +99,21 @@
     "album": "YouTube"
   },
   {
-    "id": "jxa1j7nRQuw",
-    "videoId": "jxa1j7nRQuw",
-    "title": "Coldplay - Music of the Spheres 2025 - Live in Las Vegas, NV (06/06/2025) [FULL 4K SHOW] [FRONT ROW]",
-    "subtitle": "ded_center",
-    "durationText": "1:57:00",
-    "thumbnail": "https://i.ytimg.com/vi/jxa1j7nRQuw/hqdefault.jpg",
+    "id": "RnDDQ9CY-1I",
+    "videoId": "RnDDQ9CY-1I",
+    "title": "Dido - White Flag (Live 8 2005)",
+    "subtitle": "Live 8",
+    "durationText": "3:58",
+    "thumbnail": "https://i.ytimg.com/vi/RnDDQ9CY-1I/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "yHDBGBCUWGY",
-    "videoId": "yHDBGBCUWGY",
-    "title": "Rihanna - Diamonds (Live on The Concert For Valor) 4K",
-    "subtitle": "Ayberk MusiC",
-    "durationText": "5:16",
-    "thumbnail": "https://i.ytimg.com/vi/yHDBGBCUWGY/hqdefault.jpg",
+    "id": "esdfjbZoZ_k",
+    "videoId": "esdfjbZoZ_k",
+    "title": "Eagles - Farewell Tour I: Live From Melbourne",
+    "subtitle": "uploader.JP8",
+    "durationText": "2:18:49",
+    "thumbnail": "https://i.ytimg.com/vi/esdfjbZoZ_k/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -216,168 +126,6 @@
     "album": "YouTube"
   },
   {
-    "id": "DbfV7b-RAEY",
-    "videoId": "DbfV7b-RAEY",
-    "title": "The Highwaymen Live - American Outlaws | Full Concert",
-    "subtitle": "Front Row Music",
-    "durationText": "2:38:24",
-    "thumbnail": "https://i.ytimg.com/vi/DbfV7b-RAEY/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "7Mxg4VkkRRI",
-    "videoId": "7Mxg4VkkRRI",
-    "title": "Live In Texas (Full) [HD UPGRADE] - Linkin Park",
-    "subtitle": "Linkin Park",
-    "durationText": "1:11:01",
-    "thumbnail": "https://i.ytimg.com/vi/7Mxg4VkkRRI/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "yD15lKJXlF0",
-    "videoId": "yD15lKJXlF0",
-    "title": "Creed - Live a Stagecoach Music Festival 2025 (Full Set)",
-    "subtitle": "Gill Boldberg",
-    "durationText": "51:44",
-    "thumbnail": "https://i.ytimg.com/vi/yD15lKJXlF0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "UOwvmgjbwDo",
-    "videoId": "UOwvmgjbwDo",
-    "title": "Santana - Full Concert [HD] | Live at North Sea Jazz Festival 2004",
-    "subtitle": "North Sea Jazz Archive",
-    "durationText": "1:16:57",
-    "thumbnail": "https://i.ytimg.com/vi/UOwvmgjbwDo/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "DgQi9B0trqI",
-    "videoId": "DgQi9B0trqI",
-    "title": "Billy Joel: Live at Shea Stadium | Full Concert",
-    "subtitle": "Front Row Music",
-    "durationText": "2:20:45",
-    "thumbnail": "https://i.ytimg.com/vi/DgQi9B0trqI/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "x2bd1zp_q6Y",
-    "videoId": "x2bd1zp_q6Y",
-    "title": "Simon and Garfunkel ( The Concert in Central Park 1981 ) Full Concert 16:9 HQ",
-    "subtitle": "RE-MASTERPIECES",
-    "durationText": "1:26:33",
-    "thumbnail": "https://i.ytimg.com/vi/x2bd1zp_q6Y/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "8aR1go5-qHQ",
-    "videoId": "8aR1go5-qHQ",
-    "title": "Celine Dion - A New Day (2007) DVD |Live In Las Vegas | Full Concert | CDST L.U",
-    "subtitle": "Jumz Marzo",
-    "durationText": "1:33:08",
-    "thumbnail": "https://i.ytimg.com/vi/8aR1go5-qHQ/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "CA5w4skVLlI",
-    "videoId": "CA5w4skVLlI",
-    "title": "Journey - Live in Houston (November 6th, 1981) - HD Remaster",
-    "subtitle": "chaseharlann",
-    "durationText": "1:16:58",
-    "thumbnail": "https://i.ytimg.com/vi/CA5w4skVLlI/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "mIxlvVlOIS0",
-    "videoId": "mIxlvVlOIS0",
-    "title": "Alan Walker - Faded (Live Performance)",
-    "subtitle": "Alan Walker",
-    "durationText": "5:40",
-    "thumbnail": "https://i.ytimg.com/vi/mIxlvVlOIS0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "OuTWePEkXj4",
-    "videoId": "OuTWePEkXj4",
-    "title": "Bee Gees - One Night Only - 1997 (Full Concert HD)",
-    "subtitle": "Esau Leemon",
-    "durationText": "1:48:55",
-    "thumbnail": "https://i.ytimg.com/vi/OuTWePEkXj4/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "Li0g--DEfac",
-    "videoId": "Li0g--DEfac",
-    "title": "Earth, Wind & Fire - Full Concert [HD] | Live at North Sea Jazz Festival 2016",
-    "subtitle": "North Sea Jazz Archive",
-    "durationText": "1:25:27",
-    "thumbnail": "https://i.ytimg.com/vi/Li0g--DEfac/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "BM8pZqgb3z8",
-    "videoId": "BM8pZqgb3z8",
-    "title": "The Doobie Brothers: 50th Anniversary at Radio City Music Hall on Wednesday, October 26, 2022",
-    "subtitle": "Gwen Shroyer",
-    "durationText": "59:06",
-    "thumbnail": "https://i.ytimg.com/vi/BM8pZqgb3z8/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "6227l3ay_-A",
-    "videoId": "6227l3ay_-A",
-    "title": "Tom Jones - Live On Soundstage, 2017 (FULL SHOW)",
-    "subtitle": "Tom Jones",
-    "durationText": "1:27:25",
-    "thumbnail": "https://i.ytimg.com/vi/6227l3ay_-A/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "uRcdRlcLagA",
-    "videoId": "uRcdRlcLagA",
-    "title": "Bon Jovi - Rock in Rio 2017 - FULL CONCERT (1080p)",
-    "subtitle": "BonJovi Archives",
-    "durationText": "2:02:52",
-    "thumbnail": "https://i.ytimg.com/vi/uRcdRlcLagA/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "IHqUiOvjlC0",
-    "videoId": "IHqUiOvjlC0",
-    "title": "Shakira: Live From Paris | Full Concert",
-    "subtitle": "Front Row Music",
-    "durationText": "1:39:56",
-    "thumbnail": "https://i.ytimg.com/vi/IHqUiOvjlC0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "9dNh_5JxVmE",
-    "videoId": "9dNh_5JxVmE",
-    "title": "Black Sabbath - Live… Gathered In Their Masses FULL CONCERT HD",
-    "subtitle": "Qello Concerts by Stingray",
-    "durationText": "1:46:46",
-    "thumbnail": "https://i.ytimg.com/vi/9dNh_5JxVmE/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "73jCMHgz_Zo",
-    "videoId": "73jCMHgz_Zo",
-    "title": "City and Colour: Live Concert | CBC Music Live",
-    "subtitle": "CBC Music",
-    "durationText": "50:27",
-    "thumbnail": "https://i.ytimg.com/vi/73jCMHgz_Zo/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "KKlxrbpa9RU",
-    "videoId": "KKlxrbpa9RU",
-    "title": "The Chicks - Top of the World Tour | Full Concert",
-    "subtitle": "Front Row Music",
-    "durationText": "1:24:48",
-    "thumbnail": "https://i.ytimg.com/vi/KKlxrbpa9RU/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
     "id": "VbrWXT40MHY",
     "videoId": "VbrWXT40MHY",
     "title": "Maroon 5 - Live at Casino de Paris FULL HD CONCERT",
@@ -387,12 +135,39 @@
     "album": "YouTube"
   },
   {
-    "id": "XDxS9DfwmTo",
-    "videoId": "XDxS9DfwmTo",
-    "title": "Central Cee: “Band4Band Feat. Lil Baby (Live)” | Apple Music Live",
-    "subtitle": "Central Cee",
-    "durationText": "4:11",
-    "thumbnail": "https://i.ytimg.com/vi/XDxS9DfwmTo/hqdefault.jpg",
+    "id": "_HZM0QiuUS8",
+    "videoId": "_HZM0QiuUS8",
+    "title": "Goo Goo Dolls - Iris (Live in Buffalo, NY, 7/4/2004) [Official Video]",
+    "subtitle": "Goo Goo Dolls",
+    "durationText": "5:43",
+    "thumbnail": "https://i.ytimg.com/vi/_HZM0QiuUS8/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "jxa1j7nRQuw",
+    "videoId": "jxa1j7nRQuw",
+    "title": "Coldplay - Music of the Spheres 2025 - Live in Las Vegas, NV (06/06/2025) [FULL 4K SHOW] [FRONT ROW]",
+    "subtitle": "ded_center",
+    "durationText": "1:57:00",
+    "thumbnail": "https://i.ytimg.com/vi/jxa1j7nRQuw/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "WIjcU9CZgbM",
+    "videoId": "WIjcU9CZgbM",
+    "title": "Gorillaz Live (YouTube Music Nights)",
+    "subtitle": "Gorillaz",
+    "durationText": "1:20:24",
+    "thumbnail": "https://i.ytimg.com/vi/WIjcU9CZgbM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "p5TGgp8t440",
+    "videoId": "p5TGgp8t440",
+    "title": "Imagine Dragons - Thunder (Live in Vegas)",
+    "subtitle": "ImagineDragons",
+    "durationText": "4:33",
+    "thumbnail": "https://i.ytimg.com/vi/p5TGgp8t440/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -405,12 +180,174 @@
     "album": "YouTube"
   },
   {
+    "id": "SDDC-QdOR14",
+    "videoId": "SDDC-QdOR14",
+    "title": "LIVE IN MUNICH, 1997 - HIStory World Tour (Remastered 4K) | Michael Jackson",
+    "subtitle": "MJFV",
+    "durationText": "2:00:31",
+    "thumbnail": "https://i.ytimg.com/vi/SDDC-QdOR14/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "UEc2os_rj6c",
+    "videoId": "UEc2os_rj6c",
+    "title": "The Cure - Full Concert [HD] | Live at Pinkpop 2012",
+    "subtitle": "Pinkpop Archive",
+    "durationText": "2:15:15",
+    "thumbnail": "https://i.ytimg.com/vi/UEc2os_rj6c/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "UOwvmgjbwDo",
+    "videoId": "UOwvmgjbwDo",
+    "title": "Santana - Full Concert [HD] | Live at North Sea Jazz Festival 2004",
+    "subtitle": "North Sea Jazz Archive",
+    "durationText": "1:16:57",
+    "thumbnail": "https://i.ytimg.com/vi/UOwvmgjbwDo/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "yD15lKJXlF0",
+    "videoId": "yD15lKJXlF0",
+    "title": "Creed - Live a Stagecoach Music Festival 2025 (Full Set)",
+    "subtitle": "Gill Boldberg",
+    "durationText": "51:44",
+    "thumbnail": "https://i.ytimg.com/vi/yD15lKJXlF0/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
     "id": "nobF_enLsoU",
     "videoId": "nobF_enLsoU",
     "title": "Judas Priest - live at Hellfest 2025 - ARTE Concert",
     "subtitle": "ARTE Concert and Hellfest Open Air Festival",
     "durationText": "1:15:26",
     "thumbnail": "https://i.ytimg.com/vi/nobF_enLsoU/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "oUuur5PwDKw",
+    "videoId": "oUuur5PwDKw",
+    "title": "Paramore - Live At Bonnaroo Music Festival 2023 (Full Concert HD)",
+    "subtitle": "Hellboy",
+    "durationText": "1:11:22",
+    "thumbnail": "https://i.ytimg.com/vi/oUuur5PwDKw/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "x2bd1zp_q6Y",
+    "videoId": "x2bd1zp_q6Y",
+    "title": "Simon and Garfunkel ( The Concert in Central Park 1981 ) Full Concert 16:9 HQ",
+    "subtitle": "RE-MASTERPIECES",
+    "durationText": "1:26:33",
+    "thumbnail": "https://i.ytimg.com/vi/x2bd1zp_q6Y/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "V22SXB-_N6E",
+    "videoId": "V22SXB-_N6E",
+    "title": "Judas Priest: Epitaph | Full Concert",
+    "subtitle": "Front Row Music",
+    "durationText": "2:22:22",
+    "thumbnail": "https://i.ytimg.com/vi/V22SXB-_N6E/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "mIxlvVlOIS0",
+    "videoId": "mIxlvVlOIS0",
+    "title": "Alan Walker - Faded (Live Performance)",
+    "subtitle": "Alan Walker",
+    "durationText": "5:40",
+    "thumbnail": "https://i.ytimg.com/vi/mIxlvVlOIS0/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "YBrRJY_V1lc",
+    "videoId": "YBrRJY_V1lc",
+    "title": "Stevie Ray Vaughan - Full Concert [HD] | Live at The Capitol Theatre (1985) ",
+    "subtitle": "Live & Loud",
+    "durationText": "1:16:49",
+    "thumbnail": "https://i.ytimg.com/vi/YBrRJY_V1lc/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "9dNh_5JxVmE",
+    "videoId": "9dNh_5JxVmE",
+    "title": "Black Sabbath - Live… Gathered In Their Masses FULL CONCERT HD",
+    "subtitle": "Qello Concerts by Stingray",
+    "durationText": "1:46:46",
+    "thumbnail": "https://i.ytimg.com/vi/9dNh_5JxVmE/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "DgQi9B0trqI",
+    "videoId": "DgQi9B0trqI",
+    "title": "Billy Joel: Live at Shea Stadium | Full Concert",
+    "subtitle": "Front Row Music",
+    "durationText": "2:20:45",
+    "thumbnail": "https://i.ytimg.com/vi/DgQi9B0trqI/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "-ZvsGmYKhcU",
+    "videoId": "-ZvsGmYKhcU",
+    "title": "Coldplay - Viva La Vida (Live In São Paulo)",
+    "subtitle": "Coldplay",
+    "durationText": "4:08",
+    "thumbnail": "https://i.ytimg.com/vi/-ZvsGmYKhcU/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "swfe7h3yhd8",
+    "videoId": "swfe7h3yhd8",
+    "title": "Scorpions - Live in Bremerhaven 1996 (Full Concert)",
+    "subtitle": "Scorpions",
+    "durationText": "1:22:19",
+    "thumbnail": "https://i.ytimg.com/vi/swfe7h3yhd8/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "pPdLH_CtpJU",
+    "videoId": "pPdLH_CtpJU",
+    "title": "Simply Red - Live In Concert At Sydney Opera House (Full Concert)",
+    "subtitle": "Simply Red",
+    "durationText": "1:40:23",
+    "thumbnail": "https://i.ytimg.com/vi/pPdLH_CtpJU/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "H1JP759pHxI",
+    "videoId": "H1JP759pHxI",
+    "title": "Parcels - Live from Red Rocks, Colorado 17.06.2024",
+    "subtitle": "Parcels",
+    "durationText": "2:12:16",
+    "thumbnail": "https://i.ytimg.com/vi/H1JP759pHxI/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "7Mxg4VkkRRI",
+    "videoId": "7Mxg4VkkRRI",
+    "title": "Live In Texas (Full) [HD UPGRADE] - Linkin Park",
+    "subtitle": "Linkin Park",
+    "durationText": "1:11:01",
+    "thumbnail": "https://i.ytimg.com/vi/7Mxg4VkkRRI/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "73jCMHgz_Zo",
+    "videoId": "73jCMHgz_Zo",
+    "title": "City and Colour: Live Concert | CBC Music Live",
+    "subtitle": "CBC Music",
+    "durationText": "50:27",
+    "thumbnail": "https://i.ytimg.com/vi/73jCMHgz_Zo/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "i6cRXFs6BzI",
+    "videoId": "i6cRXFs6BzI",
+    "title": "BOB MARLEY Live in Santa Barbara 1979 FULL CONCERT",
+    "subtitle": "Herick Santos",
+    "durationText": "1:32:17",
+    "thumbnail": "https://i.ytimg.com/vi/i6cRXFs6BzI/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -423,30 +360,93 @@
     "album": "YouTube"
   },
   {
-    "id": "8MuhFxaT7zo",
-    "videoId": "8MuhFxaT7zo",
-    "title": "The Cranberries - Zombie 1999 Live Video",
-    "subtitle": "NEA ZIXNH",
-    "durationText": "5:24",
-    "thumbnail": "https://i.ytimg.com/vi/8MuhFxaT7zo/hqdefault.jpg",
+    "id": "yHDBGBCUWGY",
+    "videoId": "yHDBGBCUWGY",
+    "title": "Rihanna - Diamonds (Live on The Concert For Valor) 4K",
+    "subtitle": "Ayberk MusiC",
+    "durationText": "5:16",
+    "thumbnail": "https://i.ytimg.com/vi/yHDBGBCUWGY/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "4foZkDy9ef0",
-    "videoId": "4foZkDy9ef0",
-    "title": "Rihanna | DVD The ANTI World Tour Live (HD) | (Made In America Audio Version)",
-    "subtitle": "DVDTOURVEVO",
-    "durationText": "1:18:49",
-    "thumbnail": "https://i.ytimg.com/vi/4foZkDy9ef0/hqdefault.jpg",
+    "id": "uRcdRlcLagA",
+    "videoId": "uRcdRlcLagA",
+    "title": "Bon Jovi - Rock in Rio 2017 - FULL CONCERT (1080p)",
+    "subtitle": "BonJovi Archives",
+    "durationText": "2:02:52",
+    "thumbnail": "https://i.ytimg.com/vi/uRcdRlcLagA/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "4JsqMNueeag",
-    "videoId": "4JsqMNueeag",
-    "title": "The Corrs - Breathless (Live in London 2000 | 20 years anniversary cut)",
-    "subtitle": "Special K Studios",
-    "durationText": "5:32",
-    "thumbnail": "https://i.ytimg.com/vi/4JsqMNueeag/hqdefault.jpg",
+    "id": "CBwzFErjF2s",
+    "videoId": "CBwzFErjF2s",
+    "title": "Luke Combs - Live from Georgia Theatre",
+    "subtitle": "Luke Combs and Columbia Sportswear",
+    "durationText": "1:22:58",
+    "thumbnail": "https://i.ytimg.com/vi/CBwzFErjF2s/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "6227l3ay_-A",
+    "videoId": "6227l3ay_-A",
+    "title": "Tom Jones - Live On Soundstage, 2017 (FULL SHOW)",
+    "subtitle": "Tom Jones",
+    "durationText": "1:27:25",
+    "thumbnail": "https://i.ytimg.com/vi/6227l3ay_-A/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "OuTWePEkXj4",
+    "videoId": "OuTWePEkXj4",
+    "title": "Bee Gees - One Night Only - 1997 (Full Concert HD)",
+    "subtitle": "Esau Leemon",
+    "durationText": "1:48:55",
+    "thumbnail": "https://i.ytimg.com/vi/OuTWePEkXj4/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "3mI_7yIfyKE",
+    "videoId": "3mI_7yIfyKE",
+    "title": "The Red Clay Strays - Live from Red Rocks Vol. 2 (Full Show)",
+    "subtitle": "Red Clay Strays",
+    "durationText": "2:05:42",
+    "thumbnail": "https://i.ytimg.com/vi/3mI_7yIfyKE/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "KPpouY3N6Vs",
+    "videoId": "KPpouY3N6Vs",
+    "title": "Roddy Ricch - The Box (Wireless Festival 2022)",
+    "subtitle": "BBC Radio 1Xtra",
+    "durationText": "5:51",
+    "thumbnail": "https://i.ytimg.com/vi/KPpouY3N6Vs/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Li0g--DEfac",
+    "videoId": "Li0g--DEfac",
+    "title": "Earth, Wind & Fire - Full Concert [HD] | Live at North Sea Jazz Festival 2016",
+    "subtitle": "North Sea Jazz Archive",
+    "durationText": "1:25:27",
+    "thumbnail": "https://i.ytimg.com/vi/Li0g--DEfac/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "KKlxrbpa9RU",
+    "videoId": "KKlxrbpa9RU",
+    "title": "The Chicks - Top of the World Tour | Full Concert",
+    "subtitle": "Front Row Music",
+    "durationText": "1:24:48",
+    "thumbnail": "https://i.ytimg.com/vi/KKlxrbpa9RU/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "ZRKXFuCsF58",
+    "videoId": "ZRKXFuCsF58",
+    "title": "Take That - This Life Tour, full concert. Manchester,  12th June 2024",
+    "subtitle": "Manc Julian",
+    "durationText": "1:56:03",
+    "thumbnail": "https://i.ytimg.com/vi/ZRKXFuCsF58/hqdefault.jpg",
     "album": "YouTube"
   }
 ]
