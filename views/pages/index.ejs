@@ -473,101 +473,6 @@ body.dark-text svg {
 
 <body>
 
-<div id="app-loading-screen" style="
-    position: fixed; 
-    inset: 0; 
-    width: 1280px; 
-    height: 720px; 
-    background: #0a0a0c; 
-    z-index: 10000; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    overflow: hidden;
-">
-    <!-- Background Image -->
-    <img src="/images/startLogin.jpg" style="
-        position: absolute;
-        width: 1440px;
-       
-        object-fit: cover;
-        opacity: 0.6; /* Lowered opacity so text is readable */
-    ">
-    
-    <!-- Text Overlay -->
-    <div style="
-        position: relative; 
-        text-align: center; 
-        font-family: 'Fira Sans', sans-serif;
-        z-index: 10001;
-    ">
-            <h1 style="
-           position: fixed;
-           top:510px;
-           left: 525px;
-            color: rgb(221, 219, 219); 
-            letter-spacing: 8px; 
-            text-transform: uppercase; 
-            font-size: 1.6rem; 
-            margin: 0px;
-            font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        ">
-            The Frame TV
-        </h1>
-        <h1 style="
-           position: fixed;
-           top:545px;
-           left: 485px;
-            color: rgb(221, 219, 219); 
-            letter-spacing: 6px; 
-            text-transform: uppercase; 
-            font-size: 1.0rem; 
-            margin: 0px;
-            font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        ">
-            (the World in a Window)
-        </h1>
-
-        <p style="
-         position: fixed;
-           top:570px;
-           left: 500px;
-            color: #daa520; 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            font-size: 1.5rem;
-            margin-top: 15px;
-            opacity: 0.8;
-            font-weight: 400;
-            animation: pulse 2.5s infinite ease-in-out;
-        ">
-            Initializing System
-        </p>
-        <!-- Copyright & Version -->
-        <p style="
-                 position: fixed;
-           top:670px;
-          left: 550px;
-            color: rgba(255, 255, 255, 0.6); 
-            letter-spacing: 2px; 
-            font-size: 0.7rem;
-            margin-top: 25px;
-            text-transform: uppercase;
-        ">
-            &copy; Simpleteck th29 (v1.29)
-        </p>
-    </div>
-</div>
-
-<style>
-    @keyframes pulse {
-        0% { opacity: 0.3; }
-        50% { opacity: 0.9; }
-        100% { opacity: 0.3; }
-    }
-</style>
 
 <div id="main-grid">
     <div data-type="menu" data-mode="youtube" class="btn">YouTube</div>
@@ -878,14 +783,7 @@ function updateClock() {
     $("#date-display").text(now.toLocaleDateString('en-US', options).toUpperCase());
     setTimeout(updateClock, 1000);
 }
-function hideLoadingScreen() {
-    const loader = document.getElementById('app-loading-screen');
-    if (loader && loader.style.opacity !== '0') { // Prevent double-firing
-        console.log("App ready - Removing overlay");
-        loader.style.opacity = '0';
-        setTimeout(() => loader.remove(), 800);
-    }
-}
+
 // ── BOOT ──────────────────────────────────────────────
 window.onload = function() {
     socket = window.socket;
@@ -919,7 +817,7 @@ fetch('/api/backgrounds')
     .then(r => r.json())
     .then(data => {
         backPics = data;
-          hideLoadingScreen(); // Hide after local set
+      
         // 1. Primeiro, verificamos se o servidor já tem um fundo (através do socket)
         // O force_sync_arrival disparado pelo servidor no connection tratará disso.
         
@@ -943,8 +841,7 @@ fetch('/api/backgrounds')
 
         // Caso o force_sync_arrival já tenha passado, pedimos o estado de novo
         socket.emit('request_current_state');
-        setTimeout(hideLoadingScreen, 2500);
-    });
+         });
 
     updateClock();
 };
