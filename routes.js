@@ -89,8 +89,18 @@ router.get('/watch-together-menu', (req, res) => res.render('pages/watch-togethe
 
 // ── KOSMI INTEGRATION ────────────────────────────────────────
 router.get('/kosmi', (req, res) => {
-    const roomId = req.query.room || '';
-    res.render('pages/watch-together/kosmi', { roomId });
+    // 1. If a room parameter is provided, use it. Otherwise, default to your main room lobby code string
+    const kosmiRoomId = req.query.room || 'your-default-lobby-id'; 
+    
+    // 2. Fetch the active TV network tracking pointers from the local session pool
+    const currentSyncRoom = req.session.room || 'Lobby';
+    const activeTvId      = req.session.tvId || '';
+
+    res.render('pages/watch-together/kosmi', { 
+        roomId: kosmiRoomId, 
+        room: currentSyncRoom, 
+        tvId: activeTvId
+    });
 });
 ///////////////////////////////////////////////////////77
 router.get('/art-gallery', (req, res) => {
@@ -104,9 +114,24 @@ router.get('/art-menu', (req, res) => {
     });
 });
 // ── CYTUBE INTEGRATION ───────────────────────────────────────
+// ── CYTUBE AUTOMATED FULLSCREEN CONTROLLER ────────────────────
 router.get('/cytube', (req, res) => {
-    const channel = req.query.channel || '';
-    res.render('pages/watch-together/cytube', { channel });
+    // 1. Grab channel name from URL query parameter (?channel=xyz)
+    const channelName = req.query.channel || '';
+    
+    // If a channel name is given, send them to its room; otherwise open main site index
+    const cytubeTarget = channelName ? `https://cytu.be/r/${encodeURIComponent(channelName)}` : 'https://cytu.be';
+    
+    // 2. Safely grab synchronized layout pointers from the user's active session
+    const currentSyncRoom = req.session.room || 'Lobby';
+    const activeTvId      = req.session.tvId || '';
+
+    // 3. Render view delivering all required system variables
+    res.render('pages/watch-together/cytube', { 
+        cytubeUrl: cytubeTarget, 
+        room: currentSyncRoom, 
+        tvId: activeTvId
+    });
 });
 
 

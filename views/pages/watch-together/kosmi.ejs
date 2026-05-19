@@ -2,259 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kosmi - Watch Together</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=1280, user-scalable=no">
+    <title>Kosmi Lobby Watch Party</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <script>
+        window.__ROOM__   = '<%= room %>';
+        window.__TV_ID__  = '<%= tvId || "" %>';
+        window.socket = io({ query: { room: window.__ROOM__ } });
+    </script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        body {
-            background: #0a0a0f;
-            color: #f0f0f0;
-            font-family: 'Space Mono', monospace;
+        body, html {
+            width: 1280px;
+            height: 720px;
+            background: #000000;
             overflow: hidden;
-        }
-
-        .header {
-            background: rgba(28, 28, 38, 0.95);
-            border-bottom: 2px solid rgba(218, 165, 32, 0.3);
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .logo-icon {
-            font-size: 1.5rem;
-        }
-
-        h1 {
-            font-size: 1.2rem;
-            color: #daa520;
-            letter-spacing: 1px;
-        }
-
-        .controls {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .room-input {
-            background: rgba(10, 10, 15, 0.8);
-            border: 1px solid rgba(218, 165, 32, 0.3);
-            color: #f0f0f0;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
             font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            width: 200px;
         }
 
-        .room-input:focus {
-            outline: none;
-            border-color: #daa520;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+        /* Edge-to-Edge Embedded Viewport (No headers) */
+        .kosmi-viewport {
+            width: 100%;
+            height: 100%;
             border: none;
-            color: #0a0a0f;
-            padding: 0.5rem 1.5rem;
-            border-radius: 6px;
-            font-family: 'Space Mono', monospace;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Minimal Floating Overlay Container */
+        .tv-overlay-controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;      /* Places it strictly above the iframe layer */
+            pointer-events: none; /* Prevents an invisible container layer from blocking mouse clicks */
+        }
+
+        /* Glassmorphic Cyberpunk Back Button */
+        .btn-exit {
+            background: linear-gradient(135deg, rgba(28, 28, 38, 0.85) 0%, rgba(10, 10, 15, 0.95) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(218, 165, 32, 0.4);
+            color: #daa520;
+            padding: 10px 20px;
+            border-radius: 8px;
             font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(218, 165, 32, 0.5);
-        }
-
-        .btn-secondary {
-            background: rgba(28, 28, 38, 0.8);
-            border: 1px solid rgba(218, 165, 32, 0.3);
-            color: #daa520;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(218, 165, 32, 0.2);
-        }
-
-        .info-banner {
-            background: rgba(218, 165, 32, 0.1);
-            border-bottom: 1px solid rgba(218, 165, 32, 0.3);
-            padding: 0.75rem 2rem;
-            font-size: 0.8rem;
-            color: #daa520;
-            text-align: center;
-        }
-
-        .info-banner a {
-            color: #ffd700;
-            text-decoration: underline;
-        }
-
-        #kosmi-container {
-            width: 100%;
-            height: calc(100vh - 120px);
-            position: relative;
-        }
-
-        #kosmi-frame {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .placeholder {
-            width: 100%;
-            height: 100%;
+            pointer-events: auto; /* Re-enables clicking on the button element itself */
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            gap: 6px;
         }
 
-        .placeholder-icon {
-            font-size: 5rem;
-        }
-
-        .placeholder h2 {
-            font-size: 2rem;
-            color: #daa520;
-            margin-bottom: 0.5rem;
-        }
-
-        .placeholder p {
-            color: #888;
-            font-size: 0.9rem;
-            max-width: 500px;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        .steps {
-            list-style: none;
-            max-width: 400px;
-        }
-
-        .steps li {
-            color: #aaa;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .steps li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #daa520;
-            font-size: 1.2rem;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .controls {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .room-input {
-                width: 100%;
-            }
+        .btn-exit:hover {
+            transform: scale(1.05);
+            border-color: #daa520;
+            box-shadow: 0 0 15px rgba(218, 165, 32, 0.4);
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <span class="logo-icon">🎬</span>
-            <h1>Kosmi Watch Party</h1>
-        </div>
-        <div class="controls">
-            <input type="text" 
-                   id="room-input" 
-                   class="room-input" 
-                   placeholder="Enter room ID..."
-                   value="<%= roomId %>">
-            <button class="btn" onclick="loadRoom()">Load Room</button>
-            <button class="btn btn-secondary" onclick="openKosmi()">New Room</button>
-            <button class="btn btn-secondary" onclick="goBack()">← Back</button>
-        </div>
+
+    <div class="tv-overlay-controls">
+        <button class="btn-exit" onclick="exitLobby()">
+            <span>←</span> Back to Main Menu
+        </button>
     </div>
 
-    <div class="info-banner">
-        💡 Tip: Create a room at <a href="https://kosmi.io" target="_blank">kosmi.io</a> and paste the room ID above
-    </div>
-
-    <div id="kosmi-container">
-        <% if (roomId) { %>
-            <iframe id="kosmi-frame" 
-                    src="https://app.kosmi.io/room/<%= roomId %>" 
-                    allow="camera; microphone; display-capture">
-            </iframe>
-        <% } else { %>
-            <div class="placeholder">
-                <span class="placeholder-icon">🎬</span>
-                <div style="text-align: center;">
-                    <h2>Ready to Watch Together?</h2>
-                    <p>Enter a Kosmi room ID above or create a new room to get started.</p>
-                </div>
-                <ol class="steps">
-                    <li>Go to <a href="https://kosmi.io" target="_blank" style="color: #daa520;">kosmi.io</a> and create a room</li>
-                    <li>Copy the room ID from the URL (e.g., "abc123xyz")</li>
-                    <li>Paste it in the input field above</li>
-                    <li>Click "Load Room" to start watching!</li>
-                </ol>
-            </div>
-        <% } %>
-    </div>
+    <iframe class="kosmi-viewport" 
+            src="https://app.kosmi.io/room/<%= roomId %>" 
+            allow="camera; microphone; display-capture; autoplay; encrypted-media">
+    </iframe>
 
     <script>
-        function loadRoom() {
-            const roomId = document.getElementById('room-input').value.trim();
-            if (roomId) {
-                window.location.href = `/kosmi?room=${encodeURIComponent(roomId)}`;
-            } else {
-                alert('Please enter a room ID');
-            }
-        }
-
-        function openKosmi() {
-            window.open('https://kosmi.io', '_blank');
-        }
-
-        function goBack() {
-            window.location.href = '/watch-together-menu';
-        }
-
-        // Allow Enter key to load room
-        document.getElementById('room-input')?.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                loadRoom();
-            }
+        // Synchronized multi-avatar TV layout coordination listeners
+        socket.on('openPage', function(fullRoute) {
+            window.location.href = fullRoute;
         });
+
+        function exitLobby() {
+            const homeRoute = '/';
+            // Signals the backend to navigate everyone viewing this TV room away instantly
+            socket.emit('nav_action', { path: homeRoute });
+            window.location.href = homeRoute;
+        }
     </script>
 </body>
 </html>

@@ -22,15 +22,64 @@ app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
 
 // 2. CONFIGURAÇÃO DA SESSÃO (Deve vir antes das rotas e depois do parser de JSON)
+// --- MIDDLEWARES BASE ---
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
+
+// 2. SECURE ROLLING CONFIGURATION FOR EXPRESS-SESSION
 app.use(session({
-    secret: process.env.SESSION_SECRET || 'sltv_secret_key_123', // Use uma string forte no .env
-    resave: false,
-    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET || 'sltv_secret_key_123', 
+    resave: true,              // Enforces saving back to store to update access timers
+    rolling: true,             // Resets cookie maxAge expiration on every single network request
+    saveUninitialized: false,  // Don't save empty sessions; only save when variables are set
     cookie: { 
-        secure: false, // Defina como true se estiver usando HTTPS
-        maxAge: 24 * 60 * 60 * 1000 // A sessão dura 24 horas
+        secure: false,         // Set to true if using HTTPS
+        httpOnly: true,        // Prevents client-side scripts from stealing the session cookie
+        maxAge: 10 * 60 * 1000 // 10 Minutes: Inactive links/copied URLs die rapidly
     }
 }));
+
+// 3. ENHANCED SECURITY MIDDLEWARE: SESSION STRING ROTATION
+app.use((req, res, next) => {
+    // Skip if there's no active room session assigned yet
+    if (!req.session || !req.session.room) {
+        return next();
+    }
+
+    const NOW = Date.now();
+    const ROTATION_INTERVAL = 10 * 60 * 1000; // Force-rotate IDs every 10 minutes
+
+    // Initialize rotation tracking timestamp if it doesn't exist
+    if (!req.session.lastRotated) {
+        req.session.lastRotated = NOW;
+    }
+
+    // Has it been longer than 10 minutes since this specific browser changed its security ID token?
+    if (NOW - req.session.lastRotated > ROTATION_INTERVAL) {
+        
+        // Step A: Cache the critical synchronization state data 
+        const savedRoomState = req.session.room;
+        const savedTvIdState = req.session.tvId;
+
+        // Step B: Explicitly regenerate the physical server session identifier
+        req.session.regenerate((err) => {
+            if (err) {
+                console.error("[Security] Session token rotation failed:", err);
+                return next();
+            }
+
+            // Step C: Restore data properties back onto the brand new session token mapping
+            req.session.room = savedRoomState;
+            req.session.tvId = savedTvIdState;
+            req.session.lastRotated = NOW;
+
+            console.log(`[Security] Session ID successfully rotated for Room: ${savedRoomState}`);
+            next();
+        });
+    } else {
+        next();
+    }
+});
 
 app.use('/backgrounds', express.static(path.join(__dirname, 'backgrounds')));
 app.use(express.static('public'));
