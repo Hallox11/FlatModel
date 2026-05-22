@@ -67,11 +67,19 @@
 .grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
 
 /* Modo 1 (Feed) */
+/* Modo 1 (Feed) - Mantendo a proporção original */
 .grid-cols-1 { display: block !important; }
 .grid-cols-1 .flickr-card {
-    max-width: 600px;
+    max-width: 65%; /* Ocupa a largura total disponível */
     margin: 0 auto 40px auto !important;
     grid-row-end: auto !important;
+    height: auto !important; /* Força o cartão a moldar-se à imagem */
+}
+
+.grid-cols-1 .flickr-card img {
+    width: 100%;
+    height: auto !important; /* Garante que a imagem dita a proporção real */
+    object-fit: contain;
 }
 /* ==========================================================================
    4. CARDS & INTERACTION
@@ -209,6 +217,99 @@
 }
 @keyframes spin { to { transform: rotate(360deg); } }  
 
+/* ==========================================================================
+   5B. RE-DESIGN: CHANNELS & CATEGORIES MODAL ADVANCED
+   ========================================================================== */
+.manager-modal-container {
+    padding: 30px;
+    background: rgba(15, 15, 20, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    margin: 20px auto;
+    width: 1180px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(15px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.manager-modal-title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.manager-modal-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: goldenrod;
+    border-radius: 4px;
+}
+
+/* Grelha de Chips Responsiva e Limpa */
+.chips-flex-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    gap: 12px !important;
+    width: 100%;
+}
+
+/* O Novo Botão em Formato de Chip Premium */
+.modern-pill-chip {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+    color: #e0e0e0 !important;
+    padding: 14px 18px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.modern-pill-chip:hover {
+    background: rgba(218, 165, 32, 0.08) !important;
+    border-color: rgba(218, 165, 32, 0.6) !important;
+    color: #fff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(218, 165, 32, 0.15) !important;
+}
+
+.modern-pill-chip .chip-icon {
+    color: goldenrod;
+    opacity: 0.6;
+    font-size: 11px;
+    transition: transform 0.2s ease;
+}
+
+.modern-pill-chip:hover .chip-icon {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
 </style>
 
 
@@ -248,19 +349,52 @@
     </div>
 </div>
 
-        <div id="favorites-manager" style="display:none; padding: 20px; background: rgba(0,0,0,0.4); border-radius:10px; margin:0 20px 20px 20px;">
-            <h3 style="color:goldenrod; margin-top:0;">Public Channels</h3>
-            <div id="channels-list" style="display:flex; flex-wrap:wrap; gap:5px;"></div>
-        </div>
+<div id="favorites-manager" class="manager-modal-container" style="display:none;">
+    <h3 class="manager-modal-title">Public Channels</h3>
+    <div id="channels-list" class="chips-flex-container"></div>
+</div>
 
-        <div id="categories-manager" style="display:none; padding: 20px; background: rgba(0,0,0,0.4); border-radius:10px; margin:0 20px 20px 20px;">
-            <h3 style="color:goldenrod; margin-top:0;">Quick Categories</h3>
-            <div id="categories-list" style="display:flex; flex-wrap:wrap; gap:5px;"></div>
-        </div>
+<div id="categories-manager" class="manager-modal-container" style="display:none;">
+    <h3 class="manager-modal-title">Quick Categories</h3>
+    <div id="categories-list" class="chips-flex-container"></div>
+</div>
 
-<div id="flickr-loader" style="display:none; text-align:center; padding:50px; color:goldenrod;">
-    <div class="spinner" style="border: 4px solid rgba(218,165,32,0.1); border-top: 4px solid goldenrod; border-radius: 50%; width: 40px; height: 40px; margin: 0 auto 10px; animation: spin 1s linear infinite;"></div>
-    <p style="font-weight:bold; letter-spacing:1px;">FETCHING PHOTOS...</p>
+
+<div id="flickr-loader" style="
+    display: none; 
+    position: absolute; 
+    top: 70px;             /* Começa logo abaixo da Navbar (70px) */
+    left: 0; 
+    width: 1280px;         /* Ajustado à largura total do teu wrapper */
+    height: 650px;         /* Altura restante calculada (720px - 70px) */
+    background: rgba(0, 0, 0, 0.75); /* Fundo translúcido para escurecer as fotos antigas */
+    z-index: 9999;         /* Garante que fica por cima de qualquer card */
+    box-sizing: border-box;
+    
+    /* Configuração Flexbox para Centralização Absoluta */
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
+">
+    <div class="spinner" style="
+        border: 4px solid rgba(218, 165, 32, 0.1); 
+        border-top: 4px solid goldenrod; 
+        border-radius: 50%; 
+        width: 50px; 
+        height: 50px;
+        margin: 0 0 15px 0; /* Remove margens automáticas antigas */
+        animation: spin 1s linear infinite;
+    "></div>
+    
+    <p style="
+        color: goldenrod; 
+        font-weight: bold; 
+        letter-spacing: 2px; 
+        margin: 0;
+        font-size: 14px;
+        text-align: center;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    ">FETCHING PHOTOS...</p>
 </div>
 
         <div id="flickr-results-grid"></div>
@@ -317,13 +451,18 @@ window.changeLayout = function(type, btn, isRemote = false) {
     }
 
     // Reset de estilos internos para garantir que o Masonry ou o Feed funcionem
-    if (type === '1') {
-        $('.flickr-card').css('grid-row-end', ''); 
-    } else {
-        setTimeout(() => {
-            window.currentPhotos.forEach((_, i) => window.resizeGridItem(i));
-        }, 50);
-    }
+if (type === '1') {
+    // Limpa qualquer resíduo de altura e spans do modo grelha
+    $('.flickr-card').css({
+        'grid-row-end': '',
+        'height': 'auto'
+    });
+    $('.flickr-card img').css('height', 'auto');
+} else {
+    setTimeout(() => {
+        window.currentPhotos.forEach((_, i) => window.resizeGridItem(i));
+    }, 50);
+}
 
     grid.scrollTop(0);
 
@@ -354,7 +493,7 @@ window.runFlickrSearch = function(manualQuery = null, incomingPhotos = null, isR
     }
 
     // Se chegou aqui, é uma busca MANUAL do usuário
-    $('#flickr-loader').fadeIn(100);
+$('#flickr-loader').css('display', 'flex').hide().fadeIn(100);
 
     $.getJSON(`/api/flickr/search?tags=${encodeURIComponent(tags)}`)
         .done(function(photos) {
@@ -395,37 +534,46 @@ window.renderGrid = function(photos) {
 };
 // RESIZE GRID
 window.resizeGridItem = function(index) {
-        const item = document.getElementById(`card-${index}`);
-        const grid = document.getElementById('flickr-results-grid');
-        if (!item || !grid) return;
-        const rowHeight = 10, rowGap = 15;
-        const img = item.querySelector('img');
-        const rowSpan = Math.ceil((img.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
-        item.style.gridRowEnd = `span ${rowSpan}`;
-    };
-
-// --- 3. CATEGORIES ---
-window.showCategoriesPage = function(isRemote = false) {
-    $('#flickr-results-grid, #favorites-manager').hide();
-    $('#categories-manager').fadeIn(200);
+    const item = document.getElementById(`card-${index}`);
+    const grid = document.getElementById('flickr-results-grid');
+    if (!item || !grid) return;
     
-    if (window.socket && !isRemote) {
-        window.socket.emit('state_sync', { type: 'flickr_show_categories', room: window.myRoom });
+    const rowHeight = 10, rowGap = 15;
+    const img = item.querySelector('img');
+    
+    // Captura a altura atual na DOM
+    let imgHeight = img.getBoundingClientRect().height;
+    
+    // CORREÇÃO: Se a altura for 0 (comum em imagens em cache), calcula proporcionalmente
+    if (imgHeight === 0 && img.naturalHeight > 0) {
+        const aspect = img.naturalWidth / img.naturalHeight;
+        imgHeight = item.offsetWidth / aspect;
     }
 
-    const cats = ["Nature", "Architecture", "Cyberpunk", "Space", "Abstract", "Night", "Landscape"];
-    let html = cats.map(c => `
-        <div class="fav-chip">
-            <button onclick="window.runFlickrSearch('${c}', null, false)" 
-                    style="background:none; border:none; color:goldenrod; padding:10px 15px; cursor:pointer; font-weight:bold;">
-                # ${c}
-            </button>
-        </div>`).join('');
-    $('#categories-list').html(html);
+    const rowSpan = Math.ceil((imgHeight + rowGap) / (rowHeight + rowGap));
+    item.style.gridRowEnd = `span ${rowSpan}`;
 };
-// --- 4. FAVORITES/CHANNELS ---
+// --- 3. CATEGORIES ---
+window.showCategoriesPage = function(isRemote = false) {
+    $('#flickr-results-grid, #favorites-manager').hide(); 
+    $('#categories-manager').fadeIn(200);
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { type: 'flickr_show_categories', room: window.myRoom }); 
+    }
+
+    const cats = ["Nature", "Architecture", "Cyberpunk", "Space", "Abstract", "Night", "Landscape"]; 
+    let html = cats.map(c => `
+        <button class="modern-pill-chip" onclick="window.runFlickrSearch('${c}', null, false)">
+            <span># ${c}</span>
+            <span class="chip-icon">➔</span>
+        </button>`).join(''); 
+    $('#categories-list').html(html); 
+};
+// --- 
+// 4. FAVORITES/CHANNELS ---
 window.showFavoritesPage = function(isRemote = false) {
-//////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////
     // 1. UI Toggle
     $('#flickr-results-grid, #categories-manager').hide();
     $('#favorites-manager').fadeIn(200);
@@ -443,21 +591,21 @@ window.showFavoritesPage = function(isRemote = false) {
 };
 
 window.loadFavoritesList = function() {
-        fetch('/api/favorites')
-            .then(res => res.json())
-            .then(data => {
-                const channels = data.channels || data;
-                let html = Object.entries(channels).map(([name, id]) => `
-                    <div class="fav-chip">
-                        <button onclick="window.viewChannel('${id}')" style="background:none; border:none; color:goldenrod; padding:10px 15px; cursor:pointer;">${name}</button>
-                    </div>`).join('');
-                $('#channels-list').html(html || '<p style="color:gray; padding:10px;">No channels found.</p>');
-            });
-    };
-
+    fetch('/api/favorites') 
+        .then(res => res.json())
+        .then(data => {
+            const channels = data.channels || data; 
+            let html = Object.entries(channels).map(([name, id]) => `
+                <button class="modern-pill-chip" onclick="window.viewChannel('${id}')">
+                    <span>📺 ${name}</span>
+                    <span class="chip-icon">➔</span>
+                </button>`).join(''); 
+            $('#channels-list').html(html || '<p style="color:gray; padding:20px; text-align:center; width:100%;">No channels found.</p>'); 
+        });
+};
 window.viewChannel = function(userId, isRemote = false) {
     $('#favorites-manager, #categories-manager, #flickr-results-grid').hide();
-    $('#flickr-loader').fadeIn(200);
+    $('#flickr-loader').css('display', 'flex').hide().fadeIn(100);
     
     if (window.socket && !isRemote) {
         window.socket.emit('state_sync', { 
@@ -501,18 +649,18 @@ window.updateLightbox = function() {
         return;
     }
 
-    // Tenta carregar a versão Grande (_b)
+    // Definição das URLs
     const urlLarge = `https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_b.jpg`;
     const urlMedium = `https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_z.jpg`;
     
     const imgElement = $('#lightbox-img');
     
-    // Define a imagem e, se der erro (404), carrega a média
-    imgElement.attr('src', urlLarge);
-    imgElement.on('error', function() {
+    // CORREÇÃO: Remove o listener anterior (.off) e escuta o erro apenas uma vez (.one)
+    imgElement.off('error').one('error', function() {
         $(this).attr('src', urlMedium);
     });
 
+    imgElement.attr('src', urlLarge);
     $('#img-title').text(p.title || "Untitled");
 
     if (window.socket) {
@@ -525,6 +673,7 @@ window.updateLightbox = function() {
         });
     }
 };
+
 window.nextPhoto = function() {
         window.currentIndex = (window.currentIndex + 1) % window.currentPhotos.length;
         window.updateLightbox();

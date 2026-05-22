@@ -317,7 +317,7 @@ router.get('/stream-cam-page', (req, res) => {
 
         try {
             console.log(`[Command] Sending RESET to TV ${object_id} at ${tv.url}`);
-            await axios.post(tv.url, 'reset|', {
+            await axios.post(tv.url, 'fullreset|', {
                 headers: { 'Content-Type': 'text/plain' },
                 timeout: 5000
             });
@@ -436,7 +436,7 @@ router.post('/register', async (req, res) => {
     if (!object_id || !url || status === 'TV_OFF') {
         console.log(`[Registry] TV_OFF or no URL — cleaning up for ${object_id}`);
         if (object_id) {
-            tvRegistry[object_id] = { url, status, serial, owner, land: land_name, room: `room_${land_id}`, ip: tvIp };
+            tvRegistry[object_id] = { url, status, serial, owner, land_name, land_id, ip: tvIp };
             _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip: tvIp });
 
             // Remove any roomId aliases pointing to this TV
@@ -454,7 +454,7 @@ router.post('/register', async (req, res) => {
     try {
         console.log(`[Verify] Calling back TV ${object_id} at ${url}`);
 
-        const verifyResponse = await axios.post(url, `verify|${MY_SECRET}:${owner}`, {
+        const verifyResponse = await axios.post(url, `verify|${MY_SECRET}:${creator}`, {
             headers: { 'Content-Type': 'text/plain' },
             timeout: 10000
         });

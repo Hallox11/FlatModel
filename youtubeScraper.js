@@ -6,123 +6,239 @@ const path = require('path');
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 const CACHE_DIR = path.join(__dirname, 'cache/youtube');
 const QUOTA_PATH = path.join(CACHE_DIR, 'quota.json');
-const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 hours (YT content moves faster than SL guides)
+const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 hours
+
+const SHORTS_MAX_DURATION = 60;
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 function ensureCacheDir() {
-    if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR, { recursive: true });
+    if (!fs.existsSync(CACHE_DIR)) {
+        fs.mkdirSync(CACHE_DIR, { recursive: true });
+    }
 }
 
-function cacheFilePath(tag, isChannel) {
-    const prefix = isChannel ? 'chan' : 'tag';
+function cacheFilePath(tag, type) {
+    const prefix = type === 'channel' ? 'chan' : 'tag';
     const safeTag = tag.replace(/[^a-z0-9]/gi, '_').toLowerCase();
     return path.join(CACHE_DIR, `yt_${prefix}_${safeTag}.json`);
 }
 
-function loadCache(tag, isChannel) {
-    const file = cacheFilePath(tag, isChannel);
+function loadCache(tag, type) {
+    const file = cacheFilePath(tag, type);
+
     if (!fs.existsSync(file)) return null;
 
     const stats = fs.statSync(file);
     const isFresh = (Date.now() - stats.mtimeMs) < CACHE_EXPIRATION;
-    
-    if (isFresh) {
-        try {
-            console.log(`[YT CACHE] Hit: ${tag}`);
-            return JSON.parse(fs.readFileSync(file, 'utf8'));
-        } catch { return null; }
+
+    if (!isFresh) return null;
+
+    try {
+        console.log(`[YT CACHE] Hit: ${tag}`);
+        return JSON.parse(fs.readFileSync(file, 'utf8'));
+    } catch {
+        return null;
     }
-    return null;
 }
 
 function trackQuota(units) {
     ensureCacheDir();
-    let q = { date: new Date().toDateString(), used: 0 };
+
+    let q = {
+        date: new Date().toDateString(),
+        used: 0
+    };
+
     if (fs.existsSync(QUOTA_PATH)) {
-        try { q = JSON.parse(fs.readFileSync(QUOTA_PATH, 'utf8')); } catch(e){}
+        try {
+            q = JSON.parse(fs.readFileSync(QUOTA_PATH, 'utf8'));
+        } catch {}
     }
+
     if (q.date !== new Date().toDateString()) {
         q = { date: new Date().toDateString(), used: 0 };
     }
+
     q.used += units;
+
     fs.writeFileSync(QUOTA_PATH, JSON.stringify(q, null, 2));
+
     console.log(`[YT QUOTA] Used: ${q.used}/10000`);
 }
 
-// ─── PUBLIC API ───────────────────────────────────────────────────────────────
+// Parse ISO8601 duration
+function parseDuration(duration) {
+    if (!duration) return 0;
 
-async function getVideos(tag, type = 'search', maxTotalResults = 50) { // Adicionado parâmetro de limite
+    const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+
+    const hours = parseInt(match?.[1] || 0);
+    const minutes = parseInt(match?.[2] || 0);
+    const seconds = parseInt(match?.[3] || 0);
+
+    return (hours * 3600) + (minutes * 60) + seconds;
+}
+
+// ─── GET UPLOADS PLAYLIST (IMPORTANT FIX) ────────────────────────────────────
+async function getUploadsPlaylist(channelId, API_KEY) {
+    const url =
+        `https://www.googleapis.com/youtube/v3/channels` +
+        `?part=contentDetails` +
+        `&id=${channelId}` +
+        `&key=${API_KEY}`;
+
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`channels.list ${res.status}`);
+
+    const data = await res.json();
+
+    trackQuota(1);
+
+    return data.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+}
+
+// ─── PUBLIC API ───────────────────────────────────────────────────────────────
+async function getVideos(tag, type = 'search', maxTotalResults = 50) {
     ensureCacheDir();
-    console.log(tag);
-    console.log(type);
-    
-    // Update cache logic to handle the new prefix
-    const cached = loadCache(tag, type); 
+
+    const cached = loadCache(tag, type);
     if (cached) return cached;
 
     const API_KEY = process.env.YOUTUBE_API_KEY;
+
     let allVideos = [];
     let nextPageToken = "";
 
     try {
-        console.log(`[YT API FETCH] Mode: ${type} | Requesting: ${tag}`);
+        console.log(`[YT API FETCH] Mode: ${type} | ${tag}`);
 
-        // Loop para paginação
+        let playlistId = null;
+
+        // FIX: convert channel → uploads playlist (cheap + correct)
+        if (type === 'channel') {
+            playlistId = await getUploadsPlaylist(tag, API_KEY);
+            type = 'playlist';
+        }
+
         while (allVideos.length < maxTotalResults) {
-            let url = "";
-            // Calcula quantos resultados faltam para não ultrapassar o maxTotalResults
-            const resultsToFetch = Math.min(50, maxTotalResults - allVideos.length);
 
-            if (type === 'channel') {
-                url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=${resultsToFetch}&channelId=${encodeURIComponent(tag)}&order=date&key=${API_KEY}`;
-            } 
-            else if (type === 'playlist') {
-                url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${resultsToFetch}&playlistId=${encodeURIComponent(tag)}&key=${API_KEY}`;
-            } 
-            else {
-                url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=${resultsToFetch}&q=${encodeURIComponent(tag)}&key=${API_KEY}`;
+            const resultsToFetch = Math.min(
+                50,
+                maxTotalResults - allVideos.length
+            );
+
+            let url = "";
+
+            if (type === 'playlist') {
+
+                url =
+                    `https://www.googleapis.com/youtube/v3/playlistItems` +
+                    `?part=snippet` +
+                    `&maxResults=${resultsToFetch}` +
+                    `&playlistId=${encodeURIComponent(playlistId || tag)}` +
+                    `&key=${API_KEY}`;
+
+            } else {
+
+                url =
+                    `https://www.googleapis.com/youtube/v3/search` +
+                    `?part=snippet` +
+                    `&type=video` +
+                    `&maxResults=${resultsToFetch}` +
+                    `&q=${encodeURIComponent(tag)}` +
+                    `&key=${API_KEY}`;
             }
 
-            // Se tivermos um token de próxima página, adicionamos à URL
             if (nextPageToken) {
                 url += `&pageToken=${nextPageToken}`;
             }
 
             const response = await fetch(url);
-            if (!response.ok) throw new Error(`API Status ${response.status}`);
-            
-            const data = await response.json();
-            
-            trackQuota(type === 'playlist' ? 1 : 100);
+            if (!response.ok) {
+                throw new Error(`API ${response.status}`);
+            }
 
-            const videos = data.items.map(i => {
-                const snippet = i.snippet;
-                const id = type === 'playlist' ? snippet.resourceId.videoId : i.id.videoId;
-                
-                return {
-                    videoId: id,
-                    title: snippet.title,
-                    channel: snippet.channelTitle,
-                    thumbnail: snippet.thumbnails.maxres?.url || snippet.thumbnails.high?.url || snippet.thumbnails.default?.url
-                };
-            });
+            const data = await response.json();
+
+            trackQuota(1);
+
+            // ─── EXTRACT IDS ─────────────────────────────────────────────
+            const videoIds = [...new Set(
+                data.items
+                    .map(i =>
+                        type === 'playlist'
+                            ? i?.snippet?.resourceId?.videoId
+                            : i?.id?.videoId
+                    )
+                    .filter(Boolean)
+            )];
+
+            if (!videoIds.length) break;
+
+            // ─── FETCH DURATION DATA ─────────────────────────────────────
+            const detailsUrl =
+                `https://www.googleapis.com/youtube/v3/videos` +
+                `?part=contentDetails` +
+                `&id=${videoIds.join(',')}` +
+                `&key=${API_KEY}`;
+
+            const detailsRes = await fetch(detailsUrl);
+            if (!detailsRes.ok) {
+                throw new Error(`videos.list ${detailsRes.status}`);
+            }
+
+            const detailsData = await detailsRes.json();
+
+            trackQuota(1);
+
+            const durationMap = {};
+            for (const item of detailsData.items) {
+                durationMap[item.id] = item.contentDetails.duration;
+            }
+
+            // ─── BUILD RESULTS ───────────────────────────────────────────
+            const videos = data.items
+                .map(i => {
+                    const snippet = i.snippet;
+
+                    const id = type === 'playlist'
+                        ? snippet?.resourceId?.videoId
+                        : i?.id?.videoId;
+
+                    return {
+                        videoId: id,
+                        title: snippet.title,
+                        channel: snippet.channelTitle,
+                        thumbnail:
+                            snippet.thumbnails?.maxres?.url ||
+                            snippet.thumbnails?.high?.url ||
+                            snippet.thumbnails?.medium?.url ||
+                            snippet.thumbnails?.default?.url,
+                        duration: durationMap[id]
+                    };
+                })
+                .filter(v => v.videoId)
+                // Shorts filter (safer threshold)
+                .filter(v => parseDuration(v.duration) >= 90);
 
             allVideos = allVideos.concat(videos);
-            nextPageToken = data.nextPageToken;
 
-            // Se não houver mais páginas no YouTube, interrompe o loop
+            nextPageToken = data.nextPageToken;
             if (!nextPageToken) break;
         }
 
-        if (allVideos.length > 0) {
-            fs.writeFileSync(cacheFilePath(tag, type), JSON.stringify(allVideos, null, 2));
+        if (allVideos.length) {
+            fs.writeFileSync(
+                cacheFilePath(tag, type),
+                JSON.stringify(allVideos, null, 2)
+            );
         }
-        
+
         return allVideos;
 
     } catch (err) {
         console.error('[YT API] Error:', err.message);
-        return allVideos; // Retorna o que conseguiu buscar antes do erro
+        return allVideos;
     }
 }
 

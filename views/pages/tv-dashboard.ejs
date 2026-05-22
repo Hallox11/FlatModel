@@ -287,21 +287,41 @@
         .badge.rezz { background: var(--rezz-bg); color: var(--rezz); }
         .badge.rezz::before { background: var(--rezz); }
 
+        /* ── LAND COLUMN WRAPPER ── */
+        .land-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: flex-start;
+        }
         .land { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        
+        /* ── TELEPORT LINK BUTTON ── */
+        .btn-tp {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            padding: 3px 8px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            background: var(--accent-dim);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            transition: all 0.15s ease;
+        }
+        .btn-tp:hover {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--bg);
+        }
+
         .pos  { font-family: var(--mono); font-size: 0.7rem; }
         .ts   { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); }
-
-        .nearby-pill {
-            display: inline-block;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            padding: 1px 6px;
-            font-size: 0.65rem;
-            font-family: var(--mono);
-            color: var(--text-muted);
-            margin: 1px;
-        }
 
         /* ── COMMAND BUTTONS ── */
         .cmd-btns {
@@ -325,20 +345,22 @@
             white-space: nowrap;
         }
 
-        .cmd-btn:hover {
+        .cmd-btn:hover:not(:disabled) {
             border-color: var(--accent);
             color: var(--accent);
         }
 
-        .cmd-btn.danger:hover {
+        .cmd-btn.danger:hover:not(:disabled) {
             border-color: var(--off);
             color: var(--off);
             background: var(--off-bg);
         }
 
         .cmd-btn:disabled {
-            opacity: 0.3;
+            opacity: 0.25;
             cursor: not-allowed;
+            border-color: rgba(255,255,255,0.03);
+            color: var(--text-dim);
         }
 
         /* ── EMPTY / LOADING ── */
@@ -429,6 +451,66 @@
             from { transform: translateX(400px); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
+
+        .nearby-section {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nearby-avatars {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            max-width: 200px;
+        }
+
+        .nearby-count {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--text-dim);
+        }
+
+        .refresh-nearby {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+
+        .refresh-nearby:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .refresh-nearby:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .nearby-pill {
+            display: inline-block;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 2px 7px;
+            font-size: 0.65rem;
+            font-family: var(--mono);
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .nearby-pill.you {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
     </style>
 </head>
 <body>
@@ -517,11 +599,223 @@ let currentView   = 'registry';
 let currentTrigger = 'all';
 let currentPage   = 1;
 let searchTerm    = '';
+let nearbyCache   = {}; 
 
+// ═══════════════════════════════════════════════════════════════
+// Helper functions for timing and clean rendering setup
+// ═══════════════════════════════════════════════════════════════
+function fmtTime(ts) {
+    if (!ts) return '—';
+    const d = new Date(ts);
+    return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' })
+         + ' <br>' + d.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' });
+}
+
+function statusBadge(status) {
+    let cls = 'off';
+    let label = status || 'OFFLINE';
+
+    if (status === 'TV_ON' || status === 'ONLINE') {
+        cls = 'on';
+        label = (status === 'TV_ON') ? 'TV ON' : 'ONLINE';
+    } else if (status === 'TV_OFF' || status === 'OFFLINE') {
+        cls = 'off';
+        label = (status === 'TV_OFF') ? 'TV OFF' : 'OFFLINE';
+    } else if (status === 'rezz') {
+        cls = 'rezz';
+        label = 'REZZED';
+    }
+    return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function triggerBadge(trigger) {
+    const map = { TV_ON: 'on', TV_OFF: 'off', rezz: 'rezz' };
+    const cls = map[trigger] || 'rezz';
+    return `<span class="badge ${cls}">${trigger || 'unknown'}</span>`;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// COMMAND BUTTON GENERATOR (Moved higher up to prevent template execution reference limits)
+// ═══════════════════════════════════════════════════════════════
+function commandButtons(objectId, status) {
+    const targetId = objectId || '';
+    const cleanStatus = String(status || '').toUpperCase();
+    const isOnline = cleanStatus === 'TV_ON' || cleanStatus === 'ONLINE';
+    const disabledAttr = !isOnline ? 'disabled' : '';
+    
+    return `
+        <div class="cmd-btns">
+            <button class="cmd-btn" onclick="sendCommand('${targetId}', 'reset')" ${disabledAttr}>Reset</button>
+            <button class="cmd-btn danger" onclick="sendCommand('${targetId}', 'kill')" ${disabledAttr}>Kill</button>
+        </div>
+    `;
+}
+
+function getTeleportUrl(r) {
+    if (!r) return null;
+
+    // Scan every possible property name for the UUID
+    const parcelUUID = r.land_id || r.parcel_id || r.parcel_uuid || r.land_uuid || r.uuid || r.object_id;
+    
+    console.log(`[DEBUG] Evaluation for Serial ${r.serial || 'Unknown'}: Found UUID key value -> "${parcelUUID}"`);
+
+    if (parcelUUID && parcelUUID !== "00000000-0000-0000-0000-000000000000") {
+        return `secondlife:///app/parcel/${parcelUUID}/about`;
+    }
+    
+    return null;
+}
+
+async function fetchNearbyPeople(tvUrl, objectId) {
+    if (!tvUrl) return null;
+    try {
+        const response = await fetch(tvUrl, {
+            method: 'POST',
+            body: 'get_nearby|'
+        });
+        if (!response.ok) return null;
+        const text = await response.text();
+        if (text === 'None' || text === '') {
+            nearbyCache[objectId] = [];
+            return [];
+        }
+        const people = text.split(', ').map(name => name.trim());
+        nearbyCache[objectId] = people;
+        return people;
+    } catch (error) {
+        console.error(`Failed to fetch nearby for ${objectId}:`, error);
+        return null;
+    }
+}
+
+async function refreshNearby(objectId, tvUrl, buttonElement) {
+    if (!tvUrl) return;
+    buttonElement.disabled = true;
+    buttonElement.textContent = '⟳';
+    const people = await fetchNearbyPeople(tvUrl, objectId);
+    buttonElement.disabled = false;
+    buttonElement.textContent = '↻';
+
+    if (people !== null) {
+        renderTable();
+        showToast(`✓ Updated nearby list for ${objectId}`, 'success');
+    } else {
+        showToast(`✗ Failed to fetch nearby list`, 'error');
+    }
+}
+
+function renderNearbyPeople(objectId, tvUrl, status) {
+    const cleanStatus = String(status || '').toUpperCase();
+    const isOnline = cleanStatus === 'TV_ON' || cleanStatus === 'ONLINE';
+    if (!isOnline || !tvUrl) return '<span class="nearby-count">—</span>';
+
+    const cached = nearbyCache[objectId];
+    if (cached === undefined) {
+        return `
+            <div class="nearby-section">
+                <button class="refresh-nearby" onclick="refreshNearby('${objectId}', '${tvUrl}', this)">🔍 Scan</button>
+            </div>
+        `;
+    }
+    if (cached.length === 0) {
+        return `
+            <div class="nearby-section">
+                <span class="nearby-count">No one nearby</span>
+                <button class="refresh-nearby" onclick="refreshNearby('${objectId}', '${tvUrl}', this)">↻</button>
+            </div>
+        `;
+    }
+    return `
+        <div class="nearby-section">
+            <div class="nearby-avatars">
+                ${cached.map(name => `<span class="nearby-pill">${name}</span>`).join('')}
+            </div>
+            <div style="display:flex;gap:6px;align-items:center;">
+                <span class="nearby-count">${cached.length} avatar${cached.length > 1 ? 's' : ''}</span>
+                <button class="refresh-nearby" onclick="refreshNearby('${objectId}', '${tvUrl}', this)">↻</button>
+            </div>
+        </div>
+    `;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Main Panel Rendering Engines
+// ═══════════════════════════════════════════════════════════════
+function renderRegistry(rows) {
+    return `
+    <table>
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Serial</th>
+                <th>Owner</th>
+                <th>Land</th>
+                <th>Nearby Avatars</th>
+                <th>Last seen</th>
+                <th>Commands</th>
+            </tr>
+        </thead>
+        <tbody>
+        ${rows.map(r => {
+            const tpUrl = getTeleportUrl(r);
+            const tpButtonHtml = tpUrl ? `<a href="${tpUrl}" class="btn-tp">📍 TP</a>` : '';
+            const activeLandName = r.land_name || r.land || '—';
+            
+            return `
+            <tr>
+                <td>${statusBadge(r.status)}</td>
+                <td class="serial">${r.serial || '—'}</td>
+                <td class="primary">${r.owner || '—'}</td>
+                <td>
+                    <div class="land-container">
+                        <span class="land" title="${activeLandName}">${activeLandName}</span>
+                        ${tpButtonHtml}
+                    </div>
+                </td>
+                <td>${renderNearbyPeople(r.object_id, r.url, r.status)}</td>
+                <td class="ts">${fmtTime(r.last_seen)}</td>
+                <td>${commandButtons(r.object_id || r.id, r.status)}</td>
+            </tr>
+            `;
+        }).join('')}
+        </tbody>
+    </table>`;
+}
+
+function renderInteractions(rows) {
+    return `
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Action</th>
+                <th>Serial</th>
+                <th>Clicker</th>
+                <th>Owner</th>
+                <th>Land</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+        ${rows.map(r => `
+            <tr>
+                <td class="ts">${fmtTime(r.timestamp)}</td>
+                <td>${triggerBadge(r.trigger || r.status)}</td>
+                <td class="serial">${r.serial || '—'}</td>
+                <td class="primary">${r.clicker || '—'}</td>
+                <td>${r.owner || '—'}</td>
+                <td class="land" title="${r.land_name || ''}">${r.land_name || '—'}</td>
+                <td class="pos">${r.pos || '—'}</td>
+            </tr>
+        `).join('')}
+        </tbody>
+    </table>`;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Core Filter and Sync Engine
+// ═══════════════════════════════════════════════════════════════
 async function loadData() {
-    document.getElementById('table-container').innerHTML =
-        '<div class="state-msg"><div class="big">⟳</div>Loading...</div>';
-
     try {
         const [regRes, intRes] = await Promise.all([
             fetch(`${BASE}/api/tvs`),
@@ -535,8 +829,7 @@ async function loadData() {
         allData = currentView === 'registry' ? registry : interactions;
         applyFilters();
 
-        document.getElementById('last-updated').textContent =
-            'updated ' + new Date().toLocaleTimeString();
+        document.getElementById('last-updated').textContent = 'updated ' + new Date().toLocaleTimeString();
 
     } catch(e) {
         document.getElementById('table-container').innerHTML =
@@ -546,15 +839,15 @@ async function loadData() {
 
 function updateStats(registry, interactions) {
     document.getElementById('stat-total').textContent = registry.length;
-    
-    // Count any TV that is either explicitly ON or generally ONLINE
-    const onlineCount = registry.filter(r => 
-        r.status === 'TV_ON' || r.status === 'ONLINE'
-    ).length;
+    const onlineCount = registry.filter(r => {
+        const st = String(r.status || '').toUpperCase();
+        return st === 'TV_ON' || st === 'ONLINE';
+    }).length;
     
     document.getElementById('stat-on').textContent = onlineCount;
     document.getElementById('stat-interactions').textContent = interactions.length;
-    const lands = new Set(registry.map(r => r.land).filter(Boolean));
+    
+    const lands = new Set(registry.map(r => r.land_name || r.land).filter(Boolean));
     document.getElementById('stat-lands').textContent = lands.size;
 }
 
@@ -586,18 +879,18 @@ function onSearch() {
 
 function applyFilters() {
     let data = [...allData];
-
     if (currentView === 'interactions' && currentTrigger !== 'all') {
         data = data.filter(r => r.trigger === currentTrigger);
     }
-
     if (searchTerm) {
-        data = data.filter(r =>
-            JSON.stringify(r).toLowerCase().includes(searchTerm)
-        );
+        data = data.filter(r => JSON.stringify(r).toLowerCase().includes(searchTerm));
     }
-
     filteredData = data;
+    renderTable();
+}
+
+function changePage(dir) {
+    currentPage += dir;
     renderTable();
 }
 
@@ -607,83 +900,31 @@ function renderTable() {
     const total = filteredData.length;
     const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
-    document.getElementById('page-info').textContent =
-        `${start + 1}–${Math.min(start + PAGE_SIZE, total)} of ${total}`;
+    document.getElementById('page-info').textContent = total > 0 ? `${start + 1}–${Math.min(start + PAGE_SIZE, total)} of ${total}` : '0–0 of 0';
     document.getElementById('btn-prev').disabled = currentPage <= 1;
     document.getElementById('btn-next').disabled = currentPage >= totalPages;
 
     if (page.length === 0) {
-        document.getElementById('table-container').innerHTML =
-            '<div class="state-msg"><div class="big">∅</div>No records found.</div>';
+        document.getElementById('table-container').innerHTML = '<div class="state-msg"><div class="big">∅</div>No records found.</div>';
         return;
     }
 
-    const html = currentView === 'registry'
-        ? renderRegistry(page)
-        : renderInteractions(page);
-
+    const html = currentView === 'registry' ? renderRegistry(page) : renderInteractions(page);
     document.getElementById('table-container').innerHTML = html;
-}
-
-function triggerBadge(trigger) {
-    const map = { TV_ON: 'on', TV_OFF: 'off', rezz: 'rezz' };
-    const cls = map[trigger] || 'rezz';
-    return `<span class="badge ${cls}">${trigger || 'unknown'}</span>`;
-}
-
-function statusBadge(status) {
-    let cls = 'off';
-    let label = status || 'OFFLINE';
-
-    if (status === 'TV_ON' || status === 'ONLINE') {
-        cls = 'on';
-        label = (status === 'TV_ON') ? 'TV ON' : 'ONLINE';
-    } else if (status === 'TV_OFF' || status === 'OFFLINE') {
-        cls = 'off';
-        label = (status === 'TV_OFF') ? 'TV OFF' : 'OFFLINE';
-    } else if (status === 'rezz') {
-        cls = 'rezz';
-        label = 'REZZED';
-    }
-
-    return `<span class="badge ${cls}">${label}</span>`;
-}
-
-function fmtTime(ts) {
-    if (!ts) return '—';
-    const d = new Date(ts);
-    return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' })
-         + ' <br>' + d.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' });
-}
-
-function commandButtons(objectId, status) {
-    const isOnline = status === 'TV_ON' || status === 'ONLINE';
-    const disabled = !isOnline ? 'disabled' : '';
-    
-    return `
-        <div class="cmd-btns">
-            <button class="cmd-btn" onclick="sendCommand('${objectId}', 'reset')" ${disabled}>Reset</button>
-            <button class="cmd-btn danger" onclick="sendCommand('${objectId}', 'kill')" ${disabled}>Kill</button>
-        </div>
-    `;
 }
 
 async function sendCommand(objectId, command) {
     const endpoint = `/api/tv-command/${command}`;
-    
     try {
         const response = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ object_id: objectId })
         });
-
         const result = await response.json();
 
         if (response.ok) {
             showToast(`✓ ${command.toUpperCase()} command sent to ${objectId}`, 'success');
-            
-            // Refresh data after a short delay to show updated status
             setTimeout(() => loadData(), 1000);
         } else {
             showToast(`✗ Failed: ${result.error}`, 'error');
@@ -705,72 +946,7 @@ function showToast(message, type = 'success') {
     }, 3000);
 }
 
-function renderRegistry(rows) {
-    return `
-    <table>
-        <thead>
-            <tr>
-                <th>Status</th>
-                <th>Serial</th>
-                <th>Owner</th>
-                <th>Land</th>
-                <th>Url</th>
-                <th>Last seen</th>
-                <th>Commands</th>
-            </tr>
-        </thead>
-        <tbody>
-        ${rows.map(r => `
-            <tr>
-                <td>${statusBadge(r.status)}</td>
-                <td class="serial">${r.serial || '—'}</td>
-                <td class="primary">${r.owner || '—'}</td>
-                <td class="land" title="${r.land || ''}">${r.land || '—'}</td>
-                <td class="pos">${(r.url || '—')}</td>
-                <td class="ts">${fmtTime(r.last_seen)}</td>
-                <td>${commandButtons(r.object_id, r.status)}</td>
-            </tr>
-        `).join('')}
-        </tbody>
-    </table>`;
-}
-
-function renderInteractions(rows) {
-    return `
-    <table>
-        <thead>
-            <tr>
-                <th>Timestamp</th>
-                <th>Status</th>
-                <th>Serial</th>
-                <th>Clicker</th>
-                <th>Owner</th>
-                <th>Land</th>
-                <th>Position</th>
-            </tr>
-        </thead>
-        <tbody>
-        ${rows.map(r => `
-            <tr>
-                <td class="ts">${fmtTime(r.timestamp)}</td>
-                <td>${triggerBadge(r.status)}</td>
-                <td class="serial">${r.serial || '—'}</td>
-                <td class="primary">${r.clicker || '—'}</td>
-                <td>${r.owner || '—'}</td>
-                <td class="land" title="${r.land_name || ''}">${r.land_name || '—'}</td>
-                <td class="pos">${r.pos || '—'}</td>
-            </tr>
-        `).join('')}
-        </tbody>
-    </table>`;
-}
-
-function changePage(dir) {
-    currentPage += dir;
-    renderTable();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
+// Automatic Initialization
 loadData();
 setInterval(loadData, 30000);
 </script>
