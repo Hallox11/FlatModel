@@ -233,16 +233,13 @@
             btn.disabled = true;
             btn.classList.add('loading');
 
-            // Faz o pedido ao servidor para extrair o link real
             const response = await fetch(`/api/sl/teleport?detailLink=${encodeURIComponent(detailLink)}`);
             const data = await response.json();
 
             if (data.teleportUrl) {
-                // Envia o comando para o sistema da TV (assumindo que sendCommand existe globalmente)
                 if (typeof sendCommand === 'function') {
                     sendCommand('teleport', data.teleportUrl);
                 } else {
-                    // Fallback para browser comum
                     window.location.assign(data.teleportUrl);
                 }
             } else {
@@ -297,32 +294,38 @@
         }
     };
 
-    // 4. Gestão de Scroll Sincronizado
+    // 4. Gestão de Scroll Sincronizado + Acelerador Unificado
     const scrollArea = document.getElementById('sl-main-scroll-area');
     let scrollTimeout;
-    let lastPosition = 0;
 
     if (scrollArea) {
+        // ACELERADOR DE RODA ÚNICO (Multiplicador fluido de 3x para evitar lag no modo Grid)
+        scrollArea.addEventListener('wheel', (e) => {
+            if (!window.isSyncing) {
+                e.preventDefault();
+                scrollArea.scrollTop += e.deltaY * 3; 
+            }
+        }, { passive: false });
+
+        // ENVIO PARA O SOCKET COM DEBOUNCE REAJUSTADO
         scrollArea.addEventListener('scroll', function() {
-            if (window.socket && !window.isSyncing) {
-                const currentPosition = scrollArea.scrollTop;
-                if (Math.abs(currentPosition - lastPosition) > 5) {
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
-                        lastPosition = currentPosition;
-                        window.socket.emit('state_sync', {
-                            type: 'scroll',
-                            selector: '#sl-main-scroll-area',
-                            position: currentPosition,
-                            room: window.myRoom
-                        });
-                    }, 30);
-                }
+            if (window.isSyncing) return; 
+
+            if (window.socket && window.socket.connected) {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    window.socket.emit('state_sync', {
+                        type: 'scroll',
+                        selector: '#sl-main-scroll-area',
+                        position: scrollArea.scrollTop,
+                        room: window.myRoom
+                    });
+                }, 40); // 40ms garante resposta em tempo real sem entupir a rede
             }
         });
     }
 
-    // 5. Escuta de Eventos Socket.io
+    // 5. Escuta de Eventos Socket.io (Com correção de proteção de eco)
     if (window.socket) {
         socket.on('state_sync', function(data) {
             if (data.type === 'sl_view_mode') window.toggleSlView(data.mode, true);
@@ -330,17 +333,18 @@
             
             if (data.type === 'scroll' && data.selector === '#sl-main-scroll-area') {
                 const el = document.getElementById('sl-main-scroll-area');
-                if (el && Math.abs(el.scrollTop - data.position) > 10) {
+                if (el) {
                     window.isSyncing = true;
-                    el.scrollTo({ top: data.position, behavior: 'smooth' });
-                    setTimeout(() => { window.isSyncing = false; }, 300);
+                    el.scrollTop = data.position; 
+                    
+                    // Aumentado para 60ms para dar tempo ao modo Grid de processar as imagens sem ricochetear
+                    setTimeout(() => { window.isSyncing = false; }, 60);
                 }
             }
         });
     }
 
-
-// Loader Inteligente
+    // Loader Inteligente
     function hideLoader() {
         const loader = document.getElementById('sl-loader');
         if (loader && loader.style.display !== 'none') {
@@ -351,18 +355,11 @@
         }
     }
 
-    // 1. Tenta esconder quando as imagens carregam
     window.addEventListener('load', hideLoader);
-
-    // 2. Segurança: Se demorar mais de 3 segundos, força a entrada
-    // Útil se alguma imagem do SL falhar ou demorar
     setTimeout(hideLoader, 3000); 
 
     // Inicialização padrão do modo de vista
     window.toggleSlView('grid', true);
 
-
-    // Inicialização padrão
-    window.toggleSlView('grid', true);
 })();
 </script>

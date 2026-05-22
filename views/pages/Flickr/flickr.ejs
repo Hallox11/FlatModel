@@ -49,7 +49,7 @@
 }
 
 /* Custom Scrollbar */
-#flickr-results-grid::-webkit-scrollbar { width: 8px; }
+#flickr-results-grid::-webkit-scrollbar { width: 10px; }
 #flickr-results-grid::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
 #flickr-results-grid::-webkit-scrollbar-thumb { 
     background: goldenrod; 
@@ -101,15 +101,15 @@
 .flickr-card img { width: 100%; height: auto; display: block; }
 
 .flickr-card:hover { 
-    transform: scale(1.02); 
-    outline: 1px solid white;
+    transform: scale(1.0); 
+    
     z-index: 10;
 }
 
 /* Remote Sync Signal */
 .flickr-card.remote-hover {
-    outline: 2px solid #ffffff !important; 
-    transform: scale(1.05) !important;
+   
+    transform: scale(1.0) !important;
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
     z-index: 999;
     position: relative;
@@ -349,13 +349,21 @@
     </div>
 </div>
 
+<!-- CHANNELS MODAL -->
 <div id="favorites-manager" class="manager-modal-container" style="display:none;">
-    <h3 class="manager-modal-title">Public Channels</h3>
+    <h3 class="manager-modal-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Public Channels</span>
+        <button class="modern-btn" onclick="$('#favorites-manager').hide(); $('#flickr-results-grid').fadeIn(200);" style="padding: 4px 10px; font-size: 14px; line-height: 1;">&times;</button>
+    </h3>
     <div id="channels-list" class="chips-flex-container"></div>
 </div>
 
+<!-- CATEGORIES MODAL -->
 <div id="categories-manager" class="manager-modal-container" style="display:none;">
-    <h3 class="manager-modal-title">Quick Categories</h3>
+    <h3 class="manager-modal-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Quick Categories</span>
+        <button class="modern-btn" onclick="$('#categories-manager').hide(); $('#flickr-results-grid').fadeIn(200);" style="padding: 4px 10px; font-size: 14px; line-height: 1;">&times;</button>
+    </h3>
     <div id="categories-list" class="chips-flex-container"></div>
 </div>
 
@@ -563,7 +571,7 @@ window.showCategoriesPage = function(isRemote = false) {
 
     const cats = ["Nature", "Architecture", "Cyberpunk", "Space", "Abstract", "Night", "Landscape"]; 
     let html = cats.map(c => `
-        <button class="modern-pill-chip" onclick="window.runFlickrSearch('${c}', null, false)">
+        <button class="modern-pill-chip" onclick="$('#categories-manager').hide(); $('#flickr-results-grid').show(); window.runFlickrSearch('${c}', null, false)">
             <span># ${c}</span>
             <span class="chip-icon">➔</span>
         </button>`).join(''); 
@@ -694,10 +702,44 @@ window.exitSlideshow = function(isRemote = false) {
     };
 
     // --- 6. INITIAL LOAD & SCROLL ---
+// --- 6. INITIAL LOAD & SCROLL ---
     $(document).ready(() => {
-        // Only load if the grid is empty
+        // 1. Force the 2-column layout and highlight the 2x button on startup
+        const btn2x = $("button[onclick*=\"changeLayout('2'\"]");
+        window.changeLayout('2', btn2x, true); // true avoids sending an initial socket sync blast
+
+        // 2. Only load if the grid is empty
         if(!window.currentPhotos.length) window.runFlickrSearch('Second life');
     });
+
+// CLICK OUTSIDE MODALS TO CLOSE
+$(document).on('click', function(event) {
+    // 1. For Favorites Manager
+    const favModal = $('#favorites-manager');
+    const favBtn = $("button[onclick*='showFavoritesPage']"); // The navbar button
+    
+    if (favModal.is(':visible') && 
+        !favModal.is(event.target) && 
+        favModal.has(event.target).length === 0 && 
+        !favBtn.is(event.target)) {
+        
+        favModal.hide();
+        $('#flickr-results-grid').fadeIn(200);
+    }
+
+    // 2. For Categories Manager
+    const catModal = $('#categories-manager');
+    const catBtn = $("button[onclick*='showCategoriesPage']"); // The navbar button
+    
+    if (catModal.is(':visible') && 
+        !catModal.is(event.target) && 
+        catModal.has(event.target).length === 0 && 
+        !catBtn.is(event.target)) {
+        
+        catModal.hide();
+        $('#flickr-results-grid').fadeIn(200);
+    }
+});
 
 $('#flickr-results-grid').on('scroll', function() {
     if (window.isSyncing) return;  // ← global flag

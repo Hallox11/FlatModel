@@ -6,7 +6,7 @@ const path  = require('path');
 
 const FLICKR_URL = 'https://www.flickr.com/services/rest/';
 const FLICKR_KEY = process.env.FLICKR_API_KEY || 'c90dea5c7207bea531ac489747938f44';
-const PER_PAGE   = 150;
+const PER_PAGE   = 250;
 const CACHE_TTL  = 10 * 60 * 1000; // 10 minutes
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
 

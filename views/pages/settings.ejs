@@ -343,8 +343,26 @@
 
         </div>
 
-<!-- Column 5: Position & Rotation -->
-<!-- Column 5: Position & Rotation -->
+        <!-- Column 5: Security -->
+        <div class="conteiner-col">
+            <p class="section-title">Security</p>
+            
+            <div class="btn-group">
+                <button onclick="setActive('alert',this);cmd('alert','off',this)" class="btn-split btn-left" data-group="alert">DISABLE</button>
+                <div class="btn-center-label">ALERT</div>
+                <button onclick="setActive('alert',this);cmd('alert','on',this)" class="btn-split btn-right active" data-group="alert">ENABLE</button>
+            </div>
+
+            <div class="btn-group">
+                <button onclick="setActive('lock',this);cmd('lock','off',this)" class="btn-split btn-left active" data-group="lock">UNLOCK</button>
+                <div class="btn-center-label">TV LOCK</div>
+                <button onclick="setActive('lock',this);cmd('lock','on',this)" class="btn-split btn-right" data-group="lock">LOCK</button>
+            </div>
+            
+            <p class="hint-text">Locking the TV restricts browser access and playback controls exclusively to the device owner.</p>
+        </div>
+
+<!-- Column 6: Position & Rotation -->
 <div class="conteiner-col">
     <p class="section-title">Position Control</p>
     

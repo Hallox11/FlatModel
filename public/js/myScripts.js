@@ -524,7 +524,7 @@ function aplicarBackground(url) {
 let scrollTimeout;
 
 // Todos os seletores dentro de UMA única string
-const globalScrollTargets = '#sl-main-scroll-area, #conteiner, .conteiner, #xxx-module, #grid-content, #yt-content-scroll';
+const globalScrollTargets = '#sl-main-scroll-area, #conteiner, .conteiner, #xxx-module, #grid-content, #yt-content-scroll,#flickr-results-grid';
 
 $(document).on('scroll', globalScrollTargets, function() {
     // 1. Só envia se o socket existir e se não for um scroll vindo de fora (remote)
