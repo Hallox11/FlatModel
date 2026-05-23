@@ -4,15 +4,17 @@
 <meta charset="UTF-8">
 <title>TV Premium Settings</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 <style>
     :root { 
         --accent: #ffa260; 
         --success: #2ecc71; 
         --error: #ff6b6b;
-        --bg-panel: rgba(0, 0, 0, 0.8); 
+        --bg-panel: rgba(20, 20, 20, 0.55); 
         --glass-border: rgba(255, 255, 255, 0.08);
         --text-main: #fff;
+        --sidebar-width: 280px;
     }
 
     * { box-sizing: border-box; outline: none; margin: 0; padding: 0; }
@@ -20,158 +22,148 @@
     #settings_wrapper { 
         width: 1280px; height: 720px; color: var(--text-main); 
         font-family: 'Inter', sans-serif; position: relative; overflow: hidden; 
-        display: flex; flex-direction: column; box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
-          background: rgba(0,0,0,0.6); 
+        display: flex; flex-direction: column;
+        background: radial-gradient(circle at top right, rgba(45,30,20,0.5), rgba(5,5,5,0.95)); 
     }
 
     #main_header_area {
-        flex-shrink: 0; height: 70px; display: flex; align-items: center; justify-content: center;
-        border-bottom: 1px solid var(--glass-border); z-index: 20;
+        flex-shrink: 0; height: 80px; display: flex; align-items: center; justify-content: space-between;
+        padding: 0 30px; border-bottom: 1px solid var(--glass-border); z-index: 20;
+        background: rgba(0,0,0,0.4);
     }
 
-    #main_header { font-size: 26px; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; }
+    #main_header { font-size: 22px; color: #fff; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+    #main_header span { color: var(--accent); }
 
     #connection-container {
-        position: absolute; left: 30px; display: flex; align-items: center; gap: 12px;
-        padding: 8px 15px; background: rgba(255,255,255,0.03);
-        border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
+        display: flex; align-items: center; gap: 10px;
+        padding: 6px 14px; background: rgba(255,255,255,0.03);
+        border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
     }
 
     #status-dot { width: 8px; height: 8px; background: var(--error); border-radius: 50%; box-shadow: 0 0 8px var(--error); }
     .online-active #status-dot { background: var(--success); box-shadow: 0 0 12px var(--success); }
 
-    #settings_scroll_content {
-        flex-grow: 1; overflow-y: auto; padding: 20px 40px;
-        display: flex; gap: 20px; justify-content: center; align-items: flex-start;
-          }
+    #workspace { display: flex; flex-grow: 1; height: 640px; overflow: hidden; }
+
+    #sidebar {
+        width: var(--sidebar-width); background: rgba(0, 0, 0, 0.3);
+        border-right: 1px solid var(--glass-border); padding: 25px 15px;
+        display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;
+    }
+
+    .tab-btn {
+        display: flex; align-items: center; gap: 14px; width: 100%;
+        padding: 14px 18px; background: transparent; border: none;
+        border-radius: 14px; color: rgba(255,255,255,0.6); font-family: 'Inter', sans-serif;
+        font-size: 14px; font-weight: 500; text-align: left; cursor: pointer; transition: all 0.2s ease;
+    }
+    .tab-btn:hover { color: #fff; background: rgba(255,162,96,0.05); }
+    .tab-btn.active {
+        color: #000; background: var(--accent); font-weight: 700;
+        box-shadow: 0 4px 20px rgba(255,162,96,0.25);
+    }
+    .tab-btn .material-symbols-rounded { font-size: 22px; }
+
+    #content_area {
+        flex-grow: 1; width: calc(1280px - var(--sidebar-width)); height: 100%;
+        padding: 30px; overflow: hidden; position: relative;
+    }
 
     .conteiner-col { 
-        width: 230px; background: var(--bg-panel); 
-        border: 1px solid var(--glass-border); border-radius: 20px; padding: 20px;
+        display: none; width: 100%; height: 100%; gap: 25px; 
+    }
+    .conteiner-col.active { display: flex; animation: fadeIn 0.25s ease-out; }
+
+    .sub-panel {
+        flex: 1; background: var(--bg-panel); border: 1px solid var(--glass-border);
+        border-radius: 20px; padding: 25px; display: flex; flex-direction: column;
+        justify-content: flex-start; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.99); }
+        to { opacity: 1; transform: scale(1); }
     }
 
     .section-title { 
-        text-align: center; margin-bottom: 15px; font-weight: 700; font-size: 12px;
-        color: #ffb600; border-bottom: 1px solid #ff8025eb;
-        padding-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em;
+        text-align: left; margin-bottom: 18px; font-weight: 800; font-size: 13px;
+        color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em;
+        border-bottom: 1px solid rgba(255,162,96,0.15); padding-bottom: 6px;
     }
 
     .btn1 { 
-        display: block; width: 100%; margin: 5px 0; padding: 8px 12px; 
-        font-size: 15px; font-weight: 400; color: rgba(255,255,255,1); 
-        background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
-        border-radius: 12px; cursor: pointer; transition: all 0.2s ease;
-        font-family: 'Inter', sans-serif; letter-spacing: -0.01em;
+        display: block; width: 100%; margin: 6px 0; padding: 11px 14px; 
+        font-size: 13px; font-weight: 500; color: #fff; 
+        background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+        border-radius: 10px; cursor: pointer; transition: all 0.15s ease;
+        font-family: 'Inter', sans-serif;
+    }
+    .btn1:hover { background: rgba(255,162,96,0.08); color: var(--accent); border-color: rgba(255,162,96,0.25); }
+    .btn1.active::before {
+        content: ''; display: inline-block; width: 6px; height: 6px;
+        border-radius: 50%; background: var(--accent); margin-right: 8px;
+        vertical-align: middle; box-shadow: 0 0 6px var(--accent);
     }
 
     .btn2 { 
-        display: block; width: 100%; margin: 0px 0; padding: 6px 10px; 
-        font-size: 12px; font-weight: 400; color: rgba(255,255,255,1); 
+        padding: 10px; font-size: 12px; font-weight: 500; color: #fff; 
         background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
-        border-radius: 10px; cursor: pointer; transition: 0.3s; 
-        font-family: 'Inter', sans-serif;
+        border-radius: 8px; cursor: pointer; transition: 0.15s; font-family: 'Inter', sans-serif;
     }
+    .btn2:hover { background: rgba(255,162,96,0.08); color: var(--accent); }
 
-    .btn1:hover, .btn2:hover { background: rgba(255,162,96,0.12); color: var(--accent); border-color: rgba(255,162,96,0.3); }
-    .btn1.active { background: rgba(255,255,255,0.04); color: rgba(255,255,255,1); border-color: var(--glass-border); }
-    .btn1.active::before {
-        content: '';
-        display: inline-block;
-        width: 6px; height: 6px;
-        border-radius: 50%;
-        background: var(--accent);
-        margin-right: 10px;
-        vertical-align: middle;
-        flex-shrink: 0;
-        box-shadow: 0 0 6px var(--accent);
+    .sent { background: var(--success) !important; color: #000 !important; font-weight: 600; }
+
+    /* Estilos Corrigidos da Grelha de Cores */
+    .color-grid-static { 
+        display: grid; 
+        grid-template-columns: repeat(5, 1fr); 
+        gap: 8px; 
+        padding: 10px; 
+        background: rgba(0,0,0,0.25); 
+        border-radius: 12px;
+        margin-top: 5px;
+        margin-bottom: 15px;
     }
+    .color-square { width: 100%; aspect-ratio: 1/1; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: 0.15s; }
+    .color-square:hover { transform: scale(1.08); }
+    .color-square.selected { border-color: #fff; box-shadow: 0 0 8px rgba(255,255,255,0.4); }
 
-    .sent { background: var(--success) !important; color: #000 !important; }
+    .label-mini { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.35); text-transform: uppercase; margin: 12px 0 6px 2px; display: block; }
 
-    .color-grid-static { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; padding: 7px; background: rgba(0,0,0,0.2); border-radius: 12px; }
-    .color-square { width: 100%; aspect-ratio: 1/1; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: 0.2s; }
-    .color-square:hover { transform: scale(1.1); }
-    .color-square.selected { border-color: #fff; }
+    .btn-group { display: flex; margin: 10px 0; background: rgba(0,0,0,0.2); border-radius: 10px; padding: 3px; border: 1px solid var(--glass-border); }
+    .btn-split { flex: 1; padding: 9px 0; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); background: transparent; border: none; cursor: pointer; font-family: 'Inter', sans-serif; border-radius: 7px; }
+    .btn-split.active { background: rgba(255,255,255,0.07); color: var(--accent); }
+    .btn-center-label { flex: 1.2; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7); text-transform: uppercase; }
 
-    .label-mini { text-align: center; font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; margin: 14px 0 5px 2px; display: block; letter-spacing: 0.03em; }
+    .divider { height: 1px; background: var(--glass-border); margin: 12px 0; }
 
-    .btn-group { display: flex; margin: 12px 0; }
-    .btn-split { flex: 1; padding: 10px 0; font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); cursor: pointer; font-family: 'Inter', sans-serif; transition: 0.2s; }
-    .btn-split:hover { background: rgba(255,162,96,0.1); color: var(--accent); }
-    .btn-split.active { background: rgba(255,255,255,0.04); color: rgba(255,255,255,1); border-color: var(--glass-border); position: relative; }
-    .btn-split.active::before {
-        content: '';
-        display: inline-block;
-        width: 5px; height: 5px;
-        border-radius: 50%;
-        background: var(--accent);
-        margin-right: 6px;
-        vertical-align: middle;
-        box-shadow: 0 0 5px var(--accent);
-    }
-    .btn-left  { border-radius: 10px 0 0 10px; }
-    .btn-right { border-radius: 0 10px 10px 0; }
-    .btn-center-label { flex: 1.2; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 400; color: var(--accent); background: rgba(255,162,96,0.05); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
-
-    .divider { height: 1px; background: var(--glass-border); margin: 8px 0; }
-
-    .ctrl-row { display: flex; align-items: stretch; }
-    .btn-adj { flex: 1; padding: 9px 4px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; }
-    .btn-adj:first-child { border-radius: 10px 0 0 10px; }
-    .btn-adj:last-child  { border-radius: 0 10px 10px 0; }
+    .ctrl-row { display: flex; align-items: stretch; margin-bottom: 6px; background: rgba(0,0,0,0.2); border-radius: 10px; padding: 3px; border: 1px solid var(--glass-border); }
+    .btn-adj { width: 36px; height: 36px; font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.02); border: none; border-radius: 6px; cursor: pointer; }
     .btn-adj:hover { background: rgba(255,162,96,0.12); color: var(--accent); }
 
-    .btn-value {
-        flex: 2; padding: 6px;
-        border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
-        border-left: none; border-right: none;
-        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
-        cursor: default;
-    }
-    .val-top { display: flex; align-items: center; gap: 5px; }
-    .swatch-mini { width: 10px; height: 10px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); flex-shrink: 0; }
-    .val-pct { font-size: 15px; font-weight: 700; color: var(--accent); line-height: 1; }
-    .val-sub { font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 500; }
+    .btn-value { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .val-top { display: flex; align-items: center; gap: 6px; }
+    .swatch-mini { width: 10px; height: 10px; border-radius: 3px; }
+    .val-pct { font-size: 15px; font-weight: 700; color: var(--accent); }
+    .val-sub { font-size: 10px; color: rgba(255,255,255,0.35); text-transform: uppercase; }
 
-    .onoff-row { display: flex; margin-top: 4px; }
-    .btn-half { flex: 1; padding: 8px 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; }
-    .btn-half:first-child { border-radius: 8px 0 0 8px; }
-    .btn-half:last-child  { border-radius: 0 8px 8px 0; }
-    .btn-half:hover { background: rgba(255,162,96,0.1); color: var(--accent); }
-    .btn-half.active { background: var(--accent); color: #000; border-color: var(--accent); }
-
-    .neon-state-row { display: flex; margin-top: 4px; }
-    .btn-third { flex: 1; padding: 7px 2px; font-size: 9px; font-weight: 700; letter-spacing: 0.3px; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; text-align: center; }
-    .btn-third:first-child { border-radius: 8px 0 0 8px; }
-    .btn-third:last-child  { border-radius: 0 8px 8px 0; }
-    .btn-third:hover { background: rgba(255,162,96,0.1); color: var(--accent); }
-    .btn-third.active { background: var(--accent); color: #000; border-color: var(--accent); }
-
-    .hint-text { font-size: 10px; color: rgba(255,255,255,0.25); text-align: center; line-height: 1.4; margin-top: 8px; font-weight: 400; }
+    .onoff-row, .neon-state-row { display: flex; gap: 6px; }
+    .btn-half, .btn-third { flex: 1; padding: 9px; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 8px; cursor: pointer; }
+    .btn-half.active, .btn-third.active { background: var(--accent); color: #000; border-color: var(--accent); }
 
     .close-menu-btn {
-        position: absolute; top: 25px; right: 25px; width: 45px; height: 45px;
-        background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
-        border-radius: 50%; color: white; display: flex; align-items: center;
-        justify-content: center; cursor: pointer; transition: 0.2s; z-index: 1000;
-        box-shadow: 0 0px 15px 0 rgba(0,0,0,0.6);
+        width: 40px; height: 40px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
+        border-radius: 10px; color: white; display: flex; align-items: center; justify-content: center; cursor: pointer;
     }
-    .close-menu-btn:hover { background: #ff0000; border-color: #ff0000; transform: scale(1.1); }
-
-    /* Model selector row */
-    .model-row { display: flex; gap: 4px; margin: 5px 0; }
-    .btn-model { flex: 1; padding: 10px 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; text-align: center; }
-    .btn-model:first-child { border-radius: 10px 0 0 10px; }
-    .btn-model:last-child  { border-radius: 0 10px 10px 0; }
-    .btn-model:hover { background: rgba(255,162,96,0.12); color: var(--accent); border-color: rgba(255,162,96,0.3); }
-    .btn-model.active { background: var(--accent); color: #000; border-color: var(--accent); }
+    .close-menu-btn:hover { background: #ff6b6b; border-color: #ff6b6b; }
 </style>
 </head>
 <body>
 <div id="settings_wrapper">
-    <div style="top:15px" class="close-menu-btn" onclick="closeSubMenu()">
-        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
-    </div>
+    
+    <!-- Top Header Bar -->
     <div id="main_header_area">
         <div id="connection-container">
             <div id="status-dot"></div>
@@ -179,252 +171,281 @@
                 <span id="status-text" style="font-size:11px; font-weight:800; color:var(--error);">OFFLINE</span>
             </div>
         </div>
-        <h1 id="main_header">On-Screen Settings</h1>
+        <h1 id="main_header">Premium TV <span>Settings</span></h1>
+        <div class="close-menu-btn" onclick="closeSubMenu()">
+            <span class="material-symbols-rounded">close</span>
+        </div>
     </div>
 
-    <div id="settings_scroll_content">
-
-        <!-- Column 1: Frame Design -->
-        <div class="conteiner-col">
-            <p class="section-title">TV Frame Design</p>
-            <button onclick="setActive('texture',this);cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1" data-group="texture">Carbon Fiber</button>
-            <button onclick="setActive('texture',this);cmd('texture','93327059-ece0-aafa-571c-dba95b08855f',this)"   class="btn1" data-group="texture">Polished Gold</button>
-            <button onclick="setActive('texture',this);cmd('texture','a77d6f20-7f3f-f504-dd8b-0e3c73204aa2',this)"  class="btn1" data-group="texture">Matte Black</button>
-            <button onclick="setActive('texture',this);cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">Wood</button>
-
-            <!-- Model selector — moved from System, replaces Set Back Color -->
-            <p style="margin-top: 15px;" class="section-title">STAND MODEL</p>
-            <button class="btn1" id="model-1" onclick="setModel('model1',this)" data-group="model">Model 1</button>
-            <button class="btn1" id="model-2" onclick="setModel('model2',this)" data-group="model">Model 2</button>
-            <button class="btn1" id="model-3" onclick="setModel('model3',this)" data-group="model">Model 3</button>
-
-            <p style="margin-top: 15px;" class="section-title">Set Back Color</p>
-            <div id="grid-back" class="color-grid-static"></div>
-
-            <button onclick="cmd('reset','visual')" class="btn1" style="font-size:12px; border-color:var(--accent);">FACTORY DEFAULT</button>
-
+    <!-- Main Workspace Setup -->
+    <div id="workspace">
+        
+        <!-- Left Navigation Sidebar -->
+        <div id="sidebar">
+            <button class="tab-btn active" onclick="switchTab('frame', this)">
+                <span class="material-symbols-rounded">layers</span> Frame & Stand
+            </button>
+            <button class="tab-btn" onclick="switchTab('lighting', this)">
+                <span class="material-symbols-rounded">wb_incandescent</span> Ambilight & Neon
+            </button>
+            <button class="tab-btn" onclick="switchTab('size', this)">
+                <span class="material-symbols-rounded">aspect_ratio</span> Shape & Size
+            </button>
+            <button class="tab-btn" onclick="switchTab('system', this)">
+                <span class="material-symbols-rounded">settings_cinematic_blur</span> System Features
+            </button>
+            <button class="tab-btn" onclick="switchTab('security', this)">
+                <span class="material-symbols-rounded">shield</span> System Security
+            </button>
+            <button class="tab-btn" onclick="switchTab('position', this)">
+                <span class="material-symbols-rounded">open_with</span> Position Panel
+            </button>
         </div>
 
-        <!-- Column 2: Lighting -->
-        <div class="conteiner-col">
-            <p class="section-title">AMBILIGHT & NEON</p>
+        <!-- Right Content Panels Area -->
+        <div id="content_area">
 
-            <span class="label-mini">Color</span>
-            <div id="grid-light" class="color-grid-static"></div>
-
-            <span class="label-mini">LIGHT CONTROL</span>
-                        <div class="onoff-row">
-                <button class="btn-half" id="ambi-on"  onclick="setAmbi(true)">ON</button>
-                <button class="btn-half" id="ambi-off" onclick="setAmbi(false)">OFF</button>
-            </div>
-                        <div class="divider" style="margin-top:14px;"></div>
-            <div class="ctrl-row">
-                <button class="btn-adj" onclick="adjustInt(-0.1)">−</button>
-                <div class="btn-value">
-                    <div class="val-top">
-                        <div class="swatch-mini" id="ambi-dot"></div>
-                        <span class="val-pct" id="ambi-pct">100%</span>
-                    </div>
-                    <span class="val-sub">intensity</span>
+            <!-- Tab 1: Frame Design -->
+            <div id="tab-frame" class="conteiner-col active">
+                <div class="sub-panel">
+                    <p class="section-title">TV Frame Design</p>
+                    <button onclick="setActive('texture',this);cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1" data-group="texture">Carbon Fiber</button>
+                    <button onclick="setActive('texture',this);cmd('texture','93327059-ece0-aafa-571c-dba95b08855f',this)"   class="btn1" data-group="texture">Polished Gold</button>
+                    <button onclick="setActive('texture',this);cmd('texture','a77d6f20-7f3f-f504-dd8b-0e3c73204aa2',this)"  class="btn1" data-group="texture">Matte Black</button>
+                    <button onclick="setActive('texture',this);cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">Wood</button>
                 </div>
-                <button class="btn-adj" onclick="adjustInt(0.1)">+</button>
-            </div>
+                <div class="sub-panel">
+                    <p class="section-title">STAND MODEL</p>
+                    <button class="btn1" id="model-1" onclick="setModel('model1',this)" data-group="model">Model 1</button>
+                    <button class="btn1" id="model-2" onclick="setModel('model2',this)" data-group="model">Model 2</button>
+                    <button class="btn1" id="model-3" onclick="setModel('model3',this)" data-group="model">Model 3</button>
 
+                    <!-- CONTAINER DA GRELHA DE CORES DE FUNDO DEVOLVIDO AQUI -->
+                    <p class="label-mini">Set Back Color</p>
+                    <div id="grid-back" class="color-grid-static"></div>
 
-
-
-<div class="ctrl-row">
-    <button class="btn-adj" onclick="adjustFall(-0.1)">−</button>
-    <div class="btn-value">
-        <span class="val-pct" id="fall-pct">100%</span>
-        <span class="val-sub">fall</span>
-    </div>
-    <button class="btn-adj" onclick="adjustFall(0.1)">+</button>
-</div>
-
-
-<div class="ctrl-row">
-    <button class="btn-adj" onclick="adjustRange(-0.1)">−</button>
-    <div class="btn-value">
-        <span class="val-pct" id="range-pct">100%</span>
-        <span class="val-sub">range</span>
-    </div>
-    <button class="btn-adj" onclick="adjustRange(0.1)">+</button>
-</div>
-
-<!-- Ambilight Preview -->
-<div id="ambi-preview">
-    <div class="ambi-zone left"></div>
-    <div class="ambi-zone top"></div>
-    <div class="ambi-zone right"></div>
-</div>
-            <div class="divider" style="margin-top:14px;"></div>
-            <span class="label-mini">Frame Neon</span>
-            <div class="ctrl-row">
-                <button class="btn-adj" onclick="adjustSpeed(-0.05)">−</button>
-                <div class="btn-value">
-                    <div class="val-top">
-                        <div class="swatch-mini" id="neon-dot"></div>
-                        <span class="val-pct" id="neon-pct">—</span>
+                    <div style="margin-top: auto;">
+                        <button onclick="cmd('reset','visual')" class="btn1" style="font-size:12px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
                     </div>
-                    <span class="val-sub" id="neon-sub">color</span>
                 </div>
-                <button class="btn-adj" onclick="adjustSpeed(0.05)">+</button>
-            </div>
-            <div class="neon-state-row">
-                <button class="btn-third active" id="neon-off"   onclick="setNeon('off')">OFF</button>
-                <button class="btn-third"         id="neon-fixed" onclick="setNeon('fixed')">FIXED</button>
-                <button class="btn-third"         id="neon-cycle" onclick="setNeon('cycle')">CYCLE</button>
             </div>
 
+            <!-- Tab 2: Lighting -->
+            <div id="tab-lighting" class="conteiner-col">
+                <div class="sub-panel">
+                    <p class="section-title">Ambilight Glow</p>
+                    <span class="label-mini">Color Palette</span>
+                    
+                    <!-- CONTAINER DA GRELHA DE CORES AMBILIGHT DEVOLVIDO AQUI -->
+                    <div id="grid-light" class="color-grid-static"></div>
 
-            
+                    <span class="label-mini">LIGHT CONTROL</span>
+                    <div class="onoff-row">
+                        <button class="btn-half" id="ambi-on"  onclick="setAmbi(true)">ON</button>
+                        <button class="btn-half" id="ambi-off" onclick="setAmbi(false)">OFF</button>
+                    </div>
+                </div>
+                <div class="sub-panel">
+                    <p class="section-title">Hardware Modifiers</p>
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustInt(-0.1)">−</button>
+                        <div class="btn-value">
+                            <div class="val-top">
+                                <div class="swatch-mini" id="ambi-dot"></div>
+                                <span class="val-pct" id="ambi-pct">100%</span>
+                            </div>
+                            <span class="val-sub">intensity</span>
+                        </div>
+                        <button class="btn-adj" onclick="adjustInt(0.1)">+</button>
+                    </div>
+
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustFall(-0.1)">−</button>
+                        <div class="btn-value">
+                            <span class="val-pct" id="fall-pct">100%</span>
+                            <span class="val-sub">fall</span>
+                        </div>
+                        <button class="btn-adj" onclick="adjustFall(0.1)">+</button>
+                    </div>
+
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustRange(-0.1)">−</button>
+                        <div class="btn-value">
+                            <span class="val-pct" id="range-pct">100%</span>
+                            <span class="val-sub">range</span>
+                        </div>
+                        <button class="btn-adj" onclick="adjustRange(0.1)">+</button>
+                    </div>
+
+                    <div class="divider"></div>
+                    <span class="label-mini">Frame Neon Mode</span>
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustSpeed(-0.05)">−</button>
+                        <div class="btn-value">
+                            <div class="val-top">
+                                <div class="swatch-mini" id="neon-dot"></div>
+                                <span class="val-pct" id="neon-pct">—</span>
+                            </div>
+                            <span class="val-sub" id="neon-sub">color</span>
+                        </div>
+                        <button class="btn-adj" onclick="adjustSpeed(0.05)">+</button>
+                    </div>
+                    <div class="neon-state-row">
+                        <button class="btn-third active" id="neon-off"   onclick="setNeon('off')">OFF</button>
+                        <button class="btn-third"         id="neon-fixed" onclick="setNeon('fixed')">FIXED</button>
+                        <button class="btn-third"         id="neon-cycle" onclick="setNeon('cycle')">CYCLE</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Shape & Size -->
+            <div id="tab-size" class="conteiner-col">
+                <div class="sub-panel">
+                    <p class="section-title">Shape Aspect Ratio</p>
+                    <button onclick="setActive('ratio',this);cmd('ratio','3/2',this)"  class="btn1" data-group="ratio">3:2 Classic</button>
+                    <button onclick="setActive('ratio',this);cmd('ratio','4/3',this)"  class="btn1" data-group="ratio">4:3 Retro</button>
+                    <button onclick="setActive('ratio',this);cmd('ratio','16/9',this)" class="btn1" data-group="ratio">16:9 Modern</button>
+                    <button onclick="setActive('ratio',this);cmd('ratio','21/9',this)" class="btn1" data-group="ratio">21:9 Cinema</button>
+                </div>
+                <div class="sub-panel">
+                    <p class="section-title">Scale Control</p>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px;">
+                        <button onclick="cmd('SCALE','-0.05',this)" class="btn2">−5%</button>
+                        <button onclick="cmd('SCALE','0.05',this)"  class="btn2">+5%</button>
+                        <button onclick="cmd('SCALE','-0.10',this)" class="btn2">−10%</button>
+                        <button onclick="cmd('SCALE','0.10',this)"  class="btn2">+10%</button>
+                        <button onclick="cmd('SCALE','-0.20',this)" class="btn2">−20%</button>
+                        <button onclick="cmd('SCALE','0.20',this)"  class="btn2">+20%</button>
+                    </div>
+
+                    <p class="label-mini">Environment Presets</p>
+                    <button onclick="setActive('env',this);cmd('PRESET','house',this)"   class="btn1" data-group="env">House Mode</button>
+                    <button onclick="setActive('env',this);cmd('PRESET','outside',this)" class="btn1" data-group="env">Outside Mode</button>
+                    <button onclick="setActive('env',this);cmd('PRESET','cinema',this)"  class="btn1" data-group="env">Cinema Mode</button>
+                    
+                    <div style="margin-top: auto;">
+                        <button onclick="cmd('reset','size')" class="btn1" style="font-size:12px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: System -->
+            <div id="tab-system" class="conteiner-col">
+                <div class="sub-panel">
+                    <p class="section-title">Visibility Toggle</p>
+                    <div class="btn-group">
+                        <button onclick="setActive('legs',this);cmd('legs','hide',this)" class="btn-split" data-group="legs">HIDE</button>
+                        <div class="btn-center-label">LEGS</div>
+                        <button onclick="setActive('legs',this);cmd('legs','show',this)" class="btn-split" data-group="legs">SHOW</button>
+                    </div>
+                    <div class="btn-group">
+                        <button onclick="setActive('frame_vis',this);cmd('frame','hide',this)" class="btn-split" data-group="frame_vis">HIDE</button>
+                        <div class="btn-center-label">FRAME</div>
+                        <button onclick="setActive('frame_vis',this);cmd('frame','show',this)" class="btn-split" data-group="frame_vis">SHOW</button>
+                    </div>
+                    <div class="btn-group">
+                        <button onclick="setActive('browser',this);cmd('browser','hide',this)" class="btn-split" data-group="browser">HIDE</button>
+                        <div class="btn-center-label">BROWSER</div>
+                        <button onclick="setActive('browser',this);cmd('browser','show',this)" class="btn-split" data-group="browser">SHOW</button>
+                    </div>
+                </div>
+                <div class="sub-panel">
+                    <p class="section-title">Set Back Alpha</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+                        <button onclick="cmd('back_alpha','0.0',this)" class="btn2">0%</button>
+                        <button onclick="cmd('back_alpha','0.1',this)" class="btn2">10%</button>
+                        <button onclick="cmd('back_alpha','0.2',this)" class="btn2">20%</button>
+                    </div>
+                    
+                    <p style="margin-top: 20px;" class="section-title">Set Webscreen Alpha</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+                        <button onclick="cmd('web_alpha','0.0',this)" class="btn2">0%</button>
+                        <button onclick="cmd('web_alpha','0.1',this)" class="btn2">10%</button>
+                        <button onclick="cmd('web_alpha','0.2',this)" class="btn2">20%</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 5: Security -->
+            <div id="tab-security" class="conteiner-col">
+                <div class="sub-panel" style="max-width: 600px; margin: 0 auto;">
+                    <p class="section-title">Security Settings</p>
+                    
+                    <div class="btn-group">
+                        <button onclick="setActive('alert',this);cmd('alert','off',this)" class="btn-split" data-group="alert">DISABLE</button>
+                        <div class="btn-center-label">ALERT</div>
+                        <button onclick="setActive('alert',this);cmd('alert','on',this)" class="btn-split active" data-group="alert">ENABLE</button>
+                    </div>
+
+                    <div class="btn-group">
+                        <button onclick="setActive('lock',this);cmd('lock','off',this)" class="btn-split active" data-group="lock">UNLOCK</button>
+                        <div class="btn-center-label">TV LOCK</div>
+                        <button onclick="setActive('lock',this);cmd('lock','on',this)" class="btn-split" data-group="lock">LOCK</button>
+                    </div>
+                    
+                    <p class="hint-text" style="color: rgba(255,255,255,0.3); font-size:13px; margin-top:20px; text-align:center; line-height:1.6;">
+                        Locking the TV restricts browser access and playback controls exclusively to the device owner.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tab 6: Position & Rotation -->
+            <div id="tab-position" class="conteiner-col">
+                <div class="sub-panel">
+                    <p class="section-title">Position Control</p>
+                    
+                    <span class="label-mini">X Position (Left/Right)</span>
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustPosX(-0.1)">−</button>
+                        <div class="btn-value"><span class="val-pct" id="pos-x">0.0</span><span class="val-sub">meters</span></div>
+                        <button class="btn-adj" onclick="adjustPosX(0.1)">+</button>
+                    </div>
+
+                    <span class="label-mini">Y Position (Forward/Back)</span>
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustPosY(-0.1)">−</button>
+                        <div class="btn-value"><span class="val-pct" id="pos-y">0.0</span><span class="val-sub">meters</span></div>
+                        <button class="btn-adj" onclick="adjustPosY(0.1)">+</button>
+                    </div>
+
+                    <span class="label-mini">Z Position (Up/Down)</span>
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustPosZ(-0.1)">−</button>
+                        <div class="btn-value"><span class="val-pct" id="pos-z">0.0</span><span class="val-sub">meters</span></div>
+                        <button class="btn-adj" onclick="adjustPosZ(0.1)">+</button>
+                    </div>
+                </div>
+                <div class="sub-panel">
+                    <p class="section-title">Rotation</p>
+                    <span class="label-mini">Horizontal (Y-Axis)</span>
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustRotY(-1)">−1°</button>
+                        <div class="btn-value"><span class="val-pct" id="rot-y">0°</span><span class="val-sub">degrees</span></div>
+                        <button class="btn-adj" onclick="adjustRotY(1)">+1°</button>
+                    </div>
+
+                    <div style="margin-top: auto; display: flex; gap: 10px;">
+                        <button onclick="resetPos()" class="btn1" style="font-size:12px; border-color:var(--accent); text-align: center; margin: 0; flex: 1;">RESET POS</button>
+                        <button onclick="resetRot()" class="btn1" style="font-size:12px; border-color:var(--accent); text-align: center; margin: 0; flex: 1;">RESET ROT</button>
+                    </div>
+                </div>
+            </div>
 
         </div>
-
-        <!-- Column 3: Shape & Size -->
-        <div class="conteiner-col">
-            <p class="section-title">Shape & Size</p>
-            <button onclick="setActive('ratio',this);cmd('ratio','3/2',this)"  class="btn1" data-group="ratio">3:2 Classic</button>
-            <button onclick="setActive('ratio',this);cmd('ratio','4/3',this)"  class="btn1" data-group="ratio">4:3 Retro</button>
-            <button onclick="setActive('ratio',this);cmd('ratio','16/9',this)" class="btn1" data-group="ratio">16:9 Modern</button>
-            <button onclick="setActive('ratio',this);cmd('ratio','21/9',this)" class="btn1" data-group="ratio">21:9 Cinema</button>
-
-            <p class="section-title" style="margin-top:20px;">Scale Control</p>
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:4px;">
-                <button onclick="cmd('SCALE','-0.05',this)" class="btn2">−5%</button>
-                <button onclick="cmd('SCALE','0.05',this)"  class="btn2">+5%</button>
-                <button onclick="cmd('SCALE','-0.10',this)" class="btn2">−10%</button>
-                <button onclick="cmd('SCALE','0.10',this)"  class="btn2">+10%</button>
-                <button onclick="cmd('SCALE','-0.20',this)" class="btn2">−20%</button>
-                <button onclick="cmd('SCALE','0.20',this)"  class="btn2">+20%</button>
-            </div>
-
-            <div style="margin-top:20px;">
-                <button onclick="setActive('env',this);cmd('PRESET','house',this)"   class="btn1" data-group="env">House Mode</button>
-                <button onclick="setActive('env',this);cmd('PRESET','outside',this)" class="btn1" data-group="env">Outside Mode</button>
-                <button onclick="setActive('env',this);cmd('PRESET','cinema',this)"  class="btn1" data-group="env">Cinema Mode</button>
-            </div>   
-            <button onclick="cmd('reset','size')" class="btn1" style="font-size:12px; border-color:var(--accent);">FACTORY DEFAULT</button>
-        </div>
-
-        <!-- Column 4: System -->
-        <div class="conteiner-col">
-            <p class="section-title">System</p>
-            <div class="btn-group">
-                <button onclick="setActive('legs',this);cmd('legs','hide',this)" class="btn-split btn-left" data-group="legs">HIDE</button>
-                <div class="btn-center-label">LEGS</div>
-                <button onclick="setActive('legs',this);cmd('legs','show',this)" class="btn-split btn-right" data-group="legs">SHOW</button>
-            </div>
-            <div class="btn-group">
-                <button onclick="setActive('legs',this);cmd('frame','hide',this)" class="btn-split btn-left" data-group="legs">HIDE</button>
-                <div class="btn-center-label">FRAME</div>
-                <button onclick="setActive('legs',this);cmd('frame','show',this)" class="btn-split btn-right" data-group="legs">SHOW</button>
-            </div>
-            <div class="btn-group">
-                <button onclick="setActive('browser',this);cmd('browser','hide',this)" class="btn-split btn-left" data-group="browser">HIDE</button>
-                <div class="btn-center-label">BROWSER</div>
-                <button onclick="setActive('browser',this);cmd('browser','show',this)" class="btn-split btn-right" data-group="browser">SHOW</button>
-            </div>
-
-
-             <p style="margin-top: 15px;" class="section-title">Set Back Alpha</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-top: 5px;">
-                <button onclick="cmd('back_alpha','0.0',this)" class="btn2">0%</button>
-                <button onclick="cmd('back_alpha','0.1',this)" class="btn2">10%</button>
-                <button onclick="cmd('back_alpha','0.2',this)" class="btn2">20%</button>
-            </div>
-            <p style="margin-top: 15px;" class="section-title">Set Webscreen Alpha</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-top: 5px;">
-                <button onclick="cmd('web_alpha','0.0',this)" class="btn2">0%</button>
-                <button onclick="cmd('web_alpha','0.1',this)" class="btn2">10%</button>
-                <button onclick="cmd('web_alpha','0.2',this)" class="btn2">20%</button>
-            </div>
-
-        </div>
-
-        <!-- Column 5: Security -->
-        <div class="conteiner-col">
-            <p class="section-title">Security</p>
-            
-            <div class="btn-group">
-                <button onclick="setActive('alert',this);cmd('alert','off',this)" class="btn-split btn-left" data-group="alert">DISABLE</button>
-                <div class="btn-center-label">ALERT</div>
-                <button onclick="setActive('alert',this);cmd('alert','on',this)" class="btn-split btn-right active" data-group="alert">ENABLE</button>
-            </div>
-
-            <div class="btn-group">
-                <button onclick="setActive('lock',this);cmd('lock','off',this)" class="btn-split btn-left active" data-group="lock">UNLOCK</button>
-                <div class="btn-center-label">TV LOCK</div>
-                <button onclick="setActive('lock',this);cmd('lock','on',this)" class="btn-split btn-right" data-group="lock">LOCK</button>
-            </div>
-            
-            <p class="hint-text">Locking the TV restricts browser access and playback controls exclusively to the device owner.</p>
-        </div>
-
-<!-- Column 6: Position & Rotation -->
-<div class="conteiner-col">
-    <p class="section-title">Position Control</p>
-    
-    <span class="label-mini">X Position (Left/Right)</span>
-    <div class="ctrl-row">
-        <button class="btn-adj" onclick="adjustPosX(-0.1)">−</button>
-        <div class="btn-value">
-            <span class="val-pct" id="pos-x">0.0</span>
-            <span class="val-sub">meters</span>
-        </div>
-        <button class="btn-adj" onclick="adjustPosX(0.1)">+</button>
-    </div>
-
-    <span class="label-mini">Y Position (Forward/Back)</span>
-    <div class="ctrl-row">
-        <button class="btn-adj" onclick="adjustPosY(-0.1)">−</button>
-        <div class="btn-value">
-            <span class="val-pct" id="pos-y">0.0</span>
-            <span class="val-sub">meters</span>
-        </div>
-        <button class="btn-adj" onclick="adjustPosY(0.1)">+</button>
-    </div>
-
-    <span class="label-mini">Z Position (Up/Down)</span>
-    <div class="ctrl-row">
-        <button class="btn-adj" onclick="adjustPosZ(-0.1)">−</button>
-        <div class="btn-value">
-            <span class="val-pct" id="pos-z">0.0</span>
-            <span class="val-sub">meters</span>
-        </div>
-        <button class="btn-adj" onclick="adjustPosZ(0.1)">+</button>
-    </div>
-
-    <div class="divider" style="margin-top:14px;"></div>
-
-    <p class="section-title">Rotation</p>
-    
-    <span class="label-mini">Horizontal (Y-Axis)</span>
-    <div class="ctrl-row">
-        <button class="btn-adj" onclick="adjustRotY(-1)">−1°</button>
-        <div class="btn-value">
-            <span class="val-pct" id="rot-y">0°</span>
-            <span class="val-sub">degrees</span>
-        </div>
-        <button class="btn-adj" onclick="adjustRotY(1)">+1°</button>
-    </div>
-
-
-
-    <div class="divider" style="margin-top:14px;"></div>
-
-    <button onclick="resetPos()" class="btn1" style="font-size:11px; border-color:var(--accent);">RESET POSITION</button>
-    <button onclick="resetRot()" class="btn1" style="font-size:11px; border-color:var(--accent); margin-top:5px;">RESET ROTATION</button>
-
-</div>
-
     </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     const TV_ID = "<%= tvId %>";
+
+    function switchTab(tabId, el) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.conteiner-col').forEach(panel => panel.classList.remove('active'));
+        
+        el.classList.add('active');
+        document.getElementById('tab-' + tabId).classList.add('active');
+    }
 
     const premiumPalette = [
         '#1a1a1a','#333333','#7f8c8d','#2c3e50',
@@ -445,22 +466,16 @@
     let fallValue  = 1.0;
     let rangeValue = 1.0;
 
-window.adjustFall = function(v) {
-    fallValue = Math.min(1.0, Math.max(0.1, +(fallValue + v).toFixed(1)));
-
-    document.getElementById('fall-pct').textContent =
-        Math.round(fallValue * 100) + '%';
-
-    cmd('ambi_fall', fallValue.toFixed(1));
-};
-window.adjustRange = function(v) {
-    rangeValue = Math.min(1.0, Math.max(0.1, +(rangeValue + v).toFixed(1)));
-
-    document.getElementById('range-pct').textContent =
-        Math.round(rangeValue * 100) + '%';
-
-    cmd('ambi_range', rangeValue.toFixed(1));
-};
+    window.adjustFall = function(v) {
+        fallValue = Math.min(1.0, Math.max(0.1, +(fallValue + v).toFixed(1)));
+        document.getElementById('fall-pct').textContent = Math.round(fallValue * 100) + '%';
+        cmd('ambi_fall', fallValue.toFixed(1));
+    };
+    window.adjustRange = function(v) {
+        rangeValue = Math.min(1.0, Math.max(0.1, +(rangeValue + v).toFixed(1)));
+        document.getElementById('range-pct').textContent = Math.round(rangeValue * 100) + '%';
+        cmd('ambi_range', rangeValue.toFixed(1));
+    };
 
     function hexToSL(hex) {
         const r = (parseInt(hex.slice(1,3),16)/255).toFixed(2);
@@ -509,10 +524,8 @@ window.adjustRange = function(v) {
         document.getElementById('neon-cycle').classList.toggle('active', neonState === 'cycle');
     }
 
-    // Universal active highlight — clears group, marks clicked button
     window.setActive = function(group, el) {
-        document.querySelectorAll(`[data-group="${group}"]`)
-            .forEach(b => b.classList.remove('active'));
+        document.querySelectorAll(`[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
         el.classList.add('active');
     };
 
@@ -569,29 +582,33 @@ window.adjustRange = function(v) {
 
     function renderGrids() {
         const backContainer = document.getElementById('grid-back');
-        premiumPalette.forEach(hex => {
-            const d = document.createElement('div');
-            d.className = 'color-square';
-            d.style.backgroundColor = hex;
-            d.onclick = () => cmd('back_color', hexToSL(hex), d);
-            backContainer.appendChild(d);
-        });
+        if(backContainer) {
+            premiumPalette.forEach(hex => {
+                const d = document.createElement('div');
+                d.className = 'color-square';
+                d.style.backgroundColor = hex;
+                d.onclick = () => cmd('back_color', hexToSL(hex), d);
+                backContainer.appendChild(d);
+            });
+        }
 
         const lContainer = document.getElementById('grid-light');
-        lightPalette.forEach(hex => {
-            const d = document.createElement('div');
-            d.className = 'color-square';
-            d.style.backgroundColor = hex;
-            d.onclick = () => {
-                selectedHex = hex;
-                lContainer.querySelectorAll('.color-square').forEach(s => s.classList.remove('selected'));
-                d.classList.add('selected');
-                updateUI();
-                if (ambiOn)                cmd('LIGHT_ALL',   hexToSL(hex));
-                if (neonState === 'fixed') cmd('neon_color', hexToSL(hex));
-            };
-            lContainer.appendChild(d);
-        });
+        if(lContainer) {
+            lightPalette.forEach(hex => {
+                const d = document.createElement('div');
+                d.className = 'color-square';
+                d.style.backgroundColor = hex;
+                d.onclick = () => {
+                    selectedHex = hex;
+                    lContainer.querySelectorAll('.color-square').forEach(s => s.classList.remove('selected'));
+                    d.classList.add('selected');
+                    updateUI();
+                    if (ambiOn)                cmd('LIGHT_ALL',   hexToSL(hex));
+                    if (neonState === 'fixed') cmd('neon_color', hexToSL(hex));
+                };
+                lContainer.appendChild(d);
+            });
+        }
     }
 
     $(document).ready(function() {
@@ -599,52 +616,41 @@ window.adjustRange = function(v) {
         updateUI();
     });
 
-    // Position & Rotation tracking
-let posX = 0.0;
-let posY = 0.0;
-let posZ = 0.0;
-let rotY = 0;
+    let posX = 0.0; let posY = 0.0; let posZ = 0.0; let rotY = 0;
 
-window.adjustPosX = function(v) {
-    posX = +(posX + v).toFixed(1);
-    document.getElementById('pos-x').textContent = posX.toFixed(1);
-    cmd('pos_x', posX.toFixed(1));
-};
-
-window.adjustPosY = function(v) {
-    posY = +(posY + v).toFixed(1);
-    document.getElementById('pos-y').textContent = posY.toFixed(1);
-    cmd('pos_y', posY.toFixed(1));
-};
-
-window.adjustPosZ = function(v) {
-    posZ = +(posZ + v).toFixed(1);
-    document.getElementById('pos-z').textContent = posZ.toFixed(1);
-    cmd('pos_z', posZ.toFixed(1));
-};
-
-window.adjustRotY = function(v) {
-    rotY = (rotY + v) % 360;
-    if (rotY < 0) rotY += 360;
-    document.getElementById('rot-y').textContent = rotY + '°';
-    cmd('rot_y', rotY.toString());
-};
-
-window.resetPos = function() {
-    posX = 0.0;
-    posY = 0.0;
-    posZ = 0.0;
-    document.getElementById('pos-x').textContent = '0.0';
-    document.getElementById('pos-y').textContent = '0.0';
-    document.getElementById('pos-z').textContent = '0.0';
-    cmd('pos_reset', '0');
-};
-
-window.resetRot = function() {
-    rotY = 0;
-    document.getElementById('rot-y').textContent = '0°';
-    cmd('rot_reset', '0');
-};
+    window.adjustPosX = function(v) {
+        posX = +(posX + v).toFixed(1);
+        document.getElementById('pos-x').textContent = posX.toFixed(1);
+        cmd('pos_x', posX.toFixed(1));
+    };
+    window.adjustPosY = function(v) {
+        posY = +(posY + v).toFixed(1);
+        document.getElementById('pos-y').textContent = posY.toFixed(1);
+        cmd('pos_y', posY.toFixed(1));
+    };
+    window.adjustPosZ = function(v) {
+        posZ = +(posZ + v).toFixed(1);
+        document.getElementById('pos-z').textContent = posZ.toFixed(1);
+        cmd('pos_z', posZ.toFixed(1));
+    };
+    window.adjustRotY = function(v) {
+        rotY = (rotY + v) % 360;
+        if (rotY < 0) rotY += 360;
+        document.getElementById('rot-y').textContent = rotY + '°';
+        cmd('rot_y', rotY.toString());
+    };
+    window.resetPos = function() {
+        posX = 0.0; posY = 0.0; posZ = 0.0;
+        document.getElementById('pos-x').textContent = '0.0';
+        document.getElementById('pos-y').textContent = '0.0';
+        document.getElementById('pos-z').textContent = '0.0';
+        cmd('pos_reset', '0');
+    };
+    window.resetRot = function() {
+        rotY = 0;
+        document.getElementById('rot-y').textContent = '0°';
+        cmd('rot_reset', '0');
+    };
 </script>
 </body>
 </html>

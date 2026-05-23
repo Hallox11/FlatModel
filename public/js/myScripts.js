@@ -759,7 +759,14 @@ socket.on('room_switched', function(data) {
                         $('#img-title').text(data.title || '');
                     }
                     break;
+// Adiciona isto dentro do switch(data.type) do teu recetor socket global:
+case 'flickr_close_categories':
+    window.closeCategoriesPage(true); // Executa remotamente sem ecoar de volta
+    break;
 
+case 'flickr_close_channels':
+    window.closeFavoritesPage(true);  // Executa remotamente sem ecoar de volta
+    break;
                 case 'flickr_channel_sync':
                     if (typeof window.viewChannel === 'function') { window.viewChannel(data.userId, true); }
                     break;

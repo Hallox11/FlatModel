@@ -16,18 +16,12 @@
 
 /* Navbar */
 #flickr-nav-container {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 100;
-    flex-shrink: 0;
-    box-sizing: border-box;
+        width: 100%; height: 65px;
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0 35px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+        z-index: 100; flex-shrink: 0; box-sizing: border-box;
+        margin-bottom: 0px;
 }
 
 /* ==========================================================================
@@ -38,10 +32,10 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto ajusta */
     grid-auto-rows: 10px; 
     gap: 15px;
-    margin-left: 20px;
-    width: 1230px; 
+    margin-left: 5px;
+    width: 1250px; 
     height: 630px; 
-    padding: 10px 30px 60px 30px;
+    padding: 3px 20px 60px 30px;
     box-sizing: border-box;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -49,7 +43,7 @@
 }
 
 /* Custom Scrollbar */
-#flickr-results-grid::-webkit-scrollbar { width: 10px; }
+#flickr-results-grid::-webkit-scrollbar { width: 12px; }
 #flickr-results-grid::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
 #flickr-results-grid::-webkit-scrollbar-thumb { 
     background: goldenrod; 
@@ -121,12 +115,12 @@
 .nav-group { display: flex; gap: 8px; align-items: center; }
 
 .modern-btn {
-    background: rgba(0, 0, 0, 0.1);
+    background: #daa5202e;
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: rgb(230, 229, 229);
     padding: 10px 18px;
     border-radius: 8px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1.2px;
@@ -161,7 +155,7 @@
 }
 
 .search-pill:focus-within { border-color: goldenrod; background: rgba(255,255,255,0.1); }
-.search-pill input { background: transparent; border: none; color: #fff; outline: none; font-size: 12px; width: 100%; }
+.search-pill input { background: transparent; border: none; color: #fff; outline: none; font-size: 13px; width: 100%; }
 
 .search-go-btn {
     background: #ffd50557;
@@ -171,7 +165,7 @@
 
 /* App Branding/Title */
 .current-tag { display: flex; flex-direction: column; margin-right: 20px; min-width: 140px; }
-.current-tag span { font-size: 16px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+.current-tag span { font-size: 17px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
 .current-tag small { color: goldenrod; font-size: 11px; margin-top: 2px; opacity: 0.8; letter-spacing: 1px; }
 
 /* ==========================================================================
@@ -278,7 +272,7 @@
     border-radius: 10px !important;
     color: #e0e0e0 !important;
     padding: 14px 18px !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
     font-weight: 500 !important;
     text-align: left !important;
     cursor: pointer !important;
@@ -325,26 +319,26 @@
         <button class="modern-btn" onclick="window.showFavoritesPage()">Channels</button>
         <button class="modern-btn" onclick="window.showCategoriesPage()">Categories</button>
         
-        <div class="search-pill" style="margin-left: 15px; max-width: 250px;">
-            <input id="flickr-search" type="text" placeholder="Search..." onkeydown="if(event.key==='Enter') window.runFlickrSearch()">
+        <div class="search-pill" style="margin-left: 15px; max-width: 230px;">
+            <input id="flickr-search" type="text" placeholder="Tag Search..." onkeydown="if(event.key==='Enter') window.runFlickrSearch()">
             <button onclick="window.runFlickrSearch()" class="search-go-btn">GO</button>
         </div>
 
         <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.1); margin: 0 15px;"></div>
         
 
-<button class="modern-btn view-btn" onclick="window.changeLayout('4', this)">4x</button>
-<button class="modern-btn view-btn" onclick="window.changeLayout('3', this)">3x</button>
-<button class="modern-btn view-btn" onclick="window.changeLayout('2', this)">2x</button>
-<button class="modern-btn view-btn" onclick="window.changeLayout('1', this)">1x</button>
+<button style="font-size: 15px;" class="modern-btn view-btn" onclick="window.changeLayout('4', this)">4x</button>
+<button style="font-size: 15px;" class="modern-btn view-btn" onclick="window.changeLayout('3', this)">3x</button>
+<button style="font-size: 15px;" class="modern-btn view-btn" onclick="window.changeLayout('2', this)">2x</button>
+<button style="font-size: 15px;" class="modern-btn view-btn" onclick="window.changeLayout('1', this)">1x</button>
         
-        <span id="photo-count" style="color: rgba(255,255,255,0.3); font-size: 9px; margin-left: 10px; letter-spacing: 1px;">0 PHOTOS</span>
+        <span id="photo-count" style="color: rgba(255,255,255,0.9); font-size: 11px; margin-left: 10px; letter-spacing: 1px;">0 PHOTOS</span>
     </div>
 
     <div class="nav-group-right">
         <button class="modern-btn close-style" onclick="closeSubMenu();">
-            <span>&times;</span>
-            <span style="margin-left: 5px;">CLOSE</span>
+           
+            <span style="font-size: 15px;font-weight: 600;">CLOSE</span>
         </button>
     </div>
 </div>
@@ -353,7 +347,8 @@
 <div id="favorites-manager" class="manager-modal-container" style="display:none;">
     <h3 class="manager-modal-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
         <span>Public Channels</span>
-        <button class="modern-btn" onclick="$('#favorites-manager').hide(); $('#flickr-results-grid').fadeIn(200);" style="padding: 4px 10px; font-size: 14px; line-height: 1;">&times;</button>
+        <!-- ESTE BOTÃO FOI ALTERADO: Agora chama a função window.closeFavoritesPage() -->
+        <button class="modern-btn" onclick="window.closeFavoritesPage()" style="padding: 4px 10px; font-size: 14px; line-height: 1;">&times;</button>
     </h3>
     <div id="channels-list" class="chips-flex-container"></div>
 </div>
@@ -362,7 +357,8 @@
 <div id="categories-manager" class="manager-modal-container" style="display:none;">
     <h3 class="manager-modal-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
         <span>Quick Categories</span>
-        <button class="modern-btn" onclick="$('#categories-manager').hide(); $('#flickr-results-grid').fadeIn(200);" style="padding: 4px 10px; font-size: 14px; line-height: 1;">&times;</button>
+        <!-- ESTE BOTÃO FOI ALTERADO: Agora chama a função window.closeCategoriesPage() -->
+        <button class="modern-btn" onclick="window.closeCategoriesPage()" style="padding: 4px 10px; font-size: 14px; line-height: 1;">&times;</button>
     </h3>
     <div id="categories-list" class="chips-flex-container"></div>
 </div>
@@ -432,7 +428,7 @@ flickrGrid.addEventListener('wheel', (e) => {
     e.preventDefault();
 
     // Ajuste este número para aumentar/diminuir a sensibilidade
-    const speedMultiplier = 2.5; 
+    const speedMultiplier = 2.0; 
 
     // Move o scroll manualmente
     flickrGrid.scrollTop += e.deltaY * speedMultiplier;
@@ -488,6 +484,7 @@ if (type === '1') {
 window.currentPhotos = [];
 window.currentIndex = 0;
 window.runFlickrSearch = function(manualQuery = null, incomingPhotos = null, isRemote = false) {
+    window.resetFlickrState();
     const tags = manualQuery || $('#flickr-search').val();
     $('#search-context').text(`${tags.toUpperCase()}`); // add title
     // SE as fotos já vieram prontas pelo Socket (incomingPhotos), 
@@ -562,6 +559,7 @@ window.resizeGridItem = function(index) {
     item.style.gridRowEnd = `span ${rowSpan}`;
 };
 // --- 3. CATEGORIES ---
+// --- CATEGORIES ---
 window.showCategoriesPage = function(isRemote = false) {
     $('#flickr-results-grid, #favorites-manager').hide(); 
     $('#categories-manager').fadeIn(200);
@@ -571,32 +569,42 @@ window.showCategoriesPage = function(isRemote = false) {
 
     const cats = ["Nature", "Architecture", "Cyberpunk", "Space", "Abstract", "Night", "Landscape"]; 
     let html = cats.map(c => `
-        <button class="modern-pill-chip" onclick="$('#categories-manager').hide(); $('#flickr-results-grid').show(); window.runFlickrSearch('${c}', null, false)">
+        <button class="modern-pill-chip" onclick="window.closeCategoriesPage(); window.runFlickrSearch('${c}', null, false)">
             <span># ${c}</span>
             <span class="chip-icon">➔</span>
         </button>`).join(''); 
     $('#categories-list').html(html); 
 };
-// --- 
-// 4. FAVORITES/CHANNELS ---
-window.showFavoritesPage = function(isRemote = false) {
 
-    //////////////////////////////////////////////////////////
-    // 1. UI Toggle
-    $('#flickr-results-grid, #categories-manager').hide();
-    $('#favorites-manager').fadeIn(200);
-    
-    // 2. Load the actual data
-    window.loadFavoritesList();
-
-    // 3. SYNC: Tell others to open the favorites/channels manager
+// NOVO: Função para fechar as Categorias com Sync
+window.closeCategoriesPage = function(isRemote = false) {
+    $('#categories-manager').hide();
+    $('#flickr-results-grid').fadeIn(200);
     if (window.socket && !isRemote) {
-        window.socket.emit('state_sync', { 
-            type: 'flickr_show_channels', 
-            room: window.myRoom 
-        });
+        window.socket.emit('state_sync', { type: 'flickr_close_categories', room: window.myRoom });
     }
 };
+
+// --- FAVORITES/CHANNELS ---
+window.showFavoritesPage = function(isRemote = false) {
+    $('#flickr-results-grid, #categories-manager').hide();
+    $('#favorites-manager').fadeIn(200);
+    window.loadFavoritesList();
+
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { type: 'flickr_show_channels', room: window.myRoom });
+    }
+};
+
+// NOVO: Função para fechar os Channels com Sync
+window.closeFavoritesPage = function(isRemote = false) {
+    $('#favorites-manager').hide();
+    $('#flickr-results-grid').fadeIn(200);
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { type: 'flickr_close_channels', room: window.myRoom });
+    }
+};
+
 
 window.loadFavoritesList = function() {
     fetch('/api/favorites') 
@@ -612,6 +620,7 @@ window.loadFavoritesList = function() {
         });
 };
 window.viewChannel = function(userId, isRemote = false) {
+    
     $('#favorites-manager, #categories-manager, #flickr-results-grid').hide();
     $('#flickr-loader').css('display', 'flex').hide().fadeIn(100);
     
@@ -628,6 +637,7 @@ window.viewChannel = function(userId, isRemote = false) {
         .done(function(photos) {
             $('#flickr-loader').hide();
             $('#flickr-results-grid').fadeIn(300);
+            window.resetFlickrState();
             window.renderGrid(photos); // Isso agora vai funcionar porque photos é o array correto
         })
         .fail(function() {
@@ -638,6 +648,7 @@ window.viewChannel = function(userId, isRemote = false) {
             }, 2000);
         });
 };
+
 // --- 5. SLIDESHOW ---
 window.startSlideshow = function(index, isRemote = false) {
         window.currentIndex = index;
@@ -704,9 +715,9 @@ window.exitSlideshow = function(isRemote = false) {
     // --- 6. INITIAL LOAD & SCROLL ---
 // --- 6. INITIAL LOAD & SCROLL ---
     $(document).ready(() => {
-        // 1. Force the 2-column layout and highlight the 2x button on startup
-        const btn2x = $("button[onclick*=\"changeLayout('2'\"]");
-        window.changeLayout('2', btn2x, true); // true avoids sending an initial socket sync blast
+        // 1. Force the 3-column layout and highlight the 3x button on startup
+        const btn3x = $("button[onclick*=\"changeLayout('3'\"]");
+        window.changeLayout('3', btn3x, true); // true avoids sending an initial socket sync blast
 
         // 2. Only load if the grid is empty
         if(!window.currentPhotos.length) window.runFlickrSearch('Second life');
@@ -763,7 +774,17 @@ window.closeSubMenuWithLightbox = function() {
     }
 };
 
-
+// Função para limpar o estado apenas ao mudar de conteúdo
+window.resetFlickrState = function() {
+    window.currentIndex = 0;       // Faz reset ao índice do Slideshow
+    window.currentPhotos = [];      // Limpa as fotos antigas
+    
+    const grid = $('#flickr-results-grid');
+   
+        grid.scrollTop(0);          // Força o scroll a ir para o topo (0)
+        grid.html('');              // Limpa a área visual
+   
+};
 
 })();
 </script>
