@@ -81,6 +81,13 @@ app.use((req, res, next) => {
     }
 });
 
+// ============================================================
+// ANTI-HIBERNATION ENDPOINT (For UptimeRobot / Cron-Job)
+// ============================================================
+app.get('/ping', (req, res) => {
+    res.status(200).send('Awake');
+});
+
 app.use('/backgrounds', express.static(path.join(__dirname, 'backgrounds')));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -227,7 +234,21 @@ async function pingTvs() {
 }
 
 setInterval(pingTvs, PING_INTERVAL);
-
+////////////////////////////////////////////////
+// ============================================================
+// SELF-PING TIMER (Optional Internal Keep-Alive Loop)
+// ============================================================
+if (process.env.RENDER_EXTERNAL_URL) {
+    setInterval(async () => {
+        try {
+            const selfUrl = `${process.env.RENDER_EXTERNAL_URL}/ping`;
+            await axios.get(selfUrl);
+            console.log("[Anti-Hibernation] Self-ping dispatched successfully.");
+        } catch (err) {
+            console.error("[Anti-Hibernation] Self-ping network error:", err.message);
+        }
+    }, 10 * 60 * 1000); // Triggers every 12 minutes to beat the 15-minute idle cutoff
+}
 /////////////////////////////////////////////////
 // PEER SERVER
 const peerServer = ExpressPeerServer(server, {

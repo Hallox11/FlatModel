@@ -100,5 +100,37 @@ async function getChannelPhotos(userId) {
     writeCache(file, photos);
     return photos;
 }
+// ── RESOLVE FLICKR USERNAME/URL TO NSID ─────────────────────
+async function resolveUserId(input) {
+    const match = input.match(/flickr\.com\/photos\/([^\/\?]+)/i);
 
-module.exports = { searchPhotos, getChannelPhotos };
+    let username = match ? match[1] : input;
+
+    // remove known non-user paths
+    if (['albums', 'sets', 'photos', 'photostream'].includes(username.toLowerCase())) {
+        return null;
+    }
+
+    // already NSID
+    if (username.includes('@')) return username;
+
+    try {
+        console.log('[Flickr] Resolving username:', username);
+
+        const data = await flickrGet({
+            method: 'flickr.people.findByUsername',
+            username
+        });
+
+        return data.user?.nsid || null;
+
+    } catch (err) {
+        console.error('[Flickr Resolve Error]', err.response?.data || err.message);
+        return null;
+    }
+}
+module.exports = {
+    searchPhotos,
+    getChannelPhotos,
+    resolveUserId
+};

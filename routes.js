@@ -837,27 +837,58 @@ router.get('/flickr', (req, res) => {
 });
 
 // 2. Rota da API de Busca (Onde o erro 500 acontece)
+const {
+    searchPhotos,
+    getChannelPhotos,
+    resolveUserId
+} = require('./flickrController');
+
 router.get('/api/flickr/search', async (req, res) => {
-    // 1. Pegamos 'tags' e 'sort' da query string
-    const { tags, sort } = req.query;
-
-    if (!tags) {
-        return res.status(400).json({ error: "Tags are required" });
-    }
-
     try {
-        // 2. Passamos o parâmetro 'sort' para o controller. 
-        // Se 'sort' não existir na URL, o controller usará o padrão.
-        const photos = await flickrController.searchPhotos(tags, sort);
-        res.json(photos);
-    } catch (error) {
-        console.error("Route Error:", error.message);
-        
-        if (error.message.includes('429') || error.message.includes('Rate limit')) {
-            return res.status(429).json({ error: "Flickr rate limit reached." });
+        const input = (req.query.tags || '').trim();
+
+        const isFlickrUrl = /^https?:\/\/(www\.)?flickr\.com\/photos\//i.test(input);
+
+        if (isFlickrUrl) {
+
+            // 🚨 1. WITH URLs (your case)
+            const isWithUrl = /\/with\/\d+/i.test(input);
+            if (isWithUrl) {
+                const photoId = input.match(/\/with\/(\d+)/i)?.[1];
+
+                console.log('[Flickr] WITH URL detected:', photoId);
+
+                // best fallback: treat as search OR ignore user lookup entirely
+                return res.json(await searchPhotos(photoId));
+            }
+
+            // 🚨 2. PHOTO URL
+            const isPhotoUrl = /\/photos\/[^\/]+\/\d+$/i.test(input);
+            if (isPhotoUrl) {
+                const photoId = input.match(/\/(\d+)$/)?.[1];
+
+                console.log('[Flickr] PHOTO URL detected:', photoId);
+
+                return res.json(await searchPhotos(photoId));
+            }
+
+            // 👤 3. USER URL
+            const userId = await resolveUserId(input);
+
+            if (!userId) {
+                console.log('[Flickr Route] User not found:', input);
+                return res.json([]);
+            }
+
+            return res.json(await getChannelPhotos(userId));
         }
-        
-        res.status(500).json({ error: error.message });
+
+        // 🔎 normal search
+        return res.json(await searchPhotos(input));
+
+    } catch (err) {
+        console.error('[Flickr Route]', err.response?.data || err.message);
+        return res.status(500).json([]);
     }
 });
 
