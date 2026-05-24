@@ -257,6 +257,37 @@ const peerServer = ExpressPeerServer(server, {
 });
 app.use('/peerjs', peerServer);
 
+// ============================================================
+// NEW: SECURE AUDIO STREAM PROXY (Bypasses Mixed Content Blocks)
+// ============================================================
+app.get('/proxy-stream', (req, res) => {
+    const targetUrl = req.query.url;
+
+    if (!targetUrl) {
+        return res.status(400).send('Missing "url" target stream query parameter.');
+    }
+
+    // Security check: validate that the requested URL is an unencrypted http audio stream
+    if (!targetUrl.startsWith('http://')) {
+        return res.status(400).send('Proxy target must be a standard http stream.');
+    }
+
+    // Set response headers to inform the browser it is treating this stream as an audio chunk
+    res.setHeader('Content-Type', 'audio/mpeg');
+    res.setHeader('Transfer-Encoding', 'chunked');
+
+    // Pipe the external audio data directly through our server response
+    http.get(targetUrl, (streamRes) => {
+        streamRes.pipe(res);
+    }).on('error', (err) => {
+        console.error("[Audio Proxy Error]:", err.message);
+        if (!res.headersSent) {
+            res.status(500).send('Unable to stream source audio material.');
+        }
+    });
+});
+
+
 // START SERVER
 server.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);
