@@ -162,18 +162,42 @@
 
     <div class="dial-container">
         <div class="dial-needle"></div>
-        <div class="dial" id="dial">
-            <div class="station" data-stream="https://ice1.somafm.com/illstreet-128-mp3">Tableau</div>  
-            <div class="station" data-stream="https://strm112.1.fm/bossanova_mobile_mp3">Samba Cafe</div>  
-            <div class="station" data-stream="https://ice.somafm.com/dronezone">Black Kite</div>  
-            <div class="station" data-stream="https://stream2.10223.cc:8025/cc_sim_v4_b12">Chouchou</div>  
-            <div class="station" data-stream="https://stream2.10223.cc:8025/memento_v3">Memento Mori</div>  
-            <div class="station" data-stream="https://q2stream.wqxr.org/q2">Delicatessen</div>  
-            <div class="station" data-stream="https://d-oo-b.cc:8008">Two Fish</div>  
-            <div class="station" data-stream="https://www.radioparadise.com/mp3-192">Satyr Dance</div>
-            <div class="station" data-stream="https://ice1.somafm.com/suburbsofgoa-128-mp3">Acc Alpha</div>  
-            <div class="station" data-stream="https://icy.unitedradio.it/SubasioPerUnOraDAmore.mp3">Retrospect</div>  
-        </div>
+<div class="dial" id="dial">
+    <div class="station" data-stream="https://ice1.somafm.com/illstreet-128-mp3">Tableau</div>  
+    <div class="station" data-stream="https://strm112.1.fm/bossanova_mobile_mp3">Samba Cafe</div>  
+    <div class="station" data-stream="https://radio.stereoscenic.com/ama-h">Black Kite</div>  
+    <div class="station" data-stream="http://stream3.10223.cc:8025/cc_sim_v4">Chouchou</div>  
+    <div class="station" data-stream="https://stream3.10223.cc:8025/memento_v3">Memento Mori</div>
+    <div class="station" data-stream="http://luanes-world.go-stream.live:8742/;stream.mp3">Luanes World</div>    
+    <div class="station" data-stream="https://q2stream.wqxr.org/q2">Delicatessen</div>  
+    <div class="station" data-stream="http://23.29.119.99:8011/;stream.mp3">Hazardous</div>  
+    <div class="station" data-stream="http://d-oo-b.cc:8008/;stream.mp3">Two Fish</div>  
+    <div class="station" data-stream="https://stream-tx3.radioparadise.com/mp3-192">Satyr Dance Club</div>
+    <div class="station" data-stream="https://ice1.somafm.com/suburbsofgoa-128-mp3">Acc Alpha</div>  
+    <div class="station" data-stream="https://icy.unitedradio.it/SubasioPerUnOraDAmore.mp3">Retrospect</div>  
+    <div class="station" data-stream="https://ice.somafm.com/suburbsofgoa">Magilis al Jinn</div> 
+    <div class="station" data-stream="https://dixmixgallery.sl-radio.online:8130">Dixmix Gallery</div>  
+    <div class="station" data-stream="http://94.23.51.96:8001">Sommergewitter</div>  
+    <div class="station" data-stream="http://188.40.23.212:9753/unity.mp3">Cannibal</div>  
+    <div class="station" data-stream="http://eagle.streemlion.com:6410/stream">Ocho Tango</div>  
+    <div class="station" data-stream="http://sc-blues.1.fm:8030">Vincents Blues</div>  
+    <div class="station" data-stream="http://server3.luschaudio.com:10304/stream">OZ Nightclub</div>  
+    <div class="station" data-stream="http://185.33.21.112:80/radiogaia_128">Natural Wilderness</div>  
+    <div class="station" data-stream="http://204.187.100.18:1780/FOXXIES">Foxxies Jazz Club</div>  
+    <div class="station" data-stream="http://stream1.megarockradio.net:8240/">Turlaccor Store</div>  
+    <div class="station" data-stream="http://heartbeatz.fm:8008/;">Hypnotic Romance</div>  
+    <div class="station" data-stream="https://streamhd.madein80.live/">Galerie des Machines</div>  
+    <div class="station" data-stream="http://srv1.goodsoundstream.com:5198">End of Days Club</div>  
+    <div class="station" data-stream="http://144.217.49.251/stream1">Rocca Sorrentina</div>  
+    <div class="station" data-stream="https://88.198.70.10:8001/;">Amara</div>  
+    <div class="station" data-stream="http://pstnet5.shoutcastnet.com:50180/stream">Waterfalls</div>  
+    <div class="station" data-stream="http://185.33.22.15:11025">Tag Dance Club</div>  
+    <div class="station" data-stream="https://whmsonic.playerfullhd.com/9986/stream">TANGO with NOTTOO</div>  
+    <div class="station" data-stream="http://199.180.75.118:80/stream">Grand Canyon South</div>  
+    <div class="station" data-stream="http://199.180.72.2:8015/stream">West Egg</div>  
+    <div class="station" data-stream="http://server1.chilltrax.com:9000">Japan tempura</div>  
+    <div class="station" data-stream="https://streamingp.shoutcast.com/hotmixradio-golds-128.mp3">Old French</div>  
+</div>
     </div>
 
     <div id="radio_player_ui">
@@ -197,28 +221,29 @@
         <audio id="sl_native_player" crossorigin="anonymous"></audio>
     </div>
 </div>
-
 <script>
 {
     const dial = document.getElementById("dial");
     const stations = Array.from(document.querySelectorAll(".station"));
-    const audio = document.getElementById('sl_native_player');
     const display = document.getElementById("station_display");
     const freqDisplay = document.getElementById("freq_display");
     const statusText = document.getElementById("status_text");
+
+    // --- CORREÇÃO TV E NAVEGADOR: AUDIO INSTANCIA DINÂMICA ---
+    // Alguns navegadores de TV ignoram elementos <audio> ocultos no HTML.
+    // Criando o objeto nativamente via JavaScript contorna esse bloqueio.
+    let audio = new Audio();
+    //audio.crossOrigin = "anonymous";
 
     let isDown = false;
     let startX;
     let scrollLeft;
     let tuneTimeout;
-    let lastSyncedIndex = -1; // ✅ Evita emissões repetidas do mesmo index
-
+    let lastSyncedIndex = -1; 
 
     window.slExit = function() {
-        // Stop audio before leaving
-        audio.pause(); audio.src = '';
+        if (audio) { audio.pause(); audio.src = ''; }
         if (typeof closeSubMenu === 'function') {
-            // Go back to radios-menu (previous page in the overlay system)
             if (window.socket) {
                 window.socket.emit('mirror_ajax_nav', {
                     mode: 'radios', route: '/radios/radios-menu',
@@ -226,7 +251,6 @@
                 });
             }
             if (typeof handleNav === 'function') handleNav('radios', true);
-            // Actually navigate
             handleNav('radios');
         }
     };
@@ -251,24 +275,28 @@
             
             statusText.textContent = isRemote ? 'Synced with Room...' : 'Connecting...';
             
-            audio.play().catch(err => { 
-                statusText.textContent = "Interaction Required"; 
-            });
+            // Tenta reproduzir imediatamente
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(err => { 
+                    console.log("Autoplay blocked. Waiting for user interaction.");
+                    statusText.textContent = "Tap screen / Click to Play"; 
+                });
+            }
 
             audio.onplaying = () => { statusText.textContent = 'Live Audio Stream'; };
-            audio.onerror = () => { statusText.textContent = 'Station Offline'; };
+            audio.onerror = () => { statusText.textContent = 'Station Offline / Mixed Content Block'; };
         }
     }
 
-    // ✅ Função centralizada para sintonizar (com flag de bloqueio de socket)
     function tuneTo(index, isRemote = false) {
         if (index < 0 || index >= stations.length) return;
-        if (index === lastSyncedIndex && !isRemote) return; // ✅ Bloqueia duplicados locais
+        if (index === lastSyncedIndex && !isRemote) return; 
 
         const target = stations[index];
         lastSyncedIndex = index;
 
-        // Mover o dial visualmente
         dial.scrollTo({
             left: target.offsetLeft - (dial.offsetWidth / 2) + (target.offsetWidth / 2),
             behavior: 'smooth'
@@ -277,7 +305,6 @@
         updateUI(index);
         loadStream(target, isRemote);
 
-        // ✅ SÓ emite se NÃO for um comando vindo de fora
         if (!isRemote && window.socket) {
             window.socket.emit('sync_radio_dial', { index: index });
         }
@@ -311,67 +338,75 @@
         }, 350);
     }
 
-    // --- EVENTOS DO DIAL ---
-    dial.addEventListener("mousedown", (e) => {
+    // --- ARRRASTE TOUCH/MOBILE ---
+    const getX = (e) => e.touches ? e.touches[0].pageX : e.pageX;
+
+    const startDrag = (e) => {
         isDown = true;
         dial.style.scrollSnapType = "none";
         dial.style.scrollBehavior = "auto";
-        startX = e.pageX - dial.offsetLeft;
+        startX = getX(e) - dial.offsetLeft;
         scrollLeft = dial.scrollLeft;
-    });
+    };
 
-    window.addEventListener("mouseup", () => {
+    const stopDrag = () => {
         if (!isDown) return;
         isDown = false;
         dial.style.scrollSnapType = "x mandatory";
         dial.style.scrollBehavior = "smooth";
         handleManualSelection();
-    });
+    };
 
-    dial.addEventListener("mousemove", (e) => {
+    const moveDrag = (e) => {
         if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - dial.offsetLeft;
+        if (e.cancelable) e.preventDefault();
+        const x = getX(e) - dial.offsetLeft;
         dial.scrollLeft = scrollLeft - (x - startX) * 1.5;
-    });
+    };
+
+    dial.addEventListener("mousedown", startDrag);
+    dial.addEventListener("touchstart", startDrag, { passive: true });
+    window.addEventListener("mouseup", stopDrag);
+    window.addEventListener("touchend", stopDrag);
+    dial.addEventListener("mousemove", moveDrag);
+    dial.addEventListener("touchmove", moveDrag, { passive: false });
 
     dial.addEventListener("scroll", () => {
         if (!isDown) handleManualSelection();
     });
 
-    // --- SOCKETS (RECEPÇÃO) ---
-// --- SOCKETS (RECEPÇÃO) ---
-if (window.socket) {
-    // 1. Ouvir atualizações em tempo real
-    window.socket.off('update_radio_ui').on('update_radio_ui', (data) => {
-        if (!isDown) tuneTo(data.index, true);
-    });
-
-    // 2. Ouvir o estado global (Crucial para novos viewers)
-    window.socket.off('force_sync_arrival').on('force_sync_arrival', (state) => {
-        if (state.radioDialIndex !== undefined && state.radioDialIndex !== null) {
-            console.log("Sincronização imediata recebida:", state.radioDialIndex);
-            // Pequeno delay para garantir que o scroll funciona após render
-            setTimeout(() => tuneTo(state.radioDialIndex, true), 100);
+    // --- FORCE UNBLOCK FOR SMART TVS ---
+    // Quando o usuário clica em qualquer lugar da tela, nós reativamos o contexto
+    // de áudio que as TVs bloqueiam por padrão.
+    document.getElementById("sl-radio-master-container").addEventListener("click", () => {
+        if (audio.src) {
+            audio.play().catch(e => console.log("Playback still context-locked"));
         }
     });
 
-    // 3. Pedir o estado explicitamente ao entrar
-    window.socket.emit('request_current_state');
-}
+    // --- SOCKETS ---
+    if (window.socket) {
+        window.socket.off('update_radio_ui').on('update_radio_ui', (data) => {
+            if (!isDown) tuneTo(data.index, true);
+        });
 
-// --- STARTUP LOGIC ---
-// Em vez de forçar o index 5 logo de cara, vamos verificar o estado global primeiro
-$(document).ready(function() {
-    // Se o socket já tem a info, ele vai disparar o force_sync_arrival.
-    // Caso contrário, esperamos um pouco e se nada acontecer, usamos o index 5 como último recurso.
-    setTimeout(() => {
-        const hasActive = stations.some(s => s.classList.contains('active'));
-        if (!hasActive) {
-            console.log("Nenhum estado recebido, usando fallback index 5");
-            tuneTo(5, true);
-        }
-    }, 1200); // Aumentamos ligeiramente para dar tempo ao socket
-});
+        window.socket.off('force_sync_arrival').on('force_sync_arrival', (state) => {
+            if (state.radioDialIndex !== undefined && state.radioDialIndex !== null) {
+                setTimeout(() => tuneTo(state.radioDialIndex, true), 100);
+            }
+        });
+
+        window.socket.emit('request_current_state');
+    }
+
+    // --- INITIALIZATION ---
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+            const hasActive = stations.some(s => s.classList.contains('active'));
+            if (!hasActive) {
+                tuneTo(5, true);
+            }
+        }, 1200);
+    });
 }
 </script>

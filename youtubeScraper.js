@@ -101,10 +101,12 @@ async function getUploadsPlaylist(channelId, API_KEY) {
 async function getVideos(tag, type = 'search', maxTotalResults = 50) {
     ensureCacheDir();
 
+    // 1. Check cache using the original type parameter
     const cached = loadCache(tag, type);
     if (cached) return cached;
 
     const API_KEY = process.env.YOUTUBE_API_KEY;
+    const originalType = type; // <--- ✅ FIX 1: Save the original type here
 
     let allVideos = [];
     let nextPageToken = "";
@@ -114,10 +116,9 @@ async function getVideos(tag, type = 'search', maxTotalResults = 50) {
 
         let playlistId = null;
 
-        // FIX: convert channel → uploads playlist (cheap + correct)
         if (type === 'channel') {
             playlistId = await getUploadsPlaylist(tag, API_KEY);
-            type = 'playlist';
+            type = 'playlist'; // Changing this internally for the API query is fine now
         }
 
         while (allVideos.length < maxTotalResults) {
@@ -130,16 +131,13 @@ async function getVideos(tag, type = 'search', maxTotalResults = 50) {
             let url = "";
 
             if (type === 'playlist') {
-
                 url =
                     `https://www.googleapis.com/youtube/v3/playlistItems` +
                     `?part=snippet` +
                     `&maxResults=${resultsToFetch}` +
                     `&playlistId=${encodeURIComponent(playlistId || tag)}` +
                     `&key=${API_KEY}`;
-
             } else {
-
                 url =
                     `https://www.googleapis.com/youtube/v3/search` +
                     `?part=snippet` +
@@ -159,7 +157,6 @@ async function getVideos(tag, type = 'search', maxTotalResults = 50) {
             }
 
             const data = await response.json();
-
             trackQuota(1);
 
             // ─── EXTRACT IDS ─────────────────────────────────────────────
@@ -188,7 +185,6 @@ async function getVideos(tag, type = 'search', maxTotalResults = 50) {
             }
 
             const detailsData = await detailsRes.json();
-
             trackQuota(1);
 
             const durationMap = {};
@@ -218,7 +214,6 @@ async function getVideos(tag, type = 'search', maxTotalResults = 50) {
                     };
                 })
                 .filter(v => v.videoId)
-                // Shorts filter (safer threshold)
                 .filter(v => parseDuration(v.duration) >= 90);
 
             allVideos = allVideos.concat(videos);
@@ -227,9 +222,10 @@ async function getVideos(tag, type = 'search', maxTotalResults = 50) {
             if (!nextPageToken) break;
         }
 
+        // 2. Save cache file to disk using the preserved original type format
         if (allVideos.length) {
             fs.writeFileSync(
-                cacheFilePath(tag, type),
+                cacheFilePath(tag, originalType), // <--- ✅ FIX 2: Use originalType here
                 JSON.stringify(allVideos, null, 2)
             );
         }
