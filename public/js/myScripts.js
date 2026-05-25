@@ -5,7 +5,13 @@ const params = new URLSearchParams(window.location.search);
 window.myRoom = params.get('room') || window.__ROOM__ || 'Lobby';
 
 // Pass room in handshake so socket.js knows which room to join
-window.socket = io({ query: { room: window.myRoom } });
+window.socket = io({ 
+    query: { 
+        room: window.myRoom,
+        // If window.isRemoteAction is true, they are a viewer. If not, they are the controller.
+        isController: (typeof window.isRemoteAction !== 'undefined') ? !window.isRemoteAction : true
+    } 
+});
 window.isRemoteAction = false;
 
 
@@ -353,6 +359,12 @@ function closeSubMenu(isRemote = false) {
         audio.remove();
     }
 
+    // Tell the server to trigger the global wipe out
+    if (!isRemote && window.socket) {
+        window.socket.emit('stop_radio_global');
+    }
+
+
     if (!isRemote && window.socket && window.socket.connected) {
         window.socket.emit('report_current_time', { 
             videoId: null, 
@@ -524,7 +536,7 @@ function aplicarBackground(url) {
 let scrollTimeout;
 
 // Todos os seletores dentro de UMA única string
-const globalScrollTargets = '#sl-main-scroll-area, #conteiner, .conteiner, #xxx-module, #grid-content, #yt-content-scroll,#flickr-results-grid';
+const globalScrollTargets = '#sl-main-scroll-area, #conteiner, .conteiner, #xxx-module, #grid-content, #yt-content-scroll,#flickr-results-grid,#content-wrapper';
 
 $(document).on('scroll', globalScrollTargets, function() {
     // 1. Só envia se o socket existir e se não for um scroll vindo de fora (remote)
@@ -725,6 +737,7 @@ socket.on('room_switched', function(data) {
                                         $('#yt-content-scroll').length   ? $('#yt-content-scroll') :
                                         $('#xxx-module').length          ? $('#xxx-module') :
                                         $('#flickr-results-grid').length ? $('#flickr-results-grid') :
+                                        $('#content-wrapper').length ? $('#content-wrapper') :
                                         $('#conteiner');
 
                     if ($scrollTarget.length > 0) {
@@ -874,6 +887,19 @@ socket.on('mirror_ajax_nav', function(data) {
             $('#radio_glass').empty().html('<div id="muses_target"></div>');
             $('#station_display').text("Station Stopped");
         });
+///////////////////////////////////
+// Inside your socket listener block in myScripts.js
+// This tells all clients: "When the server says 'UpdateRadioGrid', run the load function"
+window.socket.on('UpdateRadioGrid', function(data) {
+    if (typeof window.irExecuteLoad === 'function') {
+        window.irExecuteLoad(data.type, data.value, data.label);
+    }
+});
+// Add this inside your window.socket.on block
+window.socket.on('UpdateRadioBack', () => {
+    window.irShowMenu();
+});
+
 
         // -------------------------------------------------------
         // openPage — triggered by remote video click

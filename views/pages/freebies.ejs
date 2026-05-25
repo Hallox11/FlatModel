@@ -14,7 +14,7 @@
     height: 60px; /* Um pouco maior para suavizar o fade */
     display: flex;
     align-items: center;
-    padding: 0 60px;
+    padding: 0 50px;
     /* Efeito de Fade Moderno */
     background: linear-gradient(to bottom, 
         rgba(0, 0, 0, 1) 0%, 
@@ -42,15 +42,15 @@
     flex-grow: 1;      
     overflow-y: auto;  
     overflow-x: hidden; 
-    padding: 7px 23px; 
+    padding: 0px 23px; 
     box-sizing: border-box;
-    width: 1230px;
-    margin-left: 25px;
+    width: 1235px;
+    margin-left: 20px;
     }
 
 /* 4. ESTILIZAÇÃO DA BARRA DE ROLAGEM (Red YouTube Style) */
 #content-wrapper::-webkit-scrollbar {
-    width: 15px;
+    width: 12px;
 }
 
 #content-wrapper::-webkit-scrollbar-track {
@@ -153,10 +153,10 @@
         <h1>Freebies & Deals</h1>
         <div style="display:flex; align-items:center; gap:20px;">
 
-            <div id="layout-btns" style="display: flex; gap: 8px;margin-left: 100px;">
-                <button class="layout-btn" onclick="setFreebiesLayout(2)">2</button>
-                <button class="layout-btn" onclick="setFreebiesLayout(3)">3</button>
-                <button class="layout-btn active" onclick="setFreebiesLayout(4)">4</button>
+            <div id="layout-btns" style="display: flex; gap: 8px;margin-left: 290px;">
+                <button class="layout-btn" onclick="setFreebiesLayout(2)">2X</button>
+                <button class="layout-btn" onclick="setFreebiesLayout(3)">3X</button>
+                <button class="layout-btn active" onclick="setFreebiesLayout(4)">4X</button>
             </div>
         </div>
     <div class="close-menu-btn" onclick="closeSubMenu()">
@@ -177,87 +177,115 @@
 (function() {
     const TP_ICON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`;
 
-window.setFreebiesLayout = function(cols) {
-    // Update column-count instead of grid-template-columns
-    $('#freebies-grid').css('column-count', cols); 
-    
-    $('.layout-btn').removeClass('active');
-    $(`.layout-btn`).each(function() {
-        if($(this).text() == cols) $(this).addClass('active');
+    window.setFreebiesLayout = function(cols, isRemote = false) {
+        $('#freebies-grid').css('column-count', cols); 
+        $('.layout-btn').removeClass('active');
+$(`.layout-btn`).each(function() {
+        // Extract the number from "2x" by parsing the integer
+        const btnVal = parseInt($(this).text()); 
+        if(btnVal == cols) {
+            $(this).addClass('active');
+        }
     });
-    localStorage.setItem('freebies_cols', cols);
-};
+        localStorage.setItem('freebies_cols', cols);
 
-    // FUNÇÃO ON-DEMAND: Agora chama a API para extrair o SLURL no clique
+        if (!isRemote && window.socket && window.myRoom) {
+            window.socket.emit('state_sync', { type: 'layout_change', cols: cols, room: window.myRoom });
+        }
+    };
+
     window.handleFreebieTeleport = async function(articleUrl, btnId) {
         const $btn = $(`#${btnId}`);
         if ($btn.hasClass('loading')) return;
-
         try {
             $btn.addClass('loading').html('A procurar...');
-            
-            // Chama o endpoint de extração que criámos no servidor
             const response = await fetch(`/api/freebies/teleport?articleUrl=${encodeURIComponent(articleUrl)}`);
             const data = await response.json();
-
             if (data.teleportUrl) {
-                // Envia para o servidor da TV para executar o comando LSL
                 $.post('/send-command', { command: 'teleport', value: data.teleportUrl });
                 $btn.html(TP_ICON + ' Sucesso!').css('background', '#4CAF50');
                 setTimeout(() => $btn.removeClass('loading').html(TP_ICON + ' Teleport').css('background', ''), 3000);
             } else {
-                alert("Não foi possível encontrar o link de teleport neste site.");
+                alert("Não foi possível encontrar o link de teleport.");
                 $btn.removeClass('loading').html(TP_ICON + ' Teleport');
             }
         } catch (e) {
-            console.error("Erro no teleport:", e);
             $btn.removeClass('loading').html(TP_ICON + ' Erro');
         }
     };
 
     function buildFreebieCard(item, index) {
+        const cardId = `fb-card-${index}`;
         const btnId = `fb-tp-${index}`;
         return `
-            <div class="freebie-card">
+            <div class="freebie-card" id="${cardId}" 
+                 onmouseenter="syncHover('${cardId}', true)" 
+                 onmouseleave="syncHover('${cardId}', false)">
                 <div class="card-img-wrap" onclick="window.open('${item.url}', '_blank')">
                     <img src="${item.image || ''}" onerror="this.src='./img/no_image.png'">
-                    <button id="${btnId}" class="tp-btn" 
-                        onclick="handleFreebieTeleport('${item.url}', '${btnId}'); event.stopPropagation();">
+                    <button id="${btnId}" class="tp-btn" onclick="handleFreebieTeleport('${item.url}', '${btnId}'); event.stopPropagation();">
                         ${TP_ICON} Teleport
                     </button>
                 </div>
                 <div class="card-body">
                     <div class="card-title">${item.title}</div>
-                    <div class="card-desc">${item.desc || 'Sem descrição disponível.'}</div>
+                    <div class="card-desc">${item.desc || 'Sem descrição.'}</div>
                 </div>
             </div>
         `;
     }
 
-    window.closeOverlay = function() {
-        $('#freebies-overlay-container').fadeOut(300, function() { $(this).remove(); });
+    // --- SYNC FUNCTIONS ---
+    window.syncHover = function(cardId, isActive) {
+        if (window.socket && window.myRoom) {
+            window.socket.emit('state_sync', { type: 'hover', id: cardId, active: isActive, room: window.myRoom });
+        }
     };
 
-    async function initFreebies() {
+    // --- SOCKET LISTENER (Unified) ---
+    if (window.socket) {
+        window.socket.on('state_sync', (data) => {
+            if (data.type === 'layout_change') window.setFreebiesLayout(data.cols, true);
+            
+            if (data.type === 'scroll') {
+                window.isSyncing = true;
+                $('#content-wrapper').scrollTop(data.position);
+                setTimeout(() => { window.isSyncing = false; }, 100);
+            }
+            
+            if (data.type === 'hover') {
+                const el = document.getElementById(data.id);
+                if (el) {
+                    el.style.background = data.active ? 'rgba(0,0,0,0.7)' : ''; // Default resets to CSS
+                    el.style.borderColor = data.active ? '#ffcc00' : '';
+                }
+            }
+        });
+    }
+
+    // --- SCROLL BROADCASTER ---
+    $('#content-wrapper').on('scroll', function() {
+        if (window.isSyncing) return;
+        if (window.socket && window.myRoom) {
+            window.socket.emit('state_sync', { type: 'scroll', position: $(this).scrollTop(), room: window.myRoom });
+        }
+    });
+
+    async function initFreebies(cols) {
         try {
             const res = await fetch('/api/freebies');
             const items = await res.json();
-
             $('#loading-freebies').hide();
-            
             if (items && items.length) {
-                $('#item-count').text(`${items.length} OFERTAS`);
                 const html = items.map((item, idx) => buildFreebieCard(item, idx)).join('');
                 $('#freebies-grid').html(html).fadeIn();
-                
-                const savedCols = localStorage.getItem('freebies_cols') || 4;
-                setFreebiesLayout(savedCols);
+                window.setFreebiesLayout(cols || localStorage.getItem('freebies_cols') || 3);
             }
         } catch (e) {
-            $('#loading-freebies').html('<p style="color:red;">Falha na conexão com o servidor.</p>');
+            $('#loading-freebies').html('<p style="color:red;">Falha na conexão.</p>');
         }
     }
 
-    initFreebies();
+    initFreebies(3);
 })();
 </script>

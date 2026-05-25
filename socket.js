@@ -299,23 +299,23 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
             state.lastUpdate     = Date.now();
         });
 
-// Locate this in your provided file:
-socket.on('toPlay', (data) => {
-    const time = typeof data === 'object' ? data.time : data;
-    const vId = typeof data === 'object' ? data.videoId : state.videoId;
+        // Locate this in your provided file:
+        socket.on('toPlay', (data) => {
+            const time = typeof data === 'object' ? data.time : data;
+            const vId = typeof data === 'object' ? data.videoId : state.videoId;
 
-    state.videoTimestamp = time;
-    state.videoPaused    = false;
-    state.lastUpdate     = Date.now(); // <--- CRITICAL: Store the sync time
-    if (vId) state.videoId = vId;
+            state.videoTimestamp = time;
+            state.videoPaused    = false;
+            state.lastUpdate     = Date.now(); // <--- CRITICAL: Store the sync time
+            if (vId) state.videoId = vId;
 
-    // Send an OBJECT instead of just a number
-    io.to(clientRoom).emit('Play', {
-        timestamp: time,
-        lastUpdate: state.lastUpdate,
-        videoId: state.videoId
-    });
-});
+            // Send an OBJECT instead of just a number
+            io.to(clientRoom).emit('Play', {
+                timestamp: time,
+                lastUpdate: state.lastUpdate,
+                videoId: state.videoId
+            });
+        });
 
         socket.on('toPause', (time) => {
             state.videoTimestamp = time;
@@ -335,12 +335,23 @@ socket.on('toPlay', (data) => {
             socket.to(clientRoom).emit('update_radio_ui', { index: data.index });
         });
 
+        // FIXED: Now clears the dial index memory too!
         socket.on('stop_radio_global', () => {
             state.radioStream = null;
             state.radioName   = null;
+            state.radioDialIndex = null; // Clear the tuning memory completely
             io.to(clientRoom).emit('force_stop_radio');
         });
-
+        // Add this to your socket server handling logic
+        socket.on('RequestRadioGrid', (data) => {
+            // Send to everyone in the room, INCLUDING the sender
+            io.to(data.room).emit('UpdateRadioGrid', data);
+        });
+        // Add this to your server-side socket logic
+        socket.on('RequestRadioBack', (data) => {
+            // Tell all clients in the room to go back and kill their players
+            io.to(data.room).emit('UpdateRadioBack');
+        });
         // ── BACKGROUNDS ───────────────────────────────────────
         socket.on('change_bg', (data) => {
             const url = data.image || data.url;

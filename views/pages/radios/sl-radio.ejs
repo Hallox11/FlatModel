@@ -156,7 +156,9 @@
 </style>
 
 <div id="sl-radio-master-container">
-    <div style="top:30px;left:1215px" class="close-menu-btn" onclick="slExit()">
+    <!-- FIXED: Fires stop_radio_global first, then redirects to the radios-menu -->
+    <div style="top:30px;left:1215px" class="close-menu-btn" 
+         onclick="if(window.socket) { window.socket.emit('stop_radio_global'); } handleNav('radios');">
         <span class="material-symbols-rounded">close</span>
     </div>
 
@@ -170,6 +172,8 @@
     <div class="station" data-stream="https://stream3.10223.cc:8025/memento_v3">Memento Mori</div>
     <div class="station" data-stream="/proxy-stream?url=http://luanes-world.go-stream.live:8742/;stream.mp3">Luane's World</div>
     <div class="station" data-stream="https://q2stream.wqxr.org/q2">Delicatessen</div>    
+    <div class="station" data-stream="/proxy-stream?url=http://boogie.vside-radio.com:8061/">FogBound Blues</div>
+        <div class="station" data-stream="/proxy-stream?url=http://bigdaddys.digistream.info:20368/">BIG DADDY'S</div>
     <div class="station" data-stream="/proxy-stream?url=http://23.29.119.99:8011/;stream.mp3">Hazardous</div>
     <div class="station" data-stream="/proxy-stream?url=http://d-oo-b.cc:8008/;stream.mp3">Two Fish</div>
     <div class="station" data-stream="https://stream-tx3.radioparadise.com/mp3-192">Satyr Dance Club</div>
@@ -241,19 +245,7 @@
     let tuneTimeout;
     let lastSyncedIndex = -1; 
 
-    window.slExit = function() {
-        if (audio) { audio.pause(); audio.src = ''; }
-        if (typeof closeSubMenu === 'function') {
-            if (window.socket) {
-                window.socket.emit('mirror_ajax_nav', {
-                    mode: 'radios', route: '/radios/radios-menu',
-                    path: '/radios/radios-menu', room: window.myRoom
-                });
-            }
-            if (typeof handleNav === 'function') handleNav('radios', true);
-            handleNav('radios');
-        }
-    };
+
 
     function updateUI(index) {
         stations.forEach(s => s.classList.remove("active"));
@@ -384,7 +376,7 @@
         }
     });
 
-    // --- SOCKETS ---
+// --- SOCKETS ---
     if (window.socket) {
         window.socket.off('update_radio_ui').on('update_radio_ui', (data) => {
             if (!isDown) tuneTo(data.index, true);
@@ -393,6 +385,15 @@
         window.socket.off('force_sync_arrival').on('force_sync_arrival', (state) => {
             if (state.radioDialIndex !== undefined && state.radioDialIndex !== null) {
                 setTimeout(() => tuneTo(state.radioDialIndex, true), 100);
+            }
+        });
+
+        // ADD THIS NEW LISTENER HERE TO KILL LOCAL AUDIO INSTANCES
+window.socket.off('force_stop_radio').on('force_stop_radio', () => {
+            console.log("Global radio stop received: Killing local audio instance.");
+            if (audio) {
+                audio.pause();
+                audio.src = '';
             }
         });
 

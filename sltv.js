@@ -7,7 +7,7 @@ const http = require('http');
 var path = require('path');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-
+const net = require('net');
 const axios = require('axios');
 const PORT = process.env.PORT || 3000;
 const fs = require('fs');
@@ -267,24 +267,68 @@ app.get('/proxy-stream', (req, res) => {
         return res.status(400).send('Missing "url" target stream query parameter.');
     }
 
-    // Security check: validate that the requested URL is an unencrypted http audio stream
-    if (!targetUrl.startsWith('http://')) {
-        return res.status(400).send('Proxy target must be a standard http stream.');
+    try {
+        // Clean and parse the URL manually to get host and port
+        const cleanUrl = targetUrl.replace('http://', '');
+        const [hostWithPort, pathAndStream] = cleanUrl.split('/');
+        const [host, portStr] = hostWithPort.split(':');
+        const port = portStr ? parseInt(portStr, 10) : 80;
+        const path = pathAndStream ? '/' + pathAndStream : '/';
+
+        // Set secure dashboard-friendly streaming headers
+        res.setHeader('Content-Type', 'audio/mpeg');
+        res.setHeader('Transfer-Encoding', 'chunked');
+
+        // Create a raw TCP connection directly to the radio server
+        const client = net.createConnection({ host, port }, () => {
+            // Send a raw, primitive HTTP request that Shoutcast v1 understands
+            // Crucial: "Icy-MetaData: 0" prevents the server from injecting text metadata into the audio stream
+            client.write(`GET ${path} HTTP/1.0\r\n`);
+            client.write(`Host: ${host}\r\n`);
+            client.write(`User-Agent: WinampMPEG/5.0\r\n`);
+            client.write(`Accept: */*\r\n`);
+            client.write(`Icy-MetaData: 0\r\n\r\n`);
+        });
+
+        let strippedHeader = false;
+        let bufferData = Buffer.alloc(0);
+
+        client.on('data', (chunk) => {
+            if (!strippedHeader) {
+                // Combine incoming data until we find the end of the HTTP/ICY header (\r\n\r\n)
+                bufferData = Buffer.concat([bufferData, chunk]);
+                const headerEndIndex = bufferData.indexOf('\r\n\r\n');
+
+                if (headerEndIndex !== -1) {
+                    strippedHeader = true;
+                    // Slice off the text headers and push the raw audio data remaining in the buffer to the browser
+                    const audioStartIndex = headerEndIndex + 4;
+                    if (bufferData.length > audioStartIndex) {
+                        res.write(bufferData.slice(audioStartIndex));
+                    }
+                    bufferData = null; // Clear memory
+                }
+            } else {
+                // Headers are gone, stream raw audio bytes directly to the dashboard player
+                res.write(chunk);
+            }
+        });
+
+        client.on('error', (err) => {
+            console.error("[Socket Proxy Error]:", err.message);
+            if (!res.headersSent) res.status(500).send('Stream socket error.');
+            res.end();
+        });
+
+        // If the browser user stops the radio or closes the page, close our connection to the stream
+        req.on('close', () => {
+            client.destroy();
+        });
+
+    } catch (err) {
+        console.error("[Proxy Setup Error]:", err.message);
+        if (!res.headersSent) res.status(500).send('Invalid stream target syntax.');
     }
-
-    // Set response headers to inform the browser it is treating this stream as an audio chunk
-    res.setHeader('Content-Type', 'audio/mpeg');
-    res.setHeader('Transfer-Encoding', 'chunked');
-
-    // Pipe the external audio data directly through our server response
-    http.get(targetUrl, (streamRes) => {
-        streamRes.pipe(res);
-    }).on('error', (err) => {
-        console.error("[Audio Proxy Error]:", err.message);
-        if (!res.headersSent) {
-            res.status(500).send('Unable to stream source audio material.');
-        }
-    });
 });
 
 
