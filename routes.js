@@ -267,7 +267,7 @@ router.get('/stream-cam', (req, res) => {
     const token = crypto.randomBytes(16).toString('hex');
     pendingTokens[token] = { 
         owner: 'stream-cam',
-        object_id: 'stream-cam-for-user',
+        object_id: 'stream-cam',
         expires: Date.now() + 5 * 60 * 1000 
     };
     // Redireciona para a página principal com o token no URL
