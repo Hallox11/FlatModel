@@ -1,6 +1,6 @@
 <style>
 /* ============================================================
-   CINEMA HUB - PREMIUM TV INTERFACE (MUSIC DESIGN LOGIC)
+   CINEMA HUB - PREMIUM TV INTERFACE
    ============================================================ */
 
 #movies-menu-wrapper {
@@ -14,7 +14,7 @@
     align-items: center;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
     margin: 20px auto;
-    position: relative; /* Essential for the close button positioning */
+    position: relative;
 }
 
 #movies-menu-wrapper .movies-header {
@@ -58,10 +58,7 @@
     transition: all 0.3s ease;
 }
 
-.feature-btn:hover { 
-    background: white; 
-    color: black; 
-}
+.feature-btn:hover { background: white; color: black; }
 
 .movie-group {
     background: rgba(0, 0, 0, 0.4);
@@ -78,7 +75,7 @@
 }
 
 .movie-group:hover {
-    transform: scale(1.07); /* Changed from 0px to create a lift effect */
+    transform: scale(1.07);
     background: rgba(0, 0, 0, 0.7);
     border-color: rgba(255, 255, 255, 0.8);
 }
@@ -105,84 +102,40 @@
     white-space: nowrap;
 }
 
-/* ACTION / TRENDING: Red */
+/* Color Categories */
 .cat-action { border-color: rgba(255, 75, 43, 0.3); }
 .cat-action .main-title-btn { color: #ff4b2b; }
 .cat-action .sub-list-btn { color: #ff4b2b; border-color: rgba(255, 75, 43, 0.4); }
 .cat-action .sub-list-btn:hover { background: #ff4b2b; color: white; }
 
-/* KIDS / ANIMATION: Cyan */
 .cat-kids { border-color: rgba(0, 212, 255, 0.3); }
 .cat-kids .main-title-btn { color: #00d4ff; }
 .cat-kids .sub-list-btn { color: #00d4ff; border-color: rgba(0, 212, 255, 0.4); }
 .cat-kids .sub-list-btn:hover { background: #00d4ff; color: white; }
 
-/* CLASSIC / WESTERN: Amber */
 .cat-classic { border-color: rgba(255, 179, 71, 0.3); }
 .cat-classic .main-title-btn { color: #ffb347; }
 .cat-classic .sub-list-btn { color: #ffb347; border-color: rgba(255, 179, 71, 0.4); }
 .cat-classic .sub-list-btn:hover { background: #ffb347; color: white; }
 
-/* DOCUMENTARY / HISTORY: Purple */
 .cat-docs { border-color: rgba(189, 0, 255, 0.3); }
 .cat-docs .main-title-btn { color: #bd00ff; }
 .cat-docs .sub-list-btn { color: #bd00ff; border-color: rgba(189, 0, 255, 0.4); }
 .cat-docs .sub-list-btn:hover { background: #bd00ff; color: white; }
 
-
-
-/* Remote Hover for the Movie Cards */
-.movie-group.remote-hover {
-    transform: scale(1.07); /* Changed from 0px to create a lift effect */
-    background: rgba(0, 0, 0, 0.7);
-    border-color: rgba(255, 255, 255, 0.8);
-}
-
-/* Remote Hover for the Feature Buttons (Top Row) */
-.feature-btn.remote-hover {
-    background: white;
-    color: black;
-}
-
-/* Remote Hover for the Sub-buttons (the pills) */
-.sub-list-btn.remote-hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
-
-/* ADD TO YOUR STYLE BLOCK */
 #loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000000; /* Solid black to ensure it hides the background */
-    display: none; /* We will change this to 'flex' via JS */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999; /* Higher than everything else */
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: #000000; display: none; flex-direction: column;
+    justify-content: center; align-items: center; z-index: 999999;
 }
-
 .spinner {
-    width: 60px;
-    height: 60px;
-    border: 6px solid rgba(255, 255, 255, 0.1);
-    border-top: 6px solid #00d4ff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+    width: 60px; height: 60px; border: 6px solid rgba(255, 255, 255, 0.1);
+    border-top: 6px solid #00d4ff; border-radius: 50%; animation: spin 1s linear infinite;
 }
-
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 </style>
 
 <div id="movies-menu-wrapper">
-<!-- ADD INSIDE <div id="movies-menu-wrapper"> -->
-<div id="loader" class="loading-overlay">
-    <div class="spinner"></div>
-    <div style="margin-top: 15px; letter-spacing: 2px; font-weight: bold;">LOADING HUB...</div>
-</div>
 
     <div class="close-menu-btn" onclick="closeSubMenu()">
         <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
@@ -192,104 +145,99 @@
 
     <div class="movies-grid-container">
         <div class="feature-row">
-            <div class="feature-btn" onclick="handleNav('/movies-grid?genre=mixmovies hollywood&menu=/movies-menu')">MIX SEARCH</div>
-            <div class="feature-btn" onclick="handleNav('/movies-grid?genre=movie trailers&menu=/movies-menu')">TRAILERS</div>
-            <div class="feature-btn" onclick="handleNav('/youtube-grid?genre=UCGBzBkV-MinlBvHBzZawfLQ&isChannel=true&menu=/youtube-menu')">MOVIE CENTRAL</div>
+            <div class="feature-btn" onclick="loadWithSpinner('/movies-grid?genre=mixmovies hollywood&menu=/movies-menu')">MIX SEARCH</div>
+            <div class="feature-btn" onclick="loadWithSpinner('/movies-grid?genre=movie trailers&menu=/movies-menu')">TRAILERS</div>
+            <div class="feature-btn" onclick="loadWithSpinner('/youtube-grid?genre=UCGBzBkV-MinlBvHBzZawfLQ&isChannel=true&menu=/youtube-menu')">MOVIE CENTRAL</div>
         </div>
 
-        <div class="movie-group cat-action" onclick="handleNav('/movies-grid?genre=UCa-U9IwHcs8_CSf6si6h_3Q&isChannel=true&menu=/movies-menu')">
+        <div class="movie-group cat-action" onclick="loadWithSpinner('/movies-grid?genre=UCa-U9IwHcs8_CSf6si6h_3Q&isChannel=true&menu=/movies-menu')">
             <div class="main-title-btn">Majestic</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">POPCORNFLIX</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">POPCORNFLIX</span>
         </div>
 
-        <div class="movie-group cat-action" onclick="handleNav('/youtube-grid?genre=UCPPPrnT5080hPMxK1N4QSjA&isChannel=true&menu=/movies-menu')">
+        <div class="movie-group cat-action" onclick="loadWithSpinner('/youtube-grid?genre=UCPPPrnT5080hPMxK1N4QSjA&isChannel=true&menu=/movies-menu')">
             <div class="main-title-btn">V Movies</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=PL9kKQ7xjE8HNy65gqpXWsc_jCn6wRjyxa&isPlaylist=true&menu=/movies-menu')">Lists</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=PL9kKQ7xjE8HNy65gqpXWsc_jCn6wRjyxa&isPlaylist=true&menu=/movies-menu')">Lists</span>
         </div>
 
-        <div class="movie-group cat-classic" onclick="handleNav('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">
+        <div class="movie-group cat-classic" onclick="loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">
             <div class="main-title-btn">POPCORNFLIX</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=retro movies list&menu=/movies-menu')">VIEW LISTS</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=retro movies list&menu=/movies-menu')">VIEW LISTS</span>
         </div>
 
-        <div class="movie-group cat-classic" onclick="handleNav('/movies-grid?genre=UCGADft_i4N1U5nXlfr2424A&isChannel=true&menu=/movies-menu')">
+        <div class="movie-group cat-classic" onclick="loadWithSpinner('/movies-grid?genre=UCGADft_i4N1U5nXlfr2424A&isChannel=true&menu=/movies-menu')">
             <div class="main-title-btn">BOXOFFICE</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=western classic movies&menu=/movies-menu')">CLASSIC</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=western classic movies&menu=/movies-menu')">CLASSIC</span>
         </div>
 
-        <div class="movie-group cat-kids" onclick="handleNav('/movies-grid?genre=UCSBhm8415diORi1meGxF_Qw&isChannel=true&menu=/movies-menu')">
+        <div class="movie-group cat-kids" onclick="loadWithSpinner('/movies-grid?genre=UCSBhm8415diORi1meGxF_Qw&isChannel=true&menu=/movies-menu')">
             <div class="main-title-btn">Cine Pulse</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=mr bean comedy&menu=/movies-menu')">MR. BEAN</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=mr bean comedy&menu=/movies-menu')">MR. BEAN</span>
         </div>
 
-        <div class="movie-group cat-action" onclick="handleNav('/movies-grid?genre=UC6A_LC-A5NVJ2vw9A0OjCug&isChannel=true&menu=/movies-menu')">
+        <div class="movie-group cat-action" onclick="loadWithSpinner('/movies-grid?genre=UC6A_LC-A5NVJ2vw9A0OjCug&isChannel=true&menu=/movies-menu')">
             <div class="main-title-btn">THE MIDNIGHT</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">POPCORNFLIX</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">POPCORNFLIX</span>
         </div>
 
-        <div class="movie-group cat-action" onclick="handleNav('/youtube-grid?genre=UCyU7b4ESe1cPG-y-CR-tolw&isChannel=true&menu=/movies-menu')">
+        <div class="movie-group cat-action" onclick="loadWithSpinner('/youtube-grid?genre=UCyU7b4ESe1cPG-y-CR-tolw&isChannel=true&menu=/movies-menu')">
             <div class="main-title-btn">APEX Movies</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=PL9kKQ7xjE8HNy65gqpXWsc_jCn6wRjyxa&isPlaylist=true&menu=/movies-menu')">Lists</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=PL9kKQ7xjE8HNy65gqpXWsc_jCn6wRjyxa&isPlaylist=true&menu=/movies-menu')">Lists</span>
         </div>
 
-        <div class="movie-group cat-classic" onclick="handleNav('/movies-grid?genre=retro movies&menu=/movies-menu')">
+        <div class="movie-group cat-classic" onclick="loadWithSpinner('/movies-grid?genre=retro movies&menu=/movies-menu')">
             <div class="main-title-btn">Retro</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=retro movies list&menu=/movies-menu')">VIEW LISTS</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=retro movies list&menu=/movies-menu')">VIEW LISTS</span>
         </div>
 
-        <div class="movie-group cat-classic" onclick="handleNav('/movies-grid?genre=western movies&menu=/movies-menu')">
+        <div class="movie-group cat-classic" onclick="loadWithSpinner('/movies-grid?genre=western movies&menu=/movies-menu')">
             <div class="main-title-btn">Western</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=western classic movies&menu=/movies-menu')">CLASSIC</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=western classic movies&menu=/movies-menu')">CLASSIC</span>
         </div>
 
-        <div class="movie-group cat-kids" onclick="handleNav('/movies-grid?genre=comedy movies&menu=/movies-menu')">
+        <div class="movie-group cat-kids" onclick="loadWithSpinner('/movies-grid?genre=comedy movies&menu=/movies-menu')">
             <div class="main-title-btn">Comedy</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=mr bean comedy&menu=/movies-menu')">MR. BEAN</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=mr bean comedy&menu=/movies-menu')">MR. BEAN</span>
         </div>
 
-
-
-
-        <div class="movie-group cat-kids" onclick="handleNav('/movies-grid?genre=pink panther&menu=/movies-menu')">
+        <div class="movie-group cat-kids" onclick="loadWithSpinner('/movies-grid?genre=pink panther&menu=/movies-menu')">
             <div class="main-title-btn">Pink Panther</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=cartoons&menu=/movies-menu')">CARTOONS</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=cartoons&menu=/movies-menu')">CARTOONS</span>
         </div>
 
-        <div class="movie-group cat-kids" onclick="handleNav('/movies-grid?genre=warner kids&menu=/movies-menu')">
+        <div class="movie-group cat-kids" onclick="loadWithSpinner('/movies-grid?genre=warner kids&menu=/movies-menu')">
             <div class="main-title-btn">Warner Kids</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=kids movies&menu=/movies-menu')">KIDS LISTS</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=kids movies&menu=/movies-menu')">KIDS LISTS</span>
         </div>
 
-        <div class="movie-group cat-docs" onclick="handleNav('/movies-grid?genre=thriller movies&menu=/movies-menu')">
+        <div class="movie-group cat-docs" onclick="loadWithSpinner('/movies-grid?genre=thriller movies&menu=/movies-menu')">
             <div class="main-title-btn">THRILLERS</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=classics thriller movies&menu=/movies-menu')">CLASSICS</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=classics thriller movies&menu=/movies-menu')">CLASSICS</span>
         </div>
 
-        <div class="movie-group cat-action" onclick="handleNav('/movies-grid?genre=action movies&menu=/movies-menu')">
+        <div class="movie-group cat-action" onclick="loadWithSpinner('/movies-grid?genre=action movies&menu=/movies-menu')">
             <div class="main-title-btn">Action</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=thriller movies&menu=/movies-menu')">THRILLERS</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=thriller movies&menu=/movies-menu')">THRILLERS</span>
         </div>
 
-        <div class="movie-group cat-classic" onclick="handleNav('/movies-grid?genre=scifi movies&menu=/movies-menu')">
+        <div class="movie-group cat-classic" onclick="loadWithSpinner('/movies-grid?genre=scifi movies&menu=/movies-menu')">
             <div class="main-title-btn">Sci-Fi</div>
-            <span class="sub-list-btn" onclick="event.stopPropagation(); handleNav('/movies-grid?genre=scifi classic movies&menu=/movies-menu')">CLASSICS</span>
+            <span class="sub-list-btn" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=scifi classic movies&menu=/movies-menu')">CLASSICS</span>
         </div>
     </div>
-
 </div>
+
 <script>
-function triggerNav(url) {
-    // 1. Show loader immediately
-    const loader = document.getElementById('loader');
-    if (loader) loader.style.display = 'flex';
-    
-    // 2. Small delay (optional, 10ms) to ensure DOM renders the loader before the heavy nav fetch
-    setTimeout(() => {
-        if (typeof handleNav === 'function') {
-            handleNav(url);
-        } else {
-            window.location.href = url;
+    function loadWithSpinner(url) {
+        // 1. Show the loader
+        if (window.showLoader) {
+            window.showLoader();
         }
-    }, 10);
-}
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                handleNav(url);
+            });
+        });
+    }
 </script>

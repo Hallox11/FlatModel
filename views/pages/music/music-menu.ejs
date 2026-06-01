@@ -14,7 +14,7 @@
     align-items: center;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
     margin: 20px auto;
-    position: relative; /* Essential for the close button positioning */
+    position: relative;
 }
 
 #music-menu-wrapper .music-header {
@@ -46,7 +46,7 @@
 
 .feature-btn {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.4); /* Softened from 0.8 */
+    border: 1px solid rgba(255, 255, 255, 0.4);
     padding: 22px;
     border-radius: 15px;
     color: white;
@@ -79,7 +79,7 @@
 }
 
 .music-group:hover {
-    transform: scale(1.07); /* Changed from 0px to create a lift effect */
+    transform: scale(1.07);
     background: rgba(0, 0, 0, 0.7);
     border-color: rgba(255, 255, 255, 0.8);
 }
@@ -123,27 +123,9 @@
 .energy-soul .main-genre-btn1 { color: #d385ee; border-color: rgba(189, 0, 255, 0.6); }
 .energy-soul .main-genre-btn1:hover { background: #d385ee; color: white; }
 
-
-
-/* This allows the socket to trigger the hover style remotely */
-.music-group.remote-hover {
-    transform: scale(1.07); /* Changed from 0px to create a lift effect */
-    background: rgba(0, 0, 0, 0.7);
-    border-color: rgba(255, 255, 255, 0.8);
-}
-
-.feature-btn.remote-hover {
-    background: white;
-    color: black;
-    border-color: white;
-}
-
-.main-genre-btn1.remote-hover {
-    background: rgba(255, 255, 255, 0.2); /* Subtle highlight for remote users */
-    transform: scale(1.05);
-}
-
-
+.music-group.remote-hover { transform: scale(1.07); background: rgba(0, 0, 0, 0.7); border-color: rgba(255, 255, 255, 0.8); }
+.feature-btn.remote-hover { background: white; color: black; border-color: white; }
+.main-genre-btn1.remote-hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.05); }
 
 </style>
 
@@ -156,73 +138,89 @@
 
     <div class="music-grid-container">
         <div class="feature-row">
-            <div class="feature-btn" onclick="handleNav('/music-grid?genre=Live Concerts')">LIVE CONCERTS</div>
-            <div class="feature-btn" onclick="handleNav('/music-grid?genre=Full Albums')">FULL ALBUMS</div>
+            <div class="feature-btn" onclick="loadWithSpinner('/music-grid?genre=Live Concerts')">LIVE CONCERTS</div>
+            <div class="feature-btn" onclick="loadWithSpinner('/music-grid?genre=Full Albums')">FULL ALBUMS</div>
         </div>
 
-        <div class="music-group energy-smooth" onclick="handleNav('/music-grid?genre=Blues')">
+        <div class="music-group energy-smooth" onclick="loadWithSpinner('/music-grid?genre=Blues')">
             <div class="main-genre-btn">Blues</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Blues VEVO')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Blues VEVO')">VEVO</span>
         </div>
-        <div class="music-group energy-high" onclick="handleNav('/music-grid?genre=Rock')">
+        <div class="music-group energy-high" onclick="loadWithSpinner('/music-grid?genre=Rock')">
             <div class="main-genre-btn">Rock</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Rock VEVO')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Rock VEVO')">VEVO</span>
         </div>
-        <div class="music-group energy-smooth" onclick="handleNav('/music-grid?genre=Jazz')">
+        <div class="music-group energy-smooth" onclick="loadWithSpinner('/music-grid?genre=Jazz')">
             <div class="main-genre-btn">Jazz</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Jazz VEVO')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Jazz VEVO')">VEVO</span>
         </div>
-        <div class="music-group energy-smooth" onclick="handleNav('/music-grid?genre=Classic music')">
+        <div class="music-group energy-smooth" onclick="loadWithSpinner('/music-grid?genre=Classic music')">
             <div class="main-genre-btn">Classic</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Classic music VEVO')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Classic music VEVO')">VEVO</span>
         </div>
-        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Relax music')">
+        <div class="music-group energy-chill" onclick="loadWithSpinner('/music-grid?genre=Relax music')">
             <div class="main-genre-btn">Relax</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Relax music vevo')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Relax music vevo')">VEVO</span>
         </div>
 
-        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Pop')">
+        <div class="music-group energy-chill" onclick="loadWithSpinner('/music-grid?genre=Pop')">
             <div class="main-genre-btn">Pop</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Pop VEVO')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Pop VEVO')">VEVO</span>
         </div>
-        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Deep House')">
+        <div class="music-group energy-chill" onclick="loadWithSpinner('/music-grid?genre=Deep House')">
             <div class="main-genre-btn">House</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=House Mix vevo')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=House Mix vevo')">VEVO</span>
         </div>
-        <div class="music-group energy-high" onclick="handleNav('/music-grid?genre=Alternative Pop')">
+        <div class="music-group energy-high" onclick="loadWithSpinner('/music-grid?genre=Alternative Pop')">
             <div class="main-genre-btn">Alternative</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Alternative Pop Vevo')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Alternative Pop Vevo')">VEVO</span>
         </div>
-        <div class="music-group energy-high" onclick="handleNav('/music-grid?genre=Industrial music')">
+        <div class="music-group energy-high" onclick="loadWithSpinner('/music-grid?genre=Industrial music')">
             <div class="main-genre-btn">Industrial</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Industrial music vevo')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Industrial music vevo')">VEVO</span>
         </div>      
-        <div class="music-group energy-high" onclick="handleNav('/music-grid?genre=Punk music')">
+        <div class="music-group energy-high" onclick="loadWithSpinner('/music-grid?genre=Punk music')">
             <div class="main-genre-btn">Punk</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Punk music VEVO')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Punk music VEVO')">VEVO</span>
         </div>
-        <div class="music-group energy-chill" onclick="handleNav('/music-grid?genre=Electronic Dance')">
+        <div class="music-group energy-chill" onclick="loadWithSpinner('/music-grid?genre=Electronic Dance')">
             <div class="main-genre-btn">Electronic</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Techno Mix')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Techno Mix')">VEVO</span>
         </div>
 
-        <div class="music-group energy-soul" onclick="handleNav('/music-grid?genre=Fado musica')">
+        <div class="music-group energy-soul" onclick="loadWithSpinner('/music-grid?genre=Fado musica')">
             <div class="main-genre-btn">Fado</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Fado musica vevo')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Fado musica vevo')">VEVO</span>
         </div>
-        <div class="music-group energy-soul" onclick="handleNav('/music-grid?genre=Reggae Roots')">
+        <div class="music-group energy-soul" onclick="loadWithSpinner('/music-grid?genre=Reggae Roots')">
             <div class="main-genre-btn">Reggae</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Reggae vevo')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Reggae vevo')">VEVO</span>
         </div>
-        <div class="music-group energy-soul" onclick="handleNav('/music-grid?genre=Soul RnB')">
+        <div class="music-group energy-soul" onclick="loadWithSpinner('/music-grid?genre=Soul RnB')">
             <div class="main-genre-btn">Soul</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=RnB VEVO')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=RnB VEVO')">VEVO</span>
         </div>
 
-        <div class="music-group energy-smooth" onclick="handleNav('/music-grid?genre=Acoustic')">
+        <div class="music-group energy-smooth" onclick="loadWithSpinner('/music-grid?genre=Acoustic')">
             <div class="main-genre-btn">Unplug</div>
-            <span class="main-genre-btn1" onclick="event.stopPropagation(); handleNav('/music-grid?genre=Acoustic VEVO')">VEVO</span>
+            <span class="main-genre-btn1" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Acoustic VEVO')">VEVO</span>
         </div>
-
-</div> 
+    </div> 
 </div>
+
+
+<script>
+    function loadWithSpinner(url) {
+        // 1. Show the loader
+        if (window.showLoader) {
+            window.showLoader();
+        }
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                handleNav(url);
+            });
+        });
+    }
+
+</script>

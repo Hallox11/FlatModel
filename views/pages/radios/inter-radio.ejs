@@ -2,7 +2,20 @@
     #inter-radio-root * { box-sizing: border-box; }
     #inter-radio-root { width: 1280px; height: 720px; overflow: hidden; background-size: cover; color: white; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; position: relative; }
 
-    #ir-header { width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 60px; background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0) 100%); z-index: 100; flex-shrink: 0; }
+    #ir-header {     width: 100%;
+    height: 60px; /* Um pouco maior para suavizar o fade */
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    /* Efeito de Fade Moderno */
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 0.5) 80%, 
+        rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 100;
+    flex-shrink: 0; 
+    box-sizing: border-box; }
     .ir-header-info { flex: 1; min-width: 0; }
     .ir-header-info h1 { margin: 0; font-size: 24px; color: #2cf3de; text-transform: uppercase; letter-spacing: 3px; font-weight: 400; }
     #ir-status { font-size: 16px; color: rgba(255,255,255,0.95); }
@@ -27,29 +40,70 @@
     #ir-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
     .ir-card { background: rgba(0,0,0,0.4); border-radius: 10px; padding: 15px; text-align: center; cursor: pointer; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
     .ir-card img { width: 65px; height: 65px; background: white; border-radius: 5px; margin-bottom: 10px; }
+    .ir-card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;            /* Limits text to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;                /* Hides the overflow */
+    text-overflow: ellipsis;         /* Adds the '...' */
+    margin: 5px 0 0 0;               /* Adjusts spacing for better look */
+    font-size: 13px;                 /* Slightly smaller font to fit better */
+    width: 100%;
+    word-break: break-word;          /* Ensures long words don't break the layout */
+}
+/* 4. ESTILIZAÇÃO DA BARRA DE ROLAGEM (Red YouTube Style) */
+#ir-content::-webkit-scrollbar {
+    width: 12px;
+}
+
+#ir-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#ir-content::-webkit-scrollbar-thumb {
+    background: #ff0000; 
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+#ir-header { 
+    width: 100%; 
+    height: 80px; 
+    display: grid; 
+    grid-template-columns: 1fr 2fr 1fr; /* Left (Title), Center (Status), Right (Nav/Controls) */
+    align-items: center; 
+    padding: 0 60px; 
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0) 100%); 
+    z-index: 100; 
+    flex-shrink: 0; 
+}
+
+.ir-header-left h1 { margin: 0; font-size: 24px; color: #2cf3de; text-transform: uppercase; letter-spacing: 3px; }
+.ir-header-center { justify-self: center; text-align: center; color: white; font-weight: bold; font-size: 18px; }
+.ir-header-right { justify-self: end; display: flex; align-items: center; gap: 15px; }
 </style>
 
 <div id="inter-radio-root">
-    <header id="ir-header">
-        <div class="ir-header-info">
-            <h1 id="ir-title">Radios Explorer</h1>
-            <p id="ir-status">Select a station to begin</p>
-        </div>
+<header id="ir-header">
+    <div class="ir-header-left">
+        <h1>Radios Explorer</h1>
+    </div>
 
-        <div id="ir-controls" class="ir-player-tools controls-hidden">
+    <div class="ir-header-center">
+        <p id="ir-center-text">Select a Country or a Genre</p>
+    </div>
+
+    <div class="ir-header-right">
+        <!-- Player Controls (Hidden until grid view) -->
+        <div id="ir-controls" class="controls-hidden">
             <audio id="ir-audio"></audio>
             <button id="ir-play-btn" onclick="irTogglePlay()">Play</button>
-            <div class="ir-vol">
-                <span>VOL</span>
-                <input type="range" id="ir-volume" min="0" max="1" step="0.1" value="1" oninput="document.getElementById('ir-audio').volume = this.value">
-            </div>
         </div>
 
-        <div class="ir-header-nav">
-<button class="ir-back-btn" id="ir-grid-back" style="display:none" onclick="irRequestBack()">&#8592; Back</button>
-            <button class="ir-back-btn" onclick="irExit()">&#8592; Radios</button>
-        </div>
-    </header>
+        <!-- Navigation Buttons -->
+        <button class="ir-back-btn" id="ir-btn-exit" onclick="irExit()">Exit</button>
+        <button class="ir-back-btn" id="ir-btn-back" style="display:none" onclick="irRequestBack()">Back</button>
+    </div>
+</header>
 
     <div id="ir-content">
         <div id="ir-menu">
@@ -86,6 +140,9 @@
 
 <script>
 (function() {
+
+    let currentPlayingUrl = null;
+    let irViewState = 'menu';
     const audio = document.getElementById('ir-audio');
     const playBtn = document.getElementById('ir-play-btn');
     const menu = document.getElementById('ir-menu');
@@ -99,24 +156,44 @@
         }
     };
 
-    window.irExecuteLoad = async function(type, value, label) {
-        menu.style.display = 'none';
-        grid.style.display = 'grid';
-        gridBack.style.display = 'block';
-        controls.classList.remove('controls-hidden');
-        grid.innerHTML = `<div>Loading ${label}...</div>`;
+window.irExecuteLoad = async function(type, value, label) {
+    irViewState = 'grid';
+    // 1. Re-select the elements inside the function to ensure they are found
+    const menu = document.getElementById('ir-menu');
+    const grid = document.getElementById('ir-grid');
+    const gridBack = document.getElementById('ir-grid-back');
+    const controls = document.getElementById('ir-controls');
+    const centerText = document.getElementById('ir-center-text');
 
-        const url = type === 'country'
-            ? `https://de1.api.radio-browser.info/json/stations/bycountrycodeexact/${value}?order=clickcount&reverse=true&limit=100`
-            : `https://de1.api.radio-browser.info/json/stations/bytag/${value}?order=clickcount&reverse=true&limit=100`;
+    // 2. Add a safety check
+    if (!menu || !grid || !controls) {
+        console.error("UI Error: Could not find menu, grid, or controls element. Check your HTML IDs.");
+        return;
+    }
 
-        try {
-            const res = await fetch(url);
-            const stations = await res.json();
-            irRender(stations);
-        } catch (e) { grid.innerHTML = 'Failed to load.'; }
-    };
+    // 3. Now safe to update styles
+    menu.style.display = 'none';
+    grid.style.display = 'grid';
+    if(gridBack) gridBack.style.display = 'block';
+    
+    controls.classList.remove('controls-hidden');
+    if(centerText) centerText.innerText = 'Loading ' + label + '...';
+    
+    grid.innerHTML = `<div>Loading ${label}...</div>`;
 
+    // 4. Fetch logic...
+    const url = type === 'country'
+        ? `https://de1.api.radio-browser.info/json/stations/bycountrycodeexact/${value}?order=clickcount&reverse=true&limit=100`
+        : `https://de1.api.radio-browser.info/json/stations/bytag/${value}?order=clickcount&reverse=true&limit=100`;
+
+    try {
+        const res = await fetch(url);
+        const stations = await res.json();
+        irRender(stations);
+    } catch (e) { 
+        grid.innerHTML = 'Failed to load.'; 
+    }
+};
     if (window.socket) {
         // Sync Grid View
         window.socket.on('UpdateRadioGrid', (data) => {
@@ -124,14 +201,25 @@
         });
 
         // Sync Audio Playback
-        window.socket.on('TuneRadio', (data) => {
-            if (audio && data.stream) {
-                audio.src = data.stream;
-                audio.play();
-                playBtn.innerText = 'Pause';
-                document.getElementById('ir-status').innerText = 'Playing: ' + data.name;
-            }
-        });
+       window.socket.on('TuneRadio', (data) => {
+    if (audio && data.stream) {
+        audio.src = data.stream;
+        audio.play();
+
+        currentPlayingUrl = data.stream;
+
+        playBtn.innerText = 'Pause';
+
+        const centerText = document.getElementById('ir-center-text');
+        if (centerText) {
+            centerText.innerText = 'Playing: ' + data.name;
+        }
+    }
+});
+    window.socket.on('ShowRadioMenu', () => {
+        window.irShowMenu();
+    });
+
     }
 
 // 1. New function to broadcast the back action
@@ -143,25 +231,33 @@ window.irRequestBack = function() {
 
 // 2. Updated Menu display logic (The receiver)
 window.irShowMenu = function() {
-    const menu = document.getElementById('ir-menu');
-    const grid = document.getElementById('ir-grid');
-    const gridBack = document.getElementById('ir-grid-back');
-    const controls = document.getElementById('ir-controls');
     const audio = document.getElementById('ir-audio');
-
-    // Reset UI
-    grid.style.display = 'none';
-    gridBack.style.display = 'none';
-    menu.style.display = 'flex';
-    controls.classList.add('controls-hidden');
-    document.getElementById('ir-title').innerText = 'Radios Explorer';
-
-    // KILL the player
+    
+    // 1. Force the audio to stop
     audio.pause();
     audio.src = '';
+    audio.load(); // This forces the browser to discard the buffer
+
+    // 2. Reset the tracking variable
+    if (typeof currentPlayingUrl !== 'undefined') {
+        currentPlayingUrl = null;
+    }
+
+    // 3. Update the UI
+    document.getElementById('ir-center-text').innerText = 'Select a Country or a Genre';
+    document.getElementById('ir-btn-exit').style.display = 'block';
+document.getElementById('ir-btn-back').style.display = 'block';
+document.getElementById('ir-btn-exit').style.display = 'none';
+    
+    document.getElementById('ir-menu').style.display = 'flex';
+    document.getElementById('ir-grid').style.display = 'none';
+    document.getElementById('ir-controls').classList.add('controls-hidden');
+    
     document.getElementById('ir-play-btn').innerText = 'Play';
 };
-    window.irRender = function(stations) {
+ 
+
+window.irRender = function(stations) {
         grid.innerHTML = '';
         stations.forEach(s => {
             if (!s.favicon || !s.favicon.startsWith('http')) return;
@@ -173,10 +269,30 @@ window.irShowMenu = function() {
         });
     };
 
-    window.irPlay = function(url, name) {
-        audio.src = url; audio.play(); playBtn.innerText = 'Pause';
-        if (window.socket) window.socket.emit('TuneRadio', { stream: url, name: name, room: window.myRoom });
-    };
+window.irPlay = function(url, name) {
+    // 1. Prevent re-launching if it's the same station
+    if (currentPlayingUrl === url) {
+        if (audio.paused) {
+            audio.play();
+            playBtn.innerText = 'Pause';
+        }
+        return; 
+    }
+
+    // 2. Load the new stream
+    currentPlayingUrl = url;
+    audio.src = url;
+    audio.play();
+    
+    // 3. Update the UI
+    playBtn.innerText = 'Pause';
+    document.getElementById('ir-center-text').innerText = 'Playing: ' + name;
+
+    // 4. Sync with other viewers
+    if (window.socket) {
+        window.socket.emit('TuneRadio', { stream: url, name: name, room: window.myRoom });
+    }
+};
 
     window.irTogglePlay = function() {
         if (audio.paused) { audio.play(); playBtn.innerText = 'Pause'; }

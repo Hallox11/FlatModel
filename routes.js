@@ -267,7 +267,7 @@ router.get('/stream-cam', (req, res) => {
     const token = crypto.randomBytes(16).toString('hex');
     pendingTokens[token] = { 
         owner: 'stream-cam',
-        object_id: 'stream-cam',
+        object_id: 'stream-cam-for-user',
         expires: Date.now() + 5 * 60 * 1000 
     };
     // Redireciona para a página principal com o token no URL
@@ -989,7 +989,7 @@ router.get('/api/favorites', async (req, res) => {
 
     ///////////////////////////////////////////////////////////////////
     // SECOND LIFE DESTINATIONS
-router.get('/sl-destinations', async (req, res) => {
+    router.get('/sl-destinations', async (req, res) => {
     // Definimos os valores padrão aqui:
     // Se 'tag' não vier na query, usa 'Editor Picks'
     // Se 'url' não vier na query, usa a URL oficial dos Editor Picks
@@ -1117,6 +1117,8 @@ router.get('/eporner-player', (req, res) => {
         title 
     });
 });*/
+//////////////////////////////////////////////////////////////////
+
 ///////////////////////////////////////////////////////////////////
 router.get('/get-sb-stream', async (req, res) => {
     const videoUrl = req.query.url; // Ex: https://spankbang.com/5p5p5/video/...

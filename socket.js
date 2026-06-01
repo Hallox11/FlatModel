@@ -352,6 +352,15 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
             // Tell all clients in the room to go back and kill their players
             io.to(data.room).emit('UpdateRadioBack');
         });
+
+        socket.on('TuneRadio', (data) => {
+    // 1. Guarda o estado no servidor para que novos utilizadores fiquem sincronizados
+    state.radioStream = data.stream;
+    state.radioName = data.name;
+    
+    // 2. Avisa todos na sala (incluindo o emissor, se quiseres, ou apenas os outros)
+    io.to(clientRoom).emit('TuneRadio', data);
+});
         // ── BACKGROUNDS ───────────────────────────────────────
         socket.on('change_bg', (data) => {
             const url = data.image || data.url;

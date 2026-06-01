@@ -35,7 +35,17 @@ function shareMyRoom() {
 }
 
 
+// Add this to your main JS file
+// In your global script (main.js)
+window.showLoader = function() {
+    const overlay = document.getElementById('loading-overlay');
+    if (overlay) overlay.style.display = 'flex';
+};
 
+window.hideLoader = function() {
+    const overlay = document.getElementById('loading-overlay');
+    if (overlay) overlay.style.display = 'none';
+};
 // ===============================
 // UNIFIED NAV CONFIG
 // ===============================

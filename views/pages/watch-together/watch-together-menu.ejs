@@ -170,7 +170,8 @@
         }
 
         .btn:hover {
-            transform: scale(1.05);
+                        font-size: 0.9rem!important;
+            transform: scale(1.0)!important;
             box-shadow: 0 5px 20px rgba(218, 165, 32, 0.5);
         }
 
@@ -223,75 +224,44 @@
     </style>
 </head>
 <body>
-  <div id="wt-overlay-container">
-    <div class="header">
-        <h1>Watch Together</h1>
-        <p class="subtitle">Synchronized viewing platforms</p>
-    </div>
-
-    <div class="grid">
-        <!-- Built-in Sync System -->
-        <div class="card">
-            <div class="card-icon">📺
-            <div id="title">Built-in Sync</div></div>
-            <p>Your native TV synchronization system with real-time streaming and multi-user support.</p>
-            <span class="card-badge">Built-in</span>
-            <ul class="features">
-                <li>Real-time video streaming</li>
-                <li>Multi-user synchronization</li>
-                <li>Low latency</li>
-                <li>Native integration</li>
-            </ul>
-            <div class="input-group">
-                <button class="btn" onclick="window.location.href='/stream-cam'">Open Built-in Sync</button>
-            </div>
-        </div>
-
-        <!-- Kosmi -->
-        <div class="card">
-            <div class="card-icon">🎬
-            <div id="title">Kosmi</div></div>
-            <p>Watch videos, play games, and hang out together with friends in synchronized rooms.</p>
-            <span class="card-badge">External</span>
-            <ul class="features">
-                <li>YouTube, Netflix, Prime Video</li>
-                <li>Screen sharing</li>
-                <li>Built-in games</li>
-                <li>Voice & video chat</li>
-            </ul>
-            <div class="input-group">
-                <div class="input-helper">Optional: Enter room ID to join existing room</div>
-                <input type="text" id="kosmi-room" placeholder="Enter Kosmi room ID (optional)">
-                <button class="btn" onclick="joinKosmi()">Join Kosmi</button>
-            </div>
-            <div class="quick-links">
-                <a href="https://kosmi.io" target="_blank" class="quick-link">Create a new room ↗</a>
-            </div>
-        </div>
-
-        <!-- CyTube -->
-        <div class="card">
-            <div class="card-icon">🎥
-            <div id="title">CyTube</div></div>
-            <p>Open-source synchronized media player with playlist management and chat.</p>
-            <span class="card-badge">External</span>
-            <ul class="features">
-                <li>YouTube, Vimeo, Dailymotion</li>
-                <li>Playlist management</li>
-                <li>Built-in chat</li>
-                <li>Custom rooms</li>
-            </ul>
-            <div class="input-group">
-                <div class="input-helper">Enter channel name to join</div>
-                <input type="text" id="cytube-channel" placeholder="Enter CyTube channel name">
-                <button class="btn" onclick="joinCyTube()">Join CyTube</button>
-            </div>
-            <div class="quick-links">
-                <a href="https://cytu.be" target="_blank" class="quick-link">Browse channels ↗</a>
-            </div>
+<div class="grid">
+    <div class="card">
+        <div class="card-icon">📺
+        <div id="title">Built-in Sync</div></div>
+        <p>Your native TV synchronization system with real-time streaming and multi-user support.</p>
+        <span class="card-badge">Built-in</span>
+        <ul class="features">
+            <li>Real-time video streaming</li>
+            <li>Multi-user synchronization</li>
+            <li>Low latency</li>
+            <li>Native integration</li>
+        </ul>
+        <div class="input-group">
+            <button class="btn" onclick="window.location.href='/stream-cam'">Open Built-in Sync</button>
         </div>
     </div>
-  </div>
+
+    <div class="card">
+        <div class="card-icon">🎬
+        <div id="title">Kosmi</div></div>
+        <p>Watch videos, play games, and hang out together with friends in synchronized rooms.</p>
+        <span class="card-badge">External</span>
+        <ul class="features">
+            <li>YouTube, Netflix, Prime Video</li>
+            <li>Screen sharing</li>
+            <li>Built-in games</li>
+            <li>Voice & video chat</li>
+        </ul>
+        <div class="input-group">
+            <div class="input-helper">Optional: Enter room ID to join existing room</div>
+            <input type="text" id="kosmi-room" placeholder="Enter Kosmi room ID (optional)">
+            <button class="btn" onclick="joinKosmi()">Join Kosmi</button>
+        </div>
+        <div class="quick-links">
+            <a href="https://kosmi.io" target="_blank" class="quick-link">Create a new room ↗</a>
+        </div>
+    </div>
+</div>
     <script>
         function joinKosmi() {
             const roomId = document.getElementById('kosmi-room').value.trim();
@@ -303,19 +273,11 @@
             }
         }
 
-        function joinCyTube() {
-            const channel = document.getElementById('cytube-channel').value.trim();
-            if (channel) {
-                window.location.href = `/cytube?channel=${encodeURIComponent(channel)}`;
-            } else {
-                alert('Please enter a CyTube channel name');
-            }
-        }
+
 
         // Add Enter key support for inputs
         document.addEventListener('DOMContentLoaded', function() {
             const kosmiInput = document.getElementById('kosmi-room');
-            const cytubeInput = document.getElementById('cytube-channel');
             
             if (kosmiInput) {
                 kosmiInput.addEventListener('keypress', function(e) {
@@ -325,13 +287,7 @@
                 });
             }
             
-            if (cytubeInput) {
-                cytubeInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        joinCyTube();
-                    }
-                });
-            }
+
         });
     </script>
 </body>
