@@ -70,7 +70,7 @@ async function searchPhotos(tags, sort = 'interestingness-desc') {
         tag_mode:    'any',
         per_page:    PER_PAGE,
         sort:        sort, // Agora usa o parâmetro dinâmico vindo do frontend
-        safe_search: 1
+        safe_search: 3
     });
 
     const photos = data.photos?.photo || [];
@@ -93,7 +93,8 @@ async function getChannelPhotos(userId) {
     const data = await flickrGet({
         method:   'flickr.people.getPublicPhotos',
         user_id:  userId,
-        per_page: PER_PAGE
+        per_page: PER_PAGE,
+        safe_search: 3
     });
 
     const photos = data.photos?.photo || [];
@@ -129,8 +130,97 @@ async function resolveUserId(input) {
         return null;
     }
 }
+
+// ── GET USER ALBUMS (Photosets) ─────────────────────────────
+async function getUserAlbums(userId) {
+    // 1. Basic validation
+    if (!userId || !userId.includes('@')) {
+        console.error("Invalid NSID format:", userId);
+        return [];
+    }
+
+    // 2. Check cache
+    const file = getCacheFile('albums', userId);
+    const cached = readCache(file);
+    if (cached) { 
+        console.log(`[Flickr Cache] Albums hit: ${userId}`); 
+        return cached; 
+    }
+
+    // 3. Fetch from API with error handling
+    try {
+        console.log(`[Flickr] Fetching albums for: ${userId}`);
+        const data = await flickrGet({
+            method:  'flickr.photosets.getList',
+            user_id: userId,
+            safe_search: 3
+        });
+
+        const albums = data.photosets?.photoset || [];
+        
+        // Only cache if we successfully retrieved data
+        writeCache(file, albums);
+        return albums;
+
+    } catch (err) {
+        console.error(`[Flickr Error] Failed to fetch albums for ${userId}:`, err.message);
+        // Return empty array so the UI doesn't break
+        return [];
+    }
+}
+
+// ── GET PHOTOS FROM A SPECIFIC ALBUM ────────────────────────
+async function getAlbumPhotos(photosetId, userId) {
+    // We cache based on photosetId
+    const file = getCacheFile('album_content', photosetId);
+    const cached = readCache(file);
+    if (cached) { console.log(`[Flickr Cache] Album content hit: ${photosetId}`); return cached; }
+
+    console.log(`[Flickr] Fetching photos for album: ${photosetId}`);
+    const data = await flickrGet({
+        method:      'flickr.photosets.getPhotos',
+        photoset_id: photosetId,
+        user_id:     userId,
+           safe_search: 3,
+        extras:      'url_m,url_o' // Request specific sizes if needed
+    });
+
+    const photos = data.photoset?.photo || [];
+    writeCache(file, photos);
+    return photos;
+}
+// ── GET GROUP PHOTOS ─────────────────────────────────────────
+async function getGroupPhotos(groupId) {
+    const file = getCacheFile('group', groupId);
+    const cached = readCache(file);
+    if (cached) return cached;
+
+    try {
+        console.log(`[Flickr] Fetching photos for group: ${groupId}`);
+        const data = await flickrGet({
+            method:   'flickr.groups.pools.getPhotos',
+            group_id: groupId,
+            per_page: PER_PAGE,
+               safe_search: 3,
+            extras:   'url_z'
+        });
+
+        const photos = data.photos?.photo || [];
+        writeCache(file, photos);
+        return photos;
+
+    } catch (err) {
+        console.error(`[Flickr Group Error] ${groupId}:`, err.message);
+        // Returning an empty array prevents the crash
+        return [];
+    }
+}
 module.exports = {
     searchPhotos,
     getChannelPhotos,
-    resolveUserId
+    resolveUserId,
+    getAlbumPhotos,
+    getUserAlbums,
+    getGroupPhotos
+
 };

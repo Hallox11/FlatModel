@@ -782,7 +782,7 @@ socket.on('room_switched', function(data) {
                         $('#img-title').text(data.title || '');
                     }
                     break;
-// Adiciona isto dentro do switch(data.type) do teu recetor socket global:
+
 case 'flickr_close_categories':
     window.closeCategoriesPage(true); // Executa remotamente sem ecoar de volta
     break;
@@ -794,6 +794,16 @@ case 'flickr_close_channels':
                     if (typeof window.viewChannel === 'function') { window.viewChannel(data.userId, true); }
                     break;
 
+case 'flickr_album_sync':
+    window.loadAlbumPhotos(data.photosetId, data.userId, true);
+break;
+case 'flickr_show_albums_modal':
+    window.viewUserAlbums(data.userId, true);
+break;
+// Add this to your existing switch(data.type) block
+case 'flickr_group_sync':
+    window.viewGroup(data.groupId, true); // True to avoid feedback loop
+    break;
                 case 'background':
                     $('body').css({ 'background-image': `url(${data.url})`, 'background-size': 'cover', 'background-position': 'center' });
                     break;

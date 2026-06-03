@@ -271,9 +271,9 @@
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 10px !important;
     color: #e0e0e0 !important;
-    padding: 14px 18px !important;
+    padding: 10px 18px !important;
     font-size: 14px !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     text-align: left !important;
     cursor: pointer !important;
     transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
@@ -303,7 +303,21 @@
     opacity: 1;
     transform: translateX(3px);
 }
+.icon-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 12px;
+}
 
+.icon-btn:hover {
+    background: goldenrod;
+    color: #000;
+}
 </style>
 
 
@@ -317,7 +331,7 @@
 </div>
 
         <button class="modern-btn" onclick="window.showFavoritesPage()">Channels</button>
-        <button class="modern-btn" onclick="window.showCategoriesPage()">Categories</button>
+        <button class="modern-btn" onclick="window.showCategoriesPage()">Favorites</button>
         
         <div class="search-pill" style="margin-left: 15px; max-width: 230px;">
             <input id="flickr-search" type="text" placeholder="Tag Search..." onkeydown="if(event.key==='Enter') window.runFlickrSearch()">
@@ -356,13 +370,19 @@
 <!-- CATEGORIES MODAL -->
 <div id="categories-manager" class="manager-modal-container" style="display:none;">
     <h3 class="manager-modal-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-        <span>Quick Categories</span>
-        <!-- ESTE BOTÃO FOI ALTERADO: Agora chama a função window.closeCategoriesPage() -->
-        <button class="modern-btn" onclick="window.closeCategoriesPage()" style="padding: 4px 10px; font-size: 14px; line-height: 1;">&times;</button>
+        <span>My Favorites</span>
+        <button class="modern-btn" onclick="window.closeCategoriesPage()" style="padding: 4px 10px;">&times;</button>
     </h3>
     <div id="categories-list" class="chips-flex-container"></div>
 </div>
 
+<div id="albums-manager" class="manager-modal-container" style="display:none;">
+    <h3 class="manager-modal-title">
+        <span>User Albums</span>
+        <button class="modern-btn" onclick="$('#albums-manager').hide(); $('#flickr-results-grid').show();" style="padding: 4px 10px;">&times;</button>
+    </h3>
+    <div id="albums-list" class="chips-flex-container"></div>
+</div>
 
 <div id="flickr-loader" style="
     display: none; 
@@ -560,23 +580,19 @@ window.resizeGridItem = function(index) {
 };
 // --- 3. CATEGORIES ---
 // --- CATEGORIES ---
+// Load Favorites from local JSON
 window.showCategoriesPage = function(isRemote = false) {
     $('#flickr-results-grid, #favorites-manager').hide(); 
     $('#categories-manager').fadeIn(200);
+    
+    // Call the specific loader
+    window.loadCategoriesList();
+
     if (window.socket && !isRemote) {
         window.socket.emit('state_sync', { type: 'flickr_show_categories', room: window.myRoom }); 
     }
-
-    const cats = ["Nature", "Architecture", "Cyberpunk", "Space", "Abstract", "Night", "Landscape"]; 
-    let html = cats.map(c => `
-        <button class="modern-pill-chip" onclick="window.closeCategoriesPage(); window.runFlickrSearch('${c}', null, false)">
-            <span># ${c}</span>
-            <span class="chip-icon">➔</span>
-        </button>`).join(''); 
-    $('#categories-list').html(html); 
 };
 
-// NOVO: Função para fechar as Categorias com Sync
 window.closeCategoriesPage = function(isRemote = false) {
     $('#categories-manager').hide();
     $('#flickr-results-grid').fadeIn(200);
@@ -584,7 +600,6 @@ window.closeCategoriesPage = function(isRemote = false) {
         window.socket.emit('state_sync', { type: 'flickr_close_categories', room: window.myRoom });
     }
 };
-
 // --- FAVORITES/CHANNELS ---
 window.showFavoritesPage = function(isRemote = false) {
     $('#flickr-results-grid, #categories-manager').hide();
@@ -606,19 +621,42 @@ window.closeFavoritesPage = function(isRemote = false) {
 };
 
 
+// Example modification for your existing loadFavoritesList
 window.loadFavoritesList = function() {
-    fetch('/api/favorites') 
+    fetch('/api/favorites')
         .then(res => res.json())
         .then(data => {
-            const channels = data.channels || data; 
-            let html = Object.entries(channels).map(([name, id]) => `
-                <button class="modern-pill-chip" onclick="window.viewChannel('${id}')">
-                    <span>📺 ${name}</span>
-                    <span class="chip-icon">➔</span>
-                </button>`).join(''); 
-            $('#channels-list').html(html || '<p style="color:gray; padding:20px; text-align:center; width:100%;">No channels found.</p>'); 
+            let html = Object.entries(data).map(([name, id]) => `
+                <div class="modern-pill-chip">
+                    <span>${name}</span>
+                    <div style="display:flex; gap:5px;">
+                        <button class="icon-btn" onclick="window.viewChannel('${id}')" title="View Photos">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                        <button class="icon-btn" onclick="window.viewUserAlbums('${id}')" title="View Albums">
+                            <i class="fas fa-folder-open"></i>
+                        </button>
+                    </div>
+                </div>`).join('');
+            $('#channels-list').html(html);
         });
 };
+window.loadCategoriesList = function() {
+    fetch('/api/favorites2')
+        .then(res => res.json())
+        .then(data => {
+            let html = Object.entries(data).map(([name, id]) => `
+                <div class="modern-pill-chip">
+                    <span>${name}</span>
+                    <button class="icon-btn" onclick="window.closeCategoriesPage(); window.viewChannel('${id}')" title="View Photos">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>`).join('');
+            $('#categories-list').html(html);
+        })
+        .catch(err => console.error("Error loading categories:", err));
+};
+/////////////7777
 window.viewChannel = function(userId, isRemote = false) {
     
     $('#favorites-manager, #categories-manager, #flickr-results-grid').hide();
@@ -784,6 +822,80 @@ window.resetFlickrState = function() {
         grid.scrollTop(0);          // Força o scroll a ir para o topo (0)
         grid.html('');              // Limpa a área visual
    
+};
+
+////////////////////////////////////
+// 1. Show the list of albums for a specific user
+// Add isRemote = false as a default parameter
+window.viewUserAlbums = function(userId, isRemote = false) {
+    $('#favorites-manager, #flickr-results-grid').hide();
+    $('#flickr-loader').css('display', 'flex').fadeIn(100);
+
+    $.getJSON(`/api/flickr/albums/${userId}`)
+        .done(function(albums) {
+            $('#flickr-loader').hide();
+            $('#albums-manager').show();
+            
+            let html = albums.map(a => `
+                <button class="modern-pill-chip" onclick="window.loadAlbumPhotos('${a.id}', '${userId}')">
+                    <span>📁 ${a.title._content}</span>
+                    <span class="chip-icon">➔</span>
+                </button>`).join('');
+            $('#albums-list').html(html);
+
+            // SYNC ONLY AFTER SUCCESSFUL LOAD
+            if (window.socket && !isRemote) {
+                window.socket.emit('state_sync', { 
+                    type: 'flickr_show_albums_modal', 
+                    userId: userId, 
+                    room: window.myRoom 
+                });
+            }
+        });
+};
+
+// 2. Load photos from a chosen album into the main grid
+window.loadAlbumPhotos = function(photosetId, userId, isRemote = false) {
+    $('#albums-manager').hide();
+    $('#flickr-loader').css('display', 'flex').fadeIn(100);
+
+    // If this is a local click, sync it to others
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', {
+            type: 'flickr_album_sync',
+            photosetId: photosetId,
+            userId: userId,
+            room: window.myRoom
+        });
+    }
+
+    $.getJSON(`/api/flickr/album-photos/${photosetId}/${userId}`)
+        .done(function(photos) {
+            $('#flickr-loader').hide();
+            $('#flickr-results-grid').fadeIn(200);
+            window.resetFlickrState();
+            window.renderGrid(photos);
+        });
+};
+window.viewGroup = function(groupId, isRemote = false) {
+    $('#favorites-manager, #flickr-results-grid').hide();
+    $('#flickr-loader').css('display', 'flex').fadeIn(100);
+
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { 
+            type: 'flickr_group_sync', 
+            groupId: groupId, 
+            room: window.myRoom 
+        });
+    }
+
+    $.getJSON(`/api/flickr/group/${groupId}`)
+        .done(function(photos) {
+            $('#flickr-loader').hide();
+            $('#flickr-results-grid').fadeIn(200);
+            window.resetFlickrState();
+            window.renderGrid(photos);
+        });
 };
 
 })();

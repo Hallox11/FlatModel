@@ -25,6 +25,8 @@ if (!fs.existsSync(radioFavPath)) fs.writeFileSync(radioFavPath, JSON.stringify(
 
 const flickrFav   = path.join(__dirname, 'config','flickr','flickr-fav.json');
 if (!fs.existsSync(flickrFav)) fs.writeFileSync(flickrFav, JSON.stringify([]));
+const flickrArt   = path.join(__dirname, 'config','flickr','flickr-art.json');
+if (!fs.existsSync(flickrArt)) fs.writeFileSync(flickrArt, JSON.stringify([]));
 
 // Factory — receives shared state from sltv.js
 module.exports = function createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SESSION_TTL, FIXED_ROOM }) {
@@ -905,14 +907,40 @@ router.get('/api/flickr/channel/:userId', async (req, res) => {
     }
 });
 
+///////////////////////////////////////////////////////////
+// Express routes (add these to your existing file)
+router.get('/api/flickr/albums/:userId', async (req, res) => {
+    const albums = await flickrController.getUserAlbums(req.params.userId);
+    res.json(albums);
+});
 
-    ///////////////////////////////////////////////////////////
-    // FLICKR FAVORITES
+router.get('/api/flickr/album-photos/:photosetId/:userId', async (req, res) => {
+    const photos = await flickrController.getAlbumPhotos(req.params.photosetId, req.params.userId);
+    res.json(photos);
+});
+router.get('/api/flickr/group/:groupId', async (req, res) => {
+    const photos = await flickrController.getGroupPhotos(req.params.groupId);
+    res.json(photos);
+});
+///////////////////////////////////////////////////////////
+// FLICKR FAVORITES
 router.get('/api/favorites', async (req, res) => {
     try {
 
         const fs = require('fs').promises; 
         const data = await fs.readFile(flickrFav, 'utf8');
+        res.json(JSON.parse(data));
+
+    } catch (err) {
+        console.error("ERRO NO GET FAVORITES:", err.message);
+        res.status(500).json({}); 
+    }
+});
+router.get('/api/favorites2', async (req, res) => {
+    try {
+
+        const fs = require('fs').promises; 
+        const data = await fs.readFile(flickrArt, 'utf8');
         res.json(JSON.parse(data));
 
     } catch (err) {
