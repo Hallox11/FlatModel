@@ -1,0 +1,363 @@
+
+<style>
+    /* 1. CONTENTOR PRINCIPAL */
+    .sl-list-wrapper {
+        width: 1280px; height: 720px;
+        display: flex; flex-direction: column;
+        background: rgba(0, 0, 0, 0.4);
+        color: white; overflow: hidden;
+        font-family: 'Outfit', sans-serif;
+    }
+
+    /* 2. HEADER E NAVEGAÇÃO */
+    .sl-nav-header {
+        width: 100%; height: 65px;
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0 60px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+        z-index: 100; flex-shrink: 0; box-sizing: border-box;
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 15px; width: 240px; }
+    .exit-btn { margin-left: 40px; background: none; border: 1px solid white; color: white; padding: 8px; border-radius: 50%; cursor: pointer; display: flex; transition: all 0.3s; }
+    .exit-btn:hover { background: #ffcc00; color: #000; border-color: #ffcc00; transform: scale(1.1); }
+    
+    .current-tag span { font-size: 21px; font-weight: 400; color: white; letter-spacing: 1.1px; }
+    .current-tag small { color: #ffcc00; font-size: 15px; display: block; letter-spacing: 1.1px; }
+
+    .category-chips { display: flex; gap: 10px; }
+    .chip { 
+        background: rgba(255,255,255,0.05); border: 2px solid #747171; color: white; 
+        padding: 6px 12px; border-radius: 4px; cursor: pointer;
+        font-size: 15px; letter-spacing: 1.2px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .chip:hover, .chip.remote-hover { background: rgba(255, 255, 255, 0.15); border: 2px solid #ffcc00; font-size: 16px; }
+    .chip.active { background: rgba(255, 204, 0, 0.1); border-color: #ffcc00; color: #ffcc00; box-shadow: 0 0 10px rgba(255, 204, 0, 0.2); }
+
+    /* 3. ÁREA DE SCROLL */
+    #sl-main-scroll-area {
+        flex-grow: 1; width: 1230px; margin-left: 25px; overflow-y: auto;
+        padding: 20px 20px; scroll-behavior: smooth; 
+        box-sizing: border-box;
+    }
+    .destination-stack { display: flex; flex-direction: column; gap: 15px; max-width: 1200px; margin: 0 auto; }
+
+    /* 4. DESIGN DOS CARDS (LISTA) */
+    .list-row {
+        display: flex; background: rgba(20, 20, 20, 0.8);
+        border: 2px solid rgba(255, 255, 255, 0.5); border-radius: 10px;
+        height: 230px; overflow: hidden; transition: all 0.3s ease;
+        will-change: transform, border-color;
+    }
+    .list-row:hover, .list-row.remote-hover { border-color: #ffcc00; background: rgba(30, 30, 30, 0.9); transform: translateX(5px); }
+
+    .row-hero-image { width: 350px; height: 100%; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.2); }
+    .row-hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .row-content {
+        display: flex; flex-direction: column; padding: 20px; flex-grow: 1;
+        justify-content: space-between;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.08));
+    }
+
+    .row-text h3 { font-size: 26px; margin: 0 0 10px 0; letter-spacing: 1.2px; color: orange; font-weight: 400; }
+    .row-text p { font-size: 16px; line-height: 1.5; color: whitesmoke; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* 5. BOTÃO FOGUETE (TELEPORT) */
+    .teleport-btn {
+        width: 45px; height: 45px; background: #e9c120; border: none; border-radius: 12px;
+        display: flex; align-items: center; justify-content: center; cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .teleport-btn::before {
+        content: 'rocket_launch'; font-family: 'Material Symbols Rounded';
+        font-size: 28px; color: #000; font-variation-settings: 'FILL' 1;
+    }
+    .teleport-btn:hover { background: #ffcc00; transform: scale(1.15); }
+    .teleport-btn:disabled { background: #555; cursor: wait; transform: scale(0.9); opacity: 0.7; }
+    .teleport-btn.loading::before { content: 'sync'; animation: spin 1s linear infinite; }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* 6. MODO GRELHA (GRID) */
+    .view-mode-grid .destination-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+    .view-mode-grid .list-row { position: relative; height: 380px; border-radius: 16px; transform: none !important; }
+    .view-mode-grid .row-hero-image { width: 100%; height: 100%; border: none; }
+    .view-mode-grid .row-content {
+        position: absolute; bottom: 0; left: 0; right: 0; height: 70px;
+        padding: 0 20px; flex-direction: row !important; align-items: center; justify-content: space-between;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+        backdrop-filter: blur(4px);
+    }
+    .view-mode-grid .row-text p { display: none !important; }
+    .view-mode-grid .row-text h3 { font-size: 19px; color: #fff; margin: 0; letter-spacing: 1.5px; }
+
+    /* 7. CONTROLES DE VISTA */
+    .view-btn { 
+        background: rgba(255,255,255,0.05); border: 1px solid #444; color: #888; 
+        width: 37px; height: 35px; border-radius: 4px; cursor: pointer; 
+        display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+    }
+    .view-btn.active { color: #ffcc00; border-color: #ffcc00; background: rgba(255,204,0,0.1); }
+
+    /* 8. SCROLLBAR */
+    #sl-main-scroll-area::-webkit-scrollbar { width: 12px; }
+    #sl-main-scroll-area::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
+    #sl-main-scroll-area::-webkit-scrollbar-thumb { background: red; border-radius: 10px; }
+
+    /* 9. MODAL */
+    .modal-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+    .modal-content { background: #111; width: 900px; border: 2px solid #ffcc00; border-radius: 15px; padding: 30px; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+    .modal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-height: 400px; overflow-y: auto; padding-right: 10px; }
+    .modal-card { background: #222; padding: 15px; text-align: center; border: 1px solid #444; border-radius: 8px; cursor: pointer; transition: all 0.3s; color: #ccc; }
+    .modal-card:hover, .modal-card.remote-hover { border-color: #ffcc00; color: #fff; background: #2a2a2a; }
+    .modal-card.selected { background: rgba(255, 204, 0, 0.15); border-color: #ffcc00; color: #ffcc00; }
+
+
+    /* 10. LOADING SCREEN */
+.loader-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #000; /* Fundo preto sólido para esconder o conteúdo vazio */
+    z-index: 2000;
+    display: flex;
+    align-items: center; justify-content: center;
+    transition: opacity 0.5s ease;
+}
+
+.loader-content { text-align: center; color: #ffcc00; }
+
+.loader-content .spin {
+    font-size: 50px;
+    animation: spin 1s linear infinite;
+    display: block;
+    margin-bottom: 10px;
+}
+
+@keyframes spin { 
+    from { transform: rotate(0deg); } 
+    to { transform: rotate(360deg); } 
+}
+</style>
+
+
+
+
+<div class="sl-list-wrapper">
+    <nav class="sl-nav-header">
+        <div class="nav-left">
+            <div class="current-tag">
+                <span>SECOND LIFE</span>
+                <small><%= tag %></small>
+            </div>
+        </div>
+
+        <div class="category-chips">
+            <% favorites.slice(0, 7).forEach(fav => { %>
+                <button class="chip <%= tag === fav.name ? 'active' : '' %>" 
+                    onclick="handleNav('/sl-destinations?tag=<%= encodeURIComponent(fav.name) %>&url=<%= encodeURIComponent(fav.url) %>')">
+                    <%= fav.name %>
+                </button>
+            <% }) %>
+            <button class="chip more-trigger" onclick="toggleSlModal(true)" style="font-weight: bold; font-size: 18px;">...</button>
+        </div>
+
+        <div class="nav-right" style="margin-left: auto; display: flex; gap: 10px; width: 140px; align-items: center; justify-content: flex-end;">
+            <button onclick="toggleSlView('list')" id="sl-list-view-btn" class="view-btn">
+                <span class="material-symbols-rounded">view_list</span>
+            </button>
+            <button onclick="toggleSlView('grid')" id="sl-grid-view-btn" class="view-btn">
+                <span class="material-symbols-rounded">grid_view</span>
+            </button>
+            <button onclick="closeSubMenu()" class="exit-btn">
+                <span class="material-symbols-rounded">arrow_forward</span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="sl-main-scroll-area">
+        <div class="destination-stack">
+            <% destinations.forEach((item, index) => { %>
+                <div class="list-row">
+                    <div class="row-hero-image">
+                        <img src="<%= item.thumbnail %>" loading="lazy">
+                    </div>
+                    <div class="row-content">
+                        <div class="row-text">
+                            <h3><%= item.title %></h3>
+                            <p><%= item.desc %></p>
+                        </div>
+                        <!-- Botão Alterado para busca On-Demand -->
+                        <button id="tp-btn-<%= index %>" 
+                                onclick="handleTeleport('<%= item.detailLink %>', '<%= index %>')" 
+                                class="teleport-btn">
+                        </button>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <!-- Modal de Categorias -->
+    <div id="sl-category-modal" class="modal-overlay" onclick="toggleSlModal(false)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 style="margin:0; color:#ffcc00; font-size:24px;">Explore Categories</h3>
+                <button onclick="toggleSlModal(false)" style="background:none; border:none; color:white; font-size:30px; cursor:pointer;">&times;</button>
+            </div>
+            <div class="modal-grid">
+                <% favorites.forEach(fav => { %>
+                    <div class="modal-card <%= tag === fav.name ? 'selected' : '' %>" 
+                         onclick="handleNav('/sl-destinations?tag=<%= encodeURIComponent(fav.name) %>&url=<%= encodeURIComponent(fav.url) %>')">
+                        <span><%= fav.name %></span>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // 1. Função de Teleport Sob Demanda
+    window.handleTeleport = async function(detailLink, id) {
+        const btn = document.getElementById(`tp-btn-${id}`);
+        if (!btn || btn.disabled) return;
+
+        try {
+            btn.disabled = true;
+            btn.classList.add('loading');
+
+            const response = await fetch(`/api/sl/teleport?detailLink=${encodeURIComponent(detailLink)}`);
+            const data = await response.json();
+
+            if (data.teleportUrl) {
+                if (typeof sendCommand === 'function') {
+                    sendCommand('teleport', data.teleportUrl);
+                } else {
+                    window.location.assign(data.teleportUrl);
+                }
+            } else {
+                alert("Não foi possível obter o endereço de teleport.");
+            }
+        } catch (err) {
+            console.error("Erro no Teleport:", err);
+        } finally {
+            btn.disabled = false;
+            btn.classList.remove('loading');
+        }
+    };
+
+    // 2. Sincronização do Modo de Vista
+    window.toggleSlView = function(mode, isRemote = false) {
+        const wrapper = document.querySelector('.sl-list-wrapper');
+        const lBtn = document.getElementById('sl-list-view-btn');
+        const gBtn = document.getElementById('sl-grid-view-btn');
+        if(!wrapper) return;
+
+        if (mode === 'grid') {
+            wrapper.classList.add('view-mode-grid');
+            gBtn?.classList.add('active');
+            lBtn?.classList.remove('active');
+        } else {
+            wrapper.classList.remove('view-mode-grid');
+            lBtn?.classList.add('active');
+            gBtn?.classList.remove('active');
+        }
+
+        if (!isRemote && window.socket) {
+            socket.emit('state_sync', { 
+                type: 'sl_view_mode', 
+                mode: mode, 
+                room: window.myRoom 
+            });
+        }
+    };
+
+    // 3. Sincronização do Modal
+    window.toggleSlModal = function(show, isRemote = false) {
+        const modal = document.getElementById('sl-category-modal');
+        if(!modal) return;
+        modal.style.display = show ? 'flex' : 'none';
+
+        if (!isRemote && window.socket) {
+            socket.emit('state_sync', { 
+                type: 'sl_modal', 
+                show: show, 
+                room: window.myRoom 
+            });
+        }
+    };
+
+    // 4. Gestão de Scroll Sincronizado + Acelerador Unificado
+    const scrollArea = document.getElementById('sl-main-scroll-area');
+    let scrollTimeout;
+
+    if (scrollArea) {
+        // ACELERADOR DE RODA ÚNICO (Multiplicador fluido de 3x para evitar lag no modo Grid)
+        scrollArea.addEventListener('wheel', (e) => {
+            if (!window.isSyncing) {
+                e.preventDefault();
+                scrollArea.scrollTop += e.deltaY * 3; 
+            }
+        }, { passive: false });
+
+        // ENVIO PARA O SOCKET COM DEBOUNCE REAJUSTADO
+        scrollArea.addEventListener('scroll', function() {
+            if (window.isSyncing) return; 
+
+            if (window.socket && window.socket.connected) {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    window.socket.emit('state_sync', {
+                        type: 'scroll',
+                        selector: '#sl-main-scroll-area',
+                        position: scrollArea.scrollTop,
+                        room: window.myRoom
+                    });
+                }, 40); // 40ms garante resposta em tempo real sem entupir a rede
+            }
+        });
+    }
+
+    // 5. Escuta de Eventos Socket.io (Com correção de proteção de eco)
+    if (window.socket) {
+        socket.on('state_sync', function(data) {
+            if (data.type === 'sl_view_mode') window.toggleSlView(data.mode, true);
+            if (data.type === 'sl_modal') window.toggleSlModal(data.show, true);
+            
+            if (data.type === 'scroll' && data.selector === '#sl-main-scroll-area') {
+                const el = document.getElementById('sl-main-scroll-area');
+                if (el) {
+                    window.isSyncing = true;
+                    el.scrollTop = data.position; 
+                    
+                    // Aumentado para 60ms para dar tempo ao modo Grid de processar as imagens sem ricochetear
+                    setTimeout(() => { window.isSyncing = false; }, 60);
+                }
+            }
+        });
+    }
+
+    // Loader Inteligente
+    function hideLoader() {
+        const loader = document.getElementById('sl-loader');
+        if (loader && loader.style.display !== 'none') {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    }
+
+    window.addEventListener('load', hideLoader);
+    setTimeout(hideLoader, 3000); 
+
+    // Inicialização padrão do modo de vista
+    window.toggleSlView('grid', true);
+
+})();
+</script>
