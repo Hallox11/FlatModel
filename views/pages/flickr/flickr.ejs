@@ -118,7 +118,7 @@
     background: #daa5202e;
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: rgb(230, 229, 229);
-    padding: 10px 18px;
+    padding: 5px 18px;
     border-radius: 8px;
     font-size: 13px;
     font-weight: 400;
@@ -148,8 +148,8 @@
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 6px;
-    padding: 2px 2px 2px 12px;
-    height: 30px;
+    
+    height: 25px;
     width: 250px;
     transition: 0.3s;
 }
@@ -165,7 +165,7 @@
 
 /* App Branding/Title */
 .current-tag { display: flex; flex-direction: column; margin-right: 20px; min-width: 140px; }
-.current-tag span { font-size: 17px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+.current-tag span { font-size: 18px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
 .current-tag small { color: goldenrod; font-size: 11px; margin-top: 2px; opacity: 0.8; letter-spacing: 1px; }
 
 /* ==========================================================================
@@ -327,7 +327,7 @@
 <div class="nav-group" style="flex: 4;">
 <div class="current-tag">
     <span>FLICKR VIEWER</span>
-    <small id="search-context">LATEST PHOTOS</small> 
+
 </div>
 
         <button class="modern-btn" onclick="window.showFavoritesPage()">Channels</button>
@@ -506,7 +506,7 @@ window.currentIndex = 0;
 window.runFlickrSearch = function(manualQuery = null, incomingPhotos = null, isRemote = false) {
     window.resetFlickrState();
     const tags = manualQuery || $('#flickr-search').val();
-    $('#search-context').text(`${tags.toUpperCase()}`); // add title
+
     // SE as fotos já vieram prontas pelo Socket (incomingPhotos), 
     // APENAS desenhe o grid. NÃO faça uma nova chamada de API.
     if (incomingPhotos) {
