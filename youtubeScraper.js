@@ -7,7 +7,8 @@ const path = require('path');
 const CACHE_DIR = path.join(__dirname, 'cache/youtube');
 const QUOTA_PATH = path.join(CACHE_DIR, 'quota.json');
 const CACHE_EXPIRATION = 24 * 60 * 60 * 1000; // 24 hours
-
+// Set a much shorter expiration for live data (e.g., 10 minutes)
+const LIVE_CACHE_EXPIRATION = 10 * 60 * 1000; 
 const SHORTS_MAX_DURATION = 60;
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
@@ -23,18 +24,20 @@ function cacheFilePath(tag, type) {
     return path.join(CACHE_DIR, `yt_${prefix}_${safeTag}.json`);
 }
 
-function loadCache(tag, type) {
-    const file = cacheFilePath(tag, type);
 
+
+function loadCache(tag, type, isLive = false) {
+    const file = cacheFilePath(tag, type);
     if (!fs.existsSync(file)) return null;
 
     const stats = fs.statSync(file);
-    const isFresh = (Date.now() - stats.mtimeMs) < CACHE_EXPIRATION;
+    // Use standard expiration for normal, short for live
+    const expiration = isLive ? LIVE_CACHE_EXPIRATION : CACHE_EXPIRATION;
+    const isFresh = (Date.now() - stats.mtimeMs) < expiration;
 
     if (!isFresh) return null;
 
     try {
-        console.log(`[YT CACHE] Hit: ${tag}`);
         return JSON.parse(fs.readFileSync(file, 'utf8'));
     } catch {
         return null;
@@ -98,134 +101,91 @@ async function getUploadsPlaylist(channelId, API_KEY) {
 }
 
 // ─── PUBLIC API ───────────────────────────────────────────────────────────────
-async function getVideos(tag, type = 'search', maxTotalResults = 50) {
+async function getVideos(tag, type = 'search', maxTotalResults = 50, live = false) {
     ensureCacheDir();
 
-    // 1. Check cache using the original type parameter
-    const cached = loadCache(tag, type);
+
+    const cached = loadCache(tag, type, live);
+    console.log("[CACHED DATA FOUND]")
     if (cached) return cached;
 
+    const originalType = type;
     const API_KEY = process.env.YOUTUBE_API_KEY;
-    const originalType = type; // <--- ✅ FIX 1: Save the original type here
 
     let allVideos = [];
     let nextPageToken = "";
 
     try {
-        console.log(`[YT API FETCH] Mode: ${type} | ${tag}`);
+        console.log(`[YT API FETCH] Mode: ${type} | Live: ${live} | Tag: ${tag}`);
 
         let playlistId = null;
-
         if (type === 'channel') {
             playlistId = await getUploadsPlaylist(tag, API_KEY);
-            type = 'playlist'; // Changing this internally for the API query is fine now
+            type = 'playlist';
         }
 
         while (allVideos.length < maxTotalResults) {
-
-            const resultsToFetch = Math.min(
-                50,
-                maxTotalResults - allVideos.length
-            );
-
+            const resultsToFetch = Math.min(50, maxTotalResults - allVideos.length);
             let url = "";
 
             if (type === 'playlist') {
-                url =
-                    `https://www.googleapis.com/youtube/v3/playlistItems` +
-                    `?part=snippet` +
-                    `&maxResults=${resultsToFetch}` +
-                    `&playlistId=${encodeURIComponent(playlistId || tag)}` +
-                    `&key=${API_KEY}`;
+                url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${resultsToFetch}&playlistId=${encodeURIComponent(playlistId || tag)}&key=${API_KEY}`;
             } else {
-                url =
-                    `https://www.googleapis.com/youtube/v3/search` +
-                    `?part=snippet` +
-                    `&type=video` +
-                    `&maxResults=${resultsToFetch}` +
-                    `&q=${encodeURIComponent(tag)}` +
-                    `&key=${API_KEY}`;
+                url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=${resultsToFetch}&q=${encodeURIComponent(tag)}&key=${API_KEY}`;
+                if (live) url += `&eventType=live`;
             }
 
-            if (nextPageToken) {
-                url += `&pageToken=${nextPageToken}`;
-            }
+            if (nextPageToken) url += `&pageToken=${nextPageToken}`;
 
             const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`API ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`API ${response.status}`);
 
             const data = await response.json();
             trackQuota(1);
 
-            // ─── EXTRACT IDS ─────────────────────────────────────────────
-            const videoIds = [...new Set(
-                data.items
-                    .map(i =>
-                        type === 'playlist'
-                            ? i?.snippet?.resourceId?.videoId
-                            : i?.id?.videoId
-                    )
-                    .filter(Boolean)
-            )];
-
+            const videoIds = [...new Set(data.items.map(i => type === 'playlist' ? i?.snippet?.resourceId?.videoId : i?.id?.videoId).filter(Boolean))];
             if (!videoIds.length) break;
 
-            // ─── FETCH DURATION DATA ─────────────────────────────────────
-            const detailsUrl =
-                `https://www.googleapis.com/youtube/v3/videos` +
-                `?part=contentDetails` +
-                `&id=${videoIds.join(',')}` +
-                `&key=${API_KEY}`;
-
-            const detailsRes = await fetch(detailsUrl);
-            if (!detailsRes.ok) {
-                throw new Error(`videos.list ${detailsRes.status}`);
+            // Fetch duration (skip if live because live streams don't have standard durations)
+            let durationMap = {};
+            if (!live) {
+                const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${videoIds.join(',')}&key=${API_KEY}`;
+                const detailsRes = await fetch(detailsUrl);
+                if (detailsRes.ok) {
+                    const detailsData = await detailsRes.json();
+                    trackQuota(1);
+                    for (const item of detailsData.items) durationMap[item.id] = item.contentDetails.duration;
+                }
             }
 
-            const detailsData = await detailsRes.json();
-            trackQuota(1);
-
-            const durationMap = {};
-            for (const item of detailsData.items) {
-                durationMap[item.id] = item.contentDetails.duration;
-            }
-
-            // ─── BUILD RESULTS ───────────────────────────────────────────
             const videos = data.items
                 .map(i => {
                     const snippet = i.snippet;
-
-                    const id = type === 'playlist'
-                        ? snippet?.resourceId?.videoId
-                        : i?.id?.videoId;
-
+                    const id = type === 'playlist' ? snippet?.resourceId?.videoId : i?.id?.videoId;
                     return {
                         videoId: id,
                         title: snippet.title,
                         channel: snippet.channelTitle,
-                        thumbnail:
-                            snippet.thumbnails?.maxres?.url ||
-                            snippet.thumbnails?.high?.url ||
-                            snippet.thumbnails?.medium?.url ||
-                            snippet.thumbnails?.default?.url,
-                        duration: durationMap[id]
+                        thumbnail: snippet.thumbnails?.high?.url || snippet.thumbnails?.default?.url,
+                        duration: durationMap[id] || 'PT0S'
                     };
                 })
                 .filter(v => v.videoId)
-                .filter(v => parseDuration(v.duration) >= 90);
+                // If live is true, keep all; otherwise, enforce 90s rule
+                .filter(v => live || parseDuration(v.duration) >= 90);
 
             allVideos = allVideos.concat(videos);
-
             nextPageToken = data.nextPageToken;
             if (!nextPageToken) break;
         }
 
-        // 2. Save cache file to disk using the preserved original type format
-        if (allVideos.length) {
+
+if (allVideos.length) {
+            // If live, we append '_live' to the type to keep it separate
+            const saveType = live ? `${originalType}_live` : originalType;
+            
             fs.writeFileSync(
-                cacheFilePath(tag, originalType), // <--- ✅ FIX 2: Use originalType here
+                cacheFilePath(tag, saveType),
                 JSON.stringify(allVideos, null, 2)
             );
         }

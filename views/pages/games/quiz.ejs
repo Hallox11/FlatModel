@@ -38,7 +38,7 @@
     opacity: 0.9;
 }
 .quiz-subtitle {
-    font-size: 0.8rem; letter-spacing: 3px;
+    font-size: 1rem; letter-spacing: 3px;
     text-transform: uppercase; opacity: 0.9;
 }
 
@@ -98,7 +98,7 @@
 }
 
 /* ── QUESTION ── */
-#qs-question { gap: 0; justify-content: flex-start; padding-top: 40px; }
+#qs-question { gap: 0; justify-content: flex-start; padding-top: 100px; }
 
 #quiz-progress-bar-wrap {
     width: 100%; height: 3px; background: rgba(255,255,255,0.1);
@@ -127,8 +127,8 @@
 }
 
 #quiz-q-number {
-    font-size: 0.7rem; letter-spacing: 3px;
-    text-transform: uppercase; opacity: 0.7; margin-bottom: 16px;
+    font-size: 1.1rem; letter-spacing: 3px;
+    text-transform: uppercase; opacity: 0.7; margin-bottom: 30px;
 }
 #quiz-question-text {
     font-size: 1.6rem; font-weight: 200; text-align: center;
@@ -145,7 +145,7 @@
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 12px; padding: 18px 24px;
-    cursor: pointer; font-size: 0.95rem;
+    cursor: pointer; font-size: 1.2rem;
     text-align: left; color: white;
     font-family: 'Fira Sans', sans-serif;
     transition: all 0.15s ease; display: flex;
@@ -165,7 +165,7 @@
     width: 28px; height: 28px; border-radius: 50%;
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem; font-weight: 600; flex-shrink: 0;
+    font-size: 1.0rem; font-weight: 600; flex-shrink: 0;
 }
 
 /* ── SCORES DURING GAME ── */
@@ -177,7 +177,7 @@
 .score-chip {
     background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
     border: 1px solid rgba(255,255,255,0.1); border-radius: 50px;
-    padding: 6px 16px; font-size: 0.7rem;
+    padding: 6px 16px; font-size: 1.2rem;
     text-transform: uppercase; letter-spacing: 1px;
     display: flex; align-items: center; gap: 8px;
 }
@@ -285,7 +285,7 @@
     <div id="qs-final" class="quiz-screen">
         <div class="quiz-title" style="font-size:1.8rem;">Game Over</div>
         <div class="podium" id="quiz-podium"></div>
-        <button class="quiz-btn" onclick="quizReset()">Play Again</button>
+        <button class="quiz-btn" onclick="goBackToMenu()">Play Again</button>
     </div>
 </div>
 
@@ -302,11 +302,30 @@ if (!socket) { console.error('[Quiz] Socket not found'); return; }
     let currentQ    = 0;
     let answered    = false;
     let timerInterval = null;
-    let timeLeft    = 20;
-    const TOTAL_Q   = 10;
-    const TIME_PER_Q = 20;
+    let timeLeft    = 10;
+    const TOTAL_Q   = 3;
+    const TIME_PER_Q = 10;
     const LETTERS   = ['A','B','C','D'];
+    let gameEnded = false;
 
+// Altere de:
+// function triggerReboot() { ... }
+
+// Para isto:
+window.triggerReboot = function() {
+    
+        socket.emit('quiz_force_reboot', { room: myRoom });
+  
+};
+ window.goBackToMenu = function() {
+    // 1. Limpa o estado atual do jogo
+    //quizClose();
+    
+    // 2. Volta para o menu de jogos (isRemote = true para não criar loop)
+    if (typeof handleNav === 'function') {
+        handleNav('games-menu', true);
+    }
+};
     // ── SCREENS ───────────────────────────────────────────────
     function showScreen(id) {
         document.querySelectorAll('.quiz-screen').forEach(s => s.classList.remove('active'));
@@ -345,7 +364,7 @@ if (!socket) { console.error('[Quiz] Socket not found'); return; }
     window.quizAnswer = function (btn, index) {
         if (answered) return;
         answered = true;
-        clearInterval(timerInterval);
+        // clearInterval(timerInterval);
 
         document.querySelectorAll('.quiz-answer').forEach(b => b.disabled = true);
         btn.classList.add('selected');
@@ -382,26 +401,27 @@ if (!socket) { console.error('[Quiz] Socket not found'); return; }
         showScreen('qs-question');
     }
 
-    function startTimer() {
-        clearInterval(timerInterval);
-        const circle = document.getElementById('quiz-timer-circle');
-        const circumference = 163;
+function startTimer() {
+    clearInterval(timerInterval);
+    const circle = document.getElementById('quiz-timer-circle');
+    const circumference = 163;
 
-        timerInterval = setInterval(() => {
-            timeLeft = Math.max(0, timeLeft - 0.1);
-            document.getElementById('quiz-timer-text').textContent = Math.ceil(timeLeft);
-            circle.style.strokeDashoffset = circumference * (1 - timeLeft / TIME_PER_Q);
+    timerInterval = setInterval(() => {
+        timeLeft = Math.max(0, timeLeft - 0.1);
+        document.getElementById('quiz-timer-text').textContent = Math.ceil(timeLeft);
+        circle.style.strokeDashoffset = circumference * (1 - timeLeft / TIME_PER_Q);
 
-            if (timeLeft <= 0) {
-                clearInterval(timerInterval);
-                if (!answered) {
-                    answered = true;
-                    document.querySelectorAll('.quiz-answer').forEach(b => b.disabled = true);
-                    socket.emit('quiz_answer', { room: myRoom, questionIndex: currentQ, answerIndex: -1, timeLeft: 0 });
-                }
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            if (!answered) {
+                answered = true;
+                document.querySelectorAll('.quiz-answer').forEach(b => b.disabled = true);
+                // Envia resposta vazia se o tempo esgotar
+                socket.emit('quiz_answer', { room: myRoom, questionIndex: currentQ, answerIndex: -1, timeLeft: 0 });
             }
-        }, 100);
-    }
+        }
+    }, 100);
+}
 
     function renderScoreboard() {
         document.getElementById('quiz-scoreboard').innerHTML = Object.values(players)
@@ -441,7 +461,7 @@ if (!socket) { console.error('[Quiz] Socket not found'); return; }
                     </div>`).join('');
 
             showScreen('qs-result');
-        }, 800);
+        }, 2000);
     }
 
     // ── FINAL PODIUM ──────────────────────────────────────────
@@ -466,30 +486,48 @@ if (!socket) { console.error('[Quiz] Socket not found'); return; }
         showScreen('qs-final');
     }
 
+
+
+
     // ── RESET ─────────────────────────────────────────────────
-    window.quizReset = function () {
-        players = {};
-        questions = [];
-        currentQ = 0;
-        myName = null;
-        answered = false;
-        clearInterval(timerInterval);
-        document.getElementById('quiz-name-input').disabled = false;
-        document.getElementById('quiz-name-input').value = '';
-        document.querySelector('.quiz-name-row .quiz-btn').disabled = false;
-        socket.emit('quiz_reset', { room: myRoom });
-        renderPlayers();
-        showScreen('qs-lobby');
-    };
 
-    // ── CLOSE ─────────────────────────────────────────────────
-    window.quizClose = function () {
-        clearInterval(timerInterval);
-        socket.emit('quiz_leave', { room: myRoom });
-        if (typeof closeSubMenu === 'function') closeSubMenu();
-    };
+// Escuta o comando de reboot global
+// Substitua o seu bloco socket.on('force_reload') por este:
+// No seu script do Quiz
+socket.on('force_navigate', (data) => {
+    console.log("Comando de Reboot recebido: Voltando ao Menu.");
+    
+    // 1. Limpeza padrão
+    quizClose(); 
+    
+    // 2. Navegação suave sem "mirroring" (para não repetir para os outros)
+    // O 'true' indica que é um comando remoto e não deve espelhar
+    setTimeout(() => {
+        if (typeof handleNav === 'function') {
+            handleNav(data.target, true); 
+        }
+    }, 500);
+});   
+// ── CLOSE ─────────────────────────────────────────────────
+window.quizClose = function () {
+    // Para todos os temporizadores
+    clearInterval(timerInterval);
+    
+    // Remove o jogador da sala no servidor
+    socket.emit('quiz_leave', { room: myRoom });
+    
+    // Reseta a interface visual
+    showScreen('qs-lobby');
+    
+    // Opcional: Garanta que o nome seja limpo para evitar reconexão automática
+    // myName = null; 
+    
+        if (typeof handleNav === 'function') {
+        handleNav('games-menu', false);
+    }
+};
 
-    // ── HELPERS ───────────────────────────────────────────────
+// ── HELPERS ───────────────────────────────────────────────
     function decodeHTML(str) {
         const txt = document.createElement('textarea');
         txt.innerHTML = str;
@@ -514,14 +552,17 @@ if (!socket) { console.error('[Quiz] Socket not found'); return; }
     });
 
     socket.on('quiz_result', (data) => {
+        if (gameEnded) return;
         showResult(data.correctAnswer, data.scores);
     });
 
     socket.on('quiz_final', (data) => {
+        gameEnded = true;
         showFinal(data.scores);
     });
 
     socket.on('quiz_reset', () => {
+        gameEnded = false;
         quizReset();
     });
   }

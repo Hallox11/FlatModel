@@ -1,0 +1,932 @@
+<style>
+/* ==========================================================================
+   1. CORE WRAPPER & LAYOUT
+   ========================================================================== */
+#flickr-wrapper { 
+    width: 1280px;
+    height: 720px;
+    color: #fff;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    display: flex;          
+    flex-direction: column; 
+    overflow: hidden;       
+    position: relative;
+
+}
+
+/* Navbar */
+#flickr-nav-container {
+        width: 100%; height: 55px;
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0 35px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+        z-index: 100; flex-shrink: 0; box-sizing: border-box;
+        margin-bottom: 0px;
+}
+
+/* ==========================================================================
+   2. GRID & SCROLLBAR (O Coração do App)
+   ========================================================================== */
+#flickr-results-grid { 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto ajusta */
+    grid-auto-rows: 10px; 
+    gap: 15px;
+    margin-left: 5px;
+    width: 1250px; 
+    height: 630px; 
+    padding: 3px 20px 60px 30px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+}
+
+/* Custom Scrollbar */
+#flickr-results-grid::-webkit-scrollbar { width: 12px; }
+#flickr-results-grid::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+#flickr-results-grid::-webkit-scrollbar-thumb { 
+    background: goldenrod; 
+    border-radius: 10px; 
+}
+
+/* ==========================================================================
+   3. DYNAMIC LAYOUT MODES (Grid 1, 2, 3)
+   ========================================================================== */
+
+/* MODO 1: FEED CENTRALIZADO (Fixes "Empty Screen" issue) */
+/* Modos Fixos (Forçam a quantidade de colunas) */
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr) !important; }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+
+/* Modo 1 (Feed) */
+/* Modo 1 (Feed) - Mantendo a proporção original */
+.grid-cols-1 { display: block !important; }
+.grid-cols-1 .flickr-card {
+    max-width: 65%; /* Ocupa a largura total disponível */
+    margin: 0 auto 40px auto !important;
+    grid-row-end: auto !important;
+    height: auto !important; /* Força o cartão a moldar-se à imagem */
+}
+
+.grid-cols-1 .flickr-card img {
+    width: 100%;
+    height: auto !important; /* Garante que a imagem dita a proporção real */
+    object-fit: contain;
+}
+/* ==========================================================================
+   4. CARDS & INTERACTION
+   ========================================================================== */
+.flickr-card { 
+    width: 100%;
+    border: none; 
+    cursor: pointer; 
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    outline: 0px solid transparent;
+    outline-offset: -2px;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: transform 0.25s ease, outline 0.25s ease;
+    border-radius: 4px;
+}
+
+.flickr-card img { width: 100%; height: auto; display: block; }
+
+.flickr-card:hover { 
+    transform: scale(1.0); 
+    
+    z-index: 10;
+}
+
+/* Remote Sync Signal */
+.flickr-card.remote-hover {
+   
+    transform: scale(1.0) !important;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    z-index: 999;
+    position: relative;
+}
+
+/* ==========================================================================
+   5. UI ELEMENTS (Buttons, Search, Tags)
+   ========================================================================== */
+.nav-group { display: flex; gap: 8px; align-items: center; }
+
+.modern-btn {
+    background: #daa5202e;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: rgb(230, 229, 229);
+    padding: 5px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modern-btn:hover {
+    background: rgba(218, 165, 32, 0.15);
+    border-color: rgba(218, 165, 32, 0.5);
+    color: #fff;
+}
+
+.view-btn-active {
+    background: goldenrod !important;
+    color: #000 !important;
+    border-color: goldenrod !important;
+    box-shadow: 0 4px 12px rgba(218, 165, 32, 0.3);
+}
+
+/* Search Bar */
+.search-pill {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    
+    height: 25px;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.search-pill:focus-within { border-color: goldenrod; background: rgba(255,255,255,0.1); }
+.search-pill input { background: transparent; border: none; color: #fff; outline: none; font-size: 13px; width: 100%; }
+
+.search-go-btn {
+    background: #ffd50557;
+    color: #fff; border: none; border-radius: 4px;
+    padding: 7px 12px; font-size: 13px; font-weight: 400; cursor: pointer;
+}
+
+/* App Branding/Title */
+.current-tag { display: flex; flex-direction: column; margin-right: 20px; min-width: 140px; }
+.current-tag span { font-size: 18px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+.current-tag small { color: goldenrod; font-size: 11px; margin-top: 2px; opacity: 0.8; letter-spacing: 1px; }
+
+/* ==========================================================================
+   6. LIGHTBOX & OVERLAYS
+   ========================================================================== */
+#flickr-lightbox {
+    position: fixed; top: 0; left: 0;
+    width: 1280px; height: 720px;
+    background: rgba(0, 0, 0, 0.9); 
+    display: none; justify-content: center; align-items: center;
+    z-index: 10000; flex-direction: column;
+}
+
+#lightbox-img-container {
+    position: relative; max-width: 90%; max-height: 80%;
+    border: 2px solid rgba(255,255,255,0.1); background: #000;
+}
+
+#lightbox-img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+
+/* Navigation & Controls */
+.ss-nav { 
+    position: absolute; top: 50%; transform: translateY(-50%); 
+    background: rgba(0, 0, 0, 0.5); color: white; padding: 20px 15px;
+    cursor: pointer; font-size: 30px; border: none; transition: 0.2s;
+}
+.ss-nav:hover { background: goldenrod; color: black; }
+.ss-prev { left: 40px; border-radius: 5px; }
+.ss-next { right: 40px; border-radius: 5px; }
+
+.ss-close { 
+    position: absolute; top: 20px; right: 20px; 
+    color: white; background: rgba(255,255,255,0.1); 
+    border: 1px solid white; border-radius: 50%;
+    width: 50px; height: 50px; font-size: 30px; cursor: pointer;
+}
+
+/* Utils */
+.spinner { 
+    border: 3px solid rgba(218,165,32,0.1); border-top: 3px solid goldenrod; 
+    border-radius: 50%; width: 35px; height: 35px; margin: 0 auto 15px; 
+    animation: spin 1s linear infinite; 
+}
+@keyframes spin { to { transform: rotate(360deg); } }  
+
+/* ==========================================================================
+   5B. RE-DESIGN: CHANNELS & CATEGORIES MODAL ADVANCED
+   ========================================================================== */
+.manager-modal-container {
+    padding: 30px;
+    background: rgba(15, 15, 20, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    margin: 20px auto;
+    width: 1180px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(15px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.manager-modal-title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.manager-modal-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: goldenrod;
+    border-radius: 4px;
+}
+
+/* Grelha de Chips Responsiva e Limpa */
+.chips-flex-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    gap: 12px !important;
+    width: 100%;
+}
+
+/* O Novo Botão em Formato de Chip Premium */
+.modern-pill-chip {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+    color: #e0e0e0 !important;
+    padding: 10px 18px !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.modern-pill-chip:hover {
+    background: rgba(218, 165, 32, 0.08) !important;
+    border-color: rgba(218, 165, 32, 0.6) !important;
+    color: #fff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(218, 165, 32, 0.15) !important;
+}
+
+.modern-pill-chip .chip-icon {
+    color: goldenrod;
+    opacity: 0.6;
+    font-size: 11px;
+    transition: transform 0.2s ease;
+}
+
+.modern-pill-chip:hover .chip-icon {
+    opacity: 1;
+    transform: translateX(3px);
+}
+.icon-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 12px;
+}
+
+.icon-btn:hover {
+    background: goldenrod;
+    color: #000;
+}
+</style>
+
+
+<div id="flickr-wrapper"> 
+    <div  id="flickr-main-ui">
+<div id="flickr-nav-container">
+<div class="nav-group" style="flex: 4;">
+<div class="current-tag">
+    <span>FLICKR VIEWER</span>
+
+</div>
+       <button class="modern-btn" onclick="window.showCategoriesPage()">Favorites</button>
+        <!--
+       <button class="modern-btn" onclick="window.showFavoritesPage()">Channels</button> 
+        
+        
+        <div class="search-pill" style="margin-left: 15px; max-width: 230px;">
+            <input id="flickr-search" type="text" placeholder="Tag Search..." onkeydown="if(event.key==='Enter') window.runFlickrSearch()">
+            <button onclick="window.runFlickrSearch()" class="search-go-btn">GO</button>
+        </div>
+
+        <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.1); margin: 0 15px;"></div>
+        -->
+
+<button style="font-size: 15px;" class="modern-btn view-btn" onclick="window.changeLayout('4', this)">4x</button>
+<button style="font-size: 15px;" class="modern-btn view-btn" onclick="window.changeLayout('3', this)">3x</button>
+<button style="font-size: 15px;" class="modern-btn view-btn" onclick="window.changeLayout('2', this)">2x</button>
+<button style="font-size: 15px;" class="modern-btn view-btn" onclick="window.changeLayout('1', this)">1x</button>
+        
+        <span id="photo-count" style="color: rgba(255,255,255,0.9); font-size: 11px; margin-left: 10px; letter-spacing: 1px;">0 PHOTOS</span>
+    </div>
+
+    <div class="nav-group-right">
+        <button class="modern-btn close-style" onclick="handleNav('/xxx-index')";">
+           
+            <span style="font-size: 15px;font-weight: 600;">CLOSE</span>
+        </button>
+    </div>
+</div>
+
+<!-- CHANNELS MODAL -->
+<div id="favorites-manager" class="manager-modal-container" style="display:none;">
+    <h3 class="manager-modal-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>Public Channels</span>
+        <!-- ESTE BOTÃO FOI ALTERADO: Agora chama a função window.closeFavoritesPage() -->
+        <button class="modern-btn" onclick="window.closeFavoritesPage()" style="padding: 4px 10px; font-size: 14px; line-height: 1;">&times;</button>
+    </h3>
+    <div id="channels-list" class="chips-flex-container"></div>
+</div>
+
+<!-- CATEGORIES MODAL -->
+<div id="categories-manager" class="manager-modal-container" style="display:none;">
+    <h3 class="manager-modal-title" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <span>My Favorites</span>
+        <button class="modern-btn" onclick="window.closeCategoriesPage()" style="padding: 4px 10px;">&times;</button>
+    </h3>
+    <div id="categories-list" class="chips-flex-container"></div>
+</div>
+
+<div id="albums-manager" class="manager-modal-container" style="display:none;">
+    <h3 class="manager-modal-title">
+        <span>User Albums</span>
+        <button class="modern-btn" onclick="$('#albums-manager').hide(); $('#flickr-results-grid').show();" style="padding: 4px 10px;">&times;</button>
+    </h3>
+    <div id="albums-list" class="chips-flex-container"></div>
+</div>
+
+<div id="flickr-loader" style="
+    display: none; 
+    position: absolute; 
+    top: 0px;             /* Começa logo abaixo da Navbar (70px) */
+    left: 0; 
+    width: 1280px;         /* Ajustado à largura total do teu wrapper */
+    height: 720px;         /* Altura restante calculada (720px - 70px) */
+    background: rgba(0, 0, 0, 0.75); /* Fundo translúcido para escurecer as fotos antigas */
+    z-index: 9999;         /* Garante que fica por cima de qualquer card */
+    box-sizing: border-box;
+    
+    /* Configuração Flexbox para Centralização Absoluta */
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
+">
+    <div class="spinner" style="
+        border: 4px solid rgba(218, 165, 32, 0.1); 
+        border-top: 4px solid goldenrod; 
+        border-radius: 50%; 
+        width: 50px; 
+        height: 50px;
+        margin: 0 0 15px 0; /* Remove margens automáticas antigas */
+        animation: spin 1s linear infinite;
+    "></div>
+    
+    <p style="
+        color: goldenrod; 
+        font-weight: bold; 
+        letter-spacing: 2px; 
+        margin: 0;
+        font-size: 14px;
+        text-align: center;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    ">FETCHING PHOTOS...</p>
+</div>
+
+        <div id="flickr-results-grid"></div>
+    </div>
+</div>
+
+<div id="flickr-lightbox" onclick="window.exitSlideshow()">
+    <button class="ss-close" onclick="window.exitSlideshow()">&times;</button>
+    <button class="ss-nav ss-prev" onclick="event.stopPropagation(); window.prevPhoto()">❮</button>
+    <button class="ss-nav ss-next" onclick="event.stopPropagation(); window.nextPhoto()">❯</button>
+
+    <div id="lightbox-img-container" onclick="event.stopPropagation()">
+        <img id="lightbox-img" src="">
+        <div id="ss-info" style="position: absolute; bottom: -40px; color: white; text-align: center; width: 100%;">
+            <span id="img-title" style="font-weight:400; font-size:18px; text-shadow: 2px 2px 4px #000;"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+
+const flickrGrid = document.getElementById('flickr-results-grid');
+
+flickrGrid.addEventListener('wheel', (e) => {
+    // Impede o scroll padrão lento
+    e.preventDefault();
+
+    // Ajuste este número para aumentar/diminuir a sensibilidade
+    const speedMultiplier = 2.0; 
+
+    // Move o scroll manualmente
+    flickrGrid.scrollTop += e.deltaY * speedMultiplier;
+
+    // Sincroniza o scroll com os outros usuários (opcional, já que você já tem o emit no scroll)
+    // O seu código de scroll atual capturará essa mudança automaticamente.
+}, { passive: false });
+
+
+
+
+// CHANGE LAYOUT    
+window.changeLayout = function(type, btn, isRemote = false) {
+    const grid = $('#flickr-results-grid');
+    
+    // Limpa tudo
+    grid.removeClass('grid-cols-1 grid-cols-2 grid-cols-3 grid-cols-4');
+    $('.view-btn').removeClass('view-btn-active');
+    if (btn) $(btn).addClass('view-btn-active');
+
+    // Aplica o novo modo
+    if (type !== 'auto') {
+        grid.addClass(`grid-cols-${type}`);
+    }
+
+    // Reset de estilos internos para garantir que o Masonry ou o Feed funcionem
+if (type === '1') {
+    // Limpa qualquer resíduo de altura e spans do modo grelha
+    $('.flickr-card').css({
+        'grid-row-end': '',
+        'height': 'auto'
+    });
+    $('.flickr-card img').css('height', 'auto');
+} else {
+    setTimeout(() => {
+        window.currentPhotos.forEach((_, i) => window.resizeGridItem(i));
+    }, 50);
+}
+
+    grid.scrollTop(0);
+
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { 
+            type: 'flickr_layout_change', 
+            layoutType: type, 
+            room: window.myRoom 
+        });
+    }
+};
+
+
+// PHOTO SEARCH
+window.currentPhotos = [];
+window.currentIndex = 0;
+window.runFlickrSearch = function(manualQuery = null, incomingPhotos = null, isRemote = false) {
+    window.resetFlickrState();
+    const tags = manualQuery || $('#flickr-search').val();
+
+    // SE as fotos já vieram prontas pelo Socket (incomingPhotos), 
+    // APENAS desenhe o grid. NÃO faça uma nova chamada de API.
+    if (incomingPhotos) {
+        console.log("Sincronizando fotos via Socket (Sem nova requisição API)");
+        $('#flickr-loader').hide();
+        $('#flickr-results-grid').show();
+        window.renderGrid(incomingPhotos);
+        return; // <--- O "Pulo do Gato" está aqui. Interrompe o loop.
+    }
+
+    // Se chegou aqui, é uma busca MANUAL do usuário
+$('#flickr-loader').css('display', 'flex').hide().fadeIn(100);
+
+    $.getJSON(`/api/flickr/search?tags=${encodeURIComponent(tags)}`)
+        .done(function(photos) {
+            $('#flickr-loader').hide();
+            window.renderGrid(photos);
+
+            // Avisa os outros, mas envia os DADOS das fotos junto
+            if (window.socket && !isRemote) {
+                window.socket.emit('state_sync', {
+                    type: 'flickr_results_sync',
+                    query: tags,
+                    photos: photos, // Envia as fotos já baixadas
+                    room: window.myRoom
+                });
+            }
+        });
+};
+// RENDER GRID
+window.renderGrid = function(photos) {
+    window.currentPhotos = photos;
+
+    const countLabel = photos ? photos.length : 0;
+    $('#photo-count').text(`${countLabel} PHOTOS`);
+
+    if (!photos || photos.length === 0) {
+        $('#flickr-results-grid').html('<p style="color:gray; text-align:center; padding:20px;">No photos found.</p>');
+        return;
+    }
+
+    let html = photos.map((p, i) => `
+        <div class="flickr-card" id="card-${i}" onclick="window.startSlideshow(${i})">
+            <img src="https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_z.jpg">
+        </div>`).join('');
+
+    $('#flickr-results-grid').html(html);
+
+    // First pass — catches cached images immediately
+    requestAnimationFrame(() => {
+        photos.forEach((_, i) => window.resizeGridItem(i));
+    });
+
+    // Second pass — catches slow images that settled after the first pass
+    setTimeout(() => {
+        photos.forEach((_, i) => window.resizeGridItem(i));
+    }, 1500);
+};
+// RESIZE GRID
+window.resizeGridItem = function(index) {
+    const item = document.getElementById(`card-${index}`);
+    const grid = document.getElementById('flickr-results-grid');
+    if (!item || !grid) return;
+
+    const rowHeight = 10, rowGap = 15;
+    const img = item.querySelector('img');
+
+    function applySpan() {
+        let imgHeight = img.getBoundingClientRect().height;
+
+        if (imgHeight === 0 && img.naturalHeight > 0) {
+            const aspect = img.naturalWidth / img.naturalHeight;
+            imgHeight = item.offsetWidth / aspect;
+        }
+
+        if (imgHeight === 0) return false; // not ready
+        
+        const rowSpan = Math.ceil((imgHeight + rowGap) / (rowHeight + rowGap));
+        item.style.gridRowEnd = `span ${rowSpan}`;
+        return true;
+    }
+
+    if (img.complete && img.naturalHeight > 0) {
+        applySpan();
+        return;
+    }
+
+    // Primary: listen for load
+    img.addEventListener('load', () => applySpan(), { once: true });
+
+    // Safety net: poll until height is available (catches missed load events)
+    let attempts = 0;
+    const poll = setInterval(() => {
+        attempts++;
+        if (applySpan() || attempts > 40) {
+            clearInterval(poll);
+        }
+    }, 100);
+};
+
+// --- 3. CATEGORIES ---
+// --- CATEGORIES ---
+// Load Favorites from local JSON
+window.showCategoriesPage = function(isRemote = false) {
+    $('#flickr-results-grid, #favorites-manager').hide(); 
+    $('#categories-manager').fadeIn(200);
+    
+    // Call the specific loader
+    window.loadCategoriesList();
+
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { type: 'flickr_show_categories', room: window.myRoom }); 
+    }
+};
+
+window.closeCategoriesPage = function(isRemote = false) {
+    $('#categories-manager').hide();
+    $('#flickr-results-grid').fadeIn(200);
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { type: 'flickr_close_categories', room: window.myRoom });
+    }
+};
+// --- FAVORITES/CHANNELS ---
+window.showFavoritesPage = function(isRemote = false) {
+    $('#flickr-results-grid, #categories-manager').hide();
+    $('#favorites-manager').fadeIn(200);
+    window.loadFavoritesList();
+
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { type: 'flickr_show_channels', room: window.myRoom });
+    }
+};
+
+// NOVO: Função para fechar os Channels com Sync
+window.closeFavoritesPage = function(isRemote = false) {
+    $('#favorites-manager').hide();
+    $('#flickr-results-grid').fadeIn(200);
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { type: 'flickr_close_channels', room: window.myRoom });
+    }
+};
+
+
+// Example modification for your existing loadFavoritesList
+window.loadFavoritesList = function() {
+    fetch('/api/favorites')
+        .then(res => res.json())
+        .then(data => {
+            let html = Object.entries(data).map(([name, id]) => `
+                <div class="modern-pill-chip">
+                    <span>${name}</span>
+                    <div style="display:flex; gap:5px;">
+                        <button class="icon-btn" onclick="window.viewChannel('${id}')" title="View Photos">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                        <button class="icon-btn" onclick="window.viewUserAlbums('${id}')" title="View Albums">
+                            <i class="fas fa-folder-open"></i>
+                        </button>
+                    </div>
+                </div>`).join('');
+            $('#channels-list').html(html);
+        });
+};
+window.loadCategoriesList = function() {
+    fetch('/api/favorites2')
+        .then(res => res.json())
+        .then(data => {
+            let html = Object.entries(data).map(([name, id]) => `
+                <div class="modern-pill-chip">
+                    <span>${name}</span>
+                    <button class="icon-btn" onclick="window.closeCategoriesPage(); window.viewChannel('${id}')" title="View Photos">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>`).join('');
+            $('#categories-list').html(html);
+        })
+        .catch(err => console.error("Error loading categories:", err));
+};
+/////////////7777
+window.viewChannel = function(userId, isRemote = false) {
+    
+    $('#favorites-manager, #categories-manager, #flickr-results-grid').hide();
+    $('#flickr-loader').css('display', 'flex').hide().fadeIn(100);
+    
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { 
+            type: 'flickr_channel_sync', 
+            userId: userId, 
+            room: window.myRoom 
+        });
+    }
+
+    // CHAMADA PARA O SEU SERVIDOR (Mais seguro e funciona!)
+    $.getJSON(`/api/flickr/channel/${userId}`)
+        .done(function(photos) {
+            $('#flickr-loader').hide();
+            $('#flickr-results-grid').fadeIn(300);
+            window.resetFlickrState();
+            window.renderGrid(photos); // Isso agora vai funcionar porque photos é o array correto
+        })
+        .fail(function() {
+            $('#flickr-loader').text("Error: Could not load channel.");
+            setTimeout(() => {
+                $('#flickr-loader').hide();
+                $('#favorites-manager').show();
+            }, 2000);
+        });
+};
+
+// --- 5. SLIDESHOW ---
+window.startSlideshow = function(index, isRemote = false) {
+        window.currentIndex = index;
+        window.updateLightbox();
+        $('#flickr-main-ui').fadeOut(100, () => {
+            $('#flickr-lightbox').css('display', 'flex').hide().fadeIn(200);
+        });
+        if (!isRemote && window.socket) {
+            window.socket.emit('state_sync', { type: 'start_slideshow', index: index, room: window.myRoom });
+        }
+    };
+
+window.updateLightbox = function() {
+    const p = window.currentPhotos[window.currentIndex];
+    if (!p) {
+        console.error("Slideshow Error: No photo found at index", window.currentIndex);
+        return;
+    }
+
+    // Definição das URLs
+    const urlLarge = `https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_b.jpg`;
+    const urlMedium = `https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_z.jpg`;
+    
+    const imgElement = $('#lightbox-img');
+    
+    // CORREÇÃO: Remove o listener anterior (.off) e escuta o erro apenas uma vez (.one)
+    imgElement.off('error').one('error', function() {
+        $(this).attr('src', urlMedium);
+    });
+
+    imgElement.attr('src', urlLarge);
+    $('#img-title').text(p.title || "Untitled");
+
+    if (window.socket) {
+        window.socket.emit('state_sync', { 
+            type: 'flickr_remote_nav', 
+            index: window.currentIndex, 
+            url: urlLarge, 
+            title: p.title, 
+            room: window.myRoom 
+        });
+    }
+};
+
+window.nextPhoto = function() {
+        window.currentIndex = (window.currentIndex + 1) % window.currentPhotos.length;
+        window.updateLightbox();
+    };
+
+window.prevPhoto = function() {
+        window.currentIndex = (window.currentIndex - 1 + window.currentPhotos.length) % window.currentPhotos.length;
+        window.updateLightbox();
+    };
+
+window.exitSlideshow = function(isRemote = false) {
+        $('#flickr-lightbox').fadeOut(200, () => {
+            $('#flickr-main-ui').fadeIn(200);
+        });
+        if (!isRemote && window.socket) {
+            window.socket.emit('state_sync', { type: 'exit_slideshow', room: window.myRoom });
+        }
+    };
+
+    // --- 6. INITIAL LOAD & SCROLL ---
+// --- 6. INITIAL LOAD & SCROLL ---
+    $(document).ready(() => {
+        // 1. Force the 3-column layout and highlight the 3x button on startup
+        const btn3x = $("button[onclick*=\"changeLayout('3'\"]");
+        window.changeLayout('3', btn3x, true); // true avoids sending an initial socket sync blast
+
+        // 2. Only load if the grid is empty
+        if(!window.currentPhotos.length) window.viewChannel('137355400@N08');
+    });
+
+// CLICK OUTSIDE MODALS TO CLOSE
+$(document).on('click', function(event) {
+    // 1. For Favorites Manager
+    const favModal = $('#favorites-manager');
+    const favBtn = $("button[onclick*='showFavoritesPage']"); // The navbar button
+    
+    if (favModal.is(':visible') && 
+        !favModal.is(event.target) && 
+        favModal.has(event.target).length === 0 && 
+        !favBtn.is(event.target)) {
+        
+        favModal.hide();
+        $('#flickr-results-grid').fadeIn(200);
+    }
+
+    // 2. For Categories Manager
+    const catModal = $('#categories-manager');
+    const catBtn = $("button[onclick*='showCategoriesPage']"); // The navbar button
+    
+    if (catModal.is(':visible') && 
+        !catModal.is(event.target) && 
+        catModal.has(event.target).length === 0 && 
+        !catBtn.is(event.target)) {
+        
+        catModal.hide();
+        $('#flickr-results-grid').fadeIn(200);
+    }
+});
+
+$('#flickr-results-grid').on('scroll', function() {
+    if (window.isSyncing) return;  // ← global flag
+    if (window.socket && window.socket.connected) {
+        window.socket.emit('state_sync', {
+            type: 'scroll',          // ← global event type
+            position: $(this).scrollTop(),
+            room: window.myRoom
+        });
+    }
+});  
+    
+    // Add this to your Flickr script block
+window.closeSubMenuWithLightbox = function() {
+    // If the lightbox is open, close it first
+    if ($('#flickr-lightbox').is(':visible')) {
+        window.exitSlideshow();
+    } else {
+        // Otherwise, close the whole Flickr app
+        closeSubMenu();
+    }
+};
+
+// Função para limpar o estado apenas ao mudar de conteúdo
+window.resetFlickrState = function() {
+    window.currentIndex = 0;       // Faz reset ao índice do Slideshow
+    window.currentPhotos = [];      // Limpa as fotos antigas
+    
+    const grid = $('#flickr-results-grid');
+   
+        grid.scrollTop(0);          // Força o scroll a ir para o topo (0)
+        grid.html('');              // Limpa a área visual
+   
+};
+
+////////////////////////////////////
+// 1. Show the list of albums for a specific user
+// Add isRemote = false as a default parameter
+window.viewUserAlbums = function(userId, isRemote = false) {
+    $('#favorites-manager, #flickr-results-grid').hide();
+    $('#flickr-loader').css('display', 'flex').fadeIn(100);
+
+    $.getJSON(`/api/flickr/albums/${userId}`)
+        .done(function(albums) {
+            $('#flickr-loader').hide();
+            $('#albums-manager').show();
+            
+            let html = albums.map(a => `
+                <button class="modern-pill-chip" onclick="window.loadAlbumPhotos('${a.id}', '${userId}')">
+                    <span>📁 ${a.title._content}</span>
+                    <span class="chip-icon">➔</span>
+                </button>`).join('');
+            $('#albums-list').html(html);
+
+            // SYNC ONLY AFTER SUCCESSFUL LOAD
+            if (window.socket && !isRemote) {
+                window.socket.emit('state_sync', { 
+                    type: 'flickr_show_albums_modal', 
+                    userId: userId, 
+                    room: window.myRoom 
+                });
+            }
+        });
+};
+
+// 2. Load photos from a chosen album into the main grid
+window.loadAlbumPhotos = function(photosetId, userId, isRemote = false) {
+    $('#albums-manager').hide();
+    $('#flickr-loader').css('display', 'flex').fadeIn(100);
+
+    // If this is a local click, sync it to others
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', {
+            type: 'flickr_album_sync',
+            photosetId: photosetId,
+            userId: userId,
+            room: window.myRoom
+        });
+    }
+
+    $.getJSON(`/api/flickr/album-photos/${photosetId}/${userId}`)
+        .done(function(photos) {
+            $('#flickr-loader').hide();
+            $('#flickr-results-grid').fadeIn(200);
+            window.resetFlickrState();
+            window.renderGrid(photos);
+        });
+};
+window.viewGroup = function(groupId, isRemote = false) {
+    $('#favorites-manager, #flickr-results-grid').hide();
+    $('#flickr-loader').css('display', 'flex').fadeIn(100);
+
+    if (window.socket && !isRemote) {
+        window.socket.emit('state_sync', { 
+            type: 'flickr_group_sync', 
+            groupId: groupId, 
+            room: window.myRoom 
+        });
+    }
+
+    $.getJSON(`/api/flickr/group/${groupId}`)
+        .done(function(photos) {
+            $('#flickr-loader').hide();
+            $('#flickr-results-grid').fadeIn(200);
+            window.resetFlickrState();
+            window.renderGrid(photos);
+        });
+};
+
+})();
+</script>

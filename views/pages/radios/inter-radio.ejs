@@ -161,9 +161,10 @@ window.irExecuteLoad = async function(type, value, label) {
     // 1. Re-select the elements inside the function to ensure they are found
     const menu = document.getElementById('ir-menu');
     const grid = document.getElementById('ir-grid');
-    const gridBack = document.getElementById('ir-grid-back');
     const controls = document.getElementById('ir-controls');
     const centerText = document.getElementById('ir-center-text');
+    document.getElementById('ir-btn-exit').style.display = 'none';
+    document.getElementById('ir-btn-back').style.display = 'block';
 
     // 2. Add a safety check
     if (!menu || !grid || !controls) {
@@ -174,7 +175,7 @@ window.irExecuteLoad = async function(type, value, label) {
     // 3. Now safe to update styles
     menu.style.display = 'none';
     grid.style.display = 'grid';
-    if(gridBack) gridBack.style.display = 'block';
+
     
     controls.classList.remove('controls-hidden');
     if(centerText) centerText.innerText = 'Loading ' + label + '...';
@@ -194,7 +195,9 @@ window.irExecuteLoad = async function(type, value, label) {
         grid.innerHTML = 'Failed to load.'; 
     }
 };
-    if (window.socket) {
+   
+
+if (window.socket) {
         // Sync Grid View
         window.socket.on('UpdateRadioGrid', (data) => {
             window.irExecuteLoad(data.type, data.value, data.label);
@@ -224,35 +227,46 @@ window.irExecuteLoad = async function(type, value, label) {
 
 // 1. New function to broadcast the back action
 window.irRequestBack = function() {
+    // 1. Emite o evento para o servidor para sincronizar todos os clientes
     if (window.socket && window.myRoom) {
         window.socket.emit('RequestRadioBack', { room: window.myRoom });
     }
+    
 };
 
 // 2. Updated Menu display logic (The receiver)
 window.irShowMenu = function() {
     const audio = document.getElementById('ir-audio');
+    console.log(audio)
+    // 1. Force o áudio a parar
+    if (audio) {
+        audio.pause();
+        audio.src = '';
+        audio.load();
+    }
     
-    // 1. Force the audio to stop
-    audio.pause();
-    audio.src = '';
-    audio.load(); // This forces the browser to discard the buffer
-
-    // 2. Reset the tracking variable
+    console.log("STOPPING");
+    
+    // 2. Reset a variável de controle
     if (typeof currentPlayingUrl !== 'undefined') {
         currentPlayingUrl = null;
     }
 
-    // 3. Update the UI
+    // 3. Atualização da Interface (UI)
     document.getElementById('ir-center-text').innerText = 'Select a Country or a Genre';
-    document.getElementById('ir-btn-exit').style.display = 'block';
-document.getElementById('ir-btn-back').style.display = 'block';
-document.getElementById('ir-btn-exit').style.display = 'none';
     
+    // Gerenciamento correto da visibilidade dos botões
+    document.getElementById('ir-btn-exit').style.display = 'block';
+    document.getElementById('ir-btn-back').style.display = 'none';
+    
+    // Alternância de visibilidade entre Menu e Grid
     document.getElementById('ir-menu').style.display = 'flex';
     document.getElementById('ir-grid').style.display = 'none';
+    
+    // Ocultar controles do player
     document.getElementById('ir-controls').classList.add('controls-hidden');
     
+    // Reset do texto do botão Play
     document.getElementById('ir-play-btn').innerText = 'Play';
 };
  
@@ -305,8 +319,6 @@ window.irPlay = function(url, name) {
         });
     };
     
-    window.irExit = function() { 
-        if (typeof handleNav === 'function') handleNav('radios'); 
-    };
+
 })();
 </script>

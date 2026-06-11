@@ -16,7 +16,7 @@
 
 /* Navbar */
 #flickr-nav-container {
-        width: 100%; height: 65px;
+        width: 100%; height: 55px;
         display: flex; justify-content: space-between; align-items: center;
         padding: 0 35px;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
@@ -387,10 +387,10 @@
 <div id="flickr-loader" style="
     display: none; 
     position: absolute; 
-    top: 70px;             /* Começa logo abaixo da Navbar (70px) */
+    top: 0px;             /* Começa logo abaixo da Navbar (70px) */
     left: 0; 
     width: 1280px;         /* Ajustado à largura total do teu wrapper */
-    height: 650px;         /* Altura restante calculada (720px - 70px) */
+    height: 720px;         /* Altura restante calculada (720px - 70px) */
     background: rgba(0, 0, 0, 0.75); /* Fundo translúcido para escurecer as fotos antigas */
     z-index: 9999;         /* Garante que fica por cima de qualquer card */
     box-sizing: border-box;
@@ -537,11 +537,10 @@ $('#flickr-loader').css('display', 'flex').hide().fadeIn(100);
         });
 };
 // RENDER GRID
+// RENDER GRID
 window.renderGrid = function(photos) {
-    window.currentPhotos = photos; 
+    window.currentPhotos = photos;
 
-    // ATUALIZAÇÃO DO CONTADOR:
-    // Seleciona o elemento e atualiza com o número de fotos retornadas
     const countLabel = photos ? photos.length : 0;
     $('#photo-count').text(`${countLabel} PHOTOS`);
 
@@ -552,32 +551,64 @@ window.renderGrid = function(photos) {
 
     let html = photos.map((p, i) => `
         <div class="flickr-card" id="card-${i}" onclick="window.startSlideshow(${i})">
-            <img src="https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_z.jpg" 
-                 onload="window.resizeGridItem(${i})">
+            <img src="https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_z.jpg">
         </div>`).join('');
+
     $('#flickr-results-grid').html(html);
+
+    // First pass — catches cached images immediately
+    requestAnimationFrame(() => {
+        photos.forEach((_, i) => window.resizeGridItem(i));
+    });
+
+    // Second pass — catches slow images that settled after the first pass
+    setTimeout(() => {
+        photos.forEach((_, i) => window.resizeGridItem(i));
+    }, 1500);
 };
 // RESIZE GRID
 window.resizeGridItem = function(index) {
     const item = document.getElementById(`card-${index}`);
     const grid = document.getElementById('flickr-results-grid');
     if (!item || !grid) return;
-    
+
     const rowHeight = 10, rowGap = 15;
     const img = item.querySelector('img');
-    
-    // Captura a altura atual na DOM
-    let imgHeight = img.getBoundingClientRect().height;
-    
-    // CORREÇÃO: Se a altura for 0 (comum em imagens em cache), calcula proporcionalmente
-    if (imgHeight === 0 && img.naturalHeight > 0) {
-        const aspect = img.naturalWidth / img.naturalHeight;
-        imgHeight = item.offsetWidth / aspect;
+
+    function applySpan() {
+        let imgHeight = img.getBoundingClientRect().height;
+
+        if (imgHeight === 0 && img.naturalHeight > 0) {
+            const aspect = img.naturalWidth / img.naturalHeight;
+            imgHeight = item.offsetWidth / aspect;
+        }
+
+        if (imgHeight === 0) return false; // not ready
+        
+        const rowSpan = Math.ceil((imgHeight + rowGap) / (rowHeight + rowGap));
+        item.style.gridRowEnd = `span ${rowSpan}`;
+        return true;
     }
 
-    const rowSpan = Math.ceil((imgHeight + rowGap) / (rowHeight + rowGap));
-    item.style.gridRowEnd = `span ${rowSpan}`;
+    if (img.complete && img.naturalHeight > 0) {
+        applySpan();
+        return;
+    }
+
+    // Primary: listen for load
+    img.addEventListener('load', () => applySpan(), { once: true });
+
+    // Safety net: poll until height is available (catches missed load events)
+    let attempts = 0;
+    const poll = setInterval(() => {
+        attempts++;
+        if (applySpan() || attempts > 40) {
+            clearInterval(poll);
+        }
+    }, 100);
 };
+
+
 // --- 3. CATEGORIES ---
 // --- CATEGORIES ---
 // Load Favorites from local JSON

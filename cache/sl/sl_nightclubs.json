@@ -7,13 +7,6 @@
     "teleportUrl": null
   },
   {
-    "title": "Rockin' Robin at The PureLife Lodge",
-    "desc": "Rockin' Robin at The PureLife Lodge is a premier club featuring music from the 1950s to current, with some of the best DJs and live singers on the grid! With a low-lag design, friendly staff, and fun events and themes, Rockin' Robin welcomes everyone! The music is always rockin' at Rockin' Robin and, if exploration is your thing, there's lots to see and do on the professionally designed, national park-themed region!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/652306008de2d88c620d0413_65230515dc8fb249655112.jpeg",
-    "detailLink": "https://secondlife.com/destination/rockin-robin",
-    "teleportUrl": null
-  },
-  {
     "title": "Muddy's Music Cafe",
     "desc": "Muddy's Music Cafe is the place in SL where everyone knows your name. Find friends, fun, family and an old dog named Muddy at this long-lasting and popular club. Grab the little yellow Muddy's cab and head on over.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa1cbbbbd48572d58d1ed6_535544ce20c88233524552.jpeg",
@@ -28,17 +21,38 @@
     "teleportUrl": null
   },
   {
-    "title": "Watermelon Sugar Country Club",
-    "desc": "Watermelon Sugar Country Club offers nonstop country music, rock, and blues with live DJs and singers. Enjoy dancing, meet fellow VIPs, and connect with a biker-friendly crowd. This destination keeps the music playing all day, every day.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68372a3c859c4837a91b11a7_6837298105d44780051302.jpeg",
-    "detailLink": "https://secondlife.com/destination/watermelon-sugar-country-club",
-    "teleportUrl": null
-  },
-  {
     "title": "CRASH Dance Club",
     "desc": "Step into the scene where the freshest faces and boldest styles collide. This is your destination for the latest trends in Second Life - a vibrant hotspot pulsing with youthful energy, creativity, and connection. Whether you're here to catch the latest DJ set, vibe with the coolest crowd, or take the stage yourself, this open platform celebrates the cutting edge of SL culture. Fresh, young, hip, and always evolving.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6818d8339e4b0cc49cee3bd9_6818d7a572dfe580230888.jpeg",
     "detailLink": "https://secondlife.com/destination/crash-dance-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Golden Hour Club",
+    "desc": "The Golden Hour Club welcomes you to the ultimate experience in elegant and modern international dance. Step into an upscale PBR ambient and dance to the great hits of live DJs or indulge in the mesmerizing live performances by renowned singers. Music connects people. If you love music, this is your place.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a144f4810109bf35b277a04_6a144f23c7e29416911925.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-golden-hour-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "Back To The 80s Nightclub",
+    "desc": "A place where the 80s, the Decade of Excess, lives on with some of the best music from 1979-1991 in a world full of neon nights and pop-culture nostalgia. Learn more at www.BackToThe80s.club",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/644d38c209072618c2b75bfd_644d38975a600649483421.jpeg",
+    "detailLink": "https://secondlife.com/destination/back-to-the-80s-nightclub",
+    "teleportUrl": null
+  },
+  {
+    "title": "WYLDE Club",
+    "desc": "WYLDE is a club that offers a welcoming, social atmosphere where visitors quickly feel at home. Live singers perform every Saturday at noon SLT, followed by DJ Franklin, with additional gatherings on Wednesdays. It’s a laid-back spot for music, conversation, and meeting new people.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c19283d7de5242c8c533a0_69c191feb2077686477789.jpeg",
+    "detailLink": "https://secondlife.com/destination/wylde-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "Loulou",
+    "desc": "Loulou is a PBR-enabled nightclub where you can dance, make friends in an SFW zone, and enjoy DJs spinning techno, trance, EDM, deep house, tribal, soulful, R&B, and vocal tracks, along with live singers.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68ee596595746bbb7481c0b0_67979fabec6e0667286336.jpeg",
+    "detailLink": "https://secondlife.com/destination/loulou",
     "teleportUrl": null
   },
   {
@@ -49,10 +63,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Back To The 80s Nightclub",
-    "desc": "A place where the 80s, the Decade of Excess, lives on with some of the best music from 1979-1991 in a world full of neon nights and pop-culture nostalgia. Learn more at www.BackToThe80s.club",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/644d38c209072618c2b75bfd_644d38975a600649483421.jpeg",
-    "detailLink": "https://secondlife.com/destination/back-to-the-80s-nightclub",
+    "title": "AirWaves Dance Club",
+    "desc": "Step into a space where sound, light, and rhythm blend into a timeless experience. Driven by melodic energy and hypnotic beats, this destination invites you to lose yourself on the dancefloor and rediscover the magic of electronic music at its purest.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69d907335141cf3cf60ba864_69d906c8dfe45739077645.jpeg",
+    "detailLink": "https://secondlife.com/destination/airwaves-dance-club",
     "teleportUrl": null
   },
   {
@@ -70,10 +84,17 @@
     "teleportUrl": null
   },
   {
-    "title": "AirWaves Dance Club",
-    "desc": "Step into a space where sound, light, and rhythm blend into a timeless experience. Driven by melodic energy and hypnotic beats, this destination invites you to lose yourself on the dancefloor and rediscover the magic of electronic music at its purest.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69d907335141cf3cf60ba864_69d906c8dfe45739077645.jpeg",
-    "detailLink": "https://secondlife.com/destination/airwaves-dance-club",
+    "title": "Club Casablanca",
+    "desc": "Club Casablanca evokes a 1940s Moroccan nightlife scene shaped by wartime intrigue. Inspired by classic cinema, it welcomes travelers, diplomats, and schemers for dancing, conversation, and atmosphere. Music runs around the clock, with a live DJ set each Wednesday afternoon. Part of the Cuban Cafe Club.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/696e318260116a9fec001186_696e3138d5d40852498992.jpeg",
+    "detailLink": "https://secondlife.com/destination/club-casablanca",
+    "teleportUrl": null
+  },
+  {
+    "title": "RIOT WAVE CLUB",
+    "desc": "Riot Wave Club brings international sounds to the floor with a mix of hip hop, EDM, trap, dubstep, house, trance, and more. Open Wednesday through Sunday from 4pm to 12am SLT, this inclusive club welcomes everyone for music, dance, and connection.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68ac846bbd54fdd2b0e48b32_68ac83c944405173423772.png",
+    "detailLink": "https://secondlife.com/destination/riot-wave-club",
     "teleportUrl": null
   },
   {
@@ -84,31 +105,10 @@
     "teleportUrl": null
   },
   {
-    "title": "White Lounge Club at Korea City",
-    "desc": "The White Lounge Club is a relaxed, open-style venue where DJs showcase their unique styles and sounds. Enjoy vibrant energy, stylish performances, and dance freely. It’s the perfect spot to share special moments with loved ones. The bar offers premium drinks, snacks, and fun mini-games for an extra dose of enjoyment.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68d2c6fa81cfb5688f06df1d_68d2c6b892ce0145209722.png",
-    "detailLink": "https://secondlife.com/destination/white-club-korea-city",
-    "teleportUrl": null
-  },
-  {
-    "title": "Runaround Sue's Hop",
-    "desc": "Founded by Susan Connell in 2007, Runaround Sue's Hop is Second Life's longest-running consecutive oldies club playing 50s, 60s, and 70s music. Enjoy DJs and Hosts all day along with live music on occasion. Throw on your leather jacket and poodle skirt and dance to the timeless classics of yesteryear. The wax is spinning every day at Runaround Sue's.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/651b791a79a4ae2117e67687_63acdbe1c32a7402602792.jpeg",
-    "detailLink": "https://secondlife.com/destination/runaround-sues-hop",
-    "teleportUrl": null
-  },
-  {
-    "title": "Golden Crowns Club",
-    "desc": "Established in 2017, Golden Crowns Club offers a vibrant space for music lovers to relax, meet new friends, and enjoy diverse genres. With live DJs spinning EDM, trap, hip hop, electro, techno, and more, this glamorous club celebrates cultural diversity through the universal language of music.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/696a6e3a29e20d8c05673205_696a6dd82b260419530253.jpeg",
-    "detailLink": "https://secondlife.com/destination/golden-crowns-soul-club",
-    "teleportUrl": null
-  },
-  {
-    "title": "SAVOY",
-    "desc": "Step Back in time to the birthplace of swing at the Savoy Ballroom in Creations Park! Inspired by the real-world Savoy, you can experience the best in swing music and dances with daily live DJs playing Jazz and more. Walk over to the Museum of Swing which features bands, music, dances, and history of the Swing Dance Era. You can also learn how to dance at the Dance 301 full-immersion classroom.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65a02372f161d9ab033f28b4_65a02328c3066817229974.jpeg",
-    "detailLink": "https://secondlife.com/destination/savoy",
+    "title": "Tango de Sueno",
+    "desc": "Tango de Sueno is a romantic venue with passionate tango and more music 24/7 and a live DJ on Sundays 2-4pm SLT with a Love and Passion set. Great dancing and intimate dining and bar areas. Tango Cubano is an outdoor venue featuring the 24/7 tango and more music. Access is via the elevator in Tango de Sueno. It is an extension of Cuban Cafe Club.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65cbe07d43efb08fb640821f_65cbe03131ee4726486653.jpeg",
+    "detailLink": "https://secondlife.com/destination/tango-de-sueno",
     "teleportUrl": null
   },
   {
@@ -126,17 +126,24 @@
     "teleportUrl": null
   },
   {
-    "title": "Tango de Sueno",
-    "desc": "Tango de Sueno is a romantic venue with passionate tango and more music 24/7 and a live DJ on Sundays 2-4pm SLT with a Love and Passion set. Great dancing and intimate dining and bar areas. Tango Cubano is an outdoor venue featuring the 24/7 tango and more music. Access is via the elevator in Tango de Sueno. It is an extension of Cuban Cafe Club.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65cbe07d43efb08fb640821f_65cbe03131ee4726486653.jpeg",
-    "detailLink": "https://secondlife.com/destination/tango-de-sueno",
+    "title": "Club End of Days",
+    "desc": "Club End of Days was established in 2008, boasting a rich history and dedicated following. Recently acquired by the renowned DJAphrodite and Llayla, this gothic vampire dark-themed club has undergone a transformative revitalization. With its captivating aesthetics and atmospheric vibe, visitors are immersed in a world of dark allure. The club pulses to the rhythms of live DJs who expertly blend future pop, synthpop, darkwave, industrial, and goth, creating an unforgettable auditory experience for its patrons.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/651b7ef6e89cd39ea95b2259_651b7ecf43cd1747816770.jpeg",
+    "detailLink": "https://secondlife.com/destination/club-end-of-days",
     "teleportUrl": null
   },
   {
-    "title": "Pendulum",
-    "desc": "Established in 2015, PENDULUM® Club offers amazing live DJs, themes, and outstanding decor. It is the home of creative mixing with live mix DJs playing EDM, trap, hip hop, electro, techno, progressive house, electronic, bass, breaks, DnB, and more!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63cf1f559163844dd09d4fb6_63cf1f42bfc17180677900.png",
-    "detailLink": "https://secondlife.com/destination/pendulum",
+    "title": "Rockin' Robin at The PureLife Lodge",
+    "desc": "Rockin' Robin at The PureLife Lodge is a premier club featuring music from the 1950s to current, with some of the best DJs and live singers on the grid! With a low-lag design, friendly staff, and fun events and themes, Rockin' Robin welcomes everyone! The music is always rockin' at Rockin' Robin and, if exploration is your thing, there's lots to see and do on the professionally designed, national park-themed region!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/652306008de2d88c620d0413_65230515dc8fb249655112.jpeg",
+    "detailLink": "https://secondlife.com/destination/rockin-robin",
+    "teleportUrl": null
+  },
+  {
+    "title": "Watermelon Sugar Country Club",
+    "desc": "Watermelon Sugar Country Club offers nonstop country music, rock, and blues with live DJs and singers. Enjoy dancing, meet fellow VIPs, and connect with a biker-friendly crowd. This destination keeps the music playing all day, every day.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68372a3c859c4837a91b11a7_6837298105d44780051302.jpeg",
+    "detailLink": "https://secondlife.com/destination/watermelon-sugar-country-club",
     "teleportUrl": null
   },
   {
@@ -147,164 +154,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Club Casablanca",
-    "desc": "Club Casablanca evokes a 1940s Moroccan nightlife scene shaped by wartime intrigue. Inspired by classic cinema, it welcomes travelers, diplomats, and schemers for dancing, conversation, and atmosphere. Music runs around the clock, with a live DJ set each Wednesday afternoon. Part of the Cuban Cafe Club.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/696e318260116a9fec001186_696e3138d5d40852498992.jpeg",
-    "detailLink": "https://secondlife.com/destination/club-casablanca",
-    "teleportUrl": null
-  },
-  {
-    "title": "Club Carnage",
-    "desc": "Club Carnage has been in Second Life since Dec 2005 in a market where clubs are here today, gone tomorrow. A committed and professional management team and staff keep the club crowded, entertained, and returning night after night.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/633de607592555ca73806901_5464ff8f67e24023666667.png",
-    "detailLink": "https://secondlife.com/destination/club-carnage",
-    "teleportUrl": null
-  },
-  {
-    "title": "Toby's Juke Joint",
-    "desc": "The return of the Blues! Non-stop Blues Music from one of the oldest Blues clubs in SL. Along with live DJs playing the Blues, Toby's Juke Joint is a great place to dance, chat, and meet friends, so come on over to Toby's!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/633de177c25a041a91763f23_5373d7c7329d7060746015.jpeg",
-    "detailLink": "https://secondlife.com/destination/tobys-juke-joint",
-    "teleportUrl": null
-  },
-  {
-    "title": "Ambrosia Dance Club",
-    "desc": "Ambrosia Dance Club is one of the longest continuously running clubs in Second Life. They have been bringing you Live Mix DJs and Live Entertainers since 2006. Their VIPS are like family and you are always warmly welcomed back. One of the only clubs where decade old landmarks still work!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/633dd4016aee8550433c7e5c_62e3c639b944f352083450.png",
-    "detailLink": "https://secondlife.com/destination/1110",
-    "teleportUrl": null
-  },
-  {
-    "title": "House of Legends at Cadence Island",
-    "desc": "House of Legends is a vibrant, inclusive nightclub and performance venue. Welcoming all, it's home to over two dozen talented DJs, live performers, and an ever-evolving calendar of special shows and events. Explore a breathtaking destination that blends immersive experiences with a wide range of music-driven nightlife sure to please everyone! Also home to La Logia - one of SL's hottest Latin clubs.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/688f9a63cc7d46d839fceb70_688f99e33c4da184689095.jpeg",
-    "detailLink": "https://secondlife.com/destination/house-of-legends-cadence-island",
-    "teleportUrl": null
-  },
-  {
-    "title": "RAINBOW CLUB",
-    "desc": "Rainbow Club hosts weekly Monday parties starting at 5 AM SLT with live DJs from around the world. Enjoy great music, meet new people, and relax in a welcoming club atmosphere. Everyone is invited to join the fun.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b81a9c84371ec52db3e421_69b81a5b40f7d740698303.jpeg",
-    "detailLink": "https://secondlife.com/destination/rainbow-club-lady-vale",
-    "teleportUrl": null
-  },
-  {
-    "title": "United Headquarters",
-    "desc": "United Headquarters is a social and dance club where everyone is welcome. Enjoy sets from DJs spinning house, EDM, trance, rock, indie, pop, and more, or take a break with table games. A friendly spot that celebrates all identities and orientations.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68d53ed5df45ca66ecc1aaad_68d53e9c3b961778443716.jpeg",
-    "detailLink": "https://secondlife.com/destination/united-headquarters",
-    "teleportUrl": null
-  },
-  {
-    "title": "Bambu Club",
-    "desc": "Bambu Club is the perfect place to have a good time with your partner or friends enjoying good music in an atmosphere by the sea. It has playgrounds, a romantic dance floor, and a themed dance floor that changes according to the days. Bambu Club es el lugar perfecto para pasar un buen rato con tu pareja o amigos disfrutando de buena musica en un ambiente junto al mar. Tiene zonas de juegos, pista de baile romantica, y pista de baile tematica que cambia segun los dias.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66f00725e94b165c4a59493a_66f00658da3f4428514191.jpeg",
-    "detailLink": "https://secondlife.com/destination/bambu-club",
-    "teleportUrl": null
-  },
-  {
-    "title": "The Blarney Stone",
-    "desc": "The Blarney Stone Irish Pub offers a vibrant atmosphere with daily social events and live DJ music. Visitors can also enjoy live music concerts making it a lively hub for entertainment and community gatherings. Learn more about their events at dublinsl.net",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66c4e6188117ee225775e3fe_66c4e6021c43a702058581.jpeg",
-    "detailLink": "https://secondlife.com/destination/54",
-    "teleportUrl": null
-  },
-  {
-    "title": "The Delfina Club",
-    "desc": "Established in 2020, the Delfina Club is a PBR-enabled club! Their awesome staff will quickly make you feel at home while you will enjoy the wide range of music from their DJs. Their special themed events make The Delfina Club a unique place to hang out where everyone is welcome without any discrimination. Be you, be real, and enjoy yourself.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63ac9d5b087e1a2eb2e11d4a_63ac9d2d91f85750417676.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-delfina-club",
-    "teleportUrl": null
-  },
-  {
-    "title": "SONANCE SlWtHIbh",
-    "desc": "Established in 2023, SONANCE is a nightclub complex and music collective in Second Life, embracing underground culture while curating immersive events and forward-thinking lineups every week. No rules. No lights. Only instinct.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68dd329b2b2c43395e6fd950_68dd325313ccf328373435.png",
-    "detailLink": "https://secondlife.com/destination/sonance-SlWtHIbh",
-    "teleportUrl": null
-  },
-  {
-    "title": "The Music Factory",
-    "desc": "The Music Factory a multi-genre live music venue. Owned and operated by veteran SL'er Wilson \"Bluesdaddy\" Camino, it delivers the best live performers and DJs on the grid! Set in an abandoned custom-built factory, the vibe of the club is precisely detailed to suit multi-genre music offerings. Join their group to stay up to date on upcoming events.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4dba18b99f9bf58afad9_618d4fcddb070553907387.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-music-factory",
-    "teleportUrl": null
-  },
-  {
-    "title": "All Out Music",
-    "desc": "All Out Music is a vibrant dance club where every event feels like a celebration. DJs spin feel-good hits from the 50s to today, including pop, rock, R&B, country, EDM, and more, keeping the dance floor alive from start to finish. With dynamic lighting, an upbeat crowd, and nonstop energy, it’s the perfect place to let loose, dance, and enjoy an unforgettable time.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69094b83cc7c9dfb793fd0b8_69094b590f44a894697740.jpeg",
-    "detailLink": "https://secondlife.com/destination/all-out-music",
-    "teleportUrl": null
-  },
-  {
-    "title": "CUBE24 - The Music Cube",
-    "desc": "Established in 2013, CUBE24 has since become a go-to spot for music lovers. Their mission is simple: to deliver a vibrant and unforgettable experience to everyone who steps through their virtual doors. They bring in top-tier live DJs who know how to set the vibe and keep the energy high. Backed by state-of-the-art tech and dynamic lighting, the atmosphere makes every night at CUBE24 something special.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67979a4fa971774b8e399856_679799d8d7d6b461199786.jpeg",
-    "detailLink": "https://secondlife.com/destination/cube24",
-    "teleportUrl": null
-  },
-  {
-    "title": "Sinset Beach Resort",
-    "desc": "Sinset Beach Club & Resort is a vibrant destination designed for fun and relaxation. Daily DJs play from noon to 4PM on the seafront dance floor. There is also a lot to keep you occupied including a bistro, free boat rentals, marina, balloon tours, buggy racing, shops, games, a Muffins Milk farm, and more! A photo studio is available to capture those memories. So come and visit! A warm welcome always awaits you.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6735fb5717d74ee4e6393921_6735fafd318e5285654110.jpeg",
-    "detailLink": "https://secondlife.com/destination/sinset-beach-resort",
-    "teleportUrl": null
-  },
-  {
-    "title": "The Indecent Club",
-    "desc": "The Indecent Club's elegant surroundings are designed to relax and stimulate fun. All lifestyles are welcome. They have wonderful live DJs, from all over the world, seven days a week, for your entertainment. Come by the club and participate in their creative events or just enjoy the wild conversation and antics in the local chat. While at the club, you can also join the very lively discord server full of games, and even a Flickr channel to get more likes and followers. There is also a link to their Inworld VIP group to be informed of their special events and contests.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/641de5732e06f124c7d1919c_641de5673bc44789132005.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-indecent-club",
-    "teleportUrl": null
-  },
-  {
-    "title": "Club Kraven",
-    "desc": "Club Kraven at Kravens Kingdom is a gothic-themed club and hangout hosting Saturday events with dark music and social vibes. Guests gather for themed nights, including live DJ sets and stylish dress-up events in a Bloodlines-friendly space.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e78beb44fb5e5a244592d3_69e78ba34eee4477715359.jpeg",
-    "detailLink": "https://secondlife.com/destination/club-kraven",
-    "teleportUrl": null
-  },
-  {
-    "title": "K'ORE",
-    "desc": "K’ORE is a luxury house music club featuring live DJs mixing Afro House, Latin House, Tech House, and more in real time. A focused dancefloor and social space with immersive visuals, steady events, and a strong emphasis on authentic, continuous sound.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69d51943306800ec6849fe3e_69d518c738b76535979650.jpeg",
-    "detailLink": "https://secondlife.com/destination/kore",
-    "teleportUrl": null
-  },
-  {
-    "title": "Villains Underground",
-    "desc": "Villains Underground is \"Anything But Ordinary!\" They feature live DJs, many of whom are already in the SL DJ Hall of Fame, as are their hosts. They play a variety of music from dark metal to hip hop, pop and rock. While you're here, explore the rest of the region, including a dance club and cyberpunk roleplay destination!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/693885fb2feb46290f6a1ae2_69388585be188686383856.jpeg",
-    "detailLink": "https://secondlife.com/destination/villains-underground",
-    "teleportUrl": null
-  },
-  {
-    "title": "La Bella Ballroom",
-    "desc": "La Bella Ballroom invites you to step into a musical haven available 24/7, where every note tells a story. Partnered with Love of Music Entertainment, La Bella hosts top-tier DJs and performers across genres like Soft Rock/Romance/Jazz and R&B. Embrace elegance with the dress code of Formal / Semi-Formal. Connect with fellow music lovers, and make lasting romantic memories on the dance floor.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/657dcc83826ca5895ad50b8d_657dcc0d4a5d7827527705.jpeg",
-    "detailLink": "https://secondlife.com/destination/la-bella-ballroom",
-    "teleportUrl": null
-  },
-  {
-    "title": "Open Stage Island",
-    "desc": "Explore this evolving music community in a natural setting where you bring the magic! Join the party, attend DJ school and dance your avatar's bottom off! Discover freebies and interactive experiences, make friends since 2021. The open air stage is available 24/7 to all electronic music artists to get live audience feedback; DJs and producers show their skills. This magical realism venue has grown over the past years to become a social hub. Newcomers, LGBTQI+ and furries are welcome!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6818b14c9914eb3376692033_6818b13e1d51c647434435.png",
-    "detailLink": "https://secondlife.com/destination/open-stage-island",
-    "teleportUrl": null
-  },
-  {
-    "title": "CHECK POINT",
-    "desc": "Check Point is an international club and social hub known for its relaxed atmosphere and wide mix of music, including rock, pop, house, soul, and techno. Guests can dance, chat, and unwind with DJs from across Europe in a welcoming setting. CHECK POINT der ultimative Treffpunkt für Leute die ein angenehmes Ambiente und Musik in allen Facetten lieben.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f742be9fd193fd6c3b8117_69f7428974bd0370316430.jpeg",
-    "detailLink": "https://secondlife.com/destination/check-point",
-    "teleportUrl": null
-  },
-  {
-    "title": "Cyberia Openstage",
-    "desc": "Cyberia Openstage is the perfect spot for DJs, live electronic sets, algorave, glitchy beats, and all kinds of high-energy or experimental performances. Cyberia is a premier underground multigenre sanctuary where music never stops. Operating 24/7, they are an international social hangout spanning from the heart of Poland (Polska). Cyberia is where the future meets the present.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69aed2fa1638facf504a3149_69aed27f7b613254870572.jpeg",
-    "detailLink": "https://secondlife.com/destination/cyberia-openstage",
+    "title": "Runaround Sue's Hop",
+    "desc": "Founded by Susan Connell in 2007, Runaround Sue's Hop is Second Life's longest-running consecutive oldies club playing 50s, 60s, and 70s music. Enjoy DJs and Hosts all day along with live music on occasion. Throw on your leather jacket and poodle skirt and dance to the timeless classics of yesteryear. The wax is spinning every day at Runaround Sue's.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/651b791a79a4ae2117e67687_63acdbe1c32a7402602792.jpeg",
+    "detailLink": "https://secondlife.com/destination/runaround-sues-hop",
     "teleportUrl": null
   },
   {
@@ -315,45 +168,52 @@
     "teleportUrl": null
   },
   {
-    "title": "OASIS LUXURY CXQVsZnG",
-    "desc": "OASIS is a vibrant music place with great vibes, perfect for romance, weddings, and meeting up with friends. A place where good music and memorable moments come together.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/697f5761e3ce9ac7f4422d00_697f56f8668ac534040748.jpeg",
-    "detailLink": "https://secondlife.com/destination/oasis-CXQVsZnG",
+    "title": "Golden Crowns Club",
+    "desc": "Established in 2017, Golden Crowns Club offers a vibrant space for music lovers to relax, meet new friends, and enjoy diverse genres. With live DJs spinning EDM, trap, hip hop, electro, techno, and more, this glamorous club celebrates cultural diversity through the universal language of music.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/696a6e3a29e20d8c05673205_696a6dd82b260419530253.jpeg",
+    "detailLink": "https://secondlife.com/destination/golden-crowns-soul-club",
     "teleportUrl": null
   },
   {
-    "title": "RIOT WAVE CLUB",
-    "desc": "Riot Wave Club brings international sounds to the floor with a mix of hip hop, EDM, trap, dubstep, house, trance, and more. Open Wednesday through Sunday from 4pm to 12am SLT, this inclusive club welcomes everyone for music, dance, and connection.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68ac846bbd54fdd2b0e48b32_68ac83c944405173423772.png",
-    "detailLink": "https://secondlife.com/destination/riot-wave-club",
+    "title": "Berlin Klein",
+    "desc": "Berlin Klein is a realistic nightclub focused on EDM and live DJ performances. Every Saturday, DJs take the stage for scheduled sets in an open, LGBTQ-friendly space. Access is free through wristbands or tickets, with a focus on music, community, and a consistent party atmosphere.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f9f87c5aedc4c66963e69e_69f9f834e3b48888787581.jpeg",
+    "detailLink": "https://secondlife.com/destination/berlin-klein",
     "teleportUrl": null
   },
   {
-    "title": "In Da Hizzouse",
-    "desc": "Step up to the decks and drop your favorite beats! In Da Hizzouse is an open stage welcoming DJs of all house music genres — from funky, disco, and soulful house to tech, minimal, techno, DnB, Nu Disco, and so much more. It's open 24/7 – spin whenever inspiration hits! For DJs: Members must have the DJ Tag to access stream info and radio.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68a377db93a172e4a05a6b8f_68a3778895a7c686096915.jpeg",
-    "detailLink": "https://secondlife.com/destination/in-da-hizzouse",
+    "title": "House of Legends at Cadence Island",
+    "desc": "House of Legends is a vibrant, inclusive nightclub and performance venue. Welcoming all, it's home to over two dozen talented DJs, live performers, and an ever-evolving calendar of special shows and events. Explore a breathtaking destination that blends immersive experiences with a wide range of music-driven nightlife sure to please everyone! Also home to La Logia - one of SL's hottest Latin clubs.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/688f9a63cc7d46d839fceb70_688f99e33c4da184689095.jpeg",
+    "detailLink": "https://secondlife.com/destination/house-of-legends-cadence-island",
     "teleportUrl": null
   },
   {
-    "title": "THE PHOENIX",
-    "desc": "Established in 2015, THE PHOENIX is your home for electronic music in Second Life — spanning Deep House, Melodic Techno, Techno, Progressive, Trance, Drum and Bass, Hardstyle, and more. Enjoy live DJ sets and high-energy events every Friday and Saturday from 10AM SLT, with gift card giveaways and plenty of Phoenix vibes. The destination is open 24/7 to explore and hang out, even when events aren’t running. Whether you’re here to dance, explore, or just vibe with the community, THE PHOENIX brings the heat all week long.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68bef3ca8351f15fa55bfeeb_68bef3125426f406160857.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-phoenix",
+    "title": "La Bella Ballroom",
+    "desc": "La Bella Ballroom invites you to step into a musical haven available 24/7, where every note tells a story. Partnered with Love of Music Entertainment, La Bella hosts top-tier DJs and performers across genres like Soft Rock/Romance/Jazz and R&B. Embrace elegance with the dress code of Formal / Semi-Formal. Connect with fellow music lovers, and make lasting romantic memories on the dance floor.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/657dcc83826ca5895ad50b8d_657dcc0d4a5d7827527705.jpeg",
+    "detailLink": "https://secondlife.com/destination/la-bella-ballroom",
     "teleportUrl": null
   },
   {
-    "title": "The Golden Hour Club",
-    "desc": "The Golden Hour Club welcomes you to the ultimate experience in elegant and modern International Tag Dance. Step into an upscale PBR ambiance and dance to the great hits of DJs or indulge in the mesmerizing live performances by renowned singers. Music connects people. If you love music, this is your place. It's a venue for live singers, DJs, and dance parties.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/680013c94ec2ae3e44bdb2f9_68001343a12e4990178717.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-golden-hour-club",
+    "title": "Blackhearts Cafe",
+    "desc": "Established in 2007, Blackhearts is a long-running rock club known for its welcoming crowd and lively atmosphere. With live DJs spinning rock from the 60s through today, it remains a go-to spot to meet friends, chat, and enjoy music with people who keep the energy going.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c1955356d74b4232511ed5_69c194c62b1a3972699210.jpeg",
+    "detailLink": "https://secondlife.com/destination/blackhearts-cafe",
     "teleportUrl": null
   },
   {
-    "title": "Lucid Dreams",
-    "desc": "Lucid Dreams is where music and art come alive and move together in perfect unison. There are over a dozen AI artists and galleries, each complete with a music venue. Dance amidst the beautiful works of art to the sounds of some of the greatest live musicians in Second Life! Celebrating art and music created by Second Life residents.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ba954eafc0c3f90d523aa4_69ba94e38731d034027116.jpeg",
-    "detailLink": "https://secondlife.com/destination/lucid-dreams",
+    "title": "The Dawn Star",
+    "desc": "The Dawn Star is a romantic social destination with live music venues, scenic gardens, a beachside gathering space, a medieval castle, and forest hideaways to explore. Visitors can enjoy music events, photography displays, daily coffee meetups, and a welcoming community atmosphere designed around conversation, creativity, and shared experiences.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a0cc438dfc286423648702c_6a0cc30d97bec885737416.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-dawn-star",
+    "teleportUrl": null
+  },
+  {
+    "title": "K'ORE",
+    "desc": "K’ORE is a luxury house music club featuring live DJs mixing Afro House, Latin House, Tech House, and more in real time. A focused dancefloor and social space with immersive visuals, steady events, and a strong emphasis on authentic, continuous sound.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69d51943306800ec6849fe3e_69d518c738b76535979650.jpeg",
+    "detailLink": "https://secondlife.com/destination/kore",
     "teleportUrl": null
   },
   {
@@ -364,108 +224,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Capital of the Underground",
-    "desc": "Capital of the Underground is a welcoming international club with live DJs, humor, and a relaxed vibe. Visitors can enjoy green spaces, a chill zone, bumper cars, live music, and the crystal craze game.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/691e7553a2e4c951ca497f98_691e7538edc27631428212.png",
-    "detailLink": "https://secondlife.com/destination/capital-of-the-underground",
-    "teleportUrl": null
-  },
-  {
-    "title": "Oyasumi",
-    "desc": "Welcome to Oyasumi, home of Melodic Effect! Enjoy a casual stroll through the picturesque Japanese village, soak with the capybara in the relaxing onsen (hot spring), or mingle with the cats working on the dock and market. Two beautiful music venues feature the best electronic dance DJs on the grid.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69a714a362c921b72f38c57c_69a7145eb6862410308596.jpeg",
-    "detailLink": "https://secondlife.com/destination/oyasumi",
-    "teleportUrl": null
-  },
-  {
-    "title": "All Out 80's nyCIYaUs",
-    "desc": "All Out 80's is a pure 80's music club with live DJs covering all genres of that decade taking you back in time to a decade of culture and neon lights. It is a family-friendly club, and all are welcome. So pop by and check out the superb retro club.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67bdcb06f26876d73b0f3ab3_67bdca9b3d487528331501.jpeg",
-    "detailLink": "https://secondlife.com/destination/all-out-80s-nyCIYaUs",
-    "teleportUrl": null
-  },
-  {
-    "title": "Barracuda Lounge",
-    "desc": "Barracuda Lounge is an elite club, with DJs playing all genres, a game room, an outside stage, a courtyard, eateries, rentals, ad boards, a beach, a movie theatre, and numerous romantic spots. all species in Second Life are welcome.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67924dbd9606e4d1ee4a2a2e_67924d392d3eb310187517.jpeg",
-    "detailLink": "https://secondlife.com/destination/barracuda-lounge",
-    "teleportUrl": null
-  },
-  {
-    "title": "Xtasis Latino",
-    "desc": "Established in 2015, Xtasis Latino is a place to enjoy Latin music and ballet and meet friends from all over the country.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66f167aedf67376118545d08_66f16722ec946289003120.jpeg",
-    "detailLink": "https://secondlife.com/destination/xtasis-latino",
-    "teleportUrl": null
-  },
-  {
-    "title": "Krazy Korner",
-    "desc": "Krazy Korner is an awesome club that invites residents to enjoy a lively atmosphere filled with friendly interactions, dancing, and a range of Pop music genres, including tunes spanning from the 60s to the current era. They also have live DJs. Visit for an unforgettable party experience at Krazy Korner!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6592cd10c6fb9305bba0df0e_6592ccf316ce2835328026.png",
-    "detailLink": "https://secondlife.com/destination/krazy-korner",
-    "teleportUrl": null
-  },
-  {
-    "title": "Terminal Club",
-    "desc": "Discover love at Terminal Club, the ultimate romantic and global venue! Immerse yourself in a blissful ambiance as international performers play enchanting melodies from around the world. Find love on the dance floor and let the music unite souls from different corners of the globe.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/654a40862476d9c3687cb563_654a3cd0b1b7e902173391.jpeg",
-    "detailLink": "https://secondlife.com/destination/terminal-club",
-    "teleportUrl": null
-  },
-  {
-    "title": "Club End of Days",
-    "desc": "Club End of Days was established in 2008, boasting a rich history and dedicated following. Recently acquired by the renowned DJAphrodite and Llayla, this gothic vampire dark-themed club has undergone a transformative revitalization. With its captivating aesthetics and atmospheric vibe, visitors are immersed in a world of dark allure. The club pulses to the rhythms of live DJs who expertly blend future pop, synthpop, darkwave, industrial, and goth, creating an unforgettable auditory experience for its patrons.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/651b7ef6e89cd39ea95b2259_651b7ecf43cd1747816770.jpeg",
-    "detailLink": "https://secondlife.com/destination/club-end-of-days",
-    "teleportUrl": null
-  },
-  {
-    "title": "Nikopol CyberPunk Dance Club",
-    "desc": "A pyramid dance club lost in time and space since 2009. Discover an open stage to your own event, live DJ (electro, punk, industrial, techno, trance, house music), and game tables will be there to entertain you, and liven up your evenings as well as several events that come to life in music. Mutual aid and respect are of the principles in rigor in this place.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa2033262ff20404b50f9d_61969647c22cf775162077.jpeg",
-    "detailLink": "https://secondlife.com/destination/nikopol",
-    "teleportUrl": null
-  },
-  {
-    "title": "Industry",
-    "desc": "Industry is an established multi-genre club, that brings you the music you want from some of the best DJs and live performers Second Life has to offer! Learn more at www.INdustryClubSL.com",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa0c25d5961441cf1d3d59_5f78d36a1741f737163782.jpeg",
-    "detailLink": "https://secondlife.com/destination/industry",
-    "teleportUrl": null
-  },
-  {
-    "title": "JJ's Joint",
-    "desc": "Established in 2010, JJ’s Joint brings Bayou Beats & Good Company to a Louisiana style bayou setting. Tucked deep by the water, music flows as easy as the river, from rock and blues to funk and oldies. Porch lights glow at night as friends gather, swap stories, and raise a glass to the moment. Come for the sound. Stay for the people. Leave with a little more soul than you brought in.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69a18f5eecb79a7f00460b81_69a18ed76d8b8321689886.jpeg",
-    "detailLink": "https://secondlife.com/destination/jjs-joint",
-    "teleportUrl": null
-  },
-  {
-    "title": "The Masquerade Club",
-    "desc": "The Masqueradeis where identities fade! Step into a world of gothic elegance, pulsing music, and shadow‑soaked atmosphere. The Masquerade is a dark, inclusive nightclub offering nightly DJs, immersive themes, and a community where every identity is welcome. Dance through crimson light, explore unique sponsor shops, and lose yourself in a space built for expression, mystery, and unforgettable nights.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/698a411ce6dd8c164600274a_698a408726e26898017613.png",
-    "detailLink": "https://secondlife.com/destination/the-masquerade-club",
-    "teleportUrl": null
-  },
-  {
-    "title": "Glitch 51 DxuPjLUz",
-    "desc": "At Glitch 51, DJs take center stage, weaving sonic spells with music, from techno to trance, drum and bass to house, and rock. The speakers pump out beats that make your heart race. It’s a symphony for the night owls!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6984ec92c513a79070adac6f_6984ebb51ac9c068653209.jpeg",
-    "detailLink": "https://secondlife.com/destination/glitch-51-DxuPjLUz",
-    "teleportUrl": null
-  },
-  {
-    "title": "MATRIX Galaxy - German Music Club",
-    "desc": "MATRIX Galaxy is a German music club with a lively schedule of DJ sets and a mix of Schlager, dance, pop, charts, and oldies. Visitors can also explore its shopping mall featuring outfits for all genders. MATRIX Galaxy ist ein deutscher Musikclub mit einem abwechslungsreichen DJ-Programm sowie Schlager, Dance, Pop, Charts und Oldies. Dazu gibt es eine Shopping-Mall mit Outfits für alle Geschlechter.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/693869da58aa2b4aeeedb91c_693869599d24c089853640.jpeg",
-    "detailLink": "https://secondlife.com/destination/matrix-galaxy-german-club",
-    "teleportUrl": null
-  },
-  {
-    "title": "Loulou",
-    "desc": "Loulou is a PBR-enabled nightclub where you can dance, make friends in an SFW zone, and enjoy DJs spinning techno, trance, EDM, deep house, tribal, soulful, R&B, and vocal tracks, along with live singers.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68ee596595746bbb7481c0b0_67979fabec6e0667286336.jpeg",
-    "detailLink": "https://secondlife.com/destination/loulou",
+    "title": "The Delfina Club",
+    "desc": "Established in 2020, the Delfina Club is a PBR-enabled club! Their awesome staff will quickly make you feel at home while you will enjoy the wide range of music from their DJs. Their special themed events make The Delfina Club a unique place to hang out where everyone is welcome without any discrimination. Be you, be real, and enjoy yourself.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63ac9d5b087e1a2eb2e11d4a_63ac9d2d91f85750417676.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-delfina-club",
     "teleportUrl": null
   },
   {
@@ -476,17 +238,143 @@
     "teleportUrl": null
   },
   {
-    "title": "Klub Toxic",
-    "desc": "Klub Toxic is the perfect destination for music lovers to hang out, meet new people, and enjoy live DJs playing trap, goth, and bass beats in an inclusive, LGBTQ+ friendly space.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68becfb220a858ea8837eaf4_68becf4fb2df1058924087.jpeg",
-    "detailLink": "https://secondlife.com/destination/klub-toxic",
+    "title": "Toby's Juke Joint",
+    "desc": "The return of the Blues! Non-stop Blues Music from one of the oldest Blues clubs in SL. Along with live DJs playing the Blues, Toby's Juke Joint is a great place to dance, chat, and meet friends, so come on over to Toby's!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/633de177c25a041a91763f23_5373d7c7329d7060746015.jpeg",
+    "detailLink": "https://secondlife.com/destination/tobys-juke-joint",
     "teleportUrl": null
   },
   {
-    "title": "The Dreamer's Cave",
-    "desc": "Established in 2019, The Dreamer's Cave is a multimedia club known for live video streaming performances, tribute concerts, and live music by artists and DJs. Spanning two regions with nine distinct event areas, it can accommodate up to 200 avatars. A central hub guides visitors through various venues, showcasing unique video streaming technology. Events are typically held on Thursdays, Fridays, and Saturdays at 1pm and 2pm SLT.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6729479ff808fb4edfde9965_6729472b9d6bf318806952.png",
-    "detailLink": "https://secondlife.com/destination/the-dreamers-cave",
+    "title": "The Blarney Stone",
+    "desc": "The Blarney Stone Irish Pub offers a vibrant atmosphere with daily social events and live DJ music. Visitors can also enjoy live music concerts making it a lively hub for entertainment and community gatherings. Learn more about their events at dublinsl.net",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66c4e6188117ee225775e3fe_66c4e6021c43a702058581.jpeg",
+    "detailLink": "https://secondlife.com/destination/54",
+    "teleportUrl": null
+  },
+  {
+    "title": "SAVOY",
+    "desc": "Step Back in time to the birthplace of swing at the Savoy Ballroom in Creations Park! Inspired by the real-world Savoy, you can experience the best in swing music and dances with daily live DJs playing Jazz and more. Walk over to the Museum of Swing which features bands, music, dances, and history of the Swing Dance Era. You can also learn how to dance at the Dance 301 full-immersion classroom.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65a02372f161d9ab033f28b4_65a02328c3066817229974.jpeg",
+    "detailLink": "https://secondlife.com/destination/savoy",
+    "teleportUrl": null
+  },
+  {
+    "title": "Cyberia Openstage",
+    "desc": "Cyberia Openstage is the perfect spot for DJs, live electronic sets, algorave, glitchy beats, and all kinds of high-energy or experimental performances. Cyberia is a premier underground multigenre sanctuary where music never stops. Operating 24/7, they are an international social hangout spanning from the heart of Poland (Polska). Cyberia is where the future meets the present.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69aed2fa1638facf504a3149_69aed27f7b613254870572.jpeg",
+    "detailLink": "https://secondlife.com/destination/cyberia-openstage",
+    "teleportUrl": null
+  },
+  {
+    "title": "Siren's Call Club",
+    "desc": "Live singers, DJs, karaoke, voice chat, and casual conversation come together at this lively destination. Siren’s Call Club offers a relaxed social atmosphere where residents can meet new people, spend time with friends, and enjoy entertainment in a welcoming environment. All are welcome. Drama stays at the teleport.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a0deb9fd5295fb91617ade9_6a0dea09a70aa593532901.jpeg",
+    "detailLink": "https://secondlife.com/destination/sirens-call-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "Club Dnipro",
+    "desc": "Club Dnipro is a place where you can forget about your problems and create bright, unforgettable memories. Here, everyone finds something to enjoy: energetic dancing, a favorite cocktail, or a warm conversation with friends. Club Dnipro is a place with live DJs and singers, where music comes to life and every evening turns into a special event. It’s a space where emotions, new connections, and unforgettable moments are born.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/692ca4bb207f5e6460bf9f33_692ca4314334c489601783.jpeg",
+    "detailLink": "https://secondlife.com/destination/club-dnipro",
+    "teleportUrl": null
+  },
+  {
+    "title": "All Out Music",
+    "desc": "All Out Music is a vibrant dance club where every event feels like a celebration. DJs spin feel-good hits from the 50s to today, including pop, rock, R&B, country, EDM, and more, keeping the dance floor alive from start to finish. With dynamic lighting, an upbeat crowd, and nonstop energy, it’s the perfect place to let loose, dance, and enjoy an unforgettable time.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69094b83cc7c9dfb793fd0b8_69094b590f44a894697740.jpeg",
+    "detailLink": "https://secondlife.com/destination/all-out-music",
+    "teleportUrl": null
+  },
+  {
+    "title": "Sakura",
+    "desc": "Sakura offers a unique experience of a gorgeous view and the most relaxing feel. Come and enjoy live DJs and live singers, and feel the good vibes with the best House, Melodic, Progressive, Techno, DnB. EDM, and Photography.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a144e581f9775e57e948b1e_6a144e38356b1688021668.jpeg",
+    "detailLink": "https://secondlife.com/destination/sakura-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "Rhythm & Soul",
+    "desc": "You will find Southern Soul Blues, R&B, Soul, Chicago Steppers, Latin, Country and so much more right here at Rhythm & Soul, also known as Southern Soul Expressions!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/645a56a9caa3ecf74ba90c97_645a5687ae7f0498460830.jpeg",
+    "detailLink": "https://secondlife.com/destination/rhythm-soul",
+    "teleportUrl": null
+  },
+  {
+    "title": "Pendulum",
+    "desc": "Established in 2015, PENDULUM® Club offers amazing live DJs, themes, and outstanding decor. It is the home of creative mixing with live mix DJs playing EDM, trap, hip hop, electro, techno, progressive house, electronic, bass, breaks, DnB, and more!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63cf1f559163844dd09d4fb6_63cf1f42bfc17180677900.png",
+    "detailLink": "https://secondlife.com/destination/pendulum",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Music Factory",
+    "desc": "The Music Factory a multi-genre live music venue. Owned and operated by veteran SL'er Wilson \"Bluesdaddy\" Camino, it delivers the best live performers and DJs on the grid! Set in an abandoned custom-built factory, the vibe of the club is precisely detailed to suit multi-genre music offerings. Join their group to stay up to date on upcoming events.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4dba18b99f9bf58afad9_618d4fcddb070553907387.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-music-factory",
+    "teleportUrl": null
+  },
+  {
+    "title": "Latin Quarter - LQ",
+    "desc": "LQ is the hottest party spot and is the only dual region and venue club in SL. LQ SL pays homage to the Latin Quarter club, from NYC. Styles Include: SIDE A: The best of Old School Hip Hop, Reggae, R&B, EDM, Freestyle, House, and Pop. SIDE B: The best of all Latin Music!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa11ae094d8902e6fb54d5_618c2b624c78d460088279.jpeg",
+    "detailLink": "https://secondlife.com/destination/latin-quarter",
+    "teleportUrl": null
+  },
+  {
+    "title": "CHECK POINT",
+    "desc": "Check Point is an international club and social hub known for its relaxed atmosphere and wide mix of music, including rock, pop, house, soul, and techno. Guests can dance, chat, and unwind with DJs from across Europe in a welcoming setting. CHECK POINT der ultimative Treffpunkt für Leute die ein angenehmes Ambiente und Musik in allen Facetten lieben.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f742be9fd193fd6c3b8117_69f7428974bd0370316430.jpeg",
+    "detailLink": "https://secondlife.com/destination/check-point",
+    "teleportUrl": null
+  },
+  {
+    "title": "Club Kraven",
+    "desc": "Club Kraven at Kravens Kingdom is a gothic-themed club and hangout hosting Saturday events with dark music and social vibes. Guests gather for themed nights, including live DJ sets and stylish dress-up events in a Bloodlines-friendly space.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e78beb44fb5e5a244592d3_69e78ba34eee4477715359.jpeg",
+    "detailLink": "https://secondlife.com/destination/club-kraven",
+    "teleportUrl": null
+  },
+  {
+    "title": "THE BLOCK - Life Sentence",
+    "desc": "The Block is an underground club built around sound, atmosphere, and attitude. More than just a venue, it’s a space designed for those who come to feel the music, not just hear it. Step into a dark, immersive environment where architecture, lighting, and rhythm merge into a single experience. Every detail is crafted to serve the dancefloor — from the layout to the visuals — creating a raw, intimate club vibe.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6963bed3d938ff9b8298b5f1_6963be331929a020769050.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-block-life-sentence",
+    "teleportUrl": null
+  },
+  {
+    "title": "Vertex Club",
+    "desc": "Vertex Club is an EDM venue focused on music, dancing, and social games. With a mix of electro and reggaeton, it brings together visitors from Spain, Mexico, and across Latin America for lively events and a welcoming atmosphere.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ca827d34a2ffc0dc3bf486_69ca82542d9f2707308957.jpeg",
+    "detailLink": "https://secondlife.com/destination/vertex-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "Villains Underground",
+    "desc": "Villains Underground is \"Anything But Ordinary!\" They feature live DJs, many of whom are already in the SL DJ Hall of Fame, as are their hosts. They play a variety of music from dark metal to hip hop, pop and rock. While you're here, explore the rest of the region, including a dance club and cyberpunk roleplay destination!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/693885fb2feb46290f6a1ae2_69388585be188686383856.jpeg",
+    "detailLink": "https://secondlife.com/destination/villains-underground",
+    "teleportUrl": null
+  },
+  {
+    "title": "MATRIX Galaxy - German Music Club",
+    "desc": "MATRIX Galaxy is a German music club with a lively schedule of DJ sets and a mix of Schlager, dance, pop, charts, and oldies. Visitors can also explore its shopping mall featuring outfits for all genders. MATRIX Galaxy ist ein deutscher Musikclub mit einem abwechslungsreichen DJ-Programm sowie Schlager, Dance, Pop, Charts und Oldies. Dazu gibt es eine Shopping-Mall mit Outfits für alle Geschlechter.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/693869da58aa2b4aeeedb91c_693869599d24c089853640.jpeg",
+    "detailLink": "https://secondlife.com/destination/matrix-galaxy-german-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "Oyasumi",
+    "desc": "Welcome to Oyasumi, home of Melodic Effect! Enjoy a casual stroll through the picturesque Japanese village, soak with the capybara in the relaxing onsen (hot spring), or mingle with the cats working on the dock and market. Two beautiful music venues feature the best electronic dance DJs on the grid.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69a714a362c921b72f38c57c_69a7145eb6862410308596.jpeg",
+    "detailLink": "https://secondlife.com/destination/oyasumi",
+    "teleportUrl": null
+  },
+  {
+    "title": "CUBE24 - The Music Cube",
+    "desc": "Established in 2013, CUBE24 has since become a go-to spot for music lovers. Their mission is simple: to deliver a vibrant and unforgettable experience to everyone who steps through their virtual doors. They bring in top-tier live DJs who know how to set the vibe and keep the energy high. Backed by state-of-the-art tech and dynamic lighting, the atmosphere makes every night at CUBE24 something special.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67979a4fa971774b8e399856_679799d8d7d6b461199786.jpeg",
+    "detailLink": "https://secondlife.com/destination/cube24",
     "teleportUrl": null
   },
   {
@@ -497,6 +385,118 @@
     "teleportUrl": null
   },
   {
+    "title": "Krazy Korner",
+    "desc": "Krazy Korner is an awesome club that invites residents to enjoy a lively atmosphere filled with friendly interactions, dancing, and a range of Pop music genres, including tunes spanning from the 60s to the current era. They also have live DJs. Visit for an unforgettable party experience at Krazy Korner!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6592cd10c6fb9305bba0df0e_6592ccf316ce2835328026.png",
+    "detailLink": "https://secondlife.com/destination/krazy-korner",
+    "teleportUrl": null
+  },
+  {
+    "title": "Open Stage Island",
+    "desc": "Explore this evolving music community in a natural setting where you bring the magic! Join the party, attend DJ school and dance your avatar's bottom off! Discover freebies and interactive experiences, make friends since 2021. The open air stage is available 24/7 to all electronic music artists to get live audience feedback; DJs and producers show their skills. This magical realism venue has grown over the past years to become a social hub. Newcomers, LGBTQI+ and furries are welcome!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6818b14c9914eb3376692033_6818b13e1d51c647434435.png",
+    "detailLink": "https://secondlife.com/destination/open-stage-island",
+    "teleportUrl": null
+  },
+  {
+    "title": "Club Carnage",
+    "desc": "Club Carnage has been in Second Life since Dec 2005 in a market where clubs are here today, gone tomorrow. A committed and professional management team and staff keep the club crowded, entertained, and returning night after night.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/633de607592555ca73806901_5464ff8f67e24023666667.png",
+    "detailLink": "https://secondlife.com/destination/club-carnage",
+    "teleportUrl": null
+  },
+  {
+    "title": "Dance Island",
+    "desc": "Dance Island is one of the oldest and largest party zones in Second Life! Find live DJ performances and non-stop action and music 24/7. Real DJs, real music, and real people! More info at danceisland.org",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/640a5bd699434c0d6557bf83_640a5bc94d44a727876777.jpeg",
+    "detailLink": "https://secondlife.com/destination/dance-island",
+    "teleportUrl": null
+  },
+  {
+    "title": "Mythos Music Bar Club",
+    "desc": "Mythos Music Bar is where everyone is welcome, and the party never stops. This is a moderate music club with the best in current Club Dance Top Ten and '70s, '80s, '90s, rock, pop, blues, country, live music, DJs, dancing, adboards, and more!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa1d83ce99bf0c2e3ede84_61195cda1c186084000056.jpeg",
+    "detailLink": "https://secondlife.com/destination/mythos",
+    "teleportUrl": null
+  },
+  {
+    "title": "BoraBora Club",
+    "desc": "At the BoraBora Club, guests enjoy dancing, live DJs, events, and contests every day. This is an international and friendly club. The place to be for a good night out. The entire BoraBora team welcomes you!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a8f45816858a5d14334e53_6217a0f7da84c171700446.jpeg",
+    "detailLink": "https://secondlife.com/destination/borabora-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "Slinder Connect",
+    "desc": "Step into Slinder Connect, a stylish adult social destination built for meeting new people, making connections, and exploring Second Life nightlife in a relaxed, immersive atmosphere. Centered around the interactive Slinder matchmaking system, visitors can browse profiles, discover new faces, and connect with residents from across the grid. Explore a visually rich environment featuring social lounges, dance spaces, photo spots, live DJs, streaming music, and cozy areas designed for conversation and chemistry. Whether you're looking for friendship, romance, nightlife, or simply a place to unwind, Slinder Connect offers a modern social experience with a cyber-lounge vibe and an active community atmosphere.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a16ff6971561e488b4e5356_6a16ff46a2f75636223598.jpeg",
+    "detailLink": "https://secondlife.com/destination/slinder-connect",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Crossing",
+    "desc": "The Crossing is a speakeasy where live DJs, live music, flickering lanterns, whiskey warmth, and whispered secrets blur the line between reality and legend. Wander through fog-covered pathways, discover hidden altars and forgotten stories, and lose yourself in an immersive world inspired by blues culture, crossroads folklore, and the haunting beauty of the bayou. Some places you visit. Some places you come home to.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a05ce03f1be52074f86b7df_6a05cdadd9cf1342397445.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-crossing",
+    "teleportUrl": null
+  },
+  {
+    "title": "Excalibur Club",
+    "desc": "Excalibur Club is an Italian dance destination focused on live DJs and singers, where visitors gather to enjoy music, dance, and spend time together in a lively atmosphere. The space encourages a friendly, respectful environment for shared moments and entertainment. Club per passare bei momnenti insieme con bella musica dove si balla e si sta in allegria.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69df85639d4cebe00d55ffdc_69df8533dde7b748462229.jpeg",
+    "detailLink": "https://secondlife.com/destination/excalibur-club",
+    "teleportUrl": null
+  },
+  {
+    "title": "Club Beatrice",
+    "desc": "Step into Beatrice, a refined club offering a unique experience combining music and visuals. With carefully curated DJ sets and a warm, welcoming vibe, Beatrice is a place to lose track of time, connect with others, and enjoy quality music in a beautiful setting.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6984edfb6f20b30a15843706_6984ed6799e80641947358.jpeg",
+    "detailLink": "https://secondlife.com/destination/club-beatrice",
+    "teleportUrl": null
+  },
+  {
+    "title": "Capital of the Underground",
+    "desc": "Capital of the Underground is a welcoming international club with live DJs, humor, and a relaxed vibe. Visitors can enjoy green spaces, a chill zone, bumper cars, live music, and the crystal craze game.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/691e7553a2e4c951ca497f98_691e7538edc27631428212.png",
+    "detailLink": "https://secondlife.com/destination/capital-of-the-underground",
+    "teleportUrl": null
+  },
+  {
+    "title": "United Headquarters",
+    "desc": "United Headquarters is a social and dance club where everyone is welcome. Enjoy sets from DJs spinning house, EDM, trance, rock, indie, pop, and more, or take a break with table games. A friendly spot that celebrates all identities and orientations.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68d53ed5df45ca66ecc1aaad_68d53e9c3b961778443716.jpeg",
+    "detailLink": "https://secondlife.com/destination/united-headquarters",
+    "teleportUrl": null
+  },
+  {
+    "title": "TRA$HER",
+    "desc": "Welcome to TRA$HER, a Las Vegas-inspired virtual paradise with music clubs that have live DJ events, a chapel where you can get married, and endless other entertainment! There is even a monthly sales event that starts on the 7th of each month called Lucky 77. What happens in TRA$HER stays in TRA$HER! Learn more at trashersl.com",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ba99fa1ffc1eb861db57c1_69ba99d570a5b127616704.jpeg",
+    "detailLink": "https://secondlife.com/destination/trasher",
+    "teleportUrl": null
+  },
+  {
+    "title": "Klub Toxic",
+    "desc": "Klub Toxic is the perfect destination for music lovers to hang out, meet new people, and enjoy live DJs playing trap, goth, and bass beats in an inclusive, LGBTQ+ friendly space.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68becfb220a858ea8837eaf4_68becf4fb2df1058924087.jpeg",
+    "detailLink": "https://secondlife.com/destination/klub-toxic",
+    "teleportUrl": null
+  },
+  {
+    "title": "Sinset Beach Resort",
+    "desc": "Sinset Beach Club & Resort is a vibrant destination designed for fun and relaxation. Daily DJs play from noon to 4PM on the seafront dance floor. There is also a lot to keep you occupied including a bistro, free boat rentals, marina, balloon tours, buggy racing, shops, games, a Muffins Milk farm, and more! A photo studio is available to capture those memories. So come and visit! A warm welcome always awaits you.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6735fb5717d74ee4e6393921_6735fafd318e5285654110.jpeg",
+    "detailLink": "https://secondlife.com/destination/sinset-beach-resort",
+    "teleportUrl": null
+  },
+  {
+    "title": "Bambu Club",
+    "desc": "Bambu Club is the perfect place to have a good time with your partner or friends enjoying good music in an atmosphere by the sea. It has playgrounds, a romantic dance floor, and a themed dance floor that changes according to the days. Bambu Club es el lugar perfecto para pasar un buen rato con tu pareja o amigos disfrutando de buena musica en un ambiente junto al mar. Tiene zonas de juegos, pista de baile romantica, y pista de baile tematica que cambia segun los dias.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66f00725e94b165c4a59493a_66f00658da3f4428514191.jpeg",
+    "detailLink": "https://secondlife.com/destination/bambu-club",
+    "teleportUrl": null
+  },
+  {
     "title": "Berghain Night Club",
     "desc": "Berghain Night Club is a replica of the Berghain Club in Berlin, Germany. It is named after its location near the border between Kreuzberg and Friedrichshain! Visit and enjoy live DJs playing techno music at weekly events from 8am to 4pm SLT.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65c0f2830b26010b771a0508_65c0f195a85bb941600021.jpeg",
@@ -504,24 +504,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Cobalt Blue Dance Club",
-    "desc": "Cobalt Blue Dance Club offers a cyberpunk city experience with DJs spinning underground Intelligent Dance Music, including Techno, Melodic House, Afro House, Organic House, Deep House, Electro, and Progressive. It features eight unique staging areas and plays recorded sets when live DJs are not performing.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/666055abe9d573c4bb31663e_6660555db636e390645464.jpeg",
-    "detailLink": "https://secondlife.com/destination/cobalt-blue",
-    "teleportUrl": null
-  },
-  {
-    "title": "Twilight Royale",
-    "desc": "Looking for a place to party or just hang out with your friend? Why not visit Club Twilight Royale? Check out the cocktail lounge and the huge dance floor.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64da393ba7469afcc6725115_64da38e9b82b1416376307.jpeg",
-    "detailLink": "https://secondlife.com/destination/twilight-royale",
-    "teleportUrl": null
-  },
-  {
-    "title": "Irie Vibes",
-    "desc": "Established in 2007, Irie Vibes is the home of Second Life Reggae. Irie is a Caribbean-themed club with Live DJs playing the best in reggae throughout the week. Pop over at 11am SLT on most days. One 'Irie' Love x!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64a80f5d43390beaf5258454_64a80f233193b240115883.jpeg",
-    "detailLink": "https://secondlife.com/destination/irie-vibes",
+    "title": "Terminal Club",
+    "desc": "Discover love at Terminal Club, the ultimate romantic and global venue! Immerse yourself in a blissful ambiance as international performers play enchanting melodies from around the world. Find love on the dance floor and let the music unite souls from different corners of the globe.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/654a40862476d9c3687cb563_654a3cd0b1b7e902173391.jpeg",
+    "detailLink": "https://secondlife.com/destination/terminal-club",
     "teleportUrl": null
   },
   {
@@ -539,73 +525,52 @@
     "teleportUrl": null
   },
   {
-    "title": "Blackhearts Cafe",
-    "desc": "Established in 2007, Blackhearts is a long-running rock club known for its welcoming crowd and lively atmosphere. With live DJs spinning rock from the 60s through today, it remains a go-to spot to meet friends, chat, and enjoy music with people who keep the energy going.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c1955356d74b4232511ed5_69c194c62b1a3972699210.jpeg",
-    "detailLink": "https://secondlife.com/destination/blackhearts-cafe",
+    "title": "Zue Nightlife",
+    "desc": "Zue Nightlife is a place for women from all over the world to network, make friends, and develop a comfortable support system. They strive to provide a safe and fun environment regardless of sexual preference. Their DJs spin every day, seven days a week, from 4PM to Midnight SLT.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa6148ec4c93321b620387_62a1082061c1b537267606.png",
+    "detailLink": "https://secondlife.com/destination/zue-nightlife",
     "teleportUrl": null
   },
   {
-    "title": "The Drip Dance Club",
-    "desc": "Established in 2022, The Drip Dance Club brings worldwide live DJs crafting House, Techno, Melodic, Progressive, Minimal, Electro Dance, Soul, and more. It's a place to mingle, have fun, and be social! The Drip offers a unique experience and aims to build a community of music lovers and build connections.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66d07a3b3bcc858808b73255_66d07a1fcb92f156768352.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-drip-dance-club",
+    "title": "Industry",
+    "desc": "Industry is an established multi-genre club, that brings you the music you want from some of the best DJs and live performers Second Life has to offer! Learn more at www.INdustryClubSL.com",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa0c25d5961441cf1d3d59_5f78d36a1741f737163782.jpeg",
+    "detailLink": "https://secondlife.com/destination/industry",
     "teleportUrl": null
   },
   {
-    "title": "Latin Quarter - LQ",
-    "desc": "LQ is the hottest party spot and is the only dual region and venue club in SL. LQ SL pays homage to the Latin Quarter club, from NYC. Styles Include: SIDE A: The best of Old School Hip Hop, Reggae, R&B, EDM, Freestyle, House, and Pop. SIDE B: The best of all Latin Music!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa11ae094d8902e6fb54d5_618c2b624c78d460088279.jpeg",
-    "detailLink": "https://secondlife.com/destination/latin-quarter",
+    "title": "The White Rabbit - A Stratos Noir Original",
+    "desc": "Stratos Noir presents The White Rabbit, a dark, neon-lit club built around electronic music and immersive design. Guests step into a surreal space of shifting lights, deep beats, and hidden details, inviting exploration and late-night dancing.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c5771483bc6ba83b8c68e7_69c576edb11d6492622720.jpeg",
+    "detailLink": "https://secondlife.com/destination/stratos-noir",
     "teleportUrl": null
   },
   {
-    "title": "BoraBora Club",
-    "desc": "At the BoraBora Club, guests enjoy dancing, live DJs, events, and contests every day. This is an international and friendly club. The place to be for a good night out. The entire BoraBora team welcomes you!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a8f45816858a5d14334e53_6217a0f7da84c171700446.jpeg",
-    "detailLink": "https://secondlife.com/destination/borabora-club",
+    "title": "BS After Dark",
+    "desc": "Step into one of Second Life’s premier spots where the party never sleeps! Live DJs, themed events, contests, arcade, shopping, and nonstop entertainment all in one place! Weekly events, active crowd, real energy!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c19af3ba4c4d17048378e7_69c19a978c210149604241.jpeg",
+    "detailLink": "https://secondlife.com/destination/bs-after-dark",
     "teleportUrl": null
   },
   {
-    "title": "AISM Event 2026",
-    "desc": "From May 15th to May 30th, 2026, step into a world of music, entertainment, and solidarity with AISM 2026! An exceptional event, a marathon of entertainment in Second Life, entirely dedicated to supporting AISM in its fight against multiple sclerosis. Get ready for hours of fun, wild dances, and breathtaking performances! Visit and experience unforgettable moments, all for a noble cause.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f8a9cd0c3a7e2878c21e30_69f8a960e49af263951476.jpeg",
-    "detailLink": "https://secondlife.com/destination/aism",
+    "title": "Lucid Dreams GgYRxwsz",
+    "desc": "Lucid Dreams is where music and art come alive and move together in perfect unison. There are over a dozen AI artists and galleries, each complete with a music venue. Dance amidst the beautiful works of art to the sounds of some of the greatest live musicians in Second Life! Celebrating art and music created by Second Life residents.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ba954eafc0c3f90d523aa4_69ba94e38731d034027116.jpeg",
+    "detailLink": "https://secondlife.com/destination/lucid-dreams-GgYRxwsz",
     "teleportUrl": null
   },
   {
-    "title": "GUY Magazine PRIDE in Space 2026 DoIZENVX",
-    "desc": "GUY Magazine PRIDE in Space 2026 is this year’s installment of GUY Magazine’s annual Pride festival, hosted at The Portal. It features shopping, games, carnival rides, live acts, and parties throughout June, with an opening celebration on May 31 and events like live dance shows and a K-pop concert.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69e23b9ab08fec83e059553c_69e23a53dca38689958232.jpeg",
-    "detailLink": "https://secondlife.com/destination/guy-magazine-pride-in-space-DoIZENVX",
+    "title": "Dragonborn",
+    "desc": "Step into a vibrant, one-of-a-kind venue, where the energy is electric, and the music is legendary. At Dragonborn, they bring you the best DJs spinning iconic hits from the 70s, 80s, 90s, and beyond. Whether you're dancing to pop classics, disco, or rocking out to timeless anthems, the eclectic vibe ensures there's something for everyone, from old-school jams to modern times. Come for the music, stay for the enjoyment. Your day just got a whole lot brighter at Dragonborn. Everyone is welcome!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ac020ba8e725a80746f33d_69ac01b38a874333901250.jpeg",
+    "detailLink": "https://secondlife.com/destination/dragonborn",
     "teleportUrl": null
   },
   {
-    "title": "Bellisseria Birthday Bash QxuptISy",
-    "desc": "Bellisseria Birthday Bash brings a week-long celebration to the Fairgrounds with tours, live DJs, and collectible passport stamps. Visitors can explore by air, sea, and land, take part in driving and flying challenges, and join community ceremonies from April 14–20. Learn more at gazetteorg.wordpress.com",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dff1addaf6c3810a573fd9_69dff0e72b117731935154.jpeg",
-    "detailLink": "https://secondlife.com/destination/bellisseria-anniversary-QxuptISy",
-    "teleportUrl": null
-  },
-  {
-    "title": "Excalibur Club",
-    "desc": "Excalibur Club is an Italian dance destination focused on live DJs and singers, where visitors gather to enjoy music, dance, and spend time together in a lively atmosphere. The space encourages a friendly, respectful environment for shared moments and entertainment. Club per passare bei momnenti insieme con bella musica dove si balla e si sta in allegria.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69df85639d4cebe00d55ffdc_69df8533dde7b748462229.jpeg",
-    "detailLink": "https://secondlife.com/destination/excalibur-club",
-    "teleportUrl": null
-  },
-  {
-    "title": "Chequers Nightclub",
-    "desc": "Step into Chequers Nightclub, where the spirit of the 1950s comes alive in a vibrant, music-filled atmosphere. Inspired by the golden age of rock ‘n’ roll, this retro nightclub blends vintage charm with modern energy, creating the perfect place to dance, socialise, and relive the sounds of a timeless era. Chequers Nightclub was a premier Sydney venue, operating from 1959 to the early 1970s, and was best known for hosting top international acts like Liza Minnelli and Sammy Davis Jr., cementing its place in Australian music history. DJs spin the greatest hits of the 50s and beyond. So slick back your hair, throw on your dancing shoes, and join the party — the good times roll endlessly.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69d525ea7aff1dc3b26af563_69d52590b900e568500434.jpeg",
-    "detailLink": "https://secondlife.com/destination/chequers-nightclub",
-    "teleportUrl": null
-  },
-  {
-    "title": "WYLDE Club",
-    "desc": "WYLDE is a club that offers a welcoming, social atmosphere where visitors quickly feel at home. Live singers perform every Saturday at noon SLT, followed by DJ Franklin, with additional gatherings on Wednesdays. It’s a laid-back spot for music, conversation, and meeting new people.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c19283d7de5242c8c533a0_69c191feb2077686477789.jpeg",
-    "detailLink": "https://secondlife.com/destination/wylde-club",
+    "title": "Between The Worlds",
+    "desc": "An immersive, three-room escape for those who appreciate soulful Jazz and deep House beats. \"Between The Worlds\" offers a stylish, atmospheric setting for the Adult community to connect and enjoy high-quality live music.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/698e31dfc39a6ae46c55a923_698e3144ef00d629812701.png",
+    "detailLink": "https://secondlife.com/destination/between-the-worlds-club",
     "teleportUrl": null
   },
   {
@@ -616,66 +581,59 @@
     "teleportUrl": null
   },
   {
-    "title": "Club Beatrice",
-    "desc": "Step into Beatrice, a refined club offering a unique experience combining music and visuals. With carefully curated DJ sets and a warm, welcoming vibe, Beatrice is a place to lose track of time, connect with others, and enjoy quality music in a beautiful setting.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6984edfb6f20b30a15843706_6984ed6799e80641947358.jpeg",
-    "detailLink": "https://secondlife.com/destination/club-beatrice",
+    "title": "Pinstripes Jazz & Bowling",
+    "desc": "Pinstripes is a Jazz Age speakeasy club with vintage bowling lanes, cocktails, jazz vibes, live music, dancing, date nights, parties, roleplay, social hangout, and nightlife",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6973877364125f273d686399_697386dc4f92e915027378.jpeg",
+    "detailLink": "https://secondlife.com/destination/pinstripes-jazz-bowling",
     "teleportUrl": null
   },
   {
-    "title": "SUMO UNDERGROUND",
-    "desc": "Sumo Underground is a premier nightclub venue. For almost five years, Black Pearl has been home to this Neo Japan destination. SUMO is one of the largest venues, featuring top DJ talent with real-life DJs performing live sets inworld.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69722ba4c53b2a60293ae106_69722a4fe5753666994848.jpeg",
-    "detailLink": "https://secondlife.com/destination/sumo-underground",
-    "teleportUrl": null
-  },
-  {
-    "title": "Sakura",
-    "desc": "Sakura blends a tranquil Zen garden setting with a lively music venue. Visitors can relax among detailed landscapes or enjoy live DJs and singers playing house, techno, and more. It's a scenic spot for photos, especially at sunset.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ca83e534a2ffc0dc3cbbeb_69ca837d201b8859108768.jpeg",
-    "detailLink": "https://secondlife.com/destination/sakura-club",
-    "teleportUrl": null
-  },
-  {
-    "title": "THE BLOCK - Life Sentence",
-    "desc": "The Block is an underground club built around sound, atmosphere, and attitude. More than just a venue, it’s a space designed for those who come to feel the music, not just hear it. Step into a dark, immersive environment where architecture, lighting, and rhythm merge into a single experience. Every detail is crafted to serve the dancefloor — from the layout to the visuals — creating a raw, intimate club vibe.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6963bed3d938ff9b8298b5f1_6963be331929a020769050.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-block-life-sentence",
+    "title": "The Brat Zone Night Club and Hangout",
+    "desc": "The Brat Zone Night Club and Hangout is an all-inclusive location settled on moderate land. Among its features, it has the main dance club with one of the largest dance floors in SL and one of the most well-stocked dance machines around. It also features an outdoor pool and dance area, several designated spots for relaxing, cuddling, and taking photographs. And much more!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69385adab49b7a22d1d82371_69385a493201a512759615.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-brat-zone-night-club",
     "teleportUrl": null
   },
   {
     "title": "wav",
-    "desc": ".wav is a private estate and upscale community centered around high-quality Music featuring live mix DJs and quarterly live singer events. Professionally landscaped by Kaiden Tray and decorated for privacy. Enjoy the private beaches and bike rides throughout the island. There are Resident and group community areas with cuddle spots in an adult environment. Please respect the Residents and each other. Contact Klarity Rune or wavResidential for a rental application and waiting list details.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69dd510617828b6793a3968f_69dd50cfdb407275706753.jpeg",
+    "desc": ".wav is a private estate and upscale community centered around high-quality music. It's a refined space for the discerning audiophile. Featuring live mix DJs and quarterly live singer events. Limited rental properties available. Adult, human avatars only.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a0de5fa67fae1a87a88a9cc_6a0de5074e783605458068.jpeg",
     "detailLink": "https://secondlife.com/destination/wav",
     "teleportUrl": null
   },
   {
-    "title": "Santorini International",
-    "desc": "Established in 2010, Santorini International is a music venue featuring live DJs, professional hosts, and a global community. Enjoy music, events, and performances by talented singers and DJs from around the world, creating an unforgettable party atmosphere.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6779439773b5c43385059d93_6779431616da8651267775.jpeg",
-    "detailLink": "https://secondlife.com/destination/santorini-international",
+    "title": "Onyx Lounge",
+    "desc": "Since 2019, the Onyx Lounge has established itself as a key reference in the musical universe of Second Life. This elegant and friendly club is entirely dedicated to Deep Vibes and House music, offering a refined atmosphere where music is at the heart of every moment. Come and discover a place where enthusiasts, music lovers, and clubbers come together to groove to carefully selected sets. Whether you're looking for an energetic dancefloor or a chill atmosphere conducive to socializing, the Onyx Lounge will seduce you with its musical identity and open spirit.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69f0c5f45b405334101f4f76_69f0c58599c2d843081033.jpeg",
+    "detailLink": "https://secondlife.com/destination/onyx-lounge",
     "teleportUrl": null
   },
   {
-    "title": "SL DeeJays and Host Hall of Fame",
-    "desc": "Established in 2014, the SL DeeJays and Host Hall of Fame honors the heart and soul of Second Life's music scene. This revered spot celebrates the dedication of Deejays and Hosts who have animated the virtual world's clubs with their passion for music. It's a hub for both recognition and community, inviting visitors to explore the contributions of Second Life's finest music curators and offering interactive experiences for all, especially welcoming newcomers.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65c3f3b99ef40af198325bd1_65c3f39bc35c7978584312.jpeg",
-    "detailLink": "https://secondlife.com/destination/dj-host-hall-of-fame",
+    "title": "The Dreamer's Cave",
+    "desc": "Established in 2019, The Dreamer's Cave is a multimedia club known for live video streaming performances, tribute concerts, and live music by artists and DJs. Spanning two regions with nine distinct event areas, it can accommodate up to 200 avatars. A central hub guides visitors through various venues, showcasing unique video streaming technology. Events are typically held on Thursdays, Fridays, and Saturdays at 1pm and 2pm SLT.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6729479ff808fb4edfde9965_6729472b9d6bf318806952.png",
+    "detailLink": "https://secondlife.com/destination/the-dreamers-cave",
     "teleportUrl": null
   },
   {
-    "title": "SugarHill Lounge at Center Ground",
-    "desc": "This location at Center Ground Blvd. is home to the SugarHill Lounge and the Black Soul Rhythms Digital Radio music store. Enjoy live webcasts of a diverse and unique lineup of DJs.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/643424b64311bbed81a353ab_6434245d1cf2f618949083.jpeg",
-    "detailLink": "https://secondlife.com/destination/sugarhill-lounge",
+    "title": "Cobalt Blue Dance Club",
+    "desc": "Cobalt Blue Dance Club offers a cyberpunk city experience with DJs spinning underground Intelligent Dance Music, including Techno, Melodic House, Afro House, Organic House, Deep House, Electro, and Progressive. It features eight unique staging areas and plays recorded sets when live DJs are not performing.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/666055abe9d573c4bb31663e_6660555db636e390645464.jpeg",
+    "detailLink": "https://secondlife.com/destination/cobalt-blue",
     "teleportUrl": null
   },
   {
-    "title": "Club Multiverse",
-    "desc": "Club Multiverse is an LGBTQ+ club and safe space with daily live DJs and regular themed events and contests.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67ffb0dfc8f4405616a56e42_67ffb03062b23057754006.jpeg",
-    "detailLink": "https://secondlife.com/destination/club-multiverse",
+    "title": "Big Apple Entertainment Group",
+    "desc": "NYNY Piano Lounge remains the default landing point for this Destination of over 60 venues created by RL musician Xtern. Many based on RL clubs he has performed at, Big Apple promises unique sets with Live established DJs and no two sets are ever the same. Established many years now Big Apple continues to grow.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65ad4c5ad6f194a5b617705e_65ad4bcd8ec1d173983935.jpeg",
+    "detailLink": "https://secondlife.com/destination/big-apple-entertainment-group",
+    "teleportUrl": null
+  },
+  {
+    "title": "Ambrosia Dance Club",
+    "desc": "Ambrosia Dance Club is one of the longest continuously running clubs in Second Life. They have been bringing you Live Mix DJs and Live Entertainers since 2006. Their VIPS are like family and you are always warmly welcomed back. One of the only clubs where decade old landmarks still work!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/633dd4016aee8550433c7e5c_62e3c639b944f352083450.png",
+    "detailLink": "https://secondlife.com/destination/1110",
     "teleportUrl": null
   },
   {
@@ -686,10 +644,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Zue Nightlife",
-    "desc": "Zue Nightlife is a place for women from all over the world to network, make friends, and develop a comfortable support system. They strive to provide a safe and fun environment regardless of sexual preference. Their DJs spin every day, seven days a week, from 4PM to Midnight SLT.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa6148ec4c93321b620387_62a1082061c1b537267606.png",
-    "detailLink": "https://secondlife.com/destination/zue-nightlife",
+    "title": "The Drip Dance Club",
+    "desc": "Established in 2022, The Drip Dance Club brings worldwide live DJs crafting House, Techno, Melodic, Progressive, Minimal, Electro Dance, Soul, and more. It's a place to mingle, have fun, and be social! The Drip offers a unique experience and aims to build a community of music lovers and build connections.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66d07a3b3bcc858808b73255_66d07a1fcb92f156768352.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-drip-dance-club",
     "teleportUrl": null
   },
   {
@@ -697,6 +655,48 @@
     "desc": "Velvet Touch is a group and location where everyone can relax in harmony and find romance, friendship, music, DJs, and LGBTQIA+ community life. With dance, DJs, rock, blues, pop, and live singers, they also have a Dance Hall and Blues Jazz bar.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63da66c9fd726e0c101625fd_63da669d3f1aa988912974.jpeg",
     "detailLink": "https://secondlife.com/destination/velvet-touch",
+    "teleportUrl": null
+  },
+  {
+    "title": "End of Time",
+    "desc": "End of Time is a land of peace with many open places for relaxation and play. Open to all, with daily performances, walking trails, rental cabins, and more. You can wander anywhere except inside residences. Taking pictures is encouraged. More info at eotia.org",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a9fc41135f092c3c0fdab2_5d288b4b29e4e303585409.jpeg",
+    "detailLink": "https://secondlife.com/destination/end-of-time",
+    "teleportUrl": null
+  },
+  {
+    "title": "GUY Magazine PRIDE in Space 2026",
+    "desc": "GUY Magazine PRIDE in Space 2026 is this year’s installment of GUY Magazine’s annual Pride festival, hosted at The Portal. It features shopping, games, carnival rides, live acts, and parties throughout June, with an opening celebration on May 31 and events like live dance shows and a K-pop concert.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1bdce01924417e2f367c41_69e23a53dca38689958232.jpeg",
+    "detailLink": "https://secondlife.com/destination/guy-magazine-pride-in-space",
+    "teleportUrl": null
+  },
+  {
+    "title": "Chequers Nightclub",
+    "desc": "Step into Chequers Nightclub, where the spirit of the 1950s comes alive in a vibrant, music-filled atmosphere. Inspired by the golden age of rock ‘n’ roll, this retro nightclub blends vintage charm with modern energy, creating the perfect place to dance, socialise, and relive the sounds of a timeless era. Chequers Nightclub was a premier Sydney venue, operating from 1959 to the early 1970s, and was best known for hosting top international acts like Liza Minnelli and Sammy Davis Jr., cementing its place in Australian music history. DJs spin the greatest hits of the 50s and beyond. So slick back your hair, throw on your dancing shoes, and join the party — the good times roll endlessly.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69d525ea7aff1dc3b26af563_69d52590b900e568500434.jpeg",
+    "detailLink": "https://secondlife.com/destination/chequers-nightclub",
+    "teleportUrl": null
+  },
+  {
+    "title": "RAINBOW CLUB",
+    "desc": "Rainbow Club hosts weekly Monday parties starting at 5 AM SLT with live DJs from around the world. Enjoy great music, meet new people, and relax in a welcoming club atmosphere. Everyone is invited to join the fun.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69b81a9c84371ec52db3e421_69b81a5b40f7d740698303.jpeg",
+    "detailLink": "https://secondlife.com/destination/rainbow-club-lady-vale",
+    "teleportUrl": null
+  },
+  {
+    "title": "JJ's Joint",
+    "desc": "Established in 2010, JJ’s Joint brings Bayou Beats & Good Company to a Louisiana style bayou setting. Tucked deep by the water, music flows as easy as the river, from rock and blues to funk and oldies. Porch lights glow at night as friends gather, swap stories, and raise a glass to the moment. Come for the sound. Stay for the people. Leave with a little more soul than you brought in.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69a18f5eecb79a7f00460b81_69a18ed76d8b8321689886.jpeg",
+    "detailLink": "https://secondlife.com/destination/jjs-joint",
+    "teleportUrl": null
+  },
+  {
+    "title": "SUMO UNDERGROUND",
+    "desc": "Sumo Underground is a premier nightclub venue. For almost five years, Black Pearl has been home to this Neo Japan destination. SUMO is one of the largest venues, featuring top DJ talent with real-life DJs performing live sets inworld.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69722ba4c53b2a60293ae106_69722a4fe5753666994848.jpeg",
+    "detailLink": "https://secondlife.com/destination/sumo-underground",
     "teleportUrl": null
   }
 ]

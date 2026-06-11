@@ -26,7 +26,7 @@
     color: white;
     text-transform: uppercase;
     letter-spacing: 7px;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     opacity: 0.9;
     text-shadow: 0 0 20px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.7);
 }
@@ -42,7 +42,7 @@
 #youtube-menu-wrapper .search-input {
     flex: 1;
     background: rgba(255,255,255,0.05);
-    border: 2px solid rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.5);
     padding: 16px 25px;
     border-radius: 15px;
     font-size: 1.3rem;
@@ -100,8 +100,8 @@
 
 #youtube-menu-wrapper .feature-btn {
     background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 22px;
+    border: 2px solid rgba(255,255,255,0.2);
+    padding: 15px;
     border-radius: 15px;
     color: white;
     text-align: center;
@@ -136,7 +136,7 @@
 /* ===============================
    CATEGORY CARDS
 =============================== */
-#youtube-menu-wrapper .yt-group {
+#youtube-menu-wrapper .btn-group {
     background: rgba(0,0,0,0.6);
     border: 2px solid rgba(255,255,255,0.1);
     border-radius: 20px;
@@ -150,22 +150,22 @@
     box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
-#youtube-menu-wrapper .yt-group:hover {
+#youtube-menu-wrapper .btn-group:hover {
     transform: scale(1.07);
     background: rgba(0,0,0,0.7);
     border-color: rgba(255,255,255,0.8);
 }
 
-#youtube-menu-wrapper .yt-main-btn {
+#youtube-menu-wrapper .main-title-btn {
     font-size: 1.1rem;
-    font-weight: 800;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: 0.3s;
     text-align: center;
 }
 
-#youtube-menu-wrapper .yt-sub-btn {
+.sub-btn-group {
     font-size: 0.70rem;
     font-weight: 600;
     padding: 5px 12px;
@@ -183,27 +183,27 @@
 =============================== */
 /* Red — action/trending */
 #youtube-menu-wrapper .yt-red { border-color: rgba(255,75,43,0.4); }
-#youtube-menu-wrapper .yt-red .yt-main-btn { color: #ff4b2b; }
-#youtube-menu-wrapper .yt-red .yt-sub-btn { color: #ff4b2b; border-color: rgba(255,75,43,0.6); }
-#youtube-menu-wrapper .yt-red .yt-sub-btn:hover { background: #ff4b2b; color: white; }
+#youtube-menu-wrapper .yt-red .main-title-btn { color: #ff4b2b; }
+#youtube-menu-wrapper .yt-red .sub-btn-group { color: #ff4b2b; border-color: rgba(255,75,43,0.6); }
+#youtube-menu-wrapper .yt-red .sub-btn-group:hover { background: #ff4b2b; color: white; }
 
 /* Cyan — tech/info */
 #youtube-menu-wrapper .yt-cyan { border-color: rgba(0,212,255,0.4); }
-#youtube-menu-wrapper .yt-cyan .yt-main-btn { color: #00d4ff; }
-#youtube-menu-wrapper .yt-cyan .yt-sub-btn { color: #00d4ff; border-color: rgba(0,212,255,0.6); }
-#youtube-menu-wrapper .yt-cyan .yt-sub-btn:hover { background: #00d4ff; color: white; }
+#youtube-menu-wrapper .yt-cyan .main-title-btn { color: #00d4ff; }
+#youtube-menu-wrapper .yt-cyan .sub-btn-group { color: #00d4ff; border-color: rgba(0,212,255,0.6); }
+#youtube-menu-wrapper .yt-cyan .sub-btn-group:hover { background: #00d4ff; color: white; }
 
 /* Amber — lifestyle/classic */
 #youtube-menu-wrapper .yt-amber { border-color: rgba(255,179,71,0.4); }
-#youtube-menu-wrapper .yt-amber .yt-main-btn { color: #ffb347; }
-#youtube-menu-wrapper .yt-amber .yt-sub-btn { color: #ffb347; border-color: rgba(255,179,71,0.6); }
-#youtube-menu-wrapper .yt-amber .yt-sub-btn:hover { background: #ffb347; color: white; }
+#youtube-menu-wrapper .yt-amber .main-title-btn { color: #ffb347; }
+#youtube-menu-wrapper .yt-amber .sub-btn-group { color: #ffb347; border-color: rgba(255,179,71,0.6); }
+#youtube-menu-wrapper .yt-amber .sub-btn-group:hover { background: #ffb347; color: white; }
 
 /* Purple — docs/knowledge */
 #youtube-menu-wrapper .yt-purple { border-color: rgba(189,0,255,0.4); }
-#youtube-menu-wrapper .yt-purple .yt-main-btn { color: #d385ee; }
-#youtube-menu-wrapper .yt-purple .yt-sub-btn { color: #d385ee; border-color: rgba(189,0,255,0.6); }
-#youtube-menu-wrapper .yt-purple .yt-sub-btn:hover { background: #d385ee; color: white; }
+#youtube-menu-wrapper .yt-purple .main-title-btn { color: #d385ee; }
+#youtube-menu-wrapper .yt-purple .sub-btn-group { color: #d385ee; border-color: rgba(189,0,255,0.6); }
+#youtube-menu-wrapper .yt-purple .sub-btn-group:hover { background: #d385ee; color: white; }
 
 /* ===============================
    MODALS
@@ -215,13 +215,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.95);
+    background: rgba(0,0,0,0.7);
     border-radius: 30px;
     z-index: 100;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 10px 40px;
     opacity: 0;
     transition: opacity 0.2s ease;
 }
@@ -242,38 +242,12 @@
     padding: 10px;
 }
 
-/* ===============================
-   CATEGORY + FAVORITE ITEMS
-=============================== */
-.cat-item,
-.fav-item {
-    background: rgba(255,255,255,0.05);
-    padding: 15px;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: white;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.2s;
-}
 
-.cat-item:hover { background: #ff0000; }
-
-.fav-item {
-    border-color: #ffd700;
-    color: #ffd700;
-}
-
-.fav-item:hover {
-    background: #ffd700;
-    color: black;
-}
 
 /* ===============================
    REMOTE HOVER STATES
 =============================== */
-#youtube-menu-wrapper .yt-group.remote-hover {
+#youtube-menu-wrapper .btn-group.remote-hover {
     transform: scale(1.07);
     background: rgba(0,0,0,0.7);
     border-color: rgba(255,255,255,0.8);
@@ -288,13 +262,10 @@
     background: #ffd700 !important;
     color: black !important;
 }
+.movie-group.remote-hover { transform: scale(1.07); background: rgba(0, 0, 0, 0.7); border-color: rgba(255, 255, 255, 0.8); }
+.feature-btn.remote-hover { background: white; color: black; border-color: white; }
+.sub-btn-group.remote-hover  { background: red;color:black;font-weight: 600; transform: scale(1.05); }
 
-.cat-item.remote-hover { background: #ff0000 !important; }
-
-.fav-item.remote-hover {
-    background: #ffd700 !important;
-    color: black !important;
-}
 </style>
 
 <div id="youtube-menu-wrapper">
@@ -309,101 +280,224 @@
             <input type="text" id="yt-search-field" class="search-input"
                    placeholder="Search YouTube or paste Channel ID..."
                    onkeypress="if(event.key === 'Enter') executeSearch()">
-            <button onclick="executeSearch()" class="search-btn">
+                  <button onclick="executeSearch()" class="search-btn">
                 <span class="material-symbols-rounded">search</span>
             </button>
+
+
+
+<div class="feature-btn search-btn" onclick="document.getElementById('yt-help-modal').style.display='flex'">
+    <span class="material-symbols-rounded">help</span>
+</div>
         </div>
     </div>
 
     <div class="yt-grid-container">
 
-        <!-- Feature Row -->
-        <div class="feature-row">
-
-            <div class="feature-btn btn-fav" onclick="toggleYtFavModal(true)">
-                <span class="material-symbols-rounded">star</span> Favorite Channels
-            </div>
-            <div class="feature-btn" onclick="toggleYtCatModal(true)">
-                <span class="material-symbols-rounded">category</span> Categorias
-            </div>
-        </div>
 
         <!-- Category Cards -->
-        <div class="yt-group yt-red" onclick="loadWithSpinner('/youtube-grid?genre=UCGBzBkV-MinlBvHBzZawfLQ&isChannel=true&menu=/youtube-menu')">
-            <div class="yt-main-btn">Second Life</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC9lFGoxhquvypdNDYpj3ekg&isChannel=true&menu=/youtube-menu')">Draxtor</span>
+        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UC5dsLkNZX9pVgmEHpJX9QCA&isChannel=true&menu=/youtube-menu&title=Second Life Official')">
+            <div class="main-title-btn">Second Life</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC9lFGoxhquvypdNDYpj3ekg&isChannel=true&menu=/youtube-menu&title=Draxtor files')">DRAXTOR</span>
         </div>
 
-        <div class="yt-group yt-cyan" onclick="loadWithSpinner('/youtube-grid?genre=UCI7NrJQ5vpg2PmVQKpwXSbw&isChannel=true&menu=/youtube-menu')">
-            <div class="yt-main-btn">Bryn Oh</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=Tech Reviews&menu=/youtube-menu')">REVIEWS</span>
+        <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCI7NrJQ5vpg2PmVQKpwXSbw&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">Bryn Oh</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC0-b3mAe2rYJ3BhiOy1j_Fg&isChannel=true&menu=/youtube-menu')">SONGULARITY</span>
         </div>
 
-        <div class="yt-group yt-amber" onclick="loadWithSpinner('/youtube-grid?genre=UCbfOwWpYoWo5l0Tz-q29Tbg&isChannel=true&menu=/youtube-menu')">
-            <div class="yt-main-btn">Tutsy</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=best recipes&menu=/youtube-menu')">RECIPES</span>
+        <div class="btn-group yt-amber"  onclick="loadWithSpinner('/youtube-grid?genre=UCbfOwWpYoWo5l0Tz-q29Tbg&isChannel=true&menu=/youtube-menu&title=Tutsy Navarathna')">
+            <div class="main-title-btn">Tutsy</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCau2uwcAq_piedjavtmqp9A&isChannel=true&menu=/youtube-menu')">IONO ALLEN</span>
         </div>
 
-        <div class="yt-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCYJhtXjfiwmah0DwXn3B-qw&isChannel=true&menu=/youtube-menu')">
-            <div class="yt-main-btn">inWorld</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCxGlN6DXSe4qxjRmWgvM7zw&isChannel=true&menu=/youtube-menu')">OEMA</span>
+        <div class="btn-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCYJhtXjfiwmah0DwXn3B-qw&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">inWorld</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCxGlN6DXSe4qxjRmWgvM7zw&isChannel=true&menu=/youtube-menu')">OEMA</span>
         </div>
 
-        <div class="yt-group yt-red" onclick="loadWithSpinner('/youtube-grid?genre=Comedy&menu=/youtube-menu')">
-            <div class="yt-main-btn">Comedy</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=stand up comedy&menu=/youtube-menu')">STAND UP</span>
+        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UCU17qab1aYA3PQDiWNONdfQ&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">Anna Kurka</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCUKYh7WxpHyxBrIX4mpv3sg&isChannel=true&menu=/youtube-menu')">FLORINE</span>
         </div>
 
-        <div class="yt-group yt-cyan" onclick="loadWithSpinner('/youtube-grid?genre=Music Videos&menu=/youtube-menu')">
-            <div class="yt-main-btn">Music</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=Music VEVO&menu=/youtube-menu')">VEVO</span>
+
+
+        <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCb57aRZr3KsykS_wNsD5Ptw&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">4K Landscapes</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC-hKdAEl4c86O9lNTNrOqhw&isChannel=true&menu=/youtube-menu')">4K NATURE</span>
         </div>
 
-        <div class="yt-group yt-amber" onclick="loadWithSpinner('/youtube-grid?genre=Fitness&menu=/youtube-menu')">
-            <div class="yt-main-btn">Fitness</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=workout routines&menu=/youtube-menu')">WORKOUTS</span>
+        <div class="btn-group yt-amber"    onclick="loadWithSpinner('/youtube-grid?genre=UCY-6T66-azasLIwzVf4Q9TQ&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">Dalí Museum</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC9CswYtb5rL31CHwyVoyJvQ&isChannel=true&menu=/youtube-menu')">MOMA</span>
         </div>
 
-        <div class="yt-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=Travel&menu=/youtube-menu')">
-            <div class="yt-main-btn">Travel</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=travel vlog&menu=/youtube-menu')">VLOGS</span>
+        <div class="btn-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCPVM7BG6PXKO1PR6K5KXG9A&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">N. GEOGRAPHIC</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCQtW2oz8ec8pHjjxawujNjg&isChannel=true&menu=/youtube-menu')">NATURE DOCS</span>
         </div>
 
-        <div class="yt-group yt-red" onclick="loadWithSpinner('/youtube-grid?genre=Noticias&menu=/youtube-menu')">
-            <div class="yt-main-btn">News</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=world news today&menu=/youtube-menu')">WORLD</span>
+        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UC9MAhZQQd9egwWCxrwSIsJQ&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">HISTORY</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCc-N24Y5OA0gqbjBwe1ttfA&isChannel=true&menu=/youtube-menu')">WEIRD HISTORY</span>
         </div>
 
-        <div class="yt-group yt-cyan" onclick="loadWithSpinner('/youtube-grid?genre=Science&menu=/youtube-menu')">
-            <div class="yt-main-btn">Science</div>
-            <span class="yt-sub-btn" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=space exploration&menu=/youtube-menu')">SPACE</span>
+        <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCfzuJecdM0uhX7HfICewt3Q&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">FAME FOCUS</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCXjmz8dFzRJZrZY8eFiXNUQ&isChannel=true&menu=/youtube-menu')">NERDSTALGIC</span>
+        </div>
+
+
+
+        <div class="btn-group yt-amber"   onclick="loadWithSpinner('/youtube-grid?genre=UCFeUyPY6W8qX8w2o6oSiRmw&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">Pink Panther</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCU0rIMU3k_AsVA8d6N1B03w&isChannel=true&menu=/youtube-menu')">WARNER BROS.</span>
+        </div>
+
+        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UCkAGrHCLFmlK3H2kd6isipg&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">Mr. Bean</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCKk1DfbCOBm_42PMyz7HqEA&isChannel=true&menu=/youtube-menu')">STAND UP</span>
+        </div>
+
+        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/youtube-grid?genre=UCpsSadsgX_Qk9i6i_bJoUwQ&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">Just For Laughs</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC1Cp5caGwHvJZxHoevGoDdA&isChannel=true&menu=/youtube-menu')">BRAIN TIME</span>
+        </div>
+
+        <div class="btn-group yt-purple"    onclick="loadWithSpinner('/youtube-grid?genre=UCPN6irtK3KIT2xUdQYQmh5Q&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">Jason Maher</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCeeHYKSxJPk0Hv2v-LLTdmg&isChannel=true&menu=/youtube-menu')">OSCAR MAGIC</span>
+        </div>
+
+        <div class="btn-group yt-amber"   onclick="loadWithSpinner('/youtube-grid?genre=UCHnyfMqiRRG1u-2MsSQLbXA&isChannel=true&menu=/youtube-menu')">
+            <div class="main-title-btn">Veritasium</div>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCsXVk37bltHxD1rDPwtNM8Q&isChannel=true&menu=/youtube-menu')">Kurzgesagt</span>
         </div>
 
     </div>
 
-    <!-- CATEGORIES MODAL -->
-    <div id="yt-cat-modal-new" class="yt-modal-overlay">
-        <h2 style="color: white; margin-bottom: 20px; letter-spacing: 3px;">CATEGORIAS</h2>
-        <div class="modal-grid"></div>
-        <button class="yt-group yt-red" style="margin-top: 30px; width: 200px; justify-content: center;"
-                onclick="toggleYtCatModal(false)">VOLTAR</button>
+
+</div>
+<!-- HELP MODAL -->
+<div id="yt-help-modal" class="yt-modal-overlay" style="display:none;">
+
+  <div style="width:1150px; margin-right: 80px;margin-bottom: 20px; background:#111; border:0.5px solid rgba(255,255,255,0.1); border-radius:18px; overflow:hidden;">
+
+    <!-- header -->
+    <div style="padding:16px 22px 14px; border-bottom:0.5px solid rgba(255,255,255,0.07); display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="width:10px; height:10px; border-radius:50%; background:#ff0000;"></div>
+        <span style="font-size:20px; font-weight:600; color:rgba(255,255,255,0.4); letter-spacing:2.5px; text-transform:uppercase;">Search guide</span>
+      </div>
+      <div onclick="document.getElementById('yt-help-modal').style.display='none'"
+           style="width:28px; height:28px; border-radius:7px; background:rgba(255,255,255,0.05); border:0.5px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; cursor:pointer; color:rgba(255,255,255,0.35);">
+        <span class="material-symbols-rounded" style="font-size:15px;">close</span>
+      </div>
     </div>
 
-    <!-- FAVORITES MODAL -->
-    <div id="yt-fav-modal-new" class="yt-modal-overlay">
-        <h2 style="color: #ffd700; margin-bottom: 20px; letter-spacing: 3px;">FAVORITOS</h2>
-        <div id="fav-list-container" class="modal-grid"></div>
-        <button class="yt-group yt-amber" style="margin-top: 30px; width: 200px; justify-content: center;"
-                onclick="toggleYtFavModal(false)">VOLTAR</button>
+    <!-- body: left + right -->
+    <div style="display:grid; grid-template-columns:1fr 1fr;">
+
+      <!-- LEFT: search / video / channel -->
+      <div style="border-right:0.5px solid rgba(255,255,255,0.07); display:flex; flex-direction:column;">
+
+        <!-- search term -->
+        <div style="padding:16px 20px; border-bottom:0.5px solid rgba(255,255,255,0.06); display:flex; gap:14px;">
+          <div style="width:34px; height:34px; border-radius:9px; background:rgba(255,0,0,0.12); color:#ff4444; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <span class="material-symbols-rounded" style="font-size:17px;">search</span>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:4px;">Search term</div>
+            <div style="font-size:18px; color:rgba(255,255,255,0.5); line-height:1.55; margin-bottom:9px;">Any word or phrase — searches YouTube and opens a video grid.</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+              <span style="font-family:monospace; font-size:14px; color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); border:0.5px solid rgba(255,255,255,0.09); border-radius:5px; padding:3px 8px;">nature documentaries</span>
+              <span style="font-family:monospace; font-size:14px; color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); border:0.5px solid rgba(255,255,255,0.09); border-radius:5px; padding:3px 8px;">lofi hip hop</span>
+              <span style="background:rgba(0,140,255,0.15); color:#4da6ff; font-size:14px; font-weight:600; border-radius:5px; padding:3px 8px;">→ opens grid</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- video url -->
+        <div style="padding:16px 20px; border-bottom:0.5px solid rgba(255,255,255,0.06); display:flex; gap:14px;">
+          <div style="width:34px; height:34px; border-radius:9px; background:rgba(0,140,255,0.12); color:#4da6ff; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <span class="material-symbols-rounded" style="font-size:17px;">link</span>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:4px;">Video URL or ID</div>
+            <div style="font-size:18px; color:rgba(255,255,255,0.5); line-height:1.55; margin-bottom:9px;">Full URL, short link, or just the <code style="font-size:14px; background:rgba(255,255,255,0.08); padding:1px 5px; border-radius:4px;">v=</code> part. Plays immediately.</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+              <span style="font-family:monospace; font-size:14px; color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); border:0.5px solid rgba(255,255,255,0.09); border-radius:5px; padding:3px 8px;">youtube.com/watch?v=dFCbJmgeHmA</span>
+              <span style="font-family:monospace; font-size:14px; color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); border:0.5px solid rgba(255,255,255,0.09); border-radius:5px; padding:3px 8px;">youtu.be/dFCbJmgeHmA</span>
+              <span style="font-family:monospace; font-size:14px; color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); border:0.5px solid rgba(255,255,255,0.09); border-radius:5px; padding:3px 8px;">v=dFCbJmgeHmA</span>
+              <span style="background:rgba(255,0,0,0.15); color:#ff6666; font-size:14px; font-weight:600; border-radius:5px; padding:3px 8px;">→ plays now</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- channel id -->
+        <div style="padding:16px 20px; display:flex; gap:14px;">
+          <div style="width:34px; height:34px; border-radius:9px; background:rgba(255,170,0,0.12); color:#ffaa00; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <span class="material-symbols-rounded" style="font-size:17px;">subscriptions</span>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:4px;">Channel ID</div>
+            <div style="font-size:18px; color:rgba(255,255,255,0.5); line-height:1.55; margin-bottom:9px;">Starts with <code style="font-size:14px; background:rgba(255,255,255,0.08); padding:1px 5px; border-radius:4px;">UC</code>, exactly 24 characters. Opens that channel's grid.</div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+              <span style="font-family:monospace; font-size:14px; color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); border:0.5px solid rgba(255,255,255,0.09); border-radius:5px; padding:3px 8px;">UC5dsLkNZX9pVgmEHpJX9QCA</span>
+              <span style="background:rgba(0,140,255,0.15); color:#4da6ff; font-size:14px; font-weight:600; border-radius:5px; padding:3px 8px;">→ opens channel</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: playlist -->
+      <div style="padding:16px 20px; display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <div style="width:34px; height:34px; border-radius:9px; background:rgba(0,200,100,0.12); color:#00c864; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <span class="material-symbols-rounded" style="font-size:17px;">queue_music</span>
+          </div>
+          <div>
+            <div style="font-size:20px; font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:4px;">Playlist — multiple videos</div>
+            <div style="font-size:18px; color:rgba(255,255,255,0.5); line-height:1.55;">One URL or ID per line or comma-separated. Plays in sequence — invalid entries skipped automatically.</div>
+          </div>
+        </div>
+        <div style="background:rgba(0,0,0,0.45); border:0.5px solid rgba(255,255,255,0.08); border-left:2px solid #00c864; border-radius:0 7px 7px 0; padding:12px 14px; font-family:monospace; font-size:18px; color:rgba(255,255,255,0.5); line-height:2; flex:1;">
+          https://youtube.com/watch?v=dFCbJmgeHmA<br>
+          www.youtube.com/watch?v=K4DyBUG242c<br>
+          v=xaQJbozY_Is<br>
+          youtu.be/abc12345678<br>
+          youtu.be/mN7IAaRdi_k<br>
+          v=ScMzIvxBSi4  <br>     
+          youtu.be/mN7IAaRdi_k<br>
+
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+          <span style="background:rgba(0,200,100,0.15); color:#00c864; font-size:16px; font-weight:600; border-radius:5px; padding:3px 8px;">→ plays in sequence</span>
+          <span style="font-size:14px; color:rgba(255,255,255,0.2);">back button returns to this menu</span>
+        </div>
+      </div>
+
     </div>
+
+    <div style="height:0.5px; background:rgba(255,255,255,0.06); margin:0 20px;"></div>
+
+    <!-- tip -->
+    <div style="margin:0 20px 14px; margin-top:12px; background:rgba(255,170,0,0.07); border:0.5px solid rgba(255,170,0,0.18); border-radius:8px; padding:10px 14px; display:flex; gap:9px; align-items:flex-start; font-size:16px; color:rgba(255,170,0,0.7); line-height:1.5;">
+      <span class="material-symbols-rounded" style="font-size:14px; flex-shrink:0; margin-top:1px;">lightbulb</span>
+      <span>Mix formats freely — full URLs, short links, and bare IDs all work together in the same list.</span>
+    </div>
+
+  </div>
 </div>
 
 <script>
 if (!window.ytMenuInitialized) {
     window.ytMenuInitialized = true;
 
-    // Standard loader helper
-    function loadWithSpinner(url) {
+// Standard loader helper
+function loadWithSpinner(url) {
         // 1. Show the loader (assuming window.showLoader exists in your main layout)
         if (window.showLoader) {
             window.showLoader();
@@ -417,101 +511,69 @@ if (!window.ytMenuInitialized) {
         });
     }
 
-    // ===============================
-    // STATIC DATA
-    // ===============================
-    const YT_CATEGORIES = [
-        "Comedy", "Music Videos", "Gaming", "Documentaries",
-        "Tech Reviews", "Cooking", "Fitness", "Travel"
-    ];
 
-    const YT_FAVORITES = [
-        { "name": "Second Life", "id": "UC5dsLkNZX9pVgmEHpJX9QCA" },
-        { "name": "Bryn Oh", "id": "UCI7NrJQ5vpg2PmVQKpwXSbw" },
-        { "name": "Tutsy", "id": "UCbfOwWpYoWo5l0Tz-q29Tbg" },
-        { "name": "inWorld", "id": "UCYJhtXjfiwmah0DwXn3B-qw" },
-        { name: "Kurzgesagt",  id: "UCsXVk37bltHxD1rDPwtNM8Q" }
-    ];
+// ===============================
+// SEARCH
+// ===============================
+window.executeSearch = function() {
+    const input = document.getElementById('yt-search-field');
+    const query = input.value.trim();
 
-    // ===============================
-    // SEARCH
-    // ===============================
-    window.executeSearch = function() {
-        const input = document.getElementById('yt-search-field');
-        const query = input.value.trim();
-
-        if (!query) {
-            input.placeholder = "Type something first...";
-            return;
-        }
-
-        input.placeholder = "Searching...";
-        const isChannelId = /^UC[\w-]{22}$/.test(query);
-        const url = isChannelId 
-            ? `/youtube-grid?genre=${encodeURIComponent(query)}&isChannel=true&menu=/youtube-menu` 
-            : `/youtube-grid?genre=${encodeURIComponent(query)}&menu=/youtube-menu`;
-        
-        loadWithSpinner(url);
-    };
-
-    // ===============================
-    // MODALS (WITH SYNC)
-    // ===============================
-    window.toggleYtCatModal = function(show, isRemote = false) {
-        const modal = document.getElementById('yt-cat-modal-new');
-        if (!modal) return;
-        modal.style.display = show ? 'flex' : 'none';
-        if (show) renderCategories();
-        if (!isRemote && window.socket) {
-            socket.emit('state_sync', { type: 'yt_cat_modal', show, room: window.myRoom });
-        }
-    };
-
-    window.toggleYtFavModal = function(show, isRemote = false) {
-        const modal = document.getElementById('yt-fav-modal-new');
-        if (!modal) return;
-        modal.style.display = show ? 'flex' : 'none';
-        if (show) renderFavorites();
-        if (!isRemote && window.socket) {
-            socket.emit('state_sync', { type: 'yt_fav_modal', show, room: window.myRoom });
-        }
-    };
-
-    // ===============================
-    // RENDER FUNCTIONS
-    // ===============================
-    function renderCategories() {
-        const grid = document.querySelector('#yt-cat-modal-new .modal-grid');
-        if (!grid) return;
-        grid.innerHTML = YT_CATEGORIES.map(cat => `<div class="cat-item" data-cat="${cat}">${cat}</div>`).join('');
+    if (!query) {
+        input.placeholder = "Type something first...";
+        return;
     }
 
-    function renderFavorites() {
-        const grid = document.getElementById('fav-list-container');
-        if (!grid) return;
-        grid.innerHTML = YT_FAVORITES.map(fav => `<div class="fav-item" data-id="${fav.id}">${fav.name}</div>`).join('');
+    input.placeholder = "Searching...";
+
+    // Split by newline, comma, or space
+    const parts = query.split(/[\n,\s]+/).map(p => p.trim()).filter(Boolean);
+
+if (parts.length > 1) {
+    const ids = parts.map(extractVideoId).filter(Boolean);
+    console.log("IDSS: ", ids);
+    if (ids.length > 0) {
+        sessionStorage.setItem('yt_playlist', JSON.stringify(ids));
+        sessionStorage.setItem('yt_playlist_index', '0');
+        handleNav(`/tvytube?videoId=${encodeURIComponent(ids[0])}&vq=hd1080&origin=link&targetID=playlist&menu=/youtube-menu`);
+        return;
+    }
+}
+
+    // Single entry — existing logic
+    const videoId = extractVideoId(query);
+    if (videoId) {
+        handleNav(`/tvytube?videoId=${encodeURIComponent(videoId)}&origin=link&menu=/youtube-menu`);
+        return;
     }
 
-    // ===============================
-    // EVENTS
-    // ===============================
-    $(document).on('click', '.cat-item', function() {
-        const cat = $(this).data('cat');
-        toggleYtCatModal(false);
-        loadWithSpinner(`/youtube-grid?genre=${encodeURIComponent(cat)}&menu=/youtube-menu`);
-    });
+    const isChannelId = /^UC[\w-]{22}$/.test(query);
+    const url = isChannelId
+        ? `/youtube-grid?genre=${encodeURIComponent(query)}&isChannel=true&menu=/youtube-menu`
+        : `/youtube-grid?genre=${encodeURIComponent(query)}&menu=/youtube-menu`;
 
-    $(document).on('click', '.fav-item', function() {
-        const id = $(this).data('id');
-        toggleYtFavModal(false);
-        loadWithSpinner(`/youtube-grid?genre=${encodeURIComponent(id)}&isChannel=true&menu=/youtube-menu`);
-    });
+    loadWithSpinner(url);
+};
+function extractVideoId(input) {
+  
+    // v=xaQJbozY_Is  (query param, with or without full URL)
+const vParam = input.match(/(?:[?&]|^)v=([a-zA-Z0-9_-]{11})/);
+      
 
-    $(document).on('keydown', function(e) {
-        if (e.key === 'Escape') {
-            toggleYtCatModal(false);
-            toggleYtFavModal(false);
-        }
-    });
+    if (vParam) return vParam[1];
+
+    // youtu.be/xaQJbozY_Is
+    const shortUrl = input.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+    if (shortUrl) return shortUrl[1];
+
+    // bare 11-char video ID — must NOT match a channel ID pattern
+    const bareId = /^[a-zA-Z0-9_-]{11}$/.test(input);
+    if (bareId && !/^UC/.test(input)) return input;
+
+    return null;
+}
+
+
+
 }
 </script>

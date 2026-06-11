@@ -130,25 +130,56 @@
 <script>
 function exitPlayer() {
     const origin = "<%= origin %>";
-    const target = "<%= targetID %>";
-    const scroll = "<%= scrollPos %>";
+    // We get these from the server template variables
+    const target = "<%= targetID || 'Live English News' %>"; 
+    const scroll = "<%= scrollPos || 0 %>";
     const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
-    let returnUrl = "";
+    const title   = "<%= typeof title !== 'undefined' ? title : '' %>";
+    
 
-if (origin === 'live-tv') {
-    returnUrl = '/live-tv';
-} else if (origin === 'grid') {
-    let gridRoute = '/music-grid'; // default
-    if (menu.includes('movies'))   gridRoute = '/movies-grid';
-    if (menu.includes('youtube'))  gridRoute = '/youtube-grid';
-    returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&menu=${encodeURIComponent(menu)}&scrollPos=${scroll}`;
-}
+    sessionStorage.removeItem('yt_playlist');
+    sessionStorage.removeItem('yt_playlist_index');
+
+    console.log("***********************")
+    console.log("Origin: ", origin)
+    console.log("Target: ", target)
+    console.log("Scroll: ", scroll)
+    console.log("menu: ", menu)
+    console.log("title: ", title)
+    console.log("***********************")
+
+    let returnUrl = "";
+    let isChannel=false;
+    
+    if (target.startsWith("UC")) isChannel=true;
+    
+    if (origin === 'live-tv') {
+        // IMPORTANT: We need to append the parameters here too if we want to remember the state
+        returnUrl = `/live-tv?genre=${encodeURIComponent(target)}&scrollPos=${scroll}`;
+
+    } else if (origin === 'link') {
+        returnUrl = menu || '/youtube-menu';
+
+    } else if (origin === 'music') {
+        let gridRoute = '/music-grid'; 
+        returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}`;
+    
+    } else if (origin === 'movies') {
+        let gridRoute = '/movies-grid'; 
+        returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}&isChannel=${encodeURIComponent(isChannel)}`;
+    
+    } else if (origin === 'youtube') {
+        let gridRoute = '/youtube-grid'; 
+        returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}&isChannel=${encodeURIComponent(isChannel)}`;
+    }
+
+    console.log("Exiting to:", returnUrl);
 
     if (typeof handleNav === "function") {
         window.pendingScrollRestore = parseInt(scroll) || 0;
         handleNav(returnUrl);
     } else {
-        window.parent.postMessage({ action: 'nav', path: returnUrl }, '*');
+        window.location.href = returnUrl;
     }
 }
 
@@ -247,11 +278,26 @@ if (origin === 'live-tv') {
                     const controls = document.querySelector('.player-controls');
 
 // Lógica de Loop: Se o vídeo terminar, volta ao início e dá play
-    if (event.data === YT.PlayerState.ENDED) {
+if (event.data === YT.PlayerState.ENDED) {
+    const playlist = JSON.parse(sessionStorage.getItem('yt_playlist') || '[]');
+    const index = parseInt(sessionStorage.getItem('yt_playlist_index') || '0');
+    const next = index + 1;
+
+    if (playlist.length > 0 && next < playlist.length) {
+        // Advance to next video in playlist
+        sessionStorage.setItem('yt_playlist_index', String(next));
+        const nextId = playlist[next];
+        const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
+        handleNav(`/tvytube?videoId=${encodeURIComponent(nextId)}&vq=hd1080&origin=link&targetID=playlist&menu=${encodeURIComponent(menu)}&scrollPos=0`);
+    } else {
+        // No playlist or last video — clear and loop as before
+        sessionStorage.removeItem('yt_playlist');
+        sessionStorage.removeItem('yt_playlist_index');
         event.target.seekTo(0);
         event.target.playVideo();
-        return; // Sai da função para não executar a lógica de opacidade abaixo
     }
+    return;
+}
 
                     if (controls) {
                         const showBack = (event.data !== YT.PlayerState.PLAYING && event.data !== YT.PlayerState.BUFFERING);
@@ -293,7 +339,7 @@ if (origin === 'live-tv') {
         socket.off('Play').off('Pause');
 
         
-socket.on('Play', (data) => {
+    socket.on('Play', (data) => {
     if (!window.ytPlayerInstance) return;
     
     // 1. Prevent loopback

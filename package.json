@@ -28,6 +28,7 @@
     "peer": "^1.0.2",
     "playwright": "^1.59.1",
     "pretty": "^2.0.0",
+    "requests": "^0.3.0",
     "screenshot-desktop": "^1.12.7",
     "socket.io": "^4.4.0",
     "socket.io-client": "^4.5.1",

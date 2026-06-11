@@ -1,216 +1,213 @@
-<!-- views/pages/games/clip-games.ejs -->
 <style>
-/* ==========================================================================
-   1. ESTRUTURA E LAYOUT PRINCIPAL
-   ========================================================================== */
+/* ── MAIN LAYOUT ── */
 #clips-wrapper { 
     width: 1280px; height: 720px;
-  
     font-family: 'Fira Sans', sans-serif;
     display: flex; flex-direction: column; 
     overflow: hidden; position: relative;
 }
 
-/* Barra de Navegação Superior */
 #clips-nav {
-    width: 100%; height: 75px;
+    width: 100%; height: 55px;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 0 30px;
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-sizing: border-box; z-index: 100;
+    padding: 0 35px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+    z-index: 100; flex-shrink: 0; box-sizing: border-box;
 }
 
-.nav-group { display: flex; gap: 12px; align-items: center; }
+.nav-group { display: flex; gap: 15px; align-items: center; }
 
-.current-tag { display: flex; flex-direction: column; margin-right: 20px; }
-.current-tag span { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-.current-tag small { color: #f39c12; font-size: 10px; letter-spacing: 1px; opacity: 0.8; }
-
-/* Botões de Categoria */
 .modern-btn {
     background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff; padding: 10px 18px; border-radius: 8px;
-    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    color: #fff; padding: 6px 18px; border-radius: 20px;
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
     cursor: pointer; transition: all 0.2s;
 }
+.modern-btn:hover { background: #f39c12; color: #000; border-color: #f39c12; }
 
-.modern-btn:hover, .active-filter-btn { 
-    background: #f39c12; color: #000; border-color: #f39c12; 
-}
-
-/* ==========================================================================
-   2. GRID DE JOGOS E CARTÕES
-   ========================================================================== */
+/* ── GRID ── */
 #clips-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    width: 1200px;
-    margin-left: 20px;
-    padding: 30px;
-    box-sizing: border-box;
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 20px; width: 1230px; margin-left: 20px;
+    padding: 20px 25px; box-sizing: border-box;
     overflow-y: auto;
 }
-
-/* Scrollbar Customizada */
 #clips-grid::-webkit-scrollbar { width: 8px; }
 #clips-grid::-webkit-scrollbar-thumb { background: #f39c12; border-radius: 10px; }
 
 .game-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-    padding: 1px;
-    cursor: pointer; text-align: center;
-    display: flex; flex-direction: column;
-    align-items: center; gap: 12px;
-    transition: transform 0.2s ease;
     position: relative;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px; padding: 1px; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center;
+    transition: transform 0.2s;
 }
-
-
-
 .game-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.3); }
 
-/* Miniaturas das Imagens */
-.game-media {
-    width: 100%; height: 120px;
-    background: #111; border-radius: 12px;
-    overflow: hidden; display: flex; align-items: center; justify-content: center;
-}
-.game-thumbnail { width: 100%; height: 100%;  }
-
-.game-name { 
-    font-size: 0.9rem; 
-    font-weight: 400; 
-    text-transform: uppercase; 
-    color: #fff; 
-    margin-top: 0px; 
+/* Overlay to darken images */
+.game-card::after {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); border-radius: 18px; pointer-events: none;
 }
 
-/* Cores por Categoria */
-.cat-puzzle { --card-color: #3498db; }
-.cat-action { --card-color: #e74c3c; }
-.cat-arcade { --card-color: #2ecc71; }
+.game-media { width: 100%; height: 120px; background: #111; border-radius: 12px; overflow: hidden; }
+.game-thumbnail { width: 100%; height: 100%; object-fit: cover; }
+.game-name { font-size: 0.8rem; text-transform: uppercase; color: #fff; margin: 10px 0; }
+
+/* ── MODAL ── */
+#category-modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); display: none;
+    justify-content: center; align-items: center; z-index: 2000;
+}
+.modal-content {
+    background: rgba(20, 20, 20, 0.95); border-radius: 16px;
+    padding: 40px; width: 400px; text-align: center;
+}
+.modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px; }
+.modal-btn { background: rgba(255,255,255,0.05); color: white; padding: 12px; border: 1px solid #333; border-radius: 8px; cursor: pointer; }
+.modal-btn:hover { background: #f39c12; color: #000; }
+.cancel-btn { margin-top: 30px; background: none; border: none; color: #666; cursor: pointer; text-transform: uppercase; }
+
+/* ── PILL BUTTON STYLING ── */
+.ltv-nav-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.173);
+    color: white;
+    padding: 3px 20px;
+    border-radius: 0px; /* Pill shape */
+    font-size: 0.80rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0 5px;
+}
+
+.ltv-nav-btn:hover {
+    background: hsla(48, 93%, 41%, 0.67);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── CENTERING THE TITLE ── */
+.header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.0rem;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    pointer-events: none; /* Allows clicking through if needed */
+}
+/* ── UPDATED MODAL LAYOUT ── */
+#category-modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 10, 10, 0.95); display: none;
+    justify-content: center; align-items: center; z-index: 2000;
+}
+
+.modal-content {
+    background: rgba(20, 20, 20, 0.9); border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px; padding: 40px; width: 800px; /* Wider for 4 columns */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4-column structure */
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.modal-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc; padding: 12px 15px; border-radius: 8px;
+    cursor: pointer; text-align: left; font-size: 0.85rem;
+    transition: all 0.2s;
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.modal-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+/* Icon placeholder mimicking your reference */
+.modal-btn::after {
+    content: "📷"; font-size: 0.7rem; opacity: 0.4;
+}
 </style>
 
 <div id="clips-wrapper">
     <nav id="clips-nav">
         <div class="nav-group">
-            <div class="current-tag">
-                <span>Clip Games</span>
-                <small id="active-label">READY</small>
-            </div>
-            
-            <!-- Botões que carregam ficheiros JSON diretos -->
-            <button class="modern-btn cat-btn" onclick="loadCategory('puzzle')">Puzzle</button>
-            <button class="modern-btn cat-btn" onclick="loadCategory('action')">Action</button>
-            <button class="modern-btn cat-btn" onclick="loadCategory('arcade')">Arcade</button>
-            <button class="modern-btn cat-btn" onclick="loadCategory('brain')">Brain</button>
+           <button class="ltv-nav-btn" onclick="closeSubMenu()">
+           <span class="material-symbols-rounded" style="font-size:23px!important; vertical-align:middle;">arrow_back</span> BACK
+           </button>
+            <span id="active-label" style="letter-spacing:2px; opacity:0.7;">PUZZLE</span>
         </div>
-
-        <button class="modern-btn" onclick="closeSubMenu()" style="border-color: #ff4444; color: #ff4444;">Back</button>
+    <div style="margin-right: 22px;">
+        <button class="ltv-nav-btn" onclick="openCategoryModal()">
+            <span class="material-symbols-rounded" style="font-size:22px!important; vertical-align:middle;">menu</span> </button>
+    </div>
     </nav>
+    <div id="clips-grid"></div>
+</div>
 
-    <div id="clips-grid">
-        <!-- Conteúdo dinâmico -->
+<div id="category-modal">
+    <div class="modal-content">
+        <h3 style="text-align: left; margin: 0; color: #fff; letter-spacing: 2px;">SELECT CATEGORY</h3>
+        <div class="modal-grid">
+            <button class="modal-btn" onclick="loadCategory('puzzle')">Puzzle</button>
+            <button class="modal-btn" onclick="loadCategory('action')">Action</button>
+            <button class="modal-btn" onclick="loadCategory('arcade')">Arcade</button>
+            <button class="modal-btn" onclick="loadCategory('brain')">Brain</button>
+        </div>
+        <button class="cancel-btn" onclick="closeModal()" style="margin-top: 30px;">Close</button>
     </div>
 </div>
 
 <script>
-/**
- * 1. FUNÇÃO GLOBAL DE FALLBACK
- * Evita o SyntaxError do jQuery ao não usar aspas complexas no HTML.
- */
-window.handleImageError = function(img) {
-    const container = img.parentElement;
-    if (container) {
-        container.innerHTML = '<div style="font-size:3rem;">🎮</div>';
-    }
-};
+const BASE_PATH = '/games/clip-games/';
+let isFetching = false;
 
-(function() {
-    const BASE_PATH = '/games/clip-games/';
-    let isFetching = false;
+function openCategoryModal() { document.getElementById('category-modal').style.display = 'flex'; }
+function closeModal() { document.getElementById('category-modal').style.display = 'none'; }
 
-    /**
-     * 2. CARREGAR CATEGORIA (Fetch Direto)
-     */
-    window.loadCategory = function(fileName) {
-        if (isFetching) return;
-        isFetching = true;
+window.handleImageError = (img) => { img.parentElement.innerHTML = '<div style="font-size:2rem; padding-top:40px;">🎮</div>'; };
 
-        $('#active-label').text('LOADING ' + fileName.toUpperCase() + '...');
-        
-        // Faz o fetch direto para a pasta public/games/clip-games/
-        fetch(BASE_PATH + fileName)
-            .then(res => {
-                if (!res.ok) throw new Error('File not found');
-                return res.json();
-            })
-            .then(data => {
-                renderGrid(data, fileName);
-                $('#active-label').text(fileName.toUpperCase());
-                isFetching = false;
-            })
-            .catch(err => {
-                console.error("Erro no carregamento:", err);
-                $('#active-label').text('ERROR');
-                isFetching = false;
-            });
-    };
-
-    /**
-     * 3. RENDERIZAR GRID
-     */
-    function renderGrid(games, categoryName) {
-        const grid = $('#clips-grid');
-        
-        // Define classe visual baseada no nome do ficheiro
-        let colorClass = 'cat-arcade';
-        if(categoryName.includes('puzzle')) colorClass = 'cat-puzzle';
-        if(categoryName.includes('action')) colorClass = 'cat-action';
-
-        const html = games.map(game => {
-            // Verifica o campo "thumb" dos teus JSONs
-            const mediaContent = game.thumb ? 
-                `<img src="${game.thumb}" class="game-thumbnail" onerror="handleImageError(this)">` : 
-                `<div style="font-size:3rem;">🎮</div>`;
-
-            return `
-                <div class="game-card ${colorClass}" onclick="sendToPlayer('${game.url}')">
-                    <div class="game-media">${mediaContent}</div>
-                    <div class="game-name">${game.title}</div>
-                </div>
-            `;
-        }).join('');
-
-        // .html() do jQuery agora funciona sem erro de Syntax
-        grid.html(html);
-        grid.scrollTop(0);
-    }
-
-    /**
-     * 4. PLAYER NAVIGATION
-     */
-// In clip-games.ejs script section
-window.sendToPlayer = function(url, title) {
-    // Certifique-se de que não há espaços ou barras extras
-    const playerRoute = `tv-clip-games?videoId=${encodeURIComponent(url)}`;
+window.loadCategory = function(fileName) {
+    closeModal();
+    if (isFetching) return;
+    isFetching = true;
+    $('#active-label').text('LOADING...');
     
-    console.log("Navigando para:", playerRoute); // Verifique o console do browser
-    handleNav(playerRoute);
+    fetch(BASE_PATH + fileName)
+        .then(res => res.json())
+        .then(data => {
+            renderGrid(data, fileName);
+            $('#active-label').text(fileName.toUpperCase());
+            isFetching = false;
+        })
+        .catch(err => { $('#active-label').text('ERROR'); isFetching = false; });
 };
 
-    /**
-     * 5. STARTUP
-     * Inicia diretamente com puzzle em vez de games.txt
-     */
-    $(document).ready(() => {
-        window.loadCategory('puzzle');
-    });
+function renderGrid(games, categoryName) {
+    const grid = $('#clips-grid');
+    const html = games.map(game => `
+        <div class="game-card" onclick="sendToPlayer('${game.url}')">
+            <div class="game-media">
+                ${game.thumb ? `<img src="${game.thumb}" class="game-thumbnail" onerror="handleImageError(this)">` : '🎮'}
+            </div>
+            <div class="game-name">${game.title}</div>
+        </div>
+    `).join('');
+    grid.html(html).scrollTop(0);
+}
 
-})();
+window.sendToPlayer = (url) => { handleNav(`tv-clip-games?videoId=${encodeURIComponent(url)}`); };
+
+$(document).ready(() => { window.loadCategory('puzzle'); });
 </script>

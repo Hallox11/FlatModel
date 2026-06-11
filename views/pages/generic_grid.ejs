@@ -14,37 +14,41 @@
 
 /* 2. BARRA DE NAVEGAÇÃO COM FADE (Preto para Transparente) */
 .top-nav {
-    width: 100%;
-    height: 60px; /* Um pouco maior para suavizar o fade */
+width: 100%;
+    height: 50px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 60px;
-    /* Efeito de Fade Moderno */
-    background: linear-gradient(to bottom, 
-        rgba(0, 0, 0, 1) 0%, 
-        rgba(0, 0, 0, 0.5) 80%, 
-        rgba(0, 0, 0, 0) 100%
-    );
-    z-index: 100;
-    flex-shrink: 0; 
+    align-items: center;      /* Vertically center everything */
+    padding: 0 35px;
+    position: relative;       /* Keep this for the container */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
     box-sizing: border-box;
 }
-
+.page-title {
+    margin: 0;                /* Remove margins */
+    flex-grow: 1;             /* Takes up available space between items */
+    text-align: center;       /* Centers the text within that space */
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    opacity: 0.9;
+    pointer-events: none;
+    color: #00d4ff;
+    line-height: 0%;
+    margin-left: -120px;
+}
 /* 3. ÁREA DE CONTEÚDO (Scroll começa abaixo do nav) */
 .content-wrapper { 
     flex-grow: 1;      
     overflow-y: auto;  
     overflow-x: hidden; 
-    padding: 7px 23px; 
+    padding: 3px 23px; 
     box-sizing: border-box;
-    width: 1230px;
-    margin-left: 25px;
+    width: 1235px;
+    margin-left: 20px;
 }
 
 /* 4. ESTILIZAÇÃO DA BARRA DE ROLAGEM (Red YouTube Style) */
 .content-wrapper::-webkit-scrollbar {
-    width: 15px;
+    width: 13px;
 }
 
 .content-wrapper::-webkit-scrollbar-track {
@@ -58,14 +62,7 @@
 }
 
 /* --- ESTILOS ORIGINAIS --- */
-.page-title {
-    margin: 0;
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    color: #00d4ff;
-    font-weight: 400;
-    text-transform: uppercase;
-}
+
 
 .back-button {
     background: rgba(255, 255, 255, 0.1);
@@ -76,7 +73,10 @@
     cursor: pointer;
     font-weight: 400;
     transition: 0.3s;
-    font-size: 16px;
+    font-size: 15px;
+    margin-left: 5px;
+        margin-top: 12px;
+    margin-bottom: 6px;
 }
 
 .back-button:hover {
@@ -164,7 +164,7 @@
     right: 8px;
     font-size: 0.65rem;
     font-weight: 700;
-    padding: 3px 8px;
+    padding: 1px 4px;
     border-radius: 4px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -189,10 +189,10 @@
 
 <div class="tv-screen">
     <div class="top-nav">
-        <h1 class="page-title"><%= title %></h1>
         <button class="back-button" onclick="goBackToMenu()">
             <i class="fas fa-chevron-left"></i> BACK
         </button>
+                <div class="page-title"><%= title %></div>
     </div>
 
     <div class="content-wrapper" id="grid-content">
@@ -230,7 +230,7 @@ window.hideLoader();
 function goBackToMenu() {
     const serverMenu = "<%= typeof menu !== 'undefined' ? menu : '' %>";
     const type = "<%= type %>";
-    
+    console.log("ServerMenu: ",type)
     if (serverMenu) {
         handleNav(serverMenu);
     } else {
@@ -244,8 +244,13 @@ function playMedia(id) {
     
     const query = "<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>";
     const menu  = "<%= typeof menu !== 'undefined' ? menu : '' %>";
+    const type = "<%= type %>";
+    const title = "<%= title %>";
+  
 
-    const url = `/tvytube?videoId=${id}&vq=hd1080&origin=grid&targetID=${encodeURIComponent(query)}&menu=${encodeURIComponent(menu)}&scrollPos=${scroll}`;
+    console.log("FROM MENU: ",type)
+
+    const url = `/tvytube?videoId=${id}&vq=hd1080&origin=${encodeURIComponent(type)}&targetID=${encodeURIComponent(query)}&menu=${encodeURIComponent(menu)}&scrollPos=${scroll}&title=${encodeURIComponent(title)}`;
     handleNav(url);
 }
 

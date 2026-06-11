@@ -27,6 +27,9 @@ const flickrFav   = path.join(__dirname, 'config','flickr','flickr-fav.json');
 if (!fs.existsSync(flickrFav)) fs.writeFileSync(flickrFav, JSON.stringify([]));
 const flickrArt   = path.join(__dirname, 'config','flickr','flickr-art.json');
 if (!fs.existsSync(flickrArt)) fs.writeFileSync(flickrArt, JSON.stringify([]));
+const flickrErotic   = path.join(__dirname, 'config','flickr','flickr-erotic.json');
+if (!fs.existsSync(flickrErotic)) fs.writeFileSync(flickrErotic, JSON.stringify([]));
+
 
 // Factory — receives shared state from sltv.js
 module.exports = function createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SESSION_TTL, FIXED_ROOM }) {
@@ -115,26 +118,7 @@ router.get('/art-menu', (req, res) => {
         room: req.query.room || 'Lobby' 
     });
 });
-// ── CYTUBE INTEGRATION ───────────────────────────────────────
-// ── CYTUBE AUTOMATED FULLSCREEN CONTROLLER ────────────────────
-router.get('/cytube', (req, res) => {
-    // 1. Grab channel name from URL query parameter (?channel=xyz)
-    const channelName = req.query.channel || '';
-    
-    // If a channel name is given, send them to its room; otherwise open main site index
-    const cytubeTarget = channelName ? `https://cytu.be/r/${encodeURIComponent(channelName)}` : 'https://cytu.be';
-    
-    // 2. Safely grab synchronized layout pointers from the user's active session
-    const currentSyncRoom = req.session.room || 'Lobby';
-    const activeTvId      = req.session.tvId || '';
 
-    // 3. Render view delivering all required system variables
-    res.render('pages/watch-together/cytube', { 
-        cytubeUrl: cytubeTarget, 
-        room: currentSyncRoom, 
-        tvId: activeTvId
-    });
-});
 
 
 // 1. Página principal de Freebies
@@ -182,72 +166,21 @@ router.get('/api/freebies/teleport', async (req, res) => {
 // ============================================================
 
 // ── LIVE TV PAGE ─────────────────────────────────────────────
-router.get('/live-tv', (req, res) => res.render('pages/live-tv'));
-
-// ── HLS PROXY ────────────────────────────────────────────────
-router.get('/hls-proxy', async (req, res) => {
-    const streamUrl = req.query.url;
-    if (!streamUrl) return res.status(400).send('Missing url param');
-
-    try {
-        const response = await axios.get(streamUrl, {
-            responseType: 'arraybuffer',
-            timeout: 10000,
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (compatible; IPTV-Player)',
-                'Referer': streamUrl,
-                'Origin': new URL(streamUrl).origin
-            }
-        });
-
-        const contentType = response.headers['content-type'] || '';
-
-        if (streamUrl.endsWith('.m3u8') || contentType.includes('mpegurl') || contentType.includes('x-mpegURL')) {
-            let playlist = Buffer.from(response.data).toString('utf-8');
-            const baseUrl = streamUrl.substring(0, streamUrl.lastIndexOf('/') + 1);
-
-            playlist = playlist.replace(/^(?!#)(.+\.m3u8.*)$/gm, (match) => {
-                const absolute = match.startsWith('http') ? match : baseUrl + match;
-                return `/hls-proxy?url=${encodeURIComponent(absolute)}`;
-            });
-            playlist = playlist.replace(/^(?!#)(.+\.ts.*)$/gm, (match) => {
-                const absolute = match.startsWith('http') ? match : baseUrl + match;
-                return `/hls-proxy?url=${encodeURIComponent(absolute)}`;
-            });
-
-            res.setHeader('Content-Type', 'application/vnd.apple.mpegurl');
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Cache-Control', 'no-cache');
-            return res.send(playlist);
-        }
-
-        res.setHeader('Content-Type', contentType || 'video/mp2t');
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Cache-Control', 'no-cache');
-        res.send(Buffer.from(response.data));
-
-    } catch (err) {
-        console.error('[HLS Proxy] Error:', err.message);
-        res.status(502).send('Stream unavailable');
-    }
+router.get('/live-tv', (req, res) => {
+    res.render('pages/live-tv', {
+        targetID: req.query.genre || 'Live English News',
+        scrollPos: req.query.scrollPos || 0,
+        menu: req.query.menu || '/live-menu'
+    });
 });
 
-// ── CHANNELS FROM JSON ───────────────────────────────────────
-// Reads channels.json, returns only active:true entries.
-// Edit channels.json to add/remove/toggle channels — no restart needed.
-const CHANNELS_PATH = path.join(__dirname, 'channels.json');
-
-router.get('/api/channels', (req, res) => {
-    try {
-        const raw      = fs.readFileSync(CHANNELS_PATH, 'utf-8');
-        const all      = JSON.parse(raw);
-        const active   = all.filter(ch => ch.active !== false);
-        res.json(active);
-    } catch (err) {
-        console.error('[Channels] Failed to read channels.json:', err.message);
-        res.status(500).json({ error: 'Could not load channels' });
-    }
+router.get('/api/live-search', async (req, res) => {
+    const query = req.query.q;
+    // Call the updated getVideos with live=true
+    const results = await youtubeScraper.getVideos(query, 'search', 50, true);
+    res.json(results);
 });
+
 
 /////////////////////////////
 // Rota para simular o comportamento da TV LSL
@@ -668,6 +601,7 @@ router.get('/', (req, res) => {
 
     router.get('/music-grid', async (req, res) => {
         const query     = req.query.genre || req.query.q || 'Blues';
+        const mainTitle     = req.query.title || req.query.q || 'Not Set';
         const scrollPos = req.query.scrollPos || 0;
         const menu      = req.query.menu || '/music-menu';
 
@@ -676,7 +610,7 @@ router.get('/', (req, res) => {
             const playableMusic = musicResults;
 
             res.render('pages/generic_grid', {
-                title:       `Music: ${query.toUpperCase()}`,
+                title:       mainTitle,
                 type:        "music",
                 searchQuery: query,
                 scrollPos,
@@ -701,7 +635,7 @@ router.get('/', (req, res) => {
     router.get('/movies-menu', (req, res) => res.render('pages/movies/movies-menu'));
 
     router.get('/movies-grid', async (req, res) => {
-    // 1. Capture all parameters
+    const mainTitle= req.query.title || req.query.q || 'Not Set';
     const query = req.query.genre || req.query.tag || 'Trending';
     const menu = req.query.menu || '/movies-menu';
     const scrollPos = req.query.scrollPos || 0;
@@ -721,7 +655,7 @@ router.get('/', (req, res) => {
 
         // 4. Render the generic grid
         res.render('pages/generic_grid', {
-            title: `Cinema ${mode.toUpperCase()}: ${query}`,
+            title: mainTitle,
             type: "movies",
             searchQuery: query,
             menu,
@@ -746,45 +680,47 @@ router.get('/', (req, res) => {
         res.render('pages/youtube/youtube-menu', { title: "YouTube Search", req });
     });
 
-router.get('/youtube-grid', async (req, res) => {
-    // 1. Capture all parameters
-    const query = req.query.genre || req.query.tag || 'Trending';
-    const menu = req.query.menu || '/youtube-menu';
-    const scrollPos = req.query.scrollPos || 0;
+    router.get('/youtube-grid', async (req, res) => {
+        // 1. Capture all parameters
+        const query = req.query.genre || req.query.tag || 'Trending';
+        const mainTitle     = req.query.title || req.query.q || 'Not Set';
+        const menu = req.query.menu || '/youtube-menu';
+        const scrollPos = req.query.scrollPos || 0;
 
-    // 2. Determine the Mode
-    // Logic: check 'mode' param first, then fallback to 'isChannel' boolean
-    let mode = 'search';
-    if (req.query.mode === 'playlist' || req.query.isPlaylist === 'true') {
-        mode = 'playlist';
-    } else if (req.query.isChannel === 'true') {
-        mode = 'channel';
-    }
+        // 2. Determine the Mode
+        // Logic: check 'mode' param first, then fallback to 'isChannel' boolean
+        let mode = 'search';
+        if (req.query.mode === 'playlist' || req.query.isPlaylist === 'true') {
+            mode = 'playlist';
+        } else if (req.query.isChannel === 'true') {
+            mode = 'channel';
+        }
+console.log(mode)
+        try {
+            // 3. Fetch data using the mode ('search', 'channel', or 'playlist')
+            const results = await youtubeScraper.getVideos(query, mode);
 
-    try {
-        // 3. Fetch data using the mode ('search', 'channel', or 'playlist')
-        const results = await youtubeScraper.getVideos(query, mode);
-
-        // 4. Render the generic grid
-        res.render('pages/generic_grid', {
-            title: `YouTube ${mode.toUpperCase()}: ${query}`,
-            type: "youtube",
-            searchQuery: query,
-            menu,
-            scrollPos, 
-            results: results.map(v => ({
-                id: v.videoId,
-                title: v.title,
-                thumbnail: v.thumbnail, 
-                subtitle: v.channel, 
-                badge: mode === 'playlist' ? "PLAYLIST" : "YT" 
-            }))
-        });
-    } catch (err) {
-        console.error("❌ Unified Route Error:", err.message);
-        res.status(500).send("Error loading YouTube content");
-    }
-});
+            // 4. Render the generic grid
+            res.render('pages/generic_grid', {
+                title: mainTitle,
+                type: "youtube",
+                searchQuery: query,
+                mode:mode,
+                menu,
+                scrollPos, 
+                results: results.map(v => ({
+                    id: v.videoId,
+                    title: v.title,
+                    thumbnail: v.thumbnail, 
+                    subtitle: v.channel, 
+                    badge: mode === 'playlist' ? "PLAYLIST" : "YT" 
+                }))
+            });
+        } catch (err) {
+            console.error("❌ Unified Route Error:", err.message);
+            res.status(500).send("Error loading YouTube content");
+        }
+    });
 
     router.get('/api/quota', (req, res) => {
         const quotaPath = path.join(__dirname, 'cache/youtube/quota.json');
@@ -829,22 +765,19 @@ router.get('/settings', (req, res) => {
         res.render('pages/settings', { tvId: null, dados: null });
     }
 });
-
-
+///////////////////////////////////////////////////////////////////////////////
+// FLICKR ENDPOINTS 
 // 1. Rota para carregar a página
 router.get('/flickr', (req, res) => {
     res.render('pages/flickr/flickr', {
         theme: 'goldenrod'
     });
 });
-
-// 2. Rota da API de Busca (Onde o erro 500 acontece)
-const {
-    searchPhotos,
-    getChannelPhotos,
-    resolveUserId
-} = require('./flickrController');
-
+router.get('/flickr-erotic', (req, res) => {
+    res.render('pages/flickr/flickr-erotic', {
+        theme: 'goldenrod'
+    });
+});
 router.get('/api/flickr/search', async (req, res) => {
     try {
         const input = (req.query.tags || '').trim();
@@ -861,7 +794,7 @@ router.get('/api/flickr/search', async (req, res) => {
                 console.log('[Flickr] WITH URL detected:', photoId);
 
                 // best fallback: treat as search OR ignore user lookup entirely
-                return res.json(await searchPhotos(photoId));
+                return res.json(await flickrController.searchPhotos(photoId));
             }
 
             // 🚨 2. PHOTO URL
@@ -871,22 +804,22 @@ router.get('/api/flickr/search', async (req, res) => {
 
                 console.log('[Flickr] PHOTO URL detected:', photoId);
 
-                return res.json(await searchPhotos(photoId));
+                return res.json(await flickrController.searchPhotos(photoId));
             }
 
             // 👤 3. USER URL
-            const userId = await resolveUserId(input);
+            const userId = await flickrController.resolveUserId(input);
 
             if (!userId) {
                 console.log('[Flickr Route] User not found:', input);
                 return res.json([]);
             }
 
-            return res.json(await getChannelPhotos(userId));
+            return res.json(await flickrController.getChannelPhotos(userId));
         }
 
         // 🔎 normal search
-        return res.json(await searchPhotos(input));
+        return res.json(await flickrController.searchPhotos(input));
 
     } catch (err) {
         console.error('[Flickr Route]', err.response?.data || err.message);
@@ -907,8 +840,6 @@ router.get('/api/flickr/channel/:userId', async (req, res) => {
     }
 });
 
-///////////////////////////////////////////////////////////
-// Express routes (add these to your existing file)
 router.get('/api/flickr/albums/:userId', async (req, res) => {
     const albums = await flickrController.getUserAlbums(req.params.userId);
     res.json(albums);
@@ -949,8 +880,8 @@ router.get('/api/favorites2', async (req, res) => {
     }
 });
 
-    ///////////////////////////////////////////////////////////////////
-    // XXX
+///////////////////////////////////////////////////////////////////
+// XXX ENDPOINTS
     router.get('/xxx-check',    (req, res) => res.render('pages/xxx/xxx-check'));
     router.get('/xxx-index',    (req, res) => res.render('pages/xxx/xxx-index'));
     router.get('/xxx-browsers', (req, res) => res.render('pages/xxx/xxx-browsers'));
@@ -1068,10 +999,11 @@ router.get('/api/sl/teleport', async (req, res) => {
         const targetID   = req.query.targetID  || req.query.tag || videoId;
         const targetMode = req.query.targetMode || 'user';
         const menu       = req.query.menu      || '';
+        const title       = req.query.title      || 'No Title';
 
         console.log(`[Player Sync] Mode: ${origin} | ID: ${videoId} | Context: ${targetID}`);
 
-        res.render('pages/tvytube', { videoId, targetID, targetMode, scrollPos, origin, menu });
+        res.render('pages/tvytube', { videoId, targetID, targetMode, scrollPos, origin, menu, title });
     });
 
     return router;

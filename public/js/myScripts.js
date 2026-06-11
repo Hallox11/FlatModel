@@ -61,6 +61,7 @@ const NAV_CONFIG = {
         'movies': '/movies-menu',
         'sl-destinations': '/sl-destinations',
         'flickr': '/flickr',
+        'flickr-erotic': '/flickr-erotic',
         'flickr-grid': '/flickr-grid',
         'youtube': '/youtube-menu',
         'settings': '/settings',
@@ -500,7 +501,7 @@ window.killRadio = function() {
 // ===============================
 // HOVER & INPUT SYNC (senders only — no listener here)
 // ===============================
-const syncSelectors = '.chip, .list-row, .card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .music-group, .feature-btn, .main-genre-btn1, .movie-group, .sub-list-btn, .tag-card, .action-btn, .fav-item';
+const syncSelectors = '.main-genre-btn1, .chip, .list-row, .card, .ch-card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .btn-group, .feature-btn, .main-genre-btn1, .btn-group, .sub-btn-group, .tag-card, .action-btn, .fav-item';
 
 $(document).on('mouseenter mouseleave', syncSelectors, function(e) {
     if (window.isRemoteAction) return;
@@ -667,19 +668,25 @@ socket.on('room_switched', function(data) {
                     else            { $('body').removeClass('dark-text'); }
                     break;
 
-                case 'global_hover':
-                    $('.remote-hover').removeClass('remote-hover');
-                    if (data.state === 'enter') {
-                        const $target = $(data.selector).eq(data.index);
-                        $target.addClass('remote-hover');
+case 'global_hover':
+// 1. Clear previous highlights
+    $('.remote-hover').removeClass('remote-hover');
+    
+// 2. Only add the class if it is explicitly an 'enter' event
+    if (data.state === 'enter') {
+        const $target = $(data.selector).eq(data.index);
+        if ($target.length > 0) {
+            $target.addClass('remote-hover');
+        }
+    }
 
-                        if (data.selector === '.flickr-card') {
-                            const $flickrGrid = $('#flickr-results-grid');
-                            
-                        }
-                    }
-                    break;
-
+    
+    break;
+case 'new_results':
+document.getElementById('category-modal').style.display = 'none';
+        // Renderizar a lista exata que o host enviou
+        renderResults(data.results, data.category);
+    break;
                 case 'input_focus': {
                     const $input = $(`#${data.id}`);
                     const isFocus = data.action === 'focus';
@@ -741,23 +748,22 @@ socket.on('room_switched', function(data) {
                     }
                     break;
                 }
-                case 'scroll': {
-                    // Add #grid-content to this priority list
-                    const $scrollTarget = $('#grid-content').length        ? $('#grid-content') :
-                                        $('#yt-content-scroll').length   ? $('#yt-content-scroll') :
-                                        $('#xxx-module').length          ? $('#xxx-module') :
-                                        $('#flickr-results-grid').length ? $('#flickr-results-grid') :
-                                        $('#content-wrapper').length ? $('#content-wrapper') :
-                                        $('#conteiner');
+case 'scroll': {
+    const $scrollTarget = $('#channel-list-target').length ? $('#channel-list-target') : // Add this line
+                          $('#grid-content').length        ? $('#grid-content') :
+                          $('#yt-content-scroll').length   ? $('#yt-content-scroll') :
+                          $('#xxx-module').length          ? $('#xxx-module') :
+                          $('#flickr-results-grid').length ? $('#flickr-results-grid') :
+                          $('#content-wrapper').length     ? $('#content-wrapper') :
+                          $('#conteiner');
 
-                    if ($scrollTarget.length > 0) {
-                        window.isSyncing = true;
-                        $scrollTarget.scrollTop(data.position);
-                        // Using a slightly longer timeout to ensure smooth handling
-                        setTimeout(() => { window.isSyncing = false; }, 100);
-                    }
-                    break;
-                }
+    if ($scrollTarget.length > 0) {
+        window.isSyncing = true;
+        $scrollTarget.scrollTop(data.position);
+        setTimeout(() => { window.isSyncing = false; }, 100);
+    }
+    break;
+}
 
                 case 'start_slideshow':
                     if (typeof window.startSlideshow === 'function') {

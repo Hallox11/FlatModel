@@ -18,12 +18,12 @@
     "album": "YouTube"
   },
   {
-    "id": "NlwIDxCjL-8",
-    "videoId": "NlwIDxCjL-8",
-    "title": "Sting - Shape of My Heart (Official Music Video)",
-    "subtitle": "Sting",
-    "durationText": "4:41",
-    "thumbnail": "https://i.ytimg.com/vi/NlwIDxCjL-8/hqdefault.jpg",
+    "id": "S5n7Jfa7Ryk",
+    "videoId": "S5n7Jfa7Ryk",
+    "title": "Vivaldi’s Four Seasons – A Visual Journey Through Italy’s Landscapes",
+    "subtitle": "Classical Relaxation 4K",
+    "durationText": "42:45",
+    "thumbnail": "https://i.ytimg.com/vi/S5n7Jfa7Ryk/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -45,12 +45,21 @@
     "album": "YouTube"
   },
   {
-    "id": "eiDiKwbGfIY",
-    "videoId": "eiDiKwbGfIY",
-    "title": "Ed Sheeran - Perfect Symphony [with Andrea Bocelli] (Official Music Video)",
-    "subtitle": "Ed Sheeran",
-    "durationText": "5:34",
-    "thumbnail": "https://i.ytimg.com/vi/eiDiKwbGfIY/hqdefault.jpg",
+    "id": "z_UfPY8NXkM",
+    "videoId": "z_UfPY8NXkM",
+    "title": "David Garrett - Bitter Sweet Symphony (Official Video)",
+    "subtitle": "davidgarrettmusic",
+    "durationText": "3:40",
+    "thumbnail": "https://i.ytimg.com/vi/z_UfPY8NXkM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "NlwIDxCjL-8",
+    "videoId": "NlwIDxCjL-8",
+    "title": "Sting - Shape of My Heart (Official Music Video)",
+    "subtitle": "Sting",
+    "durationText": "4:41",
+    "thumbnail": "https://i.ytimg.com/vi/NlwIDxCjL-8/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -72,66 +81,30 @@
     "album": "YouTube"
   },
   {
-    "id": "xFrGuyw1V8s",
-    "videoId": "xFrGuyw1V8s",
-    "title": "ABBA - Dancing Queen (Official Music Video)",
-    "subtitle": "ABBA",
-    "durationText": "3:53",
-    "thumbnail": "https://i.ytimg.com/vi/xFrGuyw1V8s/hqdefault.jpg",
+    "id": "CvglW3KNSsQ",
+    "videoId": "CvglW3KNSsQ",
+    "title": "HAUSER - Air on the G String (J. S. Bach)",
+    "subtitle": "HAUSER",
+    "durationText": "5:09",
+    "thumbnail": "https://i.ytimg.com/vi/CvglW3KNSsQ/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "FTQbiNvZqaY",
-    "videoId": "FTQbiNvZqaY",
-    "title": "Toto - Africa (Official HD Video)",
-    "subtitle": "TOTO",
-    "durationText": "4:32",
-    "thumbnail": "https://i.ytimg.com/vi/FTQbiNvZqaY/hqdefault.jpg",
+    "id": "eiDiKwbGfIY",
+    "videoId": "eiDiKwbGfIY",
+    "title": "Ed Sheeran - Perfect Symphony [with Andrea Bocelli] (Official Music Video)",
+    "subtitle": "Ed Sheeran",
+    "durationText": "5:34",
+    "thumbnail": "https://i.ytimg.com/vi/eiDiKwbGfIY/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "Jwtyn-L-2gQ",
-    "videoId": "Jwtyn-L-2gQ",
-    "title": "The Rolling Stones - Sympathy For The Devil (Official Video) [4K]",
-    "subtitle": "ABKCOVEVO",
-    "durationText": "8:49",
-    "thumbnail": "https://i.ytimg.com/vi/Jwtyn-L-2gQ/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "psuRGfAaju4",
-    "videoId": "psuRGfAaju4",
-    "title": "Owl City - Fireflies (Official Music Video)",
-    "subtitle": "Owl City",
-    "durationText": "3:53",
-    "thumbnail": "https://i.ytimg.com/vi/psuRGfAaju4/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "ty1dwBCR6D0",
-    "videoId": "ty1dwBCR6D0",
-    "title": "Neil Diamond - Sweet Caroline (Live At The Greek Theatre / 2012)",
-    "subtitle": "Neil Diamond",
-    "durationText": "6:42",
-    "thumbnail": "https://i.ytimg.com/vi/ty1dwBCR6D0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "ChcR2gKt5WM",
-    "videoId": "ChcR2gKt5WM",
-    "title": "Andrea Bocelli, Matteo Bocelli - Fall On Me (Official Music Video)",
-    "subtitle": "Andrea Bocelli",
-    "durationText": "4:25",
-    "thumbnail": "https://i.ytimg.com/vi/ChcR2gKt5WM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "09839DpTctU",
-    "videoId": "09839DpTctU",
-    "title": "Eagles - Hotel California (Live 1977) (Official Video) [HD]",
-    "subtitle": "Eagles",
-    "durationText": "6:45",
-    "thumbnail": "https://i.ytimg.com/vi/09839DpTctU/hqdefault.jpg",
+    "id": "6T0MFCX9SLI",
+    "videoId": "6T0MFCX9SLI",
+    "title": "Max Richter - Spring 1 - 2022 (Official Video)",
+    "subtitle": "Max Richter",
+    "durationText": "2:47",
+    "thumbnail": "https://i.ytimg.com/vi/6T0MFCX9SLI/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -144,21 +117,30 @@
     "album": "YouTube"
   },
   {
-    "id": "CvglW3KNSsQ",
-    "videoId": "CvglW3KNSsQ",
-    "title": "HAUSER - Air on the G String (J. S. Bach)",
-    "subtitle": "HAUSER",
-    "durationText": "5:09",
-    "thumbnail": "https://i.ytimg.com/vi/CvglW3KNSsQ/hqdefault.jpg",
+    "id": "09839DpTctU",
+    "videoId": "09839DpTctU",
+    "title": "Eagles - Hotel California (Live 1977) (Official Video) [HD]",
+    "subtitle": "Eagles",
+    "durationText": "6:45",
+    "thumbnail": "https://i.ytimg.com/vi/09839DpTctU/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "ZwDf-NMnUPA",
-    "videoId": "ZwDf-NMnUPA",
-    "title": "Bryan Adams - Heaven (Live At Wembley 1996)",
-    "subtitle": "Bryan Adams",
-    "durationText": "4:39",
-    "thumbnail": "https://i.ytimg.com/vi/ZwDf-NMnUPA/hqdefault.jpg",
+    "id": "ChcR2gKt5WM",
+    "videoId": "ChcR2gKt5WM",
+    "title": "Andrea Bocelli, Matteo Bocelli - Fall On Me (Official Music Video)",
+    "subtitle": "Andrea Bocelli",
+    "durationText": "4:25",
+    "thumbnail": "https://i.ytimg.com/vi/ChcR2gKt5WM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "xFrGuyw1V8s",
+    "videoId": "xFrGuyw1V8s",
+    "title": "ABBA - Dancing Queen (Official Music Video)",
+    "subtitle": "ABBA",
+    "durationText": "3:53",
+    "thumbnail": "https://i.ytimg.com/vi/xFrGuyw1V8s/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -180,75 +162,12 @@
     "album": "YouTube"
   },
   {
-    "id": "YlP1v8s688Q",
-    "videoId": "YlP1v8s688Q",
-    "title": "Rod Stewart - I Don’t Want to Talk About It (Royal Philharmonic Orchestra Version) [Official Video]",
-    "subtitle": "Rod Stewart",
-    "durationText": "5:42",
-    "thumbnail": "https://i.ytimg.com/vi/YlP1v8s688Q/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "2oX2FSv4Rys",
-    "videoId": "2oX2FSv4Rys",
-    "title": "Rod Stewart - Have You Ever Seen The Rain (Official Video)",
-    "subtitle": "Rod Stewart",
-    "durationText": "3:13",
-    "thumbnail": "https://i.ytimg.com/vi/2oX2FSv4Rys/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "4iKCu4uKm84",
-    "videoId": "4iKCu4uKm84",
-    "title": "Andrea Bocelli - L'appuntamento (Live From Lake Las Vegas Resort, USA / 2006)",
-    "subtitle": "Andrea Bocelli",
-    "durationText": "4:14",
-    "thumbnail": "https://i.ytimg.com/vi/4iKCu4uKm84/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "BSlcL0Fc3Do",
-    "videoId": "BSlcL0Fc3Do",
-    "title": "Modern Classical X - VEVO Trailer",
-    "subtitle": "ModernClassicalXVEVO",
-    "durationText": "2:04",
-    "thumbnail": "https://i.ytimg.com/vi/BSlcL0Fc3Do/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "yd8jh9QYfEs",
-    "videoId": "yd8jh9QYfEs",
-    "title": "Rihanna - Don't Stop The Music",
-    "subtitle": "Rihanna",
-    "durationText": "3:54",
-    "thumbnail": "https://i.ytimg.com/vi/yd8jh9QYfEs/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "axySrE0Kg6k",
-    "videoId": "axySrE0Kg6k",
-    "title": "Ariana Grande, John Legend - Beauty and the Beast (From Beauty and the Beast - Official Video)",
-    "subtitle": "DisneyMusicVEVO",
-    "durationText": "4:01",
-    "thumbnail": "https://i.ytimg.com/vi/axySrE0Kg6k/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "IpT-FW_G8-A",
-    "videoId": "IpT-FW_G8-A",
-    "title": "Shania Twain - Forever And For Always (Red Version) (Official Music Video)",
-    "subtitle": "Shania Twain",
-    "durationText": "4:05",
-    "thumbnail": "https://i.ytimg.com/vi/IpT-FW_G8-A/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "qrO4YZeyl0I",
-    "videoId": "qrO4YZeyl0I",
-    "title": "Lady Gaga - Bad Romance (Official Music Video)",
-    "subtitle": "Lady Gaga",
-    "durationText": "5:09",
-    "thumbnail": "https://i.ytimg.com/vi/qrO4YZeyl0I/hqdefault.jpg",
+    "id": "Jwtyn-L-2gQ",
+    "videoId": "Jwtyn-L-2gQ",
+    "title": "The Rolling Stones - Sympathy For The Devil (Official Video) [4K]",
+    "subtitle": "ABKCOVEVO",
+    "durationText": "8:49",
+    "thumbnail": "https://i.ytimg.com/vi/Jwtyn-L-2gQ/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -261,93 +180,12 @@
     "album": "YouTube"
   },
   {
-    "id": "dQsjAbZDx-4",
-    "videoId": "dQsjAbZDx-4",
-    "title": "ABBA - Fernando (Official Music Video)",
-    "subtitle": "ABBA",
-    "durationText": "4:14",
-    "thumbnail": "https://i.ytimg.com/vi/dQsjAbZDx-4/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "QvYSckKSL5g",
-    "videoId": "QvYSckKSL5g",
-    "title": "Tracy Chapman - Baby Can I Hold You (Live)",
-    "subtitle": "ShoutFactoryVEVO",
-    "durationText": "3:20",
-    "thumbnail": "https://i.ytimg.com/vi/QvYSckKSL5g/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "TTA2buWlNyM",
-    "videoId": "TTA2buWlNyM",
-    "title": "Alan Jackson - Remember When (Official HD Video)",
-    "subtitle": "Alan Jackson",
-    "durationText": "4:28",
-    "thumbnail": "https://i.ytimg.com/vi/TTA2buWlNyM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "NrLkTZrPZA4",
-    "videoId": "NrLkTZrPZA4",
-    "title": "Elton John - Sacrifice",
-    "subtitle": "Elton John",
-    "durationText": "4:42",
-    "thumbnail": "https://i.ytimg.com/vi/NrLkTZrPZA4/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "bAqz0AwLRjk",
-    "videoId": "bAqz0AwLRjk",
-    "title": "Lionel Richie - Endless Love ft. Shania Twain",
-    "subtitle": "lionelrichie",
-    "durationText": "4:24",
-    "thumbnail": "https://i.ytimg.com/vi/bAqz0AwLRjk/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "ByfFurjQDb0",
-    "videoId": "ByfFurjQDb0",
-    "title": "Calum Scott, Leona Lewis - You Are The Reason (Duet Version)",
-    "subtitle": "Calum Scott",
-    "durationText": "3:17",
-    "thumbnail": "https://i.ytimg.com/vi/ByfFurjQDb0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "3wxyN3z9PL4",
-    "videoId": "3wxyN3z9PL4",
-    "title": "Starship - Nothing's Gonna Stop Us Now (Official Music Video) [HD]",
-    "subtitle": "RHINO and Starship",
-    "durationText": "4:28",
-    "thumbnail": "https://i.ytimg.com/vi/3wxyN3z9PL4/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "O-zpOMYRi0w",
-    "videoId": "O-zpOMYRi0w",
-    "title": "Iggy Azalea - Fancy ft. Charli XCX",
-    "subtitle": "Iggy Azalea",
-    "durationText": "3:21",
-    "thumbnail": "https://i.ytimg.com/vi/O-zpOMYRi0w/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "2Lz7RHgRQLE",
-    "videoId": "2Lz7RHgRQLE",
-    "title": "David Foster and Olivia Newton-John - The Best Of Me (Official Music Video)",
-    "subtitle": "RHINO",
-    "durationText": "4:09",
-    "thumbnail": "https://i.ytimg.com/vi/2Lz7RHgRQLE/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "MxGEVIvSFeY",
-    "videoId": "MxGEVIvSFeY",
-    "title": "Journey - Wheel in the Sky (Official HD Video - 1978)",
-    "subtitle": "journey",
-    "durationText": "3:32",
-    "thumbnail": "https://i.ytimg.com/vi/MxGEVIvSFeY/hqdefault.jpg",
+    "id": "weqgFrL5Zsk",
+    "videoId": "weqgFrL5Zsk",
+    "title": "Rod Stewart - Sailing (Royal Philharmonic Orchestra Version) [Official Video]",
+    "subtitle": "Rod Stewart",
+    "durationText": "5:23",
+    "thumbnail": "https://i.ytimg.com/vi/weqgFrL5Zsk/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -360,39 +198,111 @@
     "album": "YouTube"
   },
   {
-    "id": "hTWKbfoikeg",
-    "videoId": "hTWKbfoikeg",
-    "title": "Nirvana - Smells Like Teen Spirit (Official Music Video)",
-    "subtitle": "Nirvana",
+    "id": "ty1dwBCR6D0",
+    "videoId": "ty1dwBCR6D0",
+    "title": "Neil Diamond - Sweet Caroline (Live At The Greek Theatre / 2012)",
+    "subtitle": "Neil Diamond",
+    "durationText": "6:42",
+    "thumbnail": "https://i.ytimg.com/vi/ty1dwBCR6D0/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "IpT-FW_G8-A",
+    "videoId": "IpT-FW_G8-A",
+    "title": "Shania Twain - Forever And For Always (Red Version) (Official Music Video)",
+    "subtitle": "Shania Twain",
+    "durationText": "4:05",
+    "thumbnail": "https://i.ytimg.com/vi/IpT-FW_G8-A/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "BSlcL0Fc3Do",
+    "videoId": "BSlcL0Fc3Do",
+    "title": "Modern Classical X - VEVO Trailer",
+    "subtitle": "ModernClassicalXVEVO",
+    "durationText": "2:04",
+    "thumbnail": "https://i.ytimg.com/vi/BSlcL0Fc3Do/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "03GpPfOsFkQ",
+    "videoId": "03GpPfOsFkQ",
+    "title": "Yo-Yo Ma, Kathryn Stott - Over the Rainbow (Official Video)",
+    "subtitle": "Yo-Yo Ma",
+    "durationText": "3:40",
+    "thumbnail": "https://i.ytimg.com/vi/03GpPfOsFkQ/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "FTQbiNvZqaY",
+    "videoId": "FTQbiNvZqaY",
+    "title": "Toto - Africa (Official HD Video)",
+    "subtitle": "TOTO",
+    "durationText": "4:32",
+    "thumbnail": "https://i.ytimg.com/vi/FTQbiNvZqaY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "axySrE0Kg6k",
+    "videoId": "axySrE0Kg6k",
+    "title": "Ariana Grande, John Legend - Beauty and the Beast (From Beauty and the Beast - Official Video)",
+    "subtitle": "DisneyMusicVEVO",
+    "durationText": "4:01",
+    "thumbnail": "https://i.ytimg.com/vi/axySrE0Kg6k/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "2oX2FSv4Rys",
+    "videoId": "2oX2FSv4Rys",
+    "title": "Rod Stewart - Have You Ever Seen The Rain (Official Video)",
+    "subtitle": "Rod Stewart",
+    "durationText": "3:13",
+    "thumbnail": "https://i.ytimg.com/vi/2oX2FSv4Rys/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "ZwDf-NMnUPA",
+    "videoId": "ZwDf-NMnUPA",
+    "title": "Bryan Adams - Heaven (Live At Wembley 1996)",
+    "subtitle": "Bryan Adams",
     "durationText": "4:39",
-    "thumbnail": "https://i.ytimg.com/vi/hTWKbfoikeg/hqdefault.jpg",
+    "thumbnail": "https://i.ytimg.com/vi/ZwDf-NMnUPA/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "rBrd_3VMC3c",
-    "videoId": "rBrd_3VMC3c",
-    "title": "Louis Armstrong - What A Wonderful World (Official Video)",
-    "subtitle": "Louis Armstrong",
-    "durationText": "2:19",
-    "thumbnail": "https://i.ytimg.com/vi/rBrd_3VMC3c/hqdefault.jpg",
+    "id": "YlP1v8s688Q",
+    "videoId": "YlP1v8s688Q",
+    "title": "Rod Stewart - I Don’t Want to Talk About It (Royal Philharmonic Orchestra Version) [Official Video]",
+    "subtitle": "Rod Stewart",
+    "durationText": "5:42",
+    "thumbnail": "https://i.ytimg.com/vi/YlP1v8s688Q/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "47dtFZ8CFo8",
-    "videoId": "47dtFZ8CFo8",
-    "title": "Capital Cities - Safe And Sound",
-    "subtitle": "Capital Cities",
-    "durationText": "3:47",
-    "thumbnail": "https://i.ytimg.com/vi/47dtFZ8CFo8/hqdefault.jpg",
+    "id": "QvYSckKSL5g",
+    "videoId": "QvYSckKSL5g",
+    "title": "Tracy Chapman - Baby Can I Hold You (Live)",
+    "subtitle": "ShoutFactoryVEVO",
+    "durationText": "3:20",
+    "thumbnail": "https://i.ytimg.com/vi/QvYSckKSL5g/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "fregObNcHC8",
-    "videoId": "fregObNcHC8",
-    "title": "Nirvana - The Man Who Sold The World (MTV Unplugged)",
-    "subtitle": "Nirvana",
-    "durationText": "3:38",
-    "thumbnail": "https://i.ytimg.com/vi/fregObNcHC8/hqdefault.jpg",
+    "id": "bAqz0AwLRjk",
+    "videoId": "bAqz0AwLRjk",
+    "title": "Lionel Richie - Endless Love ft. Shania Twain",
+    "subtitle": "lionelrichie",
+    "durationText": "4:24",
+    "thumbnail": "https://i.ytimg.com/vi/bAqz0AwLRjk/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "4iKCu4uKm84",
+    "videoId": "4iKCu4uKm84",
+    "title": "Andrea Bocelli - L'appuntamento (Live From Lake Las Vegas Resort, USA / 2006)",
+    "subtitle": "Andrea Bocelli",
+    "durationText": "4:14",
+    "thumbnail": "https://i.ytimg.com/vi/4iKCu4uKm84/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -405,6 +315,105 @@
     "album": "YouTube"
   },
   {
+    "id": "psuRGfAaju4",
+    "videoId": "psuRGfAaju4",
+    "title": "Owl City - Fireflies (Official Music Video)",
+    "subtitle": "Owl City",
+    "durationText": "3:53",
+    "thumbnail": "https://i.ytimg.com/vi/psuRGfAaju4/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "qrO4YZeyl0I",
+    "videoId": "qrO4YZeyl0I",
+    "title": "Lady Gaga - Bad Romance (Official Music Video)",
+    "subtitle": "Lady Gaga",
+    "durationText": "5:09",
+    "thumbnail": "https://i.ytimg.com/vi/qrO4YZeyl0I/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "dQsjAbZDx-4",
+    "videoId": "dQsjAbZDx-4",
+    "title": "ABBA - Fernando (Official Music Video)",
+    "subtitle": "ABBA",
+    "durationText": "4:14",
+    "thumbnail": "https://i.ytimg.com/vi/dQsjAbZDx-4/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "MY4YJxn-9Og",
+    "videoId": "MY4YJxn-9Og",
+    "title": "Marc Anthony - You Sang To Me",
+    "subtitle": "Marc Anthony",
+    "durationText": "4:14",
+    "thumbnail": "https://i.ytimg.com/vi/MY4YJxn-9Og/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "TTA2buWlNyM",
+    "videoId": "TTA2buWlNyM",
+    "title": "Alan Jackson - Remember When (Official HD Video)",
+    "subtitle": "Alan Jackson",
+    "durationText": "4:28",
+    "thumbnail": "https://i.ytimg.com/vi/TTA2buWlNyM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "rBrd_3VMC3c",
+    "videoId": "rBrd_3VMC3c",
+    "title": "Louis Armstrong - What A Wonderful World (Official Video)",
+    "subtitle": "Louis Armstrong",
+    "durationText": "2:19",
+    "thumbnail": "https://i.ytimg.com/vi/rBrd_3VMC3c/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "NrLkTZrPZA4",
+    "videoId": "NrLkTZrPZA4",
+    "title": "Elton John - Sacrifice",
+    "subtitle": "Elton John",
+    "durationText": "4:42",
+    "thumbnail": "https://i.ytimg.com/vi/NrLkTZrPZA4/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "hTWKbfoikeg",
+    "videoId": "hTWKbfoikeg",
+    "title": "Nirvana - Smells Like Teen Spirit (Official Music Video)",
+    "subtitle": "Nirvana",
+    "durationText": "4:39",
+    "thumbnail": "https://i.ytimg.com/vi/hTWKbfoikeg/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Iz1J_mwnMQc",
+    "videoId": "Iz1J_mwnMQc",
+    "title": "Lang Lang - The Nutcracker Suite (From \"The Nutcracker and the Four Realms\")",
+    "subtitle": "DisneyMusicVEVO",
+    "durationText": "4:06",
+    "thumbnail": "https://i.ytimg.com/vi/Iz1J_mwnMQc/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "3wxyN3z9PL4",
+    "videoId": "3wxyN3z9PL4",
+    "title": "Starship - Nothing's Gonna Stop Us Now (Official Music Video) [HD]",
+    "subtitle": "RHINO and Starship",
+    "durationText": "4:28",
+    "thumbnail": "https://i.ytimg.com/vi/3wxyN3z9PL4/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "2Lz7RHgRQLE",
+    "videoId": "2Lz7RHgRQLE",
+    "title": "David Foster and Olivia Newton-John - The Best Of Me (Official Music Video)",
+    "subtitle": "RHINO",
+    "durationText": "4:09",
+    "thumbnail": "https://i.ytimg.com/vi/2Lz7RHgRQLE/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
     "id": "VDmIddF7DfQ",
     "videoId": "VDmIddF7DfQ",
     "title": "Celtic Woman - Joy To The World (Live At The Helix In Dublin, Ireland/2013)",
@@ -414,39 +423,30 @@
     "album": "YouTube"
   },
   {
-    "id": "JCRv_DnAZQs",
-    "videoId": "JCRv_DnAZQs",
-    "title": "Megadeth - Symphony of Destruction (VEVO Presents)",
-    "subtitle": "Megadeth",
-    "durationText": "4:12",
-    "thumbnail": "https://i.ytimg.com/vi/JCRv_DnAZQs/hqdefault.jpg",
+    "id": "OMOGaugKpzs",
+    "videoId": "OMOGaugKpzs",
+    "title": "The Police - Every Breath You Take (Official Music Video)",
+    "subtitle": "The Police",
+    "durationText": "3:49",
+    "thumbnail": "https://i.ytimg.com/vi/OMOGaugKpzs/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "auLBLk4ibAk",
-    "videoId": "auLBLk4ibAk",
-    "title": "Rush - Tom Sawyer",
-    "subtitle": "Rush",
-    "durationText": "4:34",
-    "thumbnail": "https://i.ytimg.com/vi/auLBLk4ibAk/hqdefault.jpg",
+    "id": "fregObNcHC8",
+    "videoId": "fregObNcHC8",
+    "title": "Nirvana - The Man Who Sold The World (MTV Unplugged)",
+    "subtitle": "Nirvana",
+    "durationText": "3:38",
+    "thumbnail": "https://i.ytimg.com/vi/fregObNcHC8/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "447yaU_4DF8",
-    "videoId": "447yaU_4DF8",
-    "title": "Kenny G - The Moment (Official Video)",
-    "subtitle": "Kenny G",
-    "durationText": "4:38",
-    "thumbnail": "https://i.ytimg.com/vi/447yaU_4DF8/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "Y0pdQU87dc8",
-    "videoId": "Y0pdQU87dc8",
-    "title": "Bryan Adams - (Everything I Do) I Do It For You",
-    "subtitle": "Bryan Adams",
-    "durationText": "6:33",
-    "thumbnail": "https://i.ytimg.com/vi/Y0pdQU87dc8/hqdefault.jpg",
+    "id": "u8jImIjg4UY",
+    "videoId": "u8jImIjg4UY",
+    "title": "Andrea Bocelli - The Lord's Prayer (Live From The Kodak Theatre, USA / 2009)",
+    "subtitle": "Andrea Bocelli",
+    "durationText": "5:27",
+    "thumbnail": "https://i.ytimg.com/vi/u8jImIjg4UY/hqdefault.jpg",
     "album": "YouTube"
   }
 ]

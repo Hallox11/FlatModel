@@ -227,11 +227,13 @@ socket.on('Pause', (time) => {
 
 
 function backToGrid() {
-        if (window.videojsPlayer) {
-            window.videojsPlayer.dispose();
-            window.videojsPlayer = null;
-        }
-        // Redirect back to the xvideos grid view
-        handleNav('xvideos');
+    if (window.videojsPlayer) {
+        window.videojsPlayer.dispose();
+        window.videojsPlayer = null;
     }
+
+    // Retrieve the tag we saved before playing
+    const tag = sessionStorage.getItem('xxx_active_tag') || 'HARDCORE';
+    handleNav('/xvideos-grid?tag=' + encodeURIComponent(tag));
+}
 </script>

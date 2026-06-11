@@ -1,14 +1,5 @@
 [
   {
-    "id": "uL52DajINdY",
-    "videoId": "uL52DajINdY",
-    "title": "Ariana Grande - positions (Official Live Performance) | Vevo",
-    "subtitle": "Ariana Grande",
-    "durationText": "4:21",
-    "thumbnail": "https://i.ytimg.com/vi/uL52DajINdY/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
     "id": "6fjDoWKGFMw",
     "videoId": "6fjDoWKGFMw",
     "title": "Carly Rae Jepsen - Vevo GO Shows: Run Away With Me",
@@ -45,6 +36,15 @@
     "album": "YouTube"
   },
   {
+    "id": "uL52DajINdY",
+    "videoId": "uL52DajINdY",
+    "title": "Ariana Grande - positions (Official Live Performance) | Vevo",
+    "subtitle": "Ariana Grande",
+    "durationText": "4:21",
+    "thumbnail": "https://i.ytimg.com/vi/uL52DajINdY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
     "id": "ahqDhT146Bc",
     "videoId": "ahqDhT146Bc",
     "title": "Tom Walker - Angels (Live) | Vevo UK LIFT",
@@ -72,6 +72,33 @@
     "album": "YouTube"
   },
   {
+    "id": "NvFflUqytIo",
+    "videoId": "NvFflUqytIo",
+    "title": "Gracie Abrams - Free Now (Live) | Vevo Extended Play",
+    "subtitle": "Gracie Abrams",
+    "durationText": "4:02",
+    "thumbnail": "https://i.ytimg.com/vi/NvFflUqytIo/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Nvb4khGm6kM",
+    "videoId": "Nvb4khGm6kM",
+    "title": "Sayf - EGOISTA (Live Acoustic) | Vevo DSCVR Artists to Watch 2026",
+    "subtitle": "Sayf",
+    "durationText": "3:03",
+    "thumbnail": "https://i.ytimg.com/vi/Nvb4khGm6kM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "pZuvdZgooqA",
+    "videoId": "pZuvdZgooqA",
+    "title": "Anne-Marie - 2002 (Live) | Vevo UK LIFT",
+    "subtitle": "Vevo",
+    "durationText": "3:13",
+    "thumbnail": "https://i.ytimg.com/vi/pZuvdZgooqA/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
     "id": "18AhUXAILWE",
     "videoId": "18AhUXAILWE",
     "title": "Chris Stapleton - Fire Away - Vevo dscvr (Live)",
@@ -90,39 +117,30 @@
     "album": "YouTube"
   },
   {
-    "id": "Nvb4khGm6kM",
-    "videoId": "Nvb4khGm6kM",
-    "title": "Sayf - EGOISTA (Live Acoustic) | Vevo DSCVR Artists to Watch 2026",
-    "subtitle": "Sayf",
-    "durationText": "3:03",
-    "thumbnail": "https://i.ytimg.com/vi/Nvb4khGm6kM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "NvFflUqytIo",
-    "videoId": "NvFflUqytIo",
-    "title": "Gracie Abrams - Free Now (Live) | Vevo Extended Play",
-    "subtitle": "Gracie Abrams",
-    "durationText": "4:02",
-    "thumbnail": "https://i.ytimg.com/vi/NvFflUqytIo/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "hWyy5kSM0AQ",
-    "videoId": "hWyy5kSM0AQ",
-    "title": "Gracie Abrams - I Knew It, I Know You (Live) | Vevo Extended Play",
-    "subtitle": "Gracie Abrams",
-    "durationText": "4:17",
-    "thumbnail": "https://i.ytimg.com/vi/hWyy5kSM0AQ/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
     "id": "4bNZK-zgmUc",
     "videoId": "4bNZK-zgmUc",
     "title": "Lorde - Supercut (Vevo x Lorde)",
     "subtitle": "Lorde",
     "durationText": "3:54",
     "thumbnail": "https://i.ytimg.com/vi/4bNZK-zgmUc/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "4QwRk4Hjzq8",
+    "videoId": "4QwRk4Hjzq8",
+    "title": "Demi Lovato - Tell Me You Love Me (Vevo X Demi Lovato)",
+    "subtitle": "Demi Lovato",
+    "durationText": "4:19",
+    "thumbnail": "https://i.ytimg.com/vi/4QwRk4Hjzq8/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "gLj21uNEzqA",
+    "videoId": "gLj21uNEzqA",
+    "title": "Demi Lovato - Sorry Not Sorry (Vevo X Demi Lovato)",
+    "subtitle": "Demi Lovato",
+    "durationText": "3:38",
+    "thumbnail": "https://i.ytimg.com/vi/gLj21uNEzqA/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -135,12 +153,21 @@
     "album": "YouTube"
   },
   {
-    "id": "s1CSgJrNwCY",
-    "videoId": "s1CSgJrNwCY",
-    "title": "Tate McRae - hurt my feelings (Live) | Vevo Extended Play",
-    "subtitle": "Tate McRae",
-    "durationText": "2:24",
-    "thumbnail": "https://i.ytimg.com/vi/s1CSgJrNwCY/hqdefault.jpg",
+    "id": "-ilIPFnk6tg",
+    "videoId": "-ilIPFnk6tg",
+    "title": "Summer Walker - \"Karma\" (Live) | Vevo DSCVR",
+    "subtitle": "VevoDSCVR",
+    "durationText": "3:21",
+    "thumbnail": "https://i.ytimg.com/vi/-ilIPFnk6tg/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "xr_j3sT-bc8",
+    "videoId": "xr_j3sT-bc8",
+    "title": "Olivia Rodrigo - pretty isn't pretty (Official Live Performance) | Vevo",
+    "subtitle": "Olivia Rodrigo",
+    "durationText": "3:28",
+    "thumbnail": "https://i.ytimg.com/vi/xr_j3sT-bc8/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -153,39 +180,12 @@
     "album": "YouTube"
   },
   {
-    "id": "AJJqLKGVaDE",
-    "videoId": "AJJqLKGVaDE",
-    "title": "Ashnikko - Panic Attacks In Paradise (Live) | Vevo Studio Performance",
-    "subtitle": "Ashnikko",
-    "durationText": "2:51",
-    "thumbnail": "https://i.ytimg.com/vi/AJJqLKGVaDE/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "P0CMm9QccZg",
-    "videoId": "P0CMm9QccZg",
-    "title": "Dominic Fike - King of Everything (Live | Vevo DSCVR)",
-    "subtitle": "VevoDSCVR",
-    "durationText": "3:54",
-    "thumbnail": "https://i.ytimg.com/vi/P0CMm9QccZg/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "y3xJPmONNpM",
-    "videoId": "y3xJPmONNpM",
-    "title": "keshi - Glimpse of Us (Live Performance) | Vevo",
-    "subtitle": "keshi",
-    "durationText": "3:56",
-    "thumbnail": "https://i.ytimg.com/vi/y3xJPmONNpM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "utlMbVDE_ek",
-    "videoId": "utlMbVDE_ek",
-    "title": "5 Seconds of Summer - She Looks So Perfect - VEVO dscvr (Live)",
-    "subtitle": "VevoDSCVR",
-    "durationText": "3:47",
-    "thumbnail": "https://i.ytimg.com/vi/utlMbVDE_ek/hqdefault.jpg",
+    "id": "SA3018ayeDo",
+    "videoId": "SA3018ayeDo",
+    "title": "Conan Gray - Actor (Live) | Vevo Artist Portrait",
+    "subtitle": "Conan Gray",
+    "durationText": "3:49",
+    "thumbnail": "https://i.ytimg.com/vi/SA3018ayeDo/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -198,123 +198,6 @@
     "album": "YouTube"
   },
   {
-    "id": "SA3018ayeDo",
-    "videoId": "SA3018ayeDo",
-    "title": "Conan Gray - Actor (Live) | Vevo Artist Portrait",
-    "subtitle": "Conan Gray",
-    "durationText": "3:49",
-    "thumbnail": "https://i.ytimg.com/vi/SA3018ayeDo/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "pZuvdZgooqA",
-    "videoId": "pZuvdZgooqA",
-    "title": "Anne-Marie - 2002 (Live) | Vevo UK LIFT",
-    "subtitle": "Vevo",
-    "durationText": "3:13",
-    "thumbnail": "https://i.ytimg.com/vi/pZuvdZgooqA/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "YleDb-G_B34",
-    "videoId": "YleDb-G_B34",
-    "title": "Gracie Abrams - Where do we go now? (Live Performance) | Vevo",
-    "subtitle": "Gracie Abrams",
-    "durationText": "4:22",
-    "thumbnail": "https://i.ytimg.com/vi/YleDb-G_B34/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "pBHsk6VeIvI",
-    "videoId": "pBHsk6VeIvI",
-    "title": "Milo Manheim, Meg Donnelly - Someday (Live Performance | Vevo)",
-    "subtitle": "DisneyMusicVEVO",
-    "durationText": "3:28",
-    "thumbnail": "https://i.ytimg.com/vi/pBHsk6VeIvI/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "5k2mPQuP1fI",
-    "videoId": "5k2mPQuP1fI",
-    "title": "Conan Gray - Alley Rose (Live Performance) | Vevo",
-    "subtitle": "Conan Gray",
-    "durationText": "3:29",
-    "thumbnail": "https://i.ytimg.com/vi/5k2mPQuP1fI/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "i7YvaaAkRCw",
-    "videoId": "i7YvaaAkRCw",
-    "title": "Billie Eilish - Male Fantasy (Official Live Performance) | Vevo",
-    "subtitle": "Billie Eilish",
-    "durationText": "3:17",
-    "thumbnail": "https://i.ytimg.com/vi/i7YvaaAkRCw/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "EJ3-RYdCZvk",
-    "videoId": "EJ3-RYdCZvk",
-    "title": "Tate McRae - she's all i wanna be (Live Performance) | Vevo",
-    "subtitle": "Tate McRae",
-    "durationText": "3:20",
-    "thumbnail": "https://i.ytimg.com/vi/EJ3-RYdCZvk/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "T3yFXpKaHGw",
-    "videoId": "T3yFXpKaHGw",
-    "title": "Madison Beer - Reckless (Live Performance) | Vevo",
-    "subtitle": "Madison Beer",
-    "durationText": "3:32",
-    "thumbnail": "https://i.ytimg.com/vi/T3yFXpKaHGw/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "CxVknebZfyg",
-    "videoId": "CxVknebZfyg",
-    "title": "Gracie Abrams - Fault line (Live Performance) | Vevo",
-    "subtitle": "Gracie Abrams",
-    "durationText": "4:29",
-    "thumbnail": "https://i.ytimg.com/vi/CxVknebZfyg/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "ZqOugmFmQPw",
-    "videoId": "ZqOugmFmQPw",
-    "title": "Khalid - Better Official Live Performance (Vevo X)",
-    "subtitle": "Khalid",
-    "durationText": "3:31",
-    "thumbnail": "https://i.ytimg.com/vi/ZqOugmFmQPw/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "qURqqrfCo9c",
-    "videoId": "qURqqrfCo9c",
-    "title": "One Direction - Vevo GO Shows: What Makes You Beautiful",
-    "subtitle": "One Direction",
-    "durationText": "4:48",
-    "thumbnail": "https://i.ytimg.com/vi/qURqqrfCo9c/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "a039iup7IqM",
-    "videoId": "a039iup7IqM",
-    "title": "Joe Jonas - Heart By Heart | Live From Vevo Studios",
-    "subtitle": "Joe Jonas",
-    "durationText": "3:08",
-    "thumbnail": "https://i.ytimg.com/vi/a039iup7IqM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "MhCJPG4uMGU",
-    "videoId": "MhCJPG4uMGU",
-    "title": "Demi Lovato - VEVO Presents: Demi Lovato - An Intimate Performance",
-    "subtitle": "Demi Lovato",
-    "durationText": "23:04",
-    "thumbnail": "https://i.ytimg.com/vi/MhCJPG4uMGU/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
     "id": "q_T1uEPlVcE",
     "videoId": "q_T1uEPlVcE",
     "title": "Jonas Blue - Mama - ft. William Singe (Live) - Stripped (Vevo UK LIFT)",
@@ -324,12 +207,12 @@
     "album": "YouTube"
   },
   {
-    "id": "4yC_2n9VIVY",
-    "videoId": "4yC_2n9VIVY",
-    "title": "FLO - Immature (Live) | Vevo DSCVR",
+    "id": "utlMbVDE_ek",
+    "videoId": "utlMbVDE_ek",
+    "title": "5 Seconds of Summer - She Looks So Perfect - VEVO dscvr (Live)",
     "subtitle": "VevoDSCVR",
-    "durationText": "3:31",
-    "thumbnail": "https://i.ytimg.com/vi/4yC_2n9VIVY/hqdefault.jpg",
+    "durationText": "3:47",
+    "thumbnail": "https://i.ytimg.com/vi/utlMbVDE_ek/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -342,12 +225,39 @@
     "album": "YouTube"
   },
   {
-    "id": "BR58xKl5Nx0",
-    "videoId": "BR58xKl5Nx0",
-    "title": "Lukas Graham - Mama Said (Live @ Vevo)",
-    "subtitle": "Lukas Graham",
-    "durationText": "4:10",
-    "thumbnail": "https://i.ytimg.com/vi/BR58xKl5Nx0/hqdefault.jpg",
+    "id": "P0CMm9QccZg",
+    "videoId": "P0CMm9QccZg",
+    "title": "Dominic Fike - King of Everything (Live | Vevo DSCVR)",
+    "subtitle": "VevoDSCVR",
+    "durationText": "3:54",
+    "thumbnail": "https://i.ytimg.com/vi/P0CMm9QccZg/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "2jaWy-ECVAU",
+    "videoId": "2jaWy-ECVAU",
+    "title": "Rita Ora - \"Let You Love Me\" Live Performance | Vevo",
+    "subtitle": "Rita Ora",
+    "durationText": "3:25",
+    "thumbnail": "https://i.ytimg.com/vi/2jaWy-ECVAU/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "4yC_2n9VIVY",
+    "videoId": "4yC_2n9VIVY",
+    "title": "FLO - Immature (Live) | Vevo DSCVR",
+    "subtitle": "VevoDSCVR",
+    "durationText": "3:31",
+    "thumbnail": "https://i.ytimg.com/vi/4yC_2n9VIVY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "pBHsk6VeIvI",
+    "videoId": "pBHsk6VeIvI",
+    "title": "Milo Manheim, Meg Donnelly - Someday (Live Performance | Vevo)",
+    "subtitle": "DisneyMusicVEVO",
+    "durationText": "3:28",
+    "thumbnail": "https://i.ytimg.com/vi/pBHsk6VeIvI/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -360,12 +270,12 @@
     "album": "YouTube"
   },
   {
-    "id": "SarW9gtWoao",
-    "videoId": "SarW9gtWoao",
-    "title": "Billie Eilish - Your Power (Official Live Performance) | Vevo",
-    "subtitle": "Billie Eilish",
-    "durationText": "3:58",
-    "thumbnail": "https://i.ytimg.com/vi/SarW9gtWoao/hqdefault.jpg",
+    "id": "iZJJaMmQIXs",
+    "videoId": "iZJJaMmQIXs",
+    "title": "The Beaches - Edge of The Earth (Live Performance) | Vevo",
+    "subtitle": "The Beaches",
+    "durationText": "2:43",
+    "thumbnail": "https://i.ytimg.com/vi/iZJJaMmQIXs/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -378,21 +288,102 @@
     "album": "YouTube"
   },
   {
-    "id": "aYOgfixKnR4",
-    "videoId": "aYOgfixKnR4",
-    "title": "Tate McRae - feel like shit (Live Performance) | Vevo",
-    "subtitle": "Tate McRae",
-    "durationText": "2:42",
-    "thumbnail": "https://i.ytimg.com/vi/aYOgfixKnR4/hqdefault.jpg",
+    "id": "bouUipdvXQU",
+    "videoId": "bouUipdvXQU",
+    "title": "OneRepublic - Vevo GO Shows: Secrets",
+    "subtitle": "OneRepublic",
+    "durationText": "7:15",
+    "thumbnail": "https://i.ytimg.com/vi/bouUipdvXQU/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "Zi9To04PO78",
-    "videoId": "Zi9To04PO78",
-    "title": "The Script - Hall of Fame (Vevo Presents: Live in Amsterdam)",
-    "subtitle": "The Script",
-    "durationText": "7:15",
-    "thumbnail": "https://i.ytimg.com/vi/Zi9To04PO78/hqdefault.jpg",
+    "id": "1QPCYdzFsf4",
+    "videoId": "1QPCYdzFsf4",
+    "title": "Damiano David - Next Summer | Live From Vevo Studios",
+    "subtitle": "Damiano David",
+    "durationText": "2:43",
+    "thumbnail": "https://i.ytimg.com/vi/1QPCYdzFsf4/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "hWyy5kSM0AQ",
+    "videoId": "hWyy5kSM0AQ",
+    "title": "Gracie Abrams - I Knew It, I Know You (Live) | Vevo Extended Play",
+    "subtitle": "Gracie Abrams",
+    "durationText": "4:17",
+    "thumbnail": "https://i.ytimg.com/vi/hWyy5kSM0AQ/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "T3yFXpKaHGw",
+    "videoId": "T3yFXpKaHGw",
+    "title": "Madison Beer - Reckless (Live Performance) | Vevo",
+    "subtitle": "Madison Beer",
+    "durationText": "3:32",
+    "thumbnail": "https://i.ytimg.com/vi/T3yFXpKaHGw/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "tMqpkG9HYr0",
+    "videoId": "tMqpkG9HYr0",
+    "title": "Ayra Starr - Rush (Live) | Vevo DSCVR Artists to Watch 2023",
+    "subtitle": "Ayra Starr",
+    "durationText": "4:12",
+    "thumbnail": "https://i.ytimg.com/vi/tMqpkG9HYr0/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "EJ3-RYdCZvk",
+    "videoId": "EJ3-RYdCZvk",
+    "title": "Tate McRae - she's all i wanna be (Live Performance) | Vevo",
+    "subtitle": "Tate McRae",
+    "durationText": "3:20",
+    "thumbnail": "https://i.ytimg.com/vi/EJ3-RYdCZvk/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "MhCJPG4uMGU",
+    "videoId": "MhCJPG4uMGU",
+    "title": "Demi Lovato - VEVO Presents: Demi Lovato - An Intimate Performance",
+    "subtitle": "Demi Lovato",
+    "durationText": "23:04",
+    "thumbnail": "https://i.ytimg.com/vi/MhCJPG4uMGU/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Ox-0i9ujfeU",
+    "videoId": "Ox-0i9ujfeU",
+    "title": "NIKI - Tsunami | Live From Vevo Studios",
+    "subtitle": "NIKI",
+    "durationText": "3:54",
+    "thumbnail": "https://i.ytimg.com/vi/Ox-0i9ujfeU/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "ox7gSxYZwEU",
+    "videoId": "ox7gSxYZwEU",
+    "title": "Justin Bieber - Anyone (Official Live Performance) | Vevo",
+    "subtitle": "Justin Bieber",
+    "durationText": "3:16",
+    "thumbnail": "https://i.ytimg.com/vi/ox7gSxYZwEU/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "VzEqqSUWNjw",
+    "videoId": "VzEqqSUWNjw",
+    "title": "Post Malone - AUSTIN (Official Live Performances) | Vevo",
+    "subtitle": "Post Malone",
+    "durationText": "10:40",
+    "thumbnail": "https://i.ytimg.com/vi/VzEqqSUWNjw/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "JPaGvHmi5NA",
+    "videoId": "JPaGvHmi5NA",
+    "title": "OneRepublic - Stop And Stare (Vevo Presents: Live at Festhalle, Frankfurt)",
+    "subtitle": "OneRepublic",
+    "durationText": "5:17",
+    "thumbnail": "https://i.ytimg.com/vi/JPaGvHmi5NA/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -405,48 +396,57 @@
     "album": "YouTube"
   },
   {
-    "id": "fMcvgcaC7hU",
-    "videoId": "fMcvgcaC7hU",
-    "title": "Shenseea - Hit & Run (Live Performance) | Vevo",
-    "subtitle": "Shenseea",
-    "durationText": "2:57",
-    "thumbnail": "https://i.ytimg.com/vi/fMcvgcaC7hU/hqdefault.jpg",
+    "id": "naXivI321f4",
+    "videoId": "naXivI321f4",
+    "title": "James Arthur - F.R.I.E.N.D.S | Live From Vevo Studios",
+    "subtitle": "James Arthur",
+    "durationText": "4:04",
+    "thumbnail": "https://i.ytimg.com/vi/naXivI321f4/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "JCRv_DnAZQs",
-    "videoId": "JCRv_DnAZQs",
-    "title": "Megadeth - Symphony of Destruction (VEVO Presents)",
-    "subtitle": "Megadeth",
-    "durationText": "4:12",
-    "thumbnail": "https://i.ytimg.com/vi/JCRv_DnAZQs/hqdefault.jpg",
+    "id": "Qh3mdwaI-XM",
+    "videoId": "Qh3mdwaI-XM",
+    "title": "Maroon 5 - This Love (VEVO Summer Sets)",
+    "subtitle": "Maroon 5",
+    "durationText": "3:55",
+    "thumbnail": "https://i.ytimg.com/vi/Qh3mdwaI-XM/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "xvyllSdnSqM",
-    "videoId": "xvyllSdnSqM",
-    "title": "Billy Idol - Eyes Without A Face (Live Performance | Vevo)",
-    "subtitle": "Billy Idol",
-    "durationText": "5:50",
-    "thumbnail": "https://i.ytimg.com/vi/xvyllSdnSqM/hqdefault.jpg",
+    "id": "y3xJPmONNpM",
+    "videoId": "y3xJPmONNpM",
+    "title": "keshi - Glimpse of Us (Live Performance) | Vevo",
+    "subtitle": "keshi",
+    "durationText": "3:56",
+    "thumbnail": "https://i.ytimg.com/vi/y3xJPmONNpM/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "DXSQSsRGYAE",
-    "videoId": "DXSQSsRGYAE",
-    "title": "Tate McRae - we're not alike (Live) | Vevo Extended Play",
-    "subtitle": "Tate McRae",
-    "durationText": "3:13",
-    "thumbnail": "https://i.ytimg.com/vi/DXSQSsRGYAE/hqdefault.jpg",
+    "id": "5k2mPQuP1fI",
+    "videoId": "5k2mPQuP1fI",
+    "title": "Conan Gray - Alley Rose (Live Performance) | Vevo",
+    "subtitle": "Conan Gray",
+    "durationText": "3:29",
+    "thumbnail": "https://i.ytimg.com/vi/5k2mPQuP1fI/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "sFCL6f7hy2s",
-    "videoId": "sFCL6f7hy2s",
-    "title": "Lorde - The Louvre (Vevo x Lorde)",
-    "subtitle": "Lorde",
-    "durationText": "4:31",
-    "thumbnail": "https://i.ytimg.com/vi/sFCL6f7hy2s/hqdefault.jpg",
+    "id": "s95nd960XsY",
+    "videoId": "s95nd960XsY",
+    "title": "AURORA - A Soul With No King (Live Performance) | Vevo",
+    "subtitle": "AURORA",
+    "durationText": "3:58",
+    "thumbnail": "https://i.ytimg.com/vi/s95nd960XsY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "SRzvkKb-JRI",
+    "videoId": "SRzvkKb-JRI",
+    "title": "Allen Stone - Give You Blue (Live Performance) | Vevo",
+    "subtitle": "Allen Stone",
+    "durationText": "3:45",
+    "thumbnail": "https://i.ytimg.com/vi/SRzvkKb-JRI/hqdefault.jpg",
     "album": "YouTube"
   }
 ]

@@ -8,189 +8,427 @@
 }
 
 #yt-grid-header {
-    height: 70px; padding: 0 30px;
-    display: flex; align-items: center;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+        width: 100%; height: 55px;
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0 35px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+        z-index: 100; flex-shrink: 0; box-sizing: border-box;
+        margin-bottom: 0px;
 }
 
 .yt-grid-container {
-    padding: 20px 30px;
+    margin-left: 15px;
+    padding: 1px 20px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    min-height: 500px; /* Forces the container to stay visible */
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
-    height: 600px;
+    height: 650px;
+    width: 1200px;
     overflow-y: auto;
 }
-
+/* Custom Scrollbar */
+.yt-grid-container::-webkit-scrollbar { width: 12px; }
+.yt-grid-container::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+.yt-grid-container::-webkit-scrollbar-thumb { 
+    background: goldenrod; 
+    border-radius: 10px; 
+}
 /* ── CHANNEL CARD ── */
 .ch-card {
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    height: 150px;
+    border: 2px solid #eeebebb3;
+    height: 185px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    opacity: 1;
     transition: all 0.2s ease;
 }
 
 .ch-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255,0,0,0.5);
+    border-color: yellow;
     background: rgba(255,0,0,0.05);
 }
+
+/* Add this to create a dark overlay on all cards */
+.ch-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Adjust 0.4 (40%) to make it darker or lighter */
+    pointer-events: none; /* Allows the click to pass through to the card */
+    transition: background 0.3s ease;
+}
+
+/* Optional: Make the card slightly clearer on hover */
+.ch-card:hover::after {
+    background: rgba(0, 0, 0, 0.1); 
+}
+
+
+
 
 .ch-thumb {
     width: 100%; height: 100%;
     object-fit: cover;
-    opacity: 0.7;
+    opacity: 1.0;
 }
 
 .ch-info {
     position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 10px;
+    padding: 2px;
     background: linear-gradient(to top, black, transparent);
     text-align: center;
 }
 
 .ch-name {
     font-size: 0.7rem;
-    font-weight: 600;
+    font-weight: 400;
+    background: #3837398a;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: white;
+    color: rgb(225, 224, 224);
+    /* ── LINE CLAMPING ── */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits text to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds '...' if text exceeds 2 lines */
+    
+    /* Ensure a consistent height so cards don't jump */
+    line-height: 1.2; 
+    height: 2.4em; /* 1.2 (line-height) * 2 (lines) = 2.4 */
 }
 
 .yt-label {
-    position: absolute; top: 8px; left: 8px;
+    position: absolute; top: 8px; left: 245px;
     background: #ff0000; color: white;
-    font-size: 0.45rem; font-weight: 900;
+    font-size: 0.55rem; font-weight: 600;
     padding: 2px 6px; border-radius: 3px;
+}
+
+/* ── CATEGORY MODAL OVERLAY ── */
+#category-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* ── MODAL BOX ── */
+.modal-content {
+    background: rgba(20, 20, 20, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 16px;
+    padding: 40px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.modal-content h3 {
+    color: white;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+/* ── MODAL GRID ── */
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.modal-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.modal-btn:hover {
+    background: rgba(0, 255, 60, 0.238);
+    border-color: rgba(255,0,0,0.5);
+}
+
+.cancel-btn {
+    margin-top: 30px;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+/* ── PILL BUTTON STYLING ── */
+.ltv-nav-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.173);
+    color: white;
+    padding: 3px 20px;
+    border-radius: 0px; /* Pill shape */
+    font-size: 0.80rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0px 0px;
+}
+
+.ltv-nav-btn:hover {
+    background: hsla(48, 93%, 41%, 0.67);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── CENTERING THE TITLE ── */
+.header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.0rem;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    pointer-events: none; /* Allows clicking through if needed */
+}
+#modalTitle{
+    font-size: 16px;
+    margin: 20px;
+}
+
+/* Layout for the buttons in a 4-column grid */
+.modal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Matches your image layout */
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* Styling for each individual button */
+.modal-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left; /* Aligns text like in your image */
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Optional: Add a small icon placeholder to the right */
+.modal-btn::after {
+    content: "📷"; /* Or your camera icon */
+    font-size: 0.7rem;
+    opacity: 0.6;
 }
 </style>
 
 <div id="yt-grid-module">
-    <div id="yt-grid-header">
-        <button class="ltv-ctrl-btn" onclick="closeSubMenu()">
-            <span class="material-symbols-rounded" style="font-size:16px;">arrow_back</span> BACK
+<div id="yt-grid-header">
+        <button class="ltv-nav-btn" onclick="closeSubMenu()">
+        <span class="material-symbols-rounded" style="font-size:23px!important; vertical-align:middle;">arrow_back</span> BACK
         </button>
-        <h2 style="margin-left: 20px; font-size: 0.9rem; letter-spacing: 3px; opacity: 0.6;">FEATURED CHANNELS</h2>
+
+<h2 id="dynamic-header-title" class="header-title">LIVE STREAMS</h2>
+
+    <div style="margin-right: 22px;">
+        <button class="ltv-nav-btn" onclick="openCategoryModal()">
+            <span class="material-symbols-rounded" style="font-size:22px!important; vertical-align:middle;">menu</span> </button>
     </div>
+</div>
 
     <div class="yt-grid-container" id="channel-list-target">
         </div>
 </div>
 
+
+
+<div id="category-modal">
+    <div class="modal-content" style="width: 800px;"> <h3 style="text-align: left; margin-bottom: 20px;">MY FAVORITES</h3>
+        <div class="modal-grid">
+            <button class="modal-btn" onclick="runCategorySearch('Live english News')">NEWS</button>
+            <button class="modal-btn" onclick="runCategorySearch('Live Sports')">SPORTS</button>
+            <button class="modal-btn" onclick="runCategorySearch('Gaming Live')">GAMING</button>
+            <button class="modal-btn" onclick="runCategorySearch('Nature Live')">NATURE</button>
+            <button class="modal-btn" onclick="runCategorySearch('Space Live')">SPACE</button>
+            <button class="modal-btn" onclick="runCategorySearch('City Traffic')">CITY</button>
+            <button class="modal-btn" onclick="runCategorySearch('Airport Live')">AIRPORTS</button>
+            <button class="modal-btn" onclick="runCategorySearch('Train Journey')">TRAINS</button>
+            <button class="modal-btn" onclick="runCategorySearch('Dangerous Weather')">DANGEROUS SPOTS</button>
+            <button class="modal-btn" onclick="runCategorySearch('Walking live cam')">CITY WALKING</button>
+            <button class="modal-btn" onclick="runCategorySearch('World city live cam')">WORLD CITYS</button>
+                        <button class="modal-btn" onclick="runCategorySearch('Esports live cam')">ESports</button>
+                        <button class="modal-btn" onclick="runCategorySearch('OMG Live TV street cam')">OMG Live TV </button>
+            </div>
+        <button class="cancel-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
 <script>
-(function() {
-    // ── EDIT YOUR CHANNELS HERE ───────────────────────────────
-const MY_CHANNELS = [
-    { name: "Euronews", id: "pykpO5kQJ98", img: "https://i.ytimg.com/vi/pykpO5kQJ98/hqdefault.jpg" },
-    { name: "Sky News", id: "YDvsBbKfLPA", img: "https://i.ytimg.com/vi/YDvsBbKfLPA/hqdefault.jpg" },
-    { name: "France 24", id: "Ap-UM1O9RBU", img: "https://i.ytimg.com/vi/Ap-UM1O9RBU/hqdefault.jpg" },
-    { name: "BBC News", id: "ypV2CIHoRko", img: "https://i.ytimg.com/vi/ypV2CIHoRko/hqdefault.jpg" },
-    { name: "Al Jazeera", id: "gCNeDWCI0vo", img: "https://i.ytimg.com/vi/gCNeDWCI0vo/hqdefault.jpg" },
-    { name: "Times Now", id: "Ei5fHjF1Q-s", img: "https://i.ytimg.com/vi/Ei5fHjF1Q-s/hqdefault.jpg" },
-    { name: "CNN News", id: "HroCB4wtDv0", img: "https://i.ytimg.com/vi/HroCB4wtDv0/hqdefault.jpg" },
+function closeModal() {
+    document.getElementById('category-modal').style.display = 'none';
+}
+function openCategoryModal() {
+    document.getElementById('category-modal').style.display = 'flex';
+}
 
-    // USA
-    { name: "CBS News", id: "1llyb3Q8Y44", img: "https://i.ytimg.com/vi/1llyb3Q8Y44/hqdefault.jpg" },
-    { name: "ABC News", id: "iipR5yUp36o", img: "https://i.ytimg.com/vi/iipR5yUp36o/hqdefault.jpg" },
-    { name: "DW News", id: "LuKwFajn37U", img: "https://i.ytimg.com/vi/LuKwFajn37U/hqdefault.jpg" },
-    { name: "Bloomberg", id: "iEpJwprxDdk", img: "https://i.ytimg.com/vi/iEpJwprxDdk/hqdefault.jpg" },
-    { name: "CNBC", id: "9NyxcX3rhQs", img: "https://i.ytimg.com/vi/9NyxcX3rhQs/hqdefault.jpg" },
-    { name: "Scripps News", id: "R4Bc6SFzGtM", img: "https://i.ytimg.com/vi/R4Bc6SFzGtM/hqdefault.jpg" },
-    { name: "LiveNOW FOX", id: "C96oohpWBGw", img: "https://i.ytimg.com/vi/C96oohpWBGw/hqdefault.jpg" },
-    { name: "Fox Weather", id: "wt6SIE7BXS8", img: "https://i.ytimg.com/vi/wt6SIE7BXS8/hqdefault.jpg" },
-    { name: "Yahoo Finance", id: "KQp-e_XQnDE", img: "https://i.ytimg.com/vi/KQp-e_XQnDE/hqdefault.jpg" },
+// Perform the search
+window.runCategorySearch = async function(category, isFromSync = false) {
+    // 1. Fechar o modal para quem clicou
+    document.getElementById('category-modal').style.display = 'none';
 
-    // Canada
-    { name: "CBC News", id: "5vfaDsMhCF4", img: "https://i.ytimg.com/vi/5vfaDsMhCF4/hqdefault.jpg" },
-    { name: "Global News", id: "sPgqEHsONK8", img: "https://i.ytimg.com/vi/sPgqEHsONK8/hqdefault.jpg" },
+    // 2. Se for um Guest que recebeu o sinal, não volta a pesquisar (evita loop)
+    if (isFromSync) return;
 
-    // Europe
+    try {
+        const response = await fetch(`/api/live-search?q=${encodeURIComponent(category)}`);
+        const liveResults = await response.json();
 
-    { name: "Africanews", id: "NQjabLGdP5g", img: "https://i.ytimg.com/vi/NQjabLGdP5g/hqdefault.jpg" },
-
-    // Asia
-    { name: "NHK World Japan", id: "f0lYkdA-Gtw", img: "https://i.ytimg.com/vi/f0lYkdA-Gtw/hqdefault.jpg" },
-    { name: "BattleBots", id: "WmHltmpQS44", img: "https://i.ytimg.com/vi/WmHltmpQS44/hqdefault.jpg" },
-    { name: "Channel NewsAsia", id: "XWq5kBlakcQ", img: "https://i.ytimg.com/vi/XWq5kBlakcQ/hqdefault.jpg" },
-    { name: "India Today", id: "d2P5W7c2N0g", img: "https://i.ytimg.com/vi/d2P5W7c2N0g/hqdefault.jpg" },
-    { name: "CNN-News18", id: "l_I4K2-Rr_Y", img: "https://i.ytimg.com/vi/l_I4K2-Rr_Y/hqdefault.jpg" },
-
-
-    { name: "Heathrow Airport", id: "0aLNRbQDH80", img: "https://i.ytimg.com/vi/0aLNRbQDH80/hqdefault.jpg" },
-    { name: "Space X", id: "PQ2wzesrc9E", img: "https://i.ytimg.com/vi/PQ2wzesrc9E/hqdefault.jpg" },
-    { name: "Las Vegas Airport", id: "_-Qg5jD-PfA", img: "https://i.ytimg.com/vi/_-Qg5jD-PfA/hqdefault.jpg" },
-
-    // Australia
-    { name: "Tokyo Airport", id: "Y14sXwCVhJY", img: "https://i.ytimg.com/vi/Y14sXwCVhJY/hqdefault.jpg" },
-    { name: "9 News Australia", id: "9Auq9mYxFEE", img: "https://i.ytimg.com/vi/9Auq9mYxFEE/hqdefault.jpg" },
-    { name: "Sky News Australia", id: "Ngi9j-LRdWc", img: "https://i.ytimg.com/vi/Ngi9j-LRdWc/hqdefault.jpg" },
-
-{ name: "Times Square NYC", id: "1-iS7LArMPA", img: "https://i.ytimg.com/vi/1-iS7LArMPA/hqdefault.jpg" },
-{ name: "Tokyo Shibuya Crossing", id: "6dp-bvQ7RWo", img: "https://i.ytimg.com/vi/6dp-bvQ7RWo/hqdefault.jpg" },
-{ name: "Eiffel Tower Paris", id: "A15neGh1pwg", img: "https://i.ytimg.com/vi/A15neGh1pwg/hqdefault.jpg" },
-{ name: "Las Vegas Strip", id: "g29f2nm9_gg", img: "https://i.ytimg.com/vi/g29f2nm9_gg/hqdefault.jpg" },
-{ name: "Amsterdam Central", id: "T0RSxYKHHZQ", img: "https://i.ytimg.com/vi/T0RSxYKHHZQ/hqdefault.jpg" },
-
-{ name: "Waikiki Beach Hawaii", id: "q-_r3A1xSx0", img: "https://i.ytimg.com/vi/q-_r3A1xSx0/hqdefault.jpg" },
-{ name: "Miami Beach", id: "8YgwocSX4cQ", img: "https://i.ytimg.com/vi/8YgwocSX4cQ/hqdefault.jpg" },
-{ name: "Santa Monica Pier", id: "CmX5DFn5nS0", img: "https://i.ytimg.com/vi/CmX5DFn5nS0/hqdefault.jpg" },
-{ name: "Maldives Beach", id: "xvX_5ym_ajI", img: "https://i.ytimg.com/vi/xvX_5ym_ajI/hqdefault.jpg" },
-
-{ name: "Northern Lights Iceland", id: "9Auq9mYxFEE", img: "https://i.ytimg.com/vi/9Auq9mYxFEE/hqdefault.jpg" },
-{ name: "Niagara Falls", id: "XWq5kBlakcQ", img: "https://i.ytimg.com/vi/XWq5kBlakcQ/hqdefault.jpg" },
-{ name: "Mount Fuji Japan", id: "Nr0dI9OY_S4", img: "https://i.ytimg.com/vi/Nr0dI9OY_S4/hqdefault.jpg" },
-{ name: "Yellowstone National Park", id: "f0lYkdA-Gtw", img: "https://i.ytimg.com/vi/f0lYkdA-Gtw/hqdefault.jpg" },
-{ name: "African Safari", id: "mTvdXJA30OI", img: "https://i.ytimg.com/vi/mTvdXJA30OI/hqdefault.jpg" },
-
-{ name: "ISS Live Earth View", id: "86YLFOog4GM", img: "https://i.ytimg.com/vi/86YLFOog4GM/hqdefault.jpg" },
-{ name: "NASA Live", id: "21X5lGlDOfg", img: "https://i.ytimg.com/vi/21X5lGlDOfg/hqdefault.jpg" },
-{ name: "SpaceX Starbase", id: "mhJRzQsLZGg", img: "https://i.ytimg.com/vi/mhJRzQsLZGg/hqdefault.jpg" },
-
-{ name: "Tokyo Rail Live", id: "orSkP94M8YI", img: "https://i.ytimg.com/vi/orSkP94M8YI/hqdefault.jpg" },
-{ name: "Norway Train Journey", id: "DOYikXMP8JQ", img: "https://i.ytimg.com/vi/DOYikXMP8JQ/hqdefault.jpg" },
-{ name: "Duluth Harbor", id: "9kzM6Wl1sPU", img: "https://i.ytimg.com/vi/9kzM6Wl1sPU/hqdefault.jpg" },
-
-{ name: "Panda Cam", id: "Gm3bQVANtVo", img: "https://i.ytimg.com/vi/Gm3bQVANtVo/hqdefault.jpg" },
-{ name: "Eagle Nest Cam", id: "B4-L2nfGcuE", img: "https://i.ytimg.com/vi/B4-L2nfGcuE/hqdefault.jpg" },
-{ name: "Penguin Cam", id: "DjdUEyjx8GM", img: "https://i.ytimg.com/vi/DjdUEyjx8GM/hqdefault.jpg" },
-{ name: "Jellyfish Aquarium", id: "q1j9YbD2M4Q", img: "https://i.ytimg.com/vi/q1j9YbD2M4Q/hqdefault.jpg" },
-{ name: "Shark Cam", id: "tNkZsRW7h2c", img: "https://i.ytimg.com/vi/tNkZsRW7h2c/hqdefault.jpg" },
-
-{ name: "Storm Chaser Live", id: "d-V_YnmER0Y", img: "https://i.ytimg.com/vi/d-V_YnmER0Y/hqdefault.jpg" },
-{ name: "Volcano Live Cam", id: "YmP9eF1Qz2A", img: "https://i.ytimg.com/vi/YmP9eF1Qz2A/hqdefault.jpg" },
-{ name: "Hurricane Live Cam", id: "c7WxsmV9bqQ", img: "https://i.ytimg.com/vi/c7WxsmV9bqQ/hqdefault.jpg" },
-    
-
-];
-    const target = document.getElementById('channel-list-target');
-
-    // ── CLICK HANDLER ──
-// In your hardcoded grid module script:
-window.launchChannel = function(videoId) {
-    // You must include 'origin=live-tv' so the player knows where to return
-    // You can leave 'targetID' empty since this is a hardcoded list
-    const targetUrl = `/tvytube?videoId=${videoId}&vq=hd720&origin=live-tv&targetID=hardcoded&menu=/live-tv&scrollPos=0`;
-    
-    if (typeof handleNav === 'function') {
-        handleNav(targetUrl);
-    } else {
-        window.location.href = targetUrl;
-    }
+        // 3. Emitir para todos na sala
+        if (window.socket && window.myRoom) {
+            window.socket.emit('state_sync', { 
+                type: 'new_results', 
+                category: category, 
+                results: liveResults, 
+                room: window.myRoom 
+            });
+        }
+        
+        // 4. Renderizar localmente para o Host
+        renderResults(liveResults, category);
+    } catch (e) { console.error(e); }
 };
-    // ── RENDER ──
-    target.innerHTML = MY_CHANNELS.map(ch => `
-        <div class="ch-card" onclick="launchChannel('${ch.id}')">
-            <div class="yt-label">YOUTUBE</div>
-            <img src="${ch.img}" class="ch-thumb" onerror="this.src='https://placehold.co/600x400/000000/FFFFFF?text=TV'">
+window.renderResults = function(liveResults, category) {
+    const target = document.getElementById('channel-list-target');
+    const titleElement = document.getElementById('dynamic-header-title');
+
+if (target) target.scrollTop = 0;
+
+    target.innerHTML = liveResults.map(ch => `
+        <div class="ch-card" onclick="launchChannel('${ch.videoId || ''}')">
+            <div class="yt-label">LIVE</div> 
+            <img src="${ch.thumbnail}" class="ch-thumb">
             <div class="ch-info">
-                <div class="ch-name">${ch.name}</div>
+                <div class="ch-name">${ch.title}</div>
             </div>
         </div>
     `).join('');
+    
+    titleElement.textContent = `LIVE STREAMS FOR: ${category.toUpperCase()}`;
+};
+// This MUST be outside of any other functions, or attached to 'window'
+window.launchChannel = function(videoId) {
+    const container = document.getElementById('channel-list-target');
+    const scroll = container ? container.scrollTop : 0;
+    
+    // Capture the current category from the header
+    const category = document.getElementById('dynamic-header-title').textContent.replace('LIVE STREAMS FOR: ', '');
+    
+    // Construct the URL using the same pattern as your generic grid
+    const url = `/tvytube?videoId=${videoId}&origin=live-tv&targetID=${encodeURIComponent(category)}&menu=/live-menu&scrollPos=${scroll}`;
+    
+    if (typeof handleNav === 'function') {
+        handleNav(url);
+    } else {
+        window.location.href = url;
+    }
+};
+
+window.syncHover = function(cardId, isActive) {
+       
+        if (window.socket && window.myRoom) {
+            window.socket.emit('state_sync', { type: 'global_hover', id: cardId, active: isActive, room: window.myRoom });
+        }
+    };
+// --- SCROLL BROADCASTER (Live TV Grid) ---
+$('.yt-grid-container').on('scroll', function() {
+    if (window.isSyncing) return; // Prevent loop
+    
+    if (window.socket && window.myRoom) {
+        window.socket.emit('state_sync', { 
+            type: 'scroll', 
+            position: $(this).scrollTop(), 
+            room: window.myRoom 
+        });
+    }
+});
+    // --- SOCKET LISTENER (Unified) ---
+
+window.isPageReady = false;    
+if (window.socket) {
+        window.socket.on('state_sync', (data) => {
+            if (data.type === 'layout_change') window.setFreebiesLayout(data.cols, true);
+            
+if (data.type === 'scroll' && window.isPageReady) {
+            window.isSyncing = true;
+            const grid = document.getElementById('channel-list-target'); 
+            if (grid) grid.scrollTop = data.position;
+            setTimeout(() => { window.isSyncing = false; }, 100);
+        }
+            
+            if (data.type === 'hover') {
+                const el = document.getElementById(data.id);
+                if (el) {
+                    el.style.background = data.active ? 'rgba(0,0,0,0.7)' : ''; // Default resets to CSS
+                    el.style.borderColor = data.active ? '#ffcc00' : '';
+                }
+            }
+        });
+    }
+// Define this as a globally accessible function
+(function() {
+    const savedScroll = parseInt('<%= typeof scrollPos !== "undefined" ? scrollPos : 0 %>') || 0;
+    const savedCategory = '<%= typeof targetID !== "undefined" ? targetID : "Live English News" %>';
+
+    window.runCategorySearch(savedCategory).then(() => {
+        if (savedScroll > 0) {
+            requestAnimationFrame(() => {
+                const container = document.getElementById('channel-list-target');
+                if (container) {
+                    container.scrollTop = savedScroll;
+                    
+                    // Signal to guests that we are done moving
+                    window.isPageReady = true; 
+                    console.log("POSITIOn: ",savedScroll)
+                    if (window.socket && window.myRoom) {
+                        window.socket.emit('state_sync', {
+                            type: 'scroll',
+                            position: savedScroll,
+                            room: window.myRoom
+                        });
+                    }
+                }
+            });
+        } else {
+            // Even if scroll is 0, signal readiness
+            window.isPageReady = true;
+        }
+    });
 })();
 </script>

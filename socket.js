@@ -35,7 +35,7 @@ async function fetchQuestions() {
     try {
         const axios = require('axios');
         const res = await axios.get('https://opentdb.com/api.php', {
-            params: { amount: 10, type: 'multiple', encode: 'url3986' }
+            params: { amount: 3, type: 'multiple', encode: 'url3986' }
         });
         return res.data.results.map(q => {
             const answers = [...q.incorrect_answers, q.correct_answer]
@@ -342,25 +342,16 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
             state.radioDialIndex = null; // Clear the tuning memory completely
             io.to(clientRoom).emit('force_stop_radio');
         });
-        // Add this to your socket server handling logic
-        socket.on('RequestRadioGrid', (data) => {
-            // Send to everyone in the room, INCLUDING the sender
-            io.to(data.room).emit('UpdateRadioGrid', data);
-        });
-        // Add this to your server-side socket logic
-        socket.on('RequestRadioBack', (data) => {
-            // Tell all clients in the room to go back and kill their players
-            io.to(data.room).emit('UpdateRadioBack');
-        });
-
-        socket.on('TuneRadio', (data) => {
-    // 1. Guarda o estado no servidor para que novos utilizadores fiquem sincronizados
-    state.radioStream = data.stream;
-    state.radioName = data.name;
-    
-    // 2. Avisa todos na sala (incluindo o emissor, se quiseres, ou apenas os outros)
-    io.to(clientRoom).emit('TuneRadio', data);
-});
+    // Add this to your socket server handling logic
+    socket.on('RequestRadioGrid', (data) => {
+        // Send to everyone in the room, INCLUDING the sender
+        io.to(data.room).emit('UpdateRadioGrid', data);
+    });
+    // Add this to your server-side socket logic
+    socket.on('RequestRadioBack', (data) => {
+        // Tell all clients in the room to go back and kill their players
+        io.to(data.room).emit('UpdateRadioBack');
+    });
         // ── BACKGROUNDS ───────────────────────────────────────
         socket.on('change_bg', (data) => {
             const url = data.image || data.url;
@@ -420,7 +411,7 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
             console.log(`[Room Switch] ${socket.id} → ${newRoom}`);
         });
 
-        // ── QUIZ ──────────────────────────────────────────────
+// ── QUIZ ──────────────────────────────────────────────
         socket.on('quiz_join', (data) => {
             const room = data.room || clientRoom;
             const qr   = getQuizRoom(room);
@@ -439,7 +430,7 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
                 qr.current = i; qr.answers = {};
                 const q = qr.questions[i];
                 io.to(room).emit('quiz_question', { question: q, index: i, questions: qr.questions });
-                await sleep(20000);
+                await sleep(10000);
                 const scores = {};
                 Object.values(qr.players).forEach(p => { scores[p.id] = p.score; });
                 Object.entries(qr.answers).forEach(([sid, ans]) => {
@@ -449,7 +440,11 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
                     }
                 });
                 io.to(room).emit('quiz_result', { correctAnswer: q.correctAnswer, scores });
-                if (i < qr.questions.length - 1) await sleep(4000);
+                if (i < qr.questions.length - 1) {
+                    await sleep(3000);
+                } else {
+                    await sleep(3000);
+                }
             }
             const finalScores = {};
             Object.values(qr.players).forEach(p => { finalScores[p.id] = p.score; });
@@ -477,8 +472,22 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
             delete qr.players[socket.id];
             io.to(room).emit('quiz_players_update', { players: qr.players });
         });
+// Quando quiser que o jogo reinicie para TODOS na sala
+socket.on('quiz_force_reboot', (data) => {
+    const room = data.room || clientRoom;
+    const qr = getQuizRoom(room);
+    
+    // Limpa o estado da sala no servidor
+    qr.players = {}; 
+    qr.active = false;
+    qr.current = -1;
+    qr.questions = [];
+    qr.answers = {};
 
-        // ── TRUE OR MYTH ──────────────────────────────────────
+    // Envia o comando para todos na sala
+io.to(room).emit('force_navigate', { target: 'games-menu' });
+});
+// ── TRUE OR MYTH ──────────────────────────────────────
         socket.on('tom_join', (data) => {
             const room = data.room || clientRoom;
             const tr   = getTomRoom(room);
@@ -521,7 +530,7 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
         });
         socket.on('tom_leave', (data) => { const tr = getTomRoom(data.room || clientRoom); delete tr.players[socket.id]; io.to(data.room || clientRoom).emit('tom_players_update', { players: tr.players }); });
 
-        // ── WHO AM I ──────────────────────────────────────────
+// ── WHO AM I ──────────────────────────────────────────
         socket.on('wai_join',  (data) => { const room = data.room || clientRoom; const wr = getWaiRoom(room); wr.players[socket.id] = { id: socket.id, name: data.name }; io.to(room).emit('wai_players_update', { players: wr.players }); });
         socket.on('wai_start', (data) => { const room = data.room || clientRoom; const wr = getWaiRoom(room); if (wr.active) return; wr.active = true; startWaiRound(room, wr); });
         socket.on('wai_ask',   (data) => { const room = data.room || clientRoom; const wr = getWaiRoom(room); wr.currentQ = data.question; io.to(room).emit('wai_question', { question: data.question }); });
