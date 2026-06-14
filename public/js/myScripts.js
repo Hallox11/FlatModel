@@ -103,54 +103,9 @@ const NAV_CONFIG = {
         'sl': 'sl-radio' 
     },
 
-    // --- RADIO COUNTRIES ---
-    radio: {
-        'pt': './radios/pt',
-        'nz': './radios/nz',
-        'es': './radios/es',
-        'br': './radios/br',
-        'fr': './radios/fr',
-        'it': './radios/it',
-        'mr': './radios/mr'
-    },
 
-    // --- MUSIC ---
-    music: {
-        'concerts': 'id=concerts&mode=mix',
-        'full': 'id=UCXynnXkWjVqGgZo02vCfl9g&mode=user',
-        'blues': 'id=UCYY_YLVWFI_IZ51Eu6x9bgA&mode=user',
-        'blues_list': 'id=UCYY_YLVWFI_IZ51Eu6x9bgA&mode=list',
-        'jazz': 'id=UCNJFXYXkXt_P8bJUxb21MpA&mode=user',
-        'jazz_list': 'id=UCNJFXYXkXt_P8bJUxb21MpA&mode=list',
-        'classic': 'id=UC68KnvCZ-nJzmmuSu_tKASA&mode=user',
-        'classic_list': 'id=UC68KnvCZ-nJzmmuSu_tKASA&mode=list',
-        'relax': 'id=UCjzHeG1KWoonmf9d5KBvSiw&mode=user',
-        'relax_list': 'id=UCjzHeG1KWoonmf9d5KBvSiw&mode=list',
-        'slowrock': 'id=UC3CX2e-ej3wsG_nA4r4uykg&mode=user',
-        'love': 'id=UChR6kXdFtHNPNkIc5S17B2w&mode=user',
-        'rap': 'id=UCMu5gPmKp5av0QCAajKTMhw&mode=user',
-        'pmb': 'id=UCFm4zM6-08kb9abXDk4fxXQ&mode=user',
-        'pmb_list': 'id=UCFm4zM6-08kb9abXDk4fxXQ&mode=list',
-        'boiler': 'id=UCGBpxWJr9FNOcFYA5GkKrMg&mode=user',
-        'boiler_list': 'id=UCGBpxWJr9FNOcFYA5GkKrMg&mode=list',
-        'majestic': 'id=UCXIyz409s7bNWVcM-vjfdVA&mode=user',
-        'majestic_list': 'id=UCXIyz409s7bNWVcM-vjfdVA&mode=list'
-    },
 
-    // --- MOVIES ---
-    movies: {
-        'mixmovies': 'mixmovies&mix',
-        'movie_trailers': 'UCi8e0iOVk1fEOogdfu4YgfA',
-        'mojo': 'UCaWd5_7JhbQBe4dknZhsHJg',
-        'movie_central': 'UCGBzBkV-MinlBvHBzZawfLQ',
-        'popcornflix': 'UCVFYikepF-avelvuIaQ_lHA',
-        'v_movies': 'UCPPPrnT5080hPMxK1N4QSjA',
-        'retrospective': 'UCibOdW_Yj0-pj5SQGZxZIgA',
-        'western': 'UCyJYCQ6WaEMhdZAuPo799bA',
-        'mr_bean': 'UCkAGrHCLFmlK3H2kd6isipg',
-        'pink_panther': 'UCFeUyPY6W8qX8w2o6oSiRmw',
-        'warner_kids': 'UC9trsD1jCTXXtN3xIOIU8gg'
-    }
+
 };
 
 
@@ -177,23 +132,6 @@ function cleanURL(path) {
         return path;
     }
 }
-
-function toggleTextContrast(isRemote = false) {
-    const body = $('body');
-    body.toggleClass('dark-text');
-    
-    const isDark = body.hasClass('dark-text');
-    localStorage.setItem("text_contrast", isDark ? "dark" : "light");
-
-    if (!isRemote && window.socket && window.socket.connected) {
-        window.socket.emit('state_sync', {
-            type: 'text_contrast',
-            state: isDark,
-            room: window.myRoom
-        });
-    }
-}
-
 
 $(document).ready(function() {
     // 1. Aplicar contraste guardado
@@ -501,7 +439,36 @@ window.killRadio = function() {
 // ===============================
 // HOVER & INPUT SYNC (senders only — no listener here)
 // ===============================
-const syncSelectors = '.main-genre-btn1, .chip, .list-row, .card, .ch-card, .close-menu-btn, .btn, .video-card, .nav-btn-glass, .theme-thumb, .cat-item, .radio-card, .menu-item, .thumb-wrap, .flickr-card, .fav-chip, .btn-group, .feature-btn, .main-genre-btn1, .btn-group, .sub-btn-group, .tag-card, .action-btn, .fav-item';
+const syncSelectors =
+  '.main-genre-btn1, ' +
+  '.chip, ' +
+  '.list-row, ' +
+  '.card, ' +
+     '.close-menu-btn, ' +
+     '.side-arrow, ' + // sl stations arrows
+     '.ir-btn, ' + //inter radios contry selector
+     '.freebie-card, ' + //freebies cards
+     '.layout-btn, ' + //freebies layout buttons
+     '.ltv-nav-btn, ' + //freebies / live-tv back / menu
+     '.ch-card, ' + // live-tv cards
+     '.game-card, ' + // clip games cards
+  '.btn, ' +
+  '.video-card, ' +
+  '.nav-btn-glass, ' +
+  '.theme-thumb, ' +
+  '.cat-item, ' +
+  '.radio-card, ' +
+  '.menu-item, ' +
+  '.thumb-wrap, ' +
+  '.flickr-card, ' +
+  '.fav-chip, ' +
+  '.btn-group, ' +
+  '.feature-btn, ' +
+  '.main-genre-btn1, ' +
+  '.sub-btn-group, ' +
+  '.tag-card, ' +
+  '.action-btn, ' +
+  '.fav-item';
 
 $(document).on('mouseenter mouseleave', syncSelectors, function(e) {
     if (window.isRemoteAction) return;
@@ -597,18 +564,18 @@ socket.on('force_sync_arrival', function(state) {
             console.log("--- SYNCING TO LOBBY STATE ---", state);
 
             // 1. SYNC BACKGROUND (Sempre atualiza o fundo)
-if (state.currentBg) {
-        console.log("Aplicando fundo vindo do servidor:", state.currentBg);
-        aplicarBackground(state.currentBg);
-    } else {
-        // Se o servidor não tem fundo definido, usa o local ou padrão
-        let localBG = localStorage.getItem("selectedBG");
-        if (localBG) {
-            aplicarBackground(localBG);
-            // Opcional: Avisar o servidor que este é o novo fundo da sala
-            socket.emit('change_bg', { url: localBG });
-        }
-    }
+            if (state.currentBg) {
+                   // console.log("Aplicando fundo vindo do servidor:", state.currentBg);
+                    aplicarBackground(state.currentBg);
+                } else {
+                    // Se o servidor não tem fundo definido, usa o local ou padrão
+                    let localBG = localStorage.getItem("selectedBG");
+                    if (localBG) {
+                        aplicarBackground(localBG);
+                        // Opcional: Avisar o servidor que este é o novo fundo da sala
+                        socket.emit('change_bg', { url: localBG });
+                    }
+                }
 
 
             // 2. PRIORIDADE: SYNC AJAX OVERLAY (Menus, Grids, etc.)
@@ -657,36 +624,33 @@ socket.on('room_switched', function(data) {
     console.log('[Room] Switched to:', data.room);
 });
         
-        // -------------------------------------------------------
-        // state_sync — SINGLE unified listener (was duplicated)
-        // -------------------------------------------------------
-        socket.on('state_sync', function(data) {
+// -------------------------------------------------------
+// state_sync — SINGLE unified listener (was duplicated)
+// -------------------------------------------------------
+socket.on('state_sync', function(data) {
+    
             switch (data.type) {
 
-                case 'text_contrast':
-                    if (data.state) { $('body').addClass('dark-text'); }
-                    else            { $('body').removeClass('dark-text'); }
+
+                case 'global_hover':
+                // 1. Clear previous highlights
+                    $('.remote-hover').removeClass('remote-hover');
+                    
+                // 2. Only add the class if it is explicitly an 'enter' event
+                    if (data.state === 'enter') {
+                        const $target = $(data.selector).eq(data.index);
+                        if ($target.length > 0) {
+                            $target.addClass('remote-hover');
+                        }
+                    }
+
+    
+    break;
+                case 'new_results':
+                document.getElementById('category-modal').style.display = 'none';
+                        // Renderizar a lista exata que o host enviou
+                        renderResults(data.results, data.category);
                     break;
-
-case 'global_hover':
-// 1. Clear previous highlights
-    $('.remote-hover').removeClass('remote-hover');
-    
-// 2. Only add the class if it is explicitly an 'enter' event
-    if (data.state === 'enter') {
-        const $target = $(data.selector).eq(data.index);
-        if ($target.length > 0) {
-            $target.addClass('remote-hover');
-        }
-    }
-
-    
-    break;
-case 'new_results':
-document.getElementById('category-modal').style.display = 'none';
-        // Renderizar a lista exata que o host enviou
-        renderResults(data.results, data.category);
-    break;
                 case 'input_focus': {
                     const $input = $(`#${data.id}`);
                     const isFocus = data.action === 'focus';
@@ -694,8 +658,6 @@ document.getElementById('category-modal').style.display = 'none';
                     $input.attr('placeholder', isFocus ? 'Remote user typing...' : 'Search...');
                     break;
                 }
-
-                // --- Update these blocks in your Global Script ---
 
                 case 'yt_cat_modal': {
                     const $modal = $('#yt-cat-modal-new'); // Added '-new'
@@ -728,8 +690,7 @@ document.getElementById('category-modal').style.display = 'none';
                     }
                     break;
                 }
-                // --- DENTRO DO SWITCH (data.type) NO SEU ARQUIVO GLOBAL ---
-
+  
                 case 'xxx_modal': {
                     const $modal = $('#xxx-cat-modal');
                     if ($modal.length) {
@@ -748,24 +709,25 @@ document.getElementById('category-modal').style.display = 'none';
                     }
                     break;
                 }
-case 'scroll': {
-    const $scrollTarget = $('#channel-list-target').length ? $('#channel-list-target') : // Add this line
-                          $('#grid-content').length        ? $('#grid-content') :
-                          $('#yt-content-scroll').length   ? $('#yt-content-scroll') :
-                          $('#xxx-module').length          ? $('#xxx-module') :
-                          $('#flickr-results-grid').length ? $('#flickr-results-grid') :
-                          $('#content-wrapper').length     ? $('#content-wrapper') :
-                          $('#conteiner');
+                case 'scroll': {
+                    const $scrollTarget = $('#channel-list-target').length ? $('#channel-list-target') : // Add this line
+                                        $('#grid-content').length        ? $('#grid-content') :
+                                        $('#yt-content-scroll').length   ? $('#yt-content-scroll') :
+                                        $('#xxx-module').length          ? $('#xxx-module') :
+                                        $('#flickr-results-grid').length ? $('#flickr-results-grid') :
+                                        $('#content-wrapper').length     ? $('#content-wrapper') :
+                                        $('#conteiner');
 
-    if ($scrollTarget.length > 0) {
-        window.isSyncing = true;
-        $scrollTarget.scrollTop(data.position);
-        setTimeout(() => { window.isSyncing = false; }, 100);
-    }
-    break;
-}
-
-                case 'start_slideshow':
+                    if ($scrollTarget.length > 0) {
+                        window.isSyncing = true;
+                        $scrollTarget.scrollTop(data.position);
+                        setTimeout(() => { window.isSyncing = false; }, 100);
+                    }
+                    break;
+                }
+////////////////////////////
+// FLICKR CASES
+                case 'start_slideshow': //flickr slideshow start
                     if (typeof window.startSlideshow === 'function') {
                         window.startSlideshow(data.index, true);
                     } else {
@@ -774,7 +736,7 @@ case 'scroll': {
                     }
                     break;
 
-                case 'exit_slideshow':
+                case 'exit_slideshow': // flickr exit slideshow
                     if (typeof window.exitSlideshow === 'function') { window.exitSlideshow(true); }
                     else { $('#flickr-lightbox').fadeOut(200); $('#flickr-main-ui').fadeIn(200); }
                     break;
@@ -789,38 +751,37 @@ case 'scroll': {
                     }
                     break;
 
-case 'flickr_close_categories':
-    window.closeCategoriesPage(true); // Executa remotamente sem ecoar de volta
-    break;
+                case 'flickr_close_categories':
+                    window.closeCategoriesPage(true); // Executa remotamente sem ecoar de volta
+                    break;
 
-case 'flickr_close_channels':
-    window.closeFavoritesPage(true);  // Executa remotamente sem ecoar de volta
-    break;
+                case 'flickr_close_channels':
+                    window.closeFavoritesPage(true);  // Executa remotamente sem ecoar de volta
+                    break;
+                             
                 case 'flickr_channel_sync':
-                    if (typeof window.viewChannel === 'function') { window.viewChannel(data.userId, true); }
-                    break;
+                if (typeof window.viewChannel === 'function') { window.viewChannel(data.userId, true); }
+                break;
 
-case 'flickr_album_sync':
-    window.loadAlbumPhotos(data.photosetId, data.userId, true);
-break;
-case 'flickr_show_albums_modal':
-    window.viewUserAlbums(data.userId, true);
-break;
-// Add this to your existing switch(data.type) block
-case 'flickr_group_sync':
-    window.viewGroup(data.groupId, true); // True to avoid feedback loop
-    break;
-                case 'background':
-                    $('body').css({ 'background-image': `url(${data.url})`, 'background-size': 'cover', 'background-position': 'center' });
-                    break;
+                case 'flickr_album_sync':
+                    window.loadAlbumPhotos(data.photosetId, data.userId, true);
+                break;
 
+                case 'flickr_show_albums_modal':
+                    window.viewUserAlbums(data.userId, true);
+                break;
+                
+                case 'flickr_group_sync':
+                    window.viewGroup(data.groupId, true); // True to avoid feedback loop
+                    break;
+                
                 case 'flickr_results_sync':
                     window.runFlickrSearch(data.query, data.photos, true);
                     break;
 
                 case 'flickr_show_channels':
-                    if (typeof window.showFavoritesPage === 'function') { window.showFavoritesPage(true); }
-                    else { $('#flickr-results-grid, #categories-manager').hide(); $('#favorites-manager').show(); }
+                    const mode = data.mode || 'sl'; // Use the mode from the socket, or default to 'sl'
+                    window.showFavoritesPage(mode, true);
                     break;
 
                 case 'flickr_show_categories':
@@ -841,6 +802,11 @@ case 'flickr_group_sync':
                 case 'flickr_layout_change':
                    // Alguém mudou o layout! Vamos mudar o nosso também.
                     window.changeLayout(data.layoutType, null, true);
+                    break;    
+ // FLICKR CASES END
+/////////////////////////// 
+                case 'background':
+                    $('body').css({ 'background-image': `url(${data.url})`, 'background-size': 'cover', 'background-position': 'center' });
                     break;
 
                 case 'radio_hash_change':
@@ -853,9 +819,9 @@ case 'flickr_group_sync':
             }
         });
 
-        // -------------------------------------------------------
-        // mirror_ajax_nav — remote menu changes
-        // -------------------------------------------------------
+// -------------------------------------------------------
+// mirror_ajax_nav — remote menu changes
+// -------------------------------------------------------
 // Locate this block near the bottom of your file
 socket.on('mirror_ajax_nav', function(data) {
     if (data.action === 'CLOSE') {
@@ -876,9 +842,9 @@ socket.on('mirror_ajax_nav', function(data) {
     }
 });
 
-        // -------------------------------------------------------
-        // mirror_nav — full page redirects
-        // -------------------------------------------------------
+// -------------------------------------------------------
+// mirror_nav — full page redirects
+// -------------------------------------------------------
         socket.on('mirror_nav', function(data) {
             if (data.route && !window.location.href.includes(data.route)) {
                 setTimeout(() => { 

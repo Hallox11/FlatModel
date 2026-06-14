@@ -1,12 +1,16 @@
 <style>
 #games-menu-module {
-    width: 1280px; height: 720px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-    font-family: 'Fira Sans', sans-serif; color: white;
-  
-    gap: 50px;
+    width: 1000px;
+    padding: 35px;
+    background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.3));
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+    margin: 20px auto;
+    position: relative;
 }
 
 #games-close {
@@ -22,24 +26,31 @@
 #games-close:hover { border-color: rgba(255,255,255,0.5); }
 
 .games-title {
-    font-size: 0.75rem; letter-spacing: 6px;
-    text-transform: uppercase; opacity: 0.3;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    margin-bottom: 35px;
+    opacity: 0.9;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 #games-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Forms two even rows of 3 columns */
     gap: 20px;
-    width: 960px;
-    grid-auto-rows: 1fr; /* Ensures cards in new rows have the same height */
+    width: 970px; 
+    grid-auto-rows: 1fr;
 }
 
 .game-card {
-    background:  #1b1f1fa6;
-    border: 1px solid rgba(255,255,255,0.08);
+    background:  rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.2);
     border-top-color: rgba(255,255,255,0.18);
     border-radius: 18px;
-    padding: 36px 20px 28px;
+    padding: 25px 20px 15px 40px;
     cursor: pointer; text-align: center;
     display: flex; flex-direction: column;
     align-items: center; gap: 16px;
@@ -51,12 +62,22 @@
 }
 .game-card::before {
     content: ''; position: absolute;
-    left: 0; top: 0; bottom: 0; width: 3px;
-    border-radius: 18px 0 0 18px;
+    left: 0; top: 0; bottom: 0; width: 25px;
+    border-radius: 18px 0 0 0px;
     background: var(--card-color, rgba(255,255,255,0.2));
 }
 .game-card:hover {
-    transform: translateY(-6px) scale(1.03);
+        background:  rgba(0,0,0,0.7);
+    transform: translateY(-3px) scale(1.01);
+    border-color: rgba(255,255,255,0.25);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 20px 48px rgba(0,0,0,0.7),
+        0 0 24px var(--card-glow, rgba(255,255,255,0.05));
+}
+.game-card.remote-hover {
+    background:  rgba(0,0,0,0.7);
+    transform: translateY(-3px) scale(1.01);
     border-color: rgba(255,255,255,0.25);
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.15),
@@ -64,42 +85,42 @@
         0 0 24px var(--card-glow, rgba(255,255,255,0.05));
 }
 
-.game-card:nth-child(1) { --card-color: #daa520; --card-glow: rgba(218,165,32,0.12); }
-.game-card:nth-child(2) { --card-color: #2ecc71; --card-glow: rgba(46,204,113,0.12); }
-.game-card:nth-child(3) { --card-color: #9b59b6; --card-glow: rgba(155,89,182,0.12); }
-.game-card:nth-child(4) { --card-color: #3498db; --card-glow: rgba(52,152,219,0.12); }
-.game-card:nth-child(5) { 
-    --card-color: #f39c12; 
-    --card-glow: rgba(243, 156, 18, 0.12); 
-}
-.game-emoji { font-size: 3rem; line-height: 1; }
+/* Card Left Accent Color Rules */
+.game-card:nth-child(1) { --card-color: #daa520; --card-glow: rgba(218,165,32,0.12); border: 1px solid #daa520;}
+.game-card:nth-child(2) { --card-color: #2ecc71; --card-glow: rgba(46,204,113,0.12); border: 1px solid #2ecc71;}
+.game-card:nth-child(3) { --card-color: #9b59b6; --card-glow: rgba(155,89,182,0.12); border: 1px solid #9b59b6;}
+.game-card:nth-child(4) { --card-color: #3498db; --card-glow: rgba(52,152,219,0.12); border: 1px solid #3498db;}
+.game-card:nth-child(5) { --card-color: #e74c3c; --card-glow: rgba(231,76,60,0.15); border: 1px solid #e74c3c;}
+.game-card:nth-child(6) { --card-color: #4a90e2; --card-glow: rgba(74,144,226,0.15); border: 1px solid #4a90e2;}
+
+.game-emoji { font-size: 2.7rem; line-height: 1; }
 
 .game-name {
-    font-size: 1rem; font-weight: 600;
+    font-size: 1.1rem; font-weight: 600;
     text-transform: uppercase; letter-spacing: 2.5px;
     color: #fff;
 }
 .game-desc {
-    font-size: 0.68rem; letter-spacing: 1.5px;
-    text-transform: uppercase; opacity: 0.35;
+    font-size: 0.75rem; letter-spacing: 1.5px;
+    text-transform: uppercase; opacity: 0.75;
     line-height: 1.6;
 }
 .game-players {
-    font-size: 0.6rem; letter-spacing: 2px;
+    font-size: 0.7rem; letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 4px 12px; border-radius: 20px;
+    padding: 7px 12px; border-radius: 20px;
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.1);
-    opacity: 0.6;
+    opacity: 0.7;
 }
 </style>
 
 <div id="games-menu-module">
-    <button id="games-close" onclick="closeSubMenu()">
-        <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span> Back
-    </button>
+    <div class="close-menu-btn" onclick="closeSubMenu()">
+        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
+    </div>
 
-    <div class="games-title">Choose a Game</div>
+    <div class="games-title">playground</div>
 
     <div id="games-grid">
         <div class="game-card" onclick="handleNav('quiz')">
@@ -130,12 +151,18 @@
             <div class="game-players">1 – 8 players</div>
         </div>
 
-        <!-- NEW CLIP GAMES BUTTON -->
-    <div class="game-card" onclick="handleNav('clip-games')">
-        <div class="game-emoji">🎬</div>
-        <div class="game-name">Clip Games</div>
-        <div class="game-desc">watch and play<br>trending addicting clips</div>
-        <div class="game-players">Public Feed</div>
-    </div>
+        <div class="game-card" onclick="handleNav('clip-games')">
+            <div class="game-emoji">🎬</div>
+            <div class="game-name">Clip Games</div>
+            <div class="game-desc">watch and play<br>trending addicting clips</div>
+            <div class="game-players">Public Feed</div>
+        </div>
+
+        <div class="game-card" onclick="handleNav('html-games')">
+            <div class="game-emoji">🌐</div>
+            <div class="game-name">HTML Games</div>
+            <div class="game-desc">Instant play<br>custom web mini-games</div>
+            <div class="game-players">1 - 4 Players</div>
+        </div>
     </div>
 </div>

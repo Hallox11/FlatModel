@@ -695,7 +695,7 @@ router.get('/', (req, res) => {
         } else if (req.query.isChannel === 'true') {
             mode = 'channel';
         }
-console.log(mode)
+
         try {
             // 3. Fetch data using the mode ('search', 'channel', or 'playlist')
             const results = await youtubeScraper.getVideos(query, mode);
@@ -765,19 +765,24 @@ router.get('/settings', (req, res) => {
         res.render('pages/settings', { tvId: null, dados: null });
     }
 });
+
+
+
 ///////////////////////////////////////////////////////////////////////////////
 // FLICKR ENDPOINTS 
-// 1. Rota para carregar a página
+// 1. open normal flickr
 router.get('/flickr', (req, res) => {
     res.render('pages/flickr/flickr', {
         theme: 'goldenrod'
     });
 });
+// 2. open erotic flickr
 router.get('/flickr-erotic', (req, res) => {
     res.render('pages/flickr/flickr-erotic', {
         theme: 'goldenrod'
     });
 });
+// 3. flickr search by Tag
 router.get('/api/flickr/search', async (req, res) => {
     try {
         const input = (req.query.tags || '').trim();
@@ -826,8 +831,7 @@ router.get('/api/flickr/search', async (req, res) => {
         return res.status(500).json([]);
     }
 });
-
-// Rota para buscar fotos de um canal específico (User ID)
+// 4. flickr search by Channel Id
 router.get('/api/flickr/channel/:userId', async (req, res) => {
     try {
         const userId = req.params.userId;
@@ -839,16 +843,17 @@ router.get('/api/flickr/channel/:userId', async (req, res) => {
         res.status(500).json({ error: "Erro ao buscar fotos do canal" });
     }
 });
-
+// 5. flickr search by User Album Id
 router.get('/api/flickr/albums/:userId', async (req, res) => {
     const albums = await flickrController.getUserAlbums(req.params.userId);
     res.json(albums);
 });
-
+// 6. flickr search User Album Photos
 router.get('/api/flickr/album-photos/:photosetId/:userId', async (req, res) => {
     const photos = await flickrController.getAlbumPhotos(req.params.photosetId, req.params.userId);
     res.json(photos);
 });
+// 7. flickr search by Group Id
 router.get('/api/flickr/group/:groupId', async (req, res) => {
     const photos = await flickrController.getGroupPhotos(req.params.groupId);
     res.json(photos);
@@ -879,7 +884,18 @@ router.get('/api/favorites2', async (req, res) => {
         res.status(500).json({}); 
     }
 });
+router.get('/api/flickr-eroticFav', async (req, res) => {
+    try {
 
+        const fs = require('fs').promises; 
+        const data = await fs.readFile(flickrErotic, 'utf8');
+        res.json(JSON.parse(data));
+
+    } catch (err) {
+        console.error("ERRO NO GET FAVORITES:", err.message);
+        res.status(500).json({}); 
+    }
+});
 ///////////////////////////////////////////////////////////////////
 // XXX ENDPOINTS
     router.get('/xxx-check',    (req, res) => res.render('pages/xxx/xxx-check'));

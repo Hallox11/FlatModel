@@ -11,18 +11,27 @@
 
     /* 2. HEADER E NAVEGAÇÃO */
     .sl-nav-header {
-        width: 100%; height: 65px;
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 0 60px;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
-        z-index: 100; flex-shrink: 0; box-sizing: border-box;
+    width: 100%; height: 55px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 35px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+    z-index: 100; flex-shrink: 0; box-sizing: border-box;
+    margin-bottom: 0px;
     }
 
     .nav-left { display: flex; align-items: center; gap: 15px; width: 240px; }
     .exit-btn { margin-left: 40px; background: none; border: 1px solid white; color: white; padding: 8px; border-radius: 50%; cursor: pointer; display: flex; transition: all 0.3s; }
     .exit-btn:hover { background: #ffcc00; color: #000; border-color: #ffcc00; transform: scale(1.1); }
     
-    .current-tag span { font-size: 21px; font-weight: 400; color: white; letter-spacing: 1.1px; }
+.header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.0rem;
+    letter-spacing: 3px;
+    opacity: 0.8;
+    pointer-events: none;
+}
     .current-tag small { color: #ffcc00; font-size: 15px; display: block; letter-spacing: 1.1px; }
 
     .category-chips { display: flex; gap: 10px; }
@@ -37,7 +46,7 @@
     /* 3. ÁREA DE SCROLL */
     #sl-main-scroll-area {
         flex-grow: 1; width: 1230px; margin-left: 25px; overflow-y: auto;
-        padding: 20px 20px; scroll-behavior: smooth; 
+        padding: 1px 20px 20px 20px; scroll-behavior: smooth; 
         box-sizing: border-box;
     }
     .destination-stack { display: flex; flex-direction: column; gap: 15px; max-width: 1200px; margin: 0 auto; }
@@ -45,11 +54,11 @@
     /* 4. DESIGN DOS CARDS (LISTA) */
     .list-row {
         display: flex; background: rgba(20, 20, 20, 0.8);
-        border: 2px solid rgba(255, 255, 255, 0.5); border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.5); 
         height: 230px; overflow: hidden; transition: all 0.3s ease;
         will-change: transform, border-color;
     }
-    .list-row:hover, .list-row.remote-hover { border-color: #ffcc00; background: rgba(30, 30, 30, 0.9); transform: translateX(5px); }
+    .list-row:hover, .list-row.remote-hover { border-color: #ffcc00; background: rgba(30, 30, 30, 0.9);  }
 
     .row-hero-image { width: 350px; height: 100%; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.2); }
     .row-hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -82,7 +91,7 @@
 
     /* 6. MODO GRELHA (GRID) */
     .view-mode-grid .destination-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
-    .view-mode-grid .list-row { position: relative; height: 380px; border-radius: 16px; transform: none !important; }
+    .view-mode-grid .list-row { position: relative; height: 380px; transform: none !important; }
     .view-mode-grid .row-hero-image { width: 100%; height: 100%; border: none; }
     .view-mode-grid .row-content {
         position: absolute; bottom: 0; left: 0; right: 0; height: 70px;
@@ -96,7 +105,7 @@
     /* 7. CONTROLES DE VISTA */
     .view-btn { 
         background: rgba(255,255,255,0.05); border: 1px solid #444; color: #888; 
-        width: 37px; height: 35px; border-radius: 4px; cursor: pointer; 
+        width: 37px; height: 31px; cursor: pointer; 
         display: flex; align-items: center; justify-content: center; transition: all 0.2s;
     }
     .view-btn.active { color: #ffcc00; border-color: #ffcc00; background: rgba(255,204,0,0.1); }
@@ -141,6 +150,31 @@
     from { transform: rotate(0deg); } 
     to { transform: rotate(360deg); } 
 }
+.ltv-nav-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.173);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 0px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0px 0px;
+    opacity: 0.8;
+}
+
+.ltv-nav-btn:hover {
+        border-color: #5ab565; 
+        background: rgba(90, 181, 101, 0.7);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
+}
+.ltv-nav-btn.remote-hover {
+        border-color: #5ab565; 
+        background: rgba(90, 181, 101, 0.7);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
+}
 </style>
 
 
@@ -148,32 +182,29 @@
 
 <div class="sl-list-wrapper">
     <nav class="sl-nav-header">
-        <div class="nav-left">
-            <div class="current-tag">
-                <span>SECOND LIFE</span>
-                <small><%= tag %></small>
-            </div>
-        </div>
 
-        <div class="category-chips">
-            <% favorites.slice(0, 7).forEach(fav => { %>
-                <button class="chip <%= tag === fav.name ? 'active' : '' %>" 
-                    onclick="handleNav('/sl-destinations?tag=<%= encodeURIComponent(fav.name) %>&url=<%= encodeURIComponent(fav.url) %>')">
-                    <%= fav.name %>
-                </button>
-            <% }) %>
-            <button class="chip more-trigger" onclick="toggleSlModal(true)" style="font-weight: bold; font-size: 18px;">...</button>
-        </div>
+        <button class="ltv-nav-btn" onclick="closeSubMenu()">
+            <span class="material-symbols-rounded" style="font-size:23px!important; vertical-align:middle;">arrow_back</span> BACK
+        </button>
+  
+
+            <div class="header-title">
+                <span>SECOND LIFE <%= tag %></span>
+            </div>
+     
+
+
 
         <div class="nav-right" style="margin-left: auto; display: flex; gap: 10px; width: 140px; align-items: center; justify-content: flex-end;">
             <button onclick="toggleSlView('list')" id="sl-list-view-btn" class="view-btn">
-                <span class="material-symbols-rounded">view_list</span>
+                <span class="material-symbols-rounded" style="font-size:21px!important;">view_list</span>
             </button>
             <button onclick="toggleSlView('grid')" id="sl-grid-view-btn" class="view-btn">
-                <span class="material-symbols-rounded">grid_view</span>
+                <span class="material-symbols-rounded" style="font-size:20px!important;">grid_view</span>
             </button>
-            <button onclick="closeSubMenu()" class="exit-btn">
-                <span class="material-symbols-rounded">arrow_forward</span>
+
+            <button class="ltv-nav-btn" onclick="toggleSlModal(true)">
+                <span class="material-symbols-rounded" style="font-size:25px!important; vertical-align:middle;">menu</span>
             </button>
         </div>
     </nav>
@@ -292,36 +323,7 @@
         }
     };
 
-    // 4. Gestão de Scroll Sincronizado + Acelerador Unificado
-    const scrollArea = document.getElementById('sl-main-scroll-area');
-    let scrollTimeout;
 
-    if (scrollArea) {
-        // ACELERADOR DE RODA ÚNICO (Multiplicador fluido de 3x para evitar lag no modo Grid)
-        scrollArea.addEventListener('wheel', (e) => {
-            if (!window.isSyncing) {
-                e.preventDefault();
-                scrollArea.scrollTop += e.deltaY * 3; 
-            }
-        }, { passive: false });
-
-        // ENVIO PARA O SOCKET COM DEBOUNCE REAJUSTADO
-        scrollArea.addEventListener('scroll', function() {
-            if (window.isSyncing) return; 
-
-            if (window.socket && window.socket.connected) {
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {
-                    window.socket.emit('state_sync', {
-                        type: 'scroll',
-                        selector: '#sl-main-scroll-area',
-                        position: scrollArea.scrollTop,
-                        room: window.myRoom
-                    });
-                }, 40); // 40ms garante resposta em tempo real sem entupir a rede
-            }
-        });
-    }
 
     // 5. Escuta de Eventos Socket.io (Com correção de proteção de eco)
     if (window.socket) {
@@ -329,16 +331,18 @@
             if (data.type === 'sl_view_mode') window.toggleSlView(data.mode, true);
             if (data.type === 'sl_modal') window.toggleSlModal(data.show, true);
             
-            if (data.type === 'scroll' && data.selector === '#sl-main-scroll-area') {
-                const el = document.getElementById('sl-main-scroll-area');
-                if (el) {
-                    window.isSyncing = true;
-                    el.scrollTop = data.position; 
-                    
-                    // Aumentado para 60ms para dar tempo ao modo Grid de processar as imagens sem ricochetear
-                    setTimeout(() => { window.isSyncing = false; }, 60);
-                }
-            }
+if (data.type === 'scroll' && data.selector === '#sl-main-scroll-area') {
+    const el = document.getElementById('sl-main-scroll-area');
+    if (el) {
+        // Set flag so the 'scroll' event listener doesn't emit this back
+        window.isSyncing = true;
+        el.scrollTop = data.position;
+        
+        // Reset the flag after the browser has finished moving the scrollbar
+        // Using a slight delay ensures smooth sync
+        setTimeout(() => { window.isSyncing = false; }, 100);
+    }
+}
         });
     }
 
@@ -352,6 +356,25 @@
             }, 500);
         }
     }
+
+// --- SCROLL BROADCASTER ---
+const scrollArea = document.getElementById('sl-main-scroll-area');
+
+if (scrollArea) {
+    scrollArea.addEventListener('scroll', function() {
+        // Prevent emitting if the scroll was triggered by a remote sync command
+        if (window.isSyncing) return;
+        
+        if (window.socket && window.myRoom) {
+            window.socket.emit('state_sync', { 
+                type: 'scroll', 
+                position: this.scrollTop, 
+                selector: '#sl-main-scroll-area',
+                room: window.myRoom 
+            });
+        }
+    });
+}
 
     window.addEventListener('load', hideLoader);
     setTimeout(hideLoader, 3000); 

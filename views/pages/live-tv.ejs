@@ -1,5 +1,5 @@
 <style>
-/* ── HARDCODED YT CHANNELS ── */
+/* ── MAIN MODULE CONTAINER ── */
 #yt-grid-module {
     width: 1280px; height: 720px;
     background: transparent;
@@ -7,15 +7,17 @@
     position: relative; overflow: hidden;
 }
 
+/* ── HEADER SECTION ── */
 #yt-grid-header {
-        width: 100%; height: 55px;
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 0 35px;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
-        z-index: 100; flex-shrink: 0; box-sizing: border-box;
-        margin-bottom: 0px;
+    width: 100%; height: 55px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 35px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+    z-index: 100; flex-shrink: 0; box-sizing: border-box;
+    margin-bottom: 0px;
 }
 
+/* ── CHANNEL GRID CONTAINER ── */
 .yt-grid-container {
     margin-left: 15px;
     padding: 1px 20px;
@@ -27,13 +29,15 @@
     width: 1200px;
     overflow-y: auto;
 }
-/* Custom Scrollbar */
+
+/* Custom Scrollbar Styling */
 .yt-grid-container::-webkit-scrollbar { width: 12px; }
 .yt-grid-container::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
 .yt-grid-container::-webkit-scrollbar-thumb { 
-    background: goldenrod; 
+    background: rgb(224, 81, 24); 
     border-radius: 10px; 
 }
+
 /* ── CHANNEL CARD ── */
 .ch-card {
     background: rgba(255,255,255,0.03);
@@ -47,11 +51,23 @@
 }
 
 .ch-card:hover {
-    border-color: yellow;
-    background: rgba(255,0,0,0.05);
+    transform: translateY(-2px) scale(1.01);
+    border: 2px solid rgb(249, 184, 20);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 20px 48px rgba(0,0,0,0.7),
+        0 0 24px var(--card-glow, rgba(255,255,255,0.05)); 
+}
+.ch-card.remote-hover {
+    transform: translateY(-2px) scale(1.01);
+    border: 2px solid rgb(249, 184, 20);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 20px 48px rgba(0,0,0,0.7),
+        0 0 24px var(--card-glow, rgba(255,255,255,0.05)); 
 }
 
-/* Add this to create a dark overlay on all cards */
+/* Dark overlay on cards */
 .ch-card::after {
     content: "";
     position: absolute;
@@ -59,25 +75,23 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Adjust 0.4 (40%) to make it darker or lighter */
-    pointer-events: none; /* Allows the click to pass through to the card */
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
     transition: background 0.3s ease;
 }
 
-/* Optional: Make the card slightly clearer on hover */
 .ch-card:hover::after {
     background: rgba(0, 0, 0, 0.1); 
 }
 
-
-
-
+/* Channel Thumbnail */
 .ch-thumb {
     width: 100%; height: 100%;
     object-fit: cover;
     opacity: 1.0;
 }
 
+/* Channel Info Overlay */
 .ch-info {
     position: absolute; bottom: 0; left: 0; right: 0;
     padding: 2px;
@@ -85,6 +99,7 @@
     text-align: center;
 }
 
+/* Channel Name Styling */
 .ch-name {
     font-size: 0.7rem;
     font-weight: 400;
@@ -94,16 +109,15 @@
     color: rgb(225, 224, 224);
     /* ── LINE CLAMPING ── */
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limits text to 2 lines */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis; /* Adds '...' if text exceeds 2 lines */
-    
-    /* Ensure a consistent height so cards don't jump */
+    text-overflow: ellipsis;
     line-height: 1.2; 
-    height: 2.4em; /* 1.2 (line-height) * 2 (lines) = 2.4 */
+    height: 2.4em;
 }
 
+/* LIVE Label Indicator */
 .yt-label {
     position: absolute; top: 8px; left: 245px;
     background: #ff0000; color: white;
@@ -115,19 +129,17 @@
 #category-modal {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
-
-    display: none; /* Hidden by default */
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 2000;
 }
 
-/* ── MODAL BOX ── */
+/* Modal Content Box */
 .modal-content {
     background: rgba(20, 20, 20, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.3);
-
     border-radius: 16px;
     padding: 40px;
     width: 500px;
@@ -143,30 +155,6 @@
     font-size: 1.2rem;
 }
 
-/* ── MODAL GRID ── */
-.modal-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.modal-btn {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: white;
-    padding: 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-}
-
-.modal-btn:hover {
-    background: rgba(0, 255, 60, 0.238);
-    border-color: rgba(255,0,0,0.5);
-}
-
 .cancel-btn {
     margin-top: 30px;
     background: transparent;
@@ -177,50 +165,55 @@
     font-size: 0.7rem;
 }
 
-/* ── PILL BUTTON STYLING ── */
+/* ── NAVIGATION BUTTONS ── */
 .ltv-nav-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(255, 255, 255, 0.173);
     color: white;
-    padding: 3px 20px;
-    border-radius: 0px; /* Pill shape */
-    font-size: 0.80rem;
+    padding: 3px 15px;
+    border-radius: 0px;
+    font-size: 0.95rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s;
     margin: 0px 0px;
+    opacity: 0.8;
 }
 
 .ltv-nav-btn:hover {
-    background: hsla(48, 93%, 41%, 0.67);
-    border-color: rgba(255, 255, 255, 0.3);
+        border-color: #5ab565; 
+        background: rgba(90, 181, 101, 0.7);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
 }
-
-/* ── CENTERING THE TITLE ── */
+.ltv-nav-btn.remote-hover {
+        border-color: #5ab565; 
+        background: rgba(90, 181, 101, 0.7);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
+}
 .header-title {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.0rem;
     letter-spacing: 3px;
-    opacity: 0.6;
-    pointer-events: none; /* Allows clicking through if needed */
+    opacity: 0.8;
+    pointer-events: none;
 }
+
 #modalTitle{
     font-size: 16px;
     margin: 20px;
 }
 
-/* Layout for the buttons in a 4-column grid */
+/* ── MODAL GRID LAYOUT ── */
 .modal-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Matches your image layout */
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
     margin-top: 25px;
 }
 
-/* Styling for each individual button */
 .modal-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -228,7 +221,7 @@
     padding: 12px 15px;
     border-radius: 8px;
     cursor: pointer;
-    text-align: left; /* Aligns text like in your image */
+    text-align: left;
     font-size: 0.85rem;
     transition: all 0.2s;
     display: flex;
@@ -242,36 +235,31 @@
     color: #fff;
 }
 
-/* Optional: Add a small icon placeholder to the right */
 .modal-btn::after {
-    content: "📷"; /* Or your camera icon */
+    content: "📷";
     font-size: 0.7rem;
     opacity: 0.6;
 }
 </style>
-
 <div id="yt-grid-module">
-<div id="yt-grid-header">
-        <button class="ltv-nav-btn" onclick="closeSubMenu()">
-        <span class="material-symbols-rounded" style="font-size:23px!important; vertical-align:middle;">arrow_back</span> BACK
-        </button>
+    <div id="yt-grid-header">
+        <button class="ltv-nav-btn" onclick="closeSubMenu()">BACK</button>
 
-<h2 id="dynamic-header-title" class="header-title">LIVE STREAMS</h2>
+        <h2 id="dynamic-header-title" class="header-title">LIVE STREAMS</h2>
 
-    <div style="margin-right: 22px;">
-        <button class="ltv-nav-btn" onclick="openCategoryModal()">
-            <span class="material-symbols-rounded" style="font-size:22px!important; vertical-align:middle;">menu</span> </button>
-    </div>
-</div>
-
-    <div class="yt-grid-container" id="channel-list-target">
+        <div style="margin-right: 24px!important;">
+            <button class="ltv-nav-btn" onclick="openCategoryModal()">
+                <span class="material-symbols-rounded" style="font-size:25px!important; vertical-align:middle;">menu</span>
+            </button>
         </div>
+    </div>
+
+    <div class="yt-grid-container" id="channel-list-target"></div>
 </div>
-
-
 
 <div id="category-modal">
-    <div class="modal-content" style="width: 800px;"> <h3 style="text-align: left; margin-bottom: 20px;">MY FAVORITES</h3>
+    <div class="modal-content" style="width: 800px;"> 
+        <h3 style="text-align: left; margin-bottom: 20px;">MY FAVORITES</h3>
         <div class="modal-grid">
             <button class="modal-btn" onclick="runCategorySearch('Live english News')">NEWS</button>
             <button class="modal-btn" onclick="runCategorySearch('Live Sports')">SPORTS</button>
@@ -284,13 +272,14 @@
             <button class="modal-btn" onclick="runCategorySearch('Dangerous Weather')">DANGEROUS SPOTS</button>
             <button class="modal-btn" onclick="runCategorySearch('Walking live cam')">CITY WALKING</button>
             <button class="modal-btn" onclick="runCategorySearch('World city live cam')">WORLD CITYS</button>
-                        <button class="modal-btn" onclick="runCategorySearch('Esports live cam')">ESports</button>
-                        <button class="modal-btn" onclick="runCategorySearch('OMG Live TV street cam')">OMG Live TV </button>
-            </div>
+            <button class="modal-btn" onclick="runCategorySearch('Esports live cam')">ESports</button>
+            <button class="modal-btn" onclick="runCategorySearch('OMG Live TV street cam')">OMG Live TV </button>
+        </div>
         <button class="cancel-btn" onclick="closeModal()">Close</button>
     </div>
 </div>
 <script>
+// ── MODAL UTILITIES ──
 function closeModal() {
     document.getElementById('category-modal').style.display = 'none';
 }
@@ -298,19 +287,19 @@ function openCategoryModal() {
     document.getElementById('category-modal').style.display = 'flex';
 }
 
-// Perform the search
+// ── SEARCH & SYNC LOGIC ──
 window.runCategorySearch = async function(category, isFromSync = false) {
-    // 1. Fechar o modal para quem clicou
+    // Hide modal on selection
     document.getElementById('category-modal').style.display = 'none';
 
-    // 2. Se for um Guest que recebeu o sinal, não volta a pesquisar (evita loop)
+    // Prevent recursive calls if triggered by sync
     if (isFromSync) return;
 
     try {
         const response = await fetch(`/api/live-search?q=${encodeURIComponent(category)}`);
         const liveResults = await response.json();
 
-        // 3. Emitir para todos na sala
+        // Broadcast search results to other clients via socket
         if (window.socket && window.myRoom) {
             window.socket.emit('state_sync', { 
                 type: 'new_results', 
@@ -320,15 +309,17 @@ window.runCategorySearch = async function(category, isFromSync = false) {
             });
         }
         
-        // 4. Renderizar localmente para o Host
+        // Render results locally
         renderResults(liveResults, category);
     } catch (e) { console.error(e); }
 };
+
+// ── RENDERER ──
 window.renderResults = function(liveResults, category) {
     const target = document.getElementById('channel-list-target');
     const titleElement = document.getElementById('dynamic-header-title');
 
-if (target) target.scrollTop = 0;
+    if (target) target.scrollTop = 0;
 
     target.innerHTML = liveResults.map(ch => `
         <div class="ch-card" onclick="launchChannel('${ch.videoId || ''}')">
@@ -342,15 +333,14 @@ if (target) target.scrollTop = 0;
     
     titleElement.textContent = `LIVE STREAMS FOR: ${category.toUpperCase()}`;
 };
-// This MUST be outside of any other functions, or attached to 'window'
+
+// ── CHANNEL LAUNCHER ──
 window.launchChannel = function(videoId) {
     const container = document.getElementById('channel-list-target');
     const scroll = container ? container.scrollTop : 0;
     
-    // Capture the current category from the header
     const category = document.getElementById('dynamic-header-title').textContent.replace('LIVE STREAMS FOR: ', '');
     
-    // Construct the URL using the same pattern as your generic grid
     const url = `/tvytube?videoId=${videoId}&origin=live-tv&targetID=${encodeURIComponent(category)}&menu=/live-menu&scrollPos=${scroll}`;
     
     if (typeof handleNav === 'function') {
@@ -360,15 +350,9 @@ window.launchChannel = function(videoId) {
     }
 };
 
-window.syncHover = function(cardId, isActive) {
-       
-        if (window.socket && window.myRoom) {
-            window.socket.emit('state_sync', { type: 'global_hover', id: cardId, active: isActive, room: window.myRoom });
-        }
-    };
-// --- SCROLL BROADCASTER (Live TV Grid) ---
+// ── SCROLL BROADCASTER ──
 $('.yt-grid-container').on('scroll', function() {
-    if (window.isSyncing) return; // Prevent loop
+    if (window.isSyncing) return;
     
     if (window.socket && window.myRoom) {
         window.socket.emit('state_sync', { 
@@ -378,30 +362,33 @@ $('.yt-grid-container').on('scroll', function() {
         });
     }
 });
-    // --- SOCKET LISTENER (Unified) ---
 
-window.isPageReady = false;    
+// ── SOCKET EVENT LISTENER ──
+window.isPageReady = false;
 if (window.socket) {
-        window.socket.on('state_sync', (data) => {
-            if (data.type === 'layout_change') window.setFreebiesLayout(data.cols, true);
-            
-if (data.type === 'scroll' && window.isPageReady) {
+    window.socket.on('state_sync', (data) => {
+        if (data.type === 'layout_change') window.setFreebiesLayout(data.cols, true);
+        
+        // Sync scrolling position
+        if (data.type === 'scroll' && window.isPageReady) {
             window.isSyncing = true;
             const grid = document.getElementById('channel-list-target'); 
             if (grid) grid.scrollTop = data.position;
             setTimeout(() => { window.isSyncing = false; }, 100);
         }
-            
-            if (data.type === 'hover') {
-                const el = document.getElementById(data.id);
-                if (el) {
-                    el.style.background = data.active ? 'rgba(0,0,0,0.7)' : ''; // Default resets to CSS
-                    el.style.borderColor = data.active ? '#ffcc00' : '';
-                }
+        
+        // Handle hover state updates
+        if (data.type === 'hover') {
+            const el = document.getElementById(data.id);
+            if (el) {
+                el.style.background = data.active ? 'rgba(0,0,0,0.7)' : '';
+                el.style.borderColor = data.active ? '#ffcc00' : '';
             }
-        });
-    }
-// Define this as a globally accessible function
+        }
+    });
+}
+
+// ── INITIALIZATION ──
 (function() {
     const savedScroll = parseInt('<%= typeof scrollPos !== "undefined" ? scrollPos : 0 %>') || 0;
     const savedCategory = '<%= typeof targetID !== "undefined" ? targetID : "Live English News" %>';
@@ -412,10 +399,7 @@ if (data.type === 'scroll' && window.isPageReady) {
                 const container = document.getElementById('channel-list-target');
                 if (container) {
                     container.scrollTop = savedScroll;
-                    
-                    // Signal to guests that we are done moving
-                    window.isPageReady = true; 
-                    console.log("POSITIOn: ",savedScroll)
+                    window.isPageReady = true;
                     if (window.socket && window.myRoom) {
                         window.socket.emit('state_sync', {
                             type: 'scroll',
@@ -426,7 +410,6 @@ if (data.type === 'scroll' && window.isPageReady) {
                 }
             });
         } else {
-            // Even if scroll is 0, signal readiness
             window.isPageReady = true;
         }
     });

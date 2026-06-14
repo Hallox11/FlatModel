@@ -62,11 +62,40 @@
 .tom-btn:hover { background: rgba(46,204,113,0.35); transform: scale(1.03); }
 .tom-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
 
-/* ── STATEMENT SCREEN ── */
-#tom-statement { gap: 0; }
+/* ── COUNTDOWN ── */
+#tom-countdown { gap: 20px; }
+.tom-countdown-number {
+    font-size: 8rem; font-weight: 200; line-height: 1;
+    animation: tomPop 1s ease;
+}
+.tom-countdown-label {
+    font-size: 0.75rem; letter-spacing: 4px;
+    text-transform: uppercase; opacity: 0.5;
+}
+
+/* ── STATEMENT ── */
+#tom-statement { gap: 0; justify-content: flex-start; padding-top: 100px; }
 
 #tom-progress-wrap { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.08); }
 #tom-progress-bar  { height: 100%; background: #2ecc71; transition: width 0.3s ease; }
+
+/* timer ring — mirrors quiz */
+#tom-timer-ring {
+    position: absolute; top: 20px; right: 30px;
+    width: 60px; height: 60px;
+}
+#tom-timer-ring svg { transform: rotate(-90deg); }
+#tom-timer-circle {
+    fill: none; stroke: #daa520; stroke-width: 3;
+    stroke-dasharray: 163; stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.1s linear;
+    stroke-linecap: round;
+}
+#tom-timer-text {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; font-weight: 200;
+}
 
 #tom-q-counter { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; margin-bottom: 20px; }
 
@@ -92,34 +121,52 @@
 .tom-vote-btn.truth:hover:not(:disabled) { background: rgba(46,204,113,0.25); border-color: #2ecc71; transform: scale(1.05); }
 .tom-vote-btn.myth:hover:not(:disabled)  { background: rgba(231,76,60,0.25);  border-color: #e74c3c;  transform: scale(1.05); }
 .tom-vote-btn.selected { opacity: 1; transform: scale(1.06); }
-.tom-vote-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+.tom-vote-btn.correct  { border-color: #2ecc71 !important; background: rgba(46,204,113,0.3) !important; }
+.tom-vote-btn.wrong    { border-color: #e74c3c !important; background: rgba(231,76,60,0.2) !important; opacity: 0.7; }
+.tom-vote-btn:disabled { cursor: not-allowed; }
 
-/* timer bar */
-#tom-timer-bar-wrap { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: rgba(255,255,255,0.06); }
-#tom-timer-bar { height: 100%; background: #daa520; transition: width 0.1s linear; }
-
-/* wait message */
-#tom-wait-msg { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; margin-top: 20px; }
-
-/* ── REVEAL SCREEN ── */
-#tom-reveal { gap: 22px; }
-.reveal-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4; }
-.reveal-answer {
-    font-size: 2.4rem; font-weight: 200; letter-spacing: 4px;
+/* bottom scoreboard — mirrors quiz */
+#tom-scoreboard {
+    position: absolute; bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 12px;
 }
-.reveal-answer.truth { color: #2ecc71; }
-.reveal-answer.myth  { color: #e74c3c; }
-.reveal-explanation  { font-size: 0.95rem; opacity: 0.6; text-align: center; max-width: 700px; line-height: 1.6; }
+.tom-score-chip {
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 50px;
+    padding: 6px 16px; font-size: 1.2rem;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 8px;
+}
+.tom-score-chip .score-name { opacity: 0.7; }
+.tom-score-chip .score-pts  { color: #daa520; font-weight: 600; }
+
+/* ── INLINE REVEAL (same pattern as quiz-result-inline) ── */
+#tom-reveal-inline {
+    display: none;
+    margin-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+    flex-direction: column; align-items: center; gap: 14px;
+    width: 100%;
+}
+.tom-reveal-label  { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: #daa520; opacity: 0.9; }
+.tom-reveal-answer { font-size: 1.9rem; font-weight: 200; letter-spacing: 4px; }
+.tom-reveal-answer.truth { color: #2ecc71; }
+.tom-reveal-answer.myth  { color: #e74c3c; }
+.tom-reveal-explanation  { font-size: 0.88rem; opacity: 0.55; text-align: center; max-width: 700px; line-height: 1.6; }
 
 #tom-reveal-scores { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 .tom-rscard {
     background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px; padding: 14px 22px; text-align: center; min-width: 130px;
+    border-radius: 12px; padding: 10px 20px; text-align: center; min-width: 120px;
 }
-.tom-rscard.correct { border-color: #2ecc71; background: rgba(46,204,113,0.08); }
-.tom-rscard.wrong   { border-color: #e74c3c; background: rgba(231,76,60,0.06); }
-.tom-rscard .rs-name { font-size: 0.72rem; opacity: 0.55; text-transform: uppercase; letter-spacing: 1px; }
-.tom-rscard .rs-pts  { font-size: 1.7rem; font-weight: 200; color: #daa520; }
+.tom-rscard.got-it { border-color: #2ecc71; background: rgba(46,204,113,0.08); }
+.tom-rscard .rs-name { font-size: 0.7rem; opacity: 0.55; text-transform: uppercase; letter-spacing: 1px; }
+.tom-rscard .rs-pts  { font-size: 1.5rem; font-weight: 200; color: #daa520; }
+
+#tom-next-btn  { display: none; }
+#tom-wait-msg  { display: none; opacity: 0.4; font-size: 0.8rem; font-style: italic; }
 
 /* ── FINAL ── */
 #tom-final { gap: 28px; }
@@ -138,6 +185,7 @@
 .tom-pscore { font-size: 0.95rem; color: #daa520; }
 
 @keyframes tomFade { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes tomPop  { 0%{transform:scale(0.5);opacity:0} 60%{transform:scale(1.2)} 100%{transform:scale(1);opacity:1} }
 </style>
 
 <div id="tom-module">
@@ -157,11 +205,27 @@
         <button class="tom-btn" id="tom-start-btn" onclick="tomStart()" disabled>Start Game</button>
     </div>
 
-    <!-- STATEMENT -->
+    <!-- COUNTDOWN -->
+    <div id="tom-countdown" class="tom-screen">
+        <div class="tom-countdown-label">Game starts in</div>
+        <div class="tom-countdown-number" id="tom-countdown-num">3</div>
+    </div>
+
+    <!-- STATEMENT (contains inline reveal, mirrors quiz qs-question layout) -->
     <div id="tom-statement" class="tom-screen">
         <div id="tom-progress-wrap"><div id="tom-progress-bar" style="width:0%"></div></div>
+
+        <div id="tom-timer-ring">
+            <svg viewBox="0 0 60 60" width="60" height="60">
+                <circle cx="30" cy="30" r="26" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3"/>
+                <circle id="tom-timer-circle" cx="30" cy="30" r="26"/>
+            </svg>
+            <div id="tom-timer-text">15</div>
+        </div>
+
         <div id="tom-q-counter">Statement 1 of 10</div>
         <div id="tom-statement-text">Loading...</div>
+
         <div id="tom-vote-row">
             <button class="tom-vote-btn truth" onclick="tomVote('true', this)">
                 <span class="vote-icon">✅</span> True
@@ -170,40 +234,49 @@
                 <span class="vote-icon">❌</span> Myth
             </button>
         </div>
-        <div id="tom-wait-msg" style="display:none;">Waiting for others...</div>
-        <div id="tom-timer-bar-wrap"><div id="tom-timer-bar" style="width:100%"></div></div>
-    </div>
 
-    <!-- REVEAL -->
-    <div id="tom-reveal" class="tom-screen">
-        <div class="reveal-label">The answer is</div>
-        <div class="reveal-answer" id="tom-reveal-answer">TRUE</div>
-        <div class="reveal-explanation" id="tom-reveal-explanation"></div>
-        <div id="tom-reveal-scores"></div>
-        <div style="font-size:0.68rem;opacity:0.35;letter-spacing:2px;text-transform:uppercase;" id="tom-next-label">Next in 4s...</div>
+        <!-- Inline reveal — shown after voting window closes -->
+        <div id="tom-reveal-inline">
+            <div class="tom-reveal-label">The answer is</div>
+            <div class="tom-reveal-answer" id="tom-reveal-answer-text"></div>
+            <div class="tom-reveal-explanation" id="tom-reveal-explanation-text"></div>
+            <div id="tom-reveal-scores"></div>
+            <div style="text-align:center; margin-top:6px;">
+                <button id="tom-next-btn" class="tom-btn" onclick="tomRequestNext()">Next Statement</button>
+                <div id="tom-wait-msg">Waiting for host to continue...</div>
+            </div>
+        </div>
+
+        <div id="tom-scoreboard"></div>
     </div>
 
     <!-- FINAL -->
     <div id="tom-final" class="tom-screen">
         <div class="tom-title" style="font-size:1.8rem;">Game Over</div>
         <div class="tom-podium" id="tom-podium"></div>
-        <button class="tom-btn" onclick="tomReset()">Play Again</button>
+        <button class="tom-btn" onclick="tomPlayAgain()">Play Again</button>
     </div>
 </div>
 
 <script>
 (function () {
-    const socket = window.socket;
+    const socket = window.socket || window.parent?.socket;
     if (!socket) { console.error('[TrueOrMyth] No socket'); return; }
     const myRoom = window.myRoom || 'Lobby';
 
-    let myName    = null;
-    let players   = {};
-    let voted     = false;
-    let timerInt  = null;
-    let timeLeft  = 15;
-    const TOTAL   = 10;
-    const TIME    = 15;
+    // ── PERSISTENT STATE (survives DOM reloads like quizState) ──
+    if (!window.tomState) {
+        window.tomState = { myName: null, players: {} };
+    }
+
+    let voted       = false;
+    let timerInt    = null;
+    let timeLeft    = 15;
+    let isHost      = false;
+    let gameEnded   = false;
+    const TOTAL     = 10;
+    const TIME      = 15;
+    const CIRCUMFERENCE = 163;
 
     // ── SCREENS ──
     function show(id) {
@@ -211,42 +284,66 @@
         document.getElementById(id).classList.add('active');
     }
 
+    // ── PLAYERS ──
     function renderPlayers() {
         const list = document.getElementById('tom-players-list');
-        const entries = Object.values(players);
+        if (!list) return;
+        const entries = Object.values(window.tomState.players);
         list.innerHTML = entries.length
             ? entries.map(p => `<div class="tom-chip"><div class="tom-chip-dot"></div>${p.name}</div>`).join('')
             : '<div style="opacity:0.3;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;">No players yet</div>';
-        document.getElementById('tom-start-btn').disabled = entries.length < 1;
+        const startBtn = document.getElementById('tom-start-btn');
+        if (startBtn) startBtn.disabled = entries.length < 1;
     }
 
+    function renderScoreboard() {
+        const sb = document.getElementById('tom-scoreboard');
+        if (!sb) return;
+        sb.innerHTML = Object.values(window.tomState.players)
+            .sort((a, b) => b.score - a.score)
+            .map(p => `<div class="tom-score-chip">
+                <span class="score-name">${p.name}</span>
+                <span class="score-pts">${p.score}</span>
+            </div>`).join('');
+    }
+
+    // ── JOIN ──
     window.tomJoin = function () {
-        const name = document.getElementById('tom-name-input').value.trim();
+        const input = document.getElementById('tom-name-input');
+        const name = input ? input.value.trim() : '';
         if (!name) return;
-        myName = name;
+        window.tomState.myName = name;
         socket.emit('tom_join', { room: myRoom, name });
-        document.getElementById('tom-name-input').disabled = true;
-        document.querySelector('.tom-name-row .tom-btn').disabled = true;
+        if (input) input.disabled = true;
+        const joinBtn = document.querySelector('.tom-name-row .tom-btn');
+        if (joinBtn) joinBtn.disabled = true;
     };
 
+    // ── START (host only) ──
     window.tomStart = function () { socket.emit('tom_start', { room: myRoom }); };
 
+    // ── VOTE ──
     window.tomVote = function (vote, btn) {
         if (voted) return;
         voted = true;
         clearInterval(timerInt);
-        document.querySelectorAll('.tom-vote-btn').forEach(b => { b.disabled = true; });
-        btn.classList.add('selected');
-        document.getElementById('tom-wait-msg').style.display = 'block';
+        document.querySelectorAll('.tom-vote-btn').forEach(b => b.disabled = true);
+        if (btn) btn.classList.add('selected');
         socket.emit('tom_vote', { room: myRoom, vote, timeLeft });
     };
 
+    // ── TIMER ──
     function startTimer() {
         clearInterval(timerInt);
         timeLeft = TIME;
+        const circle = document.getElementById('tom-timer-circle');
+        const timerText = document.getElementById('tom-timer-text');
+
         timerInt = setInterval(() => {
             timeLeft = Math.max(0, timeLeft - 0.1);
-            document.getElementById('tom-timer-bar').style.width = `${(timeLeft / TIME) * 100}%`;
+            if (timerText) timerText.textContent = Math.ceil(timeLeft);
+            if (circle) circle.style.strokeDashoffset = CIRCUMFERENCE * (1 - timeLeft / TIME);
+
             if (timeLeft <= 0) {
                 clearInterval(timerInt);
                 if (!voted) {
@@ -258,77 +355,210 @@
         }, 100);
     }
 
-    window.tomReset = function () {
-        players = {}; myName = null; voted = false;
+    // ── REVEAL (inline, same pattern as quiz showResult) ──
+    function showReveal(data) {
         clearInterval(timerInt);
-        document.getElementById('tom-name-input').disabled = false;
-        document.getElementById('tom-name-input').value = '';
-        document.querySelector('.tom-name-row .tom-btn').disabled = false;
-        socket.emit('tom_reset', { room: myRoom });
-        renderPlayers();
-        show('tom-lobby');
-    };
 
-    window.tomClose = function () {
-        clearInterval(timerInt);
-        socket.emit('tom_leave', { room: myRoom });
-        if (typeof closeSubMenu === 'function') closeSubMenu();
-    };
+        // Colorize vote buttons
+        const isTrue = data.correct === 'true';
+        document.querySelectorAll('.tom-vote-btn').forEach(btn => {
+            const btnVote = btn.classList.contains('truth') ? 'true' : 'false';
+            if (btnVote === data.correct) btn.classList.add('correct');
+            else if (btn.classList.contains('selected')) btn.classList.add('wrong');
+        });
 
-    // ── SOCKET EVENTS ──
-    socket.on('tom_players_update', d => { players = d.players; renderPlayers(); });
+        // Answer label
+        const answerEl = document.getElementById('tom-reveal-answer-text');
+        answerEl.textContent = isTrue ? '✅ TRUE' : '❌ MYTH';
+        answerEl.className = 'tom-reveal-answer ' + (isTrue ? 'truth' : 'myth');
+        document.getElementById('tom-reveal-explanation-text').textContent = data.explanation || '';
 
-    socket.on('tom_statement', d => {
-        voted = false;
-        document.getElementById('tom-q-counter').textContent = `Statement ${d.index + 1} of ${TOTAL}`;
-        document.getElementById('tom-statement-text').textContent = d.statement;
-        document.getElementById('tom-progress-bar').style.width = `${(d.index / TOTAL) * 100}%`;
-        document.querySelectorAll('.tom-vote-btn').forEach(b => { b.disabled = false; b.classList.remove('selected'); });
-        document.getElementById('tom-wait-msg').style.display = 'none';
-        document.getElementById('tom-timer-bar').style.width = '100%';
-        startTimer();
-        show('tom-statement');
-    });
-
-    socket.on('tom_reveal', d => {
-        clearInterval(timerInt);
-        const el = document.getElementById('tom-reveal-answer');
-        el.textContent = d.correct === 'true' ? '✅ TRUE' : '❌ MYTH';
-        el.className = 'reveal-answer ' + (d.correct === 'true' ? 'truth' : 'myth');
-        document.getElementById('tom-reveal-explanation').textContent = d.explanation || '';
-
-        Object.entries(d.scores).forEach(([id, pts]) => { if (players[id]) players[id].score = pts; });
-
-        document.getElementById('tom-reveal-scores').innerHTML = Object.values(players)
-            .sort((a,b) => b.score - a.score)
+        // Score cards — show delta like quiz does
+        const scoresEl = document.getElementById('tom-reveal-scores');
+        scoresEl.innerHTML = Object.values(window.tomState.players)
+            .sort((a, b) => (data.scores[b.id] || 0) - (data.scores[a.id] || 0))
             .map(p => {
-                const correct = d.votes[p.id] === d.correct;
-                return `<div class="tom-rscard ${correct ? 'correct' : 'wrong'}">
+                const newScore = data.scores[p.id] || 0;
+                const earned = newScore - (p.score || 0);
+                return `<div class="tom-rscard ${earned > 0 ? 'got-it' : ''}">
                     <div class="rs-name">${p.name}</div>
-                    <div class="rs-pts">${p.score}</div>
+                    <div class="rs-pts">${earned > 0 ? '+ ' + earned : '0'} pts</div>
                 </div>`;
             }).join('');
-        show('tom-reveal');
-    });
 
-    socket.on('tom_final', d => {
-        const sorted = Object.values(players)
-            .map(p => ({ ...p, score: d.scores[p.id] || p.score }))
-            .sort((a,b) => b.score - a.score);
-        const order = [sorted[1], sorted[0], sorted[2]].filter(Boolean);
-        const bars  = ['second','first','third'];
-        const medals= ['🥈','🥇','🥉'];
-        document.getElementById('tom-podium').innerHTML = order.map((p,i) => `
+        // Update stored scores
+        Object.entries(data.scores).forEach(([id, pts]) => {
+            if (window.tomState.players[id]) window.tomState.players[id].score = pts;
+        });
+
+        // Show inline reveal panel
+        const panel = document.getElementById('tom-reveal-inline');
+        if (panel) panel.style.display = 'flex';
+
+        // Host gets Next button, others wait
+        const nextBtn = document.getElementById('tom-next-btn');
+        const waitMsg = document.getElementById('tom-wait-msg');
+        if (isHost) {
+            if (nextBtn) { nextBtn.style.display = 'inline-block'; nextBtn.disabled = false; }
+            if (waitMsg) waitMsg.style.display = 'none';
+        } else {
+            if (nextBtn) nextBtn.style.display = 'none';
+            if (waitMsg) waitMsg.style.display = 'block';
+        }
+    }
+
+    // ── NEXT (host advances) ──
+    window.tomRequestNext = function () {
+        socket.emit('tom_next', { room: myRoom });
+        const nextBtn = document.getElementById('tom-next-btn');
+        if (nextBtn) nextBtn.disabled = true;
+    };
+
+    // ── FINAL PODIUM ──
+    function showFinal(finalScores) {
+        const sorted = Object.values(window.tomState.players)
+            .map(p => ({ ...p, score: finalScores[p.id] !== undefined ? finalScores[p.id] : p.score }))
+            .sort((a, b) => b.score - a.score);
+
+        const order  = [sorted[1], sorted[0], sorted[2]].filter(Boolean);
+        const bars   = ['second', 'first', 'third'];
+        const medals = ['🥈', '🥇', '🥉'];
+
+        document.getElementById('tom-podium').innerHTML = order.map((p, i) => `
             <div class="tom-podium-place">
                 <div class="tom-pname">${p.name}</div>
                 <div class="tom-pscore">${p.score} pts</div>
                 <div class="tom-podium-bar ${bars[i]}"><div class="tom-medal">${medals[i]}</div></div>
             </div>`).join('');
+
         show('tom-final');
+    }
+
+    // ── PLAY AGAIN ──
+    window.tomPlayAgain = function () { socket.emit('tom_reset', { room: myRoom }); };
+
+    // ── CLOSE ──
+window.tomClose = function () {
+        clearInterval(timerInt);
+        isHost = false;
+        gameEnded = false;
+        voted = false;
+        window.tomState.myName = null;
+        window.tomState.players = {};
+
+        const input = document.getElementById('tom-name-input');
+        if (input) { input.disabled = false; input.value = ''; }
+        const joinBtn = document.querySelector('.tom-name-row .tom-btn');
+        if (joinBtn) joinBtn.disabled = false;
+
+        socket.emit('tom_leave', { room: myRoom });
+        if (typeof handleNav === 'function') handleNav('games-menu', false);
+    };
+
+    function tomReset() {
+        gameEnded = false;
+        voted = false;
+        clearInterval(timerInt);
+        Object.keys(window.tomState.players).forEach(id => window.tomState.players[id].score = 0);
+        show('tom-lobby');
+        renderPlayers();
+    }
+
+    // ── SOCKET EVENTS ──
+    socket.on('tom_host_assigned', () => {
+        isHost = true;
+        // If already on reveal panel, show next button immediately
+        const panel = document.getElementById('tom-reveal-inline');
+        const nextBtn = document.getElementById('tom-next-btn');
+        if (panel && panel.style.display !== 'none' && nextBtn) {
+            nextBtn.style.display = 'inline-block';
+            document.getElementById('tom-wait-msg').style.display = 'none';
+        }
     });
 
-    socket.on('tom_reset', () => tomReset());
+    socket.on('tom_players_update', data => {
+        window.tomState.players = data.players;
+        renderPlayers();
+    });
 
+    socket.on('tom_countdown', data => {
+        show('tom-countdown');
+        const el = document.getElementById('tom-countdown-num');
+        if (el) el.textContent = data.count;
+    });
+
+    socket.on('tom_statement', data => {
+        voted = false;
+
+        // Hide previous reveal panel
+        const panel = document.getElementById('tom-reveal-inline');
+        if (panel) panel.style.display = 'none';
+
+        const counter = document.getElementById('tom-q-counter');
+        const stmtText = document.getElementById('tom-statement-text');
+        const progressBar = document.getElementById('tom-progress-bar');
+        if (counter)     counter.textContent = `Statement ${data.index + 1} of ${TOTAL}`;
+        if (stmtText)    stmtText.textContent = data.statement;
+        if (progressBar) progressBar.style.width = `${(data.index / TOTAL) * 100}%`;
+
+        // Reset vote buttons
+        document.querySelectorAll('.tom-vote-btn').forEach(b => {
+            b.disabled = false;
+            b.className = b.className.replace(/\b(selected|correct|wrong)\b/g, '').trim();
+        });
+
+        // Reset timer ring
+        const circle = document.getElementById('tom-timer-circle');
+        if (circle) circle.style.strokeDashoffset = 0;
+
+        startTimer();
+        renderScoreboard();
+        show('tom-statement');
+    });
+
+    socket.on('tom_reveal', data => {
+        if (gameEnded) return;
+        showReveal(data);
+    });
+
+    socket.on('tom_final', data => {
+        gameEnded = true;
+        showFinal(data.scores);
+    });
+
+    socket.on('tom_reset', () => {
+        gameEnded = false;
+        voted = false;
+        clearInterval(timerInt);
+        tomReset();
+    });
+
+    socket.on('force_navigate', data => {
+        tomClose();
+        setTimeout(() => {
+            if (typeof handleNav === 'function') handleNav(data.target, true);
+        }, 500);
+    });
+socket.on('tom_kicked', () => {
+        clearInterval(timerInt);
+        isHost = false;
+        gameEnded = false;
+        voted = false;
+        window.tomState.myName = null;
+        window.tomState.players = {};
+
+        const input = document.getElementById('tom-name-input');
+        if (input) { input.disabled = false; input.value = ''; }
+        const joinBtn = document.querySelector('.tom-name-row .tom-btn');
+        if (joinBtn) joinBtn.disabled = false;
+
+        if (typeof handleNav === 'function') handleNav('games-menu', false);
+    });
+    // ── INIT ──
     renderPlayers();
+    if (window.tomState.myName) {
+        socket.emit('tom_join', { room: myRoom, name: window.tomState.myName });
+    }
+
 })();
 </script>

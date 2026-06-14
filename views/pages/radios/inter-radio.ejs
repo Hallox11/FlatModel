@@ -34,8 +34,10 @@
     .ir-column { flex: 1; border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; }
     .ir-col-header { color: #DAA520; text-align: center; margin-bottom: 10px; text-transform: uppercase; }
     .ir-scroll { height: 360px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+   
+   
     .ir-btn { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 10px; border-radius: 8px; cursor: pointer; text-align: center; text-transform: uppercase; }
-    .ir-btn:hover { background: rgba(218,165,32,0.3); }
+    .ir-btn:hover {border-color: #5ab565; background: rgba(90, 181, 101, 0.7);box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);}
     
     #ir-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
     .ir-card { background: rgba(0,0,0,0.4); border-radius: 10px; padding: 15px; text-align: center; cursor: pointer; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
@@ -100,7 +102,7 @@
         </div>
 
         <!-- Navigation Buttons -->
-        <button class="ir-back-btn" id="ir-btn-exit" onclick="irExit()">Exit</button>
+        <button class="ir-back-btn" id="ir-btn-exit" onclick="handleNav('radios');">Exit</button>
         <button class="ir-back-btn" id="ir-btn-back" style="display:none" onclick="irRequestBack()">Back</button>
     </div>
 </header>
@@ -118,7 +120,7 @@
                     <div class="ir-btn" onclick="irLoad('country','it','Italy')">Italy</div>
                     <div class="ir-btn" onclick="irLoad('country','us','USA')">USA</div>
                 </div>
-                <input class="ir-search" placeholder="Search country..." oninput="irFilter('ir-country-list', this.value)">
+             <!--   <input class="ir-search" placeholder="Search country..." oninput="irFilter('ir-country-list', this.value)"> -->
             </div>
             <div class="ir-column">
                 <div class="ir-col-header">By Genre</div>
@@ -131,7 +133,7 @@
                     <div class="ir-btn" onclick="irLoad('tag','classical','Classical')">Classical</div>
                     <div class="ir-btn" onclick="irLoad('tag','electronic','Electronic')">Electronic</div>
                 </div>
-                <input class="ir-search" placeholder="Search genre..." oninput="irFilter('ir-genre-list', this.value)">
+              <!--  <input class="ir-search" placeholder="Search genre..." oninput="irFilter('ir-genre-list', this.value)"> -->
             </div>
         </div>
         <div id="ir-grid"></div>

@@ -33,3 +33,57 @@
         font-weight: 400!important;
         font-size: 30px!important;
 }
+
+#sl-radio-wrapper .btn.remote-hover {
+        background: rgba(90, 181, 101, 0.2);
+        border-color: #5ab565;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
+}
+.side-arrow.remote-hover {
+        background: rgba(255,216,107,0.1);
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: scale(1.1);
+}
+.ir-btn.remote-hover {
+        border-color: #5ab565; 
+        background: rgba(90, 181, 101, 0.7);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
+}
+
+.yt-red { border-color: rgba(255,75,43,0.4); }
+.yt-red .main-title-btn.remote-hover { color: #ff4b2b; }
+.yt-red .sub-btn-group.remote-hover { color: #ff4b2b; border-color: rgba(255,75,43,0.6); }
+.yt-red .sub-btn-group.remote-hover { background: #ff4b2b; color: white; }
+
+/* Cyan — tech/info */
+.yt-cyan { border-color: rgba(0,212,255,0.4); }
+.yt-cyan .main-title-btn.remote-hover { color: #00d4ff; }
+.yt-cyan .sub-btn-group.remote-hover { color: #00d4ff; border-color: rgba(0,212,255,0.6); }
+.yt-cyan .sub-btn-group.remote-hover{ background: #00d4ff; color: white; }
+
+/* Amber — lifestyle/classic */
+.yt-amber { border-color: rgba(255,179,71,0.4); }
+.yt-amber .main-title-btn.remote-hover { color: #ffb347; }
+.yt-amber .sub-btn-group.remote-hover { color: #ffb347; border-color: rgba(255,179,71,0.6); }
+.yt-amber .sub-btn-group.remote-hover{ background: #ffb347; color: white; }
+
+/* Purple — docs/knowledge */
+.yt-purple { border-color: rgba(189,0,255,0.4); }
+.yt-purple .main-title-btn.remote-hover { color: #d385ee; }
+.yt-purple .sub-btn-group.remote-hover { color: #d385ee; border-color: rgba(189,0,255,0.6); }
+.yt-purple .sub-btn-group.remote-hover { background: #d385ee; color: white; }
+
+.btn-group.remote-hover {
+        background: rgba(20, 20, 25, 0.85);
+        border: 2px solid #ffcc00 ; 
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(255, 204, 0, 0.25); 
+}
+.feature-btn.remote-hover { 
+        background: rgba(20, 20, 25, 0.85);
+        border: 2px solid #ffcc00 ; 
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(255, 204, 0, 0.15); 
+}

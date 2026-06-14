@@ -13,84 +13,88 @@
     padding: 0 35px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
     z-index: 100; flex-shrink: 0; box-sizing: border-box;
+    
 }
 
 .nav-group { display: flex; gap: 15px; align-items: center; }
 
-.modern-btn {
-    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff; padding: 6px 18px; border-radius: 20px;
-    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
-    cursor: pointer; transition: all 0.2s;
-}
-.modern-btn:hover { background: #f39c12; color: #000; border-color: #f39c12; }
 
 /* ── GRID ── */
 #clips-grid {
     display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: 20px; width: 1230px; margin-left: 20px;
-    padding: 20px 25px; box-sizing: border-box;
+    gap: 15px; width: 1235px; margin-left: 15px;
+    padding: 2px 20px 20px; box-sizing: border-box;
     overflow-y: auto;
 }
-#clips-grid::-webkit-scrollbar { width: 8px; }
-#clips-grid::-webkit-scrollbar-thumb { background: #f39c12; border-radius: 10px; }
+#clips-grid::-webkit-scrollbar { width: 12px; }
+#clips-grid::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+#clips-grid::-webkit-scrollbar-thumb { 
+    background: rgb(224, 81, 24); 
+    border-radius: 10px; 
+}
 
 .game-card {
     position: relative;
-    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px; padding: 1px; cursor: pointer;
+    background:rgba(0, 0, 0, 0.4); border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 0px; padding: 1px; cursor: pointer;
     display: flex; flex-direction: column; align-items: center;
     transition: transform 0.2s;
 }
-.game-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.3); }
-
-/* Overlay to darken images */
-.game-card::after {
-    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.4); border-radius: 18px; pointer-events: none;
+.game-card:hover { 
+    transform: translateY(-2px) scale(1.01);
+    border: 2px solid rgb(249, 184, 20);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 20px 48px rgba(0,0,0,0.7),
+        0 0 24px var(--card-glow, rgba(255,255,255,0.05)); 
 }
+        
+.game-card.remote-hover { 
+     transform: translateY(-2px) scale(1.01);
+    border: 2px solid rgb(249, 184, 20);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 20px 48px rgba(0,0,0,0.7),
+        0 0 24px var(--card-glow, rgba(255,255,255,0.05)); 
+}
+/* Overlay to darken images */
 
-.game-media { width: 100%; height: 120px; background: #111; border-radius: 12px; overflow: hidden; }
-.game-thumbnail { width: 100%; height: 100%; object-fit: cover; }
+
+.game-media { width: 100%; height: 120px; background: #111; border-radius: 0px; overflow: hidden; }
+.game-thumbnail { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
 .game-name { font-size: 0.8rem; text-transform: uppercase; color: #fff; margin: 10px 0; }
 
-/* ── MODAL ── */
-#category-modal {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); display: none;
-    justify-content: center; align-items: center; z-index: 2000;
-}
-.modal-content {
-    background: rgba(20, 20, 20, 0.95); border-radius: 16px;
-    padding: 40px; width: 400px; text-align: center;
-}
-.modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px; }
-.modal-btn { background: rgba(255,255,255,0.05); color: white; padding: 12px; border: 1px solid #333; border-radius: 8px; cursor: pointer; }
-.modal-btn:hover { background: #f39c12; color: #000; }
-.cancel-btn { margin-top: 30px; background: none; border: none; color: #666; cursor: pointer; text-transform: uppercase; }
+
 
 /* ── PILL BUTTON STYLING ── */
 .ltv-nav-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(255, 255, 255, 0.173);
     color: white;
-    padding: 3px 20px;
-    border-radius: 0px; /* Pill shape */
-    font-size: 0.80rem;
+    padding: 3px 15px;
+    border-radius: 0px;
+    font-size: 0.95rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s;
-    margin: 0 5px;
+    margin: 0px 0px;
+    opacity: 0.8;
 }
 
 .ltv-nav-btn:hover {
-    background: hsla(48, 93%, 41%, 0.67);
-    border-color: rgba(255, 255, 255, 0.3);
+        border-color: #5ab565; 
+        background: rgba(90, 181, 101, 0.7);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
+}
+.ltv-nav-btn.remote-hover {
+        border-color: #5ab565; 
+        background: rgba(90, 181, 101, 0.7);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
 }
 
 /* ── CENTERING THE TITLE ── */
-.header-title {
+.active-label {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -141,18 +145,22 @@
 </style>
 
 <div id="clips-wrapper">
-    <nav id="clips-nav">
-        <div class="nav-group">
-           <button class="ltv-nav-btn" onclick="closeSubMenu()">
-           <span class="material-symbols-rounded" style="font-size:23px!important; vertical-align:middle;">arrow_back</span> BACK
-           </button>
-            <span id="active-label" style="letter-spacing:2px; opacity:0.7;">PUZZLE</span>
-        </div>
-    <div style="margin-right: 22px;">
+<nav id="clips-nav">
+
+        <button class="ltv-nav-btn" onclick="closeSubMenu()">BACK</button>
+
+        <span id="active-label">PUZZLE</span>
+
+
+    <div style="margin-right:25px;">
         <button class="ltv-nav-btn" onclick="openCategoryModal()">
-            <span class="material-symbols-rounded" style="font-size:22px!important; vertical-align:middle;">menu</span> </button>
+            <span class="material-symbols-rounded"
+                  style="font-size:22px!important; vertical-align:middle;">
+                menu
+            </span>
+        </button>
     </div>
-    </nav>
+</nav>
     <div id="clips-grid"></div>
 </div>
 
@@ -160,38 +168,68 @@
     <div class="modal-content">
         <h3 style="text-align: left; margin: 0; color: #fff; letter-spacing: 2px;">SELECT CATEGORY</h3>
         <div class="modal-grid">
+
+            <button class="modal-btn" onclick="loadCategory('rand')">Mix Selection</button>
             <button class="modal-btn" onclick="loadCategory('puzzle')">Puzzle</button>
+            <button class="modal-btn" onclick="loadCategory('strategy')">Strategy</button>
             <button class="modal-btn" onclick="loadCategory('action')">Action</button>
+
+            <button class="modal-btn" onclick="loadCategory('card')">Card</button>
+            <button class="modal-btn" onclick="loadCategory('escape')">Escape</button>
+            <button class="modal-btn" onclick="loadCategory('math')">Math</button>
             <button class="modal-btn" onclick="loadCategory('arcade')">Arcade</button>
-            <button class="modal-btn" onclick="loadCategory('brain')">Brain</button>
+
+
+            <button class="modal-btn" onclick="loadCategory('sports')">Sports</button>
+            <button class="modal-btn" onclick="loadCategory('avoider')">Avoider</button>
+            <button class="modal-btn" onclick="loadCategory('war')">War</button>
+            <button class="modal-btn" onclick="loadCategory('clicker')">Clicker</button>
+
         </div>
         <button class="cancel-btn" onclick="closeModal()" style="margin-top: 30px;">Close</button>
     </div>
 </div>
 
 <script>
-const BASE_PATH = '/games/clip-games/';
-let isFetching = false;
+window.isFetching = window.isFetching || false;
 
-function openCategoryModal() { document.getElementById('category-modal').style.display = 'flex'; }
-function closeModal() { document.getElementById('category-modal').style.display = 'none'; }
+// ── BROADCAST MODAL STATE ──
+function openCategoryModal() { 
+    document.getElementById('category-modal').style.display = 'flex'; 
+    if (window.socket && window.myRoom) {
+        window.socket.emit('state_sync', { type: 'modal_toggle', open: true, room: window.myRoom });
+    }
+}
 
+function closeModal() { 
+    document.getElementById('category-modal').style.display = 'none'; 
+    if (window.socket && window.myRoom) {
+        window.socket.emit('state_sync', { type: 'modal_toggle', open: false, room: window.myRoom });
+    }
+}
 window.handleImageError = (img) => { img.parentElement.innerHTML = '<div style="font-size:2rem; padding-top:40px;">🎮</div>'; };
 
-window.loadCategory = function(fileName) {
+// ── BROADCAST CATEGORY LOAD ──
+window.loadCategory = function(fileName, isSync = false) {
     closeModal();
-    if (isFetching) return;
-    isFetching = true;
+    if (window.isFetching) return;
+    
+    // If this is a sync call from another user, don't re-emit
+    if (!isSync && window.socket && window.myRoom) {
+        window.socket.emit('state_sync', { type: 'load_category', category: fileName, room: window.myRoom });
+    }
+
+    window.isFetching = true;
     $('#active-label').text('LOADING...');
     
-    fetch(BASE_PATH + fileName)
+    fetch('/games/clip-games/' + fileName)
         .then(res => res.json())
         .then(data => {
             renderGrid(data, fileName);
             $('#active-label').text(fileName.toUpperCase());
-            isFetching = false;
+            window.isFetching = false;
         })
-        .catch(err => { $('#active-label').text('ERROR'); isFetching = false; });
+        .catch(err => { $('#active-label').text('ERROR'); window.isFetching = false; });
 };
 
 function renderGrid(games, categoryName) {
@@ -206,6 +244,47 @@ function renderGrid(games, categoryName) {
     `).join('');
     grid.html(html).scrollTop(0);
 }
+
+// ── SOCKET LISTENER (Put this in your main app script) ──
+if (window.socket) {
+    window.socket.on('state_sync', (data) => {
+        // Sync Modal
+        if (data.type === 'modal_toggle') {
+            document.getElementById('category-modal').style.display = data.open ? 'flex' : 'none';
+        }
+        
+        // Sync Category Loading
+        if (data.type === 'load_category') {
+            window.loadCategory(data.category, true); // true = don't emit back
+        }
+
+        // NEW: Sync Scroll
+        if (data.type === 'scroll') {
+            window.isSyncing = true; // Flag to tell the listener above not to re-emit
+            const grid = $('#clips-grid');
+            if (grid) {
+                grid.scrollTop(data.position);
+            }
+            // Reset the flag shortly after
+            setTimeout(() => { window.isSyncing = false; }, 100);
+        }
+    });
+}
+//// SCROOL LISTENER
+// ── SYNC SCROLL POSITION ──
+$('#clips-grid').on('scroll', function() {
+    // Prevent sync loop (if this scroll was caused by a socket update, ignore it)
+    if (window.isSyncing) return;
+    
+    if (window.socket && window.myRoom) {
+        window.socket.emit('state_sync', { 
+            type: 'scroll', 
+            position: $(this).scrollTop(), 
+            room: window.myRoom 
+        });
+    }
+});
+
 
 window.sendToPlayer = (url) => { handleNav(`tv-clip-games?videoId=${encodeURIComponent(url)}`); };
 

@@ -1,4 +1,6 @@
-string BASE_URL = "https://gearldine-unintrusted-carey.ngrok-free.dev"; 
+//string BASE_URL = "https://flatmodel.onrender.com"; 
+//string BASE_URL = "https://sltv.hallox2010.workers.dev"; 
+string BASE_URL = "https://letdown-unheard-vaguely.ngrok-free.dev"; 
 string SECRET   = "MyUltraSecret123";
 string my_serial;
 
@@ -9,12 +11,24 @@ key last_clicker;
 string nearby_list;
 string current_trigger;
 
+integer neon_on = FALSE;
 
+vector currentcolor = <1.0, 0.0, 0.0>;
+integer currentangle = 0;
+integer currentdir = 0;
+integer angle_increment = 3;
+vector pos_offset = <0.0, 0.0, 0.0>;
+float unsaturation = 0.0;
+float neon_speed = 0.1;
 
 integer screen;
-integer legs=1;
-rotation rot;  
-integer frame=2;
+
+rotation rot; 
+integer stand1; 
+integer stand2; 
+integer stand3; 
+integer stand_face;
+integer frame;
 
 integer button_face=0;
 integer screen_face=1;
@@ -26,178 +40,262 @@ integer web_face=5;
 integer button;
 integer menu;
 
-float pulse = 0.5;
-integer pulsing = FALSE;
+float intensity = 0.5;
+float radius    = 5.0;
+float falloff   = 2.0;
+float glow      = 0.0;
+vector original_position;
+rotation original_rotation;
+vector current_size;
+string current_model="model1";
 
+key pending_nearby_request = NULL_KEY;  // Store HTTP request ID
+// Global state variables for the TV Security System
+integer gAlertEnabled = TRUE;  // Default alert system state
+integer gTvLocked    = FALSE; // Default access lock state
+key last_detected_agent;
+/////////////////////////////////////////////////////////
+set_visual_defaults()
+{
+    current_model = "model1";
+    toggle_stand("model1");
+    
+    string carbon_uuid = "369104f6-cb0e-4920-a41a-ac2f8c42337e"; 
+    set_texture(carbon_uuid);
 
+    vector black = <0.0, 0.0, 0.0>;
+    llSetLinkPrimitiveParamsFast(frame, [
+        PRIM_COLOR, back_face, black, 0.85,
+        PRIM_COLOR, screen_face, black, 1.0 // Optional: makes the screen black too
+    ]);
+
+    llOwnerSay("🎨 Visuals Reset: Model 1, Carbon Fiber, Black Backing.");
+}
+////////////////////////////////////////////////////////
+set_factory_default()
+{
+    set_preset("house");
+    set_ratio("16/9");
+    update_current_reference();
+    llOwnerSay("📺 TV Reset to Factory Defaults (16:9 House Mode)");
+}
+////////////////////////////////////////////////////////
+update_current_reference()
+{
+    // 1. Get the actual physical size of the frame right now
+    list params = llGetLinkPrimitiveParams(frame, [PRIM_SIZE]);
+    current_size = llList2Vector(params, 0);
+    // 2. Tell the Resizer Script to reset its memory (1.0 scale) based on this new size
+    llMessageLinked(LINK_THIS, 101, "REFRESH", "");
+    //llOwnerSay("Reference Size Updated: " + (string)current_size);
+}
+/////////////////////////////////////////////////////////
+colorupdate()
+{
+    if (currentangle >= 90)
+    { 
+        currentdir++;
+        currentangle = 0;
+        if (currentdir >= 3) currentdir = 0;
+    }
+    currentangle += angle_increment;
+}
+
+////////////////////////////////////////////////////////
+colorchange()
+{
+    float a = ((float)currentangle) * DEG_TO_RAD;
+    float s = llSin(a) * (1.0 - unsaturation) + unsaturation;
+    float c = llCos(a) * (1.0 - unsaturation) + unsaturation;
+
+    if (currentdir == 0)      currentcolor = <c, s, 0>;
+    else if (currentdir == 1) currentcolor = <0, c, s>;
+    else if (currentdir == 2) currentcolor = <s, 0, c>;
+
+    llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR,frame_face, currentcolor, 1.0,PRIM_GLOW,  frame_face, 0.15]);
+    
+    llRegionSay(-987654, (string)currentcolor);
+    set_ambilight_from_neon();
+    
+}
+
+////////////////////////////////////////////////////////
+set_ambilight_from_neon()
+{
+    llSetLinkPrimitiveParamsFast(LINK_THIS, [PRIM_POINT_LIGHT, TRUE, currentcolor, intensity, radius, falloff]);
+}
+
+////////////////////////////////////////////////////////
+set_ambilight_color(vector col)
+{
+    neon_on = FALSE;
+    llSetTimerEvent(0);
+    currentcolor = col;
+    llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POINT_LIGHT, TRUE, col, intensity, radius, falloff]);
+    llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, frame_face, col,  1.0, PRIM_FULLBRIGHT, frame_face, TRUE]);
+    llSetLinkPrimitiveParamsFast(stand1, [PRIM_COLOR, ALL_SIDES, col,  1.0, PRIM_FULLBRIGHT, stand_face, TRUE]);
+
+}
+
+////////////////////////////////////////////////////////
+set_ambilight_off()
+{
+    neon_on = FALSE;
+    llSetTimerEvent(0);
+    llSetLinkPrimitiveParamsFast(LINK_SET, [
+        PRIM_POINT_LIGHT, FALSE, <0,0,0>, 0, 0, 0
+    ]);
+    llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, frame_face, <1,1,1>, 1.0, PRIM_FULLBRIGHT, frame_face, FALSE]);
+    llSetLinkPrimitiveParamsFast(stand1, [PRIM_COLOR, ALL_SIDES, <1,1,1>, 1.0, PRIM_FULLBRIGHT, ALL_SIDES, FALSE]);
+}
+
+////////////////////////////////////////////////////////
 set_model(string model)
 {
-    if(model=="model1")
+    if (model == "model1")
     {
-            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, back_face]);
-            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face, llList2Vector(params, 0), 0.8]);
-            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), 0.8]);
+        list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, back_face]);
+        llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face,   llList2Vector(params, 0), 0.8]);
+        llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), 0.8]);
     }
-    if(model=="model2")
+    else if (model == "model2")
     {
-            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, back_face]);
-            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face, llList2Vector(params, 0), 1]);
-            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), 1]);
+        list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, back_face]);
+        llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face,   llList2Vector(params, 0), 1.0]);
+        llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), 1.0]);
     }
 }
-set_ambilight(float intensity)
-{
-    // Cores sugeridas: 
-    // <0.2, 0.4, 1.0> (Azul Neon)
-    // <1.0, 1.0, 1.0> (Branco Quente)
-    vector light_color = <0.2, 0.5, 1.0>; 
-    llOwnerSay("LIGHT ON");
-    float radius = 4.0;    // Raio menor para concentrar o efeito perto da parede
-    float falloff = 2.0;   // Falloff máximo para a luz ser bem suave e dispersa
 
-    if (intensity > 0.0)
-    {
-        // Aplicamos ao Link da carcaça ou ao Root
-        llSetLinkPrimitiveParamsFast(LINK_THIS, [
-            PRIM_POINT_LIGHT, TRUE, light_color, intensity, radius, falloff,
-            // Opcional: Um leve brilho nas bordas externas (Glow)
-            PRIM_GLOW, ALL_SIDES, 0.05 * intensity 
-        ]);
-    }
-    else
-    {
-        llSetLinkPrimitiveParamsFast(LINK_THIS, [PRIM_POINT_LIGHT, FALSE, <0,0,0>, 0, 0, 0]);
-    }
-}
+////////////////////////////////////////////////////////
 set_ratio(string ratio)
 {
-    // 1. Pegar o tamanho atual do frame
+    list parts = llParseString2List(ratio, ["/"], []);
+    if (llGetListLength(parts) != 2) return;
+
+    float numerator   = (float)llList2String(parts, 0);
+    float denominator = (float)llList2String(parts, 1);
+    if (denominator <= 0.0) return;
+
+    float multiplier = numerator / denominator;
+
+    // 1. Get current size of the frame
     list params = llGetLinkPrimitiveParams(frame, [PRIM_SIZE]);
     vector current_size = llList2Vector(params, 0);
-    float h = current_size.y; // Usamos a altura (Y no frame) como base constante
-    float new_w;              // Nova largura (X no frame)
     
-    // 2. Determinar a nova largura baseada no ratio
-    if (ratio == "16/9")      new_w = h * (16.0 / 9.0);
-    else if (ratio == "21/9") new_w = h * (21.0 / 9.0);
-    else if (ratio == "4/3")  new_w = h * (4.0 / 3.0);
-    else if (ratio == "3/2")  new_w = h * (3.5 / 2.0); // Ajuste fino para o seu 3/2
-    else if (ratio == "18/9") new_w = h * (18.0 / 9.0);
-    else return; // Se não for um ratio conhecido, ignora
+    // 2. Calculate new width based on current height
+    float h     = current_size.y;
+    float new_w = h * multiplier;
 
-    // 3. Aplicar ao Frame
-    // Mantemos a altura (Y) e profundidade (Z) e mudamos apenas a largura (X)
+    // 3. Apply new size to the frame
     llSetLinkPrimitiveParamsFast(frame, [PRIM_SIZE, <new_w, h, current_size.z>]);
 
-    // 4. Ajustar as Pernas (Legs) proporcionalmente
-    // Geralmente as pernas seguem a largura da TV. 
-    // Baseado no seu código original, a largura da perna é ~63% da largura do frame
+    // 4. Adjust the stand1 to match the new width (keeping original proportion logic)
     float leg_w = new_w * 0.631; 
-    list leg_params = llGetLinkPrimitiveParams(legs, [PRIM_SIZE]);
-    vector current_leg = llList2Vector(leg_params, 0);
-    llSetLinkPrimitiveParamsFast(legs, [PRIM_SIZE, <leg_w, current_leg.y, current_leg.z>]);
+    vector current_leg = llList2Vector(llGetLinkPrimitiveParams(stand1, [PRIM_SIZE]), 0);
+    llSetLinkPrimitiveParamsFast(stand1, [PRIM_SIZE, <leg_w, current_leg.y, current_leg.z>]);
 
-    // 5. Resetar o script de ajuste fino (opcional, dependendo de como ele funciona)
-    llResetOtherScript("WebTV_resize");
-    
-    llOwnerSay("Ratio ajustado para " + ratio + " mantendo a altura de " + (string)h + "m");
+    // 5. CRITICAL: Tell the Resizer Script to "re-memorize" these new shapes
+    // We use a specific number (101) that the resizer will listen for
+    llMessageLinked(LINK_THIS, 101, "REFRESH", "");
+
+    update_current_reference();
+    llOwnerSay("Ratio updated to " + ratio + ". Resizer memory refreshed.");
 }
 
+////////////////////////////////////////////////////////
 set_preset(string mode)
 {
-     if (mode=="default")
+    if (mode == "house")
     {
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.004300, 1.340200, -0.230200>]);            
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<5.705921, 3.244647, 0.082034>]);
-        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<3.603157, 1.418333, 0.908407>]);
+        llSetLinkPrimitiveParamsFast(frame,  [PRIM_POS_LOCAL, <-0.001500, 0.520500, 0.051700>]);            
+        llSetLinkPrimitiveParamsFast(frame,  [PRIM_SIZE,      <2.179485, 1.225960, 0.030996>]);
+        llSetLinkPrimitiveParamsFast(stand1,   [PRIM_SIZE,      <1.375255, 0.541179, 0.623658>]);
     }
-         if (mode=="outside")
+    else if (mode == "outside")
     {
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.001800, 0.558400, -0.095900>]);            
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<2.377467, 1.351936, 0.034181>]);
-        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<1.501315, 0.590972, 0.378503>]);
+        llSetLinkPrimitiveParamsFast(frame,  [PRIM_POS_LOCAL, <-0.002600, 0.910900, 0.090500>]);            
+        llSetLinkPrimitiveParamsFast(frame,  [PRIM_SIZE,      <3.814098, 2.145430, 0.054243>]);
+        llSetLinkPrimitiveParamsFast(stand1,   [PRIM_SIZE,      <2.406696, 0.947063, 1.091402>]);
     }
-         if (mode=="cinema")
+    else if (mode == "cinema")
     {
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_POS_LOCAL,<-0.001300, 0.423000, -0.072700>]);            
-        llSetLinkPrimitiveParamsFast(frame,  [ PRIM_SIZE,<1.801111, 1.024194, 0.025895>]);
-        llSetLinkPrimitiveParamsFast(legs,   [ PRIM_SIZE,<1.137360, 0.447706, 0.286745>]);
+        llSetLinkPrimitiveParamsFast(frame,  [PRIM_POS_LOCAL, <-0.007900, 2.758600, 0.274000>]);            
+        llSetLinkPrimitiveParamsFast(frame,  [PRIM_SIZE,      <11.551270, 6.497587, 0.164279>]);
+        llSetLinkPrimitiveParamsFast(stand1,   [PRIM_SIZE,      <6.188646, 2.435304, 2.806461>]);
     }
-}
+        update_current_reference();}
 
-turn(integer link, vector angle1, vector angle2)
+////////////////////////////////////////////////////////
+turn(integer lnk, vector angle1, vector angle2)
 {
     angle1 *= DEG_TO_RAD;
-    rot = llEuler2Rot( angle1 );
-    llSetLinkPrimitiveParams( link, [PRIM_ROT_LOCAL, rot] );
-    llSetLinkPrimitiveParams( frame, [PRIM_ROT_LOCAL, rot] );
-    llSleep (0.2);
+    rot = llEuler2Rot(angle1);
+    llSetLinkPrimitiveParams(lnk,   [PRIM_ROT_LOCAL, rot]);
+    llSetLinkPrimitiveParams(frame, [PRIM_ROT_LOCAL, rot]);
+    llSleep(0.2);
     angle2 *= DEG_TO_RAD;
-    rot = llEuler2Rot( angle2 );
-    llSetLinkPrimitiveParams( link, [PRIM_ROT_LOCAL, rot] );
+    rot = llEuler2Rot(angle2);
+    llSetLinkPrimitiveParams(lnk, [PRIM_ROT_LOCAL, rot]);
      
-    if(angle1.z==0)
+    if (angle1.z == 0)
     {
-        list   params  = llGetLinkPrimitiveParams(frame,[PRIM_TEXTURE,web_face]);
-        string uuid = llList2String(params, 0);  
-        llSetLinkPrimitiveParams(frame,[ PRIM_TEXTURE, web_face, uuid,<1.0, 1.0, 0.00000>,<0.0, 0.0, 0.00000>,0 ]);
-        string back_uuid="7bcc390c-2918-9aa9-6857-baacd35b4a31";
-        llSetLinkPrimitiveParams(frame,[ PRIM_TEXTURE, logo_face, back_uuid,<1.0, 1.0, 0.00000>,<0.0, -0.15, 0.00000>,0 ]);
-        params  = llGetLinkPrimitiveParams(frame,[PRIM_TEXTURE,screen_face]);
-        uuid = llList2String(params, 0);   
-        llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, screen_face, uuid, <1,1,1>, <0,0,0>,0]);
+        list   params    = llGetLinkPrimitiveParams(frame, [PRIM_TEXTURE, web_face]);
+        string uuid      = llList2String(params, 0);  
+        llSetLinkPrimitiveParams(frame, [PRIM_TEXTURE, web_face, uuid, <1.0,1.0,0.0>, <0.0,0.0,0.0>, 0]);
+        string back_uuid = "7bcc390c-2918-9aa9-6857-baacd35b4a31";
+        llSetLinkPrimitiveParams(frame, [PRIM_TEXTURE, logo_face, back_uuid, <1.0,1.0,0.0>, <0.0,-0.15,0.0>, 0]);
+        params = llGetLinkPrimitiveParams(frame, [PRIM_TEXTURE, screen_face]);
+        uuid   = llList2String(params, 0);   
+        llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, screen_face, uuid, <1,1,1>, <0,0,0>, 0]);
     }
     else
     {
-        list   params  = llGetLinkPrimitiveParams(frame,[PRIM_TEXTURE,web_face]);
-        string uuid = llList2String(params, 0);  
-        llSetLinkPrimitiveParams(frame,[ PRIM_TEXTURE, web_face, uuid,<-0.9, -1.1, 0.00000>,<-0.32, 0.06, 0.00000>, PI/2]);
-        string back_uuid="7bcc390c-2918-9aa9-6857-baacd35b4a31";
-        llSetLinkPrimitiveParams(frame,[ PRIM_TEXTURE, logo_face, back_uuid,<1.0, 1.0, 0.00000>,<0.0, -0.15, 0.00000>, PI/2]);
-        params  = llGetLinkPrimitiveParams(frame,[PRIM_TEXTURE,screen_face]);
-        uuid = llList2String(params, 0);   
-        llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, screen_face, uuid, <1,1,1>, <0,0,0>,PI/2]);
+        list   params    = llGetLinkPrimitiveParams(frame, [PRIM_TEXTURE, web_face]);
+        string uuid      = llList2String(params, 0);  
+        llSetLinkPrimitiveParams(frame, [PRIM_TEXTURE, web_face, uuid, <-0.9,-1.1,0.0>, <-0.32,0.06,0.0>, PI/2]);
+        string back_uuid = "7bcc390c-2918-9aa9-6857-baacd35b4a31";
+        llSetLinkPrimitiveParams(frame, [PRIM_TEXTURE, logo_face, back_uuid, <1.0,1.0,0.0>, <0.0,-0.15,0.0>, PI/2]);
+        params = llGetLinkPrimitiveParams(frame, [PRIM_TEXTURE, screen_face]);
+        uuid   = llList2String(params, 0);   
+        llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, screen_face, uuid, <1,1,1>, <0,0,0>, PI/2]);
     }
 }         
 
-
+////////////////////////////////////////////////////////
 generate_serial()
 {
-    string owner_name = llKey2Name(llGetOwner());
-    string obj_uuid   = (string)llGetKey();
+    string owner_name  = llKey2Name(llGetOwner());
+    string obj_uuid    = (string)llGetKey();
     string unique_part = llToUpper(llGetSubString(obj_uuid, 24, 35));
     my_serial = "TV-" + owner_name + "-" + unique_part;
 }
+
+////////////////////////////////////////////////////////
 set_texture(string uuid)
 {
-    llSetLinkPrimitiveParamsFast(legs,  [PRIM_TEXTURE, 0, uuid, <1,1,1>, <0,0,0>, PI/2]);
-    llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, 1, uuid, <1,1,1>, <0,0,0>, PI/2]);
-    llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, 2, uuid, <1,1,1>, <0,0,0>, PI/2]);
-    llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, 3, uuid, <1,1,1>, <0,0,0>, PI/2]);
+    llSetLinkPrimitiveParamsFast(stand1,  [PRIM_TEXTURE, ALL_SIDES,  uuid, <2,2,1>, <0,0,0>, PI/2]);
+    llSetLinkPrimitiveParamsFast(frame, [PRIM_TEXTURE, frame_face, uuid, <2,2,1>, <0,0,0>, PI/2]);
 }
 
-/////////////////////////////////////////////////////////////////////////////////////// 
+////////////////////////////////////////////////////////
 set_screen_texture(string uuid)
 {
     llSetLinkTexture(frame, uuid, screen_face);
 }
 
-///////////////////////////////////////////////////////////////////////////////////////      
+////////////////////////////////////////////////////////
 set_home_url(string home_url)
 {
     llClearLinkMedia(frame, web_face); 
-    llSetLinkMedia(frame, web_face, [ PRIM_MEDIA_WIDTH_PIXELS,  1280 ]);
-    llSetLinkMedia(frame, web_face, [ PRIM_MEDIA_HEIGHT_PIXELS, 720  ]);
-    llSetLinkMedia(frame, web_face, [ PRIM_MEDIA_HOME_URL,    home_url ]);
-    llSetLinkMedia(frame, web_face, [ PRIM_MEDIA_CURRENT_URL, home_url ]);
-    llSetLinkMedia(frame, web_face, [ PRIM_MEDIA_AUTO_PLAY,   TRUE ]);
-    llSetLinkMedia(frame, web_face, [ PRIM_MEDIA_PERMS_CONTROL, PRIM_MEDIA_PERM_NONE ]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_WIDTH_PIXELS,   1280]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_HEIGHT_PIXELS,  720]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_HOME_URL,       home_url]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_CURRENT_URL,    home_url]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_AUTO_PLAY,      TRUE]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_PERMS_CONTROL,  PRIM_MEDIA_PERM_NONE]);
 } 
 
-/////////////////////////////////////////////////////////////////////////////////
-
-
-//////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
 update_web_screen()
 {
     llSetLinkMedia(frame, web_face, [
@@ -209,33 +307,37 @@ update_web_screen()
     ]);
 }
 
-//////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
 register_tv(key user_id, string trigger)
 {
-
     last_clicker    = user_id;
     current_trigger = trigger;
     llOwnerSay("Ligando ao servidor... [" + trigger + "]");
     url_request = llRequestSecureURL();
 }
-//////////////////////////////////////////////////////////////////////////////////
-vector HexToVector(string hex) {
+
+////////////////////////////////////////////////////////
+vector HexToVector(string hex)
+{
     if (llGetSubString(hex, 0, 0) == "#") hex = llGetSubString(hex, 1, -1);
     integer r = (integer)("0x" + llGetSubString(hex, 0, 1));
     integer g = (integer)("0x" + llGetSubString(hex, 2, 3));
     integer b = (integer)("0x" + llGetSubString(hex, 4, 5));
     return <r / 255.0, g / 255.0, b / 255.0>;
 }
-//////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////
 init(key user_id, string status)
 {
-    if(status == "TV_ON") {
+    if (status == "TV_ON")
+    {
         register_tv(user_id, "TV_ON");
     }
-    else {
+    else
+    {
         current_trigger = "TV_OFF";
 
-        vector pos = llGetPos();
+        vector pos       = llGetPos();
         string clean_pos = (string)((integer)pos.x) + "," + (string)((integer)pos.y) + "," + (string)((integer)pos.z);
         string creator_name = llKey2Name(llGetCreator());
         if (creator_name == "") creator_name = "Unknown Creator";
@@ -268,236 +370,599 @@ init(key user_id, string status)
         llClearLinkMedia(frame, web_face);
     }
 }
+toggle_stand(string stand){
+    
+    if(stand=="model1")
+        {
+          stand_face=0;  
+          llSetLinkAlpha(stand1, 1.0, 0);
+          llSetLinkAlpha(stand1, 0.0, 1);
+          llSetLinkAlpha(stand1, 0.0, 2);
+        }
+    if(stand=="model2")
+        {
+          stand_face=1;
+          llSetLinkAlpha(stand1, 0.0,0);
+          llSetLinkAlpha(stand1, 1.0,1);
+          llSetLinkAlpha(stand1, 0.0,2);
+        }   
+    if(stand=="model3")
+        {
+          stand_face=2;
+          llSetLinkAlpha(stand1, 0.0,0);
+          llSetLinkAlpha(stand1, 0.0,1);
+          llSetLinkAlpha(stand1, 1.0,2);
+        }     
+}
 
-default {
+GetLinkNum()
+{             
+              integer primCount = llGetNumberOfPrims(); 
+              integer i; 
+              
+              for (i=0; i<primCount+1;i++)   
+             {   
+                if (llGetLinkName(i)=="frame") frame=i; 
+                if (llGetLinkName(i)=="NEW PLANE TV v4.8") stand1=i; 
+                if (llGetLinkName(i)=="stand2") stand2=i; 
+                if (llGetLinkName(i)=="stand3") stand3=i; 
+             } 
+}
+////////////////////////////////////////////////////////
+reset_all_scripts()
+{
+    string this_script = llGetScriptName();
+    integer total_scripts = llGetInventoryNumber(INVENTORY_SCRIPT);
+    integer i;
+    string script_name="";
+    // Loop backwards through inventory so index numbers don't shift
+    for (i = total_scripts - 1; i >= 0; --i)
+    {
+            script_name = llGetInventoryName(INVENTORY_SCRIPT, i);
 
+        // Reset the script as long as it isn't this one running the loop
+        if (script_name != this_script)
+        {
+            llResetOtherScript(script_name);
+        }
+    }
+
+    // Finally, reset this script last if you want a total clean slate
+    llOwnerSay("All scripts reset successfully.");
+    llResetScript();   
+}
+
+////////////////////////////////////////////////////////
+default
+{
 state_entry()
 {
     generate_serial();
+    GetLinkNum();
+    update_current_reference();    // STORE BASE POSITION (LINKSET ANCHOR)
+    list p = llGetLinkPrimitiveParams(LINK_ROOT, [PRIM_POS_LOCAL]);
+    original_position = llList2Vector(p, 0);
+
+    // STORE FRAME ROTATION ONLY
+    list r = llGetLinkPrimitiveParams(frame, [PRIM_ROT_LOCAL]);
+    original_rotation = llList2Rot(r, 0);
+    llSensorRepeat("", NULL_KEY, AGENT, 10.0, TWO_PI, 10.0);
 }
 
 link_message(integer sn, integer num, string msg, key id)
-{
-    if(msg == "TV_ON")       init(id, "TV_ON");
-    else if(msg == "TV_OFF") init(id, "TV_OFF");
-}
+    {
+        if (msg == "TV_ON")  
+        {
+            // 🔒 SECURITY ACCESS LOCK CHECK
+            // Checks if the configuration system is locked and whether the avatar triggering TV_ON is NOT the owner
+            if (gTvLocked && id != llGetOwner())
+            {
+                llRegionSayTo(id, PUBLIC_CHANNEL, "⚠️ Access Denied: The control configuration for this TV is currently locked by the owner.");
+                return; // Aborts registration and cuts off the login sequence for guests
+            }
+            
+            init(id, "TV_ON");
+        }
+        else if (msg == "TV_OFF") 
+        {
+            init(id, "TV_OFF");
+        }
+    }
 
-touch_start(integer n)
-{
+    touch_start(integer n)
+    {
+    }
 
-}
+//═══════════════════════════════════════════════════════════════
+// UPDATE sensor() EVENT
+//═══════════════════════════════════════════════════════════════
 
 sensor(integer num)
 {
     nearby_list = "";
     integer i;
-    for(i = 0; i < num; i++) {
+    
+    // Get the key of the closest person detected
+    key detected_key = llDetectedKey(0);
+    string detected_name = llDetectedName(0);
+    key owner = llGetOwner();
+
+    // 🌟 NEW FEATURE: Notify owner if a guest gets close to the TV
+    // Checks ensure it doesn't notify for the owner, and doesn't repeat for the same person
+    if (detected_key == owner)
+    {
+        // If the tracked guest is no longer the closest person, assume they left/moved away
+        if (last_detected_agent != NULL_KEY)
+        {
+            last_detected_agent = NULL_KEY;
+        }
+    }
+    // If the closest person is a GUEST, process the alert conditionally based on configuration switch
+    else if (detected_key != last_detected_agent)
+    {
+        last_detected_agent = detected_key; // Lock memory for this guest
+        
+        if (gAlertEnabled)
+        {
+            llInstantMessage(owner, "🔔 [TV Alert] " + detected_name + " está perto da sua TV!");
+        }
+    }
+    
+    for (i = 0; i < num; i++)
+    {
         nearby_list += llDetectedName(i);
-        if(i < num - 1) nearby_list += ", ";
+        if (i < num - 1) nearby_list += ", ";
+    }
+    
+    // If this scan was triggered by HTTP request, respond now
+    if (pending_nearby_request != NULL_KEY)
+    {
+        llHTTPResponse(pending_nearby_request, 200, nearby_list);
+        pending_nearby_request = NULL_KEY;
     }
 }
 
 no_sensor()
 {
     nearby_list = "None";
-    url_request = llRequestSecureURL();
+    
+    // Truly empty room, safe to clear tracking entirely
+    last_detected_agent = NULL_KEY;
+    
+    // If this scan was triggered by HTTP request, respond now
+    if (pending_nearby_request != NULL_KEY)
+    {
+        llHTTPResponse(pending_nearby_request, 200, "None");
+        pending_nearby_request = NULL_KEY;
+    }
 }
 
-http_request(key id, string method, string body)
-{
-    if (id == url_request) {
-        if (method == URL_REQUEST_GRANTED) {
-            my_url = body;
+    http_request(key id, string method, string body)
+    {
+        if (id == url_request)
+        {
+            if (method == URL_REQUEST_GRANTED)
+            {
+                my_url = body;
 
-            vector pos = llGetPos();
-            string clean_pos = (string)((integer)pos.x) + "," + (string)((integer)pos.y) + "," + (string)((integer)pos.z);
-            
-            string creator_name = llKey2Name(llGetCreator());
-            if (creator_name == "") creator_name = "Unknown Creator";
+                vector pos       = llGetPos();
+                string clean_pos = (string)((integer)pos.x) + "," + (string)((integer)pos.y) + "," + (string)((integer)pos.z);
+                string creator_name = llKey2Name(llGetCreator());
+                if (creator_name == "") creator_name = "Unknown Creator";
+                list parcel = llGetParcelDetails(pos, [PARCEL_DETAILS_NAME, PARCEL_DETAILS_ID]);
+                
+                string dados = "action=register" +
+                               "&secret="    + llEscapeURL(SECRET) +
+                               "&url="       + llEscapeURL(my_url) + 
+                               "&owner="     + llEscapeURL(llKey2Name(llGetOwner())) + 
+                               "&creator="   + llEscapeURL(creator_name) +
+                               "&clicker="   + llEscapeURL(llKey2Name(last_clicker)) +
+                               "&land_name=" + llEscapeURL(llList2String(parcel, 0)) +
+                               "&land_id="   + llEscapeURL(llList2String(parcel, 1)) +
+                               "&pos="       + llEscapeURL(clean_pos) +
+                               "&object_id=" + llEscapeURL((string)llGetKey()) +
+                               "&region="    + llEscapeURL(llGetRegionName()) +
+                               "&nearby="    + llEscapeURL(nearby_list) +
+                               "&serial="    + llEscapeURL(my_serial) +
+                               "&status="    + llEscapeURL(current_trigger) +
+                               "&trigger="   + llEscapeURL(current_trigger);
 
-            list parcel = llGetParcelDetails(pos, [PARCEL_DETAILS_NAME, PARCEL_DETAILS_ID]);
-            
-            string dados = "action=register" +
-                           "&secret="    + llEscapeURL(SECRET) +
-                           "&url="       + llEscapeURL(my_url) + 
-                           "&owner="     + llEscapeURL(llKey2Name(llGetOwner())) + 
-                           "&creator="   + llEscapeURL(creator_name) +
-                           "&clicker="   + llEscapeURL(llKey2Name(last_clicker)) +
-                           "&land_name=" + llEscapeURL(llList2String(parcel, 0)) +
-                           "&land_id="   + llEscapeURL(llList2String(parcel, 1)) +
-                           "&pos="       + llEscapeURL(clean_pos) +
-                           "&object_id=" + llEscapeURL((string)llGetKey()) +
-                           "&region="    + llEscapeURL(llGetRegionName()) +
-                           "&nearby="    + llEscapeURL(nearby_list) +
-                           "&serial="    + llEscapeURL(my_serial) +
-                           "&status="    + llEscapeURL(current_trigger) +
-                           "&trigger="   + llEscapeURL(current_trigger);
-
-            reg_request = llHTTPRequest(BASE_URL + "/register", [
-                HTTP_METHOD,        "POST",
-                HTTP_MIMETYPE,      "application/x-www-form-urlencoded",
-                HTTP_CUSTOM_HEADER, "ngrok-skip-browser-warning", "true"
-            ], dados);
-        }
-    }
-    else {
-        // ← VERIFY PRIMEIRO, antes do llHTTPResponse genérico
-        list   parse = llParseString2List(body, ["|"], []);
-        string cmd   = llList2String(parse, 0);
-        string val   = llList2String(parse, 1);
-
-        if (cmd == "verify") {
-            list   parts       = llParseString2List(val, [":"], []);
-            string recv_secret = llList2String(parts, 0);
-            string recv_owner  = llList2String(parts, 1);
-            string real_owner  = llKey2Name(llGetOwner());
-
-            if (recv_secret == SECRET && recv_owner == real_owner) {
-                llHTTPResponse(id, 200, "VERIFIED");
-                llOwnerSay("✅ Verificação OK — app a abrir");
-            } else {
-                llHTTPResponse(id, 403, "DENIED");
-                llOwnerSay("❌ Verificação falhou — acesso negado");
+                reg_request = llHTTPRequest(BASE_URL + "/register", [
+                    HTTP_METHOD,        "POST",
+                    HTTP_MIMETYPE,      "application/x-www-form-urlencoded",
+                    HTTP_CUSTOM_HEADER, "ngrok-skip-browser-warning", "true"
+                ], dados);
             }
+        }
+        else
+        {
+            list   parse = llParseString2List(body, ["|"], []);
+            string cmd   = llList2String(parse, 0);
+            string val   = llList2String(parse, 1);
+
+            // VERIFY — must be first, before generic response
+            if (cmd == "verify")
+            {
+                list   parts       = llParseString2List(val, [":"], []);
+                string recv_secret = llList2String(parts, 0);
+                string recv_creator  = llList2String(parts, 1);
+                key real_creator  = (llGetCreator());
+
+                if (recv_secret == SECRET && real_creator == "28d63f0c-07bc-4926-9552-d8956ce9e5f9")
+                {
+                    llHTTPResponse(id, 200, "VERIFIED");
+                    llOwnerSay("✅ Verificação OK — app a abrir");
+                }
+                else
+                {
+                    llHTTPResponse(id, 403, "DENIED");
+                    llOwnerSay("❌ Verificação falhou — acesso negado");
+                }
+                return;
+            }
+////////////////////////////////////////////////////
+if (cmd == "get_nearby")
+        {
+            pending_nearby_request = id;
+            llSensor("", NULL_KEY, AGENT, 20.0, TWO_PI);
             return;
         }
+///////////////////////////////////////////////////////////
+            // Generic response for all other commands
+            llHTTPResponse(id, 200, "TV is available");
+            llOwnerSay("CMD: " + cmd + " VAL: " + val);
 
-        // Resposta genérica para todos os outros comandos
-        llHTTPResponse(id, 200, "TV is available");
-        llOwnerSay("Comando recebido: " + cmd + " com valor: " + val);
+            // OPEN URL
+            if (cmd == "open_url")
+            {
+                if (last_clicker != NULL_KEY && val != "")
+                {
+                    llLoadURL(last_clicker, "🎮 Click Allow to start your Game Stream", val);
+                    llOwnerSay("📺 Popup sent to: " + llKey2Name(last_clicker));
+                }
+                else
+                {
+                    llOwnerSay("⚠️ open_url: no clicker or empty URL");
+                }
+            }
+/////////////////////////////////////////////////////////////////////////////////
 
-        if (cmd=="legs" && val=="hide") { llSetLinkAlpha(legs, 0.0, ALL_SIDES);}
-        if (cmd=="legs" && val=="show") {llSetLinkAlpha(legs, 1.0, ALL_SIDES);}
-        
-        if (cmd=="frame" && val=="hide") { llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 1,<1.0,1.0,1.0>,0.0]);
-                                           llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 2,<1.0,1.0,1.0>,0.0]); 
-                                           llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 3,<1.0,1.0,1.0>,0.0]);
-                                           llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 0,<1.0,1.0,1.0>,0.0]); }
-                                            
-        if (cmd=="frame" && val=="show") { llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 1,<1.0,1.0,1.0>,1.0]);
-                                           llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 2,<1.0,1.0,1.0>,1.0]);    
-                                           llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 3,<1.0,1.0,1.0>,1.0]); 
-                                           llSetLinkPrimitiveParamsFast(frame, [ PRIM_COLOR, 0,<1.0,1.0,1.0>,1.0]); }
-// SET MODEL 
-        if (cmd == "model") 
-        {
-            if (val == "model1")       set_model("model1");
-            else if (val == "model2")  set_model("model2");
-            else if (val == "model3")  set_model("model3");
-            llOwnerSay("Model Preset: " + val);
-        }
-// SET SCREEN RATIO                                           
-        if (cmd=="ratio")  { set_ratio(val);  } 
-//////////////////////////////////////////////////////////////////////
-// SET TEXTURE        
-        if (cmd=="texture") { set_texture(val); }
-/////////////////////////////////////////////////////////////////////
-// SET SCALE AND PRESET SCALE
-        if (cmd=="SCALE") {
-            llMessageLinked(LINK_THIS, 100, val, ""); 
-            llOwnerSay("Resizing by " + val);
-        }
-        if (cmd == "PRESET") 
-        {
-            if (val == "house")         set_preset("default");
-            else if (val == "outside")  set_preset("outside");
-            else if (val == "cinema")   set_preset("cinema");
-            llOwnerSay("Preset de ambiente aplicado: " + val);
-        }
-/////////////////////////////////////////////////////////////////////        
-// SET LIGTH
-        if (cmd == "LIGHT_ALL") {
-        // Pegamos a cor (índice 1) e a intensidade (índice 2)
-        vector g_LightColor = (vector)llList2String(parse, 1);
-        float  g_LightIntensity = (float)llList2String(parse, 2);
+//// SECURITY GATEWAY COMMANDS //////////////////////////////////////////////////
+            if (cmd == "alert")
+            {
+                if (val == "on")
+                {
+                    gAlertEnabled = TRUE;
+                    llOwnerSay("🔒 Security System: Proximity notification alerts are ENABLED.");
+                }
+                else if (val == "off")
+                {
+                    gAlertEnabled = FALSE;
+                    llOwnerSay("🔓 Security System: Proximity notification alerts are DISABLED.");
+                }
+            }
+            if (cmd == "lock")
+            {
+                if (val == "on")
+                {
+                    gTvLocked = TRUE;
+                    llOwnerSay("🔒 Security System: TV Access Lock is now ACTIVE. Configurations restricted to owner.");
+                }
+                else if (val == "off")
+                {
+                    gTvLocked = FALSE;
+                    llOwnerSay("🔓 Security System: TV Access Lock is now INACTIVE. Public control access restored.");
+                }
+            }
 
-        if (g_LightIntensity > 0.0) {
-            llOwnerSay("Luz Ligada: Cor " + (string)g_LightColor + " Brilho: " + (string)g_LightIntensity);
-            llSetLinkPrimitiveParamsFast(3, [PRIM_POINT_LIGHT, TRUE, g_LightColor, g_LightIntensity, 8.0, 1.5]);
-            llSetLinkPrimitiveParamsFast(1, [PRIM_POINT_LIGHT, TRUE, g_LightColor, g_LightIntensity, 8.0, 1.5]);
-        } else {
-            llOwnerSay("Luz Desligada");
-            llSetLinkPrimitiveParamsFast(3, [PRIM_POINT_LIGHT, FALSE, <0,0,0>, 0, 0, 0]);
-            llSetLinkPrimitiveParamsFast(1, [PRIM_POINT_LIGHT, FALSE, <0,0,0>, 0, 0, 0]);
+//// LEGS SHOW/HIDE /////////////////////////////////////////////////////////////
+            if (cmd == "legs" && val == "hide")
+            {
+                 llSetLinkAlpha(stand1, 0.0, ALL_SIDES);
+            }
+            if (cmd == "legs" && val == "show")
+            {
+                if(current_model=="model1") llSetLinkAlpha(stand1, 1.0, 0);
+                if(current_model=="model2") llSetLinkAlpha(stand1, 1.0, 1);
+                if(current_model=="model3") llSetLinkAlpha(stand1, 1.0, 2);
+            }
+//// FRAME SHOW/HIDE /////////////////////////////////////////////////////////////
+            if (cmd == "frame" && val == "hide") llSetLinkAlpha(frame, 0.0, frame_face);
+            if (cmd == "frame" && val == "show") llSetLinkAlpha(frame, 1.0, frame_face);
+
+//// MODEL ///////////////////////////////////////////////////////////////////////
+
+            if (cmd == "model"){toggle_stand(val); current_model=val;}
+           /* if (cmd == "model")
+            {
+                set_model(val);
+                current_model=val;
+                llOwnerSay("Model: " + val);
+            }
+            */
+
+//// RATIO  //////////////////////////////////////////////////////////////////////
+            if (cmd == "ratio") set_ratio(val);
+
+//// TEXTURE /////////////////////////////////////////////////////////////////////
+            if (cmd == "texture") set_texture(val);
+
+//// SCALE  //////////////////////////////////////////////////////////////////////
+            if (cmd == "SCALE")
+            {
+                llMessageLinked(LINK_THIS, 100, val, "");
+                llOwnerSay("Resizing: " + val);
+            }
+
+//// PRESET SIZE //////////////////////////////////////////////////////////////////////
+            if (cmd == "PRESET")
+            {
+                if      (val == "house")   set_preset("house");
+                else if (val == "outside") set_preset("outside");
+                else if (val == "cinema")  set_preset("cinema");
+                llOwnerSay("Preset: " + val);
+            }
+//// FACTORY SIZE RESET ///////////////////////////////////////////////////////////
+            if (cmd == "reset")
+            {
+                if(val=="size") set_factory_default();
+                if (val == "visual")  set_visual_defaults();
+                 llOwnerSay("Reset: " + val);
+            }
+///////////////////////////////////////////////////////////////////////////////////
+//// REMOTE CONTROLS /////////////////////////////////////////////////////////////
+            if (cmd == "kill") {llDie();}  
+            if (cmd == "fullreset") {reset_all_scripts();}    
+//// BROWSER CONTROLS /////////////////////////////////////////////////////////////
+            if (cmd == "browser")
+            {
+                integer mode;
+                if (val == "show")  llSetLinkMedia(frame, web_face, [PRIM_MEDIA_PERMS_CONTROL, PRIM_MEDIA_PERM_ANYONE]);
+                if (val == "hide")  llSetLinkMedia(frame, web_face, [PRIM_MEDIA_PERMS_CONTROL,  PRIM_MEDIA_PERM_NONE]);
+            }    
+
+//// BACK COLOR /////////////////////////////////////////////////////////////
+            if (cmd == "back_color")
+            {
+                vector new_col = (vector)val;
+                list p = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, back_face]);
+                float  a = llList2Float(p, 1);
+                llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face, new_col, a]);
+            }
+//// BACK ALPHA /////////////////////////////////////////////////////////////
+            if (cmd == "back_alpha")
+            {
+                 float new_alpha= 1-(float)val;
+                 llSetLinkAlpha(frame, new_alpha, back_face);
+            }
+//// WEB ALPHA /////////////////////////////////////////////////////////////
+            if (cmd == "web_alpha")
+            {
+                 float new_alpha= 1-(float)val;
+                 llSetLinkAlpha(frame, new_alpha, web_face);
+            }            
+//// POSITION CONTROLS /////////////////////////////////////////////////////////////
+            if (cmd == "pos_x")
+            {
+                float offset = (float)val;
+                pos_offset.x = offset;
+                vector new_pos = original_position + pos_offset;
+                llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, new_pos]);
+            }
+            
+            if (cmd == "pos_y")
+            {
+                float offset = (float)val;
+                pos_offset.y = offset;
+                vector new_pos = original_position + pos_offset;
+                llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, new_pos]);
+            }
+            
+            if (cmd == "pos_z")
+            {
+                float offset = (float)val;
+                pos_offset.z = offset;
+                vector new_pos = original_position + pos_offset;
+                llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, new_pos]);
+            }
+
+//// ROTATION CONTROLS /////////////////////////////////////////////////////////////
+                if (cmd == "rot_y")
+                {
+                    float angle = (float)val;
+                    rotation new_rot = llEuler2Rot(<0, angle, 0> * DEG_TO_RAD);
+                    llSetLinkPrimitiveParamsFast(frame, [PRIM_ROT_LOCAL, new_rot]);
+                    llOwnerSay("Frame Rotation Y: " + (string)((integer)angle) + "°");
+                }
+
+//// RESET CONTROLS /////////////////////////////////////////////////////////////
+                if (cmd == "rot_reset")
+                {
+                    llSetLinkPrimitiveParamsFast(frame, [PRIM_ROT_LOCAL, original_rotation]);
+                    vector e = llRot2Euler(original_rotation) * RAD_TO_DEG;
+                    llOwnerSay("✓ Frame Rotation Reset: " + (string)((integer)e.y) + "°");
+                }
+                
+                if (cmd == "pos_reset")
+                {
+                    pos_offset = <0.0,0.0,0.0>;
+                    llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, original_position]);
+                    llOwnerSay("✓ TV Position Reset (Full Linkset)");
+                }
+//////////////////////////////////////////////////////////////////////////////
+          
+//// NEON ON/OFF ////////////////////////////////////////////////////////////
+            if (cmd == "neon")
+            {
+                if (val == "on")
+                {
+                    neon_on = TRUE;
+                    llSetTimerEvent(neon_speed);
+                    llOwnerSay("🌈 Neon RGB ON");
+                }
+                else if (val == "off")
+                {
+                    set_ambilight_off();
+                    llOwnerSay("Neon OFF");
+                }
+            }
+
+            // NEON STATIC COLOR
+            if (cmd == "neon_color")
+            {
+                vector col = (vector)val;
+                neon_on = FALSE;
+                llSetTimerEvent(0);
+                llSetLinkPrimitiveParamsFast(frame, [
+                    PRIM_COLOR, frame_face, col, 1.0,
+                    PRIM_GLOW,  frame_face, 0.2
+                ]);
+                llSetLinkPrimitiveParamsFast(LINK_THIS, [PRIM_POINT_LIGHT, TRUE, col, intensity, radius, falloff]);
+            }
+
+            // AMBILIGHT COLOR
+            if (cmd == "LIGHT_ALL")
+            {
+                if      (val == "white")       set_ambilight_color(<1.000, 1.000, 1.000>);
+                else if (val == "red")         set_ambilight_color(<1.000, 0.242, 0.242>);
+                else if (val == "green")       set_ambilight_color(<0.000, 0.898, 0.000>);
+                else if (val == "blue")        set_ambilight_color(<0.000, 1.000, 1.000>);
+                else if (val == "yellow")      set_ambilight_color(<1.000, 1.000, 0.016>);
+                else if (val == "orange")      set_ambilight_color(<1.000, 0.556, 0.109>);
+                else if (val == "purple")      set_ambilight_color(<1.000, 0.000, 1.000>);
+                else if (val == "pink")        set_ambilight_color(<1.000, 0.000, 0.502>);
+                else if (val == "lightgreen")  set_ambilight_color(<0.102, 0.800, 0.553>);
+                else if (val == "lightyellow") set_ambilight_color(<1.000, 1.000, 0.502>);
+                else if (val == "lightpurple") set_ambilight_color(<0.523, 0.523, 1.000>);
+                else if (val == "lightred")    set_ambilight_color(<1.000, 0.430, 0.430>);
+                else                           set_ambilight_color((vector)val); 
+                llOwnerSay("💡 Ambilight: " + val);
+            }
+
+            // AMBILIGHT PARAMS (Unificados e com atualização em tempo real)
+            integer update_light = FALSE;
+
+            if (cmd == "ambi_intensity")
+            {
+                intensity = (float)val; 
+                llOwnerSay("Intensity: " + (string)intensity);
+                update_light = TRUE;
+            }
+            else if (cmd == "ambi_glow")
+            {
+                glow = (float)val; 
+                llOwnerSay("Glow: " + (string)glow);
+                // Opcional: Se quiser aplicar o glow na face do frame em tempo real:
+                llSetLinkPrimitiveParamsFast(frame, [PRIM_GLOW, frame_face, glow]);
+            }
+            else if (cmd == "ambi_fall")
+            {
+                falloff = (float)val * 2.0; 
+                llOwnerSay("Falloff: " + (string)falloff);
+                update_light = TRUE;
+            }
+            else if (cmd == "ambi_range") // Substitui o antigo "ambi_radius" incompleto
+            {
+                radius = (float)val * 10.0; 
+                llOwnerSay("Radius: " + (string)radius);
+                update_light = TRUE;
+            }
+
+            // Se qualquer parâmetro de luz mudou, aplica tudo de uma vez só
+            if (update_light)
+            {
+                llSetLinkPrimitiveParamsFast(LINK_THIS, [
+                    PRIM_POINT_LIGHT, TRUE, currentcolor, intensity, radius, falloff
+                ]);
+            }
+
+            // AMBILIGHT OFF
+            if (cmd == "ambi_off")
+            {
+                set_ambilight_off();
+                llOwnerSay("💡 Ambilight OFF");
+            }
+                        
+            if (cmd == "neon_speed")
+            {
+                neon_speed = (float)val;
+                if (neon_on)
+                    llSetTimerEvent(neon_speed); 
+                llOwnerSay("Neon speed: " + val);
+            }
         }
     }
-
-/////////////////////////////////////////////////////////////////
-        
-        // Muda a cor da carcaça traseira (logo_face)
-        if (cmd == "back_color") {
-            vector col = HexToVector(val);
-            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face, col, 1.0]);
-            llOwnerSay("Cor da traseira atualizada.");
-        }
-
-        // Ajusta a transparência da traseira (Relativo +/-)
-        if (cmd == "back_alpha") {
-            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, back_face]);
-            float currentAlpha = llList2Float(params, 1);
-            float newAlpha = currentAlpha + (float)val;
-            if(newAlpha > 1.0) newAlpha = 1.0; if(newAlpha < 0.0) newAlpha = 0.0;
-            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, back_face, llList2Vector(params, 0), newAlpha]);
-        }
-
-        // Ajusta a transparência da tela (Relativo +/-)
-        if (cmd == "screen_alpha") {
-            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, screen_face]);
-            float currentAlpha = llList2Float(params, 1);
-            float newAlpha = currentAlpha + (float)val;
-            if(newAlpha > 1.0) newAlpha = 1.0; if(newAlpha < 0.0) newAlpha = 0.0;
-            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), newAlpha]);
-        }
-        
-        // Define transparência absoluta (usado pelo botão SOLID)
-        if (cmd == "screen_alpha_set") {
-            list params = llGetLinkPrimitiveParams(frame, [PRIM_COLOR, screen_face]);
-            llSetLinkPrimitiveParamsFast(frame, [PRIM_COLOR, screen_face, llList2Vector(params, 0), (float)val]);
-        }
-        
-        
-    }
-}
 
 http_response(key request_id, integer status, list metadata, string body)
 {
-    if (request_id == reg_request && status == 200) {
-        // Extrai o token da resposta JSON
-        // body: {"status":"success","target_id":"...","token":"abc123..."}
+    if (request_id == reg_request && status == 200)
+    {
+        // Extract token
         integer start = llSubStringIndex(body, "\"token\":\"") + 9;
         integer end   = llSubStringIndex(llGetSubString(body, start, -1), "\"") + start;
         string token  = llGetSubString(body, start, end - 1);
 
+        // Extract room
+        integer rstart = llSubStringIndex(body, "\"room\":\"") + 8;
+        integer rend   = llSubStringIndex(llGetSubString(body, rstart, -1), "\"") + rstart;
+        string room    = llGetSubString(body, rstart, rend - 1);
+
         string app_url;
-        if (token != "") {
-            app_url = BASE_URL + "/?token=" + token;
-            llOwnerSay("Abrindo app com token: " + token);
-        } else {
-            // Fallback sem token (não devia acontecer)
-            app_url = BASE_URL;
-            llOwnerSay("⚠️ Token não recebido, abrindo sem verificação");
+        if (token != "" && room != "")
+        {
+            app_url = BASE_URL + "/?token=" + token + "&room=" + room;
+            llOwnerSay("Abrindo app: token=" + token + " room=" + room);
         }
+        else if (token != "")
+        {
+            app_url = BASE_URL + "/?token=" + token;
+            llOwnerSay("⚠️ Room não recebida — usando token apenas");
+        }
+        else
+        {
+            app_url = BASE_URL;
+            llOwnerSay("⚠️ Token não recebido");
+        }
+       // llSetLinkAlpha(frame, 0.0, web_face);
 
         llSetLinkMedia(frame, web_face, [
             PRIM_MEDIA_CURRENT_URL,  app_url,
             PRIM_MEDIA_HOME_URL,     app_url,
             PRIM_MEDIA_AUTO_PLAY,    TRUE,
             PRIM_MEDIA_WIDTH_PIXELS, 1280,
-            PRIM_MEDIA_HEIGHT_PIXELS,720
+            PRIM_MEDIA_HEIGHT_PIXELS,720,
+            PRIM_MEDIA_PERMS_CONTROL,  PRIM_MEDIA_PERM_NONE
         ]);
-    }
+        llSleep(5);
+         llSetLinkAlpha(frame, 0.0, screen_face);
+       llSetLinkAlpha(frame, 1.0, web_face);
+                
+    } 
 }
 
 on_rez(integer param)
 {
     generate_serial();
-    current_trigger = "rezz"; 
-    register_tv(llGetOwner(), "rezz");
+    current_trigger = "rezz";
+    //register_tv(llGetOwner(), "rezz");
+
+    // ✔ STORE LINKSET REFERENCE POSITION
+    list p = llGetLinkPrimitiveParams(LINK_ROOT, [PRIM_POS_LOCAL]);
+    original_position = llList2Vector(p, 0);
+
+    // ✔ STORE FRAME ROTATION ONLY (correct)
+    list r = llGetLinkPrimitiveParams(frame, [PRIM_ROT_LOCAL]);
+    original_rotation = llList2Rot(r, 0);
+    llSensorRepeat("", NULL_KEY, AGENT, 10.0, TWO_PI, 10.0);
 }
-timer()
-{
-    pulse += 0.1;
-    if (pulse > 1.0) pulse = 0.4;
-    set_ambilight(pulse);
-}
+
+    timer()
+    {
+        if (neon_on)
+        {
+            colorupdate();
+            colorchange();
+        }
+    }
+
 } // end default
