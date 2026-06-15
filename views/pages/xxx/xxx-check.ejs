@@ -1,131 +1,141 @@
 <style>
-/* --- Overlay Container (Wraps your content) --- */
-#restricted-overlay {
-    width: 800px;
-    padding: 25px;
-    background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.5));
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+#adult-warning-wrapper {
+    width: 700px;
+    padding: 40px;
+    background: radial-gradient(circle at center, rgba(30, 10, 10, 0.75), rgba(0, 0, 0, 0.4));
+    border-radius: 25px;
+    border: 1px solid rgba(255, 50, 50, 0.25);
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
     margin: 20px auto;
-    position: relative; /* Essential for the close button positioning */
-}
-
-/* --- Centered Text Styling --- */
-#title {
-    font-size: 40px;
-    font-weight: 400;
-    color: #f81919;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.line {
-    font-size: 25px;
-    font-weight: 200;
-    color: white;
-    margin: 5px 0;
-}
-
-#l2 { color: #2ecc71; } /* Yellow accent line */
-#l3 { color: #f1c40f; } /* Yellow accent line */
-/* --- Password Input --- */
-#myPsw {
-    width: 350px;
-    height: 60px;
-    font-size: 35px;
-    color: #2ecc71;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid #ff4d4d;
-    border-radius: 12px;
+    position: relative;
+    font-family: Arial, sans-serif;
     text-align: center;
-    margin: 30px 0;
 }
 
+.adult-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    user-select: none;
+}
 
+.adult-close-btn:hover {
+    color: #ff4d4d;
+}
+
+.adult-title {
+    color: #ff3b3b;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.adult-message {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.adult-message p {
+    margin: 8px 0;
+    font-size: 22px;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+.adult-message .access-line {
+    color: #4ecb71;
+}
+
+.adult-message .hint-line {
+    color: #f4c542;
+    font-size: 20px;
+}
+
+.password-box {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.password-box input[type="password"] {
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ff3b3b;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    padding: 14px 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.password-box input[type="password"]::placeholder {
+    color: #888;
+}
+
+.password-box input[type="button"] {
+    background: #c0392b;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+.password-box input[type="button"]:hover {
+    background: #ff3b3b;
+    transform: scale(1.03);
+}
 </style>
 
-<body> 
+<div id="adult-warning-wrapper">
 
-<div id="restricted-overlay">
-   
     <div class="close-menu-btn" onclick="closeSubMenu()">
-        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
+        <span class="material-symbols-rounded">close</span>
     </div>
 
-    <div id="title">Attention to Adult Content</div>
+    <div class="adult-title">Adult Content</div>
 
-    <div id="l1" class="line">( the following pages are for adult viewers only )</div>
-    <div id="l2" class="line">( enter password to access or click the Back button )</div>
-    <div id="l3" class="line">( check the Tv info notecard for the password )</div>
-    <input type="password" id="myPsw" autocomplete="off">
+    <div class="adult-message">
+        <p>The following pages are intended for adult viewers only.</p>
+        <p class="access-line">Enter the password to continue, or click Back to return.</p>
+        <p class="hint-line">Check the TV info Notecard for the password.</p>
+    </div>
 
-    <p id="errorMsg" style="display:none; color:#ff4d4d; font-weight:600;"></p>
-
-    <button id='errorBut' onclick="tryAgain();" class="btn" style="display:none;">TRY AGAIN</button>
+    <div class="password-box">
+        <input id="adult-password" type="password" placeholder="Enter password">
+        <input type="button" value="ENTER" onclick="submitAdultPassword()">
+    </div>
 
 </div>
 
 <script>
-    
-   
-    window.onload = function() {
-        const params = new URLSearchParams(window.location.search);
-        myRoom = params.get('room') || 'Lobby';
 
-        if (typeof io !== 'undefined') {
-            socket = io.connect();
-            socket.emit('createroom', myRoom);
-        }
-        
-        const pswd = document.getElementById("myPsw");
-        pswd.focus();
-        readIndex();
-    };
 
-    // --- NAVIGATION ADAPTATION ---
-
-function back() {
-    // Check if the global close function exists
-    if (typeof closeSubMenu === "function") {
-        closeSubMenu(); // This hides the overlay and shows the grid
-    } else {
-        // Fallback only if the script isn't loaded
-        window.history.back(); 
-    }
+function submitAdultPassword() {
+    const pass = document.getElementById("adult-password").value.trim();
+    // existing password-check logic goes here
 }
 
-function checkPswd() {
-    const $pswdInput = $('#myPsw');
-    const password = $pswdInput.val();
-    
-    if (password === "slxxx") { 
-        // SUCCESS: Use the MENU KEY defined in NAV_CONFIG
-        if (typeof handleNav === "function") {
-            // ONLY pass the key name, not the path or room
-            handleNav('xxx-index'); 
-        } else {
-            // Emergency fallback if myScripts.js is missing
-            window.location.href = './xxx-index?room=' + myRoom; 
-        }
-    } else {
-        // ERROR Logic
-        $('#errorMsg').text("Wrong Password !!").show();
-        $pswdInput.hide();
-        $('#errorBut').show();
+document.getElementById("adult-password").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        submitAdultPassword();
     }
-}  // Handle Enter Key
-    document.getElementById("myPsw").onkeyup = function (e) {
-        if (e.which == 13) checkPswd();
-    };
-
-    function tryAgain() {
-        $('#l4, #errorBut, #errorMsg').hide();
-        $('#myPsw').show().val("").focus();
-    }
-
+});
 </script>
-</body>

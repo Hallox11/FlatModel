@@ -54,6 +54,7 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 // ─────────────────────────────────────────────────────────────
 // TRUE OR MYTH data
 // ─────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
 const TOM_STATEMENTS = [
     { statement: "Humans only use 10% of their brain.",            correct: 'false', explanation: "We use virtually all parts of our brain." },
     { statement: "A day on Venus is longer than a year on Venus.", correct: 'true',  explanation: "Venus rotates so slowly its day (243 Earth days) exceeds its year (225 Earth days)." },
@@ -70,6 +71,43 @@ const TOM_STATEMENTS = [
     { statement: "Glass is a slow-moving liquid.",                 correct: 'false', explanation: "Glass is an amorphous solid." },
     { statement: "Octopuses have three hearts.",                   correct: 'true',  explanation: "Two pump blood to the gills, one to the rest of the body." },
     { statement: "Bulls are enraged by the colour red.",           correct: 'false', explanation: "Bulls are partially colour-blind — it's the motion of the cape." },
+
+    { statement: "Sharks existed before trees.",                   correct: 'true',  explanation: "Sharks date back ~400 million years; the earliest trees appeared ~350 million years ago." },
+    { statement: "A group of crows is called a 'murder'.",         correct: 'true',  explanation: "This is a real, traditional collective noun for crows." },
+    { statement: "Mount Everest is the tallest mountain on Earth.", correct: 'false', explanation: "Mauna Kea is taller base-to-peak, though Everest has the highest sea-level elevation." },
+    { statement: "Chameleons change colour mainly to camouflage themselves.", correct: 'false', explanation: "They mainly change colour to communicate mood and regulate temperature." },
+    { statement: "The human body contains more bacterial cells than human cells.", correct: 'false', explanation: "Recent estimates show roughly a 1:1 ratio, not bacteria dominating." },
+    { statement: "Vikings wore horned helmets in battle.",          correct: 'false', explanation: "No archaeological evidence supports horned battle helmets; it's a 19th-century invention." },
+    { statement: "An ostrich can run faster than a horse.",         correct: 'true',  explanation: "Ostriches can reach about 70 km/h, faster than most horses." },
+    { statement: "It takes seven years to digest swallowed gum.",   correct: 'false', explanation: "Gum passes through the digestive system in a few days, undigested." },
+    { statement: "The Eiffel Tower can be taller in summer than in winter.", correct: 'true', explanation: "Thermal expansion of the iron can add several centimetres to its height in heat." },
+    { statement: "All polar bears are left-handed.",                correct: 'false', explanation: "There's no scientific evidence for paw-handedness preference in polar bears; this is a myth." },
+    { statement: "Sea otters hold hands while sleeping.",           correct: 'true',  explanation: "They do this to avoid drifting apart in the water." },
+    { statement: "Albert Einstein failed math in school.",          correct: 'false', explanation: "He excelled at math from a young age; this is a popular myth." },
+    { statement: "The shortest war in history lasted under an hour.", correct: 'true', explanation: "The Anglo-Zanzibar War of 1896 lasted around 38-45 minutes." },
+    { statement: "Penguins propose to their mates with pebbles.",   correct: 'true',  explanation: "Some species, like Gentoo penguins, offer pebbles as part of courtship." },
+    { statement: "Humans and dinosaurs coexisted.",                 correct: 'false', explanation: "Dinosaurs went extinct ~65 million years before humans appeared." },
+    { statement: "A bolt of lightning is hotter than the surface of the Sun.", correct: 'true', explanation: "Lightning can reach ~30,000 K, far hotter than the Sun's surface (~5,500 K)." },
+    { statement: "Coca-Cola was originally green.",                 correct: 'false', explanation: "Coca-Cola has always been brown due to caramel colouring." },
+    { statement: "Oxford University is older than the Aztec Empire.", correct: 'true', explanation: "Oxford has taught since 1096; the Aztec Empire began around 1428." },
+    { statement: "Touching a baby bird will make its mother abandon it.", correct: 'false', explanation: "Most birds don't abandon chicks due to human scent; this is a common myth." },
+    { statement: "Wombat poop is cube-shaped.",                     correct: 'true',  explanation: "Wombats produce distinctly cube-shaped droppings due to their intestinal structure." },
+
+    { statement: "Bats are blind.",                                 correct: 'false', explanation: "Most bats can see; many also use echolocation to navigate." },
+    { statement: "The shortest commercial flight in the world lasts under two minutes.", correct: 'true', explanation: "A Scottish inter-island flight covers ~2.7km in under two minutes." },
+    { statement: "Mount Fuji is in mainland Asia.",                 correct: 'false', explanation: "Mount Fuji is in Japan, an island nation, not mainland Asia." },
+    { statement: "A 'jiffy' is an actual unit of time.",            correct: 'true',  explanation: "In physics, a jiffy can refer to 1/100th of a second or the time light takes to travel one centimetre." },
+    { statement: "Peanuts are technically nuts.",                   correct: 'false', explanation: "Peanuts are legumes, growing underground in pods." },
+    { statement: "The inventor of the Pringles can is buried in one.", correct: 'true', explanation: "Fredric Baur's ashes were partly placed in a Pringles can per his request." },
+    { statement: "Sound travels faster in water than in air.",      correct: 'true',  explanation: "Sound moves about four times faster through water than through air." },
+    { statement: "Cracking your knuckles causes arthritis.",        correct: 'false', explanation: "Studies have found no link between knuckle cracking and arthritis." },
+    { statement: "The Sahara Desert was once a lush, green landscape.", correct: 'true', explanation: "Around 6,000-10,000 years ago, the Sahara had lakes, rivers, and vegetation." },
+    { statement: "Most heat loss from the body occurs through the head.", correct: 'false', explanation: "Heat loss is roughly proportional to exposed skin area, not concentrated in the head." },
+    { statement: "Saturn could float in water due to its low density.", correct: 'true', explanation: "Saturn's average density is less than water's, so it would theoretically float." },
+    { statement: "The Statue of Liberty was originally a copper colour.", correct: 'true', explanation: "It was reddish-brown before oxidation turned it green over decades." },
+    { statement: "Tomatoes were once believed to be poisonous in Europe.", correct: 'true', explanation: "Wealthy Europeans got lead poisoning from acidic tomatoes reacting with pewter plates, blaming the fruit." },
+    { statement: "Antarctica is the world's largest desert.",       correct: 'true',  explanation: "By definition (low precipitation), Antarctica is the largest desert on Earth." },
+    { statement: "Komodo dragons can reproduce without a mate.",    correct: 'true',  explanation: "Female Komodo dragons can reproduce via parthenogenesis without fertilization." },
 ];
 
 const WAI_WORDS = [
@@ -90,6 +128,26 @@ const TOT_QUESTIONS = [
     { question: "Which would you rather?", optionA: "Space",    optionB: "Deep Ocean", emojiA: "🚀", emojiB: "🌊" },
     { question: "Which would you rather?", optionA: "Past",     optionB: "Future",     emojiA: "⏪", emojiB: "⏩" },
     { question: "Which would you rather?", optionA: "City Life",optionB: "Countryside",emojiA: "🏙️", emojiB: "🌾" },
+    { question: "Which would you rather?", optionA: "Sweet",    optionB: "Savory",     emojiA: "🍩", emojiB: "🥨" },
+    { question: "Which would you rather?", optionA: "Books",    optionB: "Movies",     emojiA: "📚", emojiB: "🎬" },
+    { question: "Which would you rather?", optionA: "Texting",  optionB: "Calling",    emojiA: "💬", emojiB: "📞" },
+    { question: "Which would you rather?", optionA: "Rain",     optionB: "Sunshine",   emojiA: "🌧️", emojiB: "🌤️" },
+    { question: "Which would you rather?", optionA: "Adventure",optionB: "Relaxation", emojiA: "🧗", emojiB: "🛋️" },
+    { question: "Which would you rather?", optionA: "Burgers",  optionB: "Tacos",      emojiA: "🍔", emojiB: "🌮" },
+    { question: "Which would you rather?", optionA: "Cars",     optionB: "Motorcycles",emojiA: "🚗", emojiB: "🏍️" },
+    { question: "Which would you rather?", optionA: "Movies at Home", optionB: "Movies at the Cinema", emojiA: "🏠", emojiB: "🎟️" },
+    { question: "Which would you rather?", optionA: "Karaoke",  optionB: "Dancing",    emojiA: "🎤", emojiB: "💃" },
+    { question: "Which would you rather?", optionA: "Camping",  optionB: "Hotel",      emojiA: "⛺", emojiB: "🏨" },
+    { question: "Which would you rather?", optionA: "Superpower: Invisibility", optionB: "Superpower: Flight", emojiA: "🫥", emojiB: "🦸" },
+    { question: "Which would you rather?", optionA: "Early Bird", optionB: "Night Owl", emojiA: "🐦", emojiB: "🦉" },
+    { question: "Which would you rather?", optionA: "Gaming",   optionB: "Sports",     emojiA: "🎮", emojiB: "⚽" },
+    { question: "Which would you rather?", optionA: "Cooking",  optionB: "Eating Out", emojiA: "👨‍🍳", emojiB: "🍽️" },
+    { question: "Which would you rather?", optionA: "Cash",     optionB: "Credit Card",emojiA: "💵", emojiB: "💳" },
+    { question: "Which would you rather?", optionA: "Spicy Food", optionB: "Mild Food",emojiA: "🌶️", emojiB: "🥛" },
+    { question: "Which would you rather?", optionA: "Road Trip", optionB: "Flight",    emojiA: "🚙", emojiB: "✈️" },
+    { question: "Which would you rather?", optionA: "Big Party", optionB: "Small Gathering", emojiA: "🎉", emojiB: "🤝" },
+    { question: "Which would you rather?", optionA: "Photos",   optionB: "Videos",     emojiA: "📸", emojiB: "🎥" },
+    { question: "Which would you rather?", optionA: "Streaming Music", optionB: "Vinyl Records", emojiA: "🎧", emojiB: "💿" },
 ];
 
 function getTomRoom(roomId) {
@@ -104,7 +162,6 @@ function getTotRoom(roomId) {
     if (!totRooms[roomId]) totRooms[roomId] = { players: {}, active: false, current: -1, votes: {} };
     return totRooms[roomId];
 }
-
 function startWaiRound(room, wr) {
     const ids = Object.keys(wr.players);
     if (!ids.length) return;
@@ -819,39 +876,151 @@ function getTomRoom(roomName) {
         socket.on('wai_next_round', (data) => { startWaiRound(data.room || clientRoom, getWaiRoom(data.room || clientRoom)); });
         socket.on('wai_leave',      (data) => { const wr = getWaiRoom(data.room || clientRoom); delete wr.players[socket.id]; io.to(data.room || clientRoom).emit('wai_players_update', { players: wr.players }); });
 
-/////////////////////////////////////////////////////////        
+/////////////////////////////////////////////////////////
 // ── THIS OR THAT ──────────────────────────────────────
-        socket.on('tot_join', (data) => { 
-            const room = data.room || clientRoom; const tr = getTotRoom(room); tr.players[socket.id] = { id: socket.id, name: data.name }; io.to(room).emit('tot_players_update', { players: tr.players }); 
+        socket.on('tot_join', (data) => {
+            const room = data.room || clientRoom;
+            const tr = getTotRoom(room);
+            tr.players[socket.id] = tr.players[socket.id] || { id: socket.id, name: data.name, score: 0 };
+            tr.players[socket.id].name = data.name;
+
+            // Assign host if none exists
+            if (!tr.hostId || !tr.players[tr.hostId]) {
+                tr.hostId = socket.id;
+                socket.emit('tot_host_assigned');
+            }
+
+            io.to(room).emit('tot_players_update', { players: tr.players });
         });
+
         socket.on('tot_start', async (data) => {
-            const room = data.room || clientRoom; const tr = getTotRoom(room);
-            if (tr.active) return; tr.active = true;
-            const rounds = [...TOT_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 10);
-            for (let i = 0; i < rounds.length; i++) {
-                tr.current = i; tr.votes = {}; const q = rounds[i];
-                io.to(room).emit('tot_round', { ...q, index: i, total: rounds.length });
-                await sleep(12000);
-                let votesA = 0, votesB = 0;
-                Object.entries(tr.votes).forEach(([, choice]) => { if (choice === 'A') votesA++; if (choice === 'B') votesB++; });
-                io.to(room).emit('tot_round_result', { ...q, votesA, votesB });
-                if (i < rounds.length - 1) await sleep(4000);
+            const room = data.room || clientRoom;
+            const tr = getTotRoom(room);
+            if (tr.active) return;
+            tr.active = true;
+            tr.gameEnded = false;
+
+            // reset scores
+            Object.values(tr.players).forEach(p => p.score = 0);
+
+            tr.rounds = [...TOT_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 10);
+            tr.current = -1;
+
+            // countdown
+            for (let c = 3; c > 0; c--) {
+                io.to(room).emit('tot_countdown', { count: c });
+                await sleep(1000);
             }
-            io.to(room).emit('tot_game_end');
-            tr.active = false; tr.current = -1;
+
+            startTotRound(room, tr);
         });
+
         socket.on('tot_vote', (data) => {
-            const room = data.room || clientRoom; const tr = getTotRoom(room);
-            if (!tr.votes[socket.id] && data.choice) {
-                tr.votes[socket.id] = data.choice;
-                let votesA = 0, votesB = 0;
-                Object.entries(tr.votes).forEach(([, c]) => { if (c === 'A') votesA++; if (c === 'B') votesB++; });
-                io.to(room).emit('tot_vote_update', { votesA, votesB });
+            const room = data.room || clientRoom;
+            const tr = getTotRoom(room);
+            if (!tr.active || tr.current < 0) return;
+            if (tr.votes[socket.id] !== undefined) return; // already voted
+
+            tr.votes[socket.id] = data.choice; // 'A' | 'B' | null
+
+            // award points for any non-null vote (participation), can be adjusted
+            if (data.choice === 'A' || data.choice === 'B') {
+                const timeLeft = typeof data.timeLeft === 'number' ? data.timeLeft : 0;
+                const bonus = Math.round((timeLeft / 12) * 50); // up to 50 bonus pts
+                const p = tr.players[socket.id];
+                if (p) p.score = (p.score || 0) + 10 + bonus;
             }
         });
-        socket.on('tot_leave', (data) => { 
-            const tr = getTotRoom(data.room || clientRoom); delete tr.players[socket.id]; io.to(data.room || clientRoom).emit('tot_players_update', { players: tr.players }); 
+
+        socket.on('tot_next', (data) => {
+            const room = data.room || clientRoom;
+            const tr = getTotRoom(room);
+            if (!tr.active) return;
+            if (socket.id !== tr.hostId) return; // only host advances
+
+            if (tr.current >= tr.rounds.length - 1) {
+                // game over
+                tr.active = false;
+                tr.gameEnded = true;
+                const scores = {};
+                Object.values(tr.players).forEach(p => scores[p.id] = p.score || 0);
+                io.to(room).emit('tot_final', { scores });
+                tr.current = -1;
+            } else {
+                startTotRound(room, tr);
+            }
         });
+
+        socket.on('tot_leave', (data) => {
+            const room = data.room || clientRoom;
+            const tr = getTotRoom(room);
+            delete tr.players[socket.id];
+            delete tr.votes[socket.id];
+
+            // reassign host if needed
+            if (tr.hostId === socket.id) {
+                const remaining = Object.keys(tr.players);
+                tr.hostId = remaining.length ? remaining[0] : null;
+                if (tr.hostId) io.to(tr.hostId).emit('tot_host_assigned');
+            }
+
+            io.to(room).emit('tot_players_update', { players: tr.players });
+        });
+
+        socket.on('tot_reset', (data) => {
+            const room = data.room || clientRoom;
+            const tr = getTotRoom(room);
+            tr.active = false;
+            tr.gameEnded = false;
+            tr.current = -1;
+            tr.votes = {};
+            Object.values(tr.players).forEach(p => p.score = 0);
+            io.to(room).emit('tot_reset');
+        });
+
+// ── Helper: advance to next round, reveal previous, then broadcast new round ──
+async function startTotRound(room, tr) {
+    // If we're advancing past round 0, reveal the previous round's results first
+    if (tr.current >= 0) {
+        const prevQ = tr.rounds[tr.current];
+        let votesA = 0, votesB = 0;
+        Object.values(tr.votes).forEach(choice => {
+            if (choice === 'A') votesA++;
+            if (choice === 'B') votesB++;
+        });
+        const scores = {};
+        Object.values(tr.players).forEach(p => scores[p.id] = p.score || 0);
+
+        io.to(room).emit('tot_reveal', {
+            optionA: prevQ.optionA,
+            optionB: prevQ.optionB,
+            votesA,
+            votesB,
+            scores,
+        });
+    }
+
+    tr.current++;
+    tr.votes = {};
+    const q = tr.rounds[tr.current];
+    io.to(room).emit('tot_round', { ...q, index: tr.current, total: tr.rounds.length });
+}
+
+// ── Helper: room state factory (if not already defined elsewhere) ──
+function getTotRoom(room) {
+    if (!totRooms[room]) {
+        totRooms[room] = {
+            players: {},
+            votes: {},
+            rounds: [],
+            current: -1,
+            active: false,
+            gameEnded: false,
+            hostId: null,
+        };
+    }
+    return totRooms[room];
+}
 /////////////////////////////////////////////////////////        
 // ── SLITHER IO ──────────────────────────────────────
 

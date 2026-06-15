@@ -5,15 +5,23 @@
     align-items: center; justify-content: center;
     position: relative; overflow: hidden;
     font-family: 'Fira Sans', sans-serif; color: white;
-    background: #000;
+    background: rgba(0,0,0,0.4);
+}
+#tot-overlay {
+    position: fixed;
+    width: 940px;
+    height: 690px;
+    background: rgba(0,0,0,0.4);
+    z-index: -1;
 }
 #tot-close {
     position: absolute; top: 20px; left: 20px;
-    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.5);
     border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
     color: white; padding: 7px 14px; font-size: 0.78rem;
-    font-family: 'Fira Sans', sans-serif; text-transform: uppercase;
-    letter-spacing: 1px; display: flex; align-items: center; gap: 6px;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 6px;
     cursor: pointer; transition: all 0.2s; z-index: 200;
 }
 #tot-close:hover { border-color: rgba(255,255,255,0.5); }
@@ -22,15 +30,14 @@
     display: none; flex-direction: column;
     align-items: center; justify-content: center;
     width: 100%; height: 100%;
-    animation: totFade 0.4s ease;
+    animation: tomFade 0.4s ease;
 }
 .tot-screen.active { display: flex; }
 
 /* ── LOBBY ── */
 #tot-lobby { gap: 28px; }
-.tot-title    { font-size: 2.4rem; font-weight: 200; letter-spacing: 8px; text-transform: uppercase; }
-.tot-subtitle { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; }
-
+.tot-title { font-size: 2.4rem; font-weight: 200; letter-spacing: 8px; text-transform: uppercase; }
+.tot-subtitle { font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; }
 #tot-players-list { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 800px; }
 .tot-chip {
     background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
@@ -175,6 +182,7 @@
 </style>
 
 <div id="tot-module">
+        <div id="tot-overlay"></div>
     <button id="tot-close" onclick="totClose()">
         <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span> Back
     </button>
@@ -187,10 +195,10 @@
         <div class="tot-name-row">
             <input id="tot-name-input" type="text" placeholder="Your name..." maxlength="16">
             <button class="tot-btn" onclick="totJoin()">Join</button>
+            <button class="tot-btn" id="tot-start-btn" onclick="totStart()" disabled>Start</button>
+    
         </div>
-        <button class="tot-btn" id="tot-start-btn" onclick="totStart()" disabled>Start</button>
     </div>
-
     <!-- VOTE -->
     <div id="tot-vote" class="tot-screen">
         <div id="tot-q-counter">Round 1 of 10</div>

@@ -6,7 +6,7 @@
         right: 25px;
         width: 45px;
         height: 45px;
-        rgba(255,255,255,0.1);
+        background: (255,255,255,0.1);
         border: 1px solid var(--glass-border);
         border-radius: 10px; 
         color: white;
@@ -26,6 +26,33 @@
         transform: scale(1.1);
 }
 
+/* ── NAVIGATION BUTTONS ── */
+.ltv-nav-btn, .ltv-back-btn {
+    margin-top: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.173);
+    color: white;
+    padding: 3px 13px;
+    border-radius: 0px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0px 0px;
+    opacity: 0.8;
+}
+
+.ltv-nav-btn:hover, .ltv-nav-btn.remote-hover {
+        border-color: #5ab565; 
+        background: rgba(90, 181, 101, 0.7);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
+}
+.ltv-back-btn:hover, .ltv-back-btn.remote-hover {
+        border-color: rgb(255, 0, 0); 
+        background: rgb(225, 28, 28);
+        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
+}
 /* TO CHECK REASON */
 .material-symbols-rounded {
         font-weight: 400!important;

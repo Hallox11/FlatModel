@@ -7,6 +7,13 @@
     "teleportUrl": null
   },
   {
+    "title": "CLAW",
+    "desc": "CLAW is an immersive PBR-enabled environment for socializing, gaming, and capturing memorable photos.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a0b66fcfa3b8ec984519ecd_6a0b661c92f5e008933595.jpeg",
+    "detailLink": "https://secondlife.com/destination/claw",
+    "teleportUrl": null
+  },
+  {
     "title": "Luanes World - Le Monde Perdu",
     "desc": "Summer has arrived at Luanes World! Wander through sun-drenched Mediterranean-inspired landscapes, discover peaceful corners to relax, and enjoy beautiful scenery perfect for photography and quiet moments alike. Whether you're exploring, spending time with friends, or simply taking in the atmosphere, enjoy everything this season has to offer.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a21ba48fdb858e3ee17ff54_6a21b86d09ef9063281105.jpeg",
@@ -21,17 +28,31 @@
     "teleportUrl": null
   },
   {
-    "title": "OBSIDIA",
-    "desc": "OBSIDIA is a remote and enigmatic place, suspended between the present and the unknown, somewhere between tranquility and unease, where reality seems to dissolve. It may feel like an escape from everything, yet there is always a lingering sense that something more awaits, something yet to be discovered.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/683c4863758ebc7ce2df054e_683c4805158e7056590183.jpeg",
-    "detailLink": "https://secondlife.com/destination/obsidia",
-    "teleportUrl": null
-  },
-  {
     "title": "Cherishville Summer",
     "desc": "Welcome to the summer 2026 edition of Cherishville, a peaceful, photogenic destination where you can relax, socialize, and take pictures. Free rezz is available for photography enthusiasts.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a2875e0bcac9898b38bff8a_6a2875833cf1b882766267.jpeg",
     "detailLink": "https://secondlife.com/destination/cherishville",
+    "teleportUrl": null
+  },
+  {
+    "title": "Avonshire",
+    "desc": "Avonshire is one of the four counties in the estate of the Duke of Avon, and the home of the Duke & Duchess. Nestled in the English countryside, Avonshire includes the Manor House and surrounding gardens. As well as beautiful horse riding trails, hidden beaches, picturesque nooks, and entry to the surrounding counties in the estate of the Duke & Duchess.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/699f13bb92f4e9dde42d7a78_699f1341b9764010144962.jpeg",
+    "detailLink": "https://secondlife.com/destination/avonshire",
+    "teleportUrl": null
+  },
+  {
+    "title": "Sedgewick",
+    "desc": "Sedgewick is one of the four counties in the estate of the Duke of Avon, evoking the charm of the English countryside. Featuring an English country village, beautiful horse riding trails, and picturesque nooks surrounding the country estate of the Duke & Duchess.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68c8212ca6e73b037a15a364_68c820b1f3997654733871.jpeg",
+    "detailLink": "https://secondlife.com/destination/sedgewick",
+    "teleportUrl": null
+  },
+  {
+    "title": "OBSIDIA",
+    "desc": "OBSIDIA is a remote and enigmatic place, suspended between the present and the unknown, somewhere between tranquility and unease, where reality seems to dissolve. It may feel like an escape from everything, yet there is always a lingering sense that something more awaits, something yet to be discovered.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/683c4863758ebc7ce2df054e_683c4805158e7056590183.jpeg",
+    "detailLink": "https://secondlife.com/destination/obsidia",
     "teleportUrl": null
   },
   {
@@ -42,6 +63,13 @@
     "teleportUrl": null
   },
   {
+    "title": "Blue Finch",
+    "desc": "Welcome to Blue Finch, a charming coastal town with stunning waterfront views and relaxing activities. Tour the region aboard the Cuddly Owl Bear, explore by bicycle, enjoy a boat ride, play mini golf, visit cozy cafés, swim, relax on a floating raft, or unwind on the beach. Whether seeking adventure, friendship, or quiet moments, Blue Finch offers a perfect escape filled with beauty, comfort, and discovery.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1f56911fab1fc29519b694_6a1f559797e5e786764134.png",
+    "detailLink": "https://secondlife.com/destination/blue-finch",
+    "teleportUrl": null
+  },
+  {
     "title": "The Theater at LeLoo's World Mainland",
     "desc": "As the season warms, step into a sunlit world where fantasy blooms across the land. Follow the winding path to a charming open‑air theater, or wander down to the Lake to enjoy rideable swans and delightful pose props—perfect for capturing memories touched with a hint of magic. Please use the following settings for the best viewer experience: use Shared Environment for both Sky & Water, check the box for Transparent Water, turn on sounds, and set the draw distance to 150+. Everyone is welcome to this PG event! Don't forget to share your photos in the Flickr group: flickr.com/groups/leloosworld",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ef74754160d2f560d9720c_69ef739f8e3c3938452799.jpeg",
@@ -49,24 +77,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Storybook",
-    "desc": "Welcome to Storybook, a fairytale forest dedicated to your childhood bedtime stories. Find your favorite fairytales, take pictures and explore!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6307ffc4eda42709f8e20095_6307ffacc6ec3365302053.jpeg",
-    "detailLink": "https://secondlife.com/destination/storybook",
-    "teleportUrl": null
-  },
-  {
-    "title": "Buddha Garden",
-    "desc": "Welcome to Buddha Garden, a paradise of pleasure, relaxation, and meditation. You can spend moments of serenity surrounded by nature. Discover the \"Ancient Dragon Theater\" underwater.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67bc709e3db004deba11227e_67bc703f4de0e376457796.png",
-    "detailLink": "https://secondlife.com/destination/buddha-garden",
-    "teleportUrl": null
-  },
-  {
-    "title": "Cherry Blossom Onsen",
-    "desc": "Cherry Blossom Onsen is a beautifully crafted Japanese-themed destination featuring serene gardens, flowing waterfalls, traditional torii gates, lantern-lit bridges, and a stunning pagoda overlooking the landscape. The atmosphere is peaceful, immersive, and perfect for exploring, taking photos, or just relaxing. For the best experience, keep it in night mode to truly enjoy the magic of the glowing lanterns and moonlit scenery.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67c1bd2f92a262adab7c4623_67c1bcc166403484976193.png",
-    "detailLink": "https://secondlife.com/destination/cherry-blossom-onsen",
+    "title": "Foxleigh",
+    "desc": "Foxleigh is one of the four counties in the estate of the Duke of Avon, evoking the charm of the English countryside and providing beautiful horse riding trails and picturesque nooks surrounding the country estate of the Duke & Duchess. Bring your own horse or choose one on location.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68b9a37c724c830839b3fa47_68b5d028a512c440723979.jpeg",
+    "detailLink": "https://secondlife.com/destination/foxleigh",
     "teleportUrl": null
   },
   {
@@ -77,38 +91,31 @@
     "teleportUrl": null
   },
   {
-    "title": "Amandia Beach & Opium Club",
-    "desc": "Welcome to Amandia, the flavour and the colors of an Italian beach village, and Opium Club. It's a place for photos, relaxation, and hanging out. Visit and enjoy the Italian-style architecture.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64518b12b69bcd90dd8bd012_64518af158c2e597568024.jpeg",
-    "detailLink": "https://secondlife.com/destination/amandia-beach",
+    "title": "Infinite Darkness",
+    "desc": "Good and evil, water and fire, light and dark, are the essence of Infinite Darkness. The majesty of the gothic style, the occult symbolism, and the dark powers of the vampires will immerse you on a hellish journey.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/666c26853b5ab7272ae6fa79_666c261fad863331407889.png",
+    "detailLink": "https://secondlife.com/destination/infinite-darkness",
     "teleportUrl": null
   },
   {
-    "title": "Le Chateau - A Retro 80s Community",
-    "desc": "Do you like vacations and hanging out while drinking an exotic cocktail by the poolside? Then Le Chateau is the place for you to be! With their kitsch and cheesy atmosphere and non-stop flowing exotic cocktails, a mix between French and American \"80s'\" culture atmosphere, they offer a wide variety of services, from the jungle-like airfield to the arcade room! Take your pick!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/630500a88c97dd5d12e9a604_62e9cf50d7681731210333.jpeg",
-    "detailLink": "https://secondlife.com/destination/le-chateau-motel",
+    "title": "Storybook",
+    "desc": "Welcome to Storybook, a fairytale forest dedicated to your childhood bedtime stories. Find your favorite fairytales, take pictures and explore!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6307ffc4eda42709f8e20095_6307ffacc6ec3365302053.jpeg",
+    "detailLink": "https://secondlife.com/destination/storybook",
     "teleportUrl": null
   },
   {
-    "title": "Lenixus Project - Chapter II",
-    "desc": "Lenixus Project is a personal artistic experience, for both the creator and visitors. A story told through exploration; environments, details, and atmosphere, without always explaining everything. It evolves over time, sometimes unpredictably.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a21cf602358f31289e8af9e_6a21cd25710f7268498330.jpeg",
-    "detailLink": "https://secondlife.com/destination/lenixus-project",
+    "title": "LeLoo's World - Age of Giants",
+    "desc": "LeLoo’s World invites you to journey through a lush prehistoric sanctuary, where towering ferns, ancient trees, and the distant calls of colossal creatures surround you, revealing a realm time has quietly forgotten, a place where wonder and adventure begin the moment you arrive. Everyone is welcome to this PG event! For best viewing: Use a PBR viewer and Shared Environment. Turn on sounds. LOD set to 4, and draw distance to 150+.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a2d5809ca0f5fbeabcd4234_6a2d57792a405045096636.jpeg",
+    "detailLink": "https://secondlife.com/destination/leloos-world",
     "teleportUrl": null
   },
   {
-    "title": "Grand Harbor Isle",
-    "desc": "Grand Harbor Isle is a scenic, car-free coastal destination set in Lake Serene. Designed for exploration and relaxation, the island features a detailed waterfront town, forest trails, waterfalls, beaches, and elevated viewpoints throughout. Visitors can explore by foot, bike, or horse, with rezers available across the region. The town includes a mix of storefronts, apartments, and rental homes, along with the Grand Harbor Hotel for short stays. A central Welcome Center provides information on rentals, hotel availability, and key landmarks. Grand Harbor Isle is ideal for photography, casual exploration, and social visits. No roleplay is required, though light roleplay is welcome.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a0623ca839745b8c01f7cbb_6a062385102fb512806925.jpeg",
-    "detailLink": "https://secondlife.com/destination/grand-harbor-isle",
-    "teleportUrl": null
-  },
-  {
-    "title": "Kaleidoscope - Monarch Education Project",
-    "desc": "Kaleidoscope, a Monarch Education Project, brought to you by MORPH Productions and SPARK Project, is an experience for the mind, heart, and soul. Follow the nature hike to learn about the importance of this beautiful butterfly and experience the breathtaking views of the monarch wintering grounds. Immerse in the butterfly experience while cuddling your beloved.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63eace387e66c603e8a7a8ca_63eacdfdb6a18392836193.jpeg",
-    "detailLink": "https://secondlife.com/destination/kaleidoscope-monarch-education-project",
+    "title": "Village de Roqueblanche",
+    "desc": "Roqueblanche is a little village nested in the southern of France. Visitors can explore the countryside, sunlit homes, a charming café, and an art gallery. It is an Albane Claray creation.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66faae677232d52d2cbf4011_66faae0f59ad7939723102.jpeg",
+    "detailLink": "https://secondlife.com/destination/roqueblanche",
     "teleportUrl": null
   },
   {
@@ -119,108 +126,24 @@
     "teleportUrl": null
   },
   {
-    "title": "Bryggen",
-    "desc": "Welcome to Bryggen, a vibrant coastal town on the Blake Sea, where modern meets ancient, and where narrow alleys whisper tales of the past. From its bustling harbor to its cutting-edge university, from lively bars to quiet financial offices, every corner of Bryggen has a purpose and a secret, and the sea is no exception.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68b08d1470546808f2f79b46_68b08b4ca66c6530174982.png",
-    "detailLink": "https://secondlife.com/destination/bryggen",
+    "title": "Cherry Blossom Onsen",
+    "desc": "Cherry Blossom Onsen is a beautifully crafted Japanese-themed destination featuring serene gardens, flowing waterfalls, traditional torii gates, lantern-lit bridges, and a stunning pagoda overlooking the landscape. The atmosphere is peaceful, immersive, and perfect for exploring, taking photos, or just relaxing. For the best experience, keep it in night mode to truly enjoy the magic of the glowing lanterns and moonlit scenery.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67c1bd2f92a262adab7c4623_67c1bcc166403484976193.png",
+    "detailLink": "https://secondlife.com/destination/cherry-blossom-onsen",
     "teleportUrl": null
   },
   {
-    "title": "Indigo Night - An Unusual Trail",
-    "desc": "Indigo Night is a tranquil forest, where moonlight filters softly through the trees. As you venture, you'll never know what you'll stumble upon. Enjoy your adventure.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/687eb8fa42ae1b3d7ac49436_687eb8cadc2e6749597602.png",
-    "detailLink": "https://secondlife.com/destination/indigo-night",
+    "title": "Grand Harbor Isle",
+    "desc": "Grand Harbor Isle is a scenic, car-free coastal destination set in Lake Serene. Designed for exploration and relaxation, the island features a detailed waterfront town, forest trails, waterfalls, beaches, and elevated viewpoints throughout. Visitors can explore by foot, bike, or horse, with rezers available across the region. The town includes a mix of storefronts, apartments, and rental homes, along with the Grand Harbor Hotel for short stays. A central Welcome Center provides information on rentals, hotel availability, and key landmarks. Grand Harbor Isle is ideal for photography, casual exploration, and social visits. No roleplay is required, though light roleplay is welcome.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a0623ca839745b8c01f7cbb_6a062385102fb512806925.jpeg",
+    "detailLink": "https://secondlife.com/destination/grand-harbor-isle",
     "teleportUrl": null
   },
   {
-    "title": "THE INTERACTIVE EP EXPERIENCE BY SEMINA",
-    "desc": "Immerse yourself in the music of SEMINA. Explore the stories behind the songs and discover interesting facts about the EP \"To the moon and back\". Each song is represented by a constellation in a separate room. Walk through the wooden gates and start exploring!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67ec3a0ed2a812758b3db279_67ea8efe2d4b9680373632.jpeg",
-    "detailLink": "https://secondlife.com/destination/semina-experience",
-    "teleportUrl": null
-  },
-  {
-    "title": "Spirit Of Lotus",
-    "desc": "Welcome To Spirits OF Lotus. Step into a world of peace and serenity, where every moment is designed to help you relax, unwind, and reconnect with yourself. Spirits OF Lotus is your tranquil escape, a place where the stresses of the outside world melt.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69fcc78bfae48d17ca48fa45_69fcc7657180d486044772.jpeg",
-    "detailLink": "https://secondlife.com/destination/spirit-of-lotus",
-    "teleportUrl": null
-  },
-  {
-    "title": "Isle of Rowlyria",
-    "desc": "Isle of Rowlyria is a Mediterranean Isle where you can hang out, rent homes, relax by the sea and mountains, go virtual fishing, take beautiful pictures, and listen to some of the best DJs.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/655418c05b542db683e49054_655417207319f815430591.png",
-    "detailLink": "https://secondlife.com/destination/isle-of-rowlyria",
-    "teleportUrl": null
-  },
-  {
-    "title": "Vice Islands",
-    "desc": "Explore the new Vice Islands region, part of Le Chateau estate, inspired by Scarface and Miami with a funky neons retro decor, roads to ride your 80s muscle car, a beach, a mall, and pools! The perfect spot for your Miami-inspired photo.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63efdb70a954373600cee504_63efdb5d85c9d409219108.jpeg",
-    "detailLink": "https://secondlife.com/destination/vice-islands",
-    "teleportUrl": null
-  },
-  {
-    "title": "The Wastelands",
-    "desc": "The Wastelands is a post-apocalyptic community almost as old as Second Life itself. Despite their frightening outward appearances, their friendly and outgoing community is the core reason they've lasted so long. Whether you want to role-play, hang out and chat, or play the mini-mmo games they have; everything is free, and opt-in at your own pace. It is also a photo-friendly destination! Learn more at the-wastelands.org",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65a965713170bec5081598c6_65a965173735c678646556.jpeg",
-    "detailLink": "https://secondlife.com/destination/1687",
-    "teleportUrl": null
-  },
-  {
-    "title": "Rieri - Town in Tokyo",
-    "desc": "Visit Rieri-Town, an incredibly realistic town modeled from Google Maps and real photos of Tokyo neighborhoods. Come and visit to feel the atmosphere of this contemporary Japanese location.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa38127a1aae9e4231492e_5af5d2df9d4ef572359314.jpeg",
-    "detailLink": "https://secondlife.com/destination/rieri-town-in-tokyo",
-    "teleportUrl": null
-  },
-  {
-    "title": "Northern Shore",
-    "desc": "Inspired by the Swedish Skärgården this bustling fishing port captures the essence of those idyllic islands. Grab yourself a coffee and freshly baked pastries from the cafe and watch the local fishermen bring in the fresh catch of the day. You can explore this rocky landscape on foot or by the sea on our new rubber dinghies, or own your cottage and immerse yourself in the role of becoming a true archipelago resident. Owned by White Dunes Estate, check the greeter info about their rentals and please be mindful of the tenants.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa21208206b0d1861e798f_608a0aa14455f671858366.jpeg",
-    "detailLink": "https://secondlife.com/destination/northern-shore",
-    "teleportUrl": null
-  },
-  {
-    "title": "Lutz City of Templemore",
-    "desc": "Beyond the iron wrought gates and stone sculptures that usher you past the brick archway lies Lutz City of Templemore. Templemore continues the celebration of Live Music in SL through Lutz City with its amazing ambient and nested stages.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67b9ce8d646b12cfd3969707_67b9ce6153162809038573.png",
-    "detailLink": "https://secondlife.com/destination/lutz-city-of-templemore",
-    "teleportUrl": null
-  },
-  {
-    "title": "Ash Falls",
-    "desc": "A remote beach set in the Pacific Northwest for photos and soul searchers alike. Perfect for quiet romantic evenings, compelling photography or just hanging out with friends.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a8ee04ec84a950f7e4f2e7_59594b5404ec5449612647.jpeg",
-    "detailLink": "https://secondlife.com/destination/ash-falls",
-    "teleportUrl": null
-  },
-  {
-    "title": "Blue Finch",
-    "desc": "Welcome to Blue Finch, a charming coastal town with stunning waterfront views and relaxing activities. Tour the region aboard the Cuddly Owl Bear, explore by bicycle, enjoy a boat ride, play mini golf, visit cozy cafés, swim, relax on a floating raft, or unwind on the beach. Whether seeking adventure, friendship, or quiet moments, Blue Finch offers a perfect escape filled with beauty, comfort, and discovery.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1f56911fab1fc29519b694_6a1f559797e5e786764134.png",
-    "detailLink": "https://secondlife.com/destination/blue-finch",
-    "teleportUrl": null
-  },
-  {
-    "title": "BADU - BRAZIL eNdhmGIZ",
-    "desc": "Welcome to Rio de Janeiro, the vibrant heart of Brazil, where every street pulses with rhythm, color, and unforgettable energy. Feel the vibrant Carioca spirit in every corner as you explore iconic landmarks like Christ the Redeemer and Copacabana Beach, Escadaria Selaron, Sugarloaf Mountain, and Lapa Arches.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1e1cf765a10dc065e115fe_6a1e1c9b5db16062359731.jpeg",
-    "detailLink": "https://secondlife.com/destination/badu-brazil-endhmgiz",
-    "teleportUrl": null
-  },
-  {
-    "title": "TheNest - Sunbird Emberwood",
-    "desc": "Welcome to TheNest Sunbird Emberwood, a quiet forest village where time slows and a hint of magic lingers. Wander freely, lose yourself among the trees, and let dusk lead the way.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69eba48560dec8f3aecc9d8b_69eba3885479c317337836.jpeg",
-    "detailLink": "https://secondlife.com/destination/thenest",
-    "teleportUrl": null
-  },
-  {
-    "title": "Cheerful Nihilism",
-    "desc": "Cheerful Nihilism is a roadside destination blending industrial builds, neon accents, and quiet nature. Visitors can explore eclectic scenes, take photos, play mini golf, or relax by the pool and aquarium. Find joy in the absurd at Cheerful Nihilism!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c7c97239c213e9b3f62198_69c7c7f933f31931581561.jpeg",
-    "detailLink": "https://secondlife.com/destination/cheerful-nihilism",
+    "title": "Ocho Tango Place",
+    "desc": "Ocho Tango Place is not just a place; it’s a piece of history, a refuge, an embrace filled with music and shared steps. Here, time slows down, the lights grow warm, and every corner tells a story. Among photogenic spots, dance steps, and that unique atmosphere only tango can create, you’ll once again experience moments of pure serenity. Let yourself be carried by the music, lose yourself in an embrace, rediscover the joy of being together. Whether you are passionate dancers or simply lovers of beautiful vibes, this is your place.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c7cdabdc21bc655bf60673_69c7ccf76f1ce682741558.jpeg",
+    "detailLink": "https://secondlife.com/destination/ocho-tango-place",
     "teleportUrl": null
   },
   {
@@ -238,94 +161,31 @@
     "teleportUrl": null
   },
   {
-    "title": "Isola Sirena",
-    "desc": "Isola Sirena is a two‑region Italian coastal village offering sweeping hillside views, romantic waterfront scenery, and the charm of a Mediterranean getaway. Visitors can enjoy an upscale restaurant overlooking the sea, a cozy café in the village piazza, and leisurely gondola tours through scenic canals. Horse‑and‑carriage rides wind through cobblestone streets, while a lively farmers market, hillside winery, mini golf, and many other amenities create a rich, immersive experience. Designed for exploration, photography, and relaxation, Isola Sirena brings the warmth and beauty of Italy to life in Second Life.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69728ff38936500af79c4d63_69728f1e89c1b201075228.jpeg",
-    "detailLink": "https://secondlife.com/destination/isola-sirena",
+    "title": "Loxford",
+    "desc": "Loxford is one of the four counties in the estate of the Duke of Avon, evoking the charm of the English countryside. Featuring an outdoor gaming area, beautiful horse riding trails, a picturesque plaza, hidden beaches, and secret romantic nooks, surrounding the country estate of the Duke & Duchess.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ca944aed67a4bfbec499af_69ca940bb82b9215179933.jpeg",
+    "detailLink": "https://secondlife.com/destination/loxford",
     "teleportUrl": null
   },
   {
-    "title": "Ofrenda Nocturna",
-    "desc": "Ofrenda is a rugged, natural spot with much interest for photographers and dreamers. Relax, immerse yourself, and indulge your senses. Find those surprises and don't get lost. This is an adult destination, with something for everyone, so be ready to explore!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68d2c242934b6b7616d2ac9a_68d2c20e1b45a362098157.jpeg",
-    "detailLink": "https://secondlife.com/destination/ofrenda-nocturna",
+    "title": "Sant' Agapito",
+    "desc": "A former Roman settlement, Sant' Agapito, was extensively redeveloped in the Middle Ages. Separated from the later nineteenth-century \"upper town,\" it now offers a refuge of boutique shops, cafes, and quiet corners. Below the town is a fragment of ancient woodland with a lakeside terrace overlooking more period ruins. Lots of photo opportunities.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68bb030a273ee32bff9f4313_68bb02b2416a8147505758.jpeg",
+    "detailLink": "https://secondlife.com/destination/sant-agapito",
     "teleportUrl": null
   },
   {
-    "title": "Awenia Faerie",
-    "desc": "Awenia is a Faery Tourist Trap. Bring the kids! Awenia boasts a crystal grove, a book forest, a sacred grove, beautiful photo opportunities, and many remembrances of Fantasy Faires past and recent. You'll find one-of-a-kind items such as The Last Hope statue, The Shrine Tree, and the Well of Whispers. Stay for a little while....stay forever.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68bef533e4f020cffe91a6ab_68bef4e8769f7669088976.jpeg",
-    "detailLink": "https://secondlife.com/destination/awenia-faerie",
+    "title": "Batterie Beach",
+    "desc": "Discover Batterie Beach, a gritty boardwalk and amusement park infused with New Orleans spirit. This beachfront locale offers an edgy and urban escape. Stroll along the boardwalk, snap unforgettable photos, or simply absorb the vibrancy of this unique open space.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/647664bbe8d299f76b51d4c2_647663ef7bd68824542499.png",
+    "detailLink": "https://secondlife.com/destination/batterie-beach",
     "teleportUrl": null
   },
   {
-    "title": "Lost Swamp",
-    "desc": "Lost Swamp is a quiet and atmospheric destination where misty waters and whispering trees create a backdrop for reflection and photography. Visitors can explore its calm paths and find inspiration in its timeless setting.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68b8c09a89c9409a73c4d84e_68b8c003825a2731652937.jpeg",
-    "detailLink": "https://secondlife.com/destination/lost-swamp",
-    "teleportUrl": null
-  },
-  {
-    "title": "The Burrow",
-    "desc": "The Burrow rises above a wild countryside with crooked charm, inviting visitors to step into a world inspired by childhood stories of magic and friendship. Nestled among tall trees and winding paths, it feels like a place where beloved characters might still gather.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68a49c1fb2059969e1d793ff_68a499db0126d859301250.PNG",
-    "detailLink": "https://secondlife.com/destination/the-burrow-toothsum",
-    "teleportUrl": null
-  },
-  {
-    "title": "Soul Deep - Hope & Oceans",
-    "desc": "Where the salt wind carries whispers of Autumn. Wander weathered beaches, follow winding paths through golden grasses, and rest beneath trees that lean toward the sea. Here, hammocks sway, campfires glow, and gulls wheel above an ocean that feels endless. This is a place for slow breaths, long looks, and soul-deep moments, where hope drifts in like the tide and stays a while.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/689f30daf3c341cb8c5d789f_689f308ba05ee782198759.png",
-    "detailLink": "https://secondlife.com/destination/soul-deep",
-    "teleportUrl": null
-  },
-  {
-    "title": "TRA$HER",
-    "desc": "Welcome to TRA$HER, a Las Vegas-inspired virtual paradise with music clubs that have live DJ events, a chapel where you can get married, and endless other entertainment! There is even a monthly sales event that starts on the 7th of each month called Lucky 77. What happens in TRA$HER stays in TRA$HER! Learn more at trashersl.com",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ba99fa1ffc1eb861db57c1_69ba99d570a5b127616704.jpeg",
-    "detailLink": "https://secondlife.com/destination/trasher",
-    "teleportUrl": null
-  },
-  {
-    "title": "Principality of Monaco",
-    "desc": "The Principality of Monaco invites visitors to explore elegant French-style gardens and historical buildings inspired by the French Riviera. This private estate of Her Grace Serenya Charlotte Louise Juliette Grimaldi offers a unique glimpse into aristocratic charm and refined surroundings.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68bf194c3221d2b22f59ad26_68bf194b427bc549815871.jpeg",
-    "detailLink": "https://secondlife.com/destination/principality-of-monaco",
-    "teleportUrl": null
-  },
-  {
-    "title": "Sakura Cranes",
-    "desc": "Sakura Cranes is an Asian themed destination based off the Takedera Temple founded in Ancient Japan in 857. Upon arrival, you will walk down the stone steps through the cloud forest into the bamboo gardens. There are several areas of respite, including a beautiful tea house, serene gardens, a floating restaurant, a small temple, and fully furnished rentals available for peaceful getaways.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6554101776d5bb93b3cd48f9_65540ee7cf8bc375702605.png",
-    "detailLink": "https://secondlife.com/destination/sakura-cranes",
-    "teleportUrl": null
-  },
-  {
-    "title": "Ethereal City Legacy",
-    "desc": "Enjoy all the fabulous things to do with a summer refresh at Ethereal City Legacy with train rides, coffee spots, dining, new cuddle spots, and general breathtaking scenery, as well as new locations of Sake To Me, and a new Top of Legacy hangout spot. So much to do and see!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c14acbc87a1735a82b73d1_69c14aacca1ce777134117.jpeg",
-    "detailLink": "https://secondlife.com/destination/ethereal-city-legacy",
-    "teleportUrl": null
-  },
-  {
-    "title": "Black Kite",
-    "desc": "Black Kite has been placed with care by Black Cloud. It is blogger, photographer, and explorer friendly with an auto-return set to 60 minutes. Share your pictures in their Flickr group: flickr.com/groups/black-kite",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6303f9d5d44261ca0f9c20b5_6068b17e3382f016733844.jpeg",
-    "detailLink": "https://secondlife.com/destination/black-kite",
-    "teleportUrl": null
-  },
-  {
-    "title": "Ipperwash Cliffs National Seashore",
-    "desc": "Ipperwash Cliffs National Sea Shore is a public park dedicated to the enjoyment and beautification of mainland SL. There are miles of roads and trails ideal for hiking and horseback riding and beautiful vistas for photography. Nearly two full regions of shores, cliffs, forests, and meadows to explore.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62b520cd76d4de7054af91ca_62b520bec5375566361273.png",
-    "detailLink": "https://secondlife.com/destination/ipperwash-cliffs-national-seashore",
-    "teleportUrl": null
-  },
-  {
-    "title": "Timeless Memories",
-    "desc": "Timeless Memories is a lovely Mediterranean Island. Be amongst the sun-bathed cliffs of this secluded island and immerse yourself in this subtropical experience. A gorgeous cliff-top house and two beautiful beach homes each with panoramic views of the sky and emerald waters. Set your worries free in this idyllic paradise. Owned by White Dunes Estate, check the greeter info about their rentals and please be mindful of the tenants.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa56643520c58c2b394132_62460c87ab2d4875273344.jpeg",
-    "detailLink": "https://secondlife.com/destination/timeless-memories",
+    "title": "The Wastelands",
+    "desc": "The Wastelands is a post-apocalyptic community almost as old as Second Life itself. Despite their frightening outward appearances, their friendly and outgoing community is the core reason they've lasted so long. Whether you want to role-play, hang out and chat, or play the mini-mmo games they have; everything is free, and opt-in at your own pace. It is also a photo-friendly destination! Learn more at the-wastelands.org",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65a965713170bec5081598c6_65a965173735c678646556.jpeg",
+    "detailLink": "https://secondlife.com/destination/1687",
     "teleportUrl": null
   },
   {
@@ -336,48 +196,6 @@
     "teleportUrl": null
   },
   {
-    "title": "TETRA",
-    "desc": "A coastal destination with a beautiful forest filled with birds, trees and wind sounds. An amazing wild beach with rolling waves and sea sounds makes you feel at peace there. Home to the TETRA store which offers a great choice of high-quality women's clothing and footwear, fitted for a variety of female mesh bodies.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4688ca4a9d6d50042388_61f9e137bca74858919686.jpeg",
-    "detailLink": "https://secondlife.com/destination/tetra",
-    "teleportUrl": null
-  },
-  {
-    "title": "Poughkeepsie",
-    "desc": "An amazingly whimsical photography region with plenty to see and do. From date night, chilling by the fire, relaxing in the library, or taking on a game in the arcade (yes the games really work!)",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa34270746cf35772df053_5f63960e2f0f4837160102.jpeg",
-    "detailLink": "https://secondlife.com/destination/poughkeepsie",
-    "teleportUrl": null
-  },
-  {
-    "title": "Mount Campion Caves National Forest",
-    "desc": "Mount Campion Caves National Forest is over 150,000 sq meters of beautiful parkland, landscaped to look like a natural mountain park. It has the largest natural caves and caverns. Above ground are miles of scenic trails through natural canyons and forests. There is hiking, horseback riding, camping, and photography. and cabin rentals. Located on the slopes of Mount Campion, the highest mountain in SL on the beautiful Heterocera mainland continent. You can roam for weeks!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa1bbebbd4850a6f8bd7dd_5f261a1974e20870774756.jpeg",
-    "detailLink": "https://secondlife.com/destination/mount-campion-caves-national-forest",
-    "teleportUrl": null
-  },
-  {
-    "title": "Mindful Cove",
-    "desc": "Mindful Cove exists to provide both an entry point into Second Life, and an ongoing community region for newcomers and long-time residents alike, based on the core principle that SL can be an excellent place to engage in activities that support emotional and mental well-being.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa19c8af92ddb65df28705_6100ab75b7e8f518679509.jpeg",
-    "detailLink": "https://secondlife.com/destination/mindful-cove",
-    "teleportUrl": null
-  },
-  {
-    "title": "Lost Lagoon",
-    "desc": "Lost Lagoon is an isolated paradise in the South Seas. This beautiful jewel of a destination is a great place to explore, get in touch with nature, relax and cuddle. Everyone is welcome to find their piece of paradise at the Lost Lagoon.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa14b63d0bbd71a54845f8_5ad0f4a80d9eb409762983.jpeg",
-    "detailLink": "https://secondlife.com/destination/lost-lagoon",
-    "teleportUrl": null
-  },
-  {
-    "title": "Lollygagger Lane",
-    "desc": "Lollygagger Lane is a newcomer-friendly hang-out and slum region on mainland with a lively arts and music scene. Live performances, art exhibits, and an engaged community of gamers from some of the oldest groups in Second Life. Hobos, Amondeu Artisans, and Metaharpers have built a large array of free vehicles and other strange, whimsical content to play with on the SL road and waters. All are welcome!",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/641dcd4c25e81741a9ebd84b_641dccb0bec34769848401.jpeg",
-    "detailLink": "https://secondlife.com/destination/lollygagger-lane",
-    "teleportUrl": null
-  },
-  {
     "title": "Hazardous",
     "desc": "\"Dream infinitely, remain fearless, but always seek hazardous adventures.\" Hazardous is a mysterious and intriguing place with a minimalistic beauty of the U-shaped plateau; the novel means of reaching it from the landing point; and the curving stone steps awaiting discovery as they curl down to the waters below. Take a few photographs, hang out, or just spend some quiet time reflecting. Seek it out.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa085762a9d124556eb550_5d9023d827a29561614505.png",
@@ -385,31 +203,24 @@
     "teleportUrl": null
   },
   {
-    "title": "Cravone City",
-    "desc": "Inspired by New York, Cravone City is an urban region that is great for photography, roleplaying, and hanging out. Come explore the shops, cafes, and parks. With numerous streets and alleys, Cravone provides plenty of ways to get lost and find yourself again.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a9eed90ffd93df282c06e5_61003a9082b29104733647.jpeg",
-    "detailLink": "https://secondlife.com/destination/cravone",
+    "title": "Buddha Garden",
+    "desc": "Welcome to Buddha Garden, a paradise of pleasure, relaxation, and meditation. You can spend moments of serenity surrounded by nature. Discover the \"Ancient Dragon Theater\" underwater.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67bc709e3db004deba11227e_67bc703f4de0e376457796.png",
+    "detailLink": "https://secondlife.com/destination/buddha-garden",
     "teleportUrl": null
   },
   {
-    "title": "MOKAMBO - ZANZIBAR pzeBkOJq",
-    "desc": "Known as the Pearl of Africa, Asharhia unveils this beautiful African paradise. Surrounded by pristine Pacific Ocean beaches and crystal-clear turquoise waters, this captivating destination promises breathtaking views, unforgettable experiences, and picture-perfect moments at every turn.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1e1c067ae5651ba424848a_6a1e1b814b170234001075.jpeg",
-    "detailLink": "https://secondlife.com/destination/mokambo-zanzibar-pzebkojq",
+    "title": "Lenixus Project - Chapter II",
+    "desc": "Lenixus Project is a personal artistic experience, for both the creator and visitors. A story told through exploration; environments, details, and atmosphere, without always explaining everything. It evolves over time, sometimes unpredictably.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a21cf602358f31289e8af9e_6a21cd25710f7268498330.jpeg",
+    "detailLink": "https://secondlife.com/destination/lenixus-project",
     "teleportUrl": null
   },
   {
-    "title": "CLAW",
-    "desc": "CLAW is an immersive PBR-enabled environment for socializing, gaming, and capturing memorable photos.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a0b66fcfa3b8ec984519ecd_6a0b661c92f5e008933595.jpeg",
-    "detailLink": "https://secondlife.com/destination/claw",
-    "teleportUrl": null
-  },
-  {
-    "title": "Van Morka's at Renaissance Palace",
-    "desc": "Van Morka’s at Renaissance Palace welcomes visitors to explore a grand historic estate surrounded by expansive gardens. This museum and leisure destination features elegant architecture, quiet paths, and spaces inspired by traditions of the past, offering a peaceful place to wander and relax.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a048a1ba6612caeee61c00b_6a04898dbb410906815986.jpeg",
-    "detailLink": "https://secondlife.com/destination/van-morkas",
+    "title": "BADU - BRAZIL eNdhmGIZ",
+    "desc": "Welcome to Rio de Janeiro, the vibrant heart of Brazil, where every street pulses with rhythm, color, and unforgettable energy. Feel the vibrant Carioca spirit in every corner as you explore iconic landmarks like Christ the Redeemer and Copacabana Beach, Escadaria Selaron, Sugarloaf Mountain, and Lapa Arches.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1e1cf765a10dc065e115fe_6a1e1c9b5db16062359731.jpeg",
+    "detailLink": "https://secondlife.com/destination/badu-brazil-endhmgiz",
     "teleportUrl": null
   },
   {
@@ -420,6 +231,230 @@
     "teleportUrl": null
   },
   {
+    "title": "Isola Sirena",
+    "desc": "Isola Sirena is a two‑region Italian coastal village offering sweeping hillside views, romantic waterfront scenery, and the charm of a Mediterranean getaway. Visitors can enjoy an upscale restaurant overlooking the sea, a cozy café in the village piazza, and leisurely gondola tours through scenic canals. Horse‑and‑carriage rides wind through cobblestone streets, while a lively farmers market, hillside winery, mini golf, and many other amenities create a rich, immersive experience. Designed for exploration, photography, and relaxation, Isola Sirena brings the warmth and beauty of Italy to life in Second Life.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69728ff38936500af79c4d63_69728f1e89c1b201075228.jpeg",
+    "detailLink": "https://secondlife.com/destination/isola-sirena",
+    "teleportUrl": null
+  },
+  {
+    "title": "Planet M's Tula",
+    "desc": "Potter Tula dreamt of a valley sculpted from clay. A place where everything is kind, where nature, animals, and humans coexist in quiet harmony. One morning, she awoke to find that the dream had become her reality. You are invited to share in the wealth of this DreamLogic world. The TourBubbles await to carry you on a 45-minute relaxing journey. Come and let yourself be part of Tula's Dream.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/695d498c47d1734db9112d2a_695d494362cd5809462030.jpeg",
+    "detailLink": "https://secondlife.com/destination/planet-m-tula",
+    "teleportUrl": null
+  },
+  {
+    "title": "Bryggen",
+    "desc": "Welcome to Bryggen, a vibrant coastal town on the Blake Sea, where modern meets ancient, and where narrow alleys whisper tales of the past. From its bustling harbor to its cutting-edge university, from lively bars to quiet financial offices, every corner of Bryggen has a purpose and a secret, and the sea is no exception.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68b08d1470546808f2f79b46_68b08b4ca66c6530174982.png",
+    "detailLink": "https://secondlife.com/destination/bryggen",
+    "teleportUrl": null
+  },
+  {
+    "title": "TRA$HER",
+    "desc": "Welcome to TRA$HER, a Las Vegas-inspired virtual paradise with music clubs that have live DJ events, a chapel where you can get married, and endless other entertainment! There is even a monthly sales event that starts on the 7th of each month called Lucky 77. What happens in TRA$HER stays in TRA$HER! Learn more at trashersl.com",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ba99fa1ffc1eb861db57c1_69ba99d570a5b127616704.jpeg",
+    "detailLink": "https://secondlife.com/destination/trasher",
+    "teleportUrl": null
+  },
+  {
+    "title": "THE INTERACTIVE EP EXPERIENCE BY SEMINA",
+    "desc": "Immerse yourself in the music of SEMINA. Explore the stories behind the songs and discover interesting facts about the EP \"To the moon and back\". Each song is represented by a constellation in a separate room. Walk through the wooden gates and start exploring!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67ec3a0ed2a812758b3db279_67ea8efe2d4b9680373632.jpeg",
+    "detailLink": "https://secondlife.com/destination/semina-experience",
+    "teleportUrl": null
+  },
+  {
+    "title": "Chaos and Calm",
+    "desc": "Chaos & Calm offers an urban rooftop hangout above and a peaceful countryside setting below. Built by Megan Premier, this destination is popular for photography, casual gatherings, and growing live music events.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67dd4bddf7291230aa1163b1_67dd4b6d544fa613898023.jpeg",
+    "detailLink": "https://secondlife.com/destination/chaos-and-calm",
+    "teleportUrl": null
+  },
+  {
+    "title": "Zodiac Sands",
+    "desc": "Zodiac Sands is a serene Mediterranean escape where visitors can unwind beside a turquoise sea under a deep blue sky. Feel the soft ocean breeze and relax in this coastal paradise. Owned by White Dunes Estate, this destination invites respectful exploration. Check the greeter for rental info and enjoy the tranquil atmosphere while being mindful of tenants.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6734c3d900b7feb78f2958a4_6734c36fd70a3936267228.jpeg",
+    "detailLink": "https://secondlife.com/destination/zodiac-sands",
+    "teleportUrl": null
+  },
+  {
+    "title": "Silent Melody",
+    "desc": "Curl up with a hot drink while the rain patters against the windows. Each corner reveals a hidden nook, a tranquil spot to sit and savor the peace of silent melodies, as the world outside fades into a distant murmur.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68adfd4b4a4b4299507210c4_68adfd152c829758374119.jpeg",
+    "detailLink": "https://secondlife.com/destination/silent-melody",
+    "teleportUrl": null
+  },
+  {
+    "title": "Principality of Monaco",
+    "desc": "The Principality of Monaco invites visitors to explore elegant French-style gardens and historical buildings inspired by the French Riviera. This private estate of Her Grace Serenya Charlotte Louise Juliette Grimaldi offers a unique glimpse into aristocratic charm and refined surroundings.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68bf194c3221d2b22f59ad26_68bf194b427bc549815871.jpeg",
+    "detailLink": "https://secondlife.com/destination/principality-of-monaco",
+    "teleportUrl": null
+  },
+  {
+    "title": "Le Chateau Countryside",
+    "desc": "Le Chateau Countryside is a picturesque and residential destination experience that encapsulates the essence of the idyllic French countryside. From charming thatched cottages to picturesque hamlets, and even an authentic village complete with a quaint church, the region has been crafted with the utmost care and attention to detail. Throughout the year, it will transform with 4-seasonal changes, providing an ever-changing and immersive experience.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65e0ac8b5c079589e7201760_65e0ac1416997073314035.jpeg",
+    "detailLink": "https://secondlife.com/destination/le-chateau-countryside",
+    "teleportUrl": null
+  },
+  {
+    "title": "Azure Haven",
+    "desc": "Step back in time at Azure Haven, a serene 19th-century Mediterranean island. Wander through olive groves and lavender fields, or relax by the stone fountain. Discover the rustic fishing hut by the sea, and don't miss the dolphins playing in the waves. Add your images to the Flickr group: flic.kr/g/3fZsYL",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/655436f61fa8052ba3b2e4d9_6554367facee0410842035.jpeg",
+    "detailLink": "https://secondlife.com/destination/azure-haven",
+    "teleportUrl": null
+  },
+  {
+    "title": "Sakura Cranes",
+    "desc": "Sakura Cranes is an Asian themed destination based off the Takedera Temple founded in Ancient Japan in 857. Upon arrival, you will walk down the stone steps through the cloud forest into the bamboo gardens. There are several areas of respite, including a beautiful tea house, serene gardens, a floating restaurant, a small temple, and fully furnished rentals available for peaceful getaways.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6554101776d5bb93b3cd48f9_65540ee7cf8bc375702605.png",
+    "detailLink": "https://secondlife.com/destination/sakura-cranes",
+    "teleportUrl": null
+  },
+  {
+    "title": "Autumn Trace",
+    "desc": "Welcome to the wildlife rich wetlands of the Autumn Trace that come alive as the sun breaks through the mists of the morning. Immerse yourself in this romantic and heartfelt destination. Owned by White Dunes Estate, check the greeter info about their rentals and please be mindful of the tenants.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6527f495409090ef60dc7866_6527f3fc79fba493762308.jpeg",
+    "detailLink": "https://secondlife.com/destination/autumn-trace",
+    "teleportUrl": null
+  },
+  {
+    "title": "Amandia Beach & Opium Club",
+    "desc": "Welcome to Amandia, the flavour and the colors of an Italian beach village, and Opium Club. It's a place for photos, relaxation, and hanging out. Visit and enjoy the Italian-style architecture.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64518b12b69bcd90dd8bd012_64518af158c2e597568024.jpeg",
+    "detailLink": "https://secondlife.com/destination/amandia-beach",
+    "teleportUrl": null
+  },
+  {
+    "title": "Vice Islands",
+    "desc": "Explore the new Vice Islands region, part of Le Chateau estate, inspired by Scarface and Miami with a funky neons retro decor, roads to ride your 80s muscle car, a beach, a mall, and pools! The perfect spot for your Miami-inspired photo.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/63efdb70a954373600cee504_63efdb5d85c9d409219108.jpeg",
+    "detailLink": "https://secondlife.com/destination/vice-islands",
+    "teleportUrl": null
+  },
+  {
+    "title": "Ethereal City Legacy",
+    "desc": "Enjoy all the fabulous things to do with a summer refresh at Ethereal City Legacy with train rides, coffee spots, dining, new cuddle spots, and general breathtaking scenery, as well as new locations of Sake To Me, and a new Top of Legacy hangout spot. So much to do and see!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c14acbc87a1735a82b73d1_69c14aacca1ce777134117.jpeg",
+    "detailLink": "https://secondlife.com/destination/ethereal-city-legacy",
+    "teleportUrl": null
+  },
+  {
+    "title": "Sanctuary",
+    "desc": "Established in 2008, Sanctuary has long been celebrated for its award-winning historical roleplay, and now has evolved into a vibrant cultural space for art, photography, dance, music, and theater—welcoming global gatherings and creativity without borders. It's also a beautiful region for taking photos.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/698b8a2be7095af6fbef1d7d_698b89c11569a014517126.jpeg",
+    "detailLink": "https://secondlife.com/destination/sanctuary",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Outer Garden",
+    "desc": "The Outer Garden is a place where love is hiding. The landing point is filled with happiness where the romantic atmosphere and pale lights surround you, which would make your time with friends and lovers special. Click the mirror at the landing point to teleport to other gardens, where you can enjoy walking and taking pictures. Go on an adventure at this magical fantasy destination.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4d3fece06a3321241bb4_61bcfade277be296338412.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-outer-garden",
+    "teleportUrl": null
+  },
+  {
+    "title": "TETRA",
+    "desc": "A coastal destination with a beautiful forest filled with birds, trees and wind sounds. An amazing wild beach with rolling waves and sea sounds makes you feel at peace there. Home to the TETRA store which offers a great choice of high-quality women's clothing and footwear, fitted for a variety of female mesh bodies.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4688ca4a9d6d50042388_61f9e137bca74858919686.jpeg",
+    "detailLink": "https://secondlife.com/destination/tetra",
+    "teleportUrl": null
+  },
+  {
+    "title": "Summer Trace",
+    "desc": "Come breathe the sea air and take a bracing walk along cliff tops and sandy beaches. Lay amongst the flowery meadows and let your mind be free at Summer Trace. Owned by White Dunes Estate, check the greeter info about their rentals and please be mindful of the tenants.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa4412bed5a2979ae95d14_612f7c05bd6f6501132008.jpeg",
+    "detailLink": "https://secondlife.com/destination/trace",
+    "teleportUrl": null
+  },
+  {
+    "title": "Rosa Scotia",
+    "desc": "Arrive on the picturesque docks of Rosa Scotia, a whimsical journey back in time. During a period where the moment stood still, and the laughter and joy of the people was bountiful. Enjoy the lush downtown historic district offering a truly remarkable sense of mom and pop and community based business, purely decoration. As well as a vineyard, and relaxing beach to enjoy the smell of the air.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa393ceafaa332958b70fd_5cc0aaeed6427592694261.jpeg",
+    "detailLink": "https://secondlife.com/destination/rosa-scotia",
+    "teleportUrl": null
+  },
+  {
+    "title": "Rieri - Town in Tokyo",
+    "desc": "Visit Rieri-Town, an incredibly realistic town modeled from Google Maps and real photos of Tokyo neighborhoods. Come and visit to feel the atmosphere of this contemporary Japanese location.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa38127a1aae9e4231492e_5af5d2df9d4ef572359314.jpeg",
+    "detailLink": "https://secondlife.com/destination/rieri-town-in-tokyo",
+    "teleportUrl": null
+  },
+  {
+    "title": "Mindful Cove",
+    "desc": "Mindful Cove exists to provide both an entry point into Second Life, and an ongoing community region for newcomers and long-time residents alike, based on the core principle that SL can be an excellent place to engage in activities that support emotional and mental well-being.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62aa19c8af92ddb65df28705_6100ab75b7e8f518679509.jpeg",
+    "detailLink": "https://secondlife.com/destination/mindful-cove",
+    "teleportUrl": null
+  },
+  {
+    "title": "Lutz City of Templemore",
+    "desc": "Beyond the iron wrought gates and stone sculptures that usher you past the brick archway lies Lutz City of Templemore. Templemore continues the celebration of Live Music in SL through Lutz City with its amazing ambient and nested stages.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67b9ce8d646b12cfd3969707_67b9ce6153162809038573.png",
+    "detailLink": "https://secondlife.com/destination/lutz-city-of-templemore",
+    "teleportUrl": null
+  },
+  {
+    "title": "Lollygagger Lane",
+    "desc": "Lollygagger Lane is a newcomer-friendly hang-out and slum region on mainland with a lively arts and music scene. Live performances, art exhibits, and an engaged community of gamers from some of the oldest groups in Second Life. Hobos, Amondeu Artisans, and Metaharpers have built a large array of free vehicles and other strange, whimsical content to play with on the SL road and waters. All are welcome!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/641dcd4c25e81741a9ebd84b_641dccb0bec34769848401.jpeg",
+    "detailLink": "https://secondlife.com/destination/lollygagger-lane",
+    "teleportUrl": null
+  },
+  {
+    "title": "Le Chateau - A Retro 80s Community",
+    "desc": "Do you like vacations and hanging out while drinking an exotic cocktail by the poolside? Then Le Chateau is the place for you to be! With their kitsch and cheesy atmosphere and non-stop flowing exotic cocktails, a mix between French and American \"80s'\" culture atmosphere, they offer a wide variety of services, from the jungle-like airfield to the arcade room! Take your pick!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/630500a88c97dd5d12e9a604_62e9cf50d7681731210333.jpeg",
+    "detailLink": "https://secondlife.com/destination/le-chateau-motel",
+    "teleportUrl": null
+  },
+  {
+    "title": "Cravone City",
+    "desc": "Inspired by New York, Cravone City is an urban region that is great for photography, roleplaying, and hanging out. Come explore the shops, cafes, and parks. With numerous streets and alleys, Cravone provides plenty of ways to get lost and find yourself again.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a9eed90ffd93df282c06e5_61003a9082b29104733647.jpeg",
+    "detailLink": "https://secondlife.com/destination/cravone",
+    "teleportUrl": null
+  },
+  {
+    "title": "Bayou du Chat Noir",
+    "desc": "A bayou setting in Southern Louisana full of character, as well as characters, and a down-home feeling. Great for photography.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a8f0a1406464d8909a0b62_5da7b9c0d9b69901166858.jpeg",
+    "detailLink": "https://secondlife.com/destination/bayou-du-chat-noir",
+    "teleportUrl": null
+  },
+  {
+    "title": "Ash Falls",
+    "desc": "A remote beach set in the Pacific Northwest for photos and soul searchers alike. Perfect for quiet romantic evenings, compelling photography or just hanging out with friends.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/62a8ee04ec84a950f7e4f2e7_59594b5404ec5449612647.jpeg",
+    "detailLink": "https://secondlife.com/destination/ash-falls",
+    "teleportUrl": null
+  },
+  {
+    "title": "MOKAMBO - ZANZIBAR pzeBkOJq",
+    "desc": "Known as the Pearl of Africa, Asharhia unveils this beautiful African paradise. Surrounded by pristine Pacific Ocean beaches and crystal-clear turquoise waters, this captivating destination promises breathtaking views, unforgettable experiences, and picture-perfect moments at every turn.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1e1c067ae5651ba424848a_6a1e1b814b170234001075.jpeg",
+    "detailLink": "https://secondlife.com/destination/mokambo-zanzibar-pzebkojq",
+    "teleportUrl": null
+  },
+  {
+    "title": "Van Morka's at Renaissance Palace",
+    "desc": "Van Morka’s at Renaissance Palace welcomes visitors to explore a grand historic estate surrounded by expansive gardens. This museum and leisure destination features elegant architecture, quiet paths, and spaces inspired by traditions of the past, offering a peaceful place to wander and relax.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a048a1ba6612caeee61c00b_6a04898dbb410906815986.jpeg",
+    "detailLink": "https://secondlife.com/destination/van-morkas",
+    "teleportUrl": null
+  },
+  {
+    "title": "TheNest - Sunbird Emberwood",
+    "desc": "Welcome to TheNest Sunbird Emberwood, a quiet forest village where time slows and a hint of magic lingers. Wander freely, lose yourself among the trees, and let dusk lead the way.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69eba48560dec8f3aecc9d8b_69eba3885479c317337836.jpeg",
+    "detailLink": "https://secondlife.com/destination/thenest",
+    "teleportUrl": null
+  },
+  {
     "title": "Missing Melody",
     "desc": "What is a Missing Melody? It’s that song in your head that you can’t get out, but not sure how it really goes. It’s that temptation you want to have in your life so you can fight to resist. It’s that place in your heart that is always waiting.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69cbd8344461517b767bba5f_69cbd78224d56205365038.jpeg",
@@ -427,10 +462,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Ocho Tango Place",
-    "desc": "Ocho Tango Place is not just a place; it’s a piece of history, a refuge, an embrace filled with music and shared steps. Here, time slows down, the lights grow warm, and every corner tells a story. Among photogenic spots, dance steps, and that unique atmosphere only tango can create, you’ll once again experience moments of pure serenity. Let yourself be carried by the music, lose yourself in an embrace, rediscover the joy of being together. Whether you are passionate dancers or simply lovers of beautiful vibes, this is your place.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c7cdabdc21bc655bf60673_69c7ccf76f1ce682741558.jpeg",
-    "detailLink": "https://secondlife.com/destination/ocho-tango-place",
+    "title": "Cheerful Nihilism",
+    "desc": "Cheerful Nihilism is a roadside destination blending industrial builds, neon accents, and quiet nature. Visitors can explore eclectic scenes, take photos, play mini golf, or relax by the pool and aquarium. Find joy in the absurd at Cheerful Nihilism!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c7c97239c213e9b3f62198_69c7c7f933f31931581561.jpeg",
+    "detailLink": "https://secondlife.com/destination/cheerful-nihilism",
     "teleportUrl": null
   },
   {
@@ -469,20 +504,6 @@
     "teleportUrl": null
   },
   {
-    "title": "Planet M's Tula",
-    "desc": "Planet M’s Tula is a surreal red-earth valley shaped by organic forms, roaming animals, and a ceramic studio at its heart. Tula invites visitors to wander, pause, and look — offering a calm, dreamlike environment with Room to Dream, and perhaps make a picture or two. Tula welcomes you with open arms.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/695d498c47d1734db9112d2a_695d494362cd5809462030.jpeg",
-    "detailLink": "https://secondlife.com/destination/planet-m-tula",
-    "teleportUrl": null
-  },
-  {
-    "title": "Avonshire",
-    "desc": "Avonshire is one of the four counties in the estate of the Duke of Avon, and the home of the Duke & Duchess. Nestled in the English countryside, Avonshire includes the Manor House and surrounding gardens. As well as beautiful horse riding trails, hidden beaches, picturesque nooks, and entry to the surrounding counties in the estate of the Duke & Duchess.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/699f13bb92f4e9dde42d7a78_699f1341b9764010144962.jpeg",
-    "detailLink": "https://secondlife.com/destination/avonshire",
-    "teleportUrl": null
-  },
-  {
     "title": "Sensuality Defined",
     "desc": "Sensuality Defined is about cultivating deep awareness and presence in every moment, with the body, senses, and emotions working together like brushstrokes on a canvas. It’s not about sex, but about the artistry of being alive and fully awake to experience.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/691b1e52fd85966e319c8da4_691b1de8b8b06167045369.jpeg",
@@ -497,13 +518,6 @@
     "teleportUrl": null
   },
   {
-    "title": "Loxford",
-    "desc": "Loxford is one of the four counties in the estate of the Duke of Avon, evoking the charm of the English countryside. Featuring an outdoor gaming area, beautiful horse riding trails, a picturesque plaza, hidden beaches, and secret romantic nooks, surrounding the country estate of the Duke & Duchess.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69ca944aed67a4bfbec499af_69ca940bb82b9215179933.jpeg",
-    "detailLink": "https://secondlife.com/destination/loxford",
-    "teleportUrl": null
-  },
-  {
     "title": "Bridgewater",
     "desc": "Bridgewater offers a peaceful country landscape with sea views, rustic charm, and photo-perfect spots. Explore its historic water mill, church, cottage café, and cricket oval under wide skies. Designed for relaxed walks, storytelling, and photography, it’s a destination where details invite calm exploration.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68fa40427033cc6202c6f818_68fa3e60942e7704850788.jpeg",
@@ -511,24 +525,45 @@
     "teleportUrl": null
   },
   {
-    "title": "Sedgewick",
-    "desc": "Sedgewick is one of the four counties in the estate of the Duke of Avon, evoking the charm of the English countryside. Featuring an English country village, beautiful horse riding trails, and picturesque nooks surrounding the country estate of the Duke & Duchess.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68c8212ca6e73b037a15a364_68c820b1f3997654733871.jpeg",
-    "detailLink": "https://secondlife.com/destination/sedgewick",
+    "title": "Ofrenda Nocturna",
+    "desc": "Ofrenda is a rugged, natural spot with much interest for photographers and dreamers. Relax, immerse yourself, and indulge your senses. Find those surprises and don't get lost. This is an adult destination, with something for everyone, so be ready to explore!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68d2c242934b6b7616d2ac9a_68d2c20e1b45a362098157.jpeg",
+    "detailLink": "https://secondlife.com/destination/ofrenda-nocturna",
     "teleportUrl": null
   },
   {
-    "title": "Sant' Agapito",
-    "desc": "A former Roman settlement, Sant' Agapito, was extensively redeveloped in the Middle Ages. Separated from the later nineteenth-century \"upper town,\" it now offers a refuge of boutique shops, cafes, and quiet corners. Below the town is a fragment of ancient woodland with a lakeside terrace overlooking more period ruins. Lots of photo opportunities.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68bb030a273ee32bff9f4313_68bb02b2416a8147505758.jpeg",
-    "detailLink": "https://secondlife.com/destination/sant-agapito",
+    "title": "Awenia Faerie",
+    "desc": "Awenia is a Faery Tourist Trap. Bring the kids! Awenia boasts a crystal grove, a book forest, a sacred grove, beautiful photo opportunities, and many remembrances of Fantasy Faires past and recent. You'll find one-of-a-kind items such as The Last Hope statue, The Shrine Tree, and the Well of Whispers. Stay for a little while....stay forever.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68bef533e4f020cffe91a6ab_68bef4e8769f7669088976.jpeg",
+    "detailLink": "https://secondlife.com/destination/awenia-faerie",
     "teleportUrl": null
   },
   {
-    "title": "Foxleigh",
-    "desc": "Foxleigh is one of the four counties in the estate of the Duke of Avon, evoking the charm of the English countryside and providing beautiful horse riding trails and picturesque nooks surrounding the country estate of the Duke & Duchess. Bring your own horse or choose one on location.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68b9a37c724c830839b3fa47_68b5d028a512c440723979.jpeg",
-    "detailLink": "https://secondlife.com/destination/foxleigh",
+    "title": "Lost Swamp",
+    "desc": "Lost Swamp is a quiet and atmospheric destination where misty waters and whispering trees create a backdrop for reflection and photography. Visitors can explore its calm paths and find inspiration in its timeless setting.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68b8c09a89c9409a73c4d84e_68b8c003825a2731652937.jpeg",
+    "detailLink": "https://secondlife.com/destination/lost-swamp",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Burrow",
+    "desc": "The Burrow rises above a wild countryside with crooked charm, inviting visitors to step into a world inspired by childhood stories of magic and friendship. Nestled among tall trees and winding paths, it feels like a place where beloved characters might still gather.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68a49c1fb2059969e1d793ff_68a499db0126d859301250.PNG",
+    "detailLink": "https://secondlife.com/destination/the-burrow-toothsum",
+    "teleportUrl": null
+  },
+  {
+    "title": "Soul Deep - Hope & Oceans",
+    "desc": "Where the salt wind carries whispers of Autumn. Wander weathered beaches, follow winding paths through golden grasses, and rest beneath trees that lean toward the sea. Here, hammocks sway, campfires glow, and gulls wheel above an ocean that feels endless. This is a place for slow breaths, long looks, and soul-deep moments, where hope drifts in like the tide and stays a while.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/689f30daf3c341cb8c5d789f_689f308ba05ee782198759.png",
+    "detailLink": "https://secondlife.com/destination/soul-deep",
+    "teleportUrl": null
+  },
+  {
+    "title": "Indigo Night - An Unusual Trail",
+    "desc": "Indigo Night is a tranquil forest, where moonlight filters softly through the trees. As you venture, you'll never know what you'll stumble upon. Enjoy your adventure.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/687eb8fa42ae1b3d7ac49436_687eb8cadc2e6749597602.png",
+    "detailLink": "https://secondlife.com/destination/indigo-night",
     "teleportUrl": null
   },
   {
@@ -539,10 +574,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Chaos and Calm",
-    "desc": "Chaos & Calm offers an urban rooftop hangout above and a peaceful countryside setting below. Built by Megan Premier, this destination is popular for photography, casual gatherings, and growing live music events.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/67dd4bddf7291230aa1163b1_67dd4b6d544fa613898023.jpeg",
-    "detailLink": "https://secondlife.com/destination/chaos-and-calm",
+    "title": "Spirit Of Lotus",
+    "desc": "Welcome To Spirits OF Lotus. Step into a world of peace and serenity, where every moment is designed to help you relax, unwind, and reconnect with yourself. Spirits OF Lotus is your tranquil escape, a place where the stresses of the outside world melt.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69fcc78bfae48d17ca48fa45_69fcc7657180d486044772.jpeg",
+    "detailLink": "https://secondlife.com/destination/spirit-of-lotus",
     "teleportUrl": null
   },
   {
@@ -560,20 +595,6 @@
     "teleportUrl": null
   },
   {
-    "title": "Zodiac Sands",
-    "desc": "Zodiac Sands is a serene Mediterranean escape where visitors can unwind beside a turquoise sea under a deep blue sky. Feel the soft ocean breeze and relax in this coastal paradise. Owned by White Dunes Estate, this destination invites respectful exploration. Check the greeter for rental info and enjoy the tranquil atmosphere while being mindful of tenants.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6734c3d900b7feb78f2958a4_6734c36fd70a3936267228.jpeg",
-    "detailLink": "https://secondlife.com/destination/zodiac-sands",
-    "teleportUrl": null
-  },
-  {
-    "title": "Silent Melody",
-    "desc": "Curl up with a hot drink while the rain patters against the windows. Each corner reveals a hidden nook, a tranquil spot to sit and savor the peace of silent melodies, as the world outside fades into a distant murmur.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/68adfd4b4a4b4299507210c4_68adfd152c829758374119.jpeg",
-    "detailLink": "https://secondlife.com/destination/silent-melody",
-    "teleportUrl": null
-  },
-  {
     "title": "Evermore the Folklore",
     "desc": "Evermore the Folklore is an exciting and whimsical destination full of enchantment and wonder at every turn. From the playful sheep to the crumbling castle, there's something for everyone. Secrets to explore and photograph, or you can grab a coffee to go while you hunt for the buried treasure on the beach. Visit and feel at home at Evermore the Folklore and capture many memories to come!",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/66e193e51ed6bf5aa75b993c_66e193cb23e13795354377.jpeg",
@@ -585,13 +606,6 @@
     "desc": "Circulo Zentro is a tribute to Japan, offering beautiful photography corners, live music, concerts, and a variety of shops. Visitors can enjoy an immersive cultural experience, making it a unique and vibrant destination for music and photography enthusiasts.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/669e6aa509d76fcf2afe1468_669e6a421bbb8003739422.jpeg",
     "detailLink": "https://secondlife.com/destination/circulo-zentro",
-    "teleportUrl": null
-  },
-  {
-    "title": "Infinite Darkness",
-    "desc": "Good and evil, water and fire, light and dark, are the essence of Infinite Darkness. The majesty of the gothic style, the occult symbolism, and the dark powers of the vampires will immerse you on a hellish journey.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/666c26853b5ab7272ae6fa79_666c261fad863331407889.png",
-    "detailLink": "https://secondlife.com/destination/infinite-darkness",
     "teleportUrl": null
   },
   {
@@ -651,17 +665,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Le Chateau Countryside",
-    "desc": "Le Chateau Countryside is a picturesque and residential destination experience that encapsulates the essence of the idyllic French countryside. From charming thatched cottages to picturesque hamlets, and even an authentic village complete with a quaint church, the region has been crafted with the utmost care and attention to detail. Throughout the year, it will transform with 4-seasonal changes, providing an ever-changing and immersive experience.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/65e0ac8b5c079589e7201760_65e0ac1416997073314035.jpeg",
-    "detailLink": "https://secondlife.com/destination/le-chateau-countryside",
-    "teleportUrl": null
-  },
-  {
-    "title": "Azure Haven",
-    "desc": "Step back in time at Azure Haven, a serene 19th-century Mediterranean island. Wander through olive groves and lavender fields, or relax by the stone fountain. Discover the rustic fishing hut by the sea, and don't miss the dolphins playing in the waves. Add your images to the Flickr group: flic.kr/g/3fZsYL",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/655436f61fa8052ba3b2e4d9_6554367facee0410842035.jpeg",
-    "detailLink": "https://secondlife.com/destination/azure-haven",
+    "title": "Isle of Rowlyria",
+    "desc": "Isle of Rowlyria is a Mediterranean Isle where you can hang out, rent homes, relax by the sea and mountains, go virtual fishing, take beautiful pictures, and listen to some of the best DJs.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/655418c05b542db683e49054_655417207319f815430591.png",
+    "detailLink": "https://secondlife.com/destination/isle-of-rowlyria",
     "teleportUrl": null
   },
   {
@@ -672,13 +679,6 @@
     "teleportUrl": null
   },
   {
-    "title": "Autumn Trace",
-    "desc": "Welcome to the wildlife rich wetlands of the Autumn Trace that come alive as the sun breaks through the mists of the morning. Immerse yourself in this romantic and heartfelt destination. Owned by White Dunes Estate, check the greeter info about their rentals and please be mindful of the tenants.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6527f495409090ef60dc7866_6527f3fc79fba493762308.jpeg",
-    "detailLink": "https://secondlife.com/destination/autumn-trace",
-    "teleportUrl": null
-  },
-  {
     "title": "NordShore",
     "desc": "Welcome to NordShore, a summer destination by Jacky Macpherson inspired by hints of the coast of Cornwall. Explore, take some images, and add them to their Flickr group: flickr.com/groups/14862174@N23",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/64d4386f463e72dad3e58d6d_64d4381c960f7717464877.jpeg",
@@ -686,17 +686,17 @@
     "teleportUrl": null
   },
   {
-    "title": "Batterie Beach",
-    "desc": "Discover Batterie Beach, a gritty boardwalk and amusement park infused with New Orleans spirit. This beachfront locale offers an edgy and urban escape. Stroll along the boardwalk, snap unforgettable photos, or simply absorb the vibrancy of this unique open space.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/647664bbe8d299f76b51d4c2_647663ef7bd68824542499.png",
-    "detailLink": "https://secondlife.com/destination/batterie-beach",
-    "teleportUrl": null
-  },
-  {
     "title": "Photo Cafe",
     "desc": "Photo Cafe' is a meeting place for all SL Photographers (at any level) to gather and share experiences, hints, tips and tricks, landmarks or contests (inworld or on socials), and whatever else comes to mind! They hold regular moderated discussions, events, and retrospective exhibits. Learn more at www.photocafe.news",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c1478126fd560bae30289b_69c147763ec22985172272.jpeg",
     "detailLink": "https://secondlife.com/destination/photo-cafe",
+    "teleportUrl": null
+  },
+  {
+    "title": "The Relic",
+    "desc": "The Relic is a place to relax, socialize, and connect in a beautiful natural setting provided by the University of New Mexico. Join discussions and talks about interesting topics with the aim of cultivating a community of practice.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/640fb1d3629187218d1d4ee3_640fb0bf47b60465816220.jpeg",
+    "detailLink": "https://secondlife.com/destination/the-relic",
     "teleportUrl": null
   }
 ]

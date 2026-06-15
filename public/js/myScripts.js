@@ -453,6 +453,7 @@ const syncSelectors =
      '.freebie-card, ' + //freebies cards
      '.layout-btn, ' + //freebies layout buttons
      '.ltv-nav-btn, ' + //freebies / live-tv back / menu
+          '.ltv-back-btn, ' + //freebies / live-tv back / menu
      '.ch-card, ' + // live-tv cards
      '.game-card, ' + // clip games cards
      '.search-btn, ' + // youtube search buttons

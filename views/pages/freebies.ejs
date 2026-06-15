@@ -10,7 +10,7 @@
 
     /* ── HEADER ── */
     .freebies-header {
-        width: 100%; height: 55px;
+        width: 100%; height: 57px;
         display: flex; justify-content: space-between; align-items: center;
         padding: 0 35px;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
@@ -34,10 +34,10 @@
         flex-grow: 1;      
         overflow-y: auto;  
         overflow-x: hidden; 
-        padding: 10px 15px 30px 15px; 
+        padding: 1px 22px 30px 15px; 
         box-sizing: border-box;
-        width: calc(100% - 40px); /* Centers cleanly without overflowing 1280px */
-        margin: 0 auto;
+        width: calc(100% - 50px); /* Centers cleanly without overflowing 1280px */
+        margin-left: 21px;
     }
 
     /* ── BARRA DE ROLAGEM (Red YouTube Style) ── */
@@ -139,45 +139,16 @@
 
     .layout-btn:hover, .layout-btn.remote-hover {
         border-color: #5ab565; 
-        background: rgba(90, 181, 101, 0.25);
+        background: rgba(56, 195, 72, 0.523);
         color: #fff;
     }
 
     .layout-btn.active { color: #000; border-color: #ffcc00; background: #ffcc00; font-weight: 600; }
 
-    /* ── PILL BUTTON STYLING ── */
-.ltv-nav-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.173);
-    color: white;
-    padding: 3px 15px;
-    border-radius: 0px;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin: 0px 0px;
-    opacity: 0.8;
-}
-
-.ltv-nav-btn:hover {
-        border-color: #5ab565; 
-        background: rgba(90, 181, 101, 0.7);
-        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
-}
-.ltv-nav-btn.remote-hover {
-        border-color: #5ab565; 
-        background: rgba(90, 181, 101, 0.7);
-        box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);
-}
 </style>
 
 <div id="freebies-overlay-container">
     <div class="freebies-header">
-        <button class="ltv-nav-btn" onclick="closeSubMenu()">BACK</button>
-
-        <h1>Freebies & Deals</h1>
 
         <div style="display:flex; align-items:center; gap:20px;">
             <div id="layout-btns" style="display: flex; gap: 8px;margin-right: 10px;">
@@ -186,6 +157,19 @@
                 <button class="layout-btn active" onclick="setFreebiesLayout(4)">4X</button>
             </div>
         </div>
+
+                <h1>Freebies & Deals</h1>
+
+            <div style="margin-right: 24px!important;margin-top:2px;">
+                <button class="ltv-back-btn" onclick="closeSubMenu()">
+                <span class="material-symbols-rounded" style="font-size:25px!important; vertical-align:middle;">close</span>
+               </button>
+            </div>
+
+
+
+
+        
     </div>
 
     <div id="content-wrapper">

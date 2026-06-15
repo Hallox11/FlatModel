@@ -5,15 +5,23 @@
     align-items: center; justify-content: center;
     position: relative; overflow: hidden;
     font-family: 'Fira Sans', sans-serif; color: white;
-    background: #000;
+    background: rgba(0,0,0,0.4);
+}
+#wai-overlay {
+    position: fixed;
+    width: 940px;
+    height: 690px;
+    background: rgba(0,0,0,0.4);
+    z-index: -1;
 }
 #wai-close {
     position: absolute; top: 20px; left: 20px;
-    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.5);
     border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
     color: white; padding: 7px 14px; font-size: 0.78rem;
-    font-family: 'Fira Sans', sans-serif; text-transform: uppercase;
-    letter-spacing: 1px; display: flex; align-items: center; gap: 6px;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 6px;
     cursor: pointer; transition: all 0.2s; z-index: 200;
 }
 #wai-close:hover { border-color: rgba(255,255,255,0.5); }
@@ -28,10 +36,10 @@
 
 /* ── LOBBY ── */
 #wai-lobby { gap: 28px; }
-.wai-title    { font-size: 2.4rem; font-weight: 200; letter-spacing: 8px; text-transform: uppercase; }
-.wai-subtitle { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; }
-
+.wai-title { font-size: 2.4rem; font-weight: 200; letter-spacing: 8px; text-transform: uppercase; }
+.wai-subtitle { font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; }
 #wai-players-list { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 800px; }
+
 .wai-chip {
     background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
     border-radius: 50px; padding: 7px 18px; font-size: 0.78rem;
@@ -155,6 +163,7 @@
 </style>
 
 <div id="wai-module">
+    <div id="way-overlay"></div>
     <button id="wai-close" onclick="waiClose()">
         <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span> Back
     </button>
@@ -167,8 +176,8 @@
         <div class="wai-name-row">
             <input id="wai-name-input" type="text" placeholder="Your name..." maxlength="16">
             <button class="wai-btn" onclick="waiJoin()">Join</button>
+            <button class="wai-btn gold" id="wai-start-btn" onclick="waiStart()" disabled>Start Game</button>
         </div>
-        <button class="wai-btn gold" id="wai-start-btn" onclick="waiStart()" disabled>Start Game</button>
     </div>
 
     <!-- GAME -->

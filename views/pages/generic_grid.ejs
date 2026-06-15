@@ -15,25 +15,25 @@
 /* 2. BARRA DE NAVEGAÇÃO COM FADE (Preto para Transparente) */
 .top-nav {
 width: 100%;
-    height: 50px;
+    height: 57px;
     display: flex;
     align-items: center;      /* Vertically center everything */
-    padding: 0 35px;
+    padding: 0 61px;
     position: relative;       /* Keep this for the container */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 80%, rgba(0, 0, 0, 0) 110%);
     box-sizing: border-box;
 }
 .page-title {
-    margin: 0;                /* Remove margins */
+   
     flex-grow: 1;             /* Takes up available space between items */
     text-align: center;       /* Centers the text within that space */
     font-size: 1.3rem;
     letter-spacing: 3px;
-    opacity: 0.9;
+    opacity: 1.0;
     pointer-events: none;
     color: #00d4ff;
     line-height: 0%;
-    margin-left: -120px;
+    margin-left: 75px;
 }
 /* 3. ÁREA DE CONTEÚDO (Scroll começa abaixo do nav) */
 .content-wrapper { 
@@ -103,17 +103,13 @@ width: 100%;
     transform: translateZ(0);
 }
 
-.card:hover {
-    transform: translateY(-3px) scale(1.015);
+.card:hover, .card.remote-hover {
+    transform: translateY(-3px) scale(1.0);
     outline: 2px solid rgb(249, 184, 20);
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,0.15),
         0 20px 48px rgba(0,0,0,0.7),
         0 0 24px var(--card-glow, rgba(255,255,255,0.05));
-}
-.card.remote-hover {
-    transform: scale(1.02);
-    outline: 2px solid #fffb00;
 }
 
 .card.remote-hover .play-hint {
@@ -170,23 +166,7 @@ width: 100%;
     margin: 0;
     letter-spacing: 1.04px;
 }
-.badge {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 1px 4px;
-    border-radius: 4px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    z-index: 10;
-}
 
-.badge.music   { background: #00d4ff; color: #000; }
-.badge.movies  { background: #ff4b2b; color: #fff; }
-.badge.youtube { background: transparent; color: transparent; }
 
 
 .card.remote-hover {
@@ -201,10 +181,12 @@ width: 100%;
 
 <div class="tv-screen">
     <div class="top-nav">
+
+        <div class="page-title"><%= title %></div>
         <button class="back-button" onclick="goBackToMenu()">
             <i class="fas fa-chevron-left"></i> BACK
         </button>
-                <div class="page-title"><%= title %></div>
+                
     </div>
 
     <div class="content-wrapper" id="grid-content">
@@ -221,9 +203,6 @@ width: 100%;
     </svg>
 </div>
 
-    <% if (item.badge) { %>
-        <span class="badge <%= type %>"><%= item.badge %></span>
-    <% } %>
 </div>
 <div class="card-info">
     <p class="subtitle"><%= item.subtitle %></p>
