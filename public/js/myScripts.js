@@ -83,6 +83,7 @@ const NAV_CONFIG = {
         'truth-or-myth': '/truth-or-myth',
         'who-am-i': '/who-am-i',
         'this-or-that': '/this-or-that',
+                'slither-io': '/slither-io',
         'freebies': '/freebies',
         'help': '/help',
         'clip-games': '/clip-games',
@@ -229,6 +230,7 @@ function handleNav(mode, isRemote = false) {
                      mode.includes('tvytube') || 
                      mode.includes('ytmusic') || 
                      mode.includes('youtube') ||
+                     mode.includes('slither-io') ||
                      mode.includes('-menu');
 
     let targetUrl = NAV_CONFIG.menus[mode] || mode;
@@ -447,11 +449,13 @@ const syncSelectors =
      '.close-menu-btn, ' +
      '.side-arrow, ' + // sl stations arrows
      '.ir-btn, ' + //inter radios contry selector
+          '.ir-card, ' + //inter radios cards
      '.freebie-card, ' + //freebies cards
      '.layout-btn, ' + //freebies layout buttons
      '.ltv-nav-btn, ' + //freebies / live-tv back / menu
      '.ch-card, ' + // live-tv cards
      '.game-card, ' + // clip games cards
+     '.search-btn, ' + // youtube search buttons
   '.btn, ' +
   '.video-card, ' +
   '.nav-btn-glass, ' +
@@ -654,7 +658,7 @@ socket.on('state_sync', function(data) {
                 case 'input_focus': {
                     const $input = $(`#${data.id}`);
                     const isFocus = data.action === 'focus';
-                    $input.toggleClass('remote-focus-style', isFocus);
+                    $input.toggleClass('remote-focus', isFocus);
                     $input.attr('placeholder', isFocus ? 'Remote user typing...' : 'Search...');
                     break;
                 }

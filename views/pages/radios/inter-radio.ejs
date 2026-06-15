@@ -31,17 +31,30 @@
 
     #ir-content { flex: 1; overflow-y: auto; padding: 30px; }
     #ir-menu { display: flex; gap: 20px; width: 850px; margin: 10px auto; }
-    .ir-column { flex: 1; border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; }
-    .ir-col-header { color: #DAA520; text-align: center; margin-bottom: 10px; text-transform: uppercase; }
-    .ir-scroll { height: 360px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+    .ir-column { flex: 1; border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; background:rgba(0,0,0,0.5);}
+    .ir-col-header { color: #DAA520; text-align: center; margin-bottom: 10px; text-transform: uppercase; font-size: 18px; }
+    .ir-scroll { height: 370px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
    
    
-    .ir-btn { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 10px; border-radius: 8px; cursor: pointer; text-align: center; text-transform: uppercase; }
-    .ir-btn:hover {border-color: #5ab565; background: rgba(90, 181, 101, 0.7);box-shadow: 0 10px 20px rgba(90, 181, 101, 0.2);}
+    .ir-btn { background: rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.2); color: white; padding: 10px; border-radius: 8px; cursor: pointer; text-align: center; text-transform: uppercase; }
+    .ir-btn:hover, .ir-btn.remote-hover {        background: rgba(20, 20, 25, 0.85);
+        border: 2px solid #ffcc00 ; 
+        transform: scale(1.0);
+        box-shadow: 0 8px 24px rgba(255, 204, 0, 0.25); }
     
     #ir-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
-    .ir-card { background: rgba(0,0,0,0.4); border-radius: 10px; padding: 15px; text-align: center; cursor: pointer; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
-    .ir-card img { width: 65px; height: 65px; background: white; border-radius: 5px; margin-bottom: 10px; }
+    .ir-card {    border: 2px solid rgba(255, 255, 255, 0.1);
+     background: rgba(0,0,0,0.4); border-radius: 10px; padding: 15px; text-align: center; cursor: pointer; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+    .ir-card:hover, .ir-card.remote-hover{
+        background: rgba(20, 20, 25, 0.85);
+        border: 2px solid #ffcc00 ; 
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(255, 204, 0, 0.25); 
+    }
+    
+    
+     .ir-card img { width: 65px; height: 65px; background: white; border-radius: 5px; margin-bottom: 10px; }
+    
     .ir-card p {
     display: -webkit-box;
     -webkit-line-clamp: 2;            /* Limits text to 2 lines */
@@ -82,6 +95,58 @@
 .ir-header-left h1 { margin: 0; font-size: 24px; color: #2cf3de; text-transform: uppercase; letter-spacing: 3px; }
 .ir-header-center { justify-self: center; text-align: center; color: white; font-weight: bold; font-size: 18px; }
 .ir-header-right { justify-self: end; display: flex; align-items: center; gap: 15px; }
+
+.now-playing {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+/* Equalizer container */
+.equalizer {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 14px;
+
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 0.2s ease;
+}
+.equalizer span {
+    width: 3px;
+    height: 100%;
+    background: #00ffcc;
+    border-radius: 2px;
+    animation: eq 1s infinite ease-in-out;
+}
+.equalizer.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.equalizer.paused span {
+    animation-play-state: paused;
+    opacity: 0.3;
+}
+
+/* Different animation delays for randomness */
+.equalizer span:nth-child(1) { animation-delay: 0s; }
+.equalizer span:nth-child(2) { animation-delay: 0.15s; }
+.equalizer span:nth-child(3) { animation-delay: 0.3s; }
+.equalizer span:nth-child(4) { animation-delay: 0.45s; }
+
+/* Animation */
+@keyframes eq {
+    0%   { height: 3px;  opacity: 0.4; }
+    25%  { height: 14px; opacity: 1; }
+    50%  { height: 6px;  opacity: 0.6; }
+    75%  { height: 12px; opacity: 1; }
+    100% { height: 4px;  opacity: 0.5; }
+}
+
 </style>
 
 <div id="inter-radio-root">
@@ -90,8 +155,14 @@
         <h1>Radios Explorer</h1>
     </div>
 
-    <div class="ir-header-center">
+    <div class="ir-header-center now-playing">
         <p id="ir-center-text">Select a Country or a Genre</p>
+
+<div class="equalizer" id="ir-equalizer">    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
     </div>
 
     <div class="ir-header-right">
@@ -102,7 +173,9 @@
         </div>
 
         <!-- Navigation Buttons -->
-        <button class="ir-back-btn" id="ir-btn-exit" onclick="handleNav('radios');">Exit</button>
+    <div style="height: 35px;width: 35px;top: 20px;" class="close-menu-btn" id="ir-btn-exit" onclick="handleNav('radios');">
+        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
+    </div>
         <button class="ir-back-btn" id="ir-btn-back" style="display:none" onclick="irRequestBack()">Back</button>
     </div>
 </header>
@@ -151,6 +224,16 @@
     const grid = document.getElementById('ir-grid');
     const gridBack = document.getElementById('ir-grid-back');
     const controls = document.getElementById('ir-controls');
+
+
+function updateEqualizer() {
+    const eq = document.getElementById('ir-equalizer');
+    if (!eq) return;
+
+    const isPlaying = !audio.paused && audio.src;
+
+    eq.classList.toggle('active', isPlaying);
+}
 
     window.irLoad = function(type, value, label) {
         if (window.socket && window.myRoom) {
@@ -238,6 +321,7 @@ window.irRequestBack = function() {
 
 // 2. Updated Menu display logic (The receiver)
 window.irShowMenu = function() {
+    updateEqualizer();
     const audio = document.getElementById('ir-audio');
     console.log(audio)
     // 1. Force o áudio a parar
@@ -272,6 +356,10 @@ window.irShowMenu = function() {
     document.getElementById('ir-play-btn').innerText = 'Play';
 };
  
+audio.addEventListener('play', updateEqualizer);
+audio.addEventListener('pause', updateEqualizer);
+audio.addEventListener('ended', updateEqualizer);
+updateEqualizer();
 
 window.irRender = function(stations) {
         grid.innerHTML = '';
@@ -287,9 +375,11 @@ window.irRender = function(stations) {
 
 window.irPlay = function(url, name) {
     // 1. Prevent re-launching if it's the same station
+
     if (currentPlayingUrl === url) {
         if (audio.paused) {
             audio.play();
+            updateEqualizer();
             playBtn.innerText = 'Pause';
         }
         return; 
@@ -313,6 +403,7 @@ window.irPlay = function(url, name) {
     window.irTogglePlay = function() {
         if (audio.paused) { audio.play(); playBtn.innerText = 'Pause'; }
         else { audio.pause(); playBtn.innerText = 'Play'; }
+        updateEqualizer();
     };
 
     window.irFilter = function(id, q) {

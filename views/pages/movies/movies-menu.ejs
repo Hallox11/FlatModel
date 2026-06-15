@@ -1,9 +1,9 @@
 <style>
 /* ============================================================
-   CINEMA HUB - PREMIUM TV INTERFACE
+   GLOBAL MENU PAGE
    ============================================================ */
 
-#movies-menu-wrapper {
+#page-wrapper {
     width: 1050px;
     padding: 45px;
     background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.5));
@@ -17,7 +17,7 @@
     position: relative;
 }
 
-#movies-menu-wrapper .movies-header {
+.page-header {
     font-family: 'Segoe UI', sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
@@ -27,13 +27,6 @@
     margin-bottom: 45px;
     opacity: 0.9;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.movies-grid-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 15px;
-    width: 100%;
 }
 
 .feature-row {
@@ -46,7 +39,7 @@
 
 .feature-btn {
     background: rgba(0, 0, 0, 0.45);
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(160, 159, 159, 0.822);
     padding: 15px;
     border-radius: 5px;
     color: white;
@@ -63,7 +56,14 @@
         border: 2px solid #ffcc00 ; 
         transform: translateY(-3px);
         box-shadow: 0 8px 24px rgba(255, 204, 0, 0.15); 
-    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px;
+    width: 100%;
+}
 
 .btn-group {
     background: rgba(0, 0, 0, 0.45);
@@ -86,7 +86,7 @@
         box-shadow: 0 8px 24px rgba(255, 204, 0, 0.25); 
 }
 
-.main-title-btn {
+.main-btn-txt {
     font-size: 1.3rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -94,61 +94,49 @@
 }
 
 .sub-btn-group {
-    font-size: 0.70rem;
-    font-weight: 600;
-    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    padding: 5px 15px;
     border-radius: 0px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.15);
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    text-align: center;
-    white-space: nowrap;
 }
 
 /* Color Categories */
-.yt-amber { border-color: rgba(255, 75, 43, 0.3); }
-.yt-amber .main-title-btn { color: #ff4b2b; }
-.yt-amber .sub-btn-group { color: #ff4b2b; border-color: rgba(255, 75, 43, 0.4); }
-.yt-amber .sub-btn-group:hover { background: #ff4b2b; color: white; }
+.yt-red { border-color: rgba(255, 75, 43, 0.5); }
+.yt-red .main-btn-txt { color: #ff4b2b; }
+.yt-red .sub-btn-group { color: #ff4b2b; border-color: rgba(255, 75, 43, 0.4); }
+.yt-red .sub-btn-group:hover { background: #ff4b2b; color: white; }
 
-.yt-purple { border-color: rgba(0, 212, 255, 0.3); }
-.yt-purple .main-title-btn { color: #00d4ff; }
-.yt-purple .sub-btn-group { color: #00d4ff; border-color: rgba(0, 212, 255, 0.4); }
-.yt-purple .sub-btn-group:hover { background: #00d4ff; color: white; }
+.yt-cyan { border-color: rgba(0, 212, 255, 0.5); }
+.yt-cyan .main-btn-txt { color: #00d4ff; }
+.yt-cyan .sub-btn-group { color: #00d4ff; border-color: rgba(0, 212, 255, 0.4); }
+.yt-cyan .sub-btn-group:hover { background: #00d4ff; color: white; }
 
-.yt-cyan { border-color: rgba(255, 179, 71, 0.3); }
-.yt-cyan .main-title-btn { color: #ffb347; }
-.yt-cyan .sub-btn-group { color: #ffb347; border-color: rgba(255, 179, 71, 0.4); }
-.yt-cyan .sub-btn-group:hover { background: #ffb347; color: white; }
+.yt-amber { border-color: rgba(255, 179, 71, 0.5); }
+.yt-amber .main-btn-txt { color: #ffb347; }
+.yt-amber .sub-btn-group { color: #ffb347; border-color: rgba(255, 179, 71, 0.4); }
+.yt-amber .sub-btn-group:hover { background: #ffb347; color: white; }
 
-.yt-red { border-color: rgba(189, 0, 255, 0.3); }
-.yt-red .main-title-btn { color: #bd00ff; }
-.yt-red .sub-btn-group { color: #bd00ff; border-color: rgba(189, 0, 255, 0.4); }
-.yt-red .sub-btn-group:hover { background: #bd00ff; color: white; }
+.yt-purple { border-color: rgba(189, 0, 255, 0.5); }
+.yt-purple .main-btn-txt { color: #bd00ff; }
+.yt-purple .sub-btn-group { color: #bd00ff; border-color: rgba(189, 0, 255, 0.4); }
+.yt-purple .sub-btn-group:hover { background: #bd00ff; color: white; }
 
-#loader {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: #000000; display: none; flex-direction: column;
-    justify-content: center; align-items: center; z-index: 999999;
-}
-.spinner {
-    width: 60px; height: 60px; border: 6px solid rgba(255, 255, 255, 0.1);
-    border-top: 6px solid #00d4ff; border-radius: 50%; animation: spin 1s linear infinite;
-}
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
 </style>
 
-<div id="movies-menu-wrapper">
+<div id="page-wrapper">
 
     <div class="close-menu-btn" onclick="closeSubMenu()">
         <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
     </div>
     
-    <div class="movies-header">Cinema Hub</div>
+    <div class="page-header">Cinema Hub</div>
 
-    <div class="movies-grid-container">
+    <div class="grid-container">
         <div class="feature-row">
             <div class="feature-btn" onclick="loadWithSpinner('/movies-grid?genre=mixmovies hollywood&menu=/movies-menu&title=Mix movies Search')">MIX SEARCH</div>
             <div class="feature-btn" onclick="loadWithSpinner('/movies-grid?genre=movie trailers&menu=/movies-menu&title= Movie Trailers')">TRAILERS</div>
@@ -156,77 +144,77 @@
         </div>
 
         <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=UCa-U9IwHcs8_CSf6si6h_3Q&isChannel=true&menu=/movies-menu&title=Majestic Movies')">
-            <div class="main-title-btn">Majestic</div>
+            <div class="main-btn-txt">Majestic</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">POPCORNFLIX</span>
         </div>
 
         <div class="btn-group yt-amber" onclick="loadWithSpinner('/youtube-grid?genre=UCPPPrnT5080hPMxK1N4QSjA&isChannel=true&menu=/movies-menu')">
-            <div class="main-title-btn">V Movies</div>
+            <div class="main-btn-txt">V Movies</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=PL9kKQ7xjE8HNy65gqpXWsc_jCn6wRjyxa&isPlaylist=true&menu=/movies-menu')">Lists</span>
         </div>
 
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">
-            <div class="main-title-btn">POPCORNFLIX</div>
+            <div class="main-btn-txt">POPCORNFLIX</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=retro movies list&menu=/movies-menu')">VIEW LISTS</span>
         </div>
 
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=UCGADft_i4N1U5nXlfr2424A&isChannel=true&menu=/movies-menu')">
-            <div class="main-title-btn">BOXOFFICE</div>
+            <div class="main-btn-txt">BOXOFFICE</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=western classic movies&menu=/movies-menu')">CLASSIC</span>
         </div>
 
         <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=UCSBhm8415diORi1meGxF_Qw&isChannel=true&menu=/movies-menu')">
-            <div class="main-title-btn">Cine Pulse</div>
+            <div class="main-btn-txt">Cine Pulse</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=mr bean comedy&menu=/movies-menu')">MR. BEAN</span>
         </div>
 
         <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=UC6A_LC-A5NVJ2vw9A0OjCug&isChannel=true&menu=/movies-menu')">
-            <div class="main-title-btn">THE MIDNIGHT</div>
+            <div class="main-btn-txt">THE MIDNIGHT</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">POPCORNFLIX</span>
         </div>
 
         <div class="btn-group yt-amber" onclick="loadWithSpinner('/youtube-grid?genre=UCyU7b4ESe1cPG-y-CR-tolw&isChannel=true&menu=/movies-menu')">
-            <div class="main-title-btn">APEX Movies</div>
+            <div class="main-btn-txt">APEX Movies</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=PL9kKQ7xjE8HNy65gqpXWsc_jCn6wRjyxa&isPlaylist=true&menu=/movies-menu')">Lists</span>
         </div>
 
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=retro movies&menu=/movies-menu')">
-            <div class="main-title-btn">Retro</div>
+            <div class="main-btn-txt">Retro</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=retro movies list&menu=/movies-menu')">VIEW LISTS</span>
         </div>
 
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=western movies&menu=/movies-menu')">
-            <div class="main-title-btn">Western</div>
+            <div class="main-btn-txt">Western</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=western classic movies&menu=/movies-menu')">CLASSIC</span>
         </div>
 
         <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=comedy movies&menu=/movies-menu')">
-            <div class="main-title-btn">Comedy</div>
+            <div class="main-btn-txt">Comedy</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=mr bean comedy&menu=/movies-menu')">MR. BEAN</span>
         </div>
 
         <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=pink panther&menu=/movies-menu')">
-            <div class="main-title-btn">Pink Panther</div>
+            <div class="main-btn-txt">Pink Panther</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=cartoons&menu=/movies-menu')">CARTOONS</span>
         </div>
 
         <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=warner kids&menu=/movies-menu')">
-            <div class="main-title-btn">Warner Kids</div>
+            <div class="main-btn-txt">Warner Kids</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=kids movies&menu=/movies-menu')">KIDS LISTS</span>
         </div>
 
         <div class="btn-group yt-red" onclick="loadWithSpinner('/movies-grid?genre=thriller movies&menu=/movies-menu')">
-            <div class="main-title-btn">THRILLERS</div>
+            <div class="main-btn-txt">THRILLERS</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=classics thriller movies&menu=/movies-menu')">CLASSICS</span>
         </div>
 
         <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=action movies&menu=/movies-menu')">
-            <div class="main-title-btn">Action</div>
+            <div class="main-btn-txt">Action</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=thriller movies&menu=/movies-menu')">THRILLERS</span>
         </div>
 
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=scifi movies&menu=/movies-menu')">
-            <div class="main-title-btn">Sci-Fi</div>
+            <div class="main-btn-txt">Sci-Fi</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=scifi classic movies&menu=/movies-menu')">CLASSICS</span>
         </div>
     </div>
@@ -235,11 +223,9 @@
 <script>
     function loadWithSpinner(url) {
         // 1. Show the loader
-        if (window.showLoader) {
-            window.showLoader();
-        }
+        if (window.showLoader) {window.showLoader();}
 
-        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 handleNav(url);
             });

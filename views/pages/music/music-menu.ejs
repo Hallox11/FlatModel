@@ -1,9 +1,9 @@
 <style>
 /* ============================================================
-   MUSIC DISCOVERY - PREMIUM TV INTERFACE
+   GLOBAL MENU PAGE
    ============================================================ */
 
-#music-menu-wrapper {
+#page-wrapper {
     width: 1050px;
     padding: 45px;
     background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.5));
@@ -17,7 +17,7 @@
     position: relative;
 }
 
-#music-menu-wrapper .music-header {
+.page-header {
     font-family: 'Segoe UI', sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
@@ -27,13 +27,6 @@
     margin-bottom: 45px;
     opacity: 0.9;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.music-grid-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 15px;
-    width: 100%;
 }
 
 .feature-row {
@@ -63,7 +56,14 @@
         border: 2px solid #ffcc00 ; 
         transform: translateY(-3px);
         box-shadow: 0 8px 24px rgba(255, 204, 0, 0.15); 
-    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px;
+    width: 100%;
+}
 
 .btn-group {
     background: rgba(0, 0, 0, 0.45);
@@ -86,7 +86,7 @@
         box-shadow: 0 8px 24px rgba(255, 204, 0, 0.25); 
 }
 
-.main-title-btn {
+.main-btn-txt {
     font-size: 1.3rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -104,103 +104,103 @@
     transition: all 0.3s ease;
 }
 
-/* Energy Colors */
-.yt-amber { border-color: rgba(255, 75, 43, 0.4); }
-.yt-amber .main-title-btn { color: #ff4b2b; }
-.yt-amber .sub-btn-group { color: #ff4b2b; border-color: rgba(255, 75, 43, 0.6); }
-.yt-amber .sub-btn-group:hover { background: #ff4b2b; color: white; }
+/* Color Categories */
+.yt-red { border-color: rgba(255, 75, 43, 0.5); }
+.yt-red .main-btn-txt { color: #ff4b2b; }
+.yt-red .sub-btn-group { color: #ff4b2b; border-color: rgba(255, 75, 43, 0.4); }
+.yt-red .sub-btn-group:hover { background: #ff4b2b; color: white; }
 
-.yt-purple { border-color: rgba(0, 212, 255, 0.4); }
-.yt-purple .main-title-btn { color: #00d4ff; }
-.yt-purple .sub-btn-group { color: #00d4ff; border-color: rgba(0, 212, 255, 0.6); }
-.yt-purple .sub-btn-group:hover { background: #00d4ff; color: white; }
+.yt-cyan { border-color: rgba(0, 212, 255, 0.5); }
+.yt-cyan .main-btn-txt { color: #00d4ff; }
+.yt-cyan .sub-btn-group { color: #00d4ff; border-color: rgba(0, 212, 255, 0.4); }
+.yt-cyan .sub-btn-group:hover { background: #00d4ff; color: white; }
 
-.yt-cyan { border-color: rgba(255, 179, 71, 0.4); }
-.yt-cyan .main-title-btn { color: #ffb347; }
-.yt-cyan .sub-btn-group { color: #ffb347; border-color: rgba(255, 179, 71, 0.6); }
-.yt-cyan .sub-btn-group:hover { background: #ffb347; color: white; }
+.yt-amber { border-color: rgba(255, 179, 71, 0.5); }
+.yt-amber .main-btn-txt { color: #ffb347; }
+.yt-amber .sub-btn-group { color: #ffb347; border-color: rgba(255, 179, 71, 0.4); }
+.yt-amber .sub-btn-group:hover { background: #ffb347; color: white; }
 
-.yt-red { border-color: rgba(189, 0, 255, 0.4); }
-.yt-red .main-title-btn { color: #d385ee; }
-.yt-red .sub-btn-group { color: #d385ee; border-color: rgba(189, 0, 255, 0.6); }
-.yt-red .sub-btn-group:hover { background: #d385ee; color: white; }
-
+.yt-purple { border-color: rgba(189, 0, 255, 0.5); }
+.yt-purple .main-btn-txt { color: #bd00ff; }
+.yt-purple .sub-btn-group { color: #bd00ff; border-color: rgba(189, 0, 255, 0.4); }
+.yt-purple .sub-btn-group:hover { background: #bd00ff; color: white; }
 
 </style>
 
-<div id="music-menu-wrapper">
-    <div class="close-menu-btn" onclick="closeSubMenu()">
-        <span style="font-size: 25px;" class="material-symbols-rounded">close</span>
-    </div>
+<div id="page-wrapper">
+        <div class="close-menu-btn" onclick="closeSubMenu()">
+            <span class="material-symbols-rounded">close</span>
+        </div>
 
-    <div class="music-header">Music Discovery</div>
+    <div class="page-header">Music Discovery</div>
 
-    <div class="music-grid-container">
+    <div class="grid-container">
+      
         <div class="feature-row">
             <div class="feature-btn" onclick="loadWithSpinner('/music-grid?genre=Live Concerts')">LIVE CONCERTS</div>
             <div class="feature-btn" onclick="loadWithSpinner('/music-grid?genre=Full Albums')">FULL ALBUMS</div>
         </div>
 
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/music-grid?genre=Blues&title=Blues Music')">
-            <div class="main-title-btn">Blues</div>
+            <div class="main-btn-txt">Blues</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Blues VEVO&title=Blues Music Vevo')">VEVO</span>
         </div>
         <div class="btn-group yt-amber"   onclick="loadWithSpinner('/music-grid?genre=Rock&title=Rock Music')">
-            <div class="main-title-btn">Rock</div>
+            <div class="main-btn-txt">Rock</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Rock VEVO&title=Rock Music Vevo')">VEVO</span>
         </div>
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/music-grid?genre=Jazz&title=Jazz Music')">
-            <div class="main-title-btn">Jazz</div>
+            <div class="main-btn-txt">Jazz</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Jazz VEVO&title=Jazz Music Vevo')">VEVO</span>
         </div>
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/music-grid?genre=Classic music&title=Classic Music')">
-            <div class="main-title-btn">Classic</div>
+            <div class="main-btn-txt">Classic</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Classic music VEVO&title=Classic Music Vevo')">VEVO</span>
         </div>
         <div class="btn-group yt-cyan"  onclick="loadWithSpinner('/music-grid?genre=Relax music&title=Relax Music')">
-            <div class="main-title-btn">Relax</div>
+            <div class="main-btn-txt">Relax</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Relax music vevo&title=Relax Music Vevo')">VEVO</span>
         </div>
 
         <div class="btn-group yt-purple"  onclick="loadWithSpinner('/music-grid?genre=Pop&title=POP Music')">
-            <div class="main-title-btn">Pop</div>
+            <div class="main-btn-txt">Pop</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Pop VEVO&title=POP Music Vevo')">VEVO</span>
         </div>
         <div class="btn-group yt-purple"  onclick="loadWithSpinner('/music-grid?genre=Deep House&title=House Music')">
-            <div class="main-title-btn">House</div>
+            <div class="main-btn-txt">House</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=House Mix vevo&title=House Music vevo')">VEVO</span>
         </div>
         <div class="btn-group yt-amber"   onclick="loadWithSpinner('/music-grid?genre=Alternative Pop&title=Alternative Music')">
-            <div class="main-title-btn">Alternative</div>
+            <div class="main-btn-txt">Alternative</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Alternative Pop Vevo&title=Alternative Music vevo')">VEVO</span>
         </div>
         <div class="btn-group yt-amber"   onclick="loadWithSpinner('/music-grid?genre=Industrial music&title=Industrial Music')">
-            <div class="main-title-btn">Industrial</div>
+            <div class="main-btn-txt">Industrial</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Industrial music vevo&title=Industrial Music vevo')">VEVO</span>
         </div>      
         <div class="btn-group yt-amber"   onclick="loadWithSpinner('/music-grid?genre=Punk music&title=Punk Music')">
-            <div class="main-title-btn">Punk</div>
+            <div class="main-btn-txt">Punk</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Punk music VEVO&title=Punk Music Vevo')">VEVO</span>
         </div>
 
         <div class="btn-group yt-purple"  onclick="loadWithSpinner('/music-grid?genre=Electronic Dance')">
-            <div class="main-title-btn">Electronic</div>
+            <div class="main-btn-txt">Electronic</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Techno Mix')">VEVO</span>
         </div>
         <div class="btn-group yt-red"   onclick="loadWithSpinner('/music-grid?genre=Fado musica')">
-            <div class="main-title-btn">Fado</div>
+            <div class="main-btn-txt">Fado</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Fado musica vevo')">VEVO</span>
         </div>
         <div class="btn-group yt-red"   onclick="loadWithSpinner('/music-grid?genre=Reggae Roots')">
-            <div class="main-title-btn">Reggae</div>
+            <div class="main-btn-txt">Reggae</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Reggae vevo')">VEVO</span>
         </div>
         <div class="btn-group yt-red"   onclick="loadWithSpinner('/music-grid?genre=Soul RnB')">
-            <div class="main-title-btn">Soul</div>
+            <div class="main-btn-txt">Soul</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=RnB VEVO')">VEVO</span>
         </div>
         <div class="btn-group yt-purple" onclick="loadWithSpinner('/music-grid?genre=Acoustic')">
-            <div class="main-title-btn">Unplug</div>
+            <div class="main-btn-txt">Unplug</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/music-grid?genre=Acoustic VEVO')">VEVO</span>
         </div>
     </div> 
@@ -210,11 +210,9 @@
 <script>
     function loadWithSpinner(url) {
         // 1. Show the loader
-        if (window.showLoader) {
-            window.showLoader();
-        }
+        if (window.showLoader) {window.showLoader();}
 
-        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 handleNav(url);
             });

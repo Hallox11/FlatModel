@@ -1,294 +1,544 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch Together</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-    #wt-overlay-container {
-        width: 1280px; height: 720px;
-        color: #ffffff; font-family: 'Outfit', sans-serif;
-        display: flex; flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
-        position: absolute; top: 0; left: 0; z-index: 100;
+<style>
+#wt-overlay-container {
+    width: 1280px; height: 720px;
+    color: #ffffff; font-family: 'Outfit', sans-serif;
+    display: flex; flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.wt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.wt-card {
+    background: rgba(28, 28, 38, 0.8);
+    border: 2px solid rgba(218, 165, 32, 0.2);
+    border-radius: 12px;
+    padding: 10px 35px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.wt-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.wt-card:hover { border-color: #daa520; box-shadow: 0 10px 30px rgba(218, 165, 32, 0.3); }
+.wt-card:hover::before { opacity: 1; }
+
+.wt-card-icon { font-size: 2.3rem; margin-bottom: 1rem; display: block; }
+
+.wt-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: #daa520;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    display: inline;
+}
+
+.wt-card p {
+    color: #e9e6e6;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+.wt-badge {
+    display: inline-block;
+    background: rgba(218, 165, 32, 0.2);
+    color: #daa520;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.wt-input-group {
+    margin-top: 1rem;
+    display: block;
+    position: relative;
+    z-index: 10;
+}
+
+.wt-card input {
+    width: 100%;
+    background: rgba(10, 10, 15, 0.8);
+    border: 1px solid rgba(218, 165, 32, 0.3);
+    color: #f0f0f0;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 10;
+    cursor: text;
+}
+
+.wt-card input:focus {
+    outline: none;
+    border-color: #daa520;
+    background: rgba(10, 10, 15, 0.95);
+}
+
+.wt-card input::placeholder { color: #555; }
+
+.wt-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+    border: none;
+    color: #0a0a0f;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.wt-btn:hover {
+    box-shadow: 0 5px 20px rgba(218, 165, 32, 0.5);
+}
+
+.wt-input-helper {
+    font-size: 0.7rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.wt-features { list-style: none; margin-top: 1rem; }
+.wt-features li {
+    color: #e9e6e6;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+.wt-features li::before { content: '▸'; position: absolute; left: 0; color: #daa520; }
+
+.wt-quick-links {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wt-quick-link {
+    display: block;
+    color: #daa520;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s ease;
+}
+.wt-quick-link:hover { color: #ffd700; padding-left: 0.5rem; }
+
+/* ── TOP BAR / BACK BUTTON ── */
+#wt-back {
+    position: absolute; top: 20px; left: 20px;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
+    color: white; padding: 7px 14px; font-size: 0.78rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 6px;
+    cursor: pointer; transition: all 0.2s; z-index: 200;
+}
+#wt-back:hover { border-color: #daa520; color: #daa520; }
+#wt-back .wt-arrow { font-size: 1rem; line-height: 1; }
+
+/* ── INFO BUTTON ON CARD ── */
+.wt-info-btn {
+    position: absolute; top: 14px; right: 14px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(218, 165, 32, 0.12);
+    border: 1px solid rgba(218, 165, 32, 0.35);
+    color: #daa520; font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.2s ease; z-index: 20;
+}
+.wt-info-btn:hover {
+    background: rgba(218, 165, 32, 0.25);
+    border-color: #ffd700;
+    color: #ffd700;
+    transform: scale(1.08);
+}
+
+/* ── MODAL ── */
+.wt-modal-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 500;
+    animation: wtFadeIn 0.2s ease;
+}
+.wt-modal-overlay.active { display: flex; }
+
+.wt-modal {
+    width: 640px; max-height: 560px;
+    background: rgba(20, 20, 28, 0.97);
+    border: 1px solid rgba(218, 165, 32, 0.35);
+    border-radius: 14px;
+    padding: 32px 36px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    overflow-y: auto;
+    animation: wtModalPop 0.25s ease;
+}
+
+.wt-modal-close {
+    position: absolute; top: 16px; right: 16px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #ccc; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.2s ease;
+}
+.wt-modal-close:hover {
+    border-color: #e74c3c; color: #e74c3c;
+    background: rgba(231,76,60,0.1);
+}
+
+.wt-modal-header { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+.wt-modal-icon { font-size: 2rem; }
+.wt-modal-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem; color: #daa520;
+    letter-spacing: 1px;
+}
+.wt-modal-subtitle {
+    font-size: 0.75rem; color: #888;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 22px; margin-top: 4px;
+}
+
+.wt-modal-section { margin-bottom: 20px; }
+.wt-modal-section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem; color: #ffd700;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(218,165,32,0.15);
+}
+
+.wt-modal-steps { list-style: none; counter-reset: step; }
+.wt-modal-steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #e9e6e6;
+}
+.wt-modal-steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 24px; height: 24px;
+    background: rgba(218,165,32,0.15);
+    border: 1px solid rgba(218,165,32,0.4);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem; color: #daa520; font-weight: 700;
+}
+
+.wt-modal-tips { list-style: none; }
+.wt-modal-tips li {
+    font-size: 0.82rem; line-height: 1.6;
+    color: #c9c9c9;
+    margin-bottom: 8px;
+    padding-left: 1.5rem;
+    position: relative;
+}
+.wt-modal-tips li::before { content: '▸'; position: absolute; left: 0; color: #daa520; }
+
+.wt-modal-note {
+    background: rgba(218,165,32,0.06);
+    border-left: 3px solid #daa520;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: #e0c068;
+    line-height: 1.6;
+}
+
+@keyframes wtFadeIn { from{opacity:0} to{opacity:1} }
+@keyframes wtModalPop { from{opacity:0; transform: scale(0.92) translateY(10px);} to{opacity:1; transform: scale(1) translateY(0);} }
+</style>
+
+<div id="wt-overlay-container">
+
+    <button id="wt-back" onclick="handleNav('games-menu', false)">
+        <span class="wt-arrow">←</span> Back
+    </button>
+
+    <div class="wt-grid" style="margin-top: 70px;">
+        <!-- BUILT-IN SYNC CARD -->
+        <div class="wt-card">
+            <button class="wt-info-btn" onclick="wtOpenModal('wt-modal-builtin')" aria-label="How to use">i</button>
+            <div class="wt-card-icon">📺
+            <div class="wt-title">Built-in Sync</div></div>
+            <p>Your native TV synchronization system with real-time streaming and multi-user support.</p>
+            <span class="wt-badge">Built-in</span>
+            <ul class="wt-features">
+                <li>Real-time video streaming</li>
+                <li>Multi-user synchronization</li>
+                <li>Low latency</li>
+                <li>Native integration</li>
+            </ul>
+            <div class="wt-input-group">
+                <button class="wt-btn" onclick="handleNav('stream-cam')">Open Built-in Sync</button>
+            </div>
+        </div>
+
+        <!-- KOSMI CARD -->
+        <div class="wt-card">
+            <button class="wt-info-btn" onclick="wtOpenModal('wt-modal-kosmi')" aria-label="How to use">i</button>
+            <div class="wt-card-icon">🎬
+            <div class="wt-title">Kosmi</div></div>
+            <p>Watch videos, play games, and hang out together with friends in synchronized rooms.</p>
+            <span class="wt-badge">External</span>
+            <ul class="wt-features">
+                <li>YouTube, Netflix, Prime Video</li>
+                <li>Screen sharing</li>
+                <li>Built-in games</li>
+                <li>Voice & video chat</li>
+            </ul>
+            <div class="wt-input-group">
+                <div class="wt-input-helper">Optional: Enter room ID to join existing room</div>
+                <input type="text" id="wt-kosmi-room" placeholder="Enter Kosmi room ID (optional)">
+                <button class="wt-btn" onclick="wtJoinKosmi()">Join Kosmi</button>
+                <button class="wt-btn" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); color: #f0f0f0; box-shadow: none;" onclick="wtJoinKosmiFullPage()">Open Kosmi Homepage</button>
+            </div>
+            <div class="wt-quick-links">
+                <a href="https://kosmi.io" target="_blank" class="wt-quick-link">Create a new room ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── BUILT-IN SYNC MODAL ── -->
+    <div class="wt-modal-overlay" id="wt-modal-builtin">
+        <div class="wt-modal">
+            <button class="wt-modal-close" onclick="wtCloseModal('wt-modal-builtin')">✕</button>
+            <div class="wt-modal-header">
+                <span class="wt-modal-icon">📺</span>
+                <span class="wt-modal-title">Built-in Sync</span>
+            </div>
+            <div class="wt-modal-subtitle">How it works</div>
+
+            <div class="wt-modal-section">
+                <div class="wt-modal-section-title">Already Working — No Setup Needed</div>
+                <ul class="wt-modal-tips">
+                    <li>Sync is <strong>on by default</strong> for everyone in this room — there's nothing to turn on.</li>
+                    <li>When a viewer arrives, their player automatically jumps to the current position and starts playing in sync with everyone else.</li>
+                    <li>Whatever is currently playing in the room is what new viewers will see — instantly, with no action needed from them.</li>
+                </ul>
+            </div>
+
+            <div class="wt-modal-section">
+                <div class="wt-modal-section-title">When Would I Open This?</div>
+                <ol class="wt-modal-steps">
+                    <li><strong>Linking two locations together:</strong> open this on a TV in one place and have someone in another location open it too — both TVs will play the exact same thing at the exact same time, like a shared virtual screening.</li>
+                    <li><strong>Duplicating across rooms:</strong> set up a second TV (e.g. one in the living room, one in the bedroom) so both show identical, synced playback — perfect for following along from a different room.</li>
+                    <li><strong>Manual control:</strong> use this when you specifically want to choose what's playing, or to play/pause/seek for the whole room — those actions sync instantly to every connected viewer.</li>
+                </ol>
+            </div>
+
+            <div class="wt-modal-section">
+                <div class="wt-modal-section-title">Good to Know</div>
+                <ul class="wt-modal-tips">
+                    <li>Late joiners always snap to the live position — no rewinding or catching up needed.</li>
+                    <li>Low latency keeps reactions and chat timed closely with what's on screen.</li>
+                    <li>No external accounts or logins — it's fully built into this room.</li>
+                </ul>
+            </div>
+
+            <div class="wt-modal-note">
+                Tip: You don't need to open this to "watch together" — that already happens automatically. Open it when you want to pick new content, control playback, or mirror the experience across multiple screens/locations.
+            </div>
+        </div>
+    </div>
+
+    <!-- ── KOSMI MODAL ── -->
+    <div class="wt-modal-overlay" id="wt-modal-kosmi">
+        <div class="wt-modal">
+            <button class="wt-modal-close" onclick="wtCloseModal('wt-modal-kosmi')">✕</button>
+            <div class="wt-modal-header">
+                <span class="wt-modal-icon">🎬</span>
+                <span class="wt-modal-title">Kosmi</span>
+            </div>
+            <div class="wt-modal-subtitle">How it works</div>
+
+            <div class="wt-modal-section">
+                <div class="wt-modal-section-title">Joining an Existing Room</div>
+                <ol class="wt-modal-steps">
+                    <li>If you already have a Kosmi room ID, paste it into the input field.</li>
+                    <li>Click <strong>"Join Kosmi"</strong> — you'll be taken straight into that room.</li>
+                    <li>Leave the field empty and click the button to open the default Kosmi page instead.</li>
+                </ol>
+            </div>
+
+            <div class="wt-modal-section">
+                <div class="wt-modal-section-title">Creating a New Room</div>
+                <ol class="wt-modal-steps">
+                    <li>Click <strong>"Create a new room ↗"</strong> to open Kosmi in a new tab.</li>
+                    <li>Choose what you want to do — stream a video, share your screen, or start a game.</li>
+                    <li>Copy the room URL or ID from Kosmi and share it with whoever you want to invite.</li>
+                    <li>Have them paste that room ID back here to join from this menu next time.</li>
+                </ol>
+            </div>
+
+            <div class="wt-modal-section">
+                <div class="wt-modal-section-title">What You Can Do on Kosmi</div>
+                <ul class="wt-modal-tips">
+                    <li>Stream from YouTube, Netflix, Prime Video, and many other platforms together.</li>
+                    <li>Share your screen so everyone sees exactly what you see.</li>
+                    <li>Play built-in multiplayer games directly in the room.</li>
+                    <li>Talk over voice or video chat while watching.</li>
+                </ul>
+            </div>
+
+            <div class="wt-modal-note">
+                Note: Kosmi is an external service — it opens in its own page/tab, separate from this room's built-in sync.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+(function () {
+    window.wtJoinKosmiFullPage = function (isRemote = false) {
+        const container = document.getElementById('wt-overlay-container');
+        if (!container) return;
+
+        container.innerHTML = `
+            <button id="wt-back" onclick="handleNav('watch-together', false)">
+                <span class="wt-arrow">←</span> Back
+            </button>
+            <iframe
+                src="https://kosmi.io"
+                style="width:100%; height:100%; border:none;"
+                allow="camera; microphone; display-capture; autoplay; encrypted-media; fullscreen; clipboard-write"
+                allowfullscreen>
+            </iframe>
+        `;
+
+        if (!isRemote && window.socket && window.socket.connected) {
+            window.socket.emit('wt_sync', { room: window.myRoom, action: 'kosmi_homepage' });
+        }
+    };
+
+    window.wtJoinKosmi = function (isRemote = false) {
+        const input = document.getElementById('wt-kosmi-room');
+        const roomId = input ? input.value.trim() : '';
+
+        const container = document.getElementById('wt-overlay-container');
+        if (!container) return;
+
+        if (roomId) {
+            container.innerHTML = `
+                <button id="wt-back" onclick="handleNav('watch-together', false)">
+                    <span class="wt-arrow">←</span> Back
+                </button>
+                <iframe
+                    src="https://app.kosmi.io/room/${encodeURIComponent(roomId)}"
+                    style="width:100%; height:100%; border:none;"
+                    allow="camera; microphone; display-capture; autoplay; encrypted-media; fullscreen; clipboard-write"
+                    allowfullscreen>
+                </iframe>
+            `;
+
+            if (!isRemote && window.socket && window.socket.connected) {
+                window.socket.emit('wt_sync', { room: window.myRoom, action: 'kosmi_room', roomId });
+            }
+        } else {
+            container.innerHTML = `
+                <button id="wt-back" onclick="handleNav('watch-together', false)">
+                    <span class="wt-arrow">←</span> Back
+                </button>
+                <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; flex-direction:column; color:#aaa; text-align:center; font-family:'Space Mono', monospace;">
+                    <h2 style="color:#daa520; margin-bottom:10px;">No Kosmi Room Selected</h2>
+                    <p>Enter a room ID and click "Join Kosmi", or create a new room on kosmi.io.</p>
+                </div>
+            `;
+        }
+    };
+
+    // ── SYNC: Listen for remote actions from other viewers ──
+    if (window.socket) {
+        window.socket.on('wt_sync', (data) => {
+            if (data.action === 'kosmi_room' && data.roomId) {
+                const input = document.getElementById('wt-kosmi-room');
+                if (input) input.value = data.roomId;
+                wtJoinKosmi(true);
+            } else if (data.action === 'kosmi_homepage') {
+                wtJoinKosmiFullPage(true);
+            }
+        });
     }
 
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+    window.wtOpenModal = function (id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('active');
+    };
 
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #daa520 0%, #ffd700 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 0.5rem;
-        }
+    window.wtCloseModal = function (id) {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+    };
 
-        .subtitle {
-            font-size: 0.9rem;
-            color: #888;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            width: 100%;
-            margin-left: 30px;
-        }
-
-        .card {
-            background: rgba(28, 28, 38, 0.8);
-            border: 2px solid rgba(218, 165, 32, 0.2);
-            border-radius: 12px;
-            padding: 10px 35px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none; /* Don't block clicks on inputs! */
-        }
-
-        .card:hover {
-            border-color: #daa520;
-            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.3);
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card-icon {
-            font-size: 2.3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        #title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: #daa520;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-            display: inline;
-        }
-
-        .card p {
-            color: #e9e6e6;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .card-badge {
-            display: inline-block;
-            background: rgba(218, 165, 32, 0.2);
-            color: #daa520;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.5rem;
-        }
-
-        .input-group {
-            margin-top: 1rem;
-            display: block;
-            position: relative;
-            z-index: 10;
-        }
-
-        input {
-            width: 100%;
-            background: rgba(10, 10, 15, 0.8);
-            border: 1px solid rgba(218, 165, 32, 0.3);
-            color: #f0f0f0;
-            padding: 0.75rem;
-            border-radius: 6px;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 10;
-            cursor: text;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #daa520;
-            background: rgba(10, 10, 15, 0.95);
-        }
-
-        input::placeholder {
-            color: #555;
-        }
-
-        .btn {
-            width: 100%;
-            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
-            border: none;
-            color: #0a0a0f;
-            padding: 0.75rem;
-            border-radius: 6px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .btn:hover {
-                        font-size: 0.9rem!important;
-            transform: scale(1.0)!important;
-            box-shadow: 0 5px 20px rgba(218, 165, 32, 0.5);
-        }
-
-        .input-helper {
-            font-size: 0.7rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        .features {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .features li {
-            color: #e9e6e6;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .features li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: #daa520;
-        }
-
-        .quick-links {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .quick-link {
-            display: block;
-            color: #daa520;
-            text-decoration: none;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-            transition: all 0.2s ease;
-        }
-
-        .quick-link:hover {
-            color: #ffd700;
-            padding-left: 0.5rem;
-        }
-    </style>
-</head>
-<body>
-<div class="grid">
-    <div class="card">
-        <div class="card-icon">📺
-        <div id="title">Built-in Sync</div></div>
-        <p>Your native TV synchronization system with real-time streaming and multi-user support.</p>
-        <span class="card-badge">Built-in</span>
-        <ul class="features">
-            <li>Real-time video streaming</li>
-            <li>Multi-user synchronization</li>
-            <li>Low latency</li>
-            <li>Native integration</li>
-        </ul>
-        <div class="input-group">
-            <button class="btn" onclick="window.location.href='/stream-cam'">Open Built-in Sync</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-icon">🎬
-        <div id="title">Kosmi</div></div>
-        <p>Watch videos, play games, and hang out together with friends in synchronized rooms.</p>
-        <span class="card-badge">External</span>
-        <ul class="features">
-            <li>YouTube, Netflix, Prime Video</li>
-            <li>Screen sharing</li>
-            <li>Built-in games</li>
-            <li>Voice & video chat</li>
-        </ul>
-        <div class="input-group">
-            <div class="input-helper">Optional: Enter room ID to join existing room</div>
-            <input type="text" id="kosmi-room" placeholder="Enter Kosmi room ID (optional)">
-            <button class="btn" onclick="joinKosmi()">Join Kosmi</button>
-        </div>
-        <div class="quick-links">
-            <a href="https://kosmi.io" target="_blank" class="quick-link">Create a new room ↗</a>
-        </div>
-    </div>
-</div>
-    <script>
-        function joinKosmi() {
-            const roomId = document.getElementById('kosmi-room').value.trim();
-            if (roomId) {
-                window.location.href = `/kosmi?room=${encodeURIComponent(roomId)}`;
-            } else {
-                // Open default Kosmi page
-                window.location.href = '/kosmi';
-            }
-        }
-
-
-
-        // Add Enter key support for inputs
-        document.addEventListener('DOMContentLoaded', function() {
-            const kosmiInput = document.getElementById('kosmi-room');
-            
-            if (kosmiInput) {
-                kosmiInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        joinKosmi();
-                    }
-                });
-            }
-            
-
+    // Enter key support for Kosmi input
+    const kosmiInput = document.getElementById('wt-kosmi-room');
+    if (kosmiInput) {
+        kosmiInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') wtJoinKosmi();
         });
-    </script>
-</body>
-</html>
+    }
+
+    // Close modal on outside click
+    document.querySelectorAll('.wt-modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) overlay.classList.remove('active');
+        });
+    });
+
+    // Close modal on Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.wt-modal-overlay.active').forEach(o => o.classList.remove('active'));
+        }
+    });
+})();
+</script>

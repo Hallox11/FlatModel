@@ -1,0 +1,33 @@
+<style>
+#slither-overlay-container {
+    width: 1280px; height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+#slither-overlay-container iframe {
+    width: 100%; height: 100%;
+    border: none;
+}
+
+#slither-back {
+    position: absolute; top: 20px; left: 20px;
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
+    color: white; padding: 7px 14px; font-size: 0.78rem;
+    font-family: 'Fira Sans', sans-serif;
+    text-transform: uppercase; letter-spacing: 1px;
+    display: flex; align-items: center; gap: 6px;
+    cursor: pointer; transition: all 0.2s; z-index: 200;
+}
+#slither-back:hover { border-color: #daa520; color: #daa520; }
+#slither-back .slither-arrow { font-size: 1rem; line-height: 1; }
+</style>
+
+<div id="slither-overlay-container">
+    <button id="slither-back" onclick="handleNav('games-menu', false)">
+        <span class="slither-arrow">←</span> Back
+    </button>
+    <iframe src="http://slither.com/io" allowfullscreen></iframe>
+</div>

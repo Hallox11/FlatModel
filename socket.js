@@ -360,6 +360,12 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
             io.to(clientRoom).emit('update_bg_ui', index);
         });
 
+        // ── WATCH TOGETHER SYNC ──
+socket.on('wt_sync', (data) => {
+    const room = data.room || clientRoom;
+    socket.to(room).emit('wt_sync', data);
+});
+
         // ── UI SYNC ───────────────────────────────────────────
         socket.on('control_event', (data) => {
             socket.to(clientRoom).emit('sync_ui', { action: data.action });
@@ -846,6 +852,10 @@ function getTomRoom(roomName) {
         socket.on('tot_leave', (data) => { 
             const tr = getTotRoom(data.room || clientRoom); delete tr.players[socket.id]; io.to(data.room || clientRoom).emit('tot_players_update', { players: tr.players }); 
         });
+/////////////////////////////////////////////////////////        
+// ── SLITHER IO ──────────────────────────────────────
+
+
 
         // ── DISCONNECT ────────────────────────────────────────
 socket.on('disconnect', () => {

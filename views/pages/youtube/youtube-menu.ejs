@@ -1,25 +1,23 @@
 <style>
-/* ===============================
-   WRAPPER
-=============================== */
-#youtube-menu-wrapper {
-    width: 1075px;
+/* ============================================================
+   GLOBAL MENU PAGE
+   ============================================================ */
+
+#page-wrapper {
+    width: 1060px;
     padding: 45px;
-    background: radial-gradient(circle at center, rgba(20,20,20,0.6), rgba(0,0,0,0.5));
+    background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.5));
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
     margin: 20px auto;
     position: relative;
 }
 
-/* ===============================
-   HEADER
-=============================== */
-#youtube-menu-wrapper .yt-header {
+.page-header {
     font-family: 'Segoe UI', sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
@@ -28,69 +26,13 @@
     letter-spacing: 7px;
     margin-bottom: 45px;
     opacity: 0.9;
-    text-shadow: 0 0 20px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.7);
-}
-
-/* ===============================
-   SEARCH
-=============================== */
-#youtube-menu-wrapper .search-container {
-    width: 100%;
-    margin-bottom: 25px;
-}
-
-#youtube-menu-wrapper .search-input {
-    flex: 1;
-    background: rgba(0, 0, 0, 0.20);
-    border: 2px solid rgba(255,255,255,0.5);
-    padding: 16px 25px;
-    border-radius: 10px;
-    font-size: 1.3rem;
-    color: white;
-    outline: none;
-    transition: 0.3s;
-    min-width: 0;
-}
-
-#youtube-menu-wrapper .search-input:focus {
-    border-color: #a2ff00;
-    background: rgba(255,255,255,0.1);
-    box-shadow: 0 0 20px rgba(255,0,0,0.2);
-}
-
-#youtube-menu-wrapper .search-btn {
-    background: rgba(0, 0, 0, 0.20);
-    border: 2px solid rgba(255,255,255,0.2);
-    border-radius: 15px;
-    color: white;
-    padding: 14px 22px;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-#youtube-menu-wrapper .search-btn:hover {
-    background: #31ab52d5;
-    border-color: #31ab52d5;
-}
-
-/* ===============================
-   GRID CONTAINER
-=============================== */
-#youtube-menu-wrapper .yt-grid-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    width: 100%;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 /* ===============================
    FEATURE ROW
 =============================== */
-#youtube-menu-wrapper .feature-row {
+.feature-row {
     grid-column: span 5;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -98,7 +40,7 @@
     margin-bottom: 5px;
 }
 
-#youtube-menu-wrapper .feature-btn {
+.feature-btn {
     background: rgba(0, 0, 0, 0.20);
     border: 2px solid rgba(255,255,255,0.2);
     border-radius: 15px;
@@ -112,21 +54,23 @@
     flex-shrink: 0;
 }
 
-#youtube-menu-wrapper .feature-btn:hover {
+.feature-btn:hover {
     background: #31ab52d5;
     border-color: #31ab52d5;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px;
+    width: 100%;
+}
 
-
-/* ===============================
-   CATEGORY CARDS
-=============================== */
 .btn-group {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.45);
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 5px;
-    padding: 13px;
+    padding: 13px 11px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,13 +82,13 @@
 
 .btn-group:hover {
         background: rgba(20, 20, 25, 0.85);
-        border: 1px solid #ffcc00 ; 
+        border: 2px solid #ffcc00 ; 
         transform: translateY(-3px);
         box-shadow: 0 8px 24px rgba(255, 204, 0, 0.25); 
 }
 
-.main-title-btn {
-    font-size: 1.1rem;
+.main-btn-txt {
+    font-size: 1.3rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -161,26 +105,71 @@
     transition: all 0.3s ease;
 }
 
-/* Energy Colors */
-.yt-amber { border-color: rgba(255, 75, 43, 0.4); }
-.yt-amber .main-title-btn { color: #ff4b2b; }
-.yt-amber .sub-btn-group { color: #ff4b2b; border-color: rgba(255, 75, 43, 0.6); }
-.yt-amber .sub-btn-group:hover { background: #ff4b2b; color: white; }
+/* Color Categories */
+.yt-red { border-color: rgba(255, 75, 43, 0.5); }
+.yt-red .main-btn-txt { color: #ff4b2b; }
+.yt-red .sub-btn-group { color: #ff4b2b; border-color: rgba(255, 75, 43, 0.4); }
+.yt-red .sub-btn-group:hover { background: #ff4b2b; color: white; }
 
-.yt-purple { border-color: rgba(0, 212, 255, 0.4); }
-.yt-purple .main-title-btn { color: #00d4ff; }
-.yt-purple .sub-btn-group { color: #00d4ff; border-color: rgba(0, 212, 255, 0.6); }
-.yt-purple .sub-btn-group:hover { background: #00d4ff; color: white; }
+.yt-cyan { border-color: rgba(0, 212, 255, 0.5); }
+.yt-cyan .main-btn-txt { color: #00d4ff; }
+.yt-cyan .sub-btn-group { color: #00d4ff; border-color: rgba(0, 212, 255, 0.4); }
+.yt-cyan .sub-btn-group:hover { background: #00d4ff; color: white; }
 
-.yt-cyan { border-color: rgba(255, 179, 71, 0.4); }
-.yt-cyan .main-title-btn { color: #ffb347; }
-.yt-cyan .sub-btn-group { color: #ffb347; border-color: rgba(255, 179, 71, 0.6); }
-.yt-cyan .sub-btn-group:hover { background: #ffb347; color: white; }
+.yt-amber { border-color: rgba(255, 179, 71, 0.5); }
+.yt-amber .main-btn-txt { color: #ffb347; }
+.yt-amber .sub-btn-group { color: #ffb347; border-color: rgba(255, 179, 71, 0.4); }
+.yt-amber .sub-btn-group:hover { background: #ffb347; color: white; }
 
-.yt-red { border-color: rgba(189, 0, 255, 0.4); }
-.yt-red .main-title-btn { color: #d385ee; }
-.yt-red .sub-btn-group { color: #d385ee; border-color: rgba(189, 0, 255, 0.6); }
-.yt-red .sub-btn-group:hover { background: #d385ee; color: white; }
+.yt-purple { border-color: rgba(189, 0, 255, 0.5); }
+.yt-purple .main-btn-txt { color: #bd00ff; }
+.yt-purple .sub-btn-group { color: #bd00ff; border-color: rgba(189, 0, 255, 0.4); }
+.yt-purple .sub-btn-group:hover { background: #bd00ff; color: white; }
+
+/* ===============================
+   SEARCH
+=============================== */
+.search-container {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.search-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.20);
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 16px 25px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+    min-width: 0;
+}
+.search-input:focus, .search-input.remote-focus {
+    border-color: #a2ff00;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 20px rgba(255,0,0,0.2);
+}
+
+.search-btn {
+    background: rgba(0, 0, 0, 0.20);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 15px;
+    color: white;
+    padding: 14px 22px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.search-btn:hover, .search-btn.remote-hover {
+    background: #31ab52d5;
+    border-color: #31ab52d5;
+}
 
 
 /* ===============================
@@ -188,20 +177,20 @@
 =============================== */
 .yt-modal-overlay {
     display: none;
-    position: absolute;
+    position: fixed;   /* important change */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0,0,0,0.7);
-    border-radius: 30px;
     z-index: 100;
-    flex-direction: column;
-    align-items: center;
+
+    overflow-y: auto;  /* enables scrolling */
+    padding: 40px 0;
+
+    display: flex;
     justify-content: center;
-    padding: 10px 40px;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    align-items: flex-start; /* allows scroll instead of forcing center */
 }
 
 .yt-modal-overlay[style*="flex"] {
@@ -220,36 +209,14 @@
     padding: 10px;
 }
 
-
-
-/* ===============================
-   REMOTE HOVER STATES
-=============================== */
-#youtube-menu-wrapper .btn-group.remote-hover {
-    transform: scale(1.07);
-    background: rgba(0,0,0,0.7);
-    border-color: rgba(255,255,255,0.8);
-}
-
-#youtube-menu-wrapper .feature-btn.remote-hover {
-    background: white !important;
-    color: black !important;
-}
-
-#youtube-menu-wrapper .feature-btn.btn-fav.remote-hover {
-    background: #ffd700 !important;
-    color: black !important;
-}
-
-
 </style>
 
-<div id="youtube-menu-wrapper">
+<div id="page-wrapper">
     <div class="close-menu-btn" onclick="closeSubMenu()">
         <span class="material-symbols-rounded">close</span>
     </div>
 
-    <div class="yt-header">Youtube Search</div>
+    <div class="page-header">Youtube Search</div>
 
     <div class="search-container">
         <div style="display: flex; gap: 10px; align-items: center;">
@@ -262,219 +229,292 @@
 
 
 
-<div class="feature-btn search-btn" onclick="document.getElementById('yt-help-modal').style.display='flex'">
+<div class="search-btn" onclick="document.getElementById('yt-help-modal').style.display='flex'">
     <span class="material-symbols-rounded">help</span>
 </div>
         </div>
     </div>
 
-    <div class="yt-grid-container">
+    <div class="grid-container">
 
 
         <!-- Category Cards -->
         <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UC5dsLkNZX9pVgmEHpJX9QCA&isChannel=true&menu=/youtube-menu&title=Second Life Official')">
-            <div class="main-title-btn">Second Life</div>
+            <div class="main-btn-txt">Second Life</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC9lFGoxhquvypdNDYpj3ekg&isChannel=true&menu=/youtube-menu&title=Draxtor files')">DRAXTOR</span>
         </div>
 
         <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCI7NrJQ5vpg2PmVQKpwXSbw&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">Bryn Oh</div>
+            <div class="main-btn-txt">Bryn Oh</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC0-b3mAe2rYJ3BhiOy1j_Fg&isChannel=true&menu=/youtube-menu')">SONGULARITY</span>
         </div>
 
         <div class="btn-group yt-amber"  onclick="loadWithSpinner('/youtube-grid?genre=UCbfOwWpYoWo5l0Tz-q29Tbg&isChannel=true&menu=/youtube-menu&title=Tutsy Navarathna')">
-            <div class="main-title-btn">Tutsy</div>
+            <div class="main-btn-txt">Tutsy</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCau2uwcAq_piedjavtmqp9A&isChannel=true&menu=/youtube-menu')">IONO ALLEN</span>
         </div>
 
         <div class="btn-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCYJhtXjfiwmah0DwXn3B-qw&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">inWorld</div>
+            <div class="main-btn-txt">inWorld</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCxGlN6DXSe4qxjRmWgvM7zw&isChannel=true&menu=/youtube-menu')">OEMA</span>
         </div>
 
         <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UCU17qab1aYA3PQDiWNONdfQ&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">Anna Kurka</div>
+            <div class="main-btn-txt">Anna Kurka</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCUKYh7WxpHyxBrIX4mpv3sg&isChannel=true&menu=/youtube-menu')">FLORINE</span>
         </div>
 
 
 
         <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCb57aRZr3KsykS_wNsD5Ptw&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">4K Landscapes</div>
+            <div class="main-btn-txt">4K Landscapes</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC-hKdAEl4c86O9lNTNrOqhw&isChannel=true&menu=/youtube-menu')">4K NATURE</span>
         </div>
 
         <div class="btn-group yt-amber"    onclick="loadWithSpinner('/youtube-grid?genre=UCY-6T66-azasLIwzVf4Q9TQ&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">Dalí Museum</div>
+            <div class="main-btn-txt">Dalí Museum</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC9CswYtb5rL31CHwyVoyJvQ&isChannel=true&menu=/youtube-menu')">MOMA</span>
         </div>
 
         <div class="btn-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCPVM7BG6PXKO1PR6K5KXG9A&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">N. GEOGRAPHIC</div>
+            <div class="main-btn-txt">N. GEOGRAPHIC</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCQtW2oz8ec8pHjjxawujNjg&isChannel=true&menu=/youtube-menu')">NATURE DOCS</span>
         </div>
 
         <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UC9MAhZQQd9egwWCxrwSIsJQ&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">HISTORY</div>
+            <div class="main-btn-txt">HISTORY</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCc-N24Y5OA0gqbjBwe1ttfA&isChannel=true&menu=/youtube-menu')">WEIRD HISTORY</span>
         </div>
 
         <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCfzuJecdM0uhX7HfICewt3Q&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">FAME FOCUS</div>
+            <div class="main-btn-txt">FAME FOCUS</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCXjmz8dFzRJZrZY8eFiXNUQ&isChannel=true&menu=/youtube-menu')">NERDSTALGIC</span>
         </div>
 
 
 
         <div class="btn-group yt-amber"   onclick="loadWithSpinner('/youtube-grid?genre=UCFeUyPY6W8qX8w2o6oSiRmw&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">Pink Panther</div>
+            <div class="main-btn-txt">Pink Panther</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCU0rIMU3k_AsVA8d6N1B03w&isChannel=true&menu=/youtube-menu')">WARNER BROS.</span>
         </div>
 
         <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UCkAGrHCLFmlK3H2kd6isipg&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">Mr. Bean</div>
+            <div class="main-btn-txt">Mr. Bean</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCKk1DfbCOBm_42PMyz7HqEA&isChannel=true&menu=/youtube-menu')">STAND UP</span>
         </div>
 
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/youtube-grid?genre=UCpsSadsgX_Qk9i6i_bJoUwQ&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">Just For Laughs</div>
+            <div class="main-btn-txt">Just Laughs</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC1Cp5caGwHvJZxHoevGoDdA&isChannel=true&menu=/youtube-menu')">BRAIN TIME</span>
         </div>
 
         <div class="btn-group yt-purple"    onclick="loadWithSpinner('/youtube-grid?genre=UCPN6irtK3KIT2xUdQYQmh5Q&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">Jason Maher</div>
+            <div class="main-btn-txt">Jason Maher</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCeeHYKSxJPk0Hv2v-LLTdmg&isChannel=true&menu=/youtube-menu')">OSCAR MAGIC</span>
         </div>
 
         <div class="btn-group yt-amber"   onclick="loadWithSpinner('/youtube-grid?genre=UCHnyfMqiRRG1u-2MsSQLbXA&isChannel=true&menu=/youtube-menu')">
-            <div class="main-title-btn">Veritasium</div>
+            <div class="main-btn-txt">Veritasium</div>
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCsXVk37bltHxD1rDPwtNM8Q&isChannel=true&menu=/youtube-menu')">Kurzgesagt</span>
         </div>
 
     </div>
 
-
 </div>
+<!-- HELP MODAL -->
 <!-- HELP MODAL -->
 <div id="yt-help-modal" class="yt-modal-overlay" style="display:none;">
 
-  <div style="width:1150px; margin: 40px auto; background:#111; border:0.5px solid rgba(255,255,255,0.1); border-radius:18px; overflow:hidden; font-family: system-ui, -apple-system, sans-serif;">
+<div style="
+    width:900px;
+    max-width:95vw;
+    max-height:90vh;
+    overflow-y:auto;
+    margin:40px auto;
+    background:#111;
+    border:0.5px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+">
 
-    <!-- HEADER -->
-    <div style="padding:18px 22px; border-bottom:0.5px solid rgba(255,255,255,0.07); display:flex; align-items:center; justify-content:space-between;">
-      <div style="display:flex; align-items:center; gap:12px;">
-        <div style="width:10px; height:10px; border-radius:50%; background:#ff0000;"></div>
-        <span style="font-size:18px; font-weight:600; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase;">Search Guide</span>
-        <span style="font-size:14px; background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); padding:4px 10px; border-radius:20px; font-weight:500; margin-left:10px;">One input field handles it all ✨</span>
+  <!-- HEADER -->
+  <div style="padding:20px 24px; border-bottom:0.5px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center;">
+
+    <div>
+      <div style="font-size:22px; font-weight:700; color:white;">
+        Smart Input
       </div>
-      <div onclick="document.getElementById('yt-help-modal').style.display='none'"
-           style="width:28px; height:28px; border-radius:7px; background:rgba(255,255,255,0.05); border:0.5px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; cursor:pointer; color:rgba(255,255,255,0.35);">
-        <span class="material-symbols-rounded" style="font-size:15px;">close</span>
+
+      <div style="font-size:14px; color:rgba(255,255,255,0.5); margin-top:4px;">
+        Paste anything YouTube-related — we’ll automatically choose the best way to process it.
       </div>
     </div>
 
-    <!-- BODY: LEFT + RIGHT -->
-    <div style="display:grid; grid-template-columns:1fr 1fr;">
-
-      <!-- LEFT: Single Actions -->
-      <div style="border-right:0.5px solid rgba(255,255,255,0.07); display:flex; flex-direction:column;">
-
-        <!-- Search Term -->
-        <div style="padding:20px; border-bottom:0.5px solid rgba(255,255,255,0.06); display:flex; gap:14px;">
-          <div style="width:34px; height:34px; border-radius:9px; background:rgba(255,0,0,0.12); color:#ff4444; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <span class="material-symbols-rounded" style="font-size:17px;">search</span>
-          </div>
-          <div style="flex:1;">
-            <div style="font-size:18px; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:4px;">Type to Search</div>
-            <div style="font-size:15px; color:rgba(255,255,255,0.5); line-height:1.5; margin-bottom:10px;">Enter any keyword, phrase, or topic to instantly browse a grid of video results.</div>
-            <span style="display:inline-block; font-family:monospace; font-size:14px; color:#ff4444; background:rgba(255,0,0,0.08); padding:4px 8px; border-radius:5px; border: 0.5px solid rgba(255,0,0,0.15);">Example: lo-fi hip hop radio</span>
-          </div>
-        </div>
-
-        <!-- Video URL or ID -->
-        <div style="padding:20px; border-bottom:0.5px solid rgba(255,255,255,0.06); display:flex; gap:14px;">
-          <div style="width:34px; height:34px; border-radius:9px; background:rgba(0,140,255,0.12); color:#4da6ff; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <span class="material-symbols-rounded" style="font-size:17px;">link</span>
-          </div>
-          <div style="flex:1;">
-            <div style="font-size:18px; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:4px;">Paste a Video Link or ID</div>
-            <div style="font-size:15px; color:rgba(255,255,255,0.5); line-height:1.5; margin-bottom:10px;">Drop a standard URL, short link, or raw ID to skip the search and play it immediately.</div>
-            <div style="display:flex; flex-direction:column; gap:4px; font-family:monospace; font-size:13px; color:#4da6ff;">
-              <div><span style="background:rgba(0,140,255,0.08); padding:2px 6px; border-radius:4px;">https://www.youtube.com/watch?v=dQw4w9WgXcQ</span></div>
-              <div><span style="background:rgba(0,140,255,0.08); padding:2px 6px; border-radius:4px;">youtu.be/dQw4w9WgXcQ</span> <span style="color:rgba(255,255,255,0.3); font-family:sans-serif; margin-left:5px;">(or just the ID:</span> <span style="background:rgba(0,140,255,0.08); padding:2px 6px; border-radius:4px;">dQw4w9WgXcQ</span><span style="color:rgba(255,255,255,0.3); font-family:sans-serif;">)</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Channel ID -->
-        <div style="padding:20px; display:flex; gap:14px;">
-          <div style="width:34px; height:34px; border-radius:9px; background:rgba(255,170,0,0.12); color:#ffaa00; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <span class="material-symbols-rounded" style="font-size:17px;">subscriptions</span>
-          </div>
-          <div style="flex:1;">
-            <div style="font-size:18px; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:4px;">Load an Entire Channel</div>
-            <div style="font-size:15px; color:rgba(255,255,255,0.5); line-height:1.5; margin-bottom:10px;">Paste a YouTube Channel ID to unlock and explore their full dedicated library grid.</div>
-            <span style="display:inline-block; font-family:monospace; font-size:14px; color:#ffaa00; background:rgba(255,170,0,0.08); padding:4px 8px; border-radius:5px; border: 0.5px solid rgba(255,170,0,0.15);">Example: UC9CoOnJkIBMdeegjYyQfczg</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- RIGHT: Playlists -->
-      <div style="padding:20px; display:flex; flex-direction:column; gap:14px; background: rgba(255,255,255,0.01);">
-        <div style="display:flex; gap:12px; align-items:flex-start;">
-          <div style="width:34px; height:34px; border-radius:9px; background:rgba(0,200,100,0.12); color:#00c864; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <span class="material-symbols-rounded" style="font-size:17px;">queue_music</span>
-          </div>
-          <div>
-            <div style="font-size:18px; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:4px;">Build a Playlist On-The-Fly</div>
-            <div style="font-size:15px; color:rgba(255,255,255,0.5); line-height:1.5;">Want to watch multiple videos? Just press enter and stack a raw text list of your items into the field. Invalid lines are automatically ignored.</div>
-          </div>
-        </div>
-        
-        <!-- Playlist Box Example -->
-        <div style="background:rgba(0,0,0,0.6); border:0.5px solid rgba(255,255,255,0.08); border-left:3px solid #00c864; border-radius:4px; padding:14px; font-family:monospace; font-size:14px; color:rgba(255,255,255,0.6); line-height:1.8; flex:1;">
-          <span style="color:rgba(255,255,255,0.3); font-size:11px; text-transform:uppercase; display:block; margin-bottom:4px; font-family:sans-serif;">📋 Paste list style layout:</span>
-          https://youtube.com/watch?v=dFCbJmgeHmA<br>
-          https://youtube.com/watch?v=K4DyBUG242c<br>
-          youtu.be/abc12345678<br>
-          youtu.be/mN7IAaRdi_k<br>
-          xaQJbozY_Is<br>
-          ScMzIvxBSi4
-        </div>
-        
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="background:rgba(0,200,100,0.12); color:#00c864; font-size:13px; font-weight:600; border-radius:6px; padding:4px 10px;">→ Plays sequentially</span>
-          <span style="font-size:13px; color:rgba(255,255,255,0.35);">Back button returns to this menu</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="height:0.5px; background:rgba(255,255,255,0.06); margin:0 20px;"></div>
-
-    <!-- BOTTOM ACCESSIBILITY TIP -->
-    <div style="margin:14px 20px; background:rgba(255,170,0,0.06); border:0.5px solid rgba(255,170,0,0.25); border-radius:8px; padding:12px 16px; display:flex; gap:10px; align-items:center; font-size:14px; color:#ffb732; line-height:1.4;">
-      <span class="material-symbols-rounded" style="font-size:16px; flex-shrink:0;">lightbulb</span>
-      <span><strong>Pro Tip:</strong> Mix formats completely freely. Standard URLs, mobile short links, and bare IDs can all sit together in the exact same input batch flawlessly.</span>
+    <div onclick="document.getElementById('yt-help-modal').style.display='none'"
+         style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+      <span class="material-symbols-rounded" style="font-size:16px;color:rgba(255,255,255,0.5);">close</span>
     </div>
 
   </div>
+
+  <!-- FLOW -->
+  <div style="padding:24px;">
+
+    <!-- SEARCH -->
+    <div style="display:flex; gap:16px; margin-bottom:24px;">
+
+      <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,0,0,0.12);display:flex;align-items:center;justify-content:center;color:#ff4444;flex-shrink:0;">
+        <span class="material-symbols-rounded">search</span>
+      </div>
+
+      <div>
+
+        <div style="font-size:18px;font-weight:600;color:white;">
+          Search for Videos
+        </div>
+
+        <div style="font-size:14px;color:rgba(255,255,255,0.55);margin-top:6px;line-height:1.6;">
+          Enter a keyword, phrase, topic, artist, game, movie, or anything you want to find on YouTube.
+        </div>
+
+        <div style="margin-top:10px;">
+          <span style="font-family:monospace;color:#ff5555;background:rgba(255,0,0,0.08);padding:5px 10px;border-radius:6px;">
+            lo-fi hip hop radio
+          </span>
+        </div>
+
+        <div style="margin-top:10px;color:rgba(255,255,255,0.4);font-size:13px;">
+          Result → Shows a grid of videos sorted by relevance.
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- VIDEO -->
+    <div style="display:flex; gap:16px; margin-bottom:24px;">
+
+      <div style="width:42px;height:42px;border-radius:10px;background:rgba(0,140,255,0.12);display:flex;align-items:center;justify-content:center;color:#4da6ff;flex-shrink:0;">
+        <span class="material-symbols-rounded">play_circle</span>
+      </div>
+
+      <div>
+
+        <div style="font-size:18px;font-weight:600;color:white;">
+          Play a Video Instantly
+        </div>
+
+        <div style="font-size:14px;color:rgba(255,255,255,0.55);margin-top:6px;">
+          Paste a YouTube video URL or video ID to play it immediately.
+        </div>
+
+        <div style="margin-top:10px;display:flex;flex-direction:column;gap:6px;font-family:monospace;font-size:13px;">
+          <span style="color:#4da6ff;">dQw4w9WgXcQ</span>
+          <span style="color:#4da6ff;">youtube.com/watch?v=dQw4w9WgXcQ</span>
+        </div>
+
+        <div style="margin-top:10px;color:rgba(255,255,255,0.4);font-size:13px;">
+          Result → Skips search and starts playback immediately.
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CHANNEL -->
+    <div style="display:flex; gap:16px; margin-bottom:24px;">
+
+      <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,170,0,0.12);display:flex;align-items:center;justify-content:center;color:#ffaa00;flex-shrink:0;">
+        <span class="material-symbols-rounded">subscriptions</span>
+      </div>
+
+      <div>
+
+        <div style="font-size:18px;font-weight:600;color:white;">
+          Explore a Channel
+        </div>
+
+        <div style="font-size:14px;color:rgba(255,255,255,0.55);margin-top:6px;">
+          Paste a YouTube channel ID to browse all uploads from that creator.
+        </div>
+
+        <div style="margin-top:10px;">
+          <span style="font-family:monospace;color:#ffaa00;background:rgba(255,170,0,0.08);padding:5px 10px;border-radius:6px;">
+            UC9CoOnJkIBMdeegjYyQfczg
+          </span>
+        </div>
+
+        <div style="margin-top:10px;color:rgba(255,255,255,0.4);font-size:13px;">
+          Result → Opens a full channel video grid.
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PLAYLIST -->
+    <div style="display:flex; gap:16px;">
+
+      <div style="width:42px;height:42px;border-radius:10px;background:rgba(0,200,100,0.12);display:flex;align-items:center;justify-content:center;color:#00c864;flex-shrink:0;">
+        <span class="material-symbols-rounded">queue_music</span>
+      </div>
+
+      <div style="width:100%;">
+
+        <div style="font-size:18px;font-weight:600;color:white;">
+          Build a Playlist Automatically
+        </div>
+
+        <div style="font-size:14px;color:rgba(255,255,255,0.55);margin-top:6px;">
+          Paste multiple video URLs, short links, or video IDs — mixed formats supported.
+        </div>
+
+        <div style="margin-top:14px;background:black;border-left:3px solid #00c864;padding:14px;border-radius:6px;font-family:monospace;font-size:13px;line-height:1.8;color:rgba(255,255,255,0.65);">
+https://youtube.com/watch?v=dFCbJmgeHmA<br>
+https://youtube.com/watch?v=K4DyBUG242c<br>
+youtu.be/abc12345678<br>
+xaQJbozY_Is<br>
+ScMzIvxBSi4
+        </div>
+
+        <div style="margin-top:10px;color:rgba(255,255,255,0.4);font-size:13px;">
+          Result → Automatically builds a temporary playlist and plays videos sequentially.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding:18px 24px; border-top:0.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02);">
+
+    <div style="display:flex; gap:10px; align-items:flex-start;">
+
+      <span class="material-symbols-rounded" style="color:#ffb732;">
+        auto_awesome
+      </span>
+
+      <div style="font-size:14px; color:rgba(255,255,255,0.65); line-height:1.6;">
+        <strong style="color:white;">No mode selection required.</strong>
+        The system automatically detects input type — search query, video URL, video ID, channel ID, or playlist — and launches the correct experience instantly.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 </div>
 
 <script>
-if (!window.ytMenuInitialized) {
-    window.ytMenuInitialized = true;
+if (!window.ytMenuInitialized) {window.ytMenuInitialized = true;// Standard loader helper
 
-// Standard loader helper
 function loadWithSpinner(url) {
         // 1. Show the loader (assuming window.showLoader exists in your main layout)
-        if (window.showLoader) {
-            window.showLoader();
-        }
+        if (window.showLoader) {window.showLoader();}
 
-        // 2. Defer navigation to ensure the loader paints
-        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 handleNav(url);
             });
@@ -542,8 +582,6 @@ const vParam = input.match(/(?:[?&]|^)v=([a-zA-Z0-9_-]{11})/);
 
     return null;
 }
-
-
 
 }
 </script>

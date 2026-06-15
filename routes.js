@@ -86,7 +86,7 @@ router.get('/quiz',          (req, res) => res.render('pages/games/quiz'));
 router.get('/truth-or-myth', (req, res) => res.render('pages/games/truth-or-myth'));
 router.get('/who-am-i',      (req, res) => res.render('pages/games/who-am-i'));
 router.get('/this-or-that',  (req, res) => res.render('pages/games/this-or-that'));
-
+router.get('/slither-io',  (req, res) => res.render('pages/games/slither-io'));
 router.get('/clip-games', (req, res) => res.render('pages/games/clip-games')); 
 router.get('/tv-clip-games', (req, res) => res.render('pages/games/tv-clip-games'));
 // ── WATCH TOGETHER MENU ──────────────────────────────────────

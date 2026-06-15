@@ -5,12 +5,18 @@
     align-items: center; justify-content: center;
     position: relative; overflow: hidden;
     font-family: 'Fira Sans', sans-serif; color: white;
-    background: #000;
+    background: rgba(0,0,0,0.4);
 }
-
+#tom-overlay {
+position: fixed;
+width: 940px;
+height: 690px;
+    background: rgba(0,0,0,0.4);
+    z-index: -1;
+}
 #tom-close {
     position: absolute; top: 20px; left: 20px;
-    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.5);
     border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
     color: white; padding: 7px 14px; font-size: 0.78rem;
     font-family: 'Fira Sans', sans-serif;
@@ -53,7 +59,7 @@
 #tom-name-input::placeholder { opacity: 0.3; }
 
 .tom-btn {
-    background: linear-gradient(135deg, rgba(46,204,113,0.25), rgba(46,204,113,0.08));
+    background:  rgba(0,0,0,0.4);
     border: 1px solid rgba(46,204,113,0.45); border-radius: 10px;
     color: white; cursor: pointer; padding: 12px 28px;
     font-size: 0.82rem; font-family: 'Fira Sans', sans-serif;
@@ -74,7 +80,7 @@
 }
 
 /* ── STATEMENT ── */
-#tom-statement { gap: 0; justify-content: flex-start; padding-top: 100px; }
+#tom-statement { gap: 0; justify-content: flex-start; padding-top: 80px; }
 
 #tom-progress-wrap { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.08); }
 #tom-progress-bar  { height: 100%; background: #2ecc71; transition: width 0.3s ease; }
@@ -97,25 +103,38 @@
     font-size: 1.1rem; font-weight: 200;
 }
 
-#tom-q-counter { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; margin-bottom: 20px; }
+#tom-q-counter { font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; margin-bottom: 20px; }
 
 #tom-statement-text {
-    font-size: 1.9rem; font-weight: 200; text-align: center;
-    max-width: 860px; line-height: 1.5; padding: 0 40px;
-    margin-bottom: 50px;
+    background: rgba(0,0,0,0.4);;
+    border: 2px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    width: 860px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 200;
+    line-height: 1.5;
+    padding: 20px 40px;
+    margin: 0 auto 20px auto;
+    position: relative; /* IMPORTANT: remove fixed */
 }
 
-#tom-vote-row { display: flex; gap: 24px; }
+#tom-vote-row {     display: flex; gap: 24px; }
 
 .tom-vote-btn {
-    width: 240px; height: 120px; border-radius: 18px;
+
+    width: 240px; height: 110px; border-radius: 18px;
     border: 2px solid; cursor: pointer;
     font-size: 1.5rem; font-weight: 700; letter-spacing: 3px;
     text-transform: uppercase; transition: all 0.18s ease;
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
     font-family: 'Fira Sans', sans-serif;
 }
-.tom-vote-btn .vote-icon { font-size: 2.2rem; }
+.tom-vote-btn .vote-icon { font-size: 2.0rem; }
 .tom-vote-btn.truth  { background: rgba(46,204,113,0.1);  border-color: rgba(46,204,113,0.4);  color: #2ecc71; }
 .tom-vote-btn.myth   { background: rgba(231,76,60,0.1);   border-color: rgba(231,76,60,0.4);   color: #e74c3c; }
 .tom-vote-btn.truth:hover:not(:disabled) { background: rgba(46,204,113,0.25); border-color: #2ecc71; transform: scale(1.05); }
@@ -143,6 +162,7 @@
 
 /* ── INLINE REVEAL (same pattern as quiz-result-inline) ── */
 #tom-reveal-inline {
+
     display: none;
     margin-top: 28px;
     border-top: 1px solid rgba(255,255,255,0.1);
@@ -150,11 +170,11 @@
     flex-direction: column; align-items: center; gap: 14px;
     width: 100%;
 }
-.tom-reveal-label  { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: #daa520; opacity: 0.9; }
-.tom-reveal-answer { font-size: 1.9rem; font-weight: 200; letter-spacing: 4px; }
+.tom-reveal-label  { font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: #daa520; opacity: 0.9; }
+.tom-reveal-answer { font-size: 1.7rem; font-weight: 200; letter-spacing: 4px; }
 .tom-reveal-answer.truth { color: #2ecc71; }
 .tom-reveal-answer.myth  { color: #e74c3c; }
-.tom-reveal-explanation  { font-size: 0.88rem; opacity: 0.55; text-align: center; max-width: 700px; line-height: 1.6; }
+.tom-reveal-explanation  { font-size: 1rem; opacity: 0.75; text-align: center; max-width: 700px; line-height: 1.6; }
 
 #tom-reveal-scores { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 .tom-rscard {
@@ -189,6 +209,7 @@
 </style>
 
 <div id="tom-module">
+    <div id="tom-overlay"></div>
     <button id="tom-close" onclick="tomClose()">
         <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span> Back
     </button>
