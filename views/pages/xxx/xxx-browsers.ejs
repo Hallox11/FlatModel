@@ -1,141 +1,170 @@
 <style>
-    /* Scoped Container to prevent CSS leaking to the main menu */
-    #xxx-menu-wrapper {
-        width: 1280px;
-        height: 720px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 40px;
-        box-sizing: border-box;
-    }
+/* Using the same styles as your primary menu for consistency */
+#xxx-menu-wrapper {
+    width: 1050px;
+    padding: 25px;
+    background: radial-gradient(circle at center, rgba(30, 20, 20, 0.7), rgba(10, 0, 0, 0.8));
+    border-radius: 30px;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+    margin: 20px auto;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
 
-    #xxx-title {
-        width: 600px;
-        border: 4px solid rgba(255, 255, 255, 0.2);
-        border-radius: 12px;
-        padding: 10px;
-        font: 600 1.8em 'Fira Sans', sans-serif;
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
+#xxx-title {
+    font-size: 30px;
+    color: #ff6b6b;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+}
 
-    .links-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        width: 1100px;
-        max-height: 420px;
-        overflow-y: auto;
-        padding: 20px;
-    }
+.xxx-conteiner {
+    width: 95%;
+    max-height: 460px;
+    overflow-y: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
 
-    .xxx-btn {
-        text-decoration: none;
-        color: #fff;
-        background: rgba(255, 255, 255, 0.05);
-        border: 2px solid rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        padding: 15px 5px;
-        font-size: 1.2rem;
-        text-align: center;
-        transition: all 0.2s ease;
-    }
+.xxx-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
 
-    .xxx-btn:hover {
-        background: #2f9e28;
-        border-color: #fff;
-        transform: scale(1.05);
-        color: yellow;
-    }
+.xxx-btn {
+    background: rgba(255, 107, 107, 0.15);
+    border: 1px solid #ff6b6b;
+    border-radius: 12px;
+    padding: 14px 12px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
 
-    /* Search/Submit Section */
-    .search-area {
-        margin-top: 30px;
-        display: flex;
-        gap: 10px;
-        align-items: center;
-    }
+.xxx-btn:hover {
+    background: #ff6b6b;
+    color: #000;
+    transform: scale(1.05);
+}
 
-    #tag-url {
-        height: 45px;
-        width: 500px;
-        font-size: 1.1rem;
-        border: 2px solid white;
-        border-radius: 8px;
-        padding: 0 15px;
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-    }
+.xxx-input-box {
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
 
-    .submit-btn {
-        height: 49px;
-        padding: 0 25px;
-        background: #5ab565;
-        border: none;
-        border-radius: 8px;
-        color: black;
-        font-weight: 600;
-        cursor: pointer;
-    }
+.xxx-input-box input[type="text"] {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    padding-left: 10px;
+}
 
-    #back-to-main {
-        margin-top: 40px;
-        padding: 15px 60px;
-        background: #eb7272;
-        color: white;
-        font-weight: 600;
-        border-radius: 12px;
-        border: none;
-        cursor: pointer;
-    }
+.xxx-input-box input[type="button"] {
+    background: #5ab565;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#back-to-main {
+    margin-top: 20px;
+    padding: 15px 40px;
+    background: #eb7272;
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+}
 </style>
 
 <div id="xxx-menu-wrapper">
     <div id="xxx-title">XXX Browsers Menu</div>
 
-    <div class="links-grid">
-        <a id="XBrows2" onclick="handleXClick(this)" href="https://www.xvideos.com/tags/english" class="xxx-btn">XVideos</a> 
-        <a id="XBrows3" onclick="handleXClick(this)" href="https://pt.pornhub.com/" class="xxx-btn">PornHub</a>
-        <a id="XBrows4" onclick="handleXClick(this)" href="https://www.xnxx.com/" class="xxx-btn">XnXX</a>
-        <a id="XBrows1" onclick="handleXClick(this)" href="https://www.voyeurshd.com/" class="xxx-btn">Voyeur HD</a>
-        <a id="XBrows5" onclick="handleXClick(this)" href="https://www.fullxxxvideos.net/" class="xxx-btn">HD Red Tube</a>
-        <a id="XBrows6" onclick="handleXClick(this)" href="https://voyeurhit.com/top-rated/1/?sort=top-rated&date=day&type=all&duration=all" class="xxx-btn">VoyeurHit</a>
-        <a id="XBrows7" onclick="handleXClick(this)" href="https://www.youporn.com/" class="xxx-btn">YouPorno</a>
-        <a id="XBrows10" onclick="handleXClick(this)" href="https://pt.cam4.com/" class="xxx-btn">Cam4</a>
-        <a id="XBrows8" onclick="handleXClick(this)" href="https://pt.xhamster.com/" class="xxx-btn">Xhamster</a>
-        <a id="XBrows17" onclick="handleXClick(this)" href="https://hdhole.com/" class="xxx-btn">HD Hole</a>
-        <a id="XBrows9" onclick="handleXClick(this)" href="https://dreamsexworld.com/" class="xxx-btn">DreamSex</a>
-        <a id="XBrows10b" onclick="handleXClick(this)" href="https://adultfriendfinder.com/" class="xxx-btn">AdultFriend</a>
-        <a id="XBrows11" onclick="handleXClick(this)" href="https://www.babes.xyz/" class="xxx-btn">Babes Xyz</a>
-        <a id="XBrows12" onclick="handleXClick(this)" href="https://beeg.com/" class="xxx-btn">Beeg</a>
-        <a id="XBrows13" onclick="handleXClick(this)" href="https://www.livejasmin.com/" class="xxx-btn">Live Jasmin</a>
-        <a id="XBrows14" onclick="handleXClick(this)" href="https://www.pornpics.com/" class="xxx-btn">Porn Pics</a>
-        <a id="XBrows15" onclick="handleXClick(this)" href="https://cartoon-sex.tv/" class="xxx-btn">Cartoon Sex</a>
-        <a id="XBrows16" onclick="handleXClick(this)" href="https://www.vrsmash.com/" class="xxx-btn">VR Smash</a>
-        <a id="XBrows16b" onclick="handleXClick(this)" href="https://publicfucktube.com/categories/" class="xxx-btn">Public Fuck</a>
+    <div class="xxx-conteiner">
+        <div class="xxx-grid">
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.xvideos.com/tags/english')">XVideos</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://pt.pornhub.com/')">PornHub</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.xnxx.com/')">XnXX</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.voyeurshd.com/')">Voyeur HD</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.fullxxxvideos.net/')">HD Red Tube</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://voyeurhit.com/')">VoyeurHit</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.youporn.com/')">YouPorno</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://pt.cam4.com/')">Cam4</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://pt.xhamster.com/')">Xhamster</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://hdhole.com/')">HD Hole</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://dreamsexworld.com/')">DreamSex</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://adultfriendfinder.com/')">AdultFriend</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.babes.xyz/')">Babes Xyz</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://beeg.com/')">Beeg</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.livejasmin.com/')">Live Jasmin</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.pornpics.com/')">Porn Pics</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://cartoon-sex.tv/')">Cartoon Sex</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.vrsmash.com/')">VR Smash</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://publicfucktube.com/categories/')">Public Fuck</div>
+            <div class="xxx-btn" onclick="requestConfirmation('https://www.google.com')">More...</div>
+        </div>
     </div>
 
-    <div class="search-area">
-        <input id="tag-url" type="text" placeholder="https://www... or http://www...">
-        <button class="submit-btn" onclick="manualSubmit()">Submit URL</button>
+    <div class="xxx-input-box">
+        <input id="xxx-tag" type="text" placeholder="https://www... or http://www...">
+        <input type="button" value="SUBMIT" onclick="submitXXXUrl()">
     </div>
 
-<button id="back-to-main" onclick="handleNav('/xxx-index')">BACK TO XXX MENU</button></div>
+    <button id="back-to-main" onclick="handleNav('/xxx-index')">BACK TO XXX MENU</button>
+</div>
 
 <script>
-    // Note: We avoid 'let' and 'const' for functions here 
-    // to prevent "Identifier already declared" if AJAX reloads.
-    
-    function manualSubmit() {
-        var url = $("#tag-url").val();
+    function submitXXXUrl() {
+        const input = document.getElementById("xxx-tag");
+        let url = input.value.trim();
+
         if (url) {
-            window.location.href = url;
+            let finalUrl = "";
+
+            // Logic: If it starts with http/https, use it directly
+            if (url.startsWith("http://") || url.startsWith("https://")) {
+                finalUrl = url;
+            }
+            // Logic: If it looks like a URL (contains a dot and no spaces), add https
+            else if (url.includes(".") && !url.includes(" ")) {
+                finalUrl = "https://" + url;
+            }
+            // Logic: Otherwise, treat it as a search query
+            else {
+                finalUrl = "https://www.google.com/search?q=" + encodeURIComponent(url);
+            }
+
+            // Trigger the modal with the determined URL
+            requestConfirmation(finalUrl);
         }
     }
 
-
-
+    // Optional: Allow pressing "Enter" to submit
+    document.getElementById("xxx-tag").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            submitXXXUrl();
+        }
+    });
 </script>

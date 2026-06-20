@@ -262,7 +262,7 @@ function handleNav(mode, isRemote = false) {
         // --- NEW: UI CLEANUP FOR MAIN PAGE ELEMENTS ---
         $('.status-bar').fadeOut(200);
         $('#theme-slider').fadeOut(200);
-        $('#burger-menu-btn').fadeOut(200); // Hide burger on sub-pages
+        $('.burger-menu-btn').fadeOut(200); // Hide burger on sub-pages
         $('#controls').removeClass('active').fadeOut(200); // Close controls if open
         $('#room-indicator').fadeOut(200).addClass('hidden');
         // ----------------------------------------------
@@ -332,7 +332,7 @@ function closeSubMenu(isRemote = false) {
     }
 
     // Clear any stuck animations on the burger before showing it
-    $('#burger-menu-btn').stop(true, true);
+    $('.burger-menu-btn').stop(true, true);
 
     $('#sub-content-overlay').fadeOut(200, function() {
         $(this).html('').hide();
@@ -342,7 +342,7 @@ function closeSubMenu(isRemote = false) {
         
         // --- RESTORE UI ELEMENTS ---
         $('.status-bar').fadeIn(200);
-        $('#burger-menu-btn').fadeIn(200); // Add this line!
+        $('.burger-menu-btn').fadeIn(200); // Add this line!
         $('#room-indicator').removeClass('hidden').fadeIn(200);
         // Optional: If you want the theme slider to stay hidden 
         // until the burger is clicked, change this to .hide()
@@ -457,6 +457,8 @@ const syncSelectors =
      '.ch-card, ' + // live-tv cards
      '.game-card, ' + // clip games cards
      '.search-btn, ' + // youtube search buttons
+     '.nav-btn-glass, ' +
+     '.burger-menu-btn, '+
   '.btn, ' +
   '.video-card, ' +
   '.nav-btn-glass, ' +
@@ -831,14 +833,14 @@ socket.on('state_sync', function(data) {
 socket.on('mirror_ajax_nav', function(data) {
     if (data.action === 'CLOSE') {
         closeSubMenu(true); 
-        $('#burger-menu-btn').fadeIn(200);
+        $('.burger-menu-btn').fadeIn(200);
         $('.status-bar').fadeIn(200);
         // ADICIONE ESTA LINHA:
         $('#room-indicator').removeClass('hidden').fadeIn(200);
     } else if (data.mode) {
         $('.status-bar').fadeOut(200);
         $('#theme-slider').fadeOut(200);
-        $('#burger-menu-btn').fadeOut(200);
+        $('.burger-menu-btn').fadeOut(200);
         // ADICIONE ESTA LINHA:
         $('#room-indicator').fadeOut(200).addClass('hidden');
         

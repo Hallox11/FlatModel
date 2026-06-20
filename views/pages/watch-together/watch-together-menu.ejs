@@ -21,7 +21,7 @@
     background: rgba(28, 28, 38, 0.8);
     border: 2px solid rgba(218, 165, 32, 0.2);
     border-radius: 12px;
-    padding: 15px 35px;
+    padding: 10px 35px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -58,21 +58,24 @@
     font-size: 0.8rem; 
     letter-spacing: 2px; 
     text-transform: uppercase; 
-    margin-bottom: 8px;
-    margin-top: 12px;
+    margin-bottom: 5\px;
+    margin-top: 5px;
+    padding-left: 10px;
 }
 
 .wt-card p {
     color: #e9e6e6;
     font-size: 0.85rem;
     line-height: 1.5;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.9rem;
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 1px;
 }
 
 .wt-badge {
-    display: inline-block;
+    position: relative;;
+    top: 10px;
+    left: 10px;
     background: rgba(218, 165, 32, 0.2);
     color: #daa520;
     padding: 0.25rem 0.75rem;
@@ -93,7 +96,7 @@
 .wt-card input {
     width: 100%;
     background: rgba(10, 10, 15, 0.8);
-    border: 1px solid rgba(218, 165, 32, 0.3);
+    border: 1px solid #daa52082;
     color: #f0f0f0;
     padding: 0.65rem;
     border-radius: 6px;
@@ -145,7 +148,7 @@
 .wt-room-display {
     flex-grow: 1; 
     background: rgba(255, 255, 255, 0.02); 
-    border: 1px solid rgba(218, 165, 32, 0.2); 
+    border: 1px solid #b0892382; 
     border-radius: 10px; 
     color: #daa520; 
     font-family: 'Outfit', sans-serif; 
@@ -191,7 +194,7 @@
 .wt-input-helper strong {
     color: #daa520;
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.72rem;
+    font-size: 1.0rem;
     letter-spacing: 0.5px;
 }
 
@@ -205,14 +208,16 @@
     gap: 0.3rem 1.5rem;                    /* Sets spacing between rows and columns */
     margin-top: 0.6rem; 
     margin-bottom: 0.4rem; 
+    margin-left: -31px;
     list-style: none; 
 }
 .wt-features li {
-    color: #e9e6e6;
-    font-size: 0.82rem;
-    margin-bottom: 0.3rem;
+    color: #b3b3b7;
+    font-size: 1.0rem;
+    margin-bottom: 0.9rem;
     padding-left: 1.3rem;
     position: relative;
+    line-height: 1.4;
 }
 .wt-features li::before { content: '▸'; position: absolute; left: 0; color: #daa520; }
 
@@ -239,82 +244,89 @@
     display: flex; align-items: center; justify-content: center;
     pointer-events: none; opacity: 0.7;
 }
+#fields{
+    background: #0000009c;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-top: 20x;
+}
 </style>
 
 <div id="wt-overlay-container">
 
-    <button id="wt-back" onclick="handleNav('games-menu', false)">
+    <button id="wt-back" onclick="closeSubMenu()")">
         <span class="wt-arrow">←</span> Back
     </button>
 
-    <div class="wt-grid" style="margin-top: 75px;">
+    <div class="wt-grid" style="margin-top: 60px;">
         
-        <!-- ── LEFT CARD: BUILT-IN SYNC WITH AUTOMATIC SYNC CLARIFICATION ── -->
-        <div class="wt-card">
-            <div class="wt-info-btn">i</div>
-            <div class="wt-card-icon">
-                <div class="wt-title">Built-in Sync</div>
-                                          <span class="wt-badge">Built-in</span>
-            </div>
-            <p><strong>Automatic Sync Active:</strong> TV content is already fully synchronized by default. New arrivals do not need to perform any action to watch together.<br><br>
-  
-           <!--
-            <ul class="wt-features">
-                <li>Real-time video streaming</li>
-                <li>Multi-user synchronization</li>
-                <li>Low latency</li>
-                <li>Native integration</li>
-            </ul>
---> 
-            <!-- Added Contextual Sync Note -->
-            <div class="wt-info-panel">
-                <div class="wt-input-helper">
-How to Use: Share your room link to stream across different TVs, or use a shared ID to sync up with someone else's stream (perfect for separate networks or mirroring content between your living room and bedroom).                </div>
-            </div>
+<!-- ── LEFT CARD: BUILT-IN SYNC WITH AUTOMATIC SYNC CLARIFICATION ── -->
+<div class="wt-card">
+    <div class="wt-card-icon">
+        <div class="wt-title">Built-in Sync</div>
+        <span class="wt-badge" style="top:-20px;left: 220px;">Built-in</span>
+    </div>
+    <p><strong>Automatic Sync Active:</strong> TV content is fully synchronized by default. New arrivals join instantly — no action needed.<br>
 
-            <!-- Embedded Direct Forms matching image_826764.png -->
-            <div class="wt-sub-heading">My Room</div>
-            <div style="display: flex; gap: 12px; width: 100%; height: 42px; margin-bottom: 4px;">
-                <div id="wt-room-code-box" class="wt-room-display">Lobby</div>
-                <button id="wt-copy-btn" onclick="wtCopyRoomLink()" class="wt-copy-btn-inline">COPY LINK</button>
-            </div>
-            <div class="wt-input-helper" style="text-align: center; margin-bottom: 10px; font-size: 0.9rem; color: #ffffff;">
-                Share this link with friends, they'll join your room and watch everything in sync with you.
-            </div>
 
-            <div style="border-top: 1px solid rgba(255,255,255,0.08); margin: 10px 0;"></div>
+<!-- ── NEW: Cross-Region Sync + TV Duplication side by side ── -->
+<div style="grid-template-columns: 1fr 1fr; gap: 0 1.5rem; margin-top: 0.5rem;">
+    <div>
+        <div class="wt-sub-heading" style=" margin-bottom: 20px;margin-top: 20px;">Multiple TV´s on diferent Lands all playing sync</div>
+        <ul class="wt-features" style="grid-template-columns: 1fr;">
+            <li><strong>Seamless Connection:</strong> Sync your home TV with a friend’s TV to experience a shared view, even when you are in different locations.</li>
+            <li><strong>Seamless Duplication: </strong>Put one TV in the living room and another in the bedroom to experience a unified view.Both Tv´s will show identical content in real-time.</li>
+            <li style="margin-bottom: 20px;"><strong>Easy Access:</strong> Simply share your room link with friends or paste a received link to sync both TVs instantly.</li>
+        </ul>
+    </div>
 
-            <div class="wt-sub-heading">Join Another TV</div>
-            <div style="display: flex; gap: 12px; width: 100%;">
-                <input type="text" id="wt-tv-code" placeholder="Paste room code or full URL..." style="margin-bottom: 0; padding: 0.65rem;">
-                <button onclick="wtJoinOtherTV()" class="wt-btn" style="width: auto; padding: 0 22px; margin-top: 0; border-radius: 6px; height: 38px;">JOIN</button>
-            </div>
-            <div id="wt-tv-helper" class="wt-input-helper" style="text-align: center; margin-top: 6px; font-size: 0.9rem; color: #ffffff;">
-                Got a link from someone else's TV? Paste it above and both TVs will sync up instantly.
-            </div>
-        </div>
+</div>
+
+
+    <!-- Embedded Direct Forms -->
+     <div id="fields">
+    <div class="wt-sub-heading">My Room</div>
+    <div style="display: flex; gap: 12px; width: 100%; height: 42px; margin-bottom: 4px;">
+        <div id="wt-room-code-box" class="wt-room-display">Lobby</div>
+        <button id="wt-copy-btn" onclick="wtCopyRoomLink()" class="wt-copy-btn-inline">COPY LINK</button>
+    </div>
+    <div class="wt-input-helper" style="text-align: center; margin-bottom: 10px; font-size: 0.9rem; color: #ffffff;">
+       
+    </div>
+
+    <div style="border-top: 1px solid rgba(255,255,255,0.08); margin: 10px 0;"></div>
+
+    <div class="wt-sub-heading">Join Another TV</div>
+    <div style="display: flex; gap: 12px; width: 100%;">
+        <input type="text" id="wt-tv-code" placeholder="Paste room code or full URL..." style="margin-bottom: 0; padding: 0.65rem;">
+        <button onclick="wtJoinOtherTV()" class="wt-btn" style="width: auto; padding: 0 22px; margin-top: 0; border-radius: 6px; height: 38px;">JOIN</button>
+    </div>
+    <div id="wt-tv-helper" class="wt-input-helper" style="text-align: center; margin-top: 6px; font-size: 0.9rem; color: #ffffff;">
+      
+    </div>
+    </div>
+</div>
 
         <!-- ── RIGHT CARD: KOSMI CARD ── -->
         <div class="wt-card">
-            <div class="wt-info-btn">i</div>
+
             <div class="wt-card-icon">
                 <div class="wt-title">Kosmi</div>
-                            <span class="wt-badge">External</span>
+                        <span class="wt-badge" style="top:-20px;left: 295px;">External</span>
+
             </div>
             <p>Watch videos, play games, and hang out together with friends in synchronized rooms.</p>
 
             
             <ul class="wt-features">
-                <li>YouTube, Netflix, Prime Video</li>
-                <li>Screen sharing & Video chat</li>
-                <li>Built-in multiplayer games</li>
-                <li>Voice & video chat</li>
+                <li>YouTube, Netflix, Prime, Video stream share</li>
+                <li>Screen sharing & Video chat Multiplayer games</li>
             </ul>
 
             <div class="wt-info-panel">
                 <div id="wt-kosmi-helper" class="wt-input-helper">
-                    🔑 <strong>How to Use Room IDs:</strong> Paste an active Kosmi Room ID key down below to embed their third-party video synchronization channel into this layout frame.<br><br>
-                    🌐 <strong>Don't have a code?</strong> Click the secondary button underneath to navigate out to their webpage platform where you can set up a room and get an invite code.
+                    <strong>How to Use Room IDs:</strong>To join an active session, paste a Kosmi Room ID or URL below to sync your TV with their stream.<br><br>
+                    <strong>Don't have a code?</strong> Click the secondary button underneath to navigate out to their webpage platform where you can set up a room and get an invite code.
                 </div>
             </div>
 

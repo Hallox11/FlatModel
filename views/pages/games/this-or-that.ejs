@@ -30,14 +30,15 @@
     display: none; flex-direction: column;
     align-items: center; justify-content: center;
     width: 100%; height: 100%;
-    animation: tomFade 0.4s ease;
+    animation: totFade 0.4s ease;
 }
 .tot-screen.active { display: flex; }
 
 /* ── LOBBY ── */
 #tot-lobby { gap: 28px; }
-.tot-title { font-size: 2.4rem; font-weight: 200; letter-spacing: 8px; text-transform: uppercase; }
-.tot-subtitle { font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; }
+.tot-title    { font-size: 2.4rem; font-weight: 200; letter-spacing: 8px; text-transform: uppercase; }
+.tot-subtitle { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.35; }
+
 #tot-players-list { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 800px; }
 .tot-chip {
     background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
@@ -58,7 +59,7 @@
 #tot-name-input::placeholder { opacity: 0.3; }
 
 .tot-btn {
-    background: linear-gradient(135deg, rgba(52,152,219,0.25), rgba(52,152,219,0.08));
+    background: rgba(0,0,0,0.4);
     border: 1px solid rgba(52,152,219,0.45); border-radius: 10px;
     color: white; cursor: pointer; padding: 12px 28px;
     font-size: 0.82rem; font-family: 'Fira Sans', sans-serif;
@@ -67,41 +68,65 @@
 .tot-btn:hover { background: rgba(52,152,219,0.35); transform: scale(1.03); }
 .tot-btn:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
 
-/* ── VOTE SCREEN ── */
-#tot-vote { gap: 0; }
-
-#tot-q-counter {
-    position: absolute; top: 24px;
-    font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.3;
+/* ── COUNTDOWN ── */
+#tot-countdown { gap: 20px; }
+.tot-countdown-number {
+    font-size: 8rem; font-weight: 200; line-height: 1;
+    animation: totPop 1s ease;
+}
+.tot-countdown-label {
+    font-size: 0.75rem; letter-spacing: 4px;
+    text-transform: uppercase; opacity: 0.5;
 }
 
-#tot-question {
-    font-size: 1.3rem; font-weight: 200; letter-spacing: 2px;
-    text-transform: uppercase; opacity: 0.45; margin-bottom: 40px; text-align: center;
+/* ── VOTE / QUESTION SCREEN ── */
+#tot-vote { gap: 0; justify-content: flex-start; padding-top: 80px; }
+
+#tot-progress-wrap { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.08); }
+#tot-progress-bar  { height: 100%; background: #3498db; transition: width 0.3s ease; }
+
+/* timer ring — mirrors true or myth */
+#tot-timer-ring {
+    position: absolute; top: 20px; right: 30px;
+    width: 60px; height: 60px;
 }
+#tot-timer-ring svg { transform: rotate(-90deg); }
+#tot-timer-circle {
+    fill: none; stroke: #daa520; stroke-width: 3;
+    stroke-dasharray: 163; stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.1s linear;
+    stroke-linecap: round;
+}
+#tot-timer-text {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; font-weight: 200;
+}
+
+#tot-q-counter { font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.75; margin-bottom: 20px; }
+#tot-question  { font-size: 1.3rem; font-weight: 200; letter-spacing: 2px; text-transform: uppercase; opacity: 0.45; margin-bottom: 30px; text-align: center; }
 
 /* the two big choice panels */
 #tot-choices {
-    display: flex; width: 100%; height: 460px; position: relative;
+    display: flex; width: 960px; height: 150px; position: relative;
 }
 .tot-choice {
     flex: 1; display: flex; align-items: center; justify-content: center;
     flex-direction: column; gap: 12px; cursor: pointer;
     transition: all 0.2s ease; position: relative; overflow: hidden;
+    border-radius: 18px; border: 2px solid;
 }
-.tot-choice:first-child {
-    background: linear-gradient(135deg, rgba(52,152,219,0.12), rgba(52,152,219,0.04));
-    border-right: 1px solid rgba(255,255,255,0.06);
-}
-.tot-choice:last-child {
-    background: linear-gradient(135deg, rgba(231,76,60,0.12), rgba(231,76,60,0.04));
-    border-left: 1px solid rgba(255,255,255,0.06);
-}
-.tot-choice:first-child:hover:not(.voted) { background: rgba(52,152,219,0.22); }
-.tot-choice:last-child:hover:not(.voted)  { background: rgba(231,76,60,0.22); }
-.tot-choice.voted { pointer-events: none; }
-.tot-choice.selected:first-child { background: rgba(52,152,219,0.28); }
-.tot-choice.selected:last-child  { background: rgba(231,76,60,0.28); }
+.tot-choice.a { background: rgba(52,152,219,0.1); border-color: rgba(52,152,219,0.4); margin-right: 12px; }
+.tot-choice.b { background: rgba(231,76,60,0.1);  border-color: rgba(231,76,60,0.4); margin-left: 12px; }
+.tot-choice.a:hover:not(:disabled) { background: rgba(52,152,219,0.25); border-color: #3498db; transform: scale(1.02); }
+.tot-choice.b:hover:not(:disabled) { background: rgba(231,76,60,0.25);  border-color: #e74c3c;  transform: scale(1.02); }
+.tot-choice:disabled { cursor: not-allowed; }
+
+.tot-choice.selected { opacity: 1; transform: scale(1.03); }
+.tot-choice.majority { box-shadow: 0 0 0 3px rgba(218,165,32,0.8); }
+.tot-choice.minority { opacity: 0.45; }
+.tot-rscard.got-it   { border-color: #2ecc71 !important; background: rgba(46,204,113,0.08) !important; }
+.tot-rscard.missed   { border-color: rgba(231,76,60,0.4) !important; }
 
 /* OR divider */
 #tot-or {
@@ -117,72 +142,56 @@
 .tot-choice-emoji { font-size: 3.5rem; transition: transform 0.2s; }
 .tot-choice:hover .tot-choice-emoji { transform: scale(1.15); }
 .tot-choice-label {
-    font-size: 1.8rem; font-weight: 600; letter-spacing: 3px;
-    text-transform: uppercase; text-align: center; padding: 0 40px;
+    font-size: 1.8rem; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; text-align: center; padding: 0 30px;
     line-height: 1.2;
 }
-.tot-choice:first-child .tot-choice-label { color: #5dade2; }
-.tot-choice:last-child  .tot-choice-label { color: #ec7063; }
+.tot-choice.a .tot-choice-label { color: #5dade2; }
+.tot-choice.b .tot-choice-label { color: #ec7063; }
 
-/* vote progress bars — shown after voting */
-.tot-bar-wrap {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 5px; background: rgba(255,255,255,0.06);
+/* discussion tip */
+#tot-reveal-tip {
+    font-size: 1rem; font-style: italic; opacity: 0.75;
+    text-align: center; max-width: 700px; line-height: 1.6;
+    color: #daa520; letter-spacing: 0.5px;
+}
+
+#tot-next-btn  { display: none; }
+#tot-wait-msg  { display: none; opacity: 0.4; font-size: 0.8rem; font-style: italic; }
+#tot-reveal-inline {
     display: none;
+    margin-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+    flex-direction: column; align-items: center; gap: 14px;
+    width: 100%;
 }
-.tot-bar { height: 100%; transition: width 0.6s ease; }
-.tot-choice:first-child .tot-bar { background: #3498db; }
-.tot-choice:last-child  .tot-bar { background: #e74c3c; }
-
-.tot-pct {
-    position: absolute; bottom: 14px;
-    font-size: 2rem; font-weight: 700; opacity: 0;
-    transition: opacity 0.4s ease 0.3s;
-}
-.tot-choice:first-child .tot-pct { color: #5dade2; }
-.tot-choice:last-child  .tot-pct { color: #ec7063; }
-
-/* voter names shown below */
-#tot-voter-names {
-    position: absolute; bottom: 20px; left: 50%;
-    transform: translateX(-50%);
-    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
-    max-width: 900px; pointer-events: none;
-}
-.tot-voter-tag {
-    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 50px; padding: 4px 12px;
-    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px;
-}
-
-/* timer bar */
-#tot-timer-wrap { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.06); }
-#tot-timer-bar  { height: 100%; background: #daa520; transition: width 0.1s linear; }
-
-/* ── RESULTS ── */
-#tot-results { gap: 28px; }
-.tot-result-question { font-size: 1rem; opacity: 0.4; letter-spacing: 2px; text-transform: uppercase; }
-.tot-result-bars { display: flex; gap: 30px; align-items: flex-end; }
-.tot-result-col  { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 200px; }
-.tot-result-bar-wrap {
+.tot-reveal-label  { font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: #daa520; opacity: 0.9; }
+.tot-reveal-bars   { display: flex; gap: 30px; align-items: flex-end; }
+.tot-reveal-col    { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 80px; }
+.tot-reveal-bar-wrap {
     width: 100%; background: rgba(255,255,255,0.06);
-    border-radius: 8px 8px 0 0; height: 200px;
+    border-radius: 8px 8px 0 0; height: 140px;
     display: flex; align-items: flex-end; overflow: hidden;
 }
-.tot-result-fill { width: 100%; transition: height 0.8s cubic-bezier(0.25,0.8,0.25,1); border-radius: 6px 6px 0 0; }
-.tot-result-col:first-child .tot-result-fill { background: linear-gradient(to top, #2980b9, #5dade2); }
-.tot-result-col:last-child  .tot-result-fill { background: linear-gradient(to top, #c0392b, #ec7063); }
-.tot-result-pct   { font-size: 2.2rem; font-weight: 700; }
-.tot-result-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; text-align: center; }
-.tot-result-col:first-child .tot-result-pct { color: #5dade2; }
-.tot-result-col:last-child  .tot-result-pct { color: #ec7063; }
-.tot-result-winner { font-size: 1.1rem; opacity: 0.5; letter-spacing: 2px; text-transform: uppercase; }
+.tot-reveal-fill { width: 100%; transition: height 0.8s cubic-bezier(0.25,0.8,0.25,1); border-radius: 6px 6px 0 0; }
+.tot-reveal-col.a .tot-reveal-fill { background: linear-gradient(to top, #2980b9, #5dade2); }
+.tot-reveal-col.b .tot-reveal-fill { background: linear-gradient(to top, #c0392b, #ec7063); }
+.tot-reveal-pct   { font-size: 1.8rem; font-weight: 700; }
+.tot-reveal-col.a .tot-reveal-pct { color: #5dade2; }
+.tot-reveal-col.b .tot-reveal-pct { color: #ec7063; }
+.tot-reveal-clabel { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; text-align: center; }
+#tot-reveal-winner { font-size: 1.05rem; opacity: 0.6; letter-spacing: 2px; text-transform: uppercase; }
+
+#tot-next-btn  { display: none; }
+#tot-wait-msg  { display: none; opacity: 0.4; font-size: 0.8rem; font-style: italic; }
 
 @keyframes totFade { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes totPop  { 0%{transform:scale(0.5);opacity:0} 60%{transform:scale(1.2)} 100%{transform:scale(1);opacity:1} }
 </style>
 
 <div id="tot-module">
-        <div id="tot-overlay"></div>
+    <div id="tot-overlay"></div>
     <button id="tot-close" onclick="totClose()">
         <span class="material-symbols-rounded" style="font-size:15px;">arrow_back</span> Back
     </button>
@@ -190,206 +199,372 @@
     <!-- LOBBY -->
     <div id="tot-lobby" class="tot-screen active">
         <div class="tot-title">⚡ This or That</div>
-        <div class="tot-subtitle">Vote · Reveal · Debate</div>
+        <div class="tot-subtitle">10 Rounds · Vote · Reveal · Debate</div>
         <div id="tot-players-list"></div>
         <div class="tot-name-row">
             <input id="tot-name-input" type="text" placeholder="Your name..." maxlength="16">
             <button class="tot-btn" onclick="totJoin()">Join</button>
-            <button class="tot-btn" id="tot-start-btn" onclick="totStart()" disabled>Start</button>
-    
         </div>
-    </div>
-    <!-- VOTE -->
-    <div id="tot-vote" class="tot-screen">
-        <div id="tot-q-counter">Round 1 of 10</div>
-        <div id="tot-question">Which would you rather?</div>
-        <div id="tot-choices">
-            <div class="tot-choice" id="tot-a" onclick="totVote('A')">
-                <div class="tot-choice-emoji" id="tot-emoji-a">🏖️</div>
-                <div class="tot-choice-label" id="tot-label-a">Beach</div>
-                <div class="tot-pct" id="tot-pct-a">0%</div>
-                <div class="tot-bar-wrap"><div class="tot-bar" id="tot-bar-a" style="width:0%"></div></div>
-            </div>
-            <div id="tot-or">OR</div>
-            <div class="tot-choice" id="tot-b" onclick="totVote('B')">
-                <div class="tot-choice-emoji" id="tot-emoji-b">🏔️</div>
-                <div class="tot-choice-label" id="tot-label-b">Mountains</div>
-                <div class="tot-pct" id="tot-pct-b">0%</div>
-                <div class="tot-bar-wrap"><div class="tot-bar" id="tot-bar-b" style="width:0%"></div></div>
-            </div>
-        </div>
-        <div id="tot-voter-names"></div>
-        <div id="tot-timer-wrap"><div id="tot-timer-bar" style="width:100%"></div></div>
+        <button class="tot-btn" id="tot-start-btn" onclick="totStart()" disabled>Start Game</button>
     </div>
 
-    <!-- RESULTS -->
-    <div id="tot-results" class="tot-screen">
-        <div class="tot-result-question" id="tot-result-q">Which would you rather?</div>
-        <div class="tot-result-bars">
-            <div class="tot-result-col">
-                <div class="tot-result-pct" id="tot-res-pct-a">0%</div>
-                <div class="tot-result-bar-wrap"><div class="tot-result-fill" id="tot-res-bar-a" style="height:0%"></div></div>
-                <div class="tot-result-label" id="tot-res-label-a">Option A</div>
+    <!-- COUNTDOWN -->
+    <div id="tot-countdown" class="tot-screen">
+        <div class="tot-countdown-label">Game starts in</div>
+        <div class="tot-countdown-number" id="tot-countdown-num">3</div>
+    </div>
+
+    <!-- VOTE (contains inline reveal, mirrors tom-statement layout) -->
+    <div id="tot-vote" class="tot-screen">
+        <div id="tot-progress-wrap"><div id="tot-progress-bar" style="width:0%"></div></div>
+
+        <div id="tot-timer-ring">
+            <svg viewBox="0 0 60 60" width="60" height="60">
+                <circle cx="30" cy="30" r="26" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3"/>
+                <circle id="tot-timer-circle" cx="30" cy="30" r="26"/>
+            </svg>
+            <div id="tot-timer-text">12</div>
+        </div>
+
+        <div id="tot-q-counter">Round 1 of 10</div>
+        <div id="tot-question">Which would you rather?</div>
+
+        <div id="tot-choices">
+            <button class="tot-choice a" id="tot-a" onclick="totVote('A', this)">
+                <div class="tot-choice-emoji" id="tot-emoji-a">🏖️</div>
+                <div class="tot-choice-label" id="tot-label-a">Beach</div>
+            </button>
+            <div id="tot-or">OR</div>
+            <button class="tot-choice b" id="tot-b" onclick="totVote('B', this)">
+                <div class="tot-choice-emoji" id="tot-emoji-b">🏔️</div>
+                <div class="tot-choice-label" id="tot-label-b">Mountains</div>
+            </button>
+        </div>
+
+        <!-- Inline reveal — shown after host advances -->
+        <div id="tot-reveal-inline">
+            <div class="tot-reveal-label">Results</div>
+            <div class="tot-reveal-bars">
+                <div class="tot-reveal-col a">
+                    <div class="tot-reveal-pct" id="tot-res-pct-a">0%</div>
+                    <div class="tot-reveal-bar-wrap"><div class="tot-reveal-fill" id="tot-res-bar-a" style="height:0%"></div></div>
+                    <div class="tot-reveal-clabel" id="tot-res-label-a">Option A</div>
+                </div>
+                <div class="tot-reveal-col b">
+                    <div class="tot-reveal-pct" id="tot-res-pct-b">0%</div>
+                    <div class="tot-reveal-bar-wrap"><div class="tot-reveal-fill" id="tot-res-bar-b" style="height:0%"></div></div>
+                    <div class="tot-reveal-clabel" id="tot-res-label-b">Option B</div>
+                </div>
             </div>
-            <div class="tot-result-col">
-                <div class="tot-result-pct" id="tot-res-pct-b">0%</div>
-                <div class="tot-result-bar-wrap"><div class="tot-result-fill" id="tot-res-bar-b" style="height:0%"></div></div>
-                <div class="tot-result-label" id="tot-res-label-b">Option B</div>
+            <div class="tot-reveal-winner" id="tot-result-winner"></div>
+            <div id="tot-reveal-tip"></div>
+            <div style="text-align:center; margin-top:6px;">
+                <button id="tot-next-btn" class="tot-btn" onclick="totRequestNext()">Next Round</button>
+                <div id="tot-wait-msg">Waiting for host to continue...</div>
             </div>
         </div>
-        <div class="tot-result-winner" id="tot-result-winner"></div>
-        <div style="font-size:0.68rem;opacity:0.3;letter-spacing:2px;text-transform:uppercase;">Next round in 4s...</div>
+    </div>
+
+    <!-- GAME OVER -->
+    <div id="tot-gameover" class="tot-screen">
+        <div class="tot-title" style="font-size:1.8rem; margin-bottom: 8px;">⚡ That's a Wrap!</div>
+        <div class="tot-subtitle" style="margin-bottom: 36px;">10 rounds done · Hope the debates were good</div>
+        <div style="display:flex; gap: 16px;">
+            <button class="tot-btn" onclick="totPlayAgain()">Play Again</button>
+            <button class="tot-btn" style="border-color: rgba(255,255,255,0.2);" onclick="totBack()">Back</button>
+        </div>
     </div>
 </div>
 
 <script>
 (function () {
-    const socket = window.socket;
-    if (!socket) return;
+    const socket = window.socket || window.parent?.socket;
+    if (!socket) { console.error('[ThisOrThat] No socket'); return; }
     const myRoom = window.myRoom || 'Lobby';
 
-    let myName   = null;
-    let players  = {};
-    let voted    = false;
-    let timerInt = null;
-    let timeLeft = 12;
-    const TIME   = 12;
+    // ── PERSISTENT STATE (survives DOM reloads like tomState) ──
+    if (!window.totState) {
+        window.totState = { myName: null, players: {} };
+    }
 
+    let voted       = false;
+    let myChoice    = null;
+    let timerInt    = null;
+    let timeLeft    = 12;
+    let isHost      = false;
+    let gameEnded   = false;
+    const TOTAL     = 10;
+    const TIME      = 12;
+    const CIRCUMFERENCE = 163;
+
+    // ── SCREENS ──
     function show(id) {
         document.querySelectorAll('.tot-screen').forEach(s => s.classList.remove('active'));
         document.getElementById(id).classList.add('active');
     }
 
+    // ── PLAYERS ──
     function renderPlayers() {
         const list = document.getElementById('tot-players-list');
-        const entries = Object.values(players);
+        if (!list) return;
+        const entries = Object.values(window.totState.players);
         list.innerHTML = entries.length
             ? entries.map(p => `<div class="tot-chip"><div class="tot-chip-dot"></div>${p.name}</div>`).join('')
             : '<div style="opacity:0.3;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;">No players yet</div>';
-        document.getElementById('tot-start-btn').disabled = entries.length < 1;
+        const startBtn = document.getElementById('tot-start-btn');
+        if (startBtn) startBtn.disabled = entries.length < 1;
     }
 
+    // ── JOIN ──
     window.totJoin = function () {
-        const name = document.getElementById('tot-name-input').value.trim();
+        const input = document.getElementById('tot-name-input');
+        const name = input ? input.value.trim() : '';
         if (!name) return;
-        myName = name;
+        window.totState.myName = name;
         socket.emit('tot_join', { room: myRoom, name });
-        document.getElementById('tot-name-input').disabled = true;
-        document.querySelector('.tot-name-row .tot-btn').disabled = true;
+        if (input) input.disabled = true;
+        const joinBtn = document.querySelector('.tot-name-row .tot-btn');
+        if (joinBtn) joinBtn.disabled = true;
     };
 
+    // ── START (host only) ──
     window.totStart = function () { socket.emit('tot_start', { room: myRoom }); };
 
-    window.totVote = function (choice) {
+    // ── VOTE ──
+    window.totVote = function (choice, btn) {
         if (voted) return;
         voted = true;
+        myChoice = choice;
         clearInterval(timerInt);
-        document.getElementById('tot-a').classList.add('voted');
-        document.getElementById('tot-b').classList.add('voted');
-        document.getElementById(`tot-${choice.toLowerCase()}`).classList.add('selected');
-        socket.emit('tot_vote', { room: myRoom, choice });
+        document.querySelectorAll('.tot-choice').forEach(b => b.disabled = true);
+        if (btn) btn.classList.add('selected');
+        socket.emit('tot_vote', { room: myRoom, choice, timeLeft });
     };
 
+    // ── TIMER ──
     function startTimer() {
         clearInterval(timerInt);
         timeLeft = TIME;
-        document.getElementById('tot-timer-bar').style.width = '100%';
+        const circle = document.getElementById('tot-timer-circle');
+        const timerText = document.getElementById('tot-timer-text');
+
         timerInt = setInterval(() => {
             timeLeft = Math.max(0, timeLeft - 0.1);
-            document.getElementById('tot-timer-bar').style.width = `${(timeLeft / TIME) * 100}%`;
+            if (timerText) timerText.textContent = Math.ceil(timeLeft);
+            if (circle) circle.style.strokeDashoffset = CIRCUMFERENCE * (1 - timeLeft / TIME);
+
             if (timeLeft <= 0) {
                 clearInterval(timerInt);
                 if (!voted) {
                     voted = true;
-                    socket.emit('tot_vote', { room: myRoom, choice: null });
+                    document.querySelectorAll('.tot-choice').forEach(b => b.disabled = true);
+                    socket.emit('tot_vote', { room: myRoom, choice: null, timeLeft: 0 });
                 }
             }
         }, 100);
     }
 
-    function showLiveVotes(votesA, votesB, names) {
-        const total = votesA + votesB;
-        const pA = total ? Math.round((votesA / total) * 100) : 50;
-        const pB = total ? Math.round((votesB / total) * 100) : 50;
-
-        document.querySelectorAll('.tot-bar-wrap').forEach(b => b.style.display = 'block');
-        document.getElementById('tot-bar-a').style.width = `${pA}%`;
-        document.getElementById('tot-bar-b').style.width = `${pB}%`;
-
-        const pa = document.getElementById('tot-pct-a');
-        const pb = document.getElementById('tot-pct-b');
-        pa.textContent = `${pA}%`; pa.style.opacity = '1';
-        pb.textContent = `${pB}%`; pb.style.opacity = '1';
-
-        // voter name tags
-        document.getElementById('tot-voter-names').innerHTML = names
-            .map(n => `<div class="tot-voter-tag">${n}</div>`).join('');
-    }
-
-    window.totClose = function () {
+    // ── REVEAL (inline, majority-aware) ──
+    function showReveal(data) {
         clearInterval(timerInt);
-        socket.emit('tot_leave', { room: myRoom });
-        if (typeof closeSubMenu === 'function') closeSubMenu();
-    };
 
-    // ── SOCKET EVENTS ──
-    socket.on('tot_players_update', d => { players = d.players; renderPlayers(); });
+        const total = (data.votesA || 0) + (data.votesB || 0);
+        const pA = total ? Math.round((data.votesA / total) * 100) : 0;
+        const pB = total ? Math.round((data.votesB / total) * 100) : 0;
+        const majority = data.majority; // 'A' | 'B' | null (tie)
 
-    socket.on('tot_round', d => {
-        voted = false;
-        document.getElementById('tot-q-counter').textContent = `Round ${d.index + 1} of ${d.total}`;
-        document.getElementById('tot-question').textContent = d.question;
-        document.getElementById('tot-emoji-a').textContent  = d.emojiA || '🅰️';
-        document.getElementById('tot-emoji-b').textContent  = d.emojiB || '🅱️';
-        document.getElementById('tot-label-a').textContent  = d.optionA;
-        document.getElementById('tot-label-b').textContent  = d.optionB;
-
-        // reset state
-        ['tot-a','tot-b'].forEach(id => {
-            const el = document.getElementById(id);
-            el.classList.remove('voted','selected');
-        });
-        document.querySelectorAll('.tot-bar-wrap').forEach(b => b.style.display = 'none');
-        document.querySelectorAll('.tot-pct').forEach(p => { p.textContent = ''; p.style.opacity = '0'; });
-        document.getElementById('tot-voter-names').innerHTML = '';
-
-        startTimer();
-        show('tot-vote');
-    });
-
-    socket.on('tot_vote_update', d => {
-        showLiveVotes(d.votesA, d.votesB, d.names || []);
-    });
-
-    socket.on('tot_round_result', d => {
-        clearInterval(timerInt);
-        const total = d.votesA + d.votesB || 1;
-        const pA = Math.round((d.votesA / total) * 100);
-        const pB = Math.round((d.votesB / total) * 100);
-
-        document.getElementById('tot-result-q').textContent = d.question;
-        document.getElementById('tot-res-label-a').textContent = d.optionA;
-        document.getElementById('tot-res-label-b').textContent = d.optionB;
+        document.getElementById('tot-res-label-a').textContent = data.optionA;
+        document.getElementById('tot-res-label-b').textContent = data.optionB;
         document.getElementById('tot-res-pct-a').textContent = `${pA}%`;
         document.getElementById('tot-res-pct-b').textContent = `${pB}%`;
 
-        // animate bars
+        // Animate bars
         setTimeout(() => {
             document.getElementById('tot-res-bar-a').style.height = `${pA}%`;
             document.getElementById('tot-res-bar-b').style.height = `${pB}%`;
         }, 100);
 
-        const winner = pA > pB ? d.optionA : pB > pA ? d.optionB : 'It\'s a tie!';
-        document.getElementById('tot-result-winner').textContent =
-            pA !== pB ? `${winner} wins this round` : "It's a tie! 🤝";
+        // Winner label
+        const winnerEl = document.getElementById('tot-result-winner');
+        if (majority === 'A') winnerEl.textContent = `${data.optionA} wins this round`;
+        else if (majority === 'B') winnerEl.textContent = `${data.optionB} wins this round`;
+        else winnerEl.textContent = "It's a tie! 🤝";
 
-        show('tot-results');
+        // Highlight choice panels — majority gets gold ring, minority fades
+        const btnA = document.getElementById('tot-a');
+        const btnB = document.getElementById('tot-b');
+        if (majority === 'A') { btnA.classList.add('majority'); btnB.classList.add('minority'); }
+        else if (majority === 'B') { btnB.classList.add('majority'); btnA.classList.add('minority'); }
+        // Also keep my own selection highlighted
+        if (myChoice === 'A') btnA.classList.add('selected');
+        if (myChoice === 'B') btnB.classList.add('selected');
+
+        // Discussion tip
+        const tipEl = document.getElementById('tot-reveal-tip');
+        if (tipEl) tipEl.textContent = data.tip || '';
+
+        // Show inline reveal panel
+        const panel = document.getElementById('tot-reveal-inline');
+        if (panel) panel.style.display = 'flex';
+
+        // Host gets Next button, others wait
+        const nextBtn = document.getElementById('tot-next-btn');
+        const waitMsg = document.getElementById('tot-wait-msg');
+        if (isHost) {
+            if (nextBtn) { nextBtn.style.display = 'inline-block'; nextBtn.disabled = false; }
+            if (waitMsg) waitMsg.style.display = 'none';
+        } else {
+            if (nextBtn) nextBtn.style.display = 'none';
+            if (waitMsg) waitMsg.style.display = 'block';
+        }
+    }
+
+    // ── NEXT (host advances) ──
+    window.totRequestNext = function () {
+        socket.emit('tot_next', { room: myRoom });
+        const nextBtn = document.getElementById('tot-next-btn');
+        if (nextBtn) nextBtn.disabled = true;
+    };
+
+    // ── PLAY AGAIN / BACK ──
+    window.totPlayAgain = function () { socket.emit('tot_reset', { room: myRoom }); };
+    window.totBack = function () { totClose(); };
+
+    // ── CLOSE ──
+    window.totClose = function () {
+        clearInterval(timerInt);
+        isHost = false;
+        gameEnded = false;
+        voted = false;
+        myChoice = null;
+        window.totState.myName = null;
+        window.totState.players = {};
+
+        const input = document.getElementById('tot-name-input');
+        if (input) { input.disabled = false; input.value = ''; }
+        const joinBtn = document.querySelector('.tot-name-row .tot-btn');
+        if (joinBtn) joinBtn.disabled = false;
+
+        socket.emit('tot_leave', { room: myRoom });
+        if (typeof handleNav === 'function') handleNav('games-menu', false);
+    };
+
+    function totReset() {
+        gameEnded = false;
+        voted = false;
+        myChoice = null;
+        clearInterval(timerInt);
+        show('tot-lobby');
+        renderPlayers();
+    }
+
+    // ── SOCKET EVENTS ──
+    socket.on('tot_host_assigned', () => {
+        isHost = true;
+        // If already on reveal panel, show next button immediately
+        const panel = document.getElementById('tot-reveal-inline');
+        const nextBtn = document.getElementById('tot-next-btn');
+        if (panel && panel.style.display !== 'none' && nextBtn) {
+            nextBtn.style.display = 'inline-block';
+            document.getElementById('tot-wait-msg').style.display = 'none';
+        }
+    });
+
+    socket.on('tot_players_update', data => {
+        window.totState.players = data.players;
+        renderPlayers();
+    });
+
+    socket.on('tot_countdown', data => {
+        show('tot-countdown');
+        const el = document.getElementById('tot-countdown-num');
+        if (el) el.textContent = data.count;
+    });
+
+    socket.on('tot_round', data => {
+        voted = false;
+        myChoice = null;
+
+        // Hide previous reveal panel
+        const panel = document.getElementById('tot-reveal-inline');
+        if (panel) panel.style.display = 'none';
+
+        const counter = document.getElementById('tot-q-counter');
+        const question = document.getElementById('tot-question');
+        const progressBar = document.getElementById('tot-progress-bar');
+        if (counter)    counter.textContent = `Round ${data.index + 1} of ${TOTAL}`;
+        if (question)   question.textContent = data.question || 'Which would you rather?';
+        if (progressBar) progressBar.style.width = `${(data.index / TOTAL) * 100}%`;
+
+        document.getElementById('tot-emoji-a').textContent = data.emojiA || '🅰️';
+        document.getElementById('tot-emoji-b').textContent = data.emojiB || '🅱️';
+        document.getElementById('tot-label-a').textContent = data.optionA;
+        document.getElementById('tot-label-b').textContent = data.optionB;
+
+        // Reset choice buttons
+        document.querySelectorAll('.tot-choice').forEach(b => {
+            b.disabled = false;
+            b.classList.remove('selected', 'majority', 'minority');
+        });
+
+        // Reset timer ring
+        const circle = document.getElementById('tot-timer-circle');
+        if (circle) circle.style.strokeDashoffset = 0;
+        const timerText = document.getElementById('tot-timer-text');
+        if (timerText) timerText.textContent = TIME;
+
+        startTimer();
+        show('tot-vote');
+    });
+
+    socket.on('tot_reveal', data => {
+        if (gameEnded) return;
+        showReveal(data);
     });
 
     socket.on('tot_game_end', () => {
-        if (typeof closeSubMenu === 'function') closeSubMenu();
+        gameEnded = true;
+        clearInterval(timerInt);
+        show('tot-gameover');
     });
 
+    socket.on('tot_reset', () => {
+        gameEnded = false;
+        voted = false;
+        myChoice = null;
+        clearInterval(timerInt);
+        totReset();
+    });
+
+    socket.on('force_navigate', data => {
+        totClose();
+        setTimeout(() => {
+            if (typeof handleNav === 'function') handleNav(data.target, true);
+        }, 500);
+    });
+
+    socket.on('tot_kicked', () => {
+        clearInterval(timerInt);
+        isHost = false;
+        gameEnded = false;
+        voted = false;
+        myChoice = null;
+        window.totState.myName = null;
+        window.totState.players = {};
+
+        const input = document.getElementById('tot-name-input');
+        if (input) { input.disabled = false; input.value = ''; }
+        const joinBtn = document.querySelector('.tot-name-row .tot-btn');
+        if (joinBtn) joinBtn.disabled = false;
+
+        if (typeof handleNav === 'function') handleNav('games-menu', false);
+    });
+
+    // ── INIT ──
     renderPlayers();
+    if (window.totState.myName) {
+        socket.emit('tot_join', { room: myRoom, name: window.totState.myName });
+    }
+
 })();
 </script>

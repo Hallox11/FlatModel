@@ -25,6 +25,7 @@ const totRooms  = {};
 
 
 
+
 async function fetchQuestions() {
     try {
         const axios = require('axios');
@@ -628,24 +629,6 @@ socket.on('quiz_reset', (data) => {
     io.to(qr.hostId).emit('quiz_host_assigned'); // ← re-assign host after reset
 });
 
-    // ── DISCONNECT / LEAVE LEAK PATCHES ──
-socket.on('quiz_leave', (data) => {
-    const room = data.room || clientRoom;
-    const qr = getQuizRoom(room);
-    if (!qr) return;
-
-    if (qr.nextStepPromise) { qr.nextStepPromise(); qr.nextStepPromise = null; }
-    qr.active = false;
-    qr.current = -1;
-    qr.questions = [];
-    qr.answers = {};
-
-    delete quizRooms[room];
-
-    // Notify remaining players to go back — but NOT the one who left
-    socket.to(room).emit('quiz_kicked');
-});
-
     // ── SYSTEM REBOOT HARD RESET CORES ──
     socket.on('quiz_force_reboot', (data) => {
         const room = data.room || clientRoom;
@@ -878,149 +861,233 @@ function getTomRoom(roomName) {
 
 /////////////////////////////////////////////////////////
 // ── THIS OR THAT ──────────────────────────────────────
-        socket.on('tot_join', (data) => {
-            const room = data.room || clientRoom;
-            const tr = getTotRoom(room);
-            tr.players[socket.id] = tr.players[socket.id] || { id: socket.id, name: data.name, score: 0 };
-            tr.players[socket.id].name = data.name;
-
-            // Assign host if none exists
-            if (!tr.hostId || !tr.players[tr.hostId]) {
-                tr.hostId = socket.id;
-                socket.emit('tot_host_assigned');
-            }
-
-            io.to(room).emit('tot_players_update', { players: tr.players });
-        });
-
-        socket.on('tot_start', async (data) => {
-            const room = data.room || clientRoom;
-            const tr = getTotRoom(room);
-            if (tr.active) return;
-            tr.active = true;
-            tr.gameEnded = false;
-
-            // reset scores
-            Object.values(tr.players).forEach(p => p.score = 0);
-
-            tr.rounds = [...TOT_QUESTIONS].sort(() => Math.random() - 0.5).slice(0, 10);
-            tr.current = -1;
-
-            // countdown
-            for (let c = 3; c > 0; c--) {
-                io.to(room).emit('tot_countdown', { count: c });
-                await sleep(1000);
-            }
-
-            startTotRound(room, tr);
-        });
-
-        socket.on('tot_vote', (data) => {
-            const room = data.room || clientRoom;
-            const tr = getTotRoom(room);
-            if (!tr.active || tr.current < 0) return;
-            if (tr.votes[socket.id] !== undefined) return; // already voted
-
-            tr.votes[socket.id] = data.choice; // 'A' | 'B' | null
-
-            // award points for any non-null vote (participation), can be adjusted
-            if (data.choice === 'A' || data.choice === 'B') {
-                const timeLeft = typeof data.timeLeft === 'number' ? data.timeLeft : 0;
-                const bonus = Math.round((timeLeft / 12) * 50); // up to 50 bonus pts
-                const p = tr.players[socket.id];
-                if (p) p.score = (p.score || 0) + 10 + bonus;
-            }
-        });
-
-        socket.on('tot_next', (data) => {
-            const room = data.room || clientRoom;
-            const tr = getTotRoom(room);
-            if (!tr.active) return;
-            if (socket.id !== tr.hostId) return; // only host advances
-
-            if (tr.current >= tr.rounds.length - 1) {
-                // game over
-                tr.active = false;
-                tr.gameEnded = true;
-                const scores = {};
-                Object.values(tr.players).forEach(p => scores[p.id] = p.score || 0);
-                io.to(room).emit('tot_final', { scores });
-                tr.current = -1;
-            } else {
-                startTotRound(room, tr);
-            }
-        });
-
-        socket.on('tot_leave', (data) => {
-            const room = data.room || clientRoom;
-            const tr = getTotRoom(room);
-            delete tr.players[socket.id];
-            delete tr.votes[socket.id];
-
-            // reassign host if needed
-            if (tr.hostId === socket.id) {
-                const remaining = Object.keys(tr.players);
-                tr.hostId = remaining.length ? remaining[0] : null;
-                if (tr.hostId) io.to(tr.hostId).emit('tot_host_assigned');
-            }
-
-            io.to(room).emit('tot_players_update', { players: tr.players });
-        });
-
-        socket.on('tot_reset', (data) => {
-            const room = data.room || clientRoom;
-            const tr = getTotRoom(room);
-            tr.active = false;
-            tr.gameEnded = false;
-            tr.current = -1;
-            tr.votes = {};
-            Object.values(tr.players).forEach(p => p.score = 0);
-            io.to(room).emit('tot_reset');
-        });
-
-// ── Helper: advance to next round, reveal previous, then broadcast new round ──
-async function startTotRound(room, tr) {
-    // If we're advancing past round 0, reveal the previous round's results first
-    if (tr.current >= 0) {
-        const prevQ = tr.rounds[tr.current];
-        let votesA = 0, votesB = 0;
-        Object.values(tr.votes).forEach(choice => {
-            if (choice === 'A') votesA++;
-            if (choice === 'B') votesB++;
-        });
-        const scores = {};
-        Object.values(tr.players).forEach(p => scores[p.id] = p.score || 0);
-
-        io.to(room).emit('tot_reveal', {
-            optionA: prevQ.optionA,
-            optionB: prevQ.optionB,
-            votesA,
-            votesB,
-            scores,
-        });
-    }
-
-    tr.current++;
-    tr.votes = {};
-    const q = tr.rounds[tr.current];
-    io.to(room).emit('tot_round', { ...q, index: tr.current, total: tr.rounds.length });
-}
-
-// ── Helper: room state factory (if not already defined elsewhere) ──
-function getTotRoom(room) {
-    if (!totRooms[room]) {
-        totRooms[room] = {
+function getTotRoom(roomName) {
+    if (!totRooms[roomName]) {
+        totRooms[roomName] = {
             players: {},
             votes: {},
-            rounds: [],
-            current: -1,
             active: false,
-            gameEnded: false,
+            current: -1,
             hostId: null,
+            nextStepPromise: null
         };
     }
-    return totRooms[room];
+    return totRooms[roomName];
 }
+
+// ── Inside your io.on('connection', (socket) => { }) scope: ──────────────────
+
+    // ── JOIN ──
+    socket.on('tot_join', (data) => {
+        const room = data.room || clientRoom;
+        const tr = getTotRoom(room);
+
+        // First player becomes host
+        if (!tr.hostId || Object.keys(tr.players).length === 0) {
+            tr.hostId = socket.id;
+            socket.emit('tot_host_assigned');
+        }
+
+        // Re-join by name (DOM reload resilience — same as TOM/quiz)
+        const existing = Object.values(tr.players).find(p => p.name === data.name);
+        if (existing) {
+            delete tr.players[existing.id];
+            existing.id = socket.id;
+            tr.players[socket.id] = existing;
+        } else {
+            tr.players[socket.id] = { id: socket.id, name: data.name, score: 0 };
+        }
+
+        io.to(room).emit('tot_players_update', { players: tr.players });
+    });
+
+    // ── HOST ADVANCES TO NEXT ROUND ──
+    socket.on('tot_next', (data) => {
+        const room = data.room || clientRoom;
+        const tr = getTotRoom(room);
+
+        // Security: only host can advance
+        if (socket.id !== tr.hostId) return;
+
+        if (tr.nextStepPromise) {
+            tr.nextStepPromise();
+            tr.nextStepPromise = null;
+        }
+    });
+
+    // ── GAME LOOP ──
+    socket.on('tot_start', async (data) => {
+        const LOBBY_COUNTDOWN = 3;
+        const TOTAL_ROUNDS    = 10;
+        const VOTE_TIME       = 12000; // ms — matches frontend TIME = 12
+
+        const room = data.room || clientRoom;
+        const tr = getTotRoom(room);
+
+        // Host-only + prevent double start
+        if (socket.id !== tr.hostId || tr.active) return;
+
+        tr.active  = true;
+        tr.current = -1;
+
+        // Reset scores
+        Object.values(tr.players).forEach(p => { p.score = 0; });
+
+        // Shuffle and slice questions
+        const rounds = [...TOT_QUESTIONS]
+            .sort(() => Math.random() - 0.5)
+            .slice(0, TOTAL_ROUNDS);
+
+        // 1. Countdown
+        for (let i = LOBBY_COUNTDOWN; i >= 1; i--) {
+            if (!tr.active) return;
+            io.to(room).emit('tot_countdown', { count: i });
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+
+        // 2. Round loop
+        for (let i = 0; i < rounds.length; i++) {
+            if (!tr.active) return;
+
+            tr.current = i;
+            tr.votes   = {};
+            const q    = rounds[i];
+
+            // PHASE 1: Voting window (automatic, timed)
+            io.to(room).emit('tot_round', { ...q, index: i, total: rounds.length });
+
+            // Wait for full vote window OR all players voted — whichever comes first
+            const totalPlayers = Object.keys(tr.players).length;
+            await new Promise(resolve => {
+                const deadline = Date.now() + VOTE_TIME;
+                const check = setInterval(() => {
+                    const votedCount = Object.values(tr.votes)
+                        .filter(v => v !== undefined).length;
+                    if (votedCount >= totalPlayers || Date.now() >= deadline) {
+                        clearInterval(check);
+                        resolve();
+                    }
+                }, 200);
+            });
+
+            // Tally votes
+            let votesA = 0, votesB = 0;
+            Object.values(tr.votes).forEach(choice => {
+                if (choice === 'A') votesA++;
+                if (choice === 'B') votesB++;
+            });
+
+            const total = votesA + votesB;
+            const majority = votesA > votesB ? 'A' : votesB > votesA ? 'B' : null;
+            const majorityPct = total ? Math.round((Math.max(votesA, votesB) / total) * 100) : 0;
+
+            // Pick a discussion tip based on the vote split
+            const tip = getTotTip(majorityPct, majority, total);
+
+            // PHASE 2: Reveal (manual — host must press Next)
+            io.to(room).emit('tot_reveal', {
+                optionA: q.optionA,
+                optionB: q.optionB,
+                votesA,
+                votesB,
+                majority,
+                tip
+            });
+
+            // Pause until host fires tot_next
+            await new Promise(resolve => {
+                tr.nextStepPromise = resolve;
+            });
+        }
+
+        // 3. End — no scores, just close the game
+        if (!tr.active) return;
+        io.to(room).emit('tot_game_end');
+        tr.active = false;
+    });
+
+    // ── VOTE ──
+    socket.on('tot_vote', (data) => {
+        const room = data.room || clientRoom;
+        const tr   = getTotRoom(room);
+        if (!tr.active) return;
+        // undefined check so null (timeout) votes register correctly
+        if (tr.votes[socket.id] === undefined) {
+            tr.votes[socket.id] = data.choice;
+        }
+    });
+
+    // ── RESET (host only) ──
+    socket.on('tot_reset', (data) => {
+        const room = data.room || clientRoom;
+        const tr   = getTotRoom(room);
+        if (socket.id !== tr.hostId) return;
+
+        tr.active  = false;
+        tr.current = -1;
+        tr.votes   = {};
+        if (tr.nextStepPromise) { tr.nextStepPromise(); tr.nextStepPromise = null; }
+
+        io.to(room).emit('tot_reset');
+        io.to(room).emit('tot_players_update', { players: tr.players });
+        io.to(tr.hostId).emit('tot_host_assigned');
+    });
+
+    // ── LEAVE ──
+    socket.on('tot_leave', (data) => {
+        const room = data.room || clientRoom;
+        const tr   = getTotRoom(room);
+        if (!tr) return;
+
+        if (tr.nextStepPromise) { tr.nextStepPromise(); tr.nextStepPromise = null; }
+        tr.active  = false;
+        tr.current = -1;
+        tr.votes   = {};
+
+        delete totRooms[room];
+
+        // Notify everyone else in the room — same as TOM
+        socket.to(room).emit('tot_kicked');
+    });
+// ── DISCUSSION TIP HELPER ──────────────────────────────
+function getTotTip(majorityPct, majority, total) {
+    if (total === 0) return "No votes this round — speak up next time!";
+
+    const pick = r => r[Math.floor(Math.random() * r.length)];
+
+    // Exact tie
+    if (majority === null) return pick([
+        "Perfect split. The only way to settle this is to talk it out.",
+        "Dead even — you literally cannot agree on this one.",
+        "50/50. The most honest result possible. Pick a side and defend it.",
+        "The room is divided. Someone convince the other half they're wrong.",
+    ]);
+
+    // Unanimous (100%)
+    if (majorityPct === 100) return pick([
+        "Everyone agrees — but why? Is this actually obvious, or just groupthink?",
+        "Unanimous! Does anyone secretly disagree but didn't dare say so?",
+        "Full consensus. Make the case for the other side — someone has to.",
+        "No rebels this round. Is this genuinely clear-cut, or did everyone just follow the crowd?",
+    ]);
+
+    // Strong majority (70–99%)
+    if (majorityPct >= 70) return pick([
+        "The crowd has spoken — but what do the rebels know that the rest don't?",
+        "Most people agree, but the minority might have a point. Hear them out.",
+        "Clear winner, but the outliers are interesting. Why did they pick differently?",
+        "Majority rules — but majority isn't always right. Defend your corner.",
+    ]);
+
+    // Slight majority (51–69%)
+    return pick([
+        "Almost down the middle — this one's genuinely divisive. Debate time.",
+        "Too close to call. What does your pick say about you?",
+        "The room is split. Half of you are wrong — figure out which half.",
+        "Nearly 50/50. This is exactly the kind of thing that starts arguments at dinner.",
+    ]);
+}
+
 /////////////////////////////////////////////////////////        
 // ── SLITHER IO ──────────────────────────────────────
 
@@ -1056,6 +1123,18 @@ socket.on('disconnect', () => {
         io.to(roomName).emit('tom_players_update', { players: tr.players });
     });
 
+    // ── THIS OR THAT ──
+    Object.keys(totRooms).forEach(roomName => {
+        const tr = totRooms[roomName];
+        if (!tr || !tr.players[socket.id]) return;
+        delete tr.players[socket.id];
+        if (tr.hostId === socket.id && Object.keys(tr.players).length > 0) {
+            tr.hostId = Object.keys(tr.players)[0];
+            io.to(tr.hostId).emit('tot_host_assigned');
+        }
+        io.to(roomName).emit('tot_players_update', { players: tr.players });
+    });
+
     // ── ROOM STATE CLEANUP ──
     const room = io.sockets.adapter.rooms.get(clientRoom);
     if (!room || room.size === 0) {
@@ -1081,6 +1160,8 @@ socket.on('disconnect', () => {
         console.log(`[Room] ${clientRoom} has ${room.size} viewers remaining`);
     }
 });
+
+
     });
 };
 

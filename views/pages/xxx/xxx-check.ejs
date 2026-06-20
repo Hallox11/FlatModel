@@ -129,9 +129,32 @@
 
 
 function submitAdultPassword() {
-    const pass = document.getElementById("adult-password").value.trim();
-    // existing password-check logic goes here
-}
+    const password = document.getElementById("adult-password").value.trim();
+     if (password === "slxxx") { 
+        // SUCCESS: Use the MENU KEY defined in NAV_CONFIG
+        if (typeof handleNav === "function") {
+            // ONLY pass the key name, not the path or room
+            handleNav('xxx-index'); 
+        } else {
+            // Emergency fallback if myScripts.js is missing
+            window.location.href = './xxx-index?room=' + myRoom; 
+        }
+    } else {
+        // ERROR Logic
+        $('#errorMsg').text("Wrong Password !!").show();
+        $pswdInput.hide();
+        $('#errorBut').show();
+    }
+}  // Handle Enter Key
+    document.getElementById("adult-password").onkeyup = function (e) {
+        if (e.which == 13) checkPswd();
+    };
+
+    function tryAgain() {
+        $('#l4, #errorBut, #errorMsg').hide();
+        $('#myPsw').show().val("").focus();
+    }
+
 
 document.getElementById("adult-password").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {

@@ -13,29 +13,28 @@
     }
     #player-container { width: 100%; height: 100%; }
 
-    #click-shield {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        z-index: 2050;
-        pointer-events: none;
-        cursor: pointer;
-    }
 
-    .player-controls {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        z-index: 2100;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        pointer-events: none;
-    }
+
+.player-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Makes the container a flex box */
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: center; /* Centers vertically */
+    align-items: center; /* Centers horizontally */
+    z-index: 2100;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
 
     .backBut {
         position: fixed;
         top: 410px;
-        left: 614px;
+        left: 612px;
         width: 55px;
         height: 55px;
         background: rgba(232, 8, 8, 0.7);
@@ -59,7 +58,7 @@
 
     #msg {
         position: fixed;
-        top: 180px;
+        top: 160px;
         left: 320px;
         font-weight: 400;
         letter-spacing: 1.0px;
@@ -74,25 +73,16 @@
         text-transform: uppercase;
         font-size: 18px;
     }
-    #msgBox {
-        position: fixed;
-        top: 160px;
-        left: 220px;
-        width: 835px;
-        height: 140px;
-        font-weight: 400;
-        letter-spacing: 1.0px;
-        background: rgba(0, 0, 0, 0.7);
-        border: 1px solid transparent;
-        border-radius: 10px;
-        padding: 7px 20px;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        font-size: 15px;
-    }
+#msgBox {
+    position: relative; /* Remove absolute positioning */
+    top: -120px;
+    background: rgba(0, 0, 0, 0.0);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 2200; /* Ensure it is above buttons */
+    pointer-events: none; /* Allow clicking if needed */
+}
     #cover {
         position: fixed;
         top: 660px;
@@ -101,33 +91,88 @@
         height: 50px;
         background: red;
     }
+
+    /* This is your full-screen overlay */
+#pause-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 720px;
+    background: rgba(0, 0, 0, 0.6); /* Subtle dimming effect */
+    z-index: 2040; /* Just below the buttons but above the video */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* When paused, we show the overlay and allow interactions */
+.is-paused #pause-overlay {
+    display: flex;
+}
+#player-wrapper.is-paused .player-controls {
+    opacity: 1 !important;
+    pointer-events: none !important;
+}
+.tip { color: #00f2ff; font-size: 18px;}
+.error { color: #fff0ffe3; font-weight: 400; font-size: 18px;}
+.action { color: #ffcc00; margin-top: 20px; font-size: 18px; }
+
 </style>
 
 <div id="player-wrapper">
     <div id="player-container"></div>
 
-    <!-- Click throttle shield: sits above player, below controls -->
-    <div id="click-shield"></div>
+    <div id="pause-overlay"></div>
+    
+    <div class="player-controls"> </div>
+
 
     <div class="player-controls">
-        <button class="backBut" onclick="exitPlayer()" title="Go Back">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
         <div id="msgBox">
-        <div style="color: rgb(169, 235, 38);" id="msg">Tip: Use the 'Gear Icon' to select the highest quality available.</div>
-        <div style="top:220px;left:210px;color:#fb5e5e" id="msg">Video won't play, it might be due to age/region restrictions or it has been removed.</div>
-        <div style="top:260px;left:480px;color: rgb(244, 244, 24);" id="msg">restart video or return to grid</div>
-        </div>
+        <p class="tip">TIP: USE THE 'GEAR ICON' TO SELECT THE HIGHEST QUALITY AVAILABLE.</p>
+        <p class="error">VIDEO WON'T PLAY, IT MIGHT BE DUE TO AGE/REGION RESTRICTIONS OR IT HAS BEEN REMOVED.</p>
+        <p class="action">RESTART VIDEO OR RETURN TO GRID</p>
+     </div>
+<button style="top: 410px;" class="backBut" onclick="exitPlayer()" title="Exit Player">
+    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+</button>
+
+<button style="top: 332px;" class="backBut"  onclick="resumePlay()" title="Restart Play">
+    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="6 4, 20 12, 6 20, 6 4"></polygon>
+    </svg>
+</button>
+
+     </div>
 
     </div>
+
 </div>
 
 <div id="cover"></div>
 
 <script>
+
+function resumePlay() {
+    if (!window.ytPlayerInstance) return;
+
+    // 1. Resume locally
+    window.ytPlayerInstance.playVideo();
+
+    // 2. Notify other viewers via Socket
+    if (typeof socket !== 'undefined') {
+        // We use the current time so it resumes exactly where it was
+        const currentTime = window.ytPlayerInstance.getCurrentTime();
+        socket.emit('toPlay', currentTime);
+    }
+    
+}
+
 function exitPlayer() {
     const origin = "<%= origin %>";
     // We get these from the server template variables
@@ -191,19 +236,6 @@ function exitPlayer() {
     // --- Click throttle shield ---
     const CLICK_THROTTLE_MS = 1200;
     let clickShieldActive = false;
-
-    function activateClickShield() {
-        if (clickShieldActive) return;
-        const shield = document.getElementById('click-shield');
-        if (!shield) return;
-        clickShieldActive = true;
-        shield.style.pointerEvents = 'auto';
-        setTimeout(() => {
-            shield.style.pointerEvents = 'none';
-            clickShieldActive = false;
-        }, CLICK_THROTTLE_MS);
-    }
-    // --- End click throttle shield ---
 
     function purgePriorPlayer() {
         if (window.ytPlayerInstance) {
@@ -276,52 +308,58 @@ function exitPlayer() {
 
                 'onStateChange': (event) => {
                     const controls = document.querySelector('.player-controls');
+                    const wrapper = document.getElementById('player-wrapper');
+                    // Lógica de Loop: Se o vídeo terminar, volta ao início e dá play
+                    if (event.data === YT.PlayerState.ENDED) {
+                        const playlist = JSON.parse(sessionStorage.getItem('yt_playlist') || '[]');
+                        const index = parseInt(sessionStorage.getItem('yt_playlist_index') || '0');
+                        const next = index + 1;
 
-// Lógica de Loop: Se o vídeo terminar, volta ao início e dá play
-if (event.data === YT.PlayerState.ENDED) {
-    const playlist = JSON.parse(sessionStorage.getItem('yt_playlist') || '[]');
-    const index = parseInt(sessionStorage.getItem('yt_playlist_index') || '0');
-    const next = index + 1;
-
-    if (playlist.length > 0 && next < playlist.length) {
-        // Advance to next video in playlist
-        sessionStorage.setItem('yt_playlist_index', String(next));
-        const nextId = playlist[next];
-        const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
-        handleNav(`/tvytube?videoId=${encodeURIComponent(nextId)}&vq=hd1080&origin=link&targetID=playlist&menu=${encodeURIComponent(menu)}&scrollPos=0`);
-    } else {
-        // No playlist or last video — clear and loop as before
-        sessionStorage.removeItem('yt_playlist');
-        sessionStorage.removeItem('yt_playlist_index');
-        event.target.seekTo(0);
-        event.target.playVideo();
-    }
-    return;
-}
-
-                    if (controls) {
-                        const showBack = (event.data !== YT.PlayerState.PLAYING && event.data !== YT.PlayerState.BUFFERING);
-                        controls.style.opacity = showBack ? '1' : '0';
-                        controls.style.pointerEvents = showBack ? 'auto' : 'none';
-                    }
-
-                    // Activate shield on play/pause transitions to prevent quick re-clicks causing desync
-                    if (event.data === YT.PlayerState.PLAYING || event.data === YT.PlayerState.PAUSED) {
-                        activateClickShield();
-                    }
-
-                    if (isRemoteCommand) return;
-                    clearTimeout(emitTimer);
-                    emitTimer = setTimeout(() => {
-                        if (!window.ytPlayerInstance) return;
-                        const currentTime = window.ytPlayerInstance.getCurrentTime();
-                        if (event.data === YT.PlayerState.PLAYING) {
-                            socket.emit('toPlay', currentTime);
-                        } else if (event.data === YT.PlayerState.PAUSED) {
-                            socket.emit('toPause', currentTime);
+                        if (playlist.length > 0 && next < playlist.length) {
+                            // Advance to next video in playlist
+                            sessionStorage.setItem('yt_playlist_index', String(next));
+                            const nextId = playlist[next];
+                            const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
+                            handleNav(`/tvytube?videoId=${encodeURIComponent(nextId)}&vq=hd1080&origin=link&targetID=playlist&menu=${encodeURIComponent(menu)}&scrollPos=0`);
+                        } else {
+                            // No playlist or last video — clear and loop as before
+                            sessionStorage.removeItem('yt_playlist');
+                            sessionStorage.removeItem('yt_playlist_index');
+                            event.target.seekTo(0);
+                            event.target.playVideo();
                         }
-                    }, 200);
-                }
+                        return;
+                    }
+
+// 2. Determine state
+    const isPausedOrEnded = (event.data === YT.PlayerState.PAUSED || 
+                             event.data === YT.PlayerState.ENDED || 
+                             event.data === YT.PlayerState.UNSTARTED);
+
+    // 3. Sync Overlay and Buttons
+    if (wrapper) {
+        isPausedOrEnded ? wrapper.classList.add('is-paused') : wrapper.classList.remove('is-paused');
+    }
+
+    if (controls) {
+        // If paused/ended, show controls (opacity: 1), else hide (opacity: 0)
+        controls.style.opacity = isPausedOrEnded ? '1' : '0';
+        controls.style.pointerEvents = isPausedOrEnded ? 'auto' : 'none';
+    }
+
+    // 5. Socket Logic
+    if (isRemoteCommand) return;
+    clearTimeout(emitTimer);
+    emitTimer = setTimeout(() => {
+        if (!window.ytPlayerInstance) return;
+        const currentTime = window.ytPlayerInstance.getCurrentTime();
+        if (event.data === YT.PlayerState.PLAYING) {
+            socket.emit('toPlay', currentTime);
+        } else if (event.data === YT.PlayerState.PAUSED) {
+            socket.emit('toPause', currentTime);
+        }
+    }, 200);
+}
             }
         });
     };
