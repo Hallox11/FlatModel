@@ -27,12 +27,21 @@
     }
 
     #main_header_area {
-        flex-shrink: 0; height: 80px; display: flex; align-items: center; justify-content: flex-start;
+        flex-shrink: 0; height: 60px; display: flex; align-items: center; justify-content: flex-start;
         padding: 0 30px; border-bottom: 1px solid var(--glass-border); z-index: 20;
         background: rgba(0,0,0,0.4);
     }
 
-    #main_header { text-align: center; font-size: 22px; color: #fff; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+    #main_header { 
+        text-align: center; 
+        font-size: 22px; 
+        color: #fff; 
+        text-transform: uppercase; 
+        letter-spacing: 2px; 
+        font-weight: 600; 
+        margin-left: 390px;
+    }
+
     #main_header span { color: var(--accent); }
 
     #connection-container {
@@ -192,8 +201,8 @@
                 <span id="status-text" style="font-size:11px; font-weight:600; color:var(--error);">OFFLINE</span>
             </div>
         </div>
-        <h1 id="main_header">Premium TV <span>Settings</span></h1>
-        <div class="close-menu-btn" onclick="closeSubMenu()">
+        <h1 id="main_header">ON SCREEN <span>Settings</span></h1>
+        <div style="top:10px;right: 20px;" class="close-menu-btn" onclick="closeSubMenu()">
             <span class="material-symbols-rounded">close</span>
         </div>
     </div>
@@ -213,11 +222,13 @@
                 <span class="material-symbols-rounded">wb_incandescent</span> AMBILIGHT & NEON
             </button>
             <button class="tab-btn" onclick="switchTab('security', this)">
-                <span class="material-symbols-rounded">shield</span> SECURITY SYSTEM
+                <span class="material-symbols-rounded">shield</span> SECURITY & ALARM
             </button>
+            
             <button class="tab-btn" onclick="switchTab('position', this)">
                 <span class="material-symbols-rounded">open_with</span> POSITION PANEL
             </button>
+            
                         <button class="tab-btn" onclick="switchTab('system', this)">
                 <span class="material-symbols-rounded">settings_cinematic_blur</span> SYSTEM
             </button>

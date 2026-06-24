@@ -31,6 +31,31 @@ const flickrErotic   = path.join(__dirname, 'config','flickr','flickr-erotic.jso
 if (!fs.existsSync(flickrErotic)) fs.writeFileSync(flickrErotic, JSON.stringify([]));
 
 
+//////////////////////////////////
+// Middleware to strictly enforce Second Life In-World Viewer connections
+function enforceInWorldBrowser(req, res, next) {
+    const userAgent = req.headers['user-agent'] || '';
+
+    // Check if the connection comes from the Second Life internal viewer
+    const isSLBrowser = userAgent.includes('SecondLife') || userAgent.includes('Dullard');
+
+    if (isSLBrowser) {
+        // Safe! It is an in-world browser. Allow the request to proceed.
+        return next();
+    }
+
+    // It is an unauthorized external browser (Chrome, Firefox, Safari, etc.) -> BLOCK IT!
+    console.warn(`[Security Alert] Blocked non-SL browser access attempt. User-Agent: ${userAgent}`);
+    
+    return res.status(403).send(`
+        <div style="font-family: Arial, sans-serif; text-align: center; margin-top: 100px; color: #333;">
+            <h1 style="color: #d32f2f;">Access Denied</h1>
+            <p style="font-size: 1.2rem;">This application can only be loaded and viewed using a Second Life TV screen panel in-world.</p>
+        </div>
+    `);
+}
+/////////////////////////////////////
+
 // Factory — receives shared state from sltv.js
 module.exports = function createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SESSION_TTL, FIXED_ROOM }) {
 
@@ -551,6 +576,19 @@ router.get('/check-status/:id', (req, res) => {
     // MAIN PAGE
 // ── MAIN PAGE ────────────────────────────────────────────────
 router.get('/', (req, res) => {
+    // ── SECURITY CHECK: ENFORCE SL IN-WORLD BROWSER ──
+    const userAgent = req.headers['user-agent'] || '';
+    //const isSLBrowser = userAgent.includes('SecondLife') || userAgent.includes('Dullard');
+      const isSLBrowser=true;
+    if (!isSLBrowser) {
+        console.warn(`[Security Alert] Blocked non-SL browser access attempt. User-Agent: ${userAgent}`);
+        return res.status(403).send(`
+            <div style="font-family: Arial, sans-serif; text-align: center; margin-top: 100px; color: #333;">
+                <h1 style="color: #d32f2f;">Access Denied</h1>
+                <p style="font-size: 1.2rem;">This application can only be viewed inside the Second Life in-world browser panel.</p>
+            </div>
+        `);
+    }
     const tvId = req.query.id || req.query.token;
 
     if (tvId) {

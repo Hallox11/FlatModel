@@ -343,7 +343,7 @@ function closeSubMenu(isRemote = false) {
         // --- RESTORE UI ELEMENTS ---
         $('.status-bar').fadeIn(200);
         $('.burger-menu-btn').fadeIn(200); // Add this line!
-        $('#room-indicator').removeClass('hidden').fadeIn(200);
+        //$('#room-indicator').removeClass('hidden').fadeIn(200);
         // Optional: If you want the theme slider to stay hidden 
         // until the burger is clicked, change this to .hide()
         $('#theme-slider').fadeOut(200); 
