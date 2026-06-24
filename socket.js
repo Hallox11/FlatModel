@@ -1138,7 +1138,7 @@ socket.on('disconnect', () => {
     // ── ROOM STATE CLEANUP ──
     const room = io.sockets.adapter.rooms.get(clientRoom);
     if (!room || room.size === 0) {
-        delete roomStates[clientRoom];
+       // delete roomStates[clientRoom];
         console.log(`[Room] Empty: ${clientRoom} — resetting state`);
         const s = getRoomState(clientRoom);
         Object.assign(s, {
