@@ -1,9 +1,30 @@
 [
   {
-    "title": "Luanes World - Le Monde Perdu",
-    "desc": "Summer has arrived at Luanes World! Wander through sun-drenched Mediterranean-inspired landscapes, discover peaceful corners to relax, and enjoy beautiful scenery perfect for photography and quiet moments alike. Whether you're exploring, spending time with friends, or simply taking in the atmosphere, enjoy everything this season has to offer.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a21ba48fdb858e3ee17ff54_6a21b86d09ef9063281105.jpeg",
-    "detailLink": "https://secondlife.com/destination/luanes-world",
+    "title": "SL23B Welcome Area",
+    "desc": "Confused about where to start at SL23B? The Welcome Area is a centralized spot where you can get oriented to all the many community exhibits and events at the celebration.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a3440ccbc69e19c669ea7fb_6a28487a7eb9c948009077.jpeg",
+    "detailLink": "https://secondlife.com/destination/slb-welcome-area",
+    "teleportUrl": null
+  },
+  {
+    "title": "Burrow",
+    "desc": "Since 2009, Burrow has been an inclusive, scenic space on the grid, and after a 3-month renovation, it's back and better than ever. Wander immersive forest trails, sip a coffee at the cozy cafe, catch a show at the Starlight Stage, unwind at the cannabis bar Hex & Haze, or gather with friends for a board game at Grove & Gambit. The options are endless. The perfect space for connection and community.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a37e048a7fceaa55137df6f_6a37e00c5bd57750587407.jpeg",
+    "detailLink": "https://secondlife.com/destination/burrow",
+    "teleportUrl": null
+  },
+  {
+    "title": "SL23B Tapestry of Time",
+    "desc": "Learn about the history of Second Life through this interactive exhibit that shows highlights of the evolution of our virtual world.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a3440a4217b5ee525b37ca8_648e4fdfbd6f4003741112.jpeg",
+    "detailLink": "https://secondlife.com/destination/tapestry-of-time",
+    "teleportUrl": null
+  },
+  {
+    "title": "Pour Up Winery & Vineyard",
+    "desc": "Established in 2021, Pour Up Winery & Vineyard is a scenic, romantic destination perfect for dates, with wine tasting, paint and sip, pottery, fishing, ziplining, horseback riding, live music events,  and vineyard views. Visitors can relax, explore, and enjoy photo opportunities throughout the grounds.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a3e8923bd85830922e468be_6a3e889653d68447222759.jpeg",
+    "detailLink": "https://secondlife.com/destination/pour-up-winery-vineyard",
     "teleportUrl": null
   },
   {
@@ -14,38 +35,31 @@
     "teleportUrl": null
   },
   {
-    "title": "Cherishville Summer",
-    "desc": "Welcome to the summer 2026 edition of Cherishville, a peaceful, photogenic destination where you can relax, socialize, and take pictures. Free rezz is available for photography enthusiasts.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a2875e0bcac9898b38bff8a_6a2875833cf1b882766267.jpeg",
-    "detailLink": "https://secondlife.com/destination/cherishville",
+    "title": "Grand Harbor Isle",
+    "desc": "Celebrate America's 250th anniversary at Grand Harbor Isle, a picturesque coastal destination transformed for a summer-long patriotic celebration. Explore waterfront streets adorned with festive decorations, discover scenic beaches and natural landscapes, stroll through charming seaside neighborhoods, and experience a uniquely American small-town atmosphere inspired by the nation's semiquincentennial celebration.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a3083e76fdafa689f82e1b7_6a308302a354f005153352.jpeg",
+    "detailLink": "https://secondlife.com/destination/grand-harbor-isle",
     "teleportUrl": null
   },
   {
-    "title": "Blue Finch",
-    "desc": "Welcome to Blue Finch, a charming coastal town with stunning waterfront views and relaxing activities. Tour the region aboard the Cuddly Owl Bear, explore by bicycle, enjoy a boat ride, play mini golf, visit cozy cafés, swim, relax on a floating raft, or unwind on the beach. Whether seeking adventure, friendship, or quiet moments, Blue Finch offers a perfect escape filled with beauty, comfort, and discovery.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1f56911fab1fc29519b694_6a1f559797e5e786764134.png",
-    "detailLink": "https://secondlife.com/destination/blue-finch",
+    "title": "Silent Melody",
+    "desc": "Silent Melody is a place where the world slows down just enough for you to hear your own heartbeat. Here, paths wind through quiet corners, stories drift on the breeze, and every visitor becomes part of the song. Take your time. Wander. Breathe. Let the hush of this place wrap around you like a familiar tune.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a3924314d32442e7e878b8e_6a3923d1b0f0a518959505.jpeg",
+    "detailLink": "https://secondlife.com/destination/silent-melody",
     "teleportUrl": null
   },
   {
-    "title": "Everbloom",
-    "desc": "Everbloom is a romantic destination. A place to breathe. Let your soul unwind as the evening sun bathes the terrace in warm golden light. Surrounded by blooming gardens, gentle sounds of nature, and peaceful animals, you'll find the kind of tranquility that is so often lost in everyday life. Sometimes happiness needs nothing more than a croissant, a quiet moment, and the perfect view.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1e2ec8ee7a4b65f5557002_6a1e2e8ab8988375236029.jpeg",
-    "detailLink": "https://secondlife.com/destination/everbloom",
+    "title": "City of Edgewater",
+    "desc": "Nestled along the Carolina coastline, the City of Edgewater is a roleplay community where stories unfold, businesses thrive, and lasting friendships are built. Explore a welcoming city designed for everyday life, community events, and immersive roleplay.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a3e81a30d2561aaf3165304_6a3e81045a4b3428878061.png",
+    "detailLink": "https://secondlife.com/destination/city-of-edgewater",
     "teleportUrl": null
   },
   {
-    "title": "Fairy Tales",
-    "desc": "You are invited to wander into the adventure of eternity. Let your footsteps follow the colorful sparkles leading through the magical forest, river, moon, desert, and club.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a2977b2938a14ef0ca5fd58_623e151901437772576640.png",
-    "detailLink": "https://secondlife.com/destination/fairy-tales",
-    "teleportUrl": null
-  },
-  {
-    "title": "The Boathouse Cafe",
-    "desc": "There is a distinct magic in places weathered by time and salt air, and The Boathouse Cafe captures that beautifully as an idyllic waterfront retreat. Housed in a sun-bleached wooden boathouse, this cozy spot fills your senses with the gentle rhythm of rolling waves and the distant cry of seagulls. Stop by to enjoy a classic plate of fish and chips, or step into the garden with a fresh brew to watch the coastal light change. As a perfect sanctuary for dreamers, photographers, and friends alike, The Boathouse Cafe invites you to slow down and stay a while.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a281a02a6b918ed26346c03_6a28199205399383419363.png",
-    "detailLink": "https://secondlife.com/destination/the-boathouse-cafe",
+    "title": "Somewhere",
+    "desc": "Somewhere is a remote island that is inhabited by tribes of rabbits, jackals, and cats. Lots of partying, lots of musicians, nice little villages (one of them rather on the weird side - but hey...), fireside chats, and neighborly gossip.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a3019f71d9ad575b4cab7cc_6a3019503d770937763691.jpeg",
+    "detailLink": "https://secondlife.com/destination/somewhere-alphatribe-island",
     "teleportUrl": null
   },
   {
@@ -56,38 +70,10 @@
     "teleportUrl": null
   },
   {
-    "title": "Kemet Island",
-    "desc": "Kemet Island is an immersive and richly detailed fantasy world filled with enchanted gardens, magical forests, and soothing aquatic landscapes. Wander through waterfalls, hidden paths, and vibrant seasonal environments leading to secret hideaways. Discover meditation spaces, fairy-tale gardens, and dreamlike settings surrounded by nature and calming ambient sounds. From autumn forests in the rain to luminous floral worlds and peaceful oases, KEMET Island offers a magical escape dedicated to relaxation, exploration, and inspiration.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a20be19f0cf714a39ed28b2_6a20bd34a5092497856130.jpeg",
-    "detailLink": "https://secondlife.com/destination/kemet-island",
-    "teleportUrl": null
-  },
-  {
-    "title": "Coeur di Amalfi",
-    "desc": "Coeur di Amalfi is a classic Italian coastal town inspired by the Mediterranean. Centered around a medieval cathedral, the region features a lively piazza, botanical gardens with underground caves, shops, apartments, boating, bicycle riding, and scenic places to explore. Wander the streets, discover hidden tunnels, or enjoy the charm of this historic Italian destination.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a27174080d84739d3fd2a3f_6a2716f2aeba8193614389.jpeg",
-    "detailLink": "https://secondlife.com/destination/coeur-di-amalfi",
-    "teleportUrl": null
-  },
-  {
-    "title": "LeLoo's World - Age of Giants",
-    "desc": "LeLoo’s World invites you to journey through a lush prehistoric sanctuary, where towering ferns, ancient trees, and the distant calls of colossal creatures surround you, revealing a realm time has quietly forgotten, a place where wonder and adventure begin the moment you arrive. Everyone is welcome to this PG event! For best viewing: Use a PBR viewer and Shared Environment. Turn on sounds. LOD set to 4, and draw distance to 150+.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a2d5809ca0f5fbeabcd4234_6a2d57792a405045096636.jpeg",
-    "detailLink": "https://secondlife.com/destination/leloos-world",
-    "teleportUrl": null
-  },
-  {
-    "title": "BADU - BRAZIL eNdhmGIZ",
-    "desc": "Welcome to Rio de Janeiro, the vibrant heart of Brazil, where every street pulses with rhythm, color, and unforgettable energy. Feel the vibrant Carioca spirit in every corner as you explore iconic landmarks like Christ the Redeemer and Copacabana Beach, Escadaria Selaron, Sugarloaf Mountain, and Lapa Arches.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1e1cf765a10dc065e115fe_6a1e1c9b5db16062359731.jpeg",
-    "detailLink": "https://secondlife.com/destination/badu-brazil-endhmgiz",
-    "teleportUrl": null
-  },
-  {
-    "title": "Planet M's Tula",
-    "desc": "Potter Tula dreamt of a valley sculpted from clay. A place where everything is kind, where nature, animals, and humans coexist in quiet harmony. One morning, she awoke to find that the dream had become her reality. You are invited to share in the wealth of this DreamLogic world. The TourBubbles await to carry you on a 45-minute relaxing journey. Come and let yourself be part of Tula's Dream.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/695d498c47d1734db9112d2a_695d494362cd5809462030.jpeg",
-    "detailLink": "https://secondlife.com/destination/planet-m-tula",
+    "title": "Cherishville Summer",
+    "desc": "Welcome to the summer 2026 edition of Cherishville, a peaceful, photogenic destination where you can relax, socialize, and take pictures. Free rezz is available for photography enthusiasts.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a2875e0bcac9898b38bff8a_6a2875833cf1b882766267.jpeg",
+    "detailLink": "https://secondlife.com/destination/cherishville",
     "teleportUrl": null
   },
   {
@@ -98,6 +84,41 @@
     "teleportUrl": null
   },
   {
+    "title": "Second Pride",
+    "desc": "Established in 2005, this destination is the headquarters of the Second Pride organization in Second Life. They hold four annual events, featuring plenty of music and fun. Their Pride 2026 event runs from June 19th to 28th, featuring more than 100 live performances across three stages. There will also be shops, rides, photo ops, and more! More info at second-pride.com",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6477abeaab6a1614bd008623_6477ab8ce1356668581905.jpeg",
+    "detailLink": "https://secondlife.com/destination/second-pride",
+    "teleportUrl": null
+  },
+  {
+    "title": "Ocho Tango Place",
+    "desc": "Ocho Tango Place is the home of Argentine Tango. Dance beneath the lights of Buenos Aires while listening to Radio Ocho Tango's carefully curated selection of traditional orchestras, valses, milongas, and contemporary tango. Experienced tangueros and those taking their first steps will find a welcoming atmosphere filled with social dancing, romantic settings, photogenic corners, and a shared love of tango. Here, music, movement, and connection come together in a space where every dance tells a story.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69c7cdabdc21bc655bf60673_69c7ccf76f1ce682741558.jpeg",
+    "detailLink": "https://secondlife.com/destination/ocho-tango-place",
+    "teleportUrl": null
+  },
+  {
+    "title": "Isla De Night",
+    "desc": "Isla De Night is the perfect starting point for a road trip adventure. Grab a car, explore the pit stops, relax at the beach, and drive across the bridge to the rest of Norway. You never know what amazing places you will discover!",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a343a10fbb43535b75eca97_6a34397d6d982392959225.png",
+    "detailLink": "https://secondlife.com/destination/isla-de-night",
+    "teleportUrl": null
+  },
+  {
+    "title": "Gran Finale Business District",
+    "desc": "Gran Finale Business District combines luxury living with nightlife, featuring home rentals, a full-service hotel, restaurants, a spa, social gathering spaces, and entertainment venues. Visitors can enjoy live music, dancing, elegant surroundings, and regular events while exploring a destination designed for socializing, relaxation, and connection.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a3e87423d3b99bcc8795e80_6a3e86947643f574775835.jpeg",
+    "detailLink": "https://secondlife.com/destination/gran-finale-business-district",
+    "teleportUrl": null
+  },
+  {
+    "title": "LeLoo's World - Age of Giants",
+    "desc": "LeLoo’s World invites you to journey through a lush prehistoric sanctuary, where towering ferns, ancient trees, and the distant calls of colossal creatures surround you, revealing a realm time has quietly forgotten, a place where wonder and adventure begin the moment you arrive. Everyone is welcome to this PG event!  For best viewing: Use a PBR viewer and Shared Environment. Turn on sounds. LOD set to 4, and draw distance to 150+.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a2d5809ca0f5fbeabcd4234_6a2d57792a405045096636.jpeg",
+    "detailLink": "https://secondlife.com/destination/leloos-world",
+    "teleportUrl": null
+  },
+  {
     "title": "Reality Escape",
     "desc": "Reality Escape's books, coffee, and chairs are beckoning you to visit! Enjoy a fresh brew and treat in the coffeehouse with your favorite book, pick out your favorite chair in the chair-arch, explore your past, present, and future in the tarot tent, or wander the photogenic spots. Whichever you choose, it will surely lead you away from the weight of reality.",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a2aca216cd206550895e0db_6a2ac9cfcf3c3750003944.jpeg",
@@ -105,45 +126,17 @@
     "teleportUrl": null
   },
   {
+    "title": "The Boathouse Cafe",
+    "desc": "There is a distinct magic in places weathered by time and salt air, and The Boathouse Cafe captures that beautifully as an idyllic waterfront retreat. Housed in a sun-bleached wooden boathouse, this cozy spot fills your senses with the gentle rhythm of rolling waves and the distant cry of seagulls. Stop by to enjoy a classic plate of fish and chips, or step into the garden with a fresh brew to watch the coastal light change. As a perfect sanctuary for dreamers, photographers, and friends alike, The Boathouse Cafe invites you to slow down and stay a while.",
+    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a281a02a6b918ed26346c03_6a28199205399383419363.png",
+    "detailLink": "https://secondlife.com/destination/the-boathouse-cafe",
+    "teleportUrl": null
+  },
+  {
     "title": "Pride At Home",
     "desc": "Celebrate diversity at Pride at Home! Since 2020, Pride at Home has been bringing the community together to celebrate love, inclusivity, and connection in Second Life. Explore the destination, discover free gifts at the Expo, and enjoy an exciting lineup of parties and live entertainment. Keep an eye on their event calendar and learn more at prideathome.online",
     "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a1d2e5f61e9fa1ad0f17ab6_6a19c2d521f51508783753.jpeg",
     "detailLink": "https://secondlife.com/destination/pride-at-home",
-    "teleportUrl": null
-  },
-  {
-    "title": "Arcadia Heights",
-    "desc": "Welcome to Arcadia Heights, a nostalgic small-town escape. Inspired by the late ’80s and early ’90s, explore Main Street, hang out at the mall, the arcade, and sunset lake views. Discover hidden corners, rooftop hangouts, and welcoming neighborhoods built on comfort, inclusivity, and community, with a strong LGBTQ+ presence.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a174f8ea2739ac14a303120_6a174f6881370890665236.jpeg",
-    "detailLink": "https://secondlife.com/destination/arcadia-heights",
-    "teleportUrl": null
-  },
-  {
-    "title": "The Quiet Between Worlds at SLEA",
-    "desc": "The Quiet Between Worlds at SLEA8 is a reflective art installation created as a refuge from noise and pressure. Centered on LGBTQ+ care and visibility, it offers spaces to rest, breathe, mourn, and honor loved ones. Visitors are invited to slow down, connect, and share meaningful moments in a setting built on softness and emotional safety.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6993336cdcfe2b56f4fe6652_699332c75f75c417119876.jpeg",
-    "detailLink": "https://secondlife.com/destination/the-quiet-between-worlds-slea",
-    "teleportUrl": null
-  },
-  {
-    "title": "memories of dreams resurrected",
-    "desc": "You wake up from a beautiful dream, sure that you'll remember it this time. But it immediately begins to slip away, leaving just a wisp of a memory. Or was it only a dream....? Inspired by Iguazu Falls, Brazil. Please use shared lighting when you visit.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6a295dea9bf35bad67d75038_6a295d9a91250054665818.jpeg",
-    "detailLink": "https://secondlife.com/destination/memories-of-dreams-resurrected",
-    "teleportUrl": null
-  },
-  {
-    "title": "Crescent Valley",
-    "desc": "Crescent Valley is an LGBTQ+ friendly nature park built for exploration. Winding paths, elevated viewpoints, and quiet natural spaces invite visitors to wander, relax, and take in the scenery at their own pace.",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/69594862be4796edd9b7d747_695947d9b3a59699958079.jpeg",
-    "detailLink": "https://secondlife.com/destination/crescent-valley",
-    "teleportUrl": null
-  },
-  {
-    "title": "Second Pride",
-    "desc": "Established in 2005, this destination is the headquarters of the Second Pride organization in Second Life. They hold four annual events, featuring plenty of music and fun. Their Pride 2026 event runs from June 19th to 28th, featuring more than 100 live performances across three stages. There will also be shops, rides, photo ops, and more! More info at second-pride.com",
-    "thumbnail": "https://cdn.prod.website-files.com/60b00c7676794f6159eb4bf0/6477abeaab6a1614bd008623_6477ab8ce1356668581905.jpeg",
-    "detailLink": "https://secondlife.com/destination/second-pride",
     "teleportUrl": null
   }
 ]

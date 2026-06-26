@@ -3,18 +3,20 @@
 /**
  * slScraper.js
  * ------------
- * Otimizado: Carrega a lista rapidamente e busca o Teleport apenas sob demanda.
+ * Totalmente otimizado para Render.com utilizando Cheerio e Fetch nativo.
+ * Carrega listas e busca teleports sob demanda em milissegundos sem usar Chromium.
  */
 
-const { chromium } = require('playwright');
-const fs           = require('fs');
-const path         = require('path');
+const fs      = require('fs');
+const path    = require('path');
+const cheerio = require('cheerio');
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 
 const CACHE_DIR        = path.join(__dirname, 'cache/sl');
 const FAV_PATH         = path.join(__dirname, 'config/sl/sl-fav.json');
-const CACHE_EXPIRATION = 48 * 60 * 60 * 1000; // 48 hours
+const CACHE_EXPIRATION = 48 * 60 * 60 * 1000; // 48 horas
+const USER_AGENT       = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
 
@@ -48,43 +50,50 @@ function saveCache(tag, data) {
     fs.writeFileSync(cacheFilePath(tag), JSON.stringify(data, null, 2));
 }
 
-// ─── CORE SCRAPER ─────────────────────────────────────────────────────────────
+// ─── CORE SCRAPER (CHEERIO VERSION) ───────────────────────────────────────────
 
 async function scrapeSLDestinations(categoryUrl) {
-    console.log(`[SL SCRAPE] Fetching listing (Fast Scan): ${categoryUrl}`);
-
-    const browser = await chromium.launch({ headless: true });
-    const page    = await browser.newPage();
+    console.log(`[SL SCRAPE] Fetching listing via Cheerio (Ultra Fast): ${categoryUrl}`);
 
     try {
-        // ── STEP 1: Apenas a página de listagem ──────────────────
-        await page.goto(categoryUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
-        await page.waitForSelector('.dg-collection-item', { timeout: 10000 });
+        const response = await fetch(categoryUrl, {
+            headers: { 'User-Agent': USER_AGENT },
+            signal: AbortSignal.timeout(20000)
+        });
 
-        const results = await page.$$eval('.dg-collection-item', items =>
-            items.map(item => {
-                const titleNode = item.querySelector('.dg2-destination-title-h2, .dg2-destination-title-h3');
-                const title     = titleNode?.innerText.trim() || 'Unknown';
-                const img       = item.querySelector('img.dg2-lg-feature-image');
-                const thumbnail = img?.getAttribute('data-src') || img?.src || '';
-                const desc      = item.querySelector('.dg-destination-description')?.innerText.trim() || '';
-                const detailLink = item.querySelector('a')?.href || '';
+        if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
+        
+        const html = await response.text();
+        const $ = cheerio.load(html);
+        const results = [];
 
-                // Já não buscamos o teleport aqui para ser mais rápido
-                return { title, desc, thumbnail, detailLink, teleportUrl: null };
-            })
-        );
+$('.dg-collection-item').each((index, element) => {
+            const item = $(element);
+            
+            const titleNode = item.find('.dg2-destination-title-h2, .dg2-destination-title-h3');
+            const title     = titleNode.text().trim() || 'Unknown';
+            
+            const img       = item.find('img.dg2-lg-feature-image');
+            const thumbnail = img.attr('data-src') || img.attr('src') || '';
+            
+            const desc      = item.find('.dg-destination-description').text().trim() || '';
+            
+            // 🔥 CORREÇÃO AQUI: Garante que o link seja absoluto
+            let detailLink = item.find('a').attr('href') || '';
+            if (detailLink && detailLink.startsWith('/')) {
+                detailLink = `https://secondlife.com${detailLink}`;
+            }
+
+            results.push({ title, desc, thumbnail, detailLink, teleportUrl: null });
+        });
 
         const filtered = results.filter(r => r.thumbnail && !r.thumbnail.includes('.svg'));
         
-        console.log(`[SL SCRAPE] Found ${filtered.length} destinations. Ready for on-demand teleport.`);
-
-        await browser.close();
+        console.log(`[SL SCRAPE] Found ${filtered.length} destinations via HTML parsing.`);
         return filtered;
 
     } catch (err) {
-        console.error('[SL SCRAPE] Fatal error:', err.message);
-        await browser.close();
+        console.error('[SL SCRAPE] Fatal fetch error:', err.message);
         return [];
     }
 }
@@ -92,49 +101,48 @@ async function scrapeSLDestinations(categoryUrl) {
 // ─── PUBLIC API ───────────────────────────────────────────────────────────────
 
 /**
- * Nova Função: Busca o teleport apenas quando o botão é clicado.
+ * Busca o teleport de forma instantânea processando apenas a string HTML.
  */
 async function getTeleportOnDemand(detailLink) {
     if (!detailLink) return null;
-    console.log(`[SL SCRAPE] Fetching SLurl on-demand for: ${detailLink}`);
-
-    const browser = await chromium.launch({ 
-        headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] // Keeps Render happy!
-    });
+    console.log(`[SL CHEERIO SCRAPE] Fetching SLurl on-demand for: ${detailLink}`);
 
     try {
-        const page = await browser.newPage();
-        await page.goto(detailLink, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        const response = await fetch(detailLink, {
+            headers: { 'User-Agent': USER_AGENT },
+            signal: AbortSignal.timeout(12000)
+        });
 
-        // 1. Tenta pegar o link padrão do CTA
-        let slurl = await page.$eval(
-            '#dg-entry-CTA a:nth-child(2)',
-            el => el.href
-        ).catch(() => null);
+        if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
+        
+        const html = await response.text();
+        const $ = cheerio.load(html);
 
-        // 2. Se não achar, procura por qualquer link no corpo da página
+        // 1. Tenta extrair o link diretamente do botão principal CTA
+        let slurl = $('#dg-entry-CTA a:nth-child(2)').attr('href') || null;
+
+        // 2. Fallback: Varre todos os links da página procurando a assinatura da SL
         if (!slurl) {
-            slurl = await page.$$eval('a[href]', links => {
-                const match = links.find(l =>
-                    l.href.startsWith('secondlife://') ||
-                    l.href.includes('maps.secondlife.com/secondlife/')
-                );
-                return match ? match.href : null;
-            }).catch(() => null);
+            $('a[href]').each((index, element) => {
+                const href = $(element).attr('href');
+                if (href && (href.startsWith('secondlife://') || href.includes('maps.secondlife.com/secondlife/'))) {
+                    slurl = href;
+                    return false; // Interrompe o loop do Cheerio
+                }
+            });
         }
 
-        // 🔥 O TRUQUE: Se o link for um link web ("https://maps..."), converte diretamente para o protocolo in-world
+        // 3. Formata links HTTP da web diretamente no protocolo do visualizador in-world
         if (slurl && slurl.includes('maps.secondlife.com/secondlife/')) {
             slurl = slurl.replace(/^https:\/\/maps\.secondlife\.com\/secondlife\//i, 'secondlife://');
         }
-console.log(slurl)
+
+        console.log(`[SL SCRAPE SUCCESS] Found destination address: ${slurl}`);
         return slurl;
+
     } catch (err) {
         console.error(`[SL SCRAPE] Failed to get teleport for ${detailLink}:`, err.message);
         return null;
-    } finally {
-        await browser.close();
     }
 }
 
@@ -179,7 +187,7 @@ function saveFavorites(favorites) {
 module.exports = {
     getDestinations,
     refreshDestinations,
-    getTeleportOnDemand, // Exportada para ser usada na nova rota
+    getTeleportOnDemand,
     getFavorites,
     saveFavorites
 };
