@@ -98,13 +98,22 @@ async function getTeleportOnDemand(detailLink) {
     if (!detailLink) return null;
     console.log(`[SL SCRAPE] Fetching SLurl on-demand for: ${detailLink}`);
 
-    const browser = await chromium.launch({ headless: true });
+    const browser = await chromium.launch({ 
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] // Keeps Render happy!
+    });
+
     try {
         const page = await browser.newPage();
         await page.goto(detailLink, { waitUntil: 'domcontentloaded', timeout: 15000 });
 
-        let slurl = await page.$eval('#dg-entry-CTA a:nth-child(2)', el => el.href).catch(() => null);
+        // 1. Tenta pegar o link padrão do CTA
+        let slurl = await page.$eval(
+            '#dg-entry-CTA a:nth-child(2)',
+            el => el.href
+        ).catch(() => null);
 
+        // 2. Se não achar, procura por qualquer link no corpo da página
         if (!slurl) {
             slurl = await page.$$eval('a[href]', links => {
                 const match = links.find(l =>
@@ -115,12 +124,16 @@ async function getTeleportOnDemand(detailLink) {
             }).catch(() => null);
         }
 
+        // 🔥 O TRUQUE: Se o link for um link web ("https://maps..."), converte diretamente para o protocolo in-world
+        if (slurl && slurl.includes('maps.secondlife.com/secondlife/')) {
+            slurl = slurl.replace(/^https:\/\/maps\.secondlife\.com\/secondlife\//i, 'secondlife://');
+        }
+console.log(slurl)
         return slurl;
     } catch (err) {
         console.error(`[SL SCRAPE] Failed to get teleport for ${detailLink}:`, err.message);
         return null;
     } finally {
-        // This ALWAYS runs, preventing dangling browser processes
         await browser.close();
     }
 }

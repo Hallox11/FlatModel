@@ -233,33 +233,38 @@
 <script>
 (function() {
     // 1. Função de Teleport Sob Demanda
-    window.handleTeleport = async function(detailLink, id) {
-        const btn = document.getElementById(`tp-btn-${id}`);
-        if (!btn || btn.disabled) return;
+window.handleTeleport = async function(detailLink, id) {
+    const btn = document.getElementById(`tp-btn-${id}`);
+    if (!btn || btn.disabled) return;
 
-        try {
-            btn.disabled = true;
-            btn.classList.add('loading');
+    try {
+        btn.disabled = true;
+        btn.classList.add('loading');
 
-            const response = await fetch(`/api/sl/teleport?detailLink=${encodeURIComponent(detailLink)}`);
-            const data = await response.json();
+        const response = await fetch(`/api/sl/teleport?detailLink=${encodeURIComponent(detailLink)}`);
+        const data = await response.json();
+        console.log(data.teleportUrl);
 
-            if (data.teleportUrl) {
-                if (typeof sendCommand === 'function') {
-                    sendCommand('teleport', data.teleportUrl);
-                } else {
-                    window.location.assign(data.teleportUrl);
-                }
-            } else {
-                alert("Não foi possível obter o endereço de teleport.");
-            }
-        } catch (err) {
-            console.error("Erro no Teleport:", err);
-        } finally {
-            btn.disabled = false;
-            btn.classList.remove('loading');
+        if (data.teleportUrl) {
+            // No sendCommand? No problem. We use the foolproof hidden link method:
+            const hiddenLink = document.createElement('a');
+            hiddenLink.href = data.teleportUrl;
+            hiddenLink.style.display = 'none';
+            document.body.appendChild(hiddenLink);
+            
+            hiddenLink.click(); // This simulates a real physical click!
+            
+            document.body.removeChild(hiddenLink); // Cleans up the page
+        } else {
+            alert("Não foi possível obter o endereço de teleport.");
         }
-    };
+    } catch (err) {
+        console.error("Erro no Teleport:", err);
+    } finally {
+        btn.disabled = false;
+        btn.classList.remove('loading');
+    }
+};
 
     // 2. Sincronização do Modo de Vista
     window.toggleSlView = function(mode, isRemote = false) {
