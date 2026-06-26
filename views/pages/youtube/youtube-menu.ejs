@@ -184,15 +184,19 @@
     height: 100vh;
     background: rgba(0,0,0,0.7);
     z-index: 100;
-
     overflow-y: auto;  /* enables scrolling */
     padding: 40px 0;
-
     display: flex;
     justify-content: center;
     align-items: flex-start; /* allows scroll instead of forcing center */
 }
-
+/* Custom Scrollbar Styling */
+.yt-modal-overlay::-webkit-scrollbar { width: 12px; }
+.yt-modal-overlay::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+.yt-modal-overlay::-webkit-scrollbar-thumb { 
+    background: rgb(224, 81, 24); 
+    border-radius: 10px; 
+}
 .yt-modal-overlay[style*="flex"] {
     opacity: 1;
 }
@@ -244,78 +248,78 @@
             <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC9lFGoxhquvypdNDYpj3ekg&isChannel=true&menu=/youtube-menu&title=Draxtor files')">DRAXTOR</span>
         </div>
 
-        <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCI7NrJQ5vpg2PmVQKpwXSbw&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCI7NrJQ5vpg2PmVQKpwXSbw&isChannel=true&menu=/youtube-menu&title=Bryn Oh')">
             <div class="main-btn-txt">Bryn Oh</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC0-b3mAe2rYJ3BhiOy1j_Fg&isChannel=true&menu=/youtube-menu')">SONGULARITY</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC0-b3mAe2rYJ3BhiOy1j_Fg&isChannel=true&menu=/youtube-menu&title=Songularity')">SONGULARITY</span>
         </div>
 
         <div class="btn-group yt-amber"  onclick="loadWithSpinner('/youtube-grid?genre=UCbfOwWpYoWo5l0Tz-q29Tbg&isChannel=true&menu=/youtube-menu&title=Tutsy Navarathna')">
             <div class="main-btn-txt">Tutsy</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCau2uwcAq_piedjavtmqp9A&isChannel=true&menu=/youtube-menu')">IONO ALLEN</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCau2uwcAq_piedjavtmqp9A&isChannel=true&menu=/youtube-menu&title=Iono Allen')">IONO ALLEN</span>
         </div>
 
-        <div class="btn-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCYJhtXjfiwmah0DwXn3B-qw&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCYJhtXjfiwmah0DwXn3B-qw&isChannel=true&menu=/youtube-menu&title=Inworld Films')">
             <div class="main-btn-txt">inWorld</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCxGlN6DXSe4qxjRmWgvM7zw&isChannel=true&menu=/youtube-menu')">OEMA</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCxGlN6DXSe4qxjRmWgvM7zw&isChannel=true&menu=/youtube-menu&title=Oema Resident')">OEMA</span>
         </div>
 
-        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UCU17qab1aYA3PQDiWNONdfQ&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UCU17qab1aYA3PQDiWNONdfQ&isChannel=true&menu=/youtube-menu&title=Anna Kurka')">
             <div class="main-btn-txt">Anna Kurka</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCUKYh7WxpHyxBrIX4mpv3sg&isChannel=true&menu=/youtube-menu')">FLORINE</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCUKYh7WxpHyxBrIX4mpv3sg&isChannel=true&menu=/youtube-menu&title=Florine')">FLORINE</span>
         </div>
 
 
 
-        <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCb57aRZr3KsykS_wNsD5Ptw&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCb57aRZr3KsykS_wNsD5Ptw&isChannel=true&menu=/youtube-menu&title=4K Landscapes - Primal Earth')">
             <div class="main-btn-txt">4K Landscapes</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC-hKdAEl4c86O9lNTNrOqhw&isChannel=true&menu=/youtube-menu')">4K NATURE</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC-hKdAEl4c86O9lNTNrOqhw&isChannel=true&menu=/youtube-menu&title=4K Nature')">4K NATURE</span>
         </div>
 
-        <div class="btn-group yt-amber"    onclick="loadWithSpinner('/youtube-grid?genre=UCY-6T66-azasLIwzVf4Q9TQ&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-amber"    onclick="loadWithSpinner('/youtube-grid?genre=UCY-6T66-azasLIwzVf4Q9TQ&isChannel=true&menu=/youtube-menu&title=Dalí Museum')">
             <div class="main-btn-txt">Dalí Museum</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC9CswYtb5rL31CHwyVoyJvQ&isChannel=true&menu=/youtube-menu')">MOMA</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC9CswYtb5rL31CHwyVoyJvQ&isChannel=true&menu=/youtube-menu&title=MOMA Museum')">MOMA</span>
         </div>
 
-        <div class="btn-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCPVM7BG6PXKO1PR6K5KXG9A&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCPVM7BG6PXKO1PR6K5KXG9A&isChannel=true&menu=/youtube-menu&title=National Geographic')">
             <div class="main-btn-txt">N. GEOGRAPHIC</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCQtW2oz8ec8pHjjxawujNjg&isChannel=true&menu=/youtube-menu')">NATURE DOCS</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCQtW2oz8ec8pHjjxawujNjg&isChannel=true&menu=/youtube-menu&title=Nature Docs.')">NATURE DOCS</span>
         </div>
 
-        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UC9MAhZQQd9egwWCxrwSIsJQ&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UC9MAhZQQd9egwWCxrwSIsJQ&isChannel=true&menu=/youtube-menu&title=History Channel')">
             <div class="main-btn-txt">HISTORY</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCc-N24Y5OA0gqbjBwe1ttfA&isChannel=true&menu=/youtube-menu')">WEIRD HISTORY</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCc-N24Y5OA0gqbjBwe1ttfA&isChannel=true&menu=/youtube-menu&title=Weird History')">WEIRD HISTORY</span>
         </div>
 
-        <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCfzuJecdM0uhX7HfICewt3Q&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-cyan"   onclick="loadWithSpinner('/youtube-grid?genre=UCfzuJecdM0uhX7HfICewt3Q&isChannel=true&menu=/youtube-menu&title=Fame Focus')">
             <div class="main-btn-txt">FAME FOCUS</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCXjmz8dFzRJZrZY8eFiXNUQ&isChannel=true&menu=/youtube-menu')">NERDSTALGIC</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCXjmz8dFzRJZrZY8eFiXNUQ&isChannel=true&menu=/youtube-menu&title=Nerdstalgic')">NERDSTALGIC</span>
         </div>
 
 
 
-        <div class="btn-group yt-amber"   onclick="loadWithSpinner('/youtube-grid?genre=UCFeUyPY6W8qX8w2o6oSiRmw&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-amber"   onclick="loadWithSpinner('/youtube-grid?genre=UCFeUyPY6W8qX8w2o6oSiRmw&isChannel=true&menu=/youtube-menu&title=Pink Phanter')">
             <div class="main-btn-txt">Pink Panther</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCU0rIMU3k_AsVA8d6N1B03w&isChannel=true&menu=/youtube-menu')">WARNER BROS.</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCU0rIMU3k_AsVA8d6N1B03w&isChannel=true&menu=/youtube-menu&title=Warner Bros.')">WARNER BROS.</span>
         </div>
 
-        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UCkAGrHCLFmlK3H2kd6isipg&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-red"    onclick="loadWithSpinner('/youtube-grid?genre=UCkAGrHCLFmlK3H2kd6isipg&isChannel=true&menu=/youtube-menu&title=Mr. Bean')">
             <div class="main-btn-txt">Mr. Bean</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCKk1DfbCOBm_42PMyz7HqEA&isChannel=true&menu=/youtube-menu')">STAND UP</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCKk1DfbCOBm_42PMyz7HqEA&isChannel=true&menu=/youtube-menu&title=Stand Up')">STAND UP</span>
         </div>
 
-        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/youtube-grid?genre=UCpsSadsgX_Qk9i6i_bJoUwQ&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/youtube-grid?genre=UCpsSadsgX_Qk9i6i_bJoUwQ&isChannel=true&menu=/youtube-menu&title=Just for Laughs Gags')">
             <div class="main-btn-txt">Just Laughs</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC1Cp5caGwHvJZxHoevGoDdA&isChannel=true&menu=/youtube-menu')">BRAIN TIME</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UC1Cp5caGwHvJZxHoevGoDdA&isChannel=true&menu=/youtube-menu&title=Brain Time')">BRAIN TIME</span>
         </div>
 
-        <div class="btn-group yt-purple"    onclick="loadWithSpinner('/youtube-grid?genre=UCPN6irtK3KIT2xUdQYQmh5Q&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-purple"    onclick="loadWithSpinner('/youtube-grid?genre=UCPN6irtK3KIT2xUdQYQmh5Q&isChannel=true&menu=/youtube-menu&title=Jason Maher')">
             <div class="main-btn-txt">Jason Maher</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCeeHYKSxJPk0Hv2v-LLTdmg&isChannel=true&menu=/youtube-menu')">OSCAR MAGIC</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCeeHYKSxJPk0Hv2v-LLTdmg&isChannel=true&menu=/youtube-menu&title=Oscar Owen Magic')">OSCAR MAGIC</span>
         </div>
 
-        <div class="btn-group yt-amber"   onclick="loadWithSpinner('/youtube-grid?genre=UCHnyfMqiRRG1u-2MsSQLbXA&isChannel=true&menu=/youtube-menu')">
+        <div class="btn-group yt-amber"   onclick="loadWithSpinner('/youtube-grid?genre=UCHnyfMqiRRG1u-2MsSQLbXA&isChannel=true&menu=/youtube-menu&title=Veritasium')">
             <div class="main-btn-txt">Veritasium</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCsXVk37bltHxD1rDPwtNM8Q&isChannel=true&menu=/youtube-menu')">Kurzgesagt</span>
+            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/youtube-grid?genre=UCsXVk37bltHxD1rDPwtNM8Q&isChannel=true&menu=/youtube-menu&title=Kurzgesagt – In a Nutshell')">KURZGESAGT</span>
         </div>
 
     </div>
@@ -334,6 +338,7 @@
     background:#111;
     border:0.5px solid rgba(255,255,255,0.08);
     border-radius:18px;
+    
 ">
 
   <!-- HEADER -->

@@ -119,6 +119,8 @@
 .error { color: #fff0ffe3; font-weight: 400; font-size: 18px;}
 .action { color: #ffcc00; margin-top: 20px; font-size: 18px; }
 
+
+
 </style>
 
 <div id="player-wrapper">
@@ -300,6 +302,14 @@ function exitPlayer() {
                 'onError': (event) => {
                     console.error("YouTube Player Error:", event.data);
                     const controls = document.querySelector('.player-controls');
+                    const wrapper = document.getElementById('player-wrapper');
+                    
+                    // 1. Add the class to turn on the dark overlay background
+                    if (wrapper) {
+                        wrapper.classList.add('is-paused');
+                    }
+                    
+                    // 2. Make the buttons and error messages fully visible and clickable
                     if (controls) {
                         controls.style.opacity = '1';
                         controls.style.pointerEvents = 'auto';

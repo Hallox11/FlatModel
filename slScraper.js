@@ -99,18 +99,12 @@ async function getTeleportOnDemand(detailLink) {
     console.log(`[SL SCRAPE] Fetching SLurl on-demand for: ${detailLink}`);
 
     const browser = await chromium.launch({ headless: true });
-    const page    = await browser.newPage();
-
     try {
+        const page = await browser.newPage();
         await page.goto(detailLink, { waitUntil: 'domcontentloaded', timeout: 15000 });
 
-        // Tenta o seletor padrão do CTA
-        let slurl = await page.$eval(
-            '#dg-entry-CTA a:nth-child(2)',
-            el => el.href
-        ).catch(() => null);
+        let slurl = await page.$eval('#dg-entry-CTA a:nth-child(2)', el => el.href).catch(() => null);
 
-        // Fallback: Procura por qualquer link secondlife://
         if (!slurl) {
             slurl = await page.$$eval('a[href]', links => {
                 const match = links.find(l =>
@@ -121,12 +115,13 @@ async function getTeleportOnDemand(detailLink) {
             }).catch(() => null);
         }
 
-        await browser.close();
         return slurl;
     } catch (err) {
         console.error(`[SL SCRAPE] Failed to get teleport for ${detailLink}:`, err.message);
-        await browser.close();
         return null;
+    } finally {
+        // This ALWAYS runs, preventing dangling browser processes
+        await browser.close();
     }
 }
 

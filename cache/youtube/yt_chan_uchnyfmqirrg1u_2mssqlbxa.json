@@ -1,5 +1,19 @@
 [
   {
+    "videoId": "mvcesPWvUIc",
+    "title": "We've Been Using The Wrong Science In Court For 50 years",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/mvcesPWvUIc/hqdefault.jpg",
+    "duration": "PT23M22S"
+  },
+  {
+    "videoId": "8HBDE-msUjw",
+    "title": "We're 99.9% sure this pattern is true, but no one can prove it",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/8HBDE-msUjw/hqdefault.jpg",
+    "duration": "PT41M30S"
+  },
+  {
     "videoId": "AUmHqD0lGHo",
     "title": "How A Random System Can Actually Be Predictable",
     "channel": "Veritasium",
@@ -120,7 +134,7 @@
   },
   {
     "videoId": "cMx139eTxoc",
-    "title": "The Miracle Material That Killed Millions",
+    "title": "The asbestos problem is worse than we thought",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/cMx139eTxoc/hqdefault.jpg",
     "duration": "PT54M46S"
@@ -334,19 +348,5 @@
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/za_HO2E3JEU/hqdefault.jpg",
     "duration": "PT1M39S"
-  },
-  {
-    "videoId": "49NikeBCzWo",
-    "title": "Why did light bulb lifetimes get shorter?",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/49NikeBCzWo/hqdefault.jpg",
-    "duration": "PT1M36S"
-  },
-  {
-    "videoId": "-QTkPfq7w1A",
-    "title": "This mechanism shrinks when pulled",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/-QTkPfq7w1A/hqdefault.jpg",
-    "duration": "PT23M7S"
   }
 ]
