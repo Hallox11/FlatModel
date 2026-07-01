@@ -254,7 +254,7 @@
 
 <div id="wt-overlay-container">
 
-    <button id="wt-back" onclick="closeSubMenu()")">
+    <button id="wt-back" onclick="closeSubMenu()">
         <span class="wt-arrow">←</span> Back
     </button>
 
@@ -423,10 +423,10 @@
         window.open('https://kosmi.io', '_self');
     };
 
-    window.wtJoinKosmi = function (isRemote = false) {
+window.wtJoinKosmi = function (isRemote = false) {
         const input = document.getElementById('wt-kosmi-room');
         const helper = document.getElementById('wt-kosmi-helper');
-        const roomId = input ? input.value.trim() : '';
+        let rawInput = input ? input.value.trim() : '';
 
         if (input) input.classList.remove('wt-input-error');
         if (helper) {
@@ -434,18 +434,45 @@
             helper.innerHTML = `🔑 <strong>How to Use Room IDs:</strong> Paste an active Kosmi Room ID key down below to embed their third-party video synchronization channel into this layout frame.<br><br>🌐 <strong>Don't have a code?</strong> Click the secondary button underneath to navigate out to their webpage platform where you can set up a room and get an invite code.`;
         }
 
-        if (!roomId) {
+        if (!rawInput) {
             if (input) input.classList.add('wt-input-error');
             if (helper) {
                 helper.classList.add('wt-helper-error');
-                helper.innerText = "Error: Room ID is required to join a channel!";
+                helper.innerText = "Error: Room ID or URL is required to join a channel!";
             }
             if (input) input.focus();
             return;
         }
 
+        // 🔥 THE PARSER TRICK: Extract room name/ID from URLs or use raw text fallback
+        let roomId = rawInput;
+        try {
+            // Checks for paths containing /room/room_id or matches standard domain signatures
+            if (rawInput.includes('/room/')) {
+                // Splits at /room/ and captures whatever comes after it
+                const parts = rawInput.split('/room/');
+                if (parts[1]) {
+                    // Strips off any trailing URL query parameters like ?pass=123 if present
+                    roomId = parts[1].split('?')[0].split('#')[0];
+                }
+            } else if (rawInput.startsWith('http')) {
+                // If it's a URL but doesn't have /room/, extract the final segment of the pathname
+                const urlObj = new URL(rawInput);
+                const pathSegments = urlObj.pathname.split('/').filter(Boolean);
+                if (pathSegments.length > 0) {
+                    roomId = pathSegments[pathSegments.length - 1];
+                }
+            }
+        } catch (e) {
+            console.error("Kosmi URL extraction fallback error:", e);
+            roomId = rawInput; // Fallback to raw text if parsing explodes
+        }
+
+        // Final sanitation check
+        roomId = roomId.trim();
+
         const container = document.getElementById('wt-overlay-container');
-        if (!container) return;
+        if (!container || !roomId) return;
 
         container.innerHTML = `
             <button id="wt-back" onclick="handleNav('watch-together', false)">
@@ -463,7 +490,6 @@
             window.socket.emit('wt_sync', { room: window.myRoom, action: 'kosmi_room', roomId });
         }
     };
-
     const kosmiInput = document.getElementById('wt-kosmi-room');
     if (kosmiInput) {
         kosmiInput.addEventListener('input', function() {

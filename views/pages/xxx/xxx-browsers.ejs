@@ -1,9 +1,11 @@
 <style>
-/* Using the same styles as your primary menu for consistency */
+/* =========================
+    MAIN WRAPPER
+========================= */
 #xxx-menu-wrapper {
     width: 1050px;
     padding: 25px;
-    background: radial-gradient(circle at center, rgba(30, 20, 20, 0.7), rgba(10, 0, 0, 0.8));
+    background: radial-gradient(circle at center, rgba(30, 20, 20, 0.65), rgba(10, 0, 0, 0.8));
     border-radius: 30px;
     border: 1px solid rgba(255, 107, 107, 0.2);
     display: flex;
@@ -15,21 +17,70 @@
     font-family: Arial, sans-serif;
 }
 
+.xxx-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.xxx-close-btn:hover {
+    color: #ff6b6b;
+}
+
+/* =========================
+    TITLE
+========================= */
 #xxx-title {
     font-size: 30px;
-    color: #ff6b6b;
+    color: red;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    margin-top: 15px;
     letter-spacing: 4px;
 }
 
-.xxx-conteiner {
+/* =========================
+    SCROLL CONTAINER
+========================= */
+.xxx-container {
     width: 95%;
     max-height: 460px;
     overflow-y: auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.2);
+    padding: 0px 20px;
+    background: rgba(0, 0, 0, 0.0);
     border-radius: 20px;
+}
+
+/* ── BARRA DE ROLAGEM (Red YouTube Style) ── */
+.xxx-container::-webkit-scrollbar {
+    width: 10px;
+}
+.xxx-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+.xxx-container::-webkit-scrollbar-thumb {
+    background: #ff6b6b; 
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+    SECTIONS
+========================= */
+.xxx-section-title {
+    color: #ff6b6b;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 22px 0 12px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 107, 107, 0.4);
+}
+
+.xxx-section-title:first-child {
+    margin-top: 0;
 }
 
 .xxx-grid {
@@ -38,24 +89,47 @@
     gap: 15px;
 }
 
+/* =========================
+    BUTTONS
+========================= */
 .xxx-btn {
     background: rgba(255, 107, 107, 0.15);
     border: 1px solid #ff6b6b;
     border-radius: 12px;
-    padding: 14px 12px;
-    font-size: 16px;
+    padding: 10px 12px;
+    font-size: 18px;
     color: white;
     cursor: pointer;
-    text-align: center;
+    user-select: none;
+    pointer-events: auto;
     transition: all 0.2s ease;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.xxx-btn img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+}
+
+.xxx-btn span {
+    text-align: left;
 }
 
 .xxx-btn:hover {
-    background: #ff6b6b;
+    background: #e96161bd;
     color: #000;
     transform: scale(1.05);
 }
 
+/* =========================
+    INPUT BOX
+========================= */
 .xxx-input-box {
     margin-top: 20px;
     width: 90%;
@@ -78,7 +152,7 @@
 }
 
 .xxx-input-box input[type="button"] {
-    background: #5ab565;
+    background: #27ae60;
     color: white;
     border: none;
     padding: 10px 25px;
@@ -87,84 +161,240 @@
     font-weight: bold;
 }
 
-#back-to-main {
-    margin-top: 20px;
+
+
+/* =========================
+    MODAL OVERLAY STANDARD
+========================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #1a1a1a;
+    border: 2px solid #ff6b6b;
+    border-radius: 20px;
+    padding: 40px;
+    width: 650px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-title {
+    color: #ff6b6b;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.modal-text {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 35px;
+}
+
+.modal-text p {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    text-align: left;
+}
+
+.modal-tip {
+    font-size: 17px;
+    color: #cfcfcf;
+}
+
+.modal-text .highlight-blue {
+    color: #3498db;
+}
+
+.modal-note {
+    font-size: 15px;
+    color: #999;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.modal-btn {
     padding: 15px 40px;
-    background: #eb7272;
-    color: white;
-    font-weight: 600;
-    border-radius: 12px;
-    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
     cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.modal-btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-confirm {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-cancel {
+    background: #4f4f4f;
+    color: white;
 }
 </style>
 
 <div id="xxx-menu-wrapper">
+
+    <div class="close-menu-btn" onclick="handleNav('/xxx-index')">
+        <span class="material-symbols-rounded">close</span>
+    </div>
+
     <div id="xxx-title">XXX Browsers Menu</div>
 
-    <div class="xxx-conteiner">
+    <div class="xxx-container">
+
+        <div class="xxx-section-title">Streaming & Mega Platforms</div>
         <div class="xxx-grid">
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.xvideos.com/tags/english')">XVideos</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://pt.pornhub.com/')">PornHub</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.xnxx.com/')">XnXX</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.voyeurshd.com/')">Voyeur HD</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.fullxxxvideos.net/')">HD Red Tube</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://voyeurhit.com/')">VoyeurHit</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.youporn.com/')">YouPorno</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://pt.cam4.com/')">Cam4</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://pt.xhamster.com/')">Xhamster</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://hdhole.com/')">HD Hole</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://dreamsexworld.com/')">DreamSex</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://adultfriendfinder.com/')">AdultFriend</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.babes.xyz/')">Babes Xyz</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://beeg.com/')">Beeg</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.livejasmin.com/')">Live Jasmin</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.pornpics.com/')">Porn Pics</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://cartoon-sex.tv/')">Cartoon Sex</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.vrsmash.com/')">VR Smash</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://publicfucktube.com/categories/')">Public Fuck</div>
-            <div class="xxx-btn" onclick="requestConfirmation('https://www.google.com')">More...</div>
+            <div class="xxx-btn" data-mode="https://www.xvideos.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=xvideos.com&sz=64"><span>XVideos</span></div>
+            <div class="xxx-btn" data-mode="https://www.pornhub.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=pornhub.com&sz=64"><span>PornHub</span></div>
+            <div class="xxx-btn" data-mode="https://www.xnxx.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=xnxx.com&sz=64"><span>XnXX</span></div>
+            <div class="xxx-btn" data-mode="https://www.xhamster.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=xhamster.com&sz=64"><span>Xhamster</span></div>
+            <div class="xxx-btn" data-mode="https://spankbang.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=spankbang.com&sz=64"><span>SpankBang</span></div>
+            <div class="xxx-btn" data-mode="https://www.youporn.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=youporn.com&sz=64"><span>YouPorn</span></div>
+            <div class="xxx-btn" data-mode="https://www.redtube.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=redtube.com&sz=64"><span>RedTube</span></div>
+            <div class="xxx-btn" data-mode="https://beeg.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=beeg.com&sz=64"><span>Beeg</span></div>
+            <div class="xxx-btn" data-mode="https://www.eporner.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=eporner.com&sz=64"><span>Eporner</span></div>
+            <div class="xxx-btn" data-mode="https://www.thumbzilla.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=thumbzilla.com&sz=64"><span>Thumbzilla</span></div>
+            <div class="xxx-btn" data-mode="https://www.youjizz.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=youjizz.com&sz=64"><span>YouJizz</span></div>
         </div>
+
+        <div class="xxx-section-title">Live Cams & Webcam Networks</div>
+        <div class="xxx-grid">
+            <div class="xxx-btn" data-mode="https://chaturbate.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=chaturbate.com&sz=64"><span>Chaturbate</span></div>
+            <div class="xxx-btn" data-mode="https://www.livejasmin.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=livejasmin.com&sz=64"><span>Live Jasmin</span></div>
+            <div class="xxx-btn" data-mode="https://www.cam4.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=cam4.com&sz=64"><span>Cam4</span></div>
+            <div class="xxx-btn" data-mode="https://stripchat.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=stripchat.com&sz=64"><span>Stripchat</span></div>
+            <div class="xxx-btn" data-mode="https://bongacams.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=bongacams.com&sz=64"><span>BongaCams</span></div>
+            <div class="xxx-btn" data-mode="https://xhamsterlive.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=xhamsterlive.com&sz=64"><span>xHamster Live</span></div>
+        </div>
+
+        <div class="xxx-section-title">Premium Studios & Voyeur Niche</div>
+        <div class="xxx-grid">
+            <div class="xxx-btn" data-mode="https://www.brazzers.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=brazzers.com&sz=64"><span>Brazzers</span></div>
+            <div class="xxx-btn" data-mode="https://www.kink.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=kink.com&sz=64"><span>Kink.com</span></div>
+            <div class="xxx-btn" data-mode="https://www.naughtyamerica.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=naughtyamerica.com&sz=64"><span>Naughty Amer.</span></div>
+            <div class="xxx-btn" data-mode="https://www.realitykings.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=realitykings.com&sz=64"><span>RealityKings</span></div>
+            <div class="xxx-btn" data-mode="https://www.voyeurshd.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=voyeurshd.com&sz=64"><span>Voyeur HD</span></div>
+            <div class="xxx-btn" data-mode="https://voyeurhit.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=voyeurhit.com&sz=64"><span>VoyeurHit</span></div>
+        </div>
+
+        <div class="xxx-section-title">Hentai, VR & Image Galleries</div>
+        <div class="xxx-grid">
+            <div class="xxx-btn" data-mode="https://hentaihaven.xxx" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=hentaihaven.xxx&sz=64"><span>Hentai Haven</span></div>
+            <div class="xxx-btn" data-mode="https://www.vrsmash.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=vrsmash.com&sz=64"><span>VR Smash</span></div>
+            <div class="xxx-btn" data-mode="https://www.pornpics.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=pornpics.com&sz=64"><span>Porn Pics</span></div>
+            <div class="xxx-btn" data-mode="https://adultfriendfinder.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=adultfriendfinder.com&sz=64"><span>AdultFriend</span></div>
+            <div class="xxx-btn" data-mode="https://hdhole.com" onclick="requestXxxConfirmation(this.dataset.mode)"><img src="https://www.google.com/s2/favicons?domain=hdhole.com&sz=64"><span>HD Hole</span></div>
+        </div>
+
     </div>
 
     <div class="xxx-input-box">
-        <input id="xxx-tag" type="text" placeholder="https://www... or http://www...">
-        <input type="button" value="SUBMIT" onclick="submitXXXUrl()">
+        <input id="xxx-tag" type="text" placeholder="Enter adult URL (https://...) or search Google">
+        <input type="button" value="GO" onclick="submitXXXUrl()">
     </div>
 
-    <button id="back-to-main" onclick="handleNav('/xxx-index')">BACK TO XXX MENU</button>
+
+</div>
+
+<!-- Unification Confirmation Modal Layer -->
+<div id="xxx-confirm-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-title">🌐 External Adult Page</div>
+        <div class="modal-text">
+            <p>You're about to leave this menu to an external adult web page.</p>
+            <p class="modal-tip">💡 <span class="highlight-blue">Tip:</span> Enable your SL viewer's browser navigation bar first, so you can use Back/Forward freely.</p>
+            <p class="modal-note">⚠️ Without it enabled, the only way back to this menu is turning the TV off and on again.</p>
+        </div>
+        <div class="modal-buttons">
+            <button class="modal-btn btn-confirm" onclick="confirmXxxNavigation()">Proceed</button>
+            <button class="modal-btn btn-cancel" onclick="closeXxxModal()">Cancel</button>
+        </div>
+    </div>
 </div>
 
 <script>
-    function submitXXXUrl() {
-        const input = document.getElementById("xxx-tag");
-        let url = input.value.trim();
+let xxxTargetUrlHolder = "";
 
-        if (url) {
-            let finalUrl = "";
+function requestXxxConfirmation(url) {
+    xxxTargetUrlHolder = url;
+    document.getElementById("xxx-confirm-modal").classList.add("active");
+}
 
-            // Logic: If it starts with http/https, use it directly
-            if (url.startsWith("http://") || url.startsWith("https://")) {
-                finalUrl = url;
-            }
-            // Logic: If it looks like a URL (contains a dot and no spaces), add https
-            else if (url.includes(".") && !url.includes(" ")) {
-                finalUrl = "https://" + url;
-            }
-            // Logic: Otherwise, treat it as a search query
-            else {
-                finalUrl = "https://www.google.com/search?q=" + encodeURIComponent(url);
-            }
+function closeXxxModal() {
+    document.getElementById("xxx-confirm-modal").classList.remove("active");
+    xxxTargetUrlHolder = "";
+}
 
-            // Trigger the modal with the determined URL
-            requestConfirmation(finalUrl);
-        }
+function confirmXxxNavigation() {
+    if (xxxTargetUrlHolder) {
+        window.location.href = xxxTargetUrlHolder;
     }
+}
 
-    // Optional: Allow pressing "Enter" to submit
-    document.getElementById("xxx-tag").addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            submitXXXUrl();
+function submitXXXUrl() {
+    const input = document.getElementById("xxx-tag");
+    let url = input.value.trim();
+
+    if (url) {
+        let finalUrl = "";
+
+        if (url.startsWith("http://") || url.startsWith("https://")) {
+            finalUrl = url;
         }
-    });
+        else if (url.includes(".") && !url.includes(" ")) {
+            finalUrl = "https://" + url;
+        }
+        else {
+            finalUrl = "https://www.google.com/search?q=" + encodeURIComponent(url);
+        }
+
+        requestXxxConfirmation(finalUrl);
+    }
+}
+
+document.getElementById("xxx-tag").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        submitXXXUrl();
+    }
+});
 </script>

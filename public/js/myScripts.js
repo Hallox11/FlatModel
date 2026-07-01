@@ -95,6 +95,7 @@ const NAV_CONFIG = {
          'eporner-player':'/eporner-player',
          'eporner-player':'/eporner-player',
          '/spankbang-grid':'/spankbang-grid',
+         'chess': '/chess',
 
     },
 

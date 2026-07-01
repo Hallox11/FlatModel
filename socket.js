@@ -1,5 +1,8 @@
 'use strict';
 
+const { registerChessHandlers, chessHandleDisconnect } = require('./chess-game');
+
+
 const MODES = {
     HOME:        'HOME',
     RADIO:       'RADIO',
@@ -213,7 +216,7 @@ module.exports = function initSocketIO(_io, getRoomState, FIXED_ROOM, _clickerSe
         console.log(`[Join] ${socket.id} → room: ${clientRoom} | mode: ${state.currentMode}`);
 
         // ── GAME STREAM ───────────────────────────────────────
-
+registerChessHandlers(io, socket, clientRoom);
         // Streamer chose role → ask TV to llLoadURL the clicker's browser
         socket.on('gs_request_open_url', (data) => {
             const { clicker, room, url } = data;
@@ -1095,6 +1098,8 @@ function getTotTip(majorityPct, majority, total) {
 
         // ── DISCONNECT ────────────────────────────────────────
 socket.on('disconnect', () => {
+
+chessHandleDisconnect(io, socket);
 
     // ── GAME SHOW ──
     if (socket.gsRoom) _gsLeave(socket, socket.gsRoom);

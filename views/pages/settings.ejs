@@ -104,20 +104,33 @@
     .btn1 { 
         display: block; width: 100%; margin: 4px 0; padding: 11px 14px; 
         font-size: 14px; font-weight: 500; color: #fff; 
-        background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+        background: rgba(255,255,255,0.03); border: 2px solid var(--glass-border);
         border-radius: 10px; cursor: pointer; transition: all 0.15s ease;
         font-family: 'Inter', sans-serif;
     }
     .btn1:hover { background: rgba(255,162,96,0.08); color: var(--accent); border-color: rgba(255,162,96,0.25); }
-    .btn1.active::before {
-        content: ''; display: inline-block; width: 6px; height: 6px;
-        border-radius: 50%; background: var(--accent); margin-right: 8px;
-        vertical-align: middle; box-shadow: 0 0 6px var(--accent);
-    }
+/* Target the button itself when it has the .active class */
+.btn1.active {
+    color: white!important;        /* Changes the text color to orange */
+    border-color: rgba(255,162,96,0.25)!important;
+}
+
+/* Keeps your existing glowing dot inside the button */
+.btn1.active::before {
+    content: ''; 
+    display: inline-block; 
+    width: 6px; 
+    height: 6px;
+    border-radius: 50%; 
+    background: var(--accent); 
+    margin-right: 8px;
+    vertical-align: middle; 
+    box-shadow: 0 0 6px var(--accent);
+}
 
     .btn2 { 
         padding: 10px; font-size: 14px; font-weight: 500; color: #fff; 
-        background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);
+        background: rgba(255,255,255,0.03); border: 2px solid var(--glass-border);
         border-radius: 8px; cursor: pointer; transition: 0.15s; font-family: 'Inter', sans-serif;
     }
     .btn2:hover {background: rgba(255,162,96,0.08); color: var(--accent); border-color: rgba(255,162,96,0.25); }
@@ -132,8 +145,8 @@
 }
 
 .color-square {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 6px;
     border: 2px solid transparent;
     cursor: pointer;
@@ -224,11 +237,11 @@
             <button class="tab-btn" onclick="switchTab('security', this)">
                 <span class="material-symbols-rounded">shield</span> SECURITY & ALARM
             </button>
-            
+          <!-- 
             <button class="tab-btn" onclick="switchTab('position', this)">
                 <span class="material-symbols-rounded">open_with</span> POSITION PANEL
             </button>
-            
+           -->  
                         <button class="tab-btn" onclick="switchTab('system', this)">
                 <span class="material-symbols-rounded">settings_cinematic_blur</span> SYSTEM
             </button>
@@ -242,36 +255,42 @@
                 <div class="sub-panel">
 
                     <p class="section-title">STAND MODEL</p>
-                    <button onclick="setActive('model',this);cmd('model','model1')" class="btn1" data-group="model">MODEL 1</button>
-                    <button onclick="setActive('model',this);cmd('model','model2')" class="btn1" data-group="model">MODEL 2</button>
-                    <button onclick="setActive('model',this);cmd('model','model3')" class="btn1" data-group="model">MODEL 3</button>
+                    <button onclick="setActive('model',this);cmd('model','model1',this)" class="btn1" data-group="model">MODEL 1</button>
+                    <button onclick="setActive('model',this);cmd('model','model2',this)" class="btn1" data-group="model">MODEL 2</button>
+                    <button onclick="setActive('model',this);cmd('model','model3',this)" class="btn1" data-group="model">MODEL 3</button>
 
                     <p class="section-title" style="margin-top: 25px;">TV Texture</p>
-                    <button onclick="setActive('texture',this); cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1" data-group="texture">CARBON FIBER</button>
-                    <button onclick="setActive('texture',this); cmd('texture','<0.176, 0.176, 0.176>',this)"  class="btn1" data-group="texture">MATTE BLACK</button>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;margin-top: 0px;">
+                    <button onclick="setActive('texture',this); cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1" data-group="texture">GREY STONE</button>
+                    <button onclick="setActive('texture',this); cmd('texture','<0.176, 0.176, 0.176>',this)"  class="btn1" data-group="texture">DARK GREY</button>
+                    <button onclick="setActive('texture',this); cmd('texture','21d7c8a9-28c5-f436-083d-2b7d0d594dec',this)"  class="btn1" data-group="texture">CARBON FIBER</button>
                     <button onclick="setActive('texture',this); cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">WOOD</button>
+                    <button onclick="setActive('texture',this); cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">WOOD</button>
+                    <button onclick="setActive('texture',this); cmd('texture','cb3163a9-ea39-de5e-d475-2a2ab0bff4b8',this)"  class="btn1" data-group="texture">IVORY WHITE</button>
+                    </div>
 
                     <p class="section-title" style="margin-top:25px;">STAND MODE</p>
                     <div class="legs-row">
-                    <button class="btn1" id="legs-1" onclick="setLegs('show',this)" data-group="legs">STAND</button>
-                    <button class="btn1" id="legs-2" onclick="setLegs('hide',this)" data-group="legs">WALL</button>
+                    <button onclick="setActive('legs',this); cmd('legs','show',this)" class="btn1" data-group="legs">STAND</button>
+                    <button onclick="setActive('legs',this); cmd('legs','hide',this)" class="btn1" data-group="legs">WALL</button>
                     </div>
                 </div>
                 <div class="sub-panel">
                                         <!-- CONTAINER DA GRELHA DE CORES DE FUNDO DEVOLVIDO AQUI-->
                     <p class="section-title">BACK COLOR</p>
                     <div id="grid-back" class="color-grid-static" style="margin-top: 3px;">
-                        <div class="color-square" style="background:#1a1a1a;" onclick="cmd('back_color','<0.10,0.10,0.10>')"></div>
-                        <div class="color-square" style="background:#333333;" onclick="cmd('back_color','<0.20,0.20,0.20>')"></div>
-                        <div class="color-square" style="background:#7f8c8d;" onclick="cmd('back_color','<0.50,0.55,0.56>')"></div>
-                        <div class="color-square" style="background:#2c3e50;" onclick="cmd('back_color','<0.17,0.24,0.31>')"></div>
-                        <div class="color-square" style="background:#c0392b;" onclick="cmd('back_color','<0.75,0.22,0.17>')"></div>
-
-                        <div class="color-square" style="background:#d35400;" onclick="cmd('back_color','<0.83,0.33,0.00>')"></div>
-                        <div class="color-square" style="background:#f1c40f;" onclick="cmd('back_color','<0.95,0.77,0.06>')"></div>
-                        <div class="color-square" style="background:#27ae60;" onclick="cmd('back_color','<0.15,0.68,0.38>')"></div>
-                        <div class="color-square" style="background:#2980b9;" onclick="cmd('back_color','<0.16,0.50,0.73>')"></div>
-                        <div class="color-square" style="background:#8e44ad;" onclick="cmd('back_color','<0.56,0.27,0.68>')"></div>
+                    <div class="color-square" style="background:#1b1b1b;" onclick="cmd('back_color','<0.0,0.0,0.0>')"></div>
+                    <div class="color-square" style="background:#1a1a1a;" onclick="cmd('back_color','<0.10,0.10,0.10>')"></div>
+                    <div class="color-square" style="background:#2c3e50;" onclick="cmd('back_color','<0.17,0.24,0.31>')"></div>
+                    <div class="color-square" style="background:#333333;" onclick="cmd('back_color','<0.20,0.20,0.20>')"></div>
+                    <div class="color-square" style="background:#8e44ad;" onclick="cmd('back_color','<0.56,0.27,0.68>')"></div>
+                    <div class="color-square" style="background:#2980b9;" onclick="cmd('back_color','<0.16,0.50,0.73>')"></div>
+                    <div class="color-square" style="background:#c0392b;" onclick="cmd('back_color','<0.75,0.22,0.17>')"></div>
+                    <div class="color-square" style="background:#27ae60;" onclick="cmd('back_color','<0.15,0.68,0.38>')"></div>
+                    <div class="color-square" style="background:#d35400;" onclick="cmd('back_color','<0.83,0.33,0.00>')"></div>
+                    <div class="color-square" style="background:#7f8c8d;" onclick="cmd('back_color','<0.50,0.55,0.56>')"></div>
+                    <div class="color-square" style="background:#f1c40f;" onclick="cmd('back_color','<0.95,0.77,0.06>')"></div>
+                    <div class="color-square" style="background:#ffffff;" onclick="cmd('back_color','<1.0,1.0,1.0>')"></div>
                     </div>
 
                     <p class="section-title" style="margin-top: 25px;">Set Back Alpha</p>
@@ -290,8 +309,8 @@
 
                     <p class="section-title" style="margin-top: 25px;">FRAME MODE</p>
                     <div class="legs-row">
-                        <button class="btn1" id="frame-1" onclick="setFrame('show',this)" data-group="frame">SHOW</button>
-                        <button class="btn1" id="frame-2" onclick="setFrame('hide',this)" data-group="frame">HIDE</button>
+                        <button onclick="setActive('frame',this); cmd('frame','show',this)" class="btn1" data-group="frame">SHOW</button>
+                        <button onclick="setActive('frame',this); cmd('frame','hide',this)" class="btn1" data-group="frame">HIDE</button>
                     </div>
 
                     <div style="margin-top: auto;">
@@ -305,27 +324,26 @@
                                 <div class="sub-panel">
                     <p class="section-title" ">LIGHT SWITCH</p>
                     <div class="onoff-row">
-                        <button class="btn-half" active id="ambi-off" onclick="setAmbi('off')">OFF</button>
-                        <button class="btn-half" id="ambi-on"  onclick="setAmbi('on')">ON</button>
-                        <button class="btn-half" id="ambi-cycle"  onclick="setAmbi('cycle')">CYCLE</button>
+                    <button onclick="setActive('light',this);setAmbi('off',this)" class="btn1 active" data-group="light">OFF</button>
+                    <button onclick="setActive('light',this);setAmbi('on',this)" class="btn1" data-group="light">ON</button>
+                    <button onclick="setActive('light',this);setAmbi('cycle',this)" class="btn1" data-group="light">CYCLE</button>
+
                     </div>
 
                     <p class="section-title" style="margin-top: 25px;">NEON SWITCH</p>
                     <div class="neon-state-row">
-                        <button class="btn-third active" id="neon-off"   onclick="setNeon('off')">OFF</button>
-                        <button class="btn-third"         id="neon-fixed" onclick="setNeon('fixed')">FIXED</button>
-                        <button class="btn-third"         id="neon-cycle" onclick="setNeon('cycle')">CYCLE</button>
+                        <button onclick="setActive('neon',this);setNeon('off',this)" class="btn1 active" data-group="neon">OFF</button>
+                        <button onclick="setActive('neon',this);setNeon('fixed',this)" class="btn1" data-group="neon">ON</button>
+                        <button onclick="setActive('neon',this);setNeon('cycle',this)" class="btn1" data-group="neon">CYCLE</button>
+
                     </div>
  
                     <p class="section-title" style="margin-top: 25px;">CYCLE SPEED</p>
-                    <div class="ctrl-row">
+                        <div class="ctrl-row">
                         <button class="btn-adj" onclick="adjustSpeed(-0.05)">−</button>
                         <div class="btn-value">
-                            <div class="val-top">
-                                <div class="swatch-mini" id="neon-dot"></div>
-                                <span class="val-pct" id="neon-pct">—</span>
-                            </div>
-                            <span class="val-sub" id="neon-sub">color</span>
+                            <span class="val-pct" id="speed-pct">50%</span>
+                            <span class="val-sub">speed</span>
                         </div>
                         <button class="btn-adj" onclick="adjustSpeed(0.05)">+</button>
                     </div>
@@ -336,28 +354,26 @@
                     <span class="label-mini">Color Palette</span>
                     
                     <!-- CONTAINER DA GRELHA DE CORES AMBILIGHT DEVOLVIDO AQUI -->
-                    <div id="grid-light" class="color-grid-static">
-                        <div class="color-square" data-color="#ffffff" style="background:#ffffff;"></div>
-                        <div class="color-square" data-color="#ffaa00" style="background:#ffaa00;"></div>
-                        <div class="color-square" data-color="#ff0000" style="background:#ff0000;"></div>
-                        <div class="color-square" data-color="#ff00ff" style="background:#ff00ff;"></div>
-                        <div class="color-square" data-color="#0000ff" style="background:#0000ff;"></div>
-
-                        <div class="color-square" data-color="#00ffff" style="background:#00ffff;"></div>
-                        <div class="color-square" data-color="#00ff00" style="background:#00ff00;"></div>
-                        <div class="color-square" data-color="#ffff00" style="background:#ffff00;"></div>
-                        <div class="color-square" data-color="#ff5500" style="background:#ff5500;"></div>
-                        <div class="color-square" data-color="#7a00ff" style="background:#7a00ff;"></div>
-                    </div>
+<div id="grid-light" class="color-grid-static" style="display:grid; grid-template-columns: repeat(6, 45px);">
+    <div class="color-square" data-color="#ffffff" style="background:#ffffff;"></div>
+    <div class="color-square" data-color="#ffdd00" style="background:#ffdd00;"></div>
+    <div class="color-square" data-color="#ff8800" style="background:#ff8800;"></div>
+    <div class="color-square" data-color="#ff0000" style="background:#ff0000;"></div>
+    <div class="color-square" data-color="#ff00aa" style="background:#ff00aa;"></div>
+    <div class="color-square" data-color="#ff00ff" style="background:#ff00ff;"></div>
+    <div class="color-square" data-color="#7a00ff" style="background:#7a00ff;"></div>
+    <div class="color-square" data-color="#0000ff" style="background:#0000ff;"></div>
+    <div class="color-square" data-color="#00aaff" style="background:#00aaff;"></div>
+    <div class="color-square" data-color="#00ffff" style="background:#00ffff;"></div>
+    <div class="color-square" data-color="#00ff88" style="background:#00ff88;"></div>
+    <div class="color-square" data-color="#00ff00" style="background:#00ff00;"></div>
+</div>
 
                     <p class="section-title" style="margin-top: 25px;">LIGHT CONTROLLERS</p>
                     <div class="ctrl-row">
-                     
                         <button class="btn-adj" onclick="adjustInt(-0.1)">−</button>
                         <div class="btn-value">
-                            <div class="val-top">
-                                <span class="val-pct" id="ambi-pct">50%</span>
-                            </div>
+                            <span class="val-pct" id="ambi-pct">50%</span>
                             <span class="val-sub">intensity</span>
                         </div>
                         <button class="btn-adj" onclick="adjustInt(0.1)">+</button>
@@ -454,13 +470,13 @@
                     </div>
                     <p class="section-title" style="margin-top: 25px;">LOCK TV </p>
                     <div class="btn-group">
-                        <button onclick="setActive('lock',this);cmd('lock','off',this)" class="btn1 active" data-group="lock">UNLOCK</button>
-                        <button onclick="setActive('lock',this);cmd('lock','on',this)" class="btn1" data-group="lock">LOCK</button>
+                        <button onclick="setActive('lock',this);cmd('lock','off',this)" class="btn1" data-group="lock">UNLOCK</button>
+                        <button onclick="setActive('lock',this);cmd('lock','on',this)" class="btn1 active" data-group="lock">LOCK</button>
                     </div>
                     <p class="section-title" style="margin-top: 25px;">NAV BAR </p>
                     <div class="btn-group">
-                        <button onclick="setActive('lock',this);cmd('browser','hide')" class="btn1 active" data-group="lock">HIDE</button>
-                        <button onclick="setActive('lock',this);cmd('browser','show',this)" class="btn1" data-group="lock">SHOW</button>
+                        <button onclick="setActive('nav',this);cmd('browser','hide',this)" class="btn1 active" data-group="nav">HIDE</button>
+                        <button onclick="setActive('nav',this);cmd('browser','show',this)" class="btn1" data-group="nav">SHOW</button>
                     </div>
                     
                     <p class="hint-text" style="color: rgba(255,255,255,0.3); font-size:13px; margin-top:20px; text-align:center; line-height:1.6;">
@@ -530,6 +546,7 @@
 
 
     let selectedHex = null;
+    let ambiState   = 'off';
     let ambiOn      = false;
     let ambiInt     = 0.5;
     let neonState   = 'off';
@@ -537,19 +554,32 @@
     let fallValue  = 0.5;
      let glowValue  = 0.5;
     let rangeValue = 0.5;
+    let speedValue=0.5;
 
+
+    window.adjustInt = function(v) {
+        ambiInt = Math.min(1.0, Math.max(0.0, +(ambiInt + v).toFixed(1)));
+        updateUI();
+        if (ambiOn && selectedHex) cmd('ambi_intensity', ambiInt.toFixed(1));
+    };
     window.adjustFall = function(v) {
-        fallValue = Math.min(1.0, Math.max(0.1, +(fallValue + v).toFixed(1)));
+        fallValue = Math.min(1.0, Math.max(0.0, +(fallValue + v).toFixed(1)));
         document.getElementById('fall-pct').textContent = Math.round(fallValue * 100) + '%';
         cmd('ambi_fall', fallValue.toFixed(1));
     };
     window.adjustRange = function(v) {
-        rangeValue = Math.min(1.0, Math.max(0.1, +(rangeValue + v).toFixed(1)));
+        rangeValue = Math.min(1.0, Math.max(0.0, +(rangeValue + v).toFixed(1)));
         document.getElementById('range-pct').textContent = Math.round(rangeValue * 100) + '%';
         cmd('ambi_range', rangeValue.toFixed(1));
     };
+    window.adjustSpeed = function(v) {
+        speedValue = Math.min(1.0, Math.max(0.0, +(speedValue + v).toFixed(1)));
+        document.getElementById('speed-pct').textContent = Math.round(speedValue * 100) + '%';
+        updateUI();
+        cmd('neon_speed', speedValue.toFixed(1));
+    };
     window.adjustGlow = function(v) {
-        glowValue = Math.min(1.0, Math.max(0.1, +(glowValue + v).toFixed(1)));
+        glowValue = Math.min(1.0, Math.max(0.0, +(glowValue + v).toFixed(1)));
         document.getElementById('glow-pct').textContent = Math.round(glowValue * 100) + '%';
         cmd('GLOW_ON', glowValue.toFixed(1));
     };
@@ -568,37 +598,19 @@
     function updateUI() {
         const hex = selectedHex || '#333333';
 
+        const ambiPct = document.getElementById('ambi-pct');
+        if (ambiPct) ambiPct.textContent = Math.round(ambiInt * 100) + '%';
 
-        document.getElementById('ambi-pct').textContent = Math.round(ambiInt * 100) + '%';
-        document.getElementById('ambi-on').classList.toggle('active', ambiOn);
-        document.getElementById('ambi-off').classList.toggle('active', !ambiOn);
-        document.getElementById('fall-pct').textContent = Math.round(fallValue * 100) + '%';
-        document.getElementById('range-pct').textContent = Math.round(rangeValue * 100) + '%';
+        const fallPct = document.getElementById('fall-pct');
+        if (fallPct) fallPct.textContent = Math.round(fallValue * 100) + '%';
 
-        const neonDot = document.getElementById('neon-dot');
-        const neonPct = document.getElementById('neon-pct');
-        const neonSub = document.getElementById('neon-sub');
+        const rangePct = document.getElementById('range-pct');
+        if (rangePct) rangePct.textContent = Math.round(rangeValue * 100) + '%';
 
-        if (neonState === 'cycle') {
-            neonDot.style.background = 'conic-gradient(#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00)';
-            neonDot.style.borderRadius = '50%';
-            neonPct.textContent = speedPct() + '%';
-            neonSub.textContent = 'speed';
-        } else if (neonState === 'fixed') {
-            neonDot.style.background = hex;
-            neonDot.style.borderRadius = '3px';
-            neonPct.textContent = '—';
-            neonSub.textContent = 'fixed color';
-        } else {
-            neonDot.style.background = '#333';
-            neonDot.style.borderRadius = '3px';
-            neonPct.textContent = '—';
-            neonSub.textContent = 'off';
-        }
+        const speedPct = document.getElementById('speed-pct');
+        if (speedPct) speedPct.textContent = Math.round(speedValue * 100) + '%';
 
-        document.getElementById('neon-off').classList.toggle('active',   neonState === 'off');
-        document.getElementById('neon-fixed').classList.toggle('active', neonState === 'fixed');
-        document.getElementById('neon-cycle').classList.toggle('active', neonState === 'cycle');
+
     }
 
     window.setActive = function(group, el) {
@@ -607,58 +619,39 @@
     };
 
 
-    window.setLegs = function(value, el) {
-        setActive('legs', el);
-        cmd('legs', value);
-    };
-    
-    window.setFrame = function(value, el) {
-        setActive('frame', el);
-        cmd('frame', value);
-    };
-
-
-    window.setAmbi = function(state) {
-        updateUI();
-        ambiOn=true;
+    window.setAmbi = function(state, el) {
+        ambiState = state;
+        ambiOn = (state !== 'off');
         if (state === 'off') {
-            cmd('LIGHT_OFF', '');
+            cmd('LIGHT_OFF', '', el);
         } 
         else if (state === 'on') {
-            if (selectedHex) cmd('LIGHT_ON', hexToSL(selectedHex));
+            if (selectedHex) cmd('LIGHT_ON', hexToSL(selectedHex), el);
         } 
         else if (state === 'cycle') {
             cmd('neon_speed', neonSpeed.toFixed(2));
-            if (selectedHex) cmd('LIGHT_CYCLE', hexToSL(selectedHex));
+            if (selectedHex) cmd('LIGHT_CYCLE', hexToSL(selectedHex), el);
         }
     };
 
-    window.adjustInt = function(v) {
-        ambiInt = Math.min(1.0, Math.max(0.1, +(ambiInt + v).toFixed(1)));
-        updateUI();
-        if (ambiOn && selectedHex) cmd('ambi_intensity', ambiInt.toFixed(1));
-    };
 
-    window.setNeon = function(state) {
+
+    window.setNeon = function(state, el) {
+        console.log(state)
         neonState = state;
-        updateUI();
         if (state === 'off') {
-            cmd('NEON_OFF', '');
+            cmd('NEON_OFF', '',el);
+                    console.log("INSIDE")
         } 
         else if (state === 'fixed') {
-            if (selectedHex) cmd('NEON_ON', hexToSL(selectedHex));
+            if (selectedHex) cmd('NEON_ON', hexToSL(selectedHex), el);
         } 
         else if (state === 'cycle') {
             cmd('neon_speed', neonSpeed.toFixed(2));
-            if (selectedHex) cmd('NEON_CYCLE', hexToSL(selectedHex));
+            if (selectedHex) cmd('NEON_CYCLE', hexToSL(selectedHex), el);
         }
     };
 
-    window.adjustSpeed = function(v) {
-        neonSpeed = Math.min(0.5, Math.max(0.02, +(neonSpeed + v).toFixed(2)));
-        updateUI();
-        if (neonState === 'cycle') cmd('neon_speed', neonSpeed.toFixed(2));
-    };
 
     window.cmd = function(command, value, el) {
         if (!TV_ID || TV_ID === 'undefined') return;
@@ -690,7 +683,9 @@ if (lContainer) {
 
             updateUI();
 
-            if (ambiOn) {
+            if (ambiState === 'cycle') {
+                cmd('LIGHT_CYCLE', hexToSL(hex));
+            } else if (ambiState === 'on') {
                 cmd('LIGHT_ON', hexToSL(hex));
             }
 

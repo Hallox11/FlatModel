@@ -9,6 +9,7 @@
         flex-direction: column;
         align-items: center;
         box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        position: relative; /* Fixed: keeps absolute close button tracking correctly */
     }
 
     .xxx-header {
@@ -27,7 +28,7 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         width: 100%;
-        margin-bottom: 40px;
+        margin-bottom: 30px; /* Reduced slightly to comfortably accommodate the disclaimer */
     }
 
     .xxx-category-card {
@@ -63,7 +64,7 @@
         font-size: 0.9em;
     }
 
-.close-menu-btn {
+    .close-menu-btn {
         position: absolute;
         top: 25px;
         right: 25px;
@@ -81,10 +82,36 @@
         z-index: 10;
     }
 
-.close-menu-btn:hover {
+    .close-menu-btn:hover {
         background: #ff0000;
         border-color: #ff0000;
         transform: scale(1.1);
+    }
+
+    /* =========================================
+        INDEX MENU DISCLAIMER STYLING
+    ========================================= */
+    .xxx-index-disclaimer {
+        width: 100%;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        border: 1px dashed rgba(90, 181, 101, 0.2); /* Soft green dashed border to match index highlights */
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .xxx-index-disclaimer p {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .xxx-index-disclaimer strong {
+        color: #5ab565; /* Uses main green accent for emphasis */
+        font-weight: 600;
     }
 </style>
 
@@ -127,7 +154,11 @@
             <p>Full Length Cinema</p>
         </div>
 -->
+    </div>
 
+    <!-- Integrated Disclaimer Box -->
+    <div class="xxx-index-disclaimer">
+        <p><strong>Notice:</strong> This TV player does not store or host any media content. All accessible content is public and streamed directly from Official Websites through authorized APIs.</p>
     </div>
 
 </div>
