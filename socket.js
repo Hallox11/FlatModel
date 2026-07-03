@@ -33,7 +33,7 @@ async function fetchQuestions() {
     try {
         const axios = require('axios');
         const res = await axios.get('https://opentdb.com/api.php', {
-            params: { amount: 3, type: 'multiple', encode: 'url3986' }
+            params: { amount: 10, type: 'multiple', category: 9, encode: 'url3986' }
         });
         return res.data.results.map(q => {
             const answers = [...q.incorrect_answers, q.correct_answer]
@@ -54,6 +54,14 @@ async function fetchQuestions() {
 }
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function allPlayersAnswered(qr) {
+    const playerIds = Object.keys(qr.players);
+    const answerIds = Object.keys(qr.answers);
+
+    return playerIds.length > 0 &&
+           playerIds.every(id => qr.answers[id]);
+}
 
 // ─────────────────────────────────────────────────────────────
 // TRUE OR MYTH data
@@ -475,50 +483,48 @@ socket.on('wt_sync', (data) => {
 // ── QUIZ ──────────────────────────────────────────────
 // Global memory storage for the quiz rooms
 
-function getQuizRoom(roomName) {
-    if (!quizRooms[roomName]) {
-        console.log('[getQuizRoom] Creating NEW room:', roomName, new Error().stack);
-        quizRooms[roomName] = {
-            players: {},
-            questions: [],
-            answers: {},
-            active: false,
-            current: -1,
-            hostId: null,
-            nextStepPromise: null
-        };
+    function getQuizRoom(roomName) {
+        if (!quizRooms[roomName]) {
+            console.log('[getQuizRoom] Creating NEW room:', roomName, new Error().stack);
+            quizRooms[roomName] = {
+                players: {},
+                questions: [],
+                answers: {},
+                active: false,
+                current: -1,
+                hostId: null,
+                nextStepPromise: null
+            };
+        }
+        return quizRooms[roomName];
     }
-    return quizRooms[roomName];
-}
-
-// Inside your main io.on('connection', (socket) => { ... }) scope:
 
     // ── JOIN ROOM ──
-socket.on('quiz_join', (data) => {
-    const room = data.room || clientRoom;
-    const qr = getQuizRoom(room);
+    socket.on('quiz_join', (data) => {
+        const room = data.room || clientRoom;
+        const qr = getQuizRoom(room);
 
-    console.log('[quiz_join] socket.id:', socket.id, '| name:', data.name);
-    console.log('[quiz_join] players BEFORE:', JSON.stringify(qr.players));
+        console.log('[quiz_join] socket.id:', socket.id, '| name:', data.name);
+        console.log('[quiz_join] players BEFORE:', JSON.stringify(qr.players));
 
-    if (!qr.hostId || Object.keys(qr.players).length === 0) {
-        qr.hostId = socket.id;
-        socket.emit('quiz_host_assigned');
-    }
+        if (!qr.hostId || Object.keys(qr.players).length === 0) {
+            qr.hostId = socket.id;
+            socket.emit('quiz_host_assigned');
+        }
 
-    const existing = Object.values(qr.players).find(p => p.name === data.name);
-    if (existing) {
-        delete qr.players[existing.id];
-        existing.id = socket.id;
-        qr.players[socket.id] = existing;
-    } else {
-        qr.players[socket.id] = { id: socket.id, name: data.name, score: 0 };
-    }
+        const existing = Object.values(qr.players).find(p => p.name === data.name);
+        if (existing) {
+            delete qr.players[existing.id];
+            existing.id = socket.id;
+            qr.players[socket.id] = existing;
+        } else {
+            qr.players[socket.id] = { id: socket.id, name: data.name, score: 0 };
+        }
 
-    console.log('[quiz_join] players AFTER:', JSON.stringify(qr.players));
+        console.log('[quiz_join] players AFTER:', JSON.stringify(qr.players));
 
-    io.to(room).emit('quiz_players_update', { players: qr.players });
-});
+        io.to(room).emit('quiz_players_update', { players: qr.players });
+    });
 
     // ── MANUAL CONTROL TRANSITION STEP ──
     socket.on('quiz_next', (data) => {
@@ -535,10 +541,10 @@ socket.on('quiz_join', (data) => {
     });
 
     // ── RUN GAME LOOP SEQUENCE ──
-    socket.on('quiz_start', async (data) => {
+socket.on('quiz_start', async (data) => {
         const LOBBY_COUNTDOWN = 3;
-        const NUMBER_OF_QUESTIONS = 3;
-        const QUESTION_TIME = 5000;
+        const NUMBER_OF_QUESTIONS = 10;
+        const QUESTION_TIME = 20000;
         const room = data.room || clientRoom;
         const qr = getQuizRoom(room);
         
@@ -565,11 +571,23 @@ socket.on('quiz_join', (data) => {
 
             // PHASE 1: Active Question Transmissions (Fully Automatic Windows)
             io.to(room).emit('quiz_question', { question: q, index: i, questions: qr.questions });
-            await new Promise(resolve => setTimeout(resolve, QUESTION_TIME)); 
+
+const start = Date.now();
+
+while (Date.now() - start < QUESTION_TIME) {
+
+    if (!qr.active) return;
+
+    // 🚀 EARLY EXIT: everyone answered
+    if (allPlayersAnswered(qr)) break;
+
+    await new Promise(r => setTimeout(r, 100));
+}
 
             // Live evaluation math tracking operations
             const scores = {};
-            Object.values(qr.players).forEach(p => { scores[p.id] = p.score; });
+            const earned = {}; // ← NOVO: delta absoluto calculado no servidor
+            Object.values(qr.players).forEach(p => { scores[p.id] = p.score; earned[p.id] = 0; });
             
             Object.entries(qr.answers).forEach(([sid, ans]) => {
                 if (ans.answerIndex === q.correctIndex) {
@@ -578,12 +596,13 @@ socket.on('quiz_join', (data) => {
                     if (qr.players[sid]) { 
                         qr.players[sid].score += pts; 
                         scores[sid] = qr.players[sid].score; 
+                        earned[sid] = pts; // ← NOVO
                     }
                 }
             });
 
             // PHASE 2: Standby Result Assessment Screens (Fully Manual Halts)
-            io.to(room).emit('quiz_result', { correctAnswer: q.correctAnswer, scores });
+            io.to(room).emit('quiz_result', { correctAnswer: q.correctAnswer, scores, earned }); // ← earned incluído
             
             // Pauses processing workflow context lines until Host fires 'quiz_next' event loop skips
             await new Promise(resolve => {
@@ -615,53 +634,70 @@ socket.on('quiz_join', (data) => {
     });
 
     // ── MATCH SYSTEM CLEAN RESETS ──
-socket.on('quiz_reset', (data) => {
+    socket.on('quiz_reset', (data) => {
+        const room = data.room || clientRoom;
+        const qr = getQuizRoom(room);
+        if (socket.id !== qr.hostId) return;
+
+        Object.keys(qr.players).forEach(id => { qr.players[id].score = 0; });
+        qr.active = false;
+        qr.current = -1;
+        qr.questions = [];
+        qr.answers = {};
+        if (qr.nextStepPromise) { qr.nextStepPromise(); qr.nextStepPromise = null; }
+
+        io.to(room).emit('quiz_reset');
+        io.to(room).emit('quiz_players_update', { players: qr.players });
+        io.to(qr.hostId).emit('quiz_host_assigned'); // ← re-assign host after reset
+    });
+
+    // ── SYSTEM REBOOT HARD RESET CORES ──
+socket.on('quiz_force_reboot', (data) => {
     const room = data.room || clientRoom;
     const qr = getQuizRoom(room);
     if (socket.id !== qr.hostId) return;
 
-    Object.keys(qr.players).forEach(id => { qr.players[id].score = 0; });
-    qr.active = false;
-    qr.current = -1;
-    qr.questions = [];
-    qr.answers = {};
-    if (qr.nextStepPromise) { qr.nextStepPromise(); qr.nextStepPromise = null; }
+    if (qr) {
+        qr.active = false;           // 🔥 mesma correção aqui
+        if (qr.nextStepPromise) qr.nextStepPromise();
+    }
 
-    io.to(room).emit('quiz_reset');
-    io.to(room).emit('quiz_players_update', { players: qr.players });
-    io.to(qr.hostId).emit('quiz_host_assigned'); // ← re-assign host after reset
+    delete quizRooms[room];
+    io.to(room).emit('force_navigate', { target: 'games-menu' });
 });
 
-    // ── SYSTEM REBOOT HARD RESET CORES ──
-    socket.on('quiz_force_reboot', (data) => {
-        const room = data.room || clientRoom;
-        const qr = getQuizRoom(room);
-        if (socket.id !== qr.hostId) return; // Host security gate check
-        
-        if (qr && qr.nextStepPromise) qr.nextStepPromise(); // Kill running processes
+socket.on('quiz_leave', (data) => {
+    const room = data.room || clientRoom;
+    const qr = getQuizRoom(room);
+    if (!qr) return;
 
-        delete quizRooms[room]; // Full wipe out target from dictionary index mapping
-        io.to(room).emit('force_navigate', { target: 'games-menu' });
-    });
+    // 🔥 mata o loop de verdade ANTES de destravá-lo
+    qr.active = false;
+    if (qr.nextStepPromise) {
+        qr.nextStepPromise();
+        qr.nextStepPromise = null;
+    }
 
+    io.to(room).emit('quiz_kicked');
+    delete quizRooms[room];
+    console.log(`[quiz_leave] ROOM DESTROYED: ${room}`);
+});
 
 /////////////////////////////////////////////////////////
 // ── TRUE OR MYTH ──────────────────────────────────────
-function getTomRoom(roomName) {
-    if (!tomRooms[roomName]) {
-        tomRooms[roomName] = {
-            players: {},
-            votes: {},
-            active: false,
-            current: -1,
-            hostId: null,
-            nextStepPromise: null
-        };
+    function getTomRoom(roomName) {
+        if (!tomRooms[roomName]) {
+            tomRooms[roomName] = {
+                players: {},
+                votes: {},
+                active: false,
+                current: -1,
+                hostId: null,
+                nextStepPromise: null
+            };
+        }
+        return tomRooms[roomName];
     }
-    return tomRooms[roomName];
-}
-
-// ── Inside your io.on('connection', (socket) => { }) scope: ──────────────────
 
     // ── JOIN ──
     socket.on('tom_join', (data) => {

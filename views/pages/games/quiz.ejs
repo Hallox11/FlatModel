@@ -78,7 +78,8 @@
 .countdown-number {
     font-size: 8rem; font-weight: 200; line-height: 1; animation: qPop 1s ease;
 }
-.countdown-label { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; opacity: 0.7; }
+.countdown-label {     font-size: 1.5rem; letter-spacing: 4px;
+    text-transform: uppercase; opacity: 0.7;}
 
 /* ── QUESTION ── */
 #qs-question { gap: 0; justify-content: flex-start; padding-top: 90px; }
@@ -175,7 +176,7 @@
 .result-score-card .rs-name { font-size: 1rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
 .result-score-card .rs-pts  { font-size: 1.6rem; font-weight: 200; color: #daa520; }
 
-#quiz-result-inline{position:fixed;top:390px;display:none; margin-top:25px;padding-top:20px;}
+#quiz-result-inline{display:none; margin-top:25px;padding-top:20px;}
 /* ── FINAL ── */
 #qs-final { gap: 28px; }
 .podium { display: flex; align-items: flex-end; gap: 20px; }
@@ -239,7 +240,7 @@
 
         <div id="quiz-result-inline" >
             <div class="result-answer-reveal" style="font-weight:600; color:#daa520; font-size:1rem; text-transform:uppercase; opacity:0.9; text-align:center;">Correct Answer</div>
-            <div class="result-correct-answer" id="result-correct-text" style="font-size:1.5rem; font-weight:bold; text-align:center; margin-bottom:15px;margin-top:10px;"></div>
+            <div class="result-correct-answer" id="result-correct-text" style="font-size:1.5rem; font-weight:bold; text-align:center; margin-bottom:20px;margin-top:20px;"></div>
             <div class="result-scores" id="result-scores"></div>
             <div style="text-align:center; margin-top:30px;">
                 <button id="quiz-next-btn-r" class="quiz-btn" onclick="requestNext()" style="display:none;">Next Question</button>
@@ -285,8 +286,8 @@
     let timeLeft      = 0;
     let isHost        = false;
     let gameEnded     = false;
-    const TOTAL_Q     = 3;
-    const TIME_PER_Q  = 5;
+    const TOTAL_Q     = 10;
+    const TIME_PER_Q  = 20;
     const LETTERS     = ['A','B','C','D'];
 
     // ── HELPERS ──
@@ -445,7 +446,7 @@
     }
 
     // ── SHOW RESULT (inline) ──
-    function showResult(correctAnswer, scores) {
+function showResult(correctAnswer, scores, earned) {   // ← earned adicionado
         clearInterval(timerInterval);
 
         // Colorize answers
@@ -466,11 +467,10 @@
             resultScoresEl.innerHTML = Object.values(window.quizState.players)
                 .sort((a, b) => (scores[b.id] || 0) - (scores[a.id] || 0))
                 .map(p => {
-                    const newScore = scores[p.id] || 0;
-                    const earned   = newScore - (p.score || 0);
-                    return `<div class="result-score-card ${earned > 0 ? 'got-it' : ''}">
+                    const pts = (earned && earned[p.id]) || 0;   // valor absoluto do servidor
+                    return `<div class="result-score-card ${pts > 0 ? 'got-it' : ''}">
                         <div class="rs-name">${p.name}</div>
-                        <div class="rs-pts">${earned > 0 ? '+ ' + earned : '0'} pts</div>
+                        <div class="rs-pts">${pts > 0 ? '+ ' + pts : '0'} pts</div>
                     </div>`;
                 }).join('');
         }
@@ -492,8 +492,10 @@
             if (nextBtn) nextBtn.style.display = 'none';
             if (waitMsg) waitMsg.style.display = 'block';
         }
-    }
 
+        renderScoreboard();
+        renderPlayers();
+    }
     // ── FINAL PODIUM ──
     function showFinal(finalScores) {
         const sorted = Object.values(window.quizState.players)
@@ -547,10 +549,10 @@
         renderQuestion(data.question, data.index);
     });
 
-    socket.on('quiz_result', data => {
-        if (gameEnded) return;
-        showResult(data.correctAnswer, data.scores);
-    });
+socket.on('quiz_result', data => {
+    if (gameEnded) return;
+    showResult(data.correctAnswer, data.scores, data.earned);   // ← precisa passar o earned
+});
 
     socket.on('quiz_final', data => {
         gameEnded = true;

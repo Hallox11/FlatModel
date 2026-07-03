@@ -50,19 +50,15 @@
 
     .video-title-overlay {
         position: absolute;
-        top: 25px;
-        left: 30px;
-        z-index: 10;
+        top: 690px;
+        left: 1190px;
+        height: 30px;
+        width: 100px;
+        z-index: 11000;
         color: #ffa260;
         font-size: 18px;
-        background: rgba(0,0,0,0.6);
-        padding: 5px 15px;
-        border-radius: 5px;
-        pointer-events: none; /* Allows clicks to pass through to video */
-        max-width: 600px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        background: rgba(0, 0, 0, 0);
+
     }
 
     .player-controls {
@@ -108,10 +104,9 @@
 </style>
 
 <div id="player-wrapper">
-    <div class="video-title-overlay"><%= title %></div>
     
     <div class="exit-btn" onclick="backToGrid()">×</div>
-
+        <div class="video-title-overlay"></div>
     <video
         id="xxx-video-player"
         class="video-js vjs-big-play-centered vjs-matrix"
@@ -121,6 +116,7 @@
         height="720">
         <source src="<%= stream %>" type="application/x-mpegURL">
     </video>
+
 </div>
 
 <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>

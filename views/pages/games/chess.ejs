@@ -201,9 +201,10 @@
 </style>
 
 <div id="chess-module">
-<div class="close-menu-btn" onclick="chessFullReset(); closeSubMenu();">
-    <span style="font-size: 20px;" class="material-symbols-rounded">close</span>
-</div>
+    <div class="close-menu-btn" onclick="chessOnClose()">
+        <span style="font-size: 20px;" class="material-symbols-rounded">close</span>
+    </div>
+
     <div class="chess-title">CHESS <span>ONLINE</span></div>
 
     <!-- ═══════════ LOBBY ═══════════ -->
@@ -312,13 +313,11 @@
         inCheck: null,
         gameOver: false
     };
-let CS = window.chessState; // <-- Change const to let here
+    const CS = window.chessState;
 
-const socket = window.socket || io({ 
-    transports: ['websocket'], // <--- FORCES WEBSOCKETS ONLY, SKIPS POLLING
-    query: { room: (window.TV_ROOM || 'Lobby') }
-    });
-    window.socket = socket;
+    const socket = window.socket || window.parent?.socket;
+    if (!socket) { console.error('[Chess] No socket'); return; }
+    const myRoom = window.myRoom || 'Lobby';
 
     function $(id) { return document.getElementById(id); }
 
@@ -326,7 +325,6 @@ const socket = window.socket || io({
     function buildBoardDom() {
         const boardEl = $('chess-board');
         boardEl.innerHTML = '';
-        boardEl.style.transform = 'none';
 
         const flip = flipped();
         for (let visRow = 0; visRow < 8; visRow++) {
@@ -442,11 +440,16 @@ const socket = window.socket || io({
                 CS.legalTargets = [];
                 return;
             }
-            
-            // Only drop target if selecting an invalid/empty entity
+
+            // Clicked something else while a square was already selected — whether it's
+            // an empty/invalid square or another one of your own pieces, the previous
+            // selection highlight (.selected / .legal-move / .legal-capture) must be
+            // cleared first, otherwise it stays stuck on the board until the next
+            // server-driven full re-render.
+            clearSelection();
+
             const piece = squarePieceAt(square);
             if (!piece || piece.color !== CS.myColor) {
-                clearSelection();
                 return;
             }
         }
@@ -530,7 +533,7 @@ const socket = window.socket || io({
         $('chess-create-btn').disabled = true;
         $('chess-join-btn').disabled = true;
         $('chess-waiting-msg').style.display = 'flex';
-        socket.emit('chess_create', { room: window.TV_ROOM || 'Lobby', name });
+        socket.emit('chess_create', { room: myRoom, name });
     };
 
     window.chessJoinGame = function() {
@@ -539,7 +542,7 @@ const socket = window.socket || io({
         $('chess-create-btn').disabled = true;
         $('chess-join-btn').disabled = true;
         $('chess-waiting-msg').style.display = 'flex';
-        socket.emit('chess_join_random', { room: window.TV_ROOM || 'Lobby', name });
+        socket.emit('chess_join_random', { room: myRoom, name });
     };
 
     window.chessOfferDraw = function() { socket.emit('chess_draw_offer', { room: CS.room }); };
@@ -568,11 +571,20 @@ const socket = window.socket || io({
         socket.on('chess_waiting', () => {
             updateStatusBanner('Waiting for opponent…');
         });
-// Server forced a reset (triggered by either player exiting)
-        socket.on('chess_force_lobby_reset', () => {
-            // Call our cleanup routine, bypassing the emit step so we don't form a loop
-            window.executeLocalUIReset();
+
+        socket.on('chess_room_busy', () => {
+            updateStatusBanner('A game is already in progress in this room', 'danger');
         });
+
+        // Cross-module hard reset — e.g. triggered by quiz_force_reboot broadcasting
+        // to the whole TV room. Any module still open should bail back to the menu.
+        socket.on('force_navigate', (data) => {
+            window.chessResetToLobby(false); // server already knows we're leaving; don't double-emit chess_leave
+            setTimeout(() => {
+                if (typeof handleNav === 'function') handleNav(data.target, true);
+            }, 500);
+        });
+
         socket.on('chess_game_start', (data) => {
             CS.room = data.room;
             CS.myColor = data.yourColor;
@@ -628,6 +640,8 @@ const socket = window.socket || io({
                 } else if (data.result === 'draw') { msg = 'Draw'; type = ''; }
                 else if (data.result === 'resign') { msg = (data.winner === CS.myColor ? 'Opponent Resigned — You Win' : 'You Resigned'); type = data.winner === CS.myColor ? 'win' : 'danger'; }
                 else if (data.result === 'stalemate') { msg = 'Stalemate — Draw'; type = ''; }
+                else if (data.result === 'timeout') { msg = (data.winner === CS.myColor ? 'You Win — Opponent Ran Out of Time' : 'You Lose — Time Ran Out'); type = data.winner === CS.myColor ? 'win' : 'danger'; }
+                else if (data.result === 'abandoned') { msg = (data.winner === CS.myColor ? 'Opponent Disconnected — You Win' : 'You Disconnected'); type = data.winner === CS.myColor ? 'win' : 'danger'; }
                 updateStatusBanner(msg, type);
             } else if (CS.inCheck) {
                 updateStatusBanner((data.turn === CS.myColor ? 'Check! Your move' : 'Opponent in Check'), 'danger');
@@ -667,64 +681,56 @@ const socket = window.socket || io({
         });
     }
 
-// This part runs locally and tells the server to blow up the room
-    window.chessFullReset = function() {
-        if (CS && CS.room) {
-            socket.emit('chess_quit_room', { room: CS.room });
-        } else {
-            // If they weren't in a matched game yet, just clean up their local UI
-            window.executeLocalUIReset();
+    // ── FULL RESET (close button) ──
+    // Wipes all in-memory chess state and puts the DOM back to a clean lobby,
+    // so re-entering the module from the games menu always starts fresh.
+    window.chessResetToLobby = function(notifyServer) {
+        // Tell the server we're leaving — frees the room (and notifies the
+        // opponent) instead of leaving a "ghost" active session behind that
+        // would later block a new game with chess_room_busy.
+        if (notifyServer !== false && CS.room) {
+            socket.emit('chess_leave', { room: CS.room });
         }
+
+        CS.room = null;
+        CS.myColor = null;
+        CS.myName = null;
+        CS.selectedSquare = null;
+        CS.legalTargets = [];
+        CS.board = null;
+        CS.turn = 'w';
+        CS.lastMove = null;
+        CS.inCheck = null;
+        CS.gameOver = false;
+
+        $('chess-game-area').classList.remove('active');
+        $('chess-lobby').style.display = '';
+        $('chess-name-input').value = '';
+        $('chess-create-btn').disabled = false;
+        $('chess-join-btn').disabled = false;
+        $('chess-waiting-msg').style.display = 'none';
+        $('chess-rematch-btn').style.display = 'none';
+
+        $('chess-board').innerHTML = '';
+        $('chess-move-history').innerHTML = '';
+        updateStatusBanner('White to move', '');
+
+        $('chess-opponent-name').textContent = 'Opponent';
+        $('chess-my-name').textContent = 'You';
+        $('chess-opponent-clock').textContent = '10:00';
+        $('chess-my-clock').textContent = '10:00';
+        $('chess-captured-by-me').innerHTML = '<span class="chess-cap-label">Captured</span>';
+        $('chess-captured-by-opponent').innerHTML = '<span class="chess-cap-label">Captured</span>';
     };
 
-    // This handles the dirty work of physically clearing elements and state tracking variables
-    window.executeLocalUIReset = function() {
-        // Clear out the persistent frontend state tracking object fields safely
-        window.chessState = {
-            room: null,
-            myColor: null,
-            myName: null,
-            selectedSquare: null,
-            legalTargets: [],
-            board: null,
-            turn: 'w',
-            lastMove: null,
-            inCheck: null,
-            gameOver: false
-        };
-        
-        // Update our let reference alias 
-        CS = window.chessState;
-
-        // Reset the UI containers back to the initial Lobby screen layout
-        if ($('chess-lobby')) $('chess-lobby').style.display = 'flex';
-        if ($('chess-game-area')) $('chess-game-area').classList.remove('active');
-        if ($('chess-waiting-msg')) $('chess-waiting-msg').style.display = 'none';
-        
-        if ($('chess-create-btn')) $('chess-create-btn').disabled = false;
-        if ($('chess-join-btn')) $('chess-join-btn').disabled = false;
-        if ($('chess-name-input')) $('chess-name-input').value = '';
-
-        // Clean out data containers, boards, histories, and clocks
-        if ($('chess-board')) $('chess-board').innerHTML = '';
-        if ($('chess-move-history')) $('chess-move-history').innerHTML = '';
-        
-        if ($('chess-status-banner')) {
-            $('chess-status-banner').textContent = 'White to move';
-            $('chess-status-banner').className = 'chess-status-banner';
-        }
-        
-        if ($('chess-my-clock')) $('chess-my-clock').textContent = '10:00';
-        if ($('chess-opponent-clock')) $('chess-opponent-clock').textContent = '10:00';
-        if ($('chess-my-color')) $('chess-my-color').textContent = '—';
-        if ($('chess-my-name')) $('chess-my-name').textContent = 'You';
-        if ($('chess-opponent-name')) $('chess-opponent-name').textContent = 'Opponent';
-        
-        if ($('chess-captured-by-me')) $('chess-captured-by-me').innerHTML = '<span class="chess-cap-label">Captured</span>';
-        if ($('chess-captured-by-opponent')) $('chess-captured-by-opponent').innerHTML = '<span class="chess-cap-label">Captured</span>';
+    // Called by the close (X) button — resets the game, then hands off to the
+    // app's real AJAX navigation function (same one truth-or-myth.ejs uses).
+    window.chessOnClose = function() {
+        window.chessResetToLobby();
+        if (typeof handleNav === 'function') handleNav('games-menu', false);
     };
 
-// ── RE-ENTRY (returning to this menu without full reload) ──
+    // ── RE-ENTRY (returning to this menu without full reload) ──
     window.chessReEnter = function() {
         if (CS.room && CS.board) {
             $('chess-lobby').style.display = 'none';

@@ -215,7 +215,7 @@
             </div>
         </div>
         <h1 id="main_header">ON SCREEN <span>Settings</span></h1>
-        <div style="top:10px;right: 20px;" class="close-menu-btn" onclick="closeSubMenu()">
+        <div style="top:10px;right: 20px;" class="close-menu-btn" onclick="handleNav('games-menu', false)">
             <span class="material-symbols-rounded">close</span>
         </div>
     </div>
@@ -322,19 +322,28 @@
             <!-- Tab 2: Lighting -->
             <div id="tab-lighting" class="conteiner-col">
                                 <div class="sub-panel">
-                    <p class="section-title" ">LIGHT SWITCH</p>
+                    <p class="section-title">MOOD PRESET</p>
+                    <div class="btn-group" style="margin-bottom:20px;">
+                        <button class="btn1" data-group="envlight" onclick="applyLightPreset('active', this)">⚡ ACTIVE</button>
+                        <button class="btn1 active" data-group="envlight" onclick="applyLightPreset('normal', this)">☀ NORMAL</button>
+                        <button class="btn1" data-group="envlight" onclick="applyLightPreset('cozy', this)">🔥 COZY</button>
+                    </div>
+
+                    <p class="section-title">LIGHT SWITCH</p>
                     <div class="onoff-row">
-                    <button onclick="setActive('light',this);setAmbi('off',this)" class="btn1 active" data-group="light">OFF</button>
-                    <button onclick="setActive('light',this);setAmbi('on',this)" class="btn1" data-group="light">ON</button>
-                    <button onclick="setActive('light',this);setAmbi('cycle',this)" class="btn1" data-group="light">CYCLE</button>
+                    <button onclick="setActive('light',this);setAmbi('off',this)" class="btn1 active" data-group="light" data-mode="off">OFF</button>
+                    <button onclick="setActive('light',this);setAmbi('on',this)" class="btn1" data-group="light" data-mode="on">ON</button>
+                    <button onclick="setActive('light',this);setAmbi('cycle',this)" class="btn1" data-group="light" data-mode="cycle">CYCLE</button>
+                    <button onclick="setActive('light',this);setAmbi('random',this)" class="btn1" data-group="light" data-mode="random">🎲</button>
 
                     </div>
 
                     <p class="section-title" style="margin-top: 25px;">NEON SWITCH</p>
                     <div class="neon-state-row">
-                        <button onclick="setActive('neon',this);setNeon('off',this)" class="btn1 active" data-group="neon">OFF</button>
-                        <button onclick="setActive('neon',this);setNeon('fixed',this)" class="btn1" data-group="neon">ON</button>
-                        <button onclick="setActive('neon',this);setNeon('cycle',this)" class="btn1" data-group="neon">CYCLE</button>
+                        <button onclick="setActive('neon',this);setNeon('off',this)" class="btn1 active" data-group="neon" data-mode="off">OFF</button>
+                        <button onclick="setActive('neon',this);setNeon('fixed',this)" class="btn1" data-group="neon" data-mode="fixed">ON</button>
+                        <button onclick="setActive('neon',this);setNeon('cycle',this)" class="btn1" data-group="neon" data-mode="cycle">CYCLE</button>
+                        <button onclick="setActive('neon',this);setNeon('random',this)" class="btn1" data-group="neon" data-mode="random">🎲</button>
 
                     </div>
  
@@ -407,7 +416,7 @@
                     </div>
 
                                         <div style="margin-top: auto;">
-                        <button onclick="cmd('reset','size')" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
+                        <button onclick="applyLightPreset('normal', this)" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">RESET LIGHTS TO NORMAL</button>
                     </div>
                 </div>
 
@@ -556,32 +565,47 @@
     let rangeValue = 0.5;
     let speedValue=0.5;
 
+    // Mood presets — must match the vector/float values in apply_light_preset() on the LSL side.
+    const LIGHT_PRESETS = {
+        active: { color: '#ff00aa', ambiMode: 'cycle', neonMode: 'cycle', ambiInt: 0.9,  rangeValue: 0.8,  fallValue: 0.4, glowValue: 0.8,  speedValue: 0.10 },
+        normal: { color: '#ffffff', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.5,  rangeValue: 0.5,  fallValue: 1.0, glowValue: 0.3,  speedValue: 0.50 },
+        cozy:   { color: '#ff8800', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.25, rangeValue: 0.35, fallValue: 1.4, glowValue: 0.15, speedValue: 0.50 }
+    };
+
+    // Helper: adjust a 0.0-1.0 value by a step, using integer (0-100) arithmetic
+    // to avoid JS floating point drift (e.g. 0.5 - 0.05 !== 0.45 in double precision,
+    // which was causing sliders to get stuck instead of decreasing).
+    function stepValue(current, delta) {
+        const pct  = Math.round(current * 100);
+        const step = Math.round(delta * 100);
+        return Math.min(100, Math.max(0, pct + step)) / 100;
+    }
 
     window.adjustInt = function(v) {
-        ambiInt = Math.min(1.0, Math.max(0.0, +(ambiInt + v).toFixed(1)));
+        ambiInt = stepValue(ambiInt, v);
         updateUI();
-        if (ambiOn && selectedHex) cmd('ambi_intensity', ambiInt.toFixed(1));
+        if (ambiOn && selectedHex) cmd('ambi_intensity', ambiInt.toFixed(2));
     };
     window.adjustFall = function(v) {
-        fallValue = Math.min(1.0, Math.max(0.0, +(fallValue + v).toFixed(1)));
+        fallValue = stepValue(fallValue, v);
         document.getElementById('fall-pct').textContent = Math.round(fallValue * 100) + '%';
-        cmd('ambi_fall', fallValue.toFixed(1));
+        cmd('ambi_fall', fallValue.toFixed(2));
     };
     window.adjustRange = function(v) {
-        rangeValue = Math.min(1.0, Math.max(0.0, +(rangeValue + v).toFixed(1)));
+        rangeValue = stepValue(rangeValue, v);
         document.getElementById('range-pct').textContent = Math.round(rangeValue * 100) + '%';
-        cmd('ambi_range', rangeValue.toFixed(1));
+        cmd('ambi_range', rangeValue.toFixed(2));
     };
     window.adjustSpeed = function(v) {
-        speedValue = Math.min(1.0, Math.max(0.0, +(speedValue + v).toFixed(1)));
+        speedValue = stepValue(speedValue, v);
         document.getElementById('speed-pct').textContent = Math.round(speedValue * 100) + '%';
         updateUI();
-        cmd('neon_speed', speedValue.toFixed(1));
+        cmd('neon_speed', speedValue.toFixed(2));
     };
     window.adjustGlow = function(v) {
-        glowValue = Math.min(1.0, Math.max(0.0, +(glowValue + v).toFixed(1)));
+        glowValue = stepValue(glowValue, v);
         document.getElementById('glow-pct').textContent = Math.round(glowValue * 100) + '%';
-        cmd('GLOW_ON', glowValue.toFixed(1));
+        cmd('GLOW_ON', glowValue.toFixed(2));
     };
 
     function hexToSL(hex) {
@@ -589,10 +613,6 @@
         const g = (parseInt(hex.slice(3,5),16)/255).toFixed(2);
         const b = (parseInt(hex.slice(5,7),16)/255).toFixed(2);
         return '<'+r+','+g+','+b+'>';
-    }
-
-    function speedPct() {
-        return Math.round((1 - (neonSpeed - 0.02) / (0.5 - 0.02)) * 99) + 1;
     }
 
     function updateUI() {
@@ -607,10 +627,8 @@
         const rangePct = document.getElementById('range-pct');
         if (rangePct) rangePct.textContent = Math.round(rangeValue * 100) + '%';
 
-        const speedPct = document.getElementById('speed-pct');
-        if (speedPct) speedPct.textContent = Math.round(speedValue * 100) + '%';
-
-
+        const speedPctEl = document.getElementById('speed-pct');
+        if (speedPctEl) speedPctEl.textContent = Math.round(speedValue * 100) + '%';
     }
 
     window.setActive = function(group, el) {
@@ -629,27 +647,60 @@
             if (selectedHex) cmd('LIGHT_ON', hexToSL(selectedHex), el);
         } 
         else if (state === 'cycle') {
-            cmd('neon_speed', neonSpeed.toFixed(2));
+            cmd('neon_speed', speedValue.toFixed(2));
             if (selectedHex) cmd('LIGHT_CYCLE', hexToSL(selectedHex), el);
+        }
+        else if (state === 'random') {
+            cmd('neon_speed', speedValue.toFixed(2));
+            cmd('LIGHT_RANDOM', '', el);
         }
     };
 
 
 
     window.setNeon = function(state, el) {
-        console.log(state)
         neonState = state;
         if (state === 'off') {
-            cmd('NEON_OFF', '',el);
-                    console.log("INSIDE")
+            cmd('NEON_OFF', '', el);
         } 
         else if (state === 'fixed') {
             if (selectedHex) cmd('NEON_ON', hexToSL(selectedHex), el);
         } 
         else if (state === 'cycle') {
-            cmd('neon_speed', neonSpeed.toFixed(2));
+            cmd('neon_speed', speedValue.toFixed(2));
             if (selectedHex) cmd('NEON_CYCLE', hexToSL(selectedHex), el);
         }
+        else if (state === 'random') {
+            cmd('neon_speed', speedValue.toFixed(2));
+            cmd('NEON_RANDOM', '', el);
+        }
+    };
+
+    // Applies a full mood preset with a single command — the LSL side
+    // (apply_light_preset) sets color/ambilight/neon/intensity/range/
+    // falloff/glow atomically, avoiding a burst of 6-7 separate requests.
+    window.applyLightPreset = function(name, el) {
+        const p = LIGHT_PRESETS[name];
+        if (!p) return;
+
+        document.querySelectorAll('[data-group="envlight"]').forEach(b => b.classList.remove('active'));
+        if (el) el.classList.add('active');
+
+        selectedHex = p.color;
+        ambiInt = p.ambiInt; rangeValue = p.rangeValue; fallValue = p.fallValue;
+        glowValue = p.glowValue; speedValue = p.speedValue;
+        ambiState = p.ambiMode; ambiOn = (p.ambiMode !== 'off');
+        neonState = p.neonMode;
+        updateUI();
+
+        document.querySelectorAll('#grid-light .color-square').forEach(s =>
+            s.classList.toggle('selected', s.dataset.color === p.color));
+        document.querySelectorAll('[data-group="light"]').forEach(b =>
+            b.classList.toggle('active', b.dataset.mode === p.ambiMode));
+        document.querySelectorAll('[data-group="neon"]').forEach(b =>
+            b.classList.toggle('active', b.dataset.mode === p.neonMode));
+
+        cmd('LIGHT_PRESET', name, el);
     };
 
 
@@ -662,6 +713,10 @@
             success: function() {
                 $('#connection-container').addClass('online-active');
                 $('#status-text').text('ONLINE').css('color','#2ecc71');
+            },
+            error: function() {
+                $('#connection-container').removeClass('online-active');
+                $('#status-text').text('OFFLINE').css('color','var(--error)');
             }
         });
     };
@@ -688,17 +743,26 @@ if (lContainer) {
             } else if (ambiState === 'on') {
                 cmd('LIGHT_ON', hexToSL(hex));
             }
+            // note: random mode intentionally ignores manual swatch picks —
+            // it keeps cycling through its own random targets.
 
             if (neonState === 'fixed') {
                 cmd('NEON_ON', hexToSL(hex));
             }
         };
     });
+
+    // Guarded together with the block above: previously this ran
+    // unconditionally outside the `if (lContainer)` check, so a missing
+    // #grid-light element would throw and silently kill every script
+    // registration below it (including $(document).ready and all the
+    // position/rotation window.* functions).
+    const first = squares[0];
+    if (first) {
+        first.classList.add('selected');
+        selectedHex = first.dataset.color;
+    }
 }
-const first = lContainer.querySelector('.color-square');
-if (first) first.classList.add('selected');
-selectedHex = first?.dataset.color;
-    
 
     $(document).ready(function() {
         updateUI();

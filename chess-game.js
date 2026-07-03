@@ -36,10 +36,6 @@ function createChessSession(room, whiteSocket, whiteName, blackSocket, blackName
     return session;
 }
 
-
-
-
-
 function getChessSession(room) {
     return chessRooms[room];
 }
@@ -129,13 +125,50 @@ function stopClock(session) {
     }
 }
 
-function pieceLetter(p) { return p; } // chess.js already uses 'p','n','b','r','q','k'
+// Guard against matchmaking/joining into a room the socket doesn't actually belong to.
+// Assumes the socket has already joined a Socket.io room named after the TV room elsewhere
+// in the connection handler (as with the other game modules).
+function socketInRoom(socket, room) {
+    return !!(socket.rooms && socket.rooms.has(room));
+}
+
+function _removeFromWaitingPools(socket, room) {
+    if (room) {
+        chessWaitingPool[room] = (chessWaitingPool[room] || []).filter(p => p.socketId !== socket.id);
+    } else {
+        Object.keys(chessWaitingPool).forEach(r => {
+            chessWaitingPool[r] = (chessWaitingPool[r] || []).filter(p => p.socketId !== socket.id);
+        });
+    }
+}
+
+function _abandonIfPlaying(io, socket, room) {
+    const session = chessRooms[room];
+    if (!session || session.gameOver) return;
+    if (socket.id !== session.whiteId && socket.id !== session.blackId) return;
+
+    const opponentId = socket.id === session.whiteId ? session.blackId : session.whiteId;
+    io.to(opponentId).emit('chess_opponent_left');
+
+    session.gameOver = true;
+    session.result = 'abandoned';
+    session.winner = socket.id === session.whiteId ? 'b' : 'w';
+    stopClock(session);
+}
 
 function registerChessHandlers(io, socket, clientRoom) {
 
     // ── CREATE GAME (waits for a 2nd player in the same TV room) ──
     socket.on('chess_create', (data) => {
         const room = data.room || clientRoom;
+        if (!socketInRoom(socket, room)) return;
+
+        const existing = chessRooms[room];
+        if (existing && !existing.gameOver) {
+            socket.emit('chess_room_busy');
+            return;
+        }
+
         const name = (data.name || 'Player').slice(0, 16);
 
         if (!chessWaitingPool[room]) chessWaitingPool[room] = [];
@@ -154,6 +187,14 @@ function registerChessHandlers(io, socket, clientRoom) {
     // ── JOIN RANDOM (alias of create — matches whoever is waiting) ──
     socket.on('chess_join_random', (data) => {
         const room = data.room || clientRoom;
+        if (!socketInRoom(socket, room)) return;
+
+        const existing = chessRooms[room];
+        if (existing && !existing.gameOver) {
+            socket.emit('chess_room_busy');
+            return;
+        }
+
         const name = (data.name || 'Player').slice(0, 16);
 
         if (!chessWaitingPool[room]) chessWaitingPool[room] = [];
@@ -275,31 +316,14 @@ function registerChessHandlers(io, socket, clientRoom) {
         stopClock(session);
         io.to(session.room).emit('chess_state', buildStatePayload(session));
     });
-// ── QUIT / RESET ROOM HANDLER ──
-    socket.on('chess_quit_room', (data) => {
-        const room = data.room || clientRoom;
-        
-        // Remove player from waiting pools if they were idling
-        if (chessWaitingPool[room]) {
-            chessWaitingPool[room] = chessWaitingPool[room].filter(p => p.socketId !== socket.id);
-        }
 
-        const session = chessRooms[room];
-        if (session) {
-            // Stop active intervals to prevent background loops
-            stopClock(session);
-
-            // FORCE BOTH PLAYERS IN THE ROOM TO FULLY RESET TO LOBBY
-            io.to(room).emit('chess_force_lobby_reset');
-
-            // Wipe out the game session storage completely
-            delete chessRooms[room];
-        }
-    });
     // ── REMATCH ──
     socket.on('chess_rematch', (data) => {
         const session = getChessSession(data.room);
-        if (!session) return;
+        // Rematch only makes sense once the current game has actually ended —
+        // otherwise a stray click mid-game could later spawn a second, orphaned
+        // session whose clock interval keeps ticking in the background.
+        if (!session || !session.gameOver) return;
 
         session.rematchVotes.add(socket.id);
         const opponentId = socket.id === session.whiteId ? session.blackId : session.whiteId;
@@ -308,6 +332,12 @@ function registerChessHandlers(io, socket, clientRoom) {
             io.to(opponentId).emit('chess_rematch_offer');
             return;
         }
+
+        // Make sure the old session's clock is fully stopped before it's replaced —
+        // createChessSession() below only overwrites the chessRooms[room] reference,
+        // it does NOT touch the old session object, so its setInterval would otherwise
+        // keep running forever in the background (zombie timer).
+        stopClock(session);
 
         // Both agreed — swap colours and start fresh
         const newSession = createChessSession(
@@ -328,6 +358,18 @@ function registerChessHandlers(io, socket, clientRoom) {
             board: boardToArray(newSession.chess)
         });
         io.to(newSession.room).emit('chess_state', buildStatePayload(newSession));
+    });
+
+    // ── LEAVE / CLOSE (player closed the chess UI, but the TV socket stays connected) ──
+    // Frees the room for a fresh game: removes them from any waiting pool and,
+    // if a game was in progress, treats it the same way a disconnect would —
+    // notifies the opponent and marks the session abandoned so chess_room_busy
+    // doesn't block the room forever.
+    socket.on('chess_leave', (data) => {
+        const room = data.room || clientRoom;
+        if (!room) return;
+        _removeFromWaitingPools(socket, room);
+        _abandonIfPlaying(io, socket, room);
     });
 }
 
@@ -354,24 +396,10 @@ function _tryMatch(io, room) {
 
 // ── DISCONNECT CLEANUP ──
 function chessHandleDisconnect(io, socket) {
-    // Remove from any waiting pools
-    Object.keys(chessWaitingPool).forEach(room => {
-        chessWaitingPool[room] = (chessWaitingPool[room] || []).filter(p => p.socketId !== socket.id);
-    });
+    _removeFromWaitingPools(socket, null);
 
-    // Notify opponent if mid-game
     Object.keys(chessRooms).forEach(room => {
-        const session = chessRooms[room];
-        if (!session || session.gameOver) return;
-        if (socket.id !== session.whiteId && socket.id !== session.blackId) return;
-
-        const opponentId = socket.id === session.whiteId ? session.blackId : session.whiteId;
-        io.to(opponentId).emit('chess_opponent_left');
-
-        session.gameOver = true;
-        session.result = 'abandoned';
-        session.winner = socket.id === session.whiteId ? 'b' : 'w';
-        stopClock(session);
+        _abandonIfPlaying(io, socket, room);
     });
 }
 

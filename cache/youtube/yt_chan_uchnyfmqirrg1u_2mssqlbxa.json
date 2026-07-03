@@ -1,5 +1,12 @@
 [
   {
+    "videoId": "dquI8khH1Zk",
+    "title": "AD - Why do I get this spark when I unplug my hair dryer?",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/dquI8khH1Zk/hqdefault.jpg",
+    "duration": "PT2M22S"
+  },
+  {
     "videoId": "mvcesPWvUIc",
     "title": "We've Been Using The Wrong Science In Court For 50 years",
     "channel": "Veritasium",
@@ -341,12 +348,5 @@
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/KZeIEiBrT_w/hqdefault.jpg",
     "duration": "PT32M32S"
-  },
-  {
-    "videoId": "za_HO2E3JEU",
-    "title": "Why do all animals jump to about the same height?",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/za_HO2E3JEU/hqdefault.jpg",
-    "duration": "PT1M39S"
   }
 ]
