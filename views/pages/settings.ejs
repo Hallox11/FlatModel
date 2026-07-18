@@ -215,7 +215,7 @@
             </div>
         </div>
         <h1 id="main_header">ON SCREEN <span>Settings</span></h1>
-        <div style="top:10px;right: 20px;" class="close-menu-btn" onclick="handleNav('games-menu', false)">
+        <div style="top:10px;right: 20px;" class="close-menu-btn" onclick="closeSubMenu()">
             <span class="material-symbols-rounded">close</span>
         </div>
     </div>
@@ -322,19 +322,13 @@
             <!-- Tab 2: Lighting -->
             <div id="tab-lighting" class="conteiner-col">
                                 <div class="sub-panel">
-                    <p class="section-title">MOOD PRESET</p>
-                    <div class="btn-group" style="margin-bottom:20px;">
-                        <button class="btn1" data-group="envlight" onclick="applyLightPreset('active', this)">⚡ ACTIVE</button>
-                        <button class="btn1 active" data-group="envlight" onclick="applyLightPreset('normal', this)">☀ NORMAL</button>
-                        <button class="btn1" data-group="envlight" onclick="applyLightPreset('cozy', this)">🔥 COZY</button>
-                    </div>
 
                     <p class="section-title">LIGHT SWITCH</p>
                     <div class="onoff-row">
                     <button onclick="setActive('light',this);setAmbi('off',this)" class="btn1 active" data-group="light" data-mode="off">OFF</button>
                     <button onclick="setActive('light',this);setAmbi('on',this)" class="btn1" data-group="light" data-mode="on">ON</button>
                     <button onclick="setActive('light',this);setAmbi('cycle',this)" class="btn1" data-group="light" data-mode="cycle">CYCLE</button>
-                    <button onclick="setActive('light',this);setAmbi('random',this)" class="btn1" data-group="light" data-mode="random">🎲</button>
+
 
                     </div>
 
@@ -343,7 +337,7 @@
                         <button onclick="setActive('neon',this);setNeon('off',this)" class="btn1 active" data-group="neon" data-mode="off">OFF</button>
                         <button onclick="setActive('neon',this);setNeon('fixed',this)" class="btn1" data-group="neon" data-mode="fixed">ON</button>
                         <button onclick="setActive('neon',this);setNeon('cycle',this)" class="btn1" data-group="neon" data-mode="cycle">CYCLE</button>
-                        <button onclick="setActive('neon',this);setNeon('random',this)" class="btn1" data-group="neon" data-mode="random">🎲</button>
+  
 
                     </div>
  
@@ -355,6 +349,12 @@
                             <span class="val-sub">speed</span>
                         </div>
                         <button class="btn-adj" onclick="adjustSpeed(0.05)">+</button>
+                    </div>
+                    <p class="section-title">MOOD PRESET</p>
+                    <div class="btn-group" style="margin-bottom:20px;">
+                        <button class="btn1" data-group="envlight" onclick="applyLightPreset('active', this)">ACTIVE</button>
+                        <button class="btn1 active" data-group="envlight" onclick="applyLightPreset('normal', this)">NORMAL</button>
+                        <button class="btn1" data-group="envlight" onclick="applyLightPreset('cozy', this)">COZY</button>
                     </div>
 
                </div>
@@ -567,7 +567,7 @@
 
     // Mood presets — must match the vector/float values in apply_light_preset() on the LSL side.
     const LIGHT_PRESETS = {
-        active: { color: '#ff00aa', ambiMode: 'cycle', neonMode: 'cycle', ambiInt: 0.9,  rangeValue: 0.8,  fallValue: 0.4, glowValue: 0.8,  speedValue: 0.10 },
+        active: { color: '#ff00aa', ambiMode: 'cycle', neonMode: 'cycle', ambiInt: 0.9,  rangeValue: 0.8,  fallValue: 0.4, glowValue: 0.4,  speedValue: 0.10 },
         normal: { color: '#ffffff', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.5,  rangeValue: 0.5,  fallValue: 1.0, glowValue: 0.3,  speedValue: 0.50 },
         cozy:   { color: '#ff8800', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.25, rangeValue: 0.35, fallValue: 1.4, glowValue: 0.15, speedValue: 0.50 }
     };
@@ -650,10 +650,6 @@
             cmd('neon_speed', speedValue.toFixed(2));
             if (selectedHex) cmd('LIGHT_CYCLE', hexToSL(selectedHex), el);
         }
-        else if (state === 'random') {
-            cmd('neon_speed', speedValue.toFixed(2));
-            cmd('LIGHT_RANDOM', '', el);
-        }
     };
 
 
@@ -669,10 +665,6 @@
         else if (state === 'cycle') {
             cmd('neon_speed', speedValue.toFixed(2));
             if (selectedHex) cmd('NEON_CYCLE', hexToSL(selectedHex), el);
-        }
-        else if (state === 'random') {
-            cmd('neon_speed', speedValue.toFixed(2));
-            cmd('NEON_RANDOM', '', el);
         }
     };
 
