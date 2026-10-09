@@ -1,14 +1,5 @@
 [
   {
-    "id": "xyTa_gJkYwI",
-    "videoId": "xyTa_gJkYwI",
-    "title": "Tony Bennett, Lady Gaga - I've Got You Under My Skin (Official Music Video)",
-    "subtitle": "Lady Gaga",
-    "durationText": "3:11",
-    "thumbnail": "https://i.ytimg.com/vi/xyTa_gJkYwI/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
     "id": "St7G1F4mu_4",
     "videoId": "St7G1F4mu_4",
     "title": "Olivia Dean - Live At The Jazz Cafe",
@@ -18,102 +9,12 @@
     "album": "YouTube"
   },
   {
-    "id": "OKluazZn5oA",
-    "videoId": "OKluazZn5oA",
-    "title": "Bob James - Westchester Lady (4K)",
-    "subtitle": "Bob James",
-    "durationText": "5:45",
-    "thumbnail": "https://i.ytimg.com/vi/OKluazZn5oA/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "4JkIs37a2JE",
-    "videoId": "4JkIs37a2JE",
-    "title": "Jamiroquai - Virtual Insanity (Official Video)",
-    "subtitle": "Jamiroquai Official",
-    "durationText": "3:55",
-    "thumbnail": "https://i.ytimg.com/vi/4JkIs37a2JE/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "ftGQLvUwzjY",
-    "videoId": "ftGQLvUwzjY",
-    "title": "John Legend - Vevo Go Shows: All Of Me",
-    "subtitle": "John Legend",
-    "durationText": "6:03",
-    "thumbnail": "https://i.ytimg.com/vi/ftGQLvUwzjY/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "4TYv2PhG89A",
-    "videoId": "4TYv2PhG89A",
-    "title": "Sade - Smooth Operator - Official - 1984",
-    "subtitle": "Sade",
-    "durationText": "4:18",
-    "thumbnail": "https://i.ytimg.com/vi/4TYv2PhG89A/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "GS2Y_CkaXP0",
-    "videoId": "GS2Y_CkaXP0",
-    "title": "Robert Glasper - So Beautiful (Live At Capitol Studios)",
-    "subtitle": "Robert Glasper",
-    "durationText": "7:16",
-    "thumbnail": "https://i.ytimg.com/vi/GS2Y_CkaXP0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "oHRNrgDIJfo",
-    "videoId": "oHRNrgDIJfo",
-    "title": "Nina Simone - Feeling Good (Official Video)",
-    "subtitle": "Nina Simone",
-    "durationText": "3:03",
-    "thumbnail": "https://i.ytimg.com/vi/oHRNrgDIJfo/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "OeTFAiYbR9o",
-    "videoId": "OeTFAiYbR9o",
-    "title": "Jamiroquai - Virtual Insanity (Official 4K Video)",
-    "subtitle": "Jamiroquai Official",
-    "durationText": "3:55",
-    "thumbnail": "https://i.ytimg.com/vi/OeTFAiYbR9o/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "rfNBNBJKy3I",
-    "videoId": "rfNBNBJKy3I",
-    "title": "Norah Jones, John Legend - Summertime Blue | Live From Vevo Studios",
-    "subtitle": "Norah Jones",
-    "durationText": "3:24",
-    "thumbnail": "https://i.ytimg.com/vi/rfNBNBJKy3I/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "TJAfLE39ZZ8",
-    "videoId": "TJAfLE39ZZ8",
-    "title": "Amy Winehouse - Back To Black",
-    "subtitle": "Amy Winehouse",
-    "durationText": "4:01",
-    "thumbnail": "https://i.ytimg.com/vi/TJAfLE39ZZ8/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "zGJHB5are8U",
-    "videoId": "zGJHB5are8U",
-    "title": "Ezra Collective - Palm Wine (Live) | Vevo Studio Performance",
-    "subtitle": "Ezra Collective",
-    "durationText": "5:53",
-    "thumbnail": "https://i.ytimg.com/vi/zGJHB5are8U/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "lbjZPFBD6JU",
-    "videoId": "lbjZPFBD6JU",
-    "title": "Norah Jones - Come Away With Me",
-    "subtitle": "Norah Jones",
-    "durationText": "3:15",
-    "thumbnail": "https://i.ytimg.com/vi/lbjZPFBD6JU/hqdefault.jpg",
+    "id": "xyTa_gJkYwI",
+    "videoId": "xyTa_gJkYwI",
+    "title": "Tony Bennett, Lady Gaga - I've Got You Under My Skin (Official Music Video)",
+    "subtitle": "Lady Gaga",
+    "durationText": "3:11",
+    "thumbnail": "https://i.ytimg.com/vi/xyTa_gJkYwI/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -126,228 +27,66 @@
     "album": "YouTube"
   },
   {
-    "id": "hpiw3cDWmvc",
-    "videoId": "hpiw3cDWmvc",
-    "title": "Lady Gaga - New York, New York (Live From Sinatra 100)",
-    "subtitle": "Lady Gaga",
-    "durationText": "4:47",
-    "thumbnail": "https://i.ytimg.com/vi/hpiw3cDWmvc/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "w019MzRosmk",
-    "videoId": "w019MzRosmk",
-    "title": "Frank Sinatra - My Way (Live At Madison Square Garden, New York City / 1974 / 2019 Edit)",
-    "subtitle": "Frank Sinatra",
-    "durationText": "4:16",
-    "thumbnail": "https://i.ytimg.com/vi/w019MzRosmk/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "EfBDlECeWLo",
-    "videoId": "EfBDlECeWLo",
-    "title": "Lionel Richie - Stuck On You (Live At The New Orleans Jazz & Heritage Festival, 2006)",
-    "subtitle": "lionelrichie",
-    "durationText": "4:03",
-    "thumbnail": "https://i.ytimg.com/vi/EfBDlECeWLo/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "lBhnkJ6sVrM",
-    "videoId": "lBhnkJ6sVrM",
-    "title": "What a Wonderful World (from One Night Only! Rod Stewart Live at Royal Albert Hall)",
-    "subtitle": "Rod Stewart",
-    "durationText": "4:15",
-    "thumbnail": "https://i.ytimg.com/vi/lBhnkJ6sVrM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "cbyr07EpjU0",
-    "videoId": "cbyr07EpjU0",
-    "title": "Samara Joy - Social Call (Live Performance) | Vevo",
-    "subtitle": "Samara Joy",
-    "durationText": "3:40",
-    "thumbnail": "https://i.ytimg.com/vi/cbyr07EpjU0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "_oVI0GW-Xd4",
-    "videoId": "_oVI0GW-Xd4",
-    "title": "Sade - Nothing Can Come Between Us - Official - 1988",
+    "id": "4TYv2PhG89A",
+    "videoId": "4TYv2PhG89A",
+    "title": "Sade - Smooth Operator - Official - 1984",
     "subtitle": "Sade",
-    "durationText": "3:52",
-    "thumbnail": "https://i.ytimg.com/vi/_oVI0GW-Xd4/hqdefault.jpg",
+    "durationText": "4:18",
+    "thumbnail": "https://i.ytimg.com/vi/4TYv2PhG89A/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "iq_vpIp5jJ8",
-    "videoId": "iq_vpIp5jJ8",
-    "title": "Tony Bennett - For Once in My Life (from Viva Duets) ft. Marc Anthony",
-    "subtitle": "Tony Bennett",
-    "durationText": "3:15",
-    "thumbnail": "https://i.ytimg.com/vi/iq_vpIp5jJ8/hqdefault.jpg",
+    "id": "TJAfLE39ZZ8",
+    "videoId": "TJAfLE39ZZ8",
+    "title": "Amy Winehouse - Back To Black",
+    "subtitle": "Amy Winehouse",
+    "durationText": "4:01",
+    "thumbnail": "https://i.ytimg.com/vi/TJAfLE39ZZ8/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "NXD-WJYtkyc",
-    "videoId": "NXD-WJYtkyc",
-    "title": "Ludovico Einaudi - Live From The Steve Jobs Theatre / 2019 (Official Concert Film)",
-    "subtitle": "Ludovico Einaudi",
-    "durationText": "1:11:10",
-    "thumbnail": "https://i.ytimg.com/vi/NXD-WJYtkyc/hqdefault.jpg",
+    "id": "zqNTltOGh5c",
+    "videoId": "zqNTltOGh5c",
+    "title": "Miles Davis - So What (Official Video)",
+    "subtitle": "Miles Davis",
+    "durationText": "9:07",
+    "thumbnail": "https://i.ytimg.com/vi/zqNTltOGh5c/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "ctwqa3QCwMw",
-    "videoId": "ctwqa3QCwMw",
-    "title": "Johnny Hates Jazz - Shattered Dreams (Official Music Video)",
-    "subtitle": "JohnnyHatesJazzVEVO",
-    "durationText": "3:27",
-    "thumbnail": "https://i.ytimg.com/vi/ctwqa3QCwMw/hqdefault.jpg",
+    "id": "gyds04mi_Z0",
+    "videoId": "gyds04mi_Z0",
+    "title": "Jon Batiste & Friends (Live) | JAZZ NIGHT IN AMERICA",
+    "subtitle": "Jazz Night in America",
+    "durationText": "55:57",
+    "thumbnail": "https://i.ytimg.com/vi/gyds04mi_Z0/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "wO2o8RhtqS0",
-    "videoId": "wO2o8RhtqS0",
-    "title": "Tony Bennett, Queen Latifah - Who Can I Turn To (When Nobody Needs Me) (from Duets II)",
-    "subtitle": "Tony Bennett",
-    "durationText": "3:26",
-    "thumbnail": "https://i.ytimg.com/vi/wO2o8RhtqS0/hqdefault.jpg",
+    "id": "4JkIs37a2JE",
+    "videoId": "4JkIs37a2JE",
+    "title": "Jamiroquai - Virtual Insanity (Official Video)",
+    "subtitle": "Jamiroquai Official",
+    "durationText": "3:55",
+    "thumbnail": "https://i.ytimg.com/vi/4JkIs37a2JE/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "JwBjhBL9G6U",
-    "videoId": "JwBjhBL9G6U",
-    "title": "Us3 - Cantaloop (Flip Fantasia) ft. Rahsaan, Gerard Presencer",
-    "subtitle": "Us3videos",
-    "durationText": "3:41",
-    "thumbnail": "https://i.ytimg.com/vi/JwBjhBL9G6U/hqdefault.jpg",
+    "id": "b-I2s5zRbHg",
+    "videoId": "b-I2s5zRbHg",
+    "title": "Amy Winehouse - You Know I'm No Good",
+    "subtitle": "Amy Winehouse",
+    "durationText": "4:04",
+    "thumbnail": "https://i.ytimg.com/vi/b-I2s5zRbHg/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "d27gTrPPAyk",
-    "videoId": "d27gTrPPAyk",
-    "title": "Sting - Englishman In New York",
-    "subtitle": "Sting",
-    "durationText": "4:27",
-    "thumbnail": "https://i.ytimg.com/vi/d27gTrPPAyk/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "447yaU_4DF8",
-    "videoId": "447yaU_4DF8",
-    "title": "Kenny G - The Moment (Official Video)",
-    "subtitle": "Kenny G",
-    "durationText": "4:38",
-    "thumbnail": "https://i.ytimg.com/vi/447yaU_4DF8/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "uL52DajINdY",
-    "videoId": "uL52DajINdY",
-    "title": "Ariana Grande - positions (Official Live Performance) | Vevo",
-    "subtitle": "Ariana Grande",
-    "durationText": "4:21",
-    "thumbnail": "https://i.ytimg.com/vi/uL52DajINdY/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "5zXF5DneCo0",
-    "videoId": "5zXF5DneCo0",
-    "title": "SIENNA SPIRO - Die On This Hill | Vevo DSCVR Artists to Watch 2026",
-    "subtitle": "SIENNA SPIRO",
-    "durationText": "3:46",
-    "thumbnail": "https://i.ytimg.com/vi/5zXF5DneCo0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "CmJgTDApuDM",
-    "videoId": "CmJgTDApuDM",
-    "title": "kwn - back of the club | Vevo DSCVR",
-    "subtitle": "kwn",
-    "durationText": "3:54",
-    "thumbnail": "https://i.ytimg.com/vi/CmJgTDApuDM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "-huNrHAou-E",
-    "videoId": "-huNrHAou-E",
-    "title": "Bang Bang (My Baby Shot Me Down) (Live from Jazz At Lincoln Center)",
-    "subtitle": "Lady Gaga",
-    "durationText": "4:30",
-    "thumbnail": "https://i.ytimg.com/vi/-huNrHAou-E/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "VronettmNRI",
-    "videoId": "VronettmNRI",
-    "title": "Ariana Grande - Positions Album Official Live Performances",
-    "subtitle": "Ariana Grande",
-    "durationText": "22:02",
-    "thumbnail": "https://i.ytimg.com/vi/VronettmNRI/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "LkZLKPwelRs",
-    "videoId": "LkZLKPwelRs",
-    "title": "Norah Jones - I Just Wanna Dance (Live Performance) | Vevo",
-    "subtitle": "Norah Jones",
-    "durationText": "3:40",
-    "thumbnail": "https://i.ytimg.com/vi/LkZLKPwelRs/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "tO4dxvguQDk",
-    "videoId": "tO4dxvguQDk",
-    "title": "Norah Jones - Don't Know Why",
-    "subtitle": "Norah Jones",
-    "durationText": "3:03",
-    "thumbnail": "https://i.ytimg.com/vi/tO4dxvguQDk/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "B9kDbQH4Y_k",
-    "videoId": "B9kDbQH4Y_k",
-    "title": "Ariana Grande - Leave Me Lonely (Vevo Presents)",
-    "subtitle": "Ariana Grande",
-    "durationText": "3:18",
-    "thumbnail": "https://i.ytimg.com/vi/B9kDbQH4Y_k/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "bixuI_GV5I0",
-    "videoId": "bixuI_GV5I0",
-    "title": "Mark Ronson ft. Amy Winehouse - Valerie (Official Video)",
-    "subtitle": "Mark Ronson",
-    "durationText": "4:41",
-    "thumbnail": "https://i.ytimg.com/vi/bixuI_GV5I0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "dlrZ9D2V08Q",
-    "videoId": "dlrZ9D2V08Q",
-    "title": "Tony Bennett - The Very Thought Of You (from Viva Duets) ft. Ana Carolina",
-    "subtitle": "Tony Bennett",
-    "durationText": "4:03",
-    "thumbnail": "https://i.ytimg.com/vi/dlrZ9D2V08Q/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "wSYgRwiZgx0",
-    "videoId": "wSYgRwiZgx0",
-    "title": "Tori Kelly - missin u - r&b edit (Live Performance) | Vevo",
-    "subtitle": "Tori Kelly",
-    "durationText": "3:27",
-    "thumbnail": "https://i.ytimg.com/vi/wSYgRwiZgx0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "-YTgFUNwRKk",
-    "videoId": "-YTgFUNwRKk",
-    "title": "The Weeknd - In Your Eyes ft. Kenny G (Official Live Performance) | Vevo",
-    "subtitle": "The Weeknd",
-    "durationText": "4:16",
-    "thumbnail": "https://i.ytimg.com/vi/-YTgFUNwRKk/hqdefault.jpg",
+    "id": "GxldQ9eX2wo",
+    "videoId": "GxldQ9eX2wo",
+    "title": "Stephen Sanchez - Until I Found You (Official Video)",
+    "subtitle": "Stephen Sanchez",
+    "durationText": "2:56",
+    "thumbnail": "https://i.ytimg.com/vi/GxldQ9eX2wo/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -360,21 +99,21 @@
     "album": "YouTube"
   },
   {
-    "id": "kcPc18SG6uA",
-    "videoId": "kcPc18SG6uA",
-    "title": "Sade - The Sweetest Taboo - Official - 1985",
-    "subtitle": "Sade",
-    "durationText": "5:03",
-    "thumbnail": "https://i.ytimg.com/vi/kcPc18SG6uA/hqdefault.jpg",
+    "id": "rfNBNBJKy3I",
+    "videoId": "rfNBNBJKy3I",
+    "title": "Norah Jones, John Legend - Summertime Blue | Live From Vevo Studios",
+    "subtitle": "Norah Jones",
+    "durationText": "3:24",
+    "thumbnail": "https://i.ytimg.com/vi/rfNBNBJKy3I/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "rBrd_3VMC3c",
-    "videoId": "rBrd_3VMC3c",
-    "title": "Louis Armstrong - What A Wonderful World (Official Video)",
-    "subtitle": "Louis Armstrong",
-    "durationText": "2:19",
-    "thumbnail": "https://i.ytimg.com/vi/rBrd_3VMC3c/hqdefault.jpg",
+    "id": "-YTgFUNwRKk",
+    "videoId": "-YTgFUNwRKk",
+    "title": "The Weeknd - In Your Eyes ft. Kenny G (Official Live Performance) | Vevo",
+    "subtitle": "The Weeknd",
+    "durationText": "4:16",
+    "thumbnail": "https://i.ytimg.com/vi/-YTgFUNwRKk/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -387,30 +126,147 @@
     "album": "YouTube"
   },
   {
-    "id": "v_PEDuyTBOo",
-    "videoId": "v_PEDuyTBOo",
-    "title": "Tom Odell - Vevo Presents: Tom Odell – Live at Spiegelsaal, Berlin",
-    "subtitle": "Tom Odell",
-    "durationText": "35:44",
-    "thumbnail": "https://i.ytimg.com/vi/v_PEDuyTBOo/hqdefault.jpg",
+    "id": "fyaI4-5849w",
+    "videoId": "fyaI4-5849w",
+    "title": "DJ Khaled - Wild Thoughts (Official Video) ft. Rihanna, Bryson Tiller",
+    "subtitle": "DJ Khaled",
+    "durationText": "3:36",
+    "thumbnail": "https://i.ytimg.com/vi/fyaI4-5849w/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "OOO4ROO_sPM",
-    "videoId": "OOO4ROO_sPM",
-    "title": "Kenny G - Forever In Love (Offiical Video)",
-    "subtitle": "Kenny G",
-    "durationText": "4:08",
-    "thumbnail": "https://i.ytimg.com/vi/OOO4ROO_sPM/hqdefault.jpg",
+    "id": "vk6014HuxcE",
+    "videoId": "vk6014HuxcE",
+    "title": "JAŸ-Z - Empire State Of Mind ft. Alicia Keys",
+    "subtitle": "JAŸ-Z",
+    "durationText": "4:42",
+    "thumbnail": "https://i.ytimg.com/vi/vk6014HuxcE/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "y29eTcRFEl8",
-    "videoId": "y29eTcRFEl8",
-    "title": "Jessie J - Mamma Knows Best (VEVO LIFT Presents)",
-    "subtitle": "Jessie J",
-    "durationText": "3:48",
-    "thumbnail": "https://i.ytimg.com/vi/y29eTcRFEl8/hqdefault.jpg",
+    "id": "ojdbDYahiCQ",
+    "videoId": "ojdbDYahiCQ",
+    "title": "Amy Winehouse - Tears Dry On Their Own",
+    "subtitle": "Amy Winehouse",
+    "durationText": "3:08",
+    "thumbnail": "https://i.ytimg.com/vi/ojdbDYahiCQ/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "CvBfHwUxHIk",
+    "videoId": "CvBfHwUxHIk",
+    "title": "Rihanna - Umbrella (Orange Version) (Official Music Video) ft. JAŸ-Z",
+    "subtitle": "Rihanna",
+    "durationText": "4:15",
+    "thumbnail": "https://i.ytimg.com/vi/CvBfHwUxHIk/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "tO4dxvguQDk",
+    "videoId": "tO4dxvguQDk",
+    "title": "Norah Jones - Don't Know Why",
+    "subtitle": "Norah Jones",
+    "durationText": "3:03",
+    "thumbnail": "https://i.ytimg.com/vi/tO4dxvguQDk/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "lSznl-RdEns",
+    "videoId": "lSznl-RdEns",
+    "title": "Jorja Smith - Where Did I Go? (Live) | Vevo UK LIFT",
+    "subtitle": "Jorja Smith",
+    "durationText": "3:47",
+    "thumbnail": "https://i.ytimg.com/vi/lSznl-RdEns/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "fLFvbwrWLQY",
+    "videoId": "fLFvbwrWLQY",
+    "title": "Ariana Grande - pov (Official Live Performance) | Vevo",
+    "subtitle": "Ariana Grande",
+    "durationText": "3:15",
+    "thumbnail": "https://i.ytimg.com/vi/fLFvbwrWLQY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Xa-MiSA0HvA",
+    "videoId": "Xa-MiSA0HvA",
+    "title": "Amy Winehouse - The Making of 'Tears Dry On Their Own' | Vevo Footnotes",
+    "subtitle": "Amy Winehouse",
+    "durationText": "3:11",
+    "thumbnail": "https://i.ytimg.com/vi/Xa-MiSA0HvA/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "E8GZkUUQeGk",
+    "videoId": "E8GZkUUQeGk",
+    "title": "Masego - Breathe | Vevo ctrl",
+    "subtitle": "Masego",
+    "durationText": "3:58",
+    "thumbnail": "https://i.ytimg.com/vi/E8GZkUUQeGk/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "NQ1eqKQJwtw",
+    "videoId": "NQ1eqKQJwtw",
+    "title": "Justin Bieber - Lonely (Official Live Performance) | Vevo",
+    "subtitle": "Justin Bieber",
+    "durationText": "2:48",
+    "thumbnail": "https://i.ytimg.com/vi/NQ1eqKQJwtw/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "vuhYSH36aSM",
+    "videoId": "vuhYSH36aSM",
+    "title": "Billie Eilish - Lost Cause (Official Live Performance) | Vevo",
+    "subtitle": "Billie Eilish",
+    "durationText": "3:34",
+    "thumbnail": "https://i.ytimg.com/vi/vuhYSH36aSM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "0hD-Z1q_ZyI",
+    "videoId": "0hD-Z1q_ZyI",
+    "title": "Doja Cat - Streets (Live Performance) | Vevo LIFT",
+    "subtitle": "Doja Cat",
+    "durationText": "3:52",
+    "thumbnail": "https://i.ytimg.com/vi/0hD-Z1q_ZyI/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "ViwtNLUqkMY",
+    "videoId": "ViwtNLUqkMY",
+    "title": "Beyoncé - Crazy In Love ft. JAY Z",
+    "subtitle": "Beyoncé",
+    "durationText": "3:57",
+    "thumbnail": "https://i.ytimg.com/vi/ViwtNLUqkMY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "KLVq0IAzh1A",
+    "videoId": "KLVq0IAzh1A",
+    "title": "Sting - Fields Of Gold",
+    "subtitle": "Sting",
+    "durationText": "3:38",
+    "thumbnail": "https://i.ytimg.com/vi/KLVq0IAzh1A/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "gLPh8J3cbhg",
+    "videoId": "gLPh8J3cbhg",
+    "title": "J Balvin - Azul (Official Live Performance) | Vevo",
+    "subtitle": "J Balvin",
+    "durationText": "3:32",
+    "thumbnail": "https://i.ytimg.com/vi/gLPh8J3cbhg/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "uL52DajINdY",
+    "videoId": "uL52DajINdY",
+    "title": "Ariana Grande - positions (Official Live Performance) | Vevo",
+    "subtitle": "Ariana Grande",
+    "durationText": "4:21",
+    "thumbnail": "https://i.ytimg.com/vi/uL52DajINdY/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -423,21 +279,39 @@
     "album": "YouTube"
   },
   {
-    "id": "_7HvURBhMGE",
-    "videoId": "_7HvURBhMGE",
-    "title": "Lady Gaga - Speechless (Live At The VEVO Launch Event)",
-    "subtitle": "Lady Gaga",
-    "durationText": "5:41",
-    "thumbnail": "https://i.ytimg.com/vi/_7HvURBhMGE/hqdefault.jpg",
+    "id": "p1JPKLa-Ofc",
+    "videoId": "p1JPKLa-Ofc",
+    "title": "Beyoncé - Drunk in Love (Explicit) ft. JAY Z",
+    "subtitle": "Beyoncé",
+    "durationText": "6:22",
+    "thumbnail": "https://i.ytimg.com/vi/p1JPKLa-Ofc/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "64v4uqv4yxE",
-    "videoId": "64v4uqv4yxE",
-    "title": "Ne-Yo - 2 Million Secrets | Live From Vevo Studios",
-    "subtitle": "NE-YO",
-    "durationText": "2:55",
-    "thumbnail": "https://i.ytimg.com/vi/64v4uqv4yxE/hqdefault.jpg",
+    "id": "ZSM3w1v-A_Y",
+    "videoId": "ZSM3w1v-A_Y",
+    "title": "Timbaland - Apologize ft. OneRepublic",
+    "subtitle": "Timbaland",
+    "durationText": "3:09",
+    "thumbnail": "https://i.ytimg.com/vi/ZSM3w1v-A_Y/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "PIh2xe4jnpk",
+    "videoId": "PIh2xe4jnpk",
+    "title": "MAGIC! - Rude (Official Video)",
+    "subtitle": "MAGIC!",
+    "durationText": "3:46",
+    "thumbnail": "https://i.ytimg.com/vi/PIh2xe4jnpk/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Sprpzd1BCHw",
+    "videoId": "Sprpzd1BCHw",
+    "title": "Harry Connick Jr. - (They Long to Be) Close to You (Official Video)",
+    "subtitle": "Harry Connick, Jr.",
+    "durationText": "3:17",
+    "thumbnail": "https://i.ytimg.com/vi/Sprpzd1BCHw/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -447,6 +321,132 @@
     "subtitle": "Norah Jones",
     "durationText": "4:45",
     "thumbnail": "https://i.ytimg.com/vi/ccxxBiSkCts/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "oRdxUFDoQe0",
+    "videoId": "oRdxUFDoQe0",
+    "title": "Michael Jackson - Beat It (Official 4K Video)",
+    "subtitle": "Michael Jackson",
+    "durationText": "4:59",
+    "thumbnail": "https://i.ytimg.com/vi/oRdxUFDoQe0/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "_2EWFYM-QgI",
+    "videoId": "_2EWFYM-QgI",
+    "title": "Tyla - SHE DID IT AGAIN | Vevo Official Live Performance",
+    "subtitle": "Tyla and Vevo",
+    "durationText": "2:40",
+    "thumbnail": "https://i.ytimg.com/vi/_2EWFYM-QgI/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "U9NEoHrkldM",
+    "videoId": "U9NEoHrkldM",
+    "title": "The 1975 - Somebody Else - (Vevo Presents: Live at The O2, London)",
+    "subtitle": "The 1975",
+    "durationText": "6:33",
+    "thumbnail": "https://i.ytimg.com/vi/U9NEoHrkldM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "pZuvdZgooqA",
+    "videoId": "pZuvdZgooqA",
+    "title": "Anne-Marie - 2002 (Live) | Vevo UK LIFT",
+    "subtitle": "Vevo",
+    "durationText": "3:13",
+    "thumbnail": "https://i.ytimg.com/vi/pZuvdZgooqA/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "I8FmEIf86i8",
+    "videoId": "I8FmEIf86i8",
+    "title": "Masego, Foggieraw - I Know You | Vevo ctrl",
+    "subtitle": "Masego",
+    "durationText": "3:08",
+    "thumbnail": "https://i.ytimg.com/vi/I8FmEIf86i8/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "dDIJBIZtTyM",
+    "videoId": "dDIJBIZtTyM",
+    "title": "Ariana Grande - 34+35 (Official Live Performance) | Vevo",
+    "subtitle": "Ariana Grande",
+    "durationText": "3:05",
+    "thumbnail": "https://i.ytimg.com/vi/dDIJBIZtTyM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "ru38JS6uaxM",
+    "videoId": "ru38JS6uaxM",
+    "title": "Jon Batiste - Freedom (Live Performance) | Vevo",
+    "subtitle": "Jon Batiste",
+    "durationText": "3:23",
+    "thumbnail": "https://i.ytimg.com/vi/ru38JS6uaxM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "cbyr07EpjU0",
+    "videoId": "cbyr07EpjU0",
+    "title": "Samara Joy - Social Call (Live Performance) | Vevo",
+    "subtitle": "Samara Joy",
+    "durationText": "3:40",
+    "thumbnail": "https://i.ytimg.com/vi/cbyr07EpjU0/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Ft0GFsNtlRw",
+    "videoId": "Ft0GFsNtlRw",
+    "title": "Ezra Collective - Ajala (Live Performance) | Vevo",
+    "subtitle": "Ezra Collective",
+    "durationText": "3:43",
+    "thumbnail": "https://i.ytimg.com/vi/Ft0GFsNtlRw/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "ftGQLvUwzjY",
+    "videoId": "ftGQLvUwzjY",
+    "title": "John Legend - Vevo Go Shows: All Of Me",
+    "subtitle": "John Legend",
+    "durationText": "6:03",
+    "thumbnail": "https://i.ytimg.com/vi/ftGQLvUwzjY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "zGJHB5are8U",
+    "videoId": "zGJHB5are8U",
+    "title": "Ezra Collective - Palm Wine (Live) | Vevo Studio Performance",
+    "subtitle": "Ezra Collective",
+    "durationText": "5:53",
+    "thumbnail": "https://i.ytimg.com/vi/zGJHB5are8U/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "LRYL-tIGsYc",
+    "videoId": "LRYL-tIGsYc",
+    "title": "NIKI - Blue Moon | Live From Vevo Studios",
+    "subtitle": "NIKI",
+    "durationText": "3:50",
+    "thumbnail": "https://i.ytimg.com/vi/LRYL-tIGsYc/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "p-HeG-6Lfmw",
+    "videoId": "p-HeG-6Lfmw",
+    "title": "Jon Batiste - \"Higher\" Live Performance | Vevo",
+    "subtitle": "Jon Batiste",
+    "durationText": "3:23",
+    "thumbnail": "https://i.ytimg.com/vi/p-HeG-6Lfmw/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "tMqpkG9HYr0",
+    "videoId": "tMqpkG9HYr0",
+    "title": "Ayra Starr - Rush (Live) | Vevo DSCVR Artists to Watch 2023",
+    "subtitle": "Ayra Starr",
+    "durationText": "4:12",
+    "thumbnail": "https://i.ytimg.com/vi/tMqpkG9HYr0/hqdefault.jpg",
     "album": "YouTube"
   }
 ]

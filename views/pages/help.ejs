@@ -215,16 +215,16 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📺 ANALISA TV</h1>
+            <h1>📺 THE-FRAME TV</h1>
             <p class="subtitle">Your Interactive Entertainment Hub</p>
         </div>
 
         <!-- WELCOME SECTION -->
         <div class="section">
             <h2><span class="icon">👋</span> Welcome!</h2>
-            <p>Welcome to Analisa TV - your all-in-one entertainment system for Second Life! This interactive TV gives you access to YouTube videos, music, movies, live streams, games, and much more, all synchronized with other viewers in the same room.</p>
+            <p>Welcome to THE-FRAME TV - your all-in-one entertainment system for Second Life! This interactive TV gives you access to YouTube videos, music, movies, live streams, games, and much more, all synchronized with other viewers in the same room.</p>
             <div class="tip-box">
-                <strong>💡 First Time Here?</strong> Just click the TV screen to start exploring! The menu is simple and intuitive - everything you need is one click away.
+                <strong>💡 First Time Here?</strong> Just click the TV power button to start exploring! The menu is simple and intuitive - everything you need is one click away.
             </div>
         </div>
 
@@ -234,7 +234,7 @@
             
             <h3>Getting Started</h3>
             <ol class="step-list">
-                <li><strong>Click the TV screen</strong> - This opens the main menu in your browser</li>
+                <li><strong>Click the Power On Button</strong> - This opens the main menu in your browser</li>
                 <li><strong>Choose what you want to watch</strong> - Select from the menu options (YouTube, Music, Movies, etc.)</li>
                 <li><strong>Enjoy!</strong> - The content plays on the TV screen for everyone in the room</li>
             </ol>
@@ -432,7 +432,349 @@
         <div class="section" style="text-align: center; border: none; background: transparent;">
             <p style="color: #666; font-size: 0.85rem;">
                 Analisa TV System<br>
-                Powered by Socket.IO • Built for Second Life<br>
+                Powered by Socket.IO • Built for Second Life<br<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisa TV - Help & Instructions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            color: #f0f0f0;
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            overflow: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #daa520 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            background: rgba(28, 28, 38, 0.9);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            border-color: rgba(218, 165, 32, 0.4);
+            background: rgba(28, 28, 38, 0.8);
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #daa520;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2 .icon {
+            font-size: 2rem;
+        }
+
+        h3 {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: rgba(10, 10, 15, 0.6);
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #daa520;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(218, 165, 32, 0.2);
+        }
+
+        .feature-card h4 {
+            color: #daa520;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin: 0;
+        }
+
+        .tip-box {
+            background: rgba(218, 165, 32, 0.1);
+            border-left: 4px solid #daa520;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .tip-box strong {
+            color: #ffd700;
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+            margin: 1.5rem 0;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1.5rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+            color: #0a0a0f;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            color: #ffd700;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer {
+            color: #aaa;
+            padding-left: 1.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(218, 165, 32, 0.2);
+            color: #daa520;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+            border: 1px solid rgba(218, 165, 32, 0.3);
+        }
+
+        .warning {
+            background: rgba(255, 85, 85, 0.1);
+            border-left: 4px solid #ff5555;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            color: #ffaaaa;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.4rem; }
+            .container { padding: 1rem; }
+            .section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📺 ANALISA TV</h1>
+            <p class="subtitle">Your Interactive Multi-Room Entertainment Hub</p>
+        </div>
+
+        <!-- WELCOME SECTION -->
+        <div class="section">
+            <h2><span class="icon">👋</span> Welcome!</h2>
+            <p>Welcome to Analisa TV - your all-in-one interactive media and entertainment center for Second Life! Stream YouTube videos, listen to drop-free proxy radio stations, share live gameplay via WebRTC, display Flickr galleries, and play real-time socket multiplayer games with friends in your parcel.</p>
+            <div class="tip-box">
+                <strong>💡 First Time Here?</strong> Simply click the TV screen in Second Life to establish an LSL Handshake and launch the UI!
+            </div>
+        </div>
+
+        <!-- HOW TO USE -->
+        <div class="section">
+            <h2><span class="icon">🎮</span> How to Use</h2>
+            
+            <h3>Getting Started</h3>
+            <ol class="step-list">
+                <li><strong>Click the TV Prim</strong>Initiates the secure LSL Handshake and loads the main system menu.</li>
+                <li><strong>Select Media or Game Mode</strong>Pick from YouTube, Music, Radio, WebRTC Streaming, Flickr, or Multiplayer Games.</li>
+                <li><strong>Enjoy Synchronized Playback</strong>Content streams seamlessly and synchronizes in real time for everyone in the room.</li>
+            </ol>
+
+            <h3>Multi-Room State Synchronization</h3>
+            <p>Powered by Socket.IO, when someone changes a song, video, or starts a multiplayer game round, <strong>everyone connected to that room sees the exact same state in real time</strong>.</p>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Neighboring parcels are isolated into separate channels so your playback won't interfere with adjacent land!
+            </div>
+        </div>
+
+        <!-- AVAILABLE FEATURES -->
+        <div class="section">
+            <h2><span class="icon">✨</span> What's Available</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📺 YouTube & Music</h4>
+                    <p>Search keyword tags, paste video URLs, or enter Channel IDs to stream videos & music.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📻 Radio Proxy</h4>
+                    <p>High-quality Shoutcast & Icecast streams proxied to eliminate HTTPS/Mixed-Content drops.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📡 WebRTC Game Stream</h4>
+                    <p>Low-latency peer-to-peer screen share to broadcast your PC or games directly to the TV screen.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🕹️ Socket Multiplayer Games</h4>
+                    <p>Play interactive games: Quiz Trivia, True/Myth, Who Am I?, This or That, and Chess!</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📸 Flickr Explorer</h4>
+                    <p>Search tags, inspect User/Group IDs, and set photos as TV wallpaper backgrounds.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🗺️ Second Life Guides</h4>
+                    <p>Explore Destination Guides, receive direct teleport SLURLs in chat, and browse Freebies/Hunts.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🔒 Protected Access</h4>
+                    <p>Password-protected access for adult/restricted content (Default pass: slxxx).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIPS & TRICKS -->
+        <div class="section">
+            <h2><span class="icon">💡</span> Tips & Tricks</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">🎯 Viewer Setup & Sound Preferences</div>
+                <div class="faq-answer">In Firestorm, navigate to <strong>Preferences → Sound & Media → Media</strong> and enable:
+                    <br>• Media Auto-Play
+                    <br>• Allow Inworld Scripts to Play Media
+                    <br>• Play Media Attached to Other Avatars
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">🔊 No Sound or Stream Interrupted?</div>
+                <div class="faq-answer">Ensure media is unmuted in your viewer top toolbar. If audio drops, our Node.js server automatically proxies audio streams to prevent HTTPS mixed-content blockages.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">⚡ Out of Sync with Room Viewers?</div>
+                <div class="faq-answer">Hover at the top edge of the TV screen and click the 'Back' or 'Sync' button to realign your Socket.IO connection.</div>
+            </div>
+        </div>
+
+        <!-- TECHNICAL INFO -->
+        <div class="section">
+            <h2><span class="icon">⚙️</span> Technical Information</h2>
+            
+            <h3>System Specs</h3>
+            <p>
+                <span class="badge">Resolution: 1280×720</span>
+                <span class="badge">Real-time Socket.IO Sync</span>
+                <span class="badge">Node.js Engine</span>
+                <span class="badge">WebRTC P2P</span>
+                <span class="badge">Anti-Hibernation System</span>
+            </p>
+
+            <h3>Second Life Viewers</h3>
+            <p>Fully compatible with Firestorm, Official Second Life Viewer, and all modern CEF/Chromium-based viewers supporting Media on a Prim (MOAP).</p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="section" style="text-align: center; border: none; background: transparent;">
+            <p style="color: #666; font-size: 0.85rem;">
+                Analisa TV Ecosystem<br>
+                Powered by Node.js & Socket.IO • Built for Second Life<br>
+                For support, contact pedrosilva2014 in-world! 🎬✨
+            </p>
+        </div>
+    </div>
+</body>
+</html>>
                 Enjoy your entertainment experience! 🎬✨
             </p>
         </div>

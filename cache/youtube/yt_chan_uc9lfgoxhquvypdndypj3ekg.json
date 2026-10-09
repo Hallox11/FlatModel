@@ -1,10 +1,17 @@
 [
   {
-    "videoId": "krjWZPdNa0A",
-    "title": "life @ 25 special = the making of an album (from the year 2000)",
+    "videoId": "b1GYkYwYvkE",
+    "title": "Saying goodbye to Rick Harsch in Izola",
     "channel": "Draxtor",
-    "thumbnail": "https://i.ytimg.com/vi/krjWZPdNa0A/hqdefault.jpg",
-    "duration": "PT4M44S"
+    "thumbnail": "https://i.ytimg.com/vi/b1GYkYwYvkE/hqdefault.jpg",
+    "duration": "PT3M53S"
+  },
+  {
+    "videoId": "eo5uJ8DKHl0",
+    "title": "Rick Harsch has left the building :(",
+    "channel": "Draxtor",
+    "thumbnail": "https://i.ytimg.com/vi/eo5uJ8DKHl0/hqdefault.jpg",
+    "duration": "PT11M50S"
   },
   {
     "videoId": "9imNFUoYub8",
@@ -39,7 +46,7 @@
     "title": "THIS CHANNEL IS GOING TO BE ON HIATUS ALL CAPS!",
     "channel": "Draxtor",
     "thumbnail": "https://i.ytimg.com/vi/SusPgm9IdFU/hqdefault.jpg",
-    "duration": "PT55M20S"
+    "duration": "PT55M21S"
   },
   {
     "videoId": "cP2D5iqTCJw",
@@ -341,12 +348,5 @@
     "channel": "Draxtor",
     "thumbnail": "https://i.ytimg.com/vi/-xhYl9cGF5o/hqdefault.jpg",
     "duration": "PT2H13M43S"
-  },
-  {
-    "videoId": "K0lLsnYDb0U",
-    "title": "The Second Life Book Club with Draxtor - Mike Watson",
-    "channel": "Draxtor",
-    "thumbnail": "https://i.ytimg.com/vi/K0lLsnYDb0U/hqdefault.jpg",
-    "duration": "PT1H22M49S"
   }
 ]

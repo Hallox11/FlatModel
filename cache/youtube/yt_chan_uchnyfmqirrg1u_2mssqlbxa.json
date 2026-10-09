@@ -1,5 +1,103 @@
 [
   {
+    "videoId": "IHkp5Kq72ro",
+    "title": "How Dangerous Are Non-Stick Pans?",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/IHkp5Kq72ro/hqdefault.jpg",
+    "duration": "PT1M41S"
+  },
+  {
+    "videoId": "ONAuUyml0yI",
+    "title": "We're trying something new...",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/ONAuUyml0yI/hqdefault.jpg",
+    "duration": "PT5M8S"
+  },
+  {
+    "videoId": "VKlulHwMxgU",
+    "title": "What happens to these balloons when you open the valve?",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/VKlulHwMxgU/hqdefault.jpg",
+    "duration": "PT1M34S"
+  },
+  {
+    "videoId": "JsBZOcqZerk",
+    "title": "The Insane Real Engineering of the Nazi Enigma Machine",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/JsBZOcqZerk/hqdefault.jpg",
+    "duration": "PT47M42S"
+  },
+  {
+    "videoId": "F5_G0AHfYhI",
+    "title": "A Physics Professor Bet Me $10,000 I'm Wrong...",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/F5_G0AHfYhI/hqdefault.jpg",
+    "duration": "PT1M31S"
+  },
+  {
+    "videoId": "5U-V0y-fkSw",
+    "title": "It's impossible to choose a number at random",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/5U-V0y-fkSw/hqdefault.jpg",
+    "duration": "PT1M41S"
+  },
+  {
+    "videoId": "J1WoNuemKOg",
+    "title": "We sent a camera to space to film the solar eclipse",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/J1WoNuemKOg/hqdefault.jpg",
+    "duration": "PT22M45S"
+  },
+  {
+    "videoId": "_1G8nrmBKeY",
+    "title": "How do submarines know where they are?",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/_1G8nrmBKeY/hqdefault.jpg",
+    "duration": "PT1M31S"
+  },
+  {
+    "videoId": "wt4p2oalmRY",
+    "title": "Is spider web really stronger than steel?",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/wt4p2oalmRY/hqdefault.jpg",
+    "duration": "PT26M58S"
+  },
+  {
+    "videoId": "tL9Lw250spc",
+    "title": "Why does every mammal get 1 billion heartbeats in their life?",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/tL9Lw250spc/hqdefault.jpg",
+    "duration": "PT35M32S"
+  },
+  {
+    "videoId": "2_VB-oc_pmk",
+    "title": "The Most Controversial Thought Experiment In Physics",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/2_VB-oc_pmk/hqdefault.jpg",
+    "duration": "PT1M43S"
+  },
+  {
+    "videoId": "RmHcX5oVzvs",
+    "title": "Why Waves Travel Faster At The Top",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/RmHcX5oVzvs/hqdefault.jpg",
+    "duration": "PT1M58S"
+  },
+  {
+    "videoId": "GK2pZ_oVU1o",
+    "title": "The Scariest Chart in Electrical Engineering",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/GK2pZ_oVU1o/hqdefault.jpg",
+    "duration": "PT39M44S"
+  },
+  {
+    "videoId": "Xhl5TzKZbpw",
+    "title": "AD - Why are plants colder than their surroundings?",
+    "channel": "Veritasium",
+    "thumbnail": "https://i.ytimg.com/vi/Xhl5TzKZbpw/hqdefault.jpg",
+    "duration": "PT2M40S"
+  },
+  {
     "videoId": "dquI8khH1Zk",
     "title": "AD - Why do I get this spark when I unplug my hair dryer?",
     "channel": "Veritasium",
@@ -113,7 +211,7 @@
   },
   {
     "videoId": "9szhjhO9epA",
-    "title": "Making A Giant Zipper To Explain How They Work",
+    "title": "We Made A Giant Zipper To Explain How It Works",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/9szhjhO9epA/hqdefault.jpg",
     "duration": "PT20M45S"
@@ -127,7 +225,7 @@
   },
   {
     "videoId": "aoag03mSuXQ",
-    "title": "The Internet Was Weeks Away From Disaster and No One Knew",
+    "title": "The Internet Was Weeks Away From Disaster And No One Knew",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/aoag03mSuXQ/hqdefault.jpg",
     "duration": "PT53M"
@@ -141,7 +239,7 @@
   },
   {
     "videoId": "cMx139eTxoc",
-    "title": "The asbestos problem is worse than we thought",
+    "title": "What does asbestos do to a person?",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/cMx139eTxoc/hqdefault.jpg",
     "duration": "PT54M46S"
@@ -162,7 +260,7 @@
   },
   {
     "videoId": "XKSjCOKDtpk",
-    "title": "The Tiny Donut That Proved We Still Don't Understand Magnetism",
+    "title": "Do we know how magnets work yet?",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/XKSjCOKDtpk/hqdefault.jpg",
     "duration": "PT35M53S"
@@ -176,7 +274,7 @@
   },
   {
     "videoId": "MiUHjLxm3V0",
-    "title": "The World's Most Important Machine",
+    "title": "The Closest Thing We Have to Alien Technology",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/MiUHjLxm3V0/hqdefault.jpg",
     "duration": "PT55M"
@@ -204,7 +302,7 @@
   },
   {
     "videoId": "Y-W-w8yNiKU",
-    "title": "Weird Things Happen When Energy Goes Negative",
+    "title": "Why is there antimatter?",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/Y-W-w8yNiKU/hqdefault.jpg",
     "duration": "PT35M23S"
@@ -218,14 +316,14 @@
   },
   {
     "videoId": "HBluLfX2F_k",
-    "title": "You've (Likely) Been Playing The Game of Life Wrong",
+    "title": "You've (Likely) Been Playing The Game Of Life Wrong",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/HBluLfX2F_k/hqdefault.jpg",
     "duration": "PT45M13S"
   },
   {
     "videoId": "QtxVdC7pBQM",
-    "title": "The Ridiculous Engineering of Jet Engines",
+    "title": "The Ridiculous Engineering Of Jet Engines",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/QtxVdC7pBQM/hqdefault.jpg",
     "duration": "PT39M34S"
@@ -246,107 +344,9 @@
   },
   {
     "videoId": "XX7PdJIGiCw",
-    "title": "The Most Controversial Idea in Biology",
+    "title": "The Most Controversial Idea In Biology",
     "channel": "Veritasium",
     "thumbnail": "https://i.ytimg.com/vi/XX7PdJIGiCw/hqdefault.jpg",
     "duration": "PT28M50S"
-  },
-  {
-    "videoId": "h830G5mkTF4",
-    "title": "How To Solve a Quadratic Equation",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/h830G5mkTF4/hqdefault.jpg",
-    "duration": "PT2M34S"
-  },
-  {
-    "videoId": "S7xvqDUPoJo",
-    "title": "Renting A Helicopter To Settle A Physics Debate",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/S7xvqDUPoJo/hqdefault.jpg",
-    "duration": "PT1M34S"
-  },
-  {
-    "videoId": "CYlon2tvywA",
-    "title": "Can you really reach anyone in 6 steps?",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/CYlon2tvywA/hqdefault.jpg",
-    "duration": "PT33M17S"
-  },
-  {
-    "videoId": "onr80iOoEXs",
-    "title": "The Man Who Fooled The World",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/onr80iOoEXs/hqdefault.jpg",
-    "duration": "PT46M9S"
-  },
-  {
-    "videoId": "q6WlXhtVvkg",
-    "title": "How to solve any maze",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/q6WlXhtVvkg/hqdefault.jpg",
-    "duration": "PT2M56S"
-  },
-  {
-    "videoId": "b8XVCsXyIZs",
-    "title": "What Happens When You Spin a Football?",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/b8XVCsXyIZs/hqdefault.jpg",
-    "duration": "PT1M58S"
-  },
-  {
-    "videoId": "tZ8ehplVFp4",
-    "title": "Why Do Escalator Steps Have Teeth?",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/tZ8ehplVFp4/hqdefault.jpg",
-    "duration": "PT22M18S"
-  },
-  {
-    "videoId": "CxVXvFOPIyQ",
-    "title": "Exposing Why Farmers Can't Legally Replant Their Own Seeds",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/CxVXvFOPIyQ/hqdefault.jpg",
-    "duration": "PT46M59S"
-  },
-  {
-    "videoId": "OW9Mq3wrEqY",
-    "title": "How aerogel can make the ocean drinkable",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/OW9Mq3wrEqY/hqdefault.jpg",
-    "duration": "PT2M43S"
-  },
-  {
-    "videoId": "AFXLZ7FEJc4",
-    "title": "This is the natural disaster to worry about",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/AFXLZ7FEJc4/hqdefault.jpg",
-    "duration": "PT41M7S"
-  },
-  {
-    "videoId": "zQ2ZJuUJeyo",
-    "title": "Can you swim in shade balls?",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/zQ2ZJuUJeyo/hqdefault.jpg",
-    "duration": "PT2M28S"
-  },
-  {
-    "videoId": "AGglJehON5g",
-    "title": "The Perfect Battery Material Is Dangerous",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/AGglJehON5g/hqdefault.jpg",
-    "duration": "PT34M42S"
-  },
-  {
-    "videoId": "UKfnXd3x-rw",
-    "title": "The blue LED was almost impossible to make",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/UKfnXd3x-rw/hqdefault.jpg",
-    "duration": "PT1M43S"
-  },
-  {
-    "videoId": "KZeIEiBrT_w",
-    "title": "The Strange Math That Predicts (Almost) Anything",
-    "channel": "Veritasium",
-    "thumbnail": "https://i.ytimg.com/vi/KZeIEiBrT_w/hqdefault.jpg",
-    "duration": "PT32M32S"
   }
 ]

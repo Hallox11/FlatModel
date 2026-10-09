@@ -5,7 +5,7 @@
 
 #page-wrapper {
     width: 1050px;
-    padding: 45px;
+    padding: 45px 0px 20px 0px;
     background: radial-gradient(circle at center, rgba(20, 20, 20, 0.6), rgba(0, 0, 0, 0.5));
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -24,7 +24,19 @@
     color: white;
     text-transform: uppercase;
     letter-spacing: 7px;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+.page-footer {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    margin-bottom: 0px;
+     margin-top: 25px;
     opacity: 0.9;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.7);
 }
@@ -140,84 +152,84 @@
         <div class="feature-row">
             <div class="feature-btn" onclick="loadWithSpinner('/movies-grid?genre=2026 movies english hollywood&menu=/movies-menu&title=Mix movies Search')">MIX SEARCH</div>
             <div class="feature-btn" onclick="loadWithSpinner('/movies-grid?genre=movie trailers&menu=/movies-menu&title= Movie Trailers')">TRAILERS</div>
-            <div class="feature-btn" onclick="loadWithSpinner('/youtube-grid?genre=UCGBzBkV-MinlBvHBzZawfLQ&isChannel=true&menu=/youtube-menu&title=Movie Central Movies')">MOVIE CENTRAL</div>
-        </div>
-
-        <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=UCa-U9IwHcs8_CSf6si6h_3Q&isChannel=true&menu=/movies-menu&title=Majestic Movies')">
-            <div class="main-btn-txt">Majestic</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">POPCORNFLIX</span>
-        </div>
-
-        <div class="btn-group yt-amber" onclick="loadWithSpinner('/youtube-grid?genre=UCPPPrnT5080hPMxK1N4QSjA&isChannel=true&menu=/movies-menu')">
-            <div class="main-btn-txt">V Movies</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=PL9kKQ7xjE8HNy65gqpXWsc_jCn6wRjyxa&isPlaylist=true&menu=/movies-menu')">Lists</span>
-        </div>
-
-        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">
-            <div class="main-btn-txt">POPCORNFLIX</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=retro movies list&menu=/movies-menu')">VIEW LISTS</span>
-        </div>
-
-        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=UCGADft_i4N1U5nXlfr2424A&isChannel=true&menu=/movies-menu')">
-            <div class="main-btn-txt">BOXOFFICE</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=western classic movies&menu=/movies-menu')">CLASSIC</span>
-        </div>
-
-        <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=UCSBhm8415diORi1meGxF_Qw&isChannel=true&menu=/movies-menu')">
-            <div class="main-btn-txt">Cine Pulse</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=mr bean comedy&menu=/movies-menu')">MR. BEAN</span>
-        </div>
-
-        <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=UC6A_LC-A5NVJ2vw9A0OjCug&isChannel=true&menu=/movies-menu')">
-            <div class="main-btn-txt">THE MIDNIGHT</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">POPCORNFLIX</span>
-        </div>
-
-        <div class="btn-group yt-amber" onclick="loadWithSpinner('/youtube-grid?genre=UCyU7b4ESe1cPG-y-CR-tolw&isChannel=true&menu=/movies-menu')">
-            <div class="main-btn-txt">APEX Movies</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=PL9kKQ7xjE8HNy65gqpXWsc_jCn6wRjyxa&isPlaylist=true&menu=/movies-menu')">Lists</span>
-        </div>
-
-        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=retro movies&menu=/movies-menu')">
-            <div class="main-btn-txt">Retro</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=retro movies list&menu=/movies-menu')">VIEW LISTS</span>
-        </div>
-
-        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=western movies&menu=/movies-menu')">
-            <div class="main-btn-txt">Western</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=western classic movies&menu=/movies-menu')">CLASSIC</span>
-        </div>
-
-        <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=comedy movies&menu=/movies-menu')">
-            <div class="main-btn-txt">Comedy</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=mr bean comedy&menu=/movies-menu')">MR. BEAN</span>
-        </div>
-
-        <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=pink panther&menu=/movies-menu')">
-            <div class="main-btn-txt">Pink Panther</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=cartoons&menu=/movies-menu')">CARTOONS</span>
-        </div>
-
-        <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=warner kids&menu=/movies-menu')">
-            <div class="main-btn-txt">Warner Kids</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=kids movies&menu=/movies-menu')">KIDS LISTS</span>
+            <div class="feature-btn" onclick="loadWithSpinner('/youtube-grid?genre=UCGBzBkV-MinlBvHBzZawfLQ&isChannel=true&menu=/movies-menu&title=Movie Central Movies')">MOVIE CENTRAL</div>
         </div>
 
         <div class="btn-group yt-red" onclick="loadWithSpinner('/movies-grid?genre=thriller movies&menu=/movies-menu')">
             <div class="main-btn-txt">THRILLERS</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=classics thriller movies&menu=/movies-menu')">CLASSICS</span>
         </div>
 
-        <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=action movies&menu=/movies-menu')">
+                <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=action movies&menu=/movies-menu')">
             <div class="main-btn-txt">Action</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=thriller movies&menu=/movies-menu')">THRILLERS</span>
         </div>
 
         <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=scifi movies&menu=/movies-menu')">
             <div class="main-btn-txt">Sci-Fi</div>
-            <span class="sub-btn-group" onclick="event.stopPropagation(); loadWithSpinner('/movies-grid?genre=scifi classic movies&menu=/movies-menu')">CLASSICS</span>
         </div>
+
+        <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=scifi movies&menu=/movies-menu')">
+            <div class="main-btn-txt">Drama</div>
+        </div>
+
+        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=comedy movies&menu=/movies-menu')">
+            <div class="main-btn-txt">Comedy</div>
+        </div>
+
+
+
+
+
+
+        <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=UCa-U9IwHcs8_CSf6si6h_3Q&isChannel=true&menu=/movies-menu&title=Majestic Movies')">
+            <div class="main-btn-txt">Majestic</div>
+        </div>
+
+        <div class="btn-group yt-purple" onclick="loadWithSpinner('/youtube-grid?genre=UCPPPrnT5080hPMxK1N4QSjA&isChannel=true&menu=/movies-menu')">
+            <div class="main-btn-txt">V Movies</div>
+        </div>
+
+        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=UCVFYikepF-avelvuIaQ_lHA&isChannel=true&menu=/movies-menu')">
+            <div class="main-btn-txt">POPCORNFLIX</div>
+        </div>
+
+        <div class="btn-group yt-red" onclick="loadWithSpinner('/movies-grid?genre=UCGADft_i4N1U5nXlfr2424A&isChannel=true&menu=/movies-menu')">
+            <div class="main-btn-txt">BOXOFFICE</div>
+        </div>
+
+        <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=UCSBhm8415diORi1meGxF_Qw&isChannel=true&menu=/movies-menu')">
+            <div class="main-btn-txt">Cine Pulse</div>
+        </div>
+
+        <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=UC6A_LC-A5NVJ2vw9A0OjCug&isChannel=true&menu=/movies-menu')">
+            <div class="main-btn-txt">THE MIDNIGHT</div>
+        </div>
+
+
+        <div class="btn-group yt-red" onclick="loadWithSpinner('/movies-grid?genre=retro movies&menu=/movies-menu')">
+            <div class="main-btn-txt">Retro</div>
+        </div>
+
+        <div class="btn-group yt-amber" onclick="loadWithSpinner('/movies-grid?genre=western movies&menu=/movies-menu')">
+            <div class="main-btn-txt">Western</div>
+        </div>
+
+
+
+        <div class="btn-group yt-cyan" onclick="loadWithSpinner('/movies-grid?genre=pink panther&menu=/movies-menu')">
+            <div class="main-btn-txt">Pink Panther</div>
+        </div>
+
+        <div class="btn-group yt-purple" onclick="loadWithSpinner('/movies-grid?genre=warner kids&menu=/movies-menu')">
+            <div class="main-btn-txt">Warner Kids</div>
+        </div>
+
+
+
+
+
+
     </div>
+                <div class="page-footer">we dont stream copyright movies</div>
 </div>
 
 <script>

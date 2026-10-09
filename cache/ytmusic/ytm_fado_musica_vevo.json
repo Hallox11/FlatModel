@@ -1,38 +1,20 @@
 [
   {
-    "id": "NZKxFWJyynY",
-    "videoId": "NZKxFWJyynY",
-    "title": "Sara Correia - Chelas",
-    "subtitle": "Sara Correia",
-    "durationText": "3:49",
-    "thumbnail": "https://i.ytimg.com/vi/NZKxFWJyynY/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "TZurR7xGk4c",
-    "videoId": "TZurR7xGk4c",
-    "title": "Ana Moura - Desfado (Ao Vivo)",
-    "subtitle": "Ana Moura",
-    "durationText": "4:31",
-    "thumbnail": "https://i.ytimg.com/vi/TZurR7xGk4c/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "g4VqkkUqx4c",
-    "videoId": "g4VqkkUqx4c",
-    "title": "Calema, Sara Correia - Respirar",
-    "subtitle": "Calema",
-    "durationText": "4:11",
-    "thumbnail": "https://i.ytimg.com/vi/g4VqkkUqx4c/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
     "id": "DZAzhEOkpN8",
     "videoId": "DZAzhEOkpN8",
     "title": "Raquel Tavares - Meu Amor de Longe",
     "subtitle": "RaquelTavaresVEVO",
     "durationText": "3:10",
     "thumbnail": "https://i.ytimg.com/vi/DZAzhEOkpN8/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "84mQWDyAALM",
+    "videoId": "84mQWDyAALM",
+    "title": "Ana Moura - Fado Dançado (Ao Vivo)",
+    "subtitle": "Ana Moura",
+    "durationText": "2:40",
+    "thumbnail": "https://i.ytimg.com/vi/84mQWDyAALM/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -48,90 +30,45 @@
     "id": "93fmKniPP8k",
     "videoId": "93fmKniPP8k",
     "title": "Fado Playlist 1 Hour | Traditional Lisbon Fado + Modern Fado Fusion  🇵🇹",
-    "subtitle": "DJ Jake Bennett World Music ",
+    "subtitle": "Jake Bennett — Curador do Fado",
     "durationText": "39:32",
     "thumbnail": "https://i.ytimg.com/vi/93fmKniPP8k/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "qhwx6k9cLJ8",
-    "videoId": "qhwx6k9cLJ8",
-    "title": "TOP 10 IA Tuga 2025 | The Most Listened-To Portuguese Songs of the Year",
-    "subtitle": "IA Tuga",
-    "durationText": "40:54",
-    "thumbnail": "https://i.ytimg.com/vi/qhwx6k9cLJ8/hqdefault.jpg",
+    "id": "S2Ip-uUhaoI",
+    "videoId": "S2Ip-uUhaoI",
+    "title": "Mariza - Gente Da Minha Terra ao vivo em Lisboa",
+    "subtitle": "Mariza",
+    "durationText": "7:19",
+    "thumbnail": "https://i.ytimg.com/vi/S2Ip-uUhaoI/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "5Xb9p642fTc",
-    "videoId": "5Xb9p642fTc",
-    "title": "Ana Moura - Fado Vestido De Fado",
-    "subtitle": "Ana Moura",
-    "durationText": "2:38",
-    "thumbnail": "https://i.ytimg.com/vi/5Xb9p642fTc/hqdefault.jpg",
+    "id": "2UDZH_Htpq8",
+    "videoId": "2UDZH_Htpq8",
+    "title": "Mariza - Melhor de Mim",
+    "subtitle": "Mariza",
+    "durationText": "4:06",
+    "thumbnail": "https://i.ytimg.com/vi/2UDZH_Htpq8/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "84mQWDyAALM",
-    "videoId": "84mQWDyAALM",
-    "title": "Ana Moura - Fado Dançado (Ao Vivo)",
-    "subtitle": "Ana Moura",
-    "durationText": "2:40",
-    "thumbnail": "https://i.ytimg.com/vi/84mQWDyAALM/hqdefault.jpg",
+    "id": "IZNaWTqPydg",
+    "videoId": "IZNaWTqPydg",
+    "title": "Marco Rodrigues - Trigueirinha",
+    "subtitle": "Marco Rodrigues",
+    "durationText": "2:17",
+    "thumbnail": "https://i.ytimg.com/vi/IZNaWTqPydg/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "Pey1B0DPZj0",
-    "videoId": "Pey1B0DPZj0",
-    "title": "Ana Moura - O Meu Amor Foi Para o Brasil (Ao Vivo)",
-    "subtitle": "Ana Moura",
-    "durationText": "3:35",
-    "thumbnail": "https://i.ytimg.com/vi/Pey1B0DPZj0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "Q86lCtj1BYs",
-    "videoId": "Q86lCtj1BYs",
-    "title": "Matias Damasio - Loucos ft. Héber Marques (Video Oficial)",
-    "subtitle": "Matias Damasio Oficial",
-    "durationText": "4:27",
-    "thumbnail": "https://i.ytimg.com/vi/Q86lCtj1BYs/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "KjN0BoDO_Sw",
-    "videoId": "KjN0BoDO_Sw",
-    "title": "Ana Moura - Dia De Folga",
-    "subtitle": "Ana Moura",
-    "durationText": "2:38",
-    "thumbnail": "https://i.ytimg.com/vi/KjN0BoDO_Sw/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "TvIlfpOL6No",
-    "videoId": "TvIlfpOL6No",
-    "title": "Calema - Amar Pela Metade",
-    "subtitle": "Calema",
-    "durationText": "3:16",
-    "thumbnail": "https://i.ytimg.com/vi/TvIlfpOL6No/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "VrpFBT65n3Q",
-    "videoId": "VrpFBT65n3Q",
-    "title": "Anjos, Marco Rodrigues - Fado De Natal",
-    "subtitle": "Anjos",
-    "durationText": "2:56",
-    "thumbnail": "https://i.ytimg.com/vi/VrpFBT65n3Q/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "RxFgbNDf22s",
-    "videoId": "RxFgbNDf22s",
-    "title": "Carminho - Escrevi Teu Nome No Vento (IPMA Performance 2021)",
+    "id": "CEcXvJh3ChY",
+    "videoId": "CEcXvJh3ChY",
+    "title": "CARMINHO - CANÇÃO À AUSENTE",
     "subtitle": "Carminho",
-    "durationText": "3:23",
-    "thumbnail": "https://i.ytimg.com/vi/RxFgbNDf22s/hqdefault.jpg",
+    "durationText": "3:49",
+    "thumbnail": "https://i.ytimg.com/vi/CEcXvJh3ChY/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -144,21 +81,66 @@
     "album": "YouTube"
   },
   {
-    "id": "ImKY6TZEyrI",
-    "videoId": "ImKY6TZEyrI",
-    "title": "Mazzy Star - Fade Into You (Official Music Video)",
-    "subtitle": "Mazzy Star",
-    "durationText": "4:22",
-    "thumbnail": "https://i.ytimg.com/vi/ImKY6TZEyrI/hqdefault.jpg",
+    "id": "RxFgbNDf22s",
+    "videoId": "RxFgbNDf22s",
+    "title": "Carminho - Escrevi Teu Nome No Vento (IPMA Performance 2021)",
+    "subtitle": "Carminho",
+    "durationText": "3:23",
+    "thumbnail": "https://i.ytimg.com/vi/RxFgbNDf22s/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "k2cu0c_c7J0",
-    "videoId": "k2cu0c_c7J0",
-    "title": "Marco Rodrigues - Eu Sou Do Roque",
-    "subtitle": "Marco Rodrigues",
-    "durationText": "3:18",
-    "thumbnail": "https://i.ytimg.com/vi/k2cu0c_c7J0/hqdefault.jpg",
+    "id": "V3Nv93m20nI",
+    "videoId": "V3Nv93m20nI",
+    "title": "Ana Moura - Desfado (Audio)",
+    "subtitle": "Ana Moura",
+    "durationText": "2:36",
+    "thumbnail": "https://i.ytimg.com/vi/V3Nv93m20nI/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "KjN0BoDO_Sw",
+    "videoId": "KjN0BoDO_Sw",
+    "title": "Ana Moura - Dia De Folga",
+    "subtitle": "Ana Moura",
+    "durationText": "2:38",
+    "thumbnail": "https://i.ytimg.com/vi/KjN0BoDO_Sw/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "g4VqkkUqx4c",
+    "videoId": "g4VqkkUqx4c",
+    "title": "Calema, Sara Correia - Respirar",
+    "subtitle": "Calema",
+    "durationText": "4:11",
+    "thumbnail": "https://i.ytimg.com/vi/g4VqkkUqx4c/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "TZurR7xGk4c",
+    "videoId": "TZurR7xGk4c",
+    "title": "Ana Moura - Desfado (Ao Vivo)",
+    "subtitle": "Ana Moura",
+    "durationText": "4:31",
+    "thumbnail": "https://i.ytimg.com/vi/TZurR7xGk4c/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "LOECX3tiKtk",
+    "videoId": "LOECX3tiKtk",
+    "title": "Ana Moura - Caso Arrumado",
+    "subtitle": "Ana Moura",
+    "durationText": "2:40",
+    "thumbnail": "https://i.ytimg.com/vi/LOECX3tiKtk/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "NZKxFWJyynY",
+    "videoId": "NZKxFWJyynY",
+    "title": "Sara Correia - Chelas",
+    "subtitle": "Sara Correia",
+    "durationText": "3:49",
+    "thumbnail": "https://i.ytimg.com/vi/NZKxFWJyynY/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -180,39 +162,21 @@
     "album": "YouTube"
   },
   {
+    "id": "LXAhG77i-mA",
+    "videoId": "LXAhG77i-mA",
+    "title": "Marco Rodrigues, Aurea - Recomeço",
+    "subtitle": "Marco Rodrigues",
+    "durationText": "3:57",
+    "thumbnail": "https://i.ytimg.com/vi/LXAhG77i-mA/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
     "id": "-sze5rpbklM",
     "videoId": "-sze5rpbklM",
     "title": "MARIZA - Quem Me Dera [Official Music Video]",
     "subtitle": "Mariza",
     "durationText": "4:16",
     "thumbnail": "https://i.ytimg.com/vi/-sze5rpbklM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "tdQVKFn7MBY",
-    "videoId": "tdQVKFn7MBY",
-    "title": "FADO, pancitcanton - take me back to summer (ft Paul Pronda, Erin Devanadara) [Official Music Video]",
-    "subtitle": "FADO OFFICIAL",
-    "durationText": "5:22",
-    "thumbnail": "https://i.ytimg.com/vi/tdQVKFn7MBY/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "XYeZu_zw9Sg",
-    "videoId": "XYeZu_zw9Sg",
-    "title": "Ana Moura - Tens Os Olhos De Deus",
-    "subtitle": "Ana Moura",
-    "durationText": "5:30",
-    "thumbnail": "https://i.ytimg.com/vi/XYeZu_zw9Sg/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "hqwU7nv3hTM",
-    "videoId": "hqwU7nv3hTM",
-    "title": "The Avener, Phoebe Killdeer - Fade Out Lines (Official Music Video)",
-    "subtitle": "The Avener",
-    "durationText": "4:24",
-    "thumbnail": "https://i.ytimg.com/vi/hqwU7nv3hTM/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -225,192 +189,48 @@
     "album": "YouTube"
   },
   {
-    "id": "TjbHBjyZYRs",
-    "videoId": "TjbHBjyZYRs",
-    "title": "Sara Correia - Tour Liberdade (Ao Vivo no Coliseu do Porto)",
-    "subtitle": "Sara Correia",
-    "durationText": "1:49:15",
-    "thumbnail": "https://i.ytimg.com/vi/TjbHBjyZYRs/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "ChqwrvC6pe8",
-    "videoId": "ChqwrvC6pe8",
-    "title": "Cuca Roseta - Balelas",
-    "subtitle": "Cuca Roseta",
-    "durationText": "4:03",
-    "thumbnail": "https://i.ytimg.com/vi/ChqwrvC6pe8/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "G87BzzAuG-s",
-    "videoId": "G87BzzAuG-s",
-    "title": "Ana Moura - Não É Um Fado Normal",
-    "subtitle": "Ana Moura",
-    "durationText": "4:27",
-    "thumbnail": "https://i.ytimg.com/vi/G87BzzAuG-s/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "-Uzsy5w6hVU",
-    "videoId": "-Uzsy5w6hVU",
-    "title": "Katia Guerreiro - À Janela do Meu Peito",
-    "subtitle": "KatiaGuerreiroFado",
-    "durationText": "2:32",
-    "thumbnail": "https://i.ytimg.com/vi/-Uzsy5w6hVU/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "gfO9YQec-hY",
-    "videoId": "gfO9YQec-hY",
-    "title": "Sara Correia - Quero É Viver",
-    "subtitle": "Sara Correia",
-    "durationText": "4:29",
-    "thumbnail": "https://i.ytimg.com/vi/gfO9YQec-hY/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "8EFMojiDY2k",
-    "videoId": "8EFMojiDY2k",
-    "title": "Pablo Alborán - Perdóname (con Carminho)",
-    "subtitle": "Pablo Alborán",
-    "durationText": "4:16",
-    "thumbnail": "https://i.ytimg.com/vi/8EFMojiDY2k/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "IZNaWTqPydg",
-    "videoId": "IZNaWTqPydg",
-    "title": "Marco Rodrigues - Trigueirinha",
-    "subtitle": "Marco Rodrigues",
-    "durationText": "2:17",
-    "thumbnail": "https://i.ytimg.com/vi/IZNaWTqPydg/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "KQ6zr6kCPj8",
-    "videoId": "KQ6zr6kCPj8",
-    "title": "LMFAO - Party Rock Anthem ft. Lauren Bennett, GoonRock",
-    "subtitle": "LMFAOVEVO",
-    "durationText": "6:16",
-    "thumbnail": "https://i.ytimg.com/vi/KQ6zr6kCPj8/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "CEcXvJh3ChY",
-    "videoId": "CEcXvJh3ChY",
-    "title": "CARMINHO - CANÇÃO À AUSENTE",
-    "subtitle": "Carminho",
-    "durationText": "3:49",
-    "thumbnail": "https://i.ytimg.com/vi/CEcXvJh3ChY/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "pJouVU0jlH0",
-    "videoId": "pJouVU0jlH0",
-    "title": "Camané - Sei De Um Rio [Official Music Video]",
-    "subtitle": "Camané",
-    "durationText": "4:11",
-    "thumbnail": "https://i.ytimg.com/vi/pJouVU0jlH0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "LXAhG77i-mA",
-    "videoId": "LXAhG77i-mA",
-    "title": "Marco Rodrigues, Aurea - Recomeço",
-    "subtitle": "Marco Rodrigues",
-    "durationText": "3:57",
-    "thumbnail": "https://i.ytimg.com/vi/LXAhG77i-mA/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "Fd4ZdFZhJPg",
-    "videoId": "Fd4ZdFZhJPg",
-    "title": "CARMINHO - O quarto ( fado Menor ) - [Official Music Video]",
-    "subtitle": "Carminho",
-    "durationText": "2:28",
-    "thumbnail": "https://i.ytimg.com/vi/Fd4ZdFZhJPg/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "HxCifjkpnAc",
-    "videoId": "HxCifjkpnAc",
-    "title": "Carlos Do Carmo, Camané - Por Morrer Uma Andorinha",
-    "subtitle": "Carlos Do Carmo",
-    "durationText": "4:14",
-    "thumbnail": "https://i.ytimg.com/vi/HxCifjkpnAc/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "1NAf9MnrtmI",
-    "videoId": "1NAf9MnrtmI",
-    "title": "FADO, pancitcanton - take me back to summer (ft. Paul Pronda, Erin Devanadara) [Lyric Video]",
-    "subtitle": "FADO OFFICIAL",
-    "durationText": "4:41",
-    "thumbnail": "https://i.ytimg.com/vi/1NAf9MnrtmI/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "KQcsuzpFe8E",
-    "videoId": "KQcsuzpFe8E",
-    "title": "Cuca Roseta - É Lisboa A Namorar",
-    "subtitle": "Cuca Roseta",
-    "durationText": "2:19",
-    "thumbnail": "https://i.ytimg.com/vi/KQcsuzpFe8E/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "WDhrmgk8MC0",
-    "videoId": "WDhrmgk8MC0",
-    "title": "CARMINHO - \"Estrela\" com Orquestra JMJ",
-    "subtitle": "Carminho",
-    "durationText": "4:57",
-    "thumbnail": "https://i.ytimg.com/vi/WDhrmgk8MC0/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "RioVxCvPNfA",
-    "videoId": "RioVxCvPNfA",
-    "title": "2020 IPMA Best Fado Performance",
-    "subtitle": "IPMA Awards",
-    "durationText": "2:24",
-    "thumbnail": "https://i.ytimg.com/vi/RioVxCvPNfA/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "UiGdOWTftyM",
-    "videoId": "UiGdOWTftyM",
-    "title": "Miguel de Paiva - Fado Portugal",
-    "subtitle": "MigueldePaivaVEVO",
-    "durationText": "4:06",
-    "thumbnail": "https://i.ytimg.com/vi/UiGdOWTftyM/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "f4H7zhyuIog",
-    "videoId": "f4H7zhyuIog",
-    "title": "Luís Trigacheiro - Quem Me Vê",
-    "subtitle": "Luís Trigacheiro",
-    "durationText": "3:35",
-    "thumbnail": "https://i.ytimg.com/vi/f4H7zhyuIog/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "UA0i9x3_G-A",
-    "videoId": "UA0i9x3_G-A",
-    "title": "FADO, S3AN - Fade Away (Visualizer Lyric Video)",
-    "subtitle": "FADO OFFICIAL",
-    "durationText": "3:04",
-    "thumbnail": "https://i.ytimg.com/vi/UA0i9x3_G-A/hqdefault.jpg",
-    "album": "YouTube"
-  },
-  {
-    "id": "0MsDj8U6qUY",
-    "videoId": "0MsDj8U6qUY",
-    "title": "Sara Correia - Lisboa E O Tejo (Ao Vivo No Capitólio, Lisboa / 2019)",
-    "subtitle": "Sara Correia",
+    "id": "B6hvPK2ze58",
+    "videoId": "B6hvPK2ze58",
+    "title": "Mariza - Rosa Branca Video Clip",
+    "subtitle": "Mariza",
     "durationText": "3:01",
-    "thumbnail": "https://i.ytimg.com/vi/0MsDj8U6qUY/hqdefault.jpg",
+    "thumbnail": "https://i.ytimg.com/vi/B6hvPK2ze58/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "dNVrdYGiULM",
+    "videoId": "dNVrdYGiULM",
+    "title": "CESARIA EVORA - Sodade. Live In Paris at Le Grand Rex, April 2004. (HD).",
+    "subtitle": "ingoleg oleg",
+    "durationText": "3:40",
+    "thumbnail": "https://i.ytimg.com/vi/dNVrdYGiULM/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "6EA-MIYY1bg",
+    "videoId": "6EA-MIYY1bg",
+    "title": "Hooverphonic - Mad About You (Live at Koningin Elisabethzaal 2012)",
+    "subtitle": "HooverphonicMusic",
+    "durationText": "3:56",
+    "thumbnail": "https://i.ytimg.com/vi/6EA-MIYY1bg/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "k2cu0c_c7J0",
+    "videoId": "k2cu0c_c7J0",
+    "title": "Marco Rodrigues - Eu Sou Do Roque",
+    "subtitle": "Marco Rodrigues",
+    "durationText": "3:18",
+    "thumbnail": "https://i.ytimg.com/vi/k2cu0c_c7J0/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "8r73RaN9PpM",
+    "videoId": "8r73RaN9PpM",
+    "title": "Ana Moura - Loucura (Ao Vivo)",
+    "subtitle": "Ana Moura",
+    "durationText": "5:36",
+    "thumbnail": "https://i.ytimg.com/vi/8r73RaN9PpM/hqdefault.jpg",
     "album": "YouTube"
   },
   {
@@ -423,30 +243,210 @@
     "album": "YouTube"
   },
   {
-    "id": "R0egbjEMNXQ",
-    "videoId": "R0egbjEMNXQ",
-    "title": "Cuca Roseta - Fado Do Contra",
-    "subtitle": "Cuca Roseta",
-    "durationText": "1:48",
-    "thumbnail": "https://i.ytimg.com/vi/R0egbjEMNXQ/hqdefault.jpg",
+    "id": "ZiRHJPnNZps",
+    "videoId": "ZiRHJPnNZps",
+    "title": "FADO & Jullianna - Stronger (Official Visualizer Audio) | @fadoofficial",
+    "subtitle": "FADO OFFICIAL",
+    "durationText": "3:12",
+    "thumbnail": "https://i.ytimg.com/vi/ZiRHJPnNZps/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "HtelrTHW8M4",
-    "videoId": "HtelrTHW8M4",
-    "title": "Bonga - Sodade, Meu Bem, Sodade (Clip officiel)",
-    "subtitle": "BongaVEVO",
-    "durationText": "4:04",
-    "thumbnail": "https://i.ytimg.com/vi/HtelrTHW8M4/hqdefault.jpg",
+    "id": "TjbHBjyZYRs",
+    "videoId": "TjbHBjyZYRs",
+    "title": "Sara Correia - Tour Liberdade (Ao Vivo no Coliseu do Porto)",
+    "subtitle": "Sara Correia",
+    "durationText": "1:49:15",
+    "thumbnail": "https://i.ytimg.com/vi/TjbHBjyZYRs/hqdefault.jpg",
     "album": "YouTube"
   },
   {
-    "id": "zhj-5FO86XY",
-    "videoId": "zhj-5FO86XY",
-    "title": "Calema - Voyage Tour (Live in MEO Arena)",
+    "id": "5Xb9p642fTc",
+    "videoId": "5Xb9p642fTc",
+    "title": "Ana Moura - Fado Vestido De Fado",
+    "subtitle": "Ana Moura",
+    "durationText": "2:38",
+    "thumbnail": "https://i.ytimg.com/vi/5Xb9p642fTc/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "XYeZu_zw9Sg",
+    "videoId": "XYeZu_zw9Sg",
+    "title": "Ana Moura - Tens Os Olhos De Deus",
+    "subtitle": "Ana Moura",
+    "durationText": "5:30",
+    "thumbnail": "https://i.ytimg.com/vi/XYeZu_zw9Sg/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "ImKY6TZEyrI",
+    "videoId": "ImKY6TZEyrI",
+    "title": "Mazzy Star - Fade Into You (Official Music Video)",
+    "subtitle": "Mazzy Star",
+    "durationText": "4:22",
+    "thumbnail": "https://i.ytimg.com/vi/ImKY6TZEyrI/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Fd4ZdFZhJPg",
+    "videoId": "Fd4ZdFZhJPg",
+    "title": "CARMINHO - O quarto ( fado Menor ) - [Official Music Video]",
+    "subtitle": "Carminho",
+    "durationText": "2:28",
+    "thumbnail": "https://i.ytimg.com/vi/Fd4ZdFZhJPg/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Pey1B0DPZj0",
+    "videoId": "Pey1B0DPZj0",
+    "title": "Ana Moura - O Meu Amor Foi Para o Brasil (Ao Vivo)",
+    "subtitle": "Ana Moura",
+    "durationText": "3:35",
+    "thumbnail": "https://i.ytimg.com/vi/Pey1B0DPZj0/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "cCq49GdqL_g",
+    "videoId": "cCq49GdqL_g",
+    "title": "Best Fado Techno Portugal Songs 2026 💔 | Portugal Love Songs Mix 2026 | New Portuguese Pop",
+    "subtitle": "Neon Pop Avenue",
+    "durationText": "58:44",
+    "thumbnail": "https://i.ytimg.com/vi/cCq49GdqL_g/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "0MsDj8U6qUY",
+    "videoId": "0MsDj8U6qUY",
+    "title": "Sara Correia - Lisboa E O Tejo (Ao Vivo No Capitólio, Lisboa / 2019)",
+    "subtitle": "Sara Correia",
+    "durationText": "3:01",
+    "thumbnail": "https://i.ytimg.com/vi/0MsDj8U6qUY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "vJfiip3gyeg",
+    "videoId": "vJfiip3gyeg",
+    "title": "MARIZA - Trigueirinha [Official Music Video]",
+    "subtitle": "Mariza",
+    "durationText": "2:40",
+    "thumbnail": "https://i.ytimg.com/vi/vJfiip3gyeg/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "v-JAbojwia0",
+    "videoId": "v-JAbojwia0",
+    "title": "Fado pessoano (2015 Remaster)",
+    "subtitle": "Rui Veloso - Topic",
+    "durationText": "5:32",
+    "thumbnail": "https://i.ytimg.com/vi/v-JAbojwia0/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "TvIlfpOL6No",
+    "videoId": "TvIlfpOL6No",
+    "title": "Calema - Amar Pela Metade",
     "subtitle": "Calema",
-    "durationText": "2:28:48",
-    "thumbnail": "https://i.ytimg.com/vi/zhj-5FO86XY/hqdefault.jpg",
+    "durationText": "3:16",
+    "thumbnail": "https://i.ytimg.com/vi/TvIlfpOL6No/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "5gyKE-9W1Pc",
+    "videoId": "5gyKE-9W1Pc",
+    "title": "Marco Rodrigues - Pontas Soltas",
+    "subtitle": "Marco Rodrigues",
+    "durationText": "3:56",
+    "thumbnail": "https://i.ytimg.com/vi/5gyKE-9W1Pc/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "Q86lCtj1BYs",
+    "videoId": "Q86lCtj1BYs",
+    "title": "Matias Damásio - Loucos ft. Héber Marques (Video Oficial)",
+    "subtitle": "Matias Damasio Oficial",
+    "durationText": "4:27",
+    "thumbnail": "https://i.ytimg.com/vi/Q86lCtj1BYs/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "KQ6zr6kCPj8",
+    "videoId": "KQ6zr6kCPj8",
+    "title": "LMFAO - Party Rock Anthem ft. Lauren Bennett, GoonRock",
+    "subtitle": "LMFAOVEVO",
+    "durationText": "6:16",
+    "thumbnail": "https://i.ytimg.com/vi/KQ6zr6kCPj8/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "f4H7zhyuIog",
+    "videoId": "f4H7zhyuIog",
+    "title": "Luís Trigacheiro - Quem Me Vê",
+    "subtitle": "Luís Trigacheiro",
+    "durationText": "3:35",
+    "thumbnail": "https://i.ytimg.com/vi/f4H7zhyuIog/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "YiZIpuS-c30",
+    "videoId": "YiZIpuS-c30",
+    "title": "Marco Rodrigues - Sorte Grande",
+    "subtitle": "Marco Rodrigues",
+    "durationText": "3:15",
+    "thumbnail": "https://i.ytimg.com/vi/YiZIpuS-c30/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "onzL0EM1pKY",
+    "videoId": "onzL0EM1pKY",
+    "title": "Fall Out Boy - Thnks fr th Mmrs (Official Music Video)",
+    "subtitle": "Fall Out Boy",
+    "durationText": "4:14",
+    "thumbnail": "https://i.ytimg.com/vi/onzL0EM1pKY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "gfO9YQec-hY",
+    "videoId": "gfO9YQec-hY",
+    "title": "Sara Correia - Quero É Viver",
+    "subtitle": "Sara Correia",
+    "durationText": "4:29",
+    "thumbnail": "https://i.ytimg.com/vi/gfO9YQec-hY/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "jRsl54WqRNA",
+    "videoId": "jRsl54WqRNA",
+    "title": "Fernando Daniel - Voltas",
+    "subtitle": "Fernando Daniel",
+    "durationText": "4:01",
+    "thumbnail": "https://i.ytimg.com/vi/jRsl54WqRNA/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "AHplh9CpILE",
+    "videoId": "AHplh9CpILE",
+    "title": "Calema, Dilsinho - Leva Tudo",
+    "subtitle": "Calema",
+    "durationText": "3:20",
+    "thumbnail": "https://i.ytimg.com/vi/AHplh9CpILE/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "_e47yEWyu0E",
+    "videoId": "_e47yEWyu0E",
+    "title": "D.A.M.A - Era Eu",
+    "subtitle": "D.A.M.A",
+    "durationText": "4:02",
+    "thumbnail": "https://i.ytimg.com/vi/_e47yEWyu0E/hqdefault.jpg",
+    "album": "YouTube"
+  },
+  {
+    "id": "OLqz4nMEIiU",
+    "videoId": "OLqz4nMEIiU",
+    "title": "Sara Correia - Quadras Soltas (Fado Pechincha) (Ao Vivo No Capitólio, Lisboa / 2019)",
+    "subtitle": "Sara Correia",
+    "durationText": "4:07",
+    "thumbnail": "https://i.ytimg.com/vi/OLqz4nMEIiU/hqdefault.jpg",
     "album": "YouTube"
   }
 ]
