@@ -29,20 +29,20 @@
         min-width: 160px;
     }
 
-    .nav-left .current-tag span { font-size: 20px; font-weight: 400; letter-spacing: 1px; }
+    .nav-left .current-tag span { font-size: 14px; font-weight: 400; letter-spacing: 1px; }
     .nav-left .current-tag small { font-size: 13px; color: #f00; text-transform: uppercase; font-weight: bold; }
 
-    .category-chips { display: flex; gap: 8px; margin-left: 20px; align-items: center; }
+    .category-chips { display: flex; gap: 8px; margin-left: 390px; align-items: center; }
 
     .chip { 
         background: rgba(255,255,255,0.05);
-        border: 1px solid #444;
+        border: 1px solid #575757;
         color: white; 
         padding: 6px 12px;
         border-radius: 4px;
         cursor: pointer;
         font-weight: 400;
-        font-size: 14px;
+        font-size: 13px;
         transition: 0.2s;
     }
 
@@ -149,16 +149,16 @@
     }
     .ltv-nav-btn {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #575757;
     color: white;
     padding: 3px 20px;
-    border-radius: 20px; /* Pill shape */
+    border-radius: 4px; /* Pill shape */
     font-size: 0.75rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s;
-    margin: 0 5px;
+    margin: 0 15px;
 }
 
 .ltv-nav-btn:hover {
@@ -188,18 +188,18 @@
     <nav class="sl-nav-header">
         <div class="nav-left">
             <div class="current-tag">
-                <span>HARDCORE</span>
+                <span>CATEGORY</span>
                 <small id="active-tag-display"><%= tag %></small>
             </div>
         </div>
 
         <div class="category-chips" id="quick-chips">
 
-            <button class="chip" onclick="toggleCatModal(true)">...</button>
+            <button class="chip" onclick="toggleCatModal(true)">CATEGORIES</button>
         </div>
 
         <div class="nav-right">
-            <input type="text" id="xxx-search-input" value="<%= tag %>" placeholder="Search..." onkeyup="if(event.key === 'Enter') xxxSearch()">
+          <!--  <input type="text" id="xxx-search-input" value="<%= tag %>" placeholder="Search..." onkeyup="if(event.key === 'Enter') xxxSearch()"> -->
              <button class="ltv-nav-btn" onclick="handleNav('/xxx-index')">
         <span class="material-symbols-rounded" style="font-size:23px!important; vertical-align:middle;">arrow_back</span> BACK
     </button>

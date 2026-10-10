@@ -159,25 +159,26 @@
 <div class="sl-list-wrapper">
     <div class="sl-nav-header">
 
+
+            <div class="header-title">
+                <span><%= tag.toUpperCase() %> DESTINATIONS</span>
+            </div>
+
             <div style="margin-right: 30px!important;margin-top:2px;">
                 <button class="ltv-nav-btn" onclick="toggleSlModal(true)">
                 <span class="material-symbols-rounded" style="font-size:25px!important; vertical-align:middle;">menu</span>
                 </button>
             </div>
 
-           
+
+
                 <button onclick="toggleSlView('list')" id="sl-list-view-btn" class="view-btn">
                 <span class="material-symbols-rounded" style="font-size:21px!important;">view_list</span>
             </button>
             <button style="margin-left:10px; " onclick="toggleSlView('grid')" id="sl-grid-view-btn" class="view-btn">
                 <span class="material-symbols-rounded" style="font-size:20px!important;">grid_view</span>
             </button>
-           
-       
-
-            <div class="header-title">
-                <span><%= tag %> DESTINATIONS</span>
-            </div>
+        
 
             <div style="margin-left: 963px!important;margin-top:2px;"></div>
                <button class="ltv-back-btn" onclick="closeSubMenu()">

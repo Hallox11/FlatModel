@@ -168,7 +168,7 @@
 
 .header-title {
     position: absolute;
-    left: 50%;
+    left: 130px;
     transform: translateX(-50%);
     font-size: 1.0rem;
     letter-spacing: 3px;
@@ -219,15 +219,16 @@
 <div id="yt-grid-module">
     <div id="yt-grid-header">
 
-            <div style="margin-right: 24px!important;margin-top:2px;">
+
+                    <h2 id="dynamic-header-title" class="header-title">LIVE STREAMS</h2>
+
+            <div style="margin-left: 565px!important;margin-top:2px;">
                 <button class="ltv-nav-btn" onclick="openCategoryModal()">
                 <span class="material-symbols-rounded" style="font-size:25px!important; vertical-align:middle;">menu</span>
                 </button>
             </div>
 
-
-            <h2 id="dynamic-header-title" class="header-title">LIVE STREAMS</h2>
-          
+         
             <div style="margin-right: 24px!important;margin-top:2px;">
                 <button class="ltv-back-btn" onclick="closeSubMenu()">
                 <span class="material-symbols-rounded" style="font-size:25px!important; vertical-align:middle;">close</span>
@@ -313,7 +314,7 @@ window.renderResults = function(liveResults, category) {
         </div>
     `).join('');
     
-    titleElement.textContent = `LIVE STREAMS FOR: ${category.toUpperCase()}`;
+    titleElement.textContent = `${category.toUpperCase()}`;
 };
 
 // ── CHANNEL LAUNCHER ──

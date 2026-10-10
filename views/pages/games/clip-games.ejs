@@ -120,13 +120,14 @@
 <div id="clips-wrapper">
 <nav id="clips-nav">
 
+                   <div id="active-label">PUZZLE</div>
+
             <div style="margin-right: 24px!important;margin-top:2px;">
                 <button class="ltv-nav-btn" onclick="openCategoryModal()">
                 <span class="material-symbols-rounded" style="font-size:25px!important; vertical-align:middle;">menu</span>
                 </button>
             </div>
 
-               <span id="active-label">PUZZLE</span>
 
             <div style="margin-right: 24px!important;margin-top:2px;">
                 <button class="ltv-back-btn" onclick="closeSubMenu()">
@@ -203,7 +204,7 @@ window.loadCategory = function(fileName, isSync = false) {
         .then(res => res.json())
         .then(data => {
             renderGrid(data, fileName);
-            $('#active-label').text(fileName.toUpperCase());
+            $('#active-label').text(fileName.toUpperCase()+" GAMES");
             window.isFetching = false;
         })
         .catch(err => { $('#active-label').text('ERROR'); window.isFetching = false; });

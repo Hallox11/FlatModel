@@ -11,16 +11,8 @@
   { "name": "NATURE & PARKS", "url": "https://secondlife.com/destinations/nature" },
   { "name": "ADVENTURE & FANTASY", "url": "https://secondlife.com/destinations/adventure" },
   { "name": "WINTER ATTRACTIONS", "url": "https://secondlife.com/destinations/winter" },
-  { "name": "UNDERSEA", "url": "https://secondlife.com/destinations/undersea" },
   { "name": "RESTAURANTS & BARS", "url": "https://secondlife.com/destinations/bars" },
   { "name": "CAFES & HANGOUTS", "url": "https://secondlife.com/destinations/cafes" },
-  { "name": "FEATURED", "url": "https://secondlife.com/destinations/events" },
-  { "name": "SHOPPING EVENTS", "url": "https://secondlife.com/destinations/shopping-events" },
-  { "name": "FASHION", "url": "https://secondlife.com/destinations/fashion" },
-  { "name": "CYBERPUNK", "url": "https://secondlife.com/destinations/cyberpunk" },
-  { "name": "STEAMPUNK", "url": "https://secondlife.com/destinations/steampunk" },
-  { "name": "CASTLES & RUINS", "url": "https://secondlife.com/destinations/castles" },
-  { "name": "ANIME", "url": "https://secondlife.com/destinations/anime" },
-  { "name": "RIDES & MAZES", "url": "https://secondlife.com/destinations/rides" },
-  { "name": "STRANGE & MYSTERIOUS", "url": "https://secondlife.com/destinations/strange" }
+  { "name": "STRANGE & MYSTERIOUS", "url": "https://secondlife.com/destinations/strange" },
+    { "name": "FEATURED", "url": "https://secondlife.com/destinations/events" }
 ]
