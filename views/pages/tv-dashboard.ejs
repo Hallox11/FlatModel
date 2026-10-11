@@ -527,7 +527,7 @@
     </div>
     <div class="header-right">
         <span class="last-updated" id="last-updated">—</span>
-        <button class="btn-refresh" onclick="loadData()">↻ Refresh</button>
+        <button class="btn-refresh" id="btn-refresh">↻ Refresh</button>
     </div>
 </header>
 
@@ -552,28 +552,28 @@
 
 <div class="toolbar">
     <div class="tabs">
-        <button class="tab active" onclick="setView('registry', this)">Registry</button>
-        <button class="tab" onclick="setView('interactions', this)">Interactions</button>
+        <button class="tab active" data-view="registry">Registry</button>
+        <button class="tab" data-view="interactions">Interactions</button>
     </div>
 
     <div class="dot-filter" id="trigger-filters" style="display:none;">
-        <button class="dot-btn active-filter" data-trigger="all" onclick="setTrigger('all',this)">
+        <button class="dot-btn active-filter" data-trigger="all">
             <span class="dot" style="background:var(--text-muted)"></span> All
         </button>
-        <button class="dot-btn" data-trigger="TV_ON" onclick="setTrigger('TV_ON',this)">
+        <button class="dot-btn" data-trigger="TV_ON">
             <span class="dot" style="background:var(--on)"></span> TV_ON
         </button>
-        <button class="dot-btn" data-trigger="TV_OFF" onclick="setTrigger('TV_OFF',this)">
+        <button class="dot-btn" data-trigger="TV_OFF">
             <span class="dot" style="background:var(--off)"></span> TV_OFF
         </button>
-        <button class="dot-btn" data-trigger="rezz" onclick="setTrigger('rezz',this)">
+        <button class="dot-btn" data-trigger="rezz">
             <span class="dot" style="background:var(--rezz)"></span> Rezz
         </button>
     </div>
 
     <div class="search-wrap">
         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-        <input type="search" id="search" placeholder="Search owner, land, serial..." oninput="onSearch()">
+        <input type="search" id="search" placeholder="Search owner, land, serial...">
     </div>
 </div>
 
@@ -585,370 +585,338 @@
 
 <div class="pagination">
     <span class="page-info" id="page-info"></span>
-    <button class="page-btn" id="btn-prev" onclick="changePage(-1)" disabled>← Prev</button>
-    <button class="page-btn" id="btn-next" onclick="changePage(1)"  disabled>Next →</button>
+    <button class="page-btn" id="btn-prev" disabled>← Prev</button>
+    <button class="page-btn" id="btn-next" disabled>Next →</button>
 </div>
 
 <script>
-const BASE = window.location.origin;
-const PAGE_SIZE = 20;
+(function () {
+    'use strict';
 
-let allData       = [];
-let filteredData  = [];
-let currentView   = 'registry';
-let currentTrigger = 'all';
-let currentPage   = 1;
-let searchTerm    = '';
-let nearbyCache   = {}; 
+    const PAGE_SIZE  = 20;
+    const REFRESH_MS = 30000;
+    const NULL_UUID  = '00000000-0000-0000-0000-000000000000';
+    const UUID_RE    = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-// ═══════════════════════════════════════════════════════════════
-// Helper functions for timing and clean rendering setup
-// ═══════════════════════════════════════════════════════════════
-function fmtTime(ts) {
-    if (!ts) return '—';
-    const d = new Date(ts);
-    return d.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' })
-         + ' <br>' + d.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' });
-}
+    let registryRows   = [];
+    let allData        = [];
+    let filteredData   = [];
+    let currentView    = 'registry';
+    let currentTrigger = 'all';
+    let currentPage    = 1;
+    let searchTerm     = '';
+    let loading        = false;
+    const nearbyCache  = new Map();   // object_id -> [names]
 
-function statusBadge(status) {
-    let cls = 'off';
-    let label = status || 'OFFLINE';
+    const $ = id => document.getElementById(id);
 
-    if (status === 'TV_ON' || status === 'ONLINE') {
-        cls = 'on';
-        label = (status === 'TV_ON') ? 'TV ON' : 'ONLINE';
-    } else if (status === 'TV_OFF' || status === 'OFFLINE') {
-        cls = 'off';
-        label = (status === 'TV_OFF') ? 'TV OFF' : 'OFFLINE';
-    } else if (status === 'rezz') {
-        cls = 'rezz';
-        label = 'REZZED';
+    // ───────────────────────── helpers ─────────────────────────
+    // Everything that comes from the API goes through esc() before it touches innerHTML.
+    function esc(v) {
+        return String(v == null ? '' : v).replace(/[&<>"']/g, c =>
+            ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     }
-    return `<span class="badge ${cls}">${label}</span>`;
-}
 
-function triggerBadge(trigger) {
-    const map = { TV_ON: 'on', TV_OFF: 'off', rezz: 'rezz' };
-    const cls = map[trigger] || 'rezz';
-    return `<span class="badge ${cls}">${trigger || 'unknown'}</span>`;
-}
+    // SQLite CURRENT_TIMESTAMP is UTC without a "Z"; browsers would read it as local time.
+    function parseTs(ts) {
+        if (!ts) return null;
+        const s = String(ts);
+        const d = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}(:\d{2})?$/.test(s)
+            ? new Date(s.replace(' ', 'T') + 'Z')
+            : new Date(s);
+        return isNaN(d) ? null : d;
+    }
 
-// ═══════════════════════════════════════════════════════════════
-// COMMAND BUTTON GENERATOR (Moved higher up to prevent template execution reference limits)
-// ═══════════════════════════════════════════════════════════════
-function commandButtons(objectId, status) {
-    const targetId = objectId || '';
-    const cleanStatus = String(status || '').toUpperCase();
-    const isOnline = cleanStatus === 'TV_ON' || cleanStatus === 'ONLINE';
-    const disabledAttr = !isOnline ? 'disabled' : '';
-    
-    return `
+    function fmtTime(ts) {
+        const d = parseTs(ts);
+        if (!d) return '—';
+        return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+             + '<br>' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function isOnline(status) {
+        const s = String(status || '').toUpperCase();
+        return s === 'TV_ON' || s === 'ONLINE';
+    }
+
+    function statusBadge(status) {
+        let cls = 'off', label = status || 'OFFLINE';
+        if (status === 'TV_ON' || status === 'ONLINE') { cls = 'on';  label = status === 'TV_ON' ? 'TV ON' : 'ONLINE'; }
+        else if (status === 'TV_OFF' || status === 'OFFLINE') { cls = 'off'; label = status === 'TV_OFF' ? 'TV OFF' : 'OFFLINE'; }
+        else if (status === 'rezz') { cls = 'rezz'; label = 'REZZED'; }
+        return `<span class="badge ${cls}">${esc(label)}</span>`;
+    }
+
+    function triggerBadge(trigger) {
+        const cls = { TV_ON: 'on', TV_OFF: 'off', rezz: 'rezz' }[trigger] || 'rezz';
+        return `<span class="badge ${cls}">${esc(trigger || 'unknown')}</span>`;
+    }
+
+    // Parcel UUID comes from land_id, or from room ("room_<land_id>") which tv_registry stores.
+    // The object's own UUID is NOT a parcel UUID, so there is no fallback to it.
+    function getTeleportUrl(r) {
+        let id = r.land_id || r.parcel_id || r.land_uuid;
+        if (!id && typeof r.room === 'string') id = r.room.replace(/^room_/, '');
+        if (!id || id === NULL_UUID || !UUID_RE.test(id)) return null;
+        return `secondlife:///app/parcel/${id}/about`;
+    }
+
+    function commandButtons(objectId, status) {
+        const dis = isOnline(status) ? '' : 'disabled';
+        const id  = esc(objectId);
+        return `
         <div class="cmd-btns">
-            <button class="cmd-btn" onclick="sendCommand('${targetId}', 'reset')" ${disabledAttr}>Reset</button>
-            <button class="cmd-btn danger" onclick="sendCommand('${targetId}', 'kill')" ${disabledAttr}>Kill</button>
-        </div>
-    `;
-}
-
-function getTeleportUrl(r) {
-    if (!r) return null;
-
-    // Scan every possible property name for the UUID
-    const parcelUUID = r.land_id || r.parcel_id || r.parcel_uuid || r.land_uuid || r.uuid || r.object_id;
-    
-    console.log(`[DEBUG] Evaluation for Serial ${r.serial || 'Unknown'}: Found UUID key value -> "${parcelUUID}"`);
-
-    if (parcelUUID && parcelUUID !== "00000000-0000-0000-0000-000000000000") {
-        return `secondlife:///app/parcel/${parcelUUID}/about`;
+            <button class="cmd-btn" data-act="cmd" data-cmd="reset" data-id="${id}" ${dis}>Reset</button>
+            <button class="cmd-btn danger" data-act="cmd" data-cmd="kill" data-id="${id}" ${dis}>Kill</button>
+        </div>`;
     }
-    
-    return null;
-}
 
-async function fetchNearbyPeople(tvUrl, objectId) {
-    if (!tvUrl) return null;
-    try {
-        const response = await fetch(tvUrl, {
-            method: 'POST',
-            body: 'get_nearby|'
-        });
-        if (!response.ok) return null;
-        const text = await response.text();
-        if (text === 'None' || text === '') {
-            nearbyCache[objectId] = [];
-            return [];
-        }
-        const people = text.split(', ').map(name => name.trim());
-        nearbyCache[objectId] = people;
-        return people;
-    } catch (error) {
-        console.error(`Failed to fetch nearby for ${objectId}:`, error);
-        return null;
-    }
-}
+    function renderNearby(objectId, status) {
+        if (!isOnline(status) || !objectId) return '<span class="nearby-count">—</span>';
+        const id     = esc(objectId);
+        const cached = nearbyCache.get(objectId);
+        const btn    = label => `<button class="refresh-nearby" data-act="nearby" data-id="${id}">${label}</button>`;
 
-async function refreshNearby(objectId, tvUrl, buttonElement) {
-    if (!tvUrl) return;
-    buttonElement.disabled = true;
-    buttonElement.textContent = '⟳';
-    const people = await fetchNearbyPeople(tvUrl, objectId);
-    buttonElement.disabled = false;
-    buttonElement.textContent = '↻';
+        if (cached === undefined) return `<div class="nearby-section">${btn('🔍 Scan')}</div>`;
+        if (cached.length === 0)  return `<div class="nearby-section"><span class="nearby-count">No one nearby</span>${btn('↻')}</div>`;
 
-    if (people !== null) {
-        renderTable();
-        showToast(`✓ Updated nearby list for ${objectId}`, 'success');
-    } else {
-        showToast(`✗ Failed to fetch nearby list`, 'error');
-    }
-}
-
-function renderNearbyPeople(objectId, tvUrl, status) {
-    const cleanStatus = String(status || '').toUpperCase();
-    const isOnline = cleanStatus === 'TV_ON' || cleanStatus === 'ONLINE';
-    if (!isOnline || !tvUrl) return '<span class="nearby-count">—</span>';
-
-    const cached = nearbyCache[objectId];
-    if (cached === undefined) {
         return `
-            <div class="nearby-section">
-                <button class="refresh-nearby" onclick="refreshNearby('${objectId}', '${tvUrl}', this)">🔍 Scan</button>
-            </div>
-        `;
-    }
-    if (cached.length === 0) {
-        return `
-            <div class="nearby-section">
-                <span class="nearby-count">No one nearby</span>
-                <button class="refresh-nearby" onclick="refreshNearby('${objectId}', '${tvUrl}', this)">↻</button>
-            </div>
-        `;
-    }
-    return `
         <div class="nearby-section">
-            <div class="nearby-avatars">
-                ${cached.map(name => `<span class="nearby-pill">${name}</span>`).join('')}
-            </div>
+            <div class="nearby-avatars">${cached.map(n => `<span class="nearby-pill">${esc(n)}</span>`).join('')}</div>
             <div style="display:flex;gap:6px;align-items:center;">
                 <span class="nearby-count">${cached.length} avatar${cached.length > 1 ? 's' : ''}</span>
-                <button class="refresh-nearby" onclick="refreshNearby('${objectId}', '${tvUrl}', this)">↻</button>
+                ${btn('↻')}
             </div>
-        </div>
-    `;
-}
-
-// ═══════════════════════════════════════════════════════════════
-// Main Panel Rendering Engines
-// ═══════════════════════════════════════════════════════════════
-function renderRegistry(rows) {
-    return `
-    <table>
-        <thead>
-            <tr>
-                <th>Status</th>
-                <th>Serial</th>
-                <th>Owner</th>
-                <th>Land</th>
-                <th>Nearby Avatars</th>
-                <th>Last seen</th>
-                <th>Commands</th>
-            </tr>
-        </thead>
-        <tbody>
-        ${rows.map(r => {
-            const tpUrl = getTeleportUrl(r);
-            const tpButtonHtml = tpUrl ? `<a href="${tpUrl}" class="btn-tp">📍 TP</a>` : '';
-            const activeLandName = r.land_name || r.land || '—';
-            
-            return `
-            <tr>
-                <td>${statusBadge(r.status)}</td>
-                <td class="serial">${r.serial || '—'}</td>
-                <td class="primary">${r.owner || '—'}</td>
-                <td>
-                    <div class="land-container">
-                        <span class="land" title="${activeLandName}">${activeLandName}</span>
-                        ${tpButtonHtml}
-                    </div>
-                </td>
-                <td>${renderNearbyPeople(r.object_id, r.url, r.status)}</td>
-                <td class="ts">${fmtTime(r.last_seen)}</td>
-                <td>${commandButtons(r.object_id || r.id, r.status)}</td>
-            </tr>
-            `;
-        }).join('')}
-        </tbody>
-    </table>`;
-}
-
-function renderInteractions(rows) {
-    return `
-    <table>
-        <thead>
-            <tr>
-                <th>Timestamp</th>
-                <th>Action</th>
-                <th>Serial</th>
-                <th>Clicker</th>
-                <th>Owner</th>
-                <th>Land</th>
-                <th>Position</th>
-            </tr>
-        </thead>
-        <tbody>
-        ${rows.map(r => `
-            <tr>
-                <td class="ts">${fmtTime(r.timestamp)}</td>
-                <td>${triggerBadge(r.trigger || r.status)}</td>
-                <td class="serial">${r.serial || '—'}</td>
-                <td class="primary">${r.clicker || '—'}</td>
-                <td>${r.owner || '—'}</td>
-                <td class="land" title="${r.land_name || ''}">${r.land_name || '—'}</td>
-                <td class="pos">${r.pos || '—'}</td>
-            </tr>
-        `).join('')}
-        </tbody>
-    </table>`;
-}
-
-// ═══════════════════════════════════════════════════════════════
-// Core Filter and Sync Engine
-// ═══════════════════════════════════════════════════════════════
-async function loadData() {
-    try {
-        const [regRes, intRes] = await Promise.all([
-            fetch(`${BASE}/api/tvs`),
-            fetch(`${BASE}/api/interactions`)
-        ]);
-
-        const registry     = regRes.ok     ? await regRes.json()  : [];
-        const interactions = intRes.ok     ? await intRes.json()  : [];
-
-        updateStats(registry, interactions);
-        allData = currentView === 'registry' ? registry : interactions;
-        applyFilters();
-
-        document.getElementById('last-updated').textContent = 'updated ' + new Date().toLocaleTimeString();
-
-    } catch(e) {
-        document.getElementById('table-container').innerHTML =
-            `<div class="state-msg"><div class="big">✗</div>Could not reach server.<br>${e.message}</div>`;
-    }
-}
-
-function updateStats(registry, interactions) {
-    document.getElementById('stat-total').textContent = registry.length;
-    const onlineCount = registry.filter(r => {
-        const st = String(r.status || '').toUpperCase();
-        return st === 'TV_ON' || st === 'ONLINE';
-    }).length;
-    
-    document.getElementById('stat-on').textContent = onlineCount;
-    document.getElementById('stat-interactions').textContent = interactions.length;
-    
-    const lands = new Set(registry.map(r => r.land_name || r.land).filter(Boolean));
-    document.getElementById('stat-lands').textContent = lands.size;
-}
-
-function setView(view, btn) {
-    currentView = view;
-    currentPage = 1;
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-
-    const filters = document.getElementById('trigger-filters');
-    filters.style.display = view === 'interactions' ? 'flex' : 'none';
-
-    loadData();
-}
-
-function setTrigger(trigger, btn) {
-    currentTrigger = trigger;
-    currentPage = 1;
-    document.querySelectorAll('.dot-btn').forEach(b => b.classList.remove('active-filter'));
-    btn.classList.add('active-filter');
-    applyFilters();
-}
-
-function onSearch() {
-    searchTerm = document.getElementById('search').value.toLowerCase();
-    currentPage = 1;
-    applyFilters();
-}
-
-function applyFilters() {
-    let data = [...allData];
-    if (currentView === 'interactions' && currentTrigger !== 'all') {
-        data = data.filter(r => r.trigger === currentTrigger);
-    }
-    if (searchTerm) {
-        data = data.filter(r => JSON.stringify(r).toLowerCase().includes(searchTerm));
-    }
-    filteredData = data;
-    renderTable();
-}
-
-function changePage(dir) {
-    currentPage += dir;
-    renderTable();
-}
-
-function renderTable() {
-    const start = (currentPage - 1) * PAGE_SIZE;
-    const page  = filteredData.slice(start, start + PAGE_SIZE);
-    const total = filteredData.length;
-    const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-
-    document.getElementById('page-info').textContent = total > 0 ? `${start + 1}–${Math.min(start + PAGE_SIZE, total)} of ${total}` : '0–0 of 0';
-    document.getElementById('btn-prev').disabled = currentPage <= 1;
-    document.getElementById('btn-next').disabled = currentPage >= totalPages;
-
-    if (page.length === 0) {
-        document.getElementById('table-container').innerHTML = '<div class="state-msg"><div class="big">∅</div>No records found.</div>';
-        return;
+        </div>`;
     }
 
-    const html = currentView === 'registry' ? renderRegistry(page) : renderInteractions(page);
-    document.getElementById('table-container').innerHTML = html;
-}
+    // ───────────────────────── renderers ─────────────────────────
+    function renderRegistry(rows) {
+        return `
+        <table>
+            <thead><tr>
+                <th>Status</th><th>Serial</th><th>Owner</th><th>Land</th>
+                <th>Nearby Avatars</th><th>Last seen</th><th>Commands</th>
+            </tr></thead>
+            <tbody>
+            ${rows.map(r => {
+                const tp   = getTeleportUrl(r);
+                const land = r.land_name || r.land || '—';
+                return `
+                <tr>
+                    <td>${statusBadge(r.status)}</td>
+                    <td class="serial">${esc(r.serial || '—')}</td>
+                    <td class="primary">${esc(r.owner || '—')}</td>
+                    <td>
+                        <div class="land-container">
+                            <span class="land" title="${esc(land)}">${esc(land)}</span>
+                            ${tp ? `<a href="${tp}" class="btn-tp">📍 TP</a>` : ''}
+                        </div>
+                    </td>
+                    <td>${renderNearby(r.object_id, r.status)}</td>
+                    <td class="ts">${fmtTime(r.last_seen)}</td>
+                    <td>${commandButtons(r.object_id, r.status)}</td>
+                </tr>`;
+            }).join('')}
+            </tbody>
+        </table>`;
+    }
 
-async function sendCommand(objectId, command) {
-    const endpoint = `/api/tv-command/${command}`;
-    try {
-        const response = await fetch(endpoint, {
+    function renderInteractions(rows) {
+        return `
+        <table>
+            <thead><tr>
+                <th>Timestamp</th><th>Action</th><th>Serial</th><th>Clicker</th>
+                <th>Owner</th><th>Land</th><th>Position</th>
+            </tr></thead>
+            <tbody>
+            ${rows.map(r => `
+                <tr>
+                    <td class="ts">${fmtTime(r.timestamp)}</td>
+                    <td>${triggerBadge(r.trigger || r.status)}</td>
+                    <td class="serial">${esc(r.serial || '—')}</td>
+                    <td class="primary">${esc(r.clicker || '—')}</td>
+                    <td>${esc(r.owner || '—')}</td>
+                    <td class="land" title="${esc(r.land_name || '')}">${esc(r.land_name || '—')}</td>
+                    <td class="pos">${esc(r.pos || '—')}</td>
+                </tr>`).join('')}
+            </tbody>
+        </table>`;
+    }
+
+    function renderTable() {
+        const total      = filteredData.length;
+        const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+        currentPage      = Math.min(Math.max(currentPage, 1), totalPages);
+
+        const start = (currentPage - 1) * PAGE_SIZE;
+        const page  = filteredData.slice(start, start + PAGE_SIZE);
+
+        $('page-info').textContent = total > 0 ? `${start + 1}–${Math.min(start + PAGE_SIZE, total)} of ${total}` : '0–0 of 0';
+        $('btn-prev').disabled = currentPage <= 1;
+        $('btn-next').disabled = currentPage >= totalPages;
+
+        if (page.length === 0) {
+            $('table-container').innerHTML = '<div class="state-msg"><div class="big">∅</div>No records found.</div>';
+            return;
+        }
+        $('table-container').innerHTML = currentView === 'registry' ? renderRegistry(page) : renderInteractions(page);
+    }
+
+    function applyFilters() {
+        let data = allData.slice();
+        if (currentView === 'interactions' && currentTrigger !== 'all') {
+            data = data.filter(r => (r.trigger || r.status) === currentTrigger);
+        }
+        if (searchTerm) {
+            data = data.filter(r => JSON.stringify(r).toLowerCase().includes(searchTerm));
+        }
+        filteredData = data;
+        renderTable();
+    }
+
+    function updateStats(interactionsTotal) {
+        $('stat-total').textContent = registryRows.length;
+        $('stat-on').textContent    = registryRows.filter(r => isOnline(r.status)).length;
+        $('stat-lands').textContent = new Set(registryRows.map(r => r.land_name || r.land).filter(Boolean)).size;
+        if (interactionsTotal != null) $('stat-interactions').textContent = interactionsTotal;
+    }
+
+    // ───────────────────────── data ─────────────────────────
+    async function loadData() {
+        if (loading) return;
+        loading = true;
+        try {
+            const reqs = [fetch('/api/tvs'), fetch('/api/interactions/count')];
+            if (currentView === 'interactions') reqs.push(fetch('/api/interactions?limit=500'));
+            const [regRes, cntRes, intRes] = await Promise.all(reqs);
+
+            if ([regRes, cntRes, intRes].some(r => r && r.status === 401)) throw new Error('Not authorised (401) — reload the page and sign in');
+            if (!regRes.ok) throw new Error(`/api/tvs returned ${regRes.status}`);
+
+            registryRows = await regRes.json();
+            const count  = cntRes.ok ? (await cntRes.json()).count : null;
+
+            if (currentView === 'registry') {
+                allData = registryRows;
+            } else {
+                if (!intRes || !intRes.ok) throw new Error(`/api/interactions returned ${intRes ? intRes.status : '?'}`);
+                allData = await intRes.json();
+            }
+
+            updateStats(count);
+            applyFilters();
+            $('last-updated').textContent = 'updated ' + new Date().toLocaleTimeString();
+        } catch (e) {
+            if (allData.length) {
+                showToast(`✗ Refresh failed: ${e.message}`, 'error');   // keep what we already have
+            } else {
+                $('table-container').innerHTML =
+                    `<div class="state-msg"><div class="big">✗</div>Could not load data.<br>${esc(e.message)}</div>`;
+            }
+        } finally {
+            loading = false;
+        }
+    }
+
+    async function postJSON(path, body) {
+        const res = await fetch(path, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ object_id: objectId })
+            body: JSON.stringify(body)
         });
-        const result = await response.json();
-
-        if (response.ok) {
-            showToast(`✓ ${command.toUpperCase()} command sent to ${objectId}`, 'success');
-            setTimeout(() => loadData(), 1000);
-        } else {
-            showToast(`✗ Failed: ${result.error}`, 'error');
-        }
-    } catch (error) {
-        showToast(`✗ Network error: ${error.message}`, 'error');
+        let data = {};
+        try { data = await res.json(); } catch (_) { /* empty body */ }
+        return { ok: res.ok, status: res.status, data };
     }
-}
 
-function showToast(message, type = 'success') {
-    const toast = document.createElement('div');
-    toast.className = `toast ${type}`;
-    toast.textContent = message;
-    document.body.appendChild(toast);
+    // ───────────────────────── actions ─────────────────────────
+    async function runCommand(btn, objectId, command) {
+        if (command === 'kill' && !confirm(`Kill TV ${objectId}?`)) return;
+        btn.disabled = true;
+        try {
+            const r = await postJSON(`/api/tv-command/${command}`, { object_id: objectId });
+            if (r.ok) {
+                showToast(`✓ ${command.toUpperCase()} command sent to ${objectId}`, 'success');
+                setTimeout(loadData, 1000);
+            } else {
+                showToast(`✗ Failed: ${r.data.error || r.status}`, 'error');
+                btn.disabled = false;
+            }
+        } catch (e) {
+            showToast(`✗ Network error: ${e.message}`, 'error');
+            btn.disabled = false;
+        }
+    }
 
-    setTimeout(() => {
-        toast.style.animation = 'slideIn 0.3s ease reverse';
-        setTimeout(() => toast.remove(), 300);
-    }, 3000);
-}
+    async function scanNearby(btn, objectId) {
+        btn.disabled = true;
+        btn.textContent = '⟳';
+        try {
+            const r = await postJSON('/api/tv-command/nearby', { object_id: objectId });
+            if (r.ok && Array.isArray(r.data.people)) {
+                nearbyCache.set(objectId, r.data.people);
+                renderTable();
+                showToast(`✓ Updated nearby list for ${objectId}`, 'success');
+                return;
+            }
+            showToast(`✗ Failed to fetch nearby list: ${r.data.error || r.status}`, 'error');
+        } catch (e) {
+            showToast(`✗ Network error: ${e.message}`, 'error');
+        }
+        btn.disabled = false;
+        btn.textContent = '↻';
+    }
 
-// Automatic Initialization
-loadData();
-setInterval(loadData, 30000);
+    function showToast(message, type) {
+        const toast = document.createElement('div');
+        toast.className = `toast ${type || 'success'}`;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.style.animation = 'slideIn 0.3s ease reverse';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+
+    // ───────────────────────── events ─────────────────────────
+    $('table-container').addEventListener('click', e => {
+        const btn = e.target.closest('button[data-act]');
+        if (!btn || btn.disabled) return;
+        const { act, id, cmd } = btn.dataset;
+        if (act === 'cmd')    runCommand(btn, id, cmd);
+        if (act === 'nearby') scanNearby(btn, id);
+    });
+
+    document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
+        currentView = tab.dataset.view;
+        currentPage = 1;
+        document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t === tab));
+        $('trigger-filters').style.display = currentView === 'interactions' ? 'flex' : 'none';
+        loadData();
+    }));
+
+    document.querySelectorAll('.dot-btn').forEach(b => b.addEventListener('click', () => {
+        currentTrigger = b.dataset.trigger;
+        currentPage = 1;
+        document.querySelectorAll('.dot-btn').forEach(x => x.classList.toggle('active-filter', x === b));
+        applyFilters();
+    }));
+
+    $('search').addEventListener('input', () => {
+        searchTerm  = $('search').value.toLowerCase();
+        currentPage = 1;
+        applyFilters();
+    });
+
+    $('btn-prev').addEventListener('click', () => { currentPage--; renderTable(); });
+    $('btn-next').addEventListener('click', () => { currentPage++; renderTable(); });
+    $('btn-refresh').addEventListener('click', loadData);
+
+    // ───────────────────────── init ─────────────────────────
+    loadData();
+    setInterval(() => { if (!document.hidden) loadData(); }, REFRESH_MS);
+})();
 </script>
 </body>
 </html>

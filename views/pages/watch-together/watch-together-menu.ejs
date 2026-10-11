@@ -368,58 +368,66 @@
         });
     };
 
-    window.wtJoinOtherTV = function() {
-        const input = document.getElementById('wt-tv-code');
-        const helper = document.getElementById('wt-tv-helper');
-        const targetRoom = input ? input.value.trim() : '';
+window.wtJoinOtherTV = function() {
+    const input = document.getElementById('wt-tv-code');
+    const helper = document.getElementById('wt-tv-helper');
+    const targetRoom = input ? input.value.trim() : '';
 
-        if (!targetRoom) {
-            if (input) input.style.borderColor = '#e74c3c';
-            if (helper) {
-                helper.style.color = '#e74c3c';
-                helper.innerText = "Error: Please enter a valid room code or link!";
-            }
-            return;
+    if (!targetRoom) {
+        if (input) input.style.borderColor = '#e74c3c';
+        if (helper) {
+            helper.style.color = '#e74c3c';
+            helper.innerText = "Error: Please enter a valid room code or link!";
         }
+        return;
+    }
 
-        let parsedCode = targetRoom;
-        try {
-            if(targetRoom.includes('?room=')) {
-                const urlParams = new URLSearchParams(targetRoom.split('?')[1]);
-                parsedCode = urlParams.get('room') || targetRoom;
-            } else if (targetRoom.startsWith('http')) {
-                const parsedUrl = new URL(targetRoom);
-                parsedCode = parsedUrl.searchParams.get('room') || targetRoom;
-            }
-        } catch(e) {
-            console.error("URL parsing fallback initialized:", e);
+    let parsedCode = targetRoom;
+    try {
+        if(targetRoom.includes('?room=')) {
+            const urlParams = new URLSearchParams(targetRoom.split('?')[1]);
+            parsedCode = urlParams.get('room') || targetRoom;
+        } else if (targetRoom.startsWith('http')) {
+            const parsedUrl = new URL(targetRoom);
+            parsedCode = parsedUrl.searchParams.get('room') || targetRoom;
         }
+    } catch(e) {
+        console.error("URL parsing fallback initialized:", e);
+    }
 
-        if (!parsedCode) {
-            if (helper) {
-                helper.style.color = '#e74c3c';
-                helper.innerText = "Error: Invalid room configuration code format.";
-            }
-            return;
+    if (!parsedCode) {
+        if (helper) {
+            helper.style.color = '#e74c3c';
+            helper.innerText = "Error: Invalid room configuration code format.";
         }
+        return;
+    }
 
-        const loader = document.getElementById('loading-overlay');
-        if (loader) {
-            loader.style.display = 'flex';
-        }
+    // Show the global loading overlay
+    if (typeof window.showLoader === 'function') {
+        window.showLoader();
+    }
 
-        if (typeof handleNav === "function") {
-            try {
-                closeSubMenu();
-            } catch(err) {}
-        }
+    // Close the sub-menu state on the server so it doesn't restore this menu on reload
+    if (typeof closeSubMenu === 'function') {
+        closeSubMenu(false);
+    }
 
-        setTimeout(() => {
-            window.location.href = window.location.origin + '/?room=' + encodeURIComponent(parsedCode);
-        }, 150);
-    };
+    // Emit socket event so all connected users in this session sync to the new room
+    if (window.socket && window.socket.connected) {
+        window.socket.emit('wt_sync', { 
+            room: window.myRoom, 
+            action: 'join_room', 
+            targetRoom: parsedCode 
+        });
+    }
 
-    window.wtOpenKosmiExternal = function() {
+    setTimeout(() => {
+        window.location.href = window.location.origin + '/?room=' + encodeURIComponent(parsedCode);
+    }, 300);
+};
+
+window.wtOpenKosmiExternal = function() {
         window.open('https://kosmi.io', '_self');
     };
 

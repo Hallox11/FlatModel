@@ -56,8 +56,38 @@ function enforceInWorldBrowser(req, res, next) {
 }
 /////////////////////////////////////
 
+// ── [DASHBOARD] HTTP Basic auth for the admin dashboard and its APIs ──
+// Set DASHBOARD_USER (optional, default "admin") and DASHBOARD_PASS in .env.
+// If DASHBOARD_PASS is missing the dashboard stays disabled (fail closed).
+const DASH_USER = process.env.DASHBOARD_USER || 'admin';
+const DASH_PASS = process.env.DASHBOARD_PASS || '';
+const _sha = s => crypto.createHash('sha256').update(String(s)).digest();
+
+function requireDashboardAuth(req, res, next) {
+    if (!DASH_PASS) {
+        console.error('[Dashboard] DASHBOARD_PASS is not set - dashboard disabled.');
+        return res.status(503).send('Dashboard disabled: set DASHBOARD_PASS in the environment.');
+    }
+    const header = req.headers.authorization || '';
+    if (header.startsWith('Basic ')) {
+        const decoded = Buffer.from(header.slice(6), 'base64').toString('utf8');
+        const i       = decoded.indexOf(':');
+        const user    = i === -1 ? decoded : decoded.slice(0, i);
+        const pass    = i === -1 ? ''      : decoded.slice(i + 1);
+        const okUser  = crypto.timingSafeEqual(_sha(user), _sha(DASH_USER));
+        const okPass  = crypto.timingSafeEqual(_sha(pass), _sha(DASH_PASS));
+        if (okUser && okPass) return next();
+    }
+    res.set('WWW-Authenticate', 'Basic realm="Analisa TV Dashboard", charset="UTF-8"');
+    return res.status(401).send('Authentication required');
+}
+
 // Factory — receives shared state from sltv.js
 module.exports = function createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SESSION_TTL, FIXED_ROOM }) {
+
+    // [DASHBOARD] everything the dashboard touches requires authentication
+    router.use(['/tv-dashboard', '/api/tvs', '/api/interactions', '/api/tv-command'], requireDashboardAuth);
+
 
 // ── RADIO FAVORITES ENDPOINT ────────────────────────────────
 router.post('/radio-favorites', (req, res) => {
@@ -242,22 +272,71 @@ router.get('/stream-cam-page', (req, res) => {
 
 
     /////////////////////////////////////////////////
-    // GET /api/tvs
+    // GET /api/tvs  [DASHBOARD] explicit columns: never expose the TV callback url or ip
     router.get('/api/tvs', (req, res) => {
         try {
-            const rows = db.prepare(`SELECT * FROM tv_registry ORDER BY last_seen DESC`).all();
+            const rows = db.prepare(`SELECT object_id, status, serial, owner, land, room, last_seen
+                                     FROM tv_registry ORDER BY last_seen DESC`).all();
             res.json(rows);
-        } catch (err) { res.status(500).json({ error: err.message }); }
+        } catch (err) {
+            console.error('[API] /api/tvs:', err.message);
+            res.status(500).json({ error: 'Database error' });
+        }
     });
 
-    // GET /api/interactions  (+ optional pagination: ?limit=100&offset=0)
+    // GET /api/interactions  (?limit=100&offset=0, limit capped at 500)  [DASHBOARD] url column omitted
     router.get('/api/interactions', (req, res) => {
-        const limit  = parseInt(req.query.limit)  || 200;
-        const offset = parseInt(req.query.offset) || 0;
+        const limit  = Math.min(Math.max(parseInt(req.query.limit, 10) || 200, 1), 500);
+        const offset = Math.max(parseInt(req.query.offset, 10) || 0, 0);
         try {
-            const rows = db.prepare(`SELECT * FROM interactions ORDER BY timestamp DESC LIMIT ? OFFSET ?`).all(limit, offset);
+            const rows = db.prepare(`SELECT timestamp, owner, creator, clicker, status, land_name, land_id, pos, object_id, serial
+                                     FROM interactions ORDER BY timestamp DESC LIMIT ? OFFSET ?`).all(limit, offset);
             res.json(rows);
-        } catch (err) { res.status(500).json({ error: err.message }); }
+        } catch (err) {
+            console.error('[API] /api/interactions:', err.message);
+            res.status(500).json({ error: 'Database error' });
+        }
+    });
+
+    // GET /api/interactions/count  [DASHBOARD] real total for the stats card
+    router.get('/api/interactions/count', (req, res) => {
+        try {
+            const row = db.prepare(`SELECT COUNT(*) AS count FROM interactions`).get();
+            res.json({ count: row.count });
+        } catch (err) {
+            console.error('[API] /api/interactions/count:', err.message);
+            res.status(500).json({ error: 'Database error' });
+        }
+    });
+
+    // POST /api/tv-command/nearby  [DASHBOARD] the server calls the TV, the browser never sees its url
+    router.post('/api/tv-command/nearby', async (req, res) => {
+        const object_id = req.body && req.body.object_id;
+        if (typeof object_id !== 'string' || !object_id || object_id.length > 64) {
+            return res.status(400).json({ error: 'Missing or invalid object_id' });
+        }
+
+        let url = Object.prototype.hasOwnProperty.call(tvRegistry, object_id) ? tvRegistry[object_id].url : null;
+        if (!url) {
+            try { url = db.prepare(`SELECT url FROM tv_registry WHERE object_id = ?`).get(object_id)?.url; }
+            catch (_) { /* ignore, handled below */ }
+        }
+        if (!url) return res.status(404).json({ error: 'TV not found or no URL registered' });
+
+        try {
+            const r = await axios.post(url, 'get_nearby|', {
+                headers: { 'Content-Type': 'text/plain' },
+                timeout: 5000,
+                responseType: 'text',
+                transformResponse: x => x
+            });
+            const text   = String(r.data || '').trim();
+            const people = (!text || text === 'None') ? [] : text.split(',').map(s => s.trim()).filter(Boolean);
+            res.json({ people });
+        } catch (err) {
+            console.error(`[Command] nearby failed for TV ${object_id}:`, err.message);
+            res.status(502).json({ error: 'TV unreachable' });
+        }
     });
 
     /////////////////////////////////////////////////
