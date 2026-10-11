@@ -20,24 +20,7 @@ const { ExpressPeerServer } = require('peer');
 // --- MIDDLEWARES BASE ---
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
-// ============================================================
-// 🔒 SL BROWSER SECURITY RESTRICTION (Only allow Second Life Viewer)
-// ============================================================
-app.use((req, res, next) => {
-    const ua = req.get('User-Agent') || '';
-    
-    // Permite o ping externo e garante que a dashboard (/) pode ser aberta no exterior
-    if (req.path === '/ping' || req.path === '/tv-dashboard') {
-        return next();
-    }
 
-    // Para todas as outras rotas, exige que o pedido venha do navegador do Second Life
-    if (!ua.includes('SecondLife')) {
-        return res.status(403).send('Loading, please wait');
-    }
-
-    next();
-});
 // 2. CONFIGURAÇÃO DA SESSÃO (Deve vir antes das rotas e depois do parser de JSON)
 // --- MIDDLEWARES BASE ---
 app.use(express.json({limit: '50mb'}));
