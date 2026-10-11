@@ -20,7 +20,24 @@ const { ExpressPeerServer } = require('peer');
 // --- MIDDLEWARES BASE ---
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
+// ============================================================
+// 🔒 SL BROWSER SECURITY RESTRICTION (Only allow Second Life Viewer)
+// ============================================================
+app.use((req, res, next) => {
+    const ua = req.get('User-Agent') || '';
+    
+    // Permite que o endpoint de ping externo continue a funcionar
+    if (req.path === '/ping') {
+        return next();
+    }
 
+    // Verifica se o User-Agent contém a identificação do Second Life
+    if (!ua.includes('SecondLife')) {
+        return res.status(403).send('Loading, please wait');
+    }
+
+    next();
+});
 // 2. CONFIGURAÇÃO DA SESSÃO (Deve vir antes das rotas e depois do parser de JSON)
 // --- MIDDLEWARES BASE ---
 app.use(express.json({limit: '50mb'}));
