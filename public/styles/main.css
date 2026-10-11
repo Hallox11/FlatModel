@@ -30,7 +30,7 @@
 .ltv-nav-btn, .ltv-back-btn {
     margin-top: 2px;
     background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.173);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     color: white;
     padding: 3px 13px;
     border-radius: 0px;
@@ -93,10 +93,10 @@
 .yt-amber .sub-btn-group.remote-hover{ background: #ffb347; color: white; }
 
 /* Purple — docs/knowledge */
-.yt-purple { border-color: rgba(189,0,255,0.5); }
-.yt-purple .main-title-btn.remote-hover { color: #d385ee; }
-.yt-purple .sub-btn-group.remote-hover { color: #d385ee; border-color: rgba(189,0,255,0.6); }
-.yt-purple .sub-btn-group.remote-hover { background: #d385ee; color: white; }
+.yt-purple { border-color: rgba(188, 26, 247, 0.7); }
+.yt-purple .main-title-btn.remote-hover { color: #a26bb4; }
+.yt-purple .sub-btn-group.remote-hover { color: #d67df5; border-color: rgba(189,0,255,0.6); }
+.yt-purple .sub-btn-group.remote-hover { background: #d67df5; color: white; }
 
 /* MENU BUTTONS HOVER */
 .btn-group.remote-hover {
