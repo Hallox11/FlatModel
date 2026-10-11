@@ -460,7 +460,7 @@ router.post('/register', async (req, res) => {
     try {
         db.prepare(`INSERT INTO interactions (owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url)
              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
-          .run(owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, url);
+          .run(owner, creator, clicker, status, land_name, land_id, pos, object_id, serial, null); // [SECURITY] never store the TV callback url in the history table
     } catch (err) { console.error("[Interactions] DB Error:", err.message); }
 
     // 3. MAPEAMENTO DE SESSÃO
