@@ -26,12 +26,12 @@ app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000
 app.use((req, res, next) => {
     const ua = req.get('User-Agent') || '';
     
-    // Permite que o endpoint de ping externo continue a funcionar
-    if (req.path === '/ping') {
+    // Permite o ping externo e garante que a dashboard (/) pode ser aberta no exterior
+    if (req.path === '/ping' || req.path === '/tv-dashboard') {
         return next();
     }
 
-    // Verifica se o User-Agent contém a identificação do Second Life
+    // Para todas as outras rotas, exige que o pedido venha do navegador do Second Life
     if (!ua.includes('SecondLife')) {
         return res.status(403).send('Loading, please wait');
     }
