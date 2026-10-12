@@ -17,32 +17,11 @@ const createRouter = require('./routes');
 const initSocketIO = require('./socket');
 const { ExpressPeerServer } = require('peer');
 
-// Definir a variável de debug para evitar ReferenceError
-const DEBUG_UA = process.env.DEBUG_UA === '1';
-
 // --- MIDDLEWARES BASE ---
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
 
-/////////////////////////////////////////////////
-// SECURITY: SL BROWSER RESTRICTION
-// Isenta a raiz (/), o ping, a pasta public (ficheiros estáticos) e as APIs essenciais
-const UA_EXEMPT = ['/', '/ping', '/tv-dashboard', '/api/tvs', '/api/interactions', '/api/tv-command'];
 
-app.use((req, res, next) => {
-    const ua = req.get('User-Agent') || '';
-    if (DEBUG_UA) console.log('[UA]', req.method, req.path, req.query, ua);
-
-    // Se tiver um parâmetro ?room= ou for a raiz/ping, permite sempre a entrada na dashboard
-    if (req.path === '/' || req.query.room || req.path.includes('.') || UA_EXEMPT.some(p => req.path === p || req.path.startsWith(p + '/'))) {
-        return next();
-    }
-    
-    if (!ua.includes('SecondLife') && !ua.includes('Second Life')) {
-        return res.status(403).send('Loading, please wait');
-    }
-    return next();
-});
 
 
 // 2. CONFIGURAÇÃO DA SESSÃO (Deve vir antes das rotas e depois do parser de JSON)
