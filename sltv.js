@@ -17,6 +17,7 @@ const { Server } = require('socket.io');
 const { ExpressPeerServer } = require('peer');
 
 const createRouter = require('./routes');
+const { createTvState, ensureSchema } = require('./tvState');
 const initSocketIO = require('./socket');
 
 /////////////////////////////////////////////////
@@ -119,7 +120,9 @@ db.exec(`
 
 // On startup: mark all TVs offline so a stale TV_ON from a previous run
 // is never trusted before the TV has re-registered.
-db.prepare(`UPDATE tv_registry SET status = 'OFFLINE'`).run();
+ensureSchema(db);   // adds tv_registry.online / .power and backfills power from the interactions history
+// `power` is kept on purpose: the first ping restores the real TV_ON / TV_OFF state.
+db.prepare(`UPDATE tv_registry SET online = 0, status = 'OFFLINE'`).run();
 console.log('[Registry] All TVs marked OFFLINE on startup.');
 
 // The TV callback url is a control capability: it must never sit in the history table.
@@ -350,6 +353,7 @@ const tvRegistry        = Object.create(null);
 const pendingTokens     = Object.create(null);
 const clickerSessionMap = new Map();
 const SESSION_TTL       = 30 * 1000;
+const tvState           = createTvState({ db, tvRegistry });
 
 const ROOM_NAME_RE = /^[\w.:-]{1,80}$/;
 const MAX_ROOMS    = 2000;
@@ -437,31 +441,44 @@ initSocketIO(io, getRoomState, FIXED_ROOM, clickerSessionMap, tvRegistry);
 
 /////////////////////////////////////////////////
 // TV PING (bounded concurrency, no overlapping runs, dead TVs skipped)
+// Only maintains `online`. The screen state (`power`) is never touched here, so a ping can never
+// overwrite TV_ON / TV_OFF the way it used to.
 const PING_INTERVAL     = parseInt(process.env.PING_INTERVAL_MS, 10) || 5 * 60 * 1000;
+const PING_RETRY_DELAY  = parseInt(process.env.PING_RETRY_DELAY_MS, 10) || 1500;
 const PING_CONCURRENCY  = 10;
 const PING_MAX_AGE_DAYS = 14;
 
-const stmtPingTargets = db.prepare(`SELECT object_id, url FROM tv_registry
+const stmtPingTargets = db.prepare(`SELECT object_id, url, serial, owner, land, room, ip FROM tv_registry
                                     WHERE url IS NOT NULL AND (last_seen IS NULL OR last_seen >= datetime('now', ?))`);
-const stmtMarkOnline  = db.prepare(`UPDATE tv_registry SET status = 'ONLINE', last_seen = CURRENT_TIMESTAMP WHERE object_id = ?`);
-const stmtMarkOffline = db.prepare(`UPDATE tv_registry SET status = 'OFFLINE' WHERE object_id = ?`);
 
 let pinging = false;
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// Two attempts: one slow answer from a laggy sim must not flip a TV to OFFLINE
+// (OFFLINE now blocks browser access, see /check-status).
+async function isReachable(url) {
+    for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+            await axios.post(url, 'ping|', { headers: { 'Content-Type': 'text/plain' }, timeout: 5000 });
+            return true;
+        } catch (_) {
+            if (attempt === 1) await sleep(PING_RETRY_DELAY);
+        }
+    }
+    return false;
+}
 
 async function pingOne(tv) {
-    try {
-        await axios.post(tv.url, 'ping|', {
-            headers: { 'Content-Type': 'text/plain' },
-            timeout: 5000
-        });
-        stmtMarkOnline.run(tv.object_id);
+    if (await isReachable(tv.url)) {
+        // After a restart the in-memory registry is empty: restore the entry so commands work again.
+        if (!tvRegistry[tv.object_id]) {
+            tvRegistry[tv.object_id] = { url: tv.url, serial: tv.serial, owner: tv.owner, land: tv.land, room: tv.room, ip: tv.ip };
+        }
+        tvState.setTvState(tv.object_id, { online: 1, touch: true });
         return true;
-    } catch (_) {
-        stmtMarkOffline.run(tv.object_id);
-        const live = tvRegistry[tv.object_id];
-        if (live) live.status = 'OFFLINE';   // keep the in-memory registry in step with the DB
-        return false;
     }
+    tvState.setTvState(tv.object_id, { online: 0 });   // DB + memory + roomId aliases
+    return false;
 }
 
 async function pingTvs() {
@@ -483,6 +500,7 @@ async function pingTvs() {
 }
 
 const pingTimer = setInterval(pingTvs, PING_INTERVAL);
+setTimeout(pingTvs, 5000).unref();   // recover TV states shortly after a restart instead of waiting a full interval
 
 /////////////////////////////////////////////////
 // SELF-PING TIMER (optional internal keep-alive loop, every 10 minutes)

@@ -511,6 +511,13 @@
             color: var(--accent);
             background: var(--accent-dim);
         }
+    
+        /* TV_OFF = reachable but screen off: its own colour, distinct from OFFLINE (red) */
+        :root { --standby: #e0a458; --standby-bg: rgba(224,164,88,0.12); }
+        .badge.standby { background: var(--standby-bg); color: var(--standby); }
+        .badge.standby::before { background: var(--standby); }
+        .stat-value.amber { color: var(--standby); }
+        .stat-value.red   { color: var(--off); }
     </style>
 </head>
 <body>
@@ -537,8 +544,16 @@
         <span class="stat-value gold" id="stat-total">—</span>
     </div>
     <div class="stat">
-        <span class="stat-label">Online now</span>
+        <span class="stat-label">TV on</span>
         <span class="stat-value green" id="stat-on">—</span>
+    </div>
+    <div class="stat">
+        <span class="stat-label">TV off</span>
+        <span class="stat-value amber" id="stat-standby">—</span>
+    </div>
+    <div class="stat">
+        <span class="stat-label">Offline</span>
+        <span class="stat-value red" id="stat-offline">—</span>
     </div>
     <div class="stat">
         <span class="stat-label">Interactions</span>
@@ -634,16 +649,20 @@
              + '<br>' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
     }
 
-    function isOnline(status) {
+    // Three states: TV_ON (reachable, screen on) | TV_OFF (reachable, screen off) | OFFLINE (not rezzed / unreachable).
+    // "ONLINE" and "rezz" are legacy values that may still sit in old rows.
+    function isOnline(status) {   // reachable: commands and the nearby scan make sense
         const s = String(status || '').toUpperCase();
-        return s === 'TV_ON' || s === 'ONLINE';
+        return s === 'TV_ON' || s === 'TV_OFF' || s === 'ONLINE' || s === 'REZZ';
     }
+    function isOn(status)      { return status === 'TV_ON' || status === 'ONLINE'; }
+    function isStandby(status) { return status === 'TV_OFF' || status === 'rezz'; }
 
     function statusBadge(status) {
-        console.log("STATUS: ",status)
         let cls = 'off', label = status || 'OFFLINE';
         if (status === 'TV_ON' || status === 'ONLINE') { cls = 'on';  label = status === 'TV_ON' ? 'TV ON' : 'ONLINE'; }
-        else if (status === 'TV_OFF' || status === 'OFFLINE') { cls = 'off'; label = status === 'TV_OFF' ? 'TV OFF' : 'OFFLINE'; }
+        else if (status === 'TV_OFF') { cls = 'standby'; label = 'TV OFF'; }
+        else if (status === 'OFFLINE') { cls = 'off'; label = 'OFFLINE'; }
         else if (status === 'rezz') { cls = 'rezz'; label = 'REZZED'; }
         return `<span class="badge ${cls}">${esc(label)}</span>`;
     }
@@ -778,7 +797,11 @@
 
     function updateStats(interactionsTotal) {
         $('stat-total').textContent = registryRows.length;
-        $('stat-on').textContent    = registryRows.filter(r => isOnline(r.status)).length;
+        const on      = registryRows.filter(r => isOn(r.status)).length;
+        const standby = registryRows.filter(r => isStandby(r.status)).length;
+        $('stat-on').textContent      = on;
+        $('stat-standby').textContent = standby;
+        $('stat-offline').textContent = registryRows.length - on - standby;
         $('stat-lands').textContent = new Set(registryRows.map(r => r.land_name || r.land).filter(Boolean)).size;
         if (interactionsTotal != null) $('stat-interactions').textContent = interactionsTotal;
     }

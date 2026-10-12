@@ -16,6 +16,7 @@ const flickrController = require('./flickrController');
 const freebiesScraper = require('./freebiesScraper');
 
 
+const { createTvState, powerFromEvent } = require('./tvState');
 const MY_SECRET = process.env.MY_SECRET || "MyUltraSecret123"; // ⚠️ move to .env
 
 const radioFavPath = path.join(__dirname, 'config', 'favorites-radios.json');
@@ -87,6 +88,9 @@ module.exports = function createRouter({ io, db, tvRegistry, pendingTokens, clic
 
     // [DASHBOARD] everything the dashboard touches requires authentication
     router.use(['/tv-dashboard', '/api/tvs', '/api/interactions', '/api/tv-command'], requireDashboardAuth);
+
+    // Single owner of the OFFLINE / TV_OFF / TV_ON state (see tvState.js)
+    const tvState = createTvState({ db, tvRegistry });
 
 
 // ── RADIO FAVORITES ENDPOINT ────────────────────────────────
@@ -275,7 +279,7 @@ router.get('/stream-cam-page', (req, res) => {
     // GET /api/tvs  [DASHBOARD] explicit columns: never expose the TV callback url or ip
     router.get('/api/tvs', (req, res) => {
         try {
-            const rows = db.prepare(`SELECT object_id, status, serial, owner, land, room, last_seen
+            const rows = db.prepare(`SELECT object_id, status, power, online, serial, owner, land, room, last_seen
                                      FROM tv_registry ORDER BY last_seen DESC`).all();
             res.json(rows);
         } catch (err) {
@@ -388,18 +392,16 @@ router.get('/stream-cam-page', (req, res) => {
                 timeout: 5000
             });
             
-            // Update registry to mark as offline
-            db.prepare(`UPDATE tv_registry SET status = 'OFFLINE' WHERE object_id = ?`).run(object_id);
-            if (tvRegistry[object_id]) {
-                tvRegistry[object_id].status = 'OFFLINE';
-            }
+            // Update registry to mark as offline (DB, memory and roomId aliases)
+            tvState.setTvState(object_id, { online: 0 });
             
             // Emit update to connected clients
             io.emit('tv_registered', { 
                 object_id: object_id, 
                 id: object_id, 
                 location: tv.land,
-                status: "OFFLINE" 
+                status: "OFFLINE",
+                state: 'OFFLINE'
             });
             
             res.json({ success: true, message: `Kill command sent to TV ${object_id}` });
@@ -475,8 +477,10 @@ router.post('/register', async (req, res) => {
     if (!object_id || !url || status === 'TV_OFF') {
         console.log(`[Registry] TV_OFF or no URL — cleaning up for ${object_id}`);
         if (object_id) {
-            tvRegistry[object_id] = { url, status, serial, owner, land_name, land_id, ip: tvIp };
+            tvRegistry[object_id] = { url, status, serial, owner, land_name, land_id, land: land_name, room: `room_${land_id}`, ip: tvIp };
             _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip: tvIp });
+            // The TV script itself just called us, so it is alive. `power` is what it reported.
+            const state = tvState.setTvState(object_id, { online: 1, power: powerFromEvent(status) });
 
             // Remove any roomId aliases pointing to this TV
             Object.keys(tvRegistry).forEach(k => {
@@ -484,7 +488,7 @@ router.post('/register', async (req, res) => {
                     delete tvRegistry[k];
                 }
             });
-            io.emit('tv_registered', { object_id, id: object_id, location: land_name, status: "OFFLINE" });
+            io.emit('tv_registered', { object_id, id: object_id, location: land_name, status: "OFFLINE", state, power: tvRegistry[object_id].power });
         }
         return res.status(200).json({ status: "success", target_id: object_id });
     }
@@ -508,13 +512,17 @@ router.post('/register', async (req, res) => {
         // 6. REGISTO EM MEMÓRIA E PERSISTÊNCIA
         tvRegistry[object_id] = { url, status, serial, owner, land: land_name, room: `room_${land_id}`, ip: tvIp };
         _upsertTv(db, { object_id, status, serial, url, owner, land_name, land_id, ip: tvIp });
+        // Verified and reachable now; power comes from the event (TV_ON -> ON, TV_OFF/rezz -> OFF).
+        const state = tvState.setTvState(object_id, { online: 1, power: powerFromEvent(status) });
 
         // 7. EMIT SOCKET (Aqui a bolinha fica verde no Front-end)
         io.emit('tv_registered', { 
             object_id: object_id, 
             id: object_id, 
             location: land_name,
-            status: "ONLINE" 
+            status: "ONLINE",
+            state,
+            power: tvRegistry[object_id].power
         });
 
         if (clicker && clicker !== "Unknown") {
@@ -629,7 +637,7 @@ router.get('/check-room/:roomId', (req, res) => {
 
     // Verificamos na base de dados (db) se essa TV existe e está ONLINE
     try {
-        const row = db.prepare(`SELECT object_id FROM tv_registry WHERE object_id = ? AND status = 'ONLINE'`).get(roomId);
+        const row = db.prepare(`SELECT object_id FROM tv_registry WHERE object_id = ? AND online = 1`).get(roomId);
         return res.json({ active: !!row });
     } catch (err) {
         console.error("Erro ao verificar sala:", err);
@@ -644,12 +652,13 @@ router.get('/check-status/:id', (req, res) => {
 
     console.log(`[check-status] id=${tvId} | found=${!!tv} | status=${tv?.status}`);
 
-    if (tv && tv.status && tv.status !== 'TV_OFF') {
+    // Browser access needs the TV reachable AND switched on (derived state TV_ON).
+    if (tv && tv.status === 'TV_ON') {
         console.log(`Status da TV ${tvId}: ${tv.status}`);
-        return res.json({ online: true, location: tv.land });
+        return res.json({ online: true, location: tv.land, state: tv.status });
     }
-    
-    res.json({ online: false });
+
+    res.json({ online: false, state: tv ? tv.status : 'OFFLINE' });
 });
     ///////////////////////////////////////////////////////
     // MAIN PAGE
