@@ -207,12 +207,12 @@
 <div id="settings_wrapper">
     
     <!-- Top Header Bar -->
-    <div id="main_header_area">
-        <div id="connection-container">
+<div id="main_header_area">
+        <div id="connection-container" class="online-active">
             <div id="status-dot"></div>
             <div id="tv-info">
-                <span id="status-text" style="font-size:11px; font-weight:600; color:var(--error);">OFFLINE</span>
-                <span style="margin-left: 30px;font-size: 12px;color: yellow;">If the settings do not work, turn the TV off and on again.</span>
+                <span id="status-text" style="font-size:11px; font-weight:600; color:#2ecc71;">ONLINE</span>
+                <span id="warning-msg" style="margin-left: 30px; font-size: 12px; color: yellow; display: none;">If the settings do not work, turn the TV off and on again.</span>
             </div>
         </div>
         <h1 id="main_header">ON SCREEN <span>Settings</span></h1>
@@ -470,40 +470,48 @@
             </div>
           
             <!-- Tab 5: Security -->
+<!-- Tab 5: Security -->
             <div id="tab-security" class="conteiner-col">
                 <div class="sub-panel" style="max-width: 600px; margin: 0 auto;">
                  
-<p class="section-title" style="margin-top: 25px;">SENSOR RANGE (METERS)</p>
-<div class="ctrl-row">
-    <button class="btn-adj" onclick="adjustSensorRange(-1)">−</button>
-    <div class="btn-value">
-        <span class="val-pct" id="sensor-range-val">15m</span>
-        <span class="val-sub">distance</span>
-    </div>
-    <button class="btn-adj" onclick="adjustSensorRange(1)">+</button>
-</div>
-
-
-                    <p class="section-title">HOUSE ALARME </p>
+                    <p class="section-title">HOUSE ALARME</p>
                     <div class="btn-group">
                         <button onclick="setActive('alert',this);cmd('alert','off',this)" class="btn1" data-group="alert">DISABLE</button>
                         <button onclick="setActive('alert',this);cmd('alert','on',this)" class="btn1 active" data-group="alert">ENABLE</button>
                     </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
+                        Enables or disables real-time proximity alerts when someone approach your property.
+                    </p>
 
+                    <p class="section-title" style="margin-top: 20px;">SENSOR RANGE (METERS)</p>
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustSensorRange(-1)">−</button>
+                        <div class="btn-value">
+                            <span class="val-pct" id="sensor-range-val">15m</span>
+                            <span class="val-sub">distance</span>
+                        </div>
+                        <button class="btn-adj" onclick="adjustSensorRange(1)">+</button>
+                    </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
+                        Adjusts the maximum radius in meters used to detect nearby avatars.
+                    </p>
 
-                    <p class="section-title" style="margin-top: 25px;">LOCK TV </p>
+                    <p class="section-title" style="margin-top: 20px;">LOCK TV</p>
                     <div class="btn-group">
                         <button onclick="setActive('lock',this);cmd('lock','off',this)" class="btn1" data-group="lock">UNLOCK</button>
                         <button onclick="setActive('lock',this);cmd('lock','on',this)" class="btn1 active" data-group="lock">LOCK</button>
                     </div>
-                    <p class="section-title" style="margin-top: 25px;">NAV BAR </p>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
+                        Restricts Power button access, settings modifications, and playback controls exclusively to the device owner.
+                    </p>
+
+                    <p class="section-title" style="margin-top: 20px;">NAV BAR</p>
                     <div class="btn-group">
                         <button onclick="setActive('nav',this);cmd('browser','hide',this)" class="btn1 active" data-group="nav">HIDE</button>
                         <button onclick="setActive('nav',this);cmd('browser','show',this)" class="btn1" data-group="nav">SHOW</button>
                     </div>
-                    
-                    <p class="hint-text" style="color: rgba(255,255,255,0.3); font-size:13px; margin-top:20px; text-align:center; line-height:1.6;">
-                        Locking the TV restricts browser access and playback controls exclusively to the device owner.
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
+                        Hides or shows the SL Browser navigation bar, useful to navigate external sites.
                     </p>
                 </div>
             </div>
@@ -723,7 +731,7 @@ window.adjustSensorRange = function(v) {
     cmd('sensor_range', sensorRange.toString());
 };
 
-    window.cmd = function(command, value, el) {
+window.cmd = function(command, value, el) {
         if (!TV_ID || TV_ID === 'undefined') return;
         if (el) { $(el).addClass('sent'); setTimeout(() => $(el).removeClass('sent'), 300); }
         $.ajax({
@@ -732,10 +740,12 @@ window.adjustSensorRange = function(v) {
             success: function() {
                 $('#connection-container').addClass('online-active');
                 $('#status-text').text('ONLINE').css('color','#2ecc71');
+                $('#warning-msg').hide();
             },
             error: function() {
                 $('#connection-container').removeClass('online-active');
                 $('#status-text').text('OFFLINE').css('color','var(--error)');
+                $('#warning-msg').show();
             }
         });
     };
