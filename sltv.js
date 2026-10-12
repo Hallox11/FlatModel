@@ -158,14 +158,22 @@ retentionTimer.unref();
 // "Second Life LSL/..." and not a viewer browser. It is protected by the shared secret instead.
 const UA_EXEMPT = ['/ping', '/register', '/tv-dashboard', '/api/tvs', '/api/interactions', '/api/tv-command'];
 
+const LOCAL_ADDRS = ['127.0.0.1', '::1', '::ffff:127.0.0.1'];
+
 app.use((req, res, next) => {
     const ua = req.get('User-Agent') || '';
     if (DEBUG_UA) console.log('[UA]', req.method, req.path, ua);
 
+    // Local development: a browser on this same machine, and only when not behind a proxy.
+    // req.socket.remoteAddress is the real TCP peer, so headers cannot fake it.
+    if (!BEHIND_PROXY && LOCAL_ADDRS.includes(req.socket.remoteAddress)) {
+        return next();
+    }
+
     if (UA_EXEMPT.some(p => req.path === p || req.path.startsWith(p + '/'))) {
         return next();
     }
-    if (!/second\s?life/i.test(ua)) {   // viewer: "SecondLife/x.y"  |  LSL scripts: "Second Life LSL/..."
+    if (!/second\s?life/i.test(ua)) {
         return res.status(403).send('Loading, please wait');
     }
     return next();

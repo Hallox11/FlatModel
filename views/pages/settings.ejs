@@ -459,13 +459,25 @@
                 </div>
            </div>
 
-            <!-- Tab 4: System -->
-            <div id="tab-system" class="conteiner-col" style="width: 400px;margin: auto;">
-                <div class="sub-panel" >
-                    <p class="section-title">Reset Scripts</p>
-                        <button onclick="cmd('legs','hide',this)" class="btn1">DEFAULT SETTING</button>
-                        <button onclick="cmd('fullreset','',this)" class="btn1">RESET SCRIPTS</button>
-                        <button onclick="cmd('kill','',this)" class="btn1">DELETE TV</button>
+<!-- Tab 4: System -->
+            <div id="tab-system" class="conteiner-col" style="width: 450px; margin: auto;">
+                <div class="sub-panel">
+                    <p class="section-title">SYSTEM ACTIONS</p>
+                    
+                    <button onclick="cmd('visualSizeReset','',this)" class="btn1">DEFAULT SETTING</button>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                        Restores factory default visual parameters and layout configurations.
+                    </p>
+
+                    <button onclick="cmd('fullreset','',this)" class="btn1">RESET SCRIPTS</button>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                        Restarts all scripts to resolve state lag or communication errors.
+                    </p>
+
+                    <button onclick="cmd('kill','',this)" class="btn1" style="border-color: rgba(255,107,107,0.4); color: #ff6b6b;">DELETE TV</button>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
+                        Permanently deletes this TV object from the region.
+                    </p>
                 </div>
             </div>
           
