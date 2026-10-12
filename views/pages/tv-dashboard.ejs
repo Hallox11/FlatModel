@@ -666,29 +666,29 @@
         const id  = esc(objectId);
         return `
         <div class="cmd-btns">
-            <button class="cmd-btn" data-act="cmd" data-cmd="reset" data-id="${id}" ${dis}>Reset</button>
-            <button class="cmd-btn danger" data-act="cmd" data-cmd="kill" data-id="${id}" ${dis}>Kill</button>
+        <button class="cmd-btn" data-act="cmd" data-cmd="reset" data-id="${id}">Reset</button>
+        <button class="cmd-btn danger" data-act="cmd" data-cmd="kill" data-id="${id}">Kill</button>
         </div>`;
     }
 
-    function renderNearby(objectId, status) {
-        if (!isOnline(status) || !objectId) return '<span class="nearby-count">—</span>';
-        const id     = esc(objectId);
-        const cached = nearbyCache.get(objectId);
-        const btn    = label => `<button class="refresh-nearby" data-act="nearby" data-id="${id}">${label}</button>`;
+function renderNearby(objectId, status) {
+    if (!objectId) return '<span class="nearby-count">—</span>';
+    const id     = esc(objectId);
+    const cached = nearbyCache.get(objectId);
+    const btn    = label => `<button class="refresh-nearby" data-act="nearby" data-id="${id}">${label}</button>`;
 
-        if (cached === undefined) return `<div class="nearby-section">${btn('🔍 Scan')}</div>`;
-        if (cached.length === 0)  return `<div class="nearby-section"><span class="nearby-count">No one nearby</span>${btn('↻')}</div>`;
+    if (cached === undefined) return `<div class="nearby-section">${btn('🔍 Scan')}</div>`;
+    if (cached.length === 0)  return `<div class="nearby-section"><span class="nearby-count">No one nearby</span>${btn('↻')}</div>`;
 
-        return `
-        <div class="nearby-section">
-            <div class="nearby-avatars">${cached.map(n => `<span class="nearby-pill">${esc(n)}</span>`).join('')}</div>
-            <div style="display:flex;gap:6px;align-items:center;">
-                <span class="nearby-count">${cached.length} avatar${cached.length > 1 ? 's' : ''}</span>
-                ${btn('↻')}
-            </div>
-        </div>`;
-    }
+    return `
+    <div class="nearby-section">
+        <div class="nearby-avatars">${cached.map(n => `<span class="nearby-pill">${esc(n)}</span>`).join('')}</div>
+        <div style="display:flex;gap:6px;align-items:center;">
+            <span class="nearby-count">${cached.length} avatar${cached.length > 1 ? 's' : ''}</span>
+            ${btn('↻')}
+        </div>
+    </div>`;
+}
 
     // ───────────────────────── renderers ─────────────────────────
     function renderRegistry(rows) {
@@ -849,24 +849,24 @@
         }
     }
 
-    async function scanNearby(btn, objectId) {
-        btn.disabled = true;
-        btn.textContent = '⟳';
-        try {
-            const r = await postJSON('/api/tv-command/nearby', { object_id: objectId });
-            if (r.ok && Array.isArray(r.data.people)) {
-                nearbyCache.set(objectId, r.data.people);
-                renderTable();
-                showToast(`✓ Updated nearby list for ${objectId}`, 'success');
-                return;
-            }
-            showToast(`✗ Failed to fetch nearby list: ${r.data.error || r.status}`, 'error');
-        } catch (e) {
-            showToast(`✗ Network error: ${e.message}`, 'error');
+async function scanNearby(btn, objectId) {
+    btn.disabled = true;
+    btn.textContent = '⟳';
+    try {
+        const r = await postJSON('/api/tv-command/nearby', { object_id: objectId });
+        if (r.ok && Array.isArray(r.data.people)) {
+            nearbyCache.set(objectId, r.data.people);
+            renderTable();
+            showToast(`✓ Updated nearby list for ${objectId}`, 'success');
+            return;
         }
-        btn.disabled = false;
-        btn.textContent = '↻';
+        showToast(`✗ Failed to fetch nearby list: ${r.data.error || r.status}`, 'error');
+    } catch (e) {
+        showToast(`✗ Network error: ${e.message}`, 'error');
     }
+    btn.disabled = false;
+    btn.textContent = '↻';
+}
 
     function showToast(message, type) {
         const toast = document.createElement('div');
