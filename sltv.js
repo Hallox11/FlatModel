@@ -31,14 +31,13 @@ const UA_EXEMPT = ['/', '/ping', '/tv-dashboard', '/api/tvs', '/api/interactions
 
 app.use((req, res, next) => {
     const ua = req.get('User-Agent') || '';
-    if (DEBUG_UA) console.log('[UA]', req.method, req.path, ua);
+    if (DEBUG_UA) console.log('[UA]', req.method, req.path, req.query, ua);
 
-    // Permite rotas isentas ou pedidos a ficheiros estáticos (css, js, imagens)
-    if (UA_EXEMPT.some(p => req.path === p || req.path.startsWith(p + '/')) || req.path.includes('.')) {
+    // Se tiver um parâmetro ?room= ou for a raiz/ping, permite sempre a entrada na dashboard
+    if (req.path === '/' || req.query.room || req.path.includes('.') || UA_EXEMPT.some(p => req.path === p || req.path.startsWith(p + '/'))) {
         return next();
     }
     
-    // Aceita tanto "SecondLife" como "Second Life" (com espaço)
     if (!ua.includes('SecondLife') && !ua.includes('Second Life')) {
         return res.status(403).send('Loading, please wait');
     }
