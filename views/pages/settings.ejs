@@ -39,7 +39,7 @@
         text-transform: uppercase; 
         letter-spacing: 2px; 
         font-weight: 600; 
-        margin-left: 390px;
+        margin-left: 170px;
     }
 
     #main_header span { color: var(--accent); }
@@ -212,6 +212,7 @@
             <div id="status-dot"></div>
             <div id="tv-info">
                 <span id="status-text" style="font-size:11px; font-weight:600; color:var(--error);">OFFLINE</span>
+                <span style="margin-left: 30px;font-size: 12px;color: yellow;">If the settings do not work, turn the TV off and on again.</span>
             </div>
         </div>
         <h1 id="main_header">ON SCREEN <span>Settings</span></h1>
@@ -472,11 +473,24 @@
             <div id="tab-security" class="conteiner-col">
                 <div class="sub-panel" style="max-width: 600px; margin: 0 auto;">
                  
+<p class="section-title" style="margin-top: 25px;">SENSOR RANGE (METERS)</p>
+<div class="ctrl-row">
+    <button class="btn-adj" onclick="adjustSensorRange(-1)">−</button>
+    <div class="btn-value">
+        <span class="val-pct" id="sensor-range-val">15m</span>
+        <span class="val-sub">distance</span>
+    </div>
+    <button class="btn-adj" onclick="adjustSensorRange(1)">+</button>
+</div>
+
+
                     <p class="section-title">HOUSE ALARME </p>
                     <div class="btn-group">
                         <button onclick="setActive('alert',this);cmd('alert','off',this)" class="btn1" data-group="alert">DISABLE</button>
                         <button onclick="setActive('alert',this);cmd('alert','on',this)" class="btn1 active" data-group="alert">ENABLE</button>
                     </div>
+
+
                     <p class="section-title" style="margin-top: 25px;">LOCK TV </p>
                     <div class="btn-group">
                         <button onclick="setActive('lock',this);cmd('lock','off',this)" class="btn1" data-group="lock">UNLOCK</button>
@@ -695,6 +709,19 @@
         cmd('LIGHT_PRESET', name, el);
     };
 
+
+let sensorRange = 15.0; // Valor predefinido inicial do sensor
+
+window.adjustSensorRange = function(v) {
+    // Limita a distância entre 1 e 50 metros para evitar valores inválidos
+    sensorRange = Math.min(50, Math.max(1, sensorRange + v));
+    
+    // Atualiza o valor visualmente no painel
+    document.getElementById('sensor-range-val').textContent = sensorRange + 'm';
+    
+    // Envia o comando para o servidor / script LSL
+    cmd('sensor_range', sensorRange.toString());
+};
 
     window.cmd = function(command, value, el) {
         if (!TV_ID || TV_ID === 'undefined') return;
