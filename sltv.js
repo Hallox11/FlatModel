@@ -17,20 +17,24 @@ const createRouter = require('./routes');
 const initSocketIO = require('./socket');
 const { ExpressPeerServer } = require('peer');
 
+// Definir a variável de debug para evitar ReferenceError
+const DEBUG_UA = process.env.DEBUG_UA === '1';
+
 // --- MIDDLEWARES BASE ---
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
 
 /////////////////////////////////////////////////
 // SECURITY: SL BROWSER RESTRICTION
-// Adicionado '/' ao UA_EXEMPT para permitir abrir a dashboard
+// Isenta a raiz (/), o ping, a pasta public (ficheiros estáticos) e as APIs essenciais
 const UA_EXEMPT = ['/', '/ping', '/tv-dashboard', '/api/tvs', '/api/interactions', '/api/tv-command'];
 
 app.use((req, res, next) => {
     const ua = req.get('User-Agent') || '';
     if (DEBUG_UA) console.log('[UA]', req.method, req.path, ua);
 
-    if (UA_EXEMPT.some(p => req.path === p || req.path.startsWith(p + '/'))) {
+    // Permite rotas isentas ou pedidos a ficheiros estáticos (css, js, imagens)
+    if (UA_EXEMPT.some(p => req.path === p || req.path.startsWith(p + '/')) || req.path.includes('.')) {
         return next();
     }
     
