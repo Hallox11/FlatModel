@@ -634,18 +634,29 @@
              + '<br>' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
     }
 
-    function isOnline(status) {
-        const s = String(status || '').toUpperCase();
-        return s === 'TV_ON' || s === 'ONLINE';
-    }
+function isOnline(status) {
+    const s = String(status || '').toUpperCase();
+    return s === 'ONLINE' || s === 'TV_ON';
+}
 
-    function statusBadge(status) {
-        let cls = 'off', label = status || 'OFFLINE';
-        if (status === 'TV_ON' || status === 'ONLINE') { cls = 'on';  label = status === 'TV_ON' ? 'TV ON' : 'ONLINE'; }
-        else if (status === 'TV_OFF' || status === 'OFFLINE') { cls = 'off'; label = status === 'TV_OFF' ? 'TV OFF' : 'OFFLINE'; }
-        else if (status === 'rezz') { cls = 'rezz'; label = 'REZZED'; }
-        return `<span class="badge ${cls}">${esc(label)}</span>`;
-    }
+function statusBadge(status, status2) {
+    // 1. Badge de Conectividade de Rede (Online / Offline)
+    const isConnOnline = String(status || '').toUpperCase() === 'ONLINE';
+    const netCls = isConnOnline ? 'on' : 'off';
+    const netLabel = isConnOnline ? 'ONLINE' : 'OFFLINE';
+
+    // 2. Badge de Operação (TV ON / TV OFF)
+    const opState = String(status2 || 'TV_OFF').toUpperCase();
+    const opCls = opState === 'TV_ON' ? 'on' : 'off';
+    const opLabel = opState;
+
+    return `
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span class="badge ${netCls}">Net: ${esc(netLabel)}</span>
+            <span class="badge ${opCls}">Power: ${esc(opLabel)}</span>
+        </div>
+    `;
+}
 
     function triggerBadge(trigger) {
         const cls = { TV_ON: 'on', TV_OFF: 'off', rezz: 'rezz' }[trigger] || 'rezz';
