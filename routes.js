@@ -532,7 +532,7 @@ router.post('/register', async (req, res) => {
         // 8. GERA TOKEN E ROOM ID PARA A SESSÃO
         const token  = crypto.randomBytes(16).toString('hex');
         const roomId = crypto.randomBytes(8).toString('hex');
-        pendingTokens[token] = { object_id, owner, roomId, expires: Date.now() + 30000 };
+        pendingTokens[token] = { object_id, owner, roomId, expires: Date.now() + 120000 };
 
         // Keep roomId → object_id entry so check-status works for shared URLs
         tvRegistry[roomId] = { ...tvRegistry[object_id], object_id_ref: object_id };
