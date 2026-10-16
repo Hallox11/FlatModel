@@ -125,102 +125,65 @@
 
 <div id="player-wrapper">
     <div id="player-container"></div>
-
     <div id="pause-overlay"></div>
     
-    <div class="player-controls"> </div>
-
-
     <div class="player-controls">
         <div id="msgBox">
-        <p class="tip">TIP: USE THE 'GEAR ICON' TO SELECT THE HIGHEST QUALITY AVAILABLE.</p>
-        <p class="error">VIDEO WON'T PLAY, IT MIGHT BE DUE TO AGE/REGION RESTRICTIONS OR IT HAS BEEN REMOVED.</p>
-        <p class="action">RESTART VIDEO OR RETURN TO GRID</p>
-     </div>
-<button style="top: 410px;" class="backBut" onclick="exitPlayer()" title="Exit Player">
-    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-</button>
+            <p class="tip">TIP: USE THE 'GEAR ICON' TO SELECT THE HIGHEST QUALITY AVAILABLE.</p>
+            <p class="error">VIDEO WON'T PLAY, IT MIGHT BE DUE TO AGE/REGION RESTRICTIONS OR IT HAS BEEN REMOVED.</p>
+            <p class="action">RESTART VIDEO OR RETURN TO GRID</p>
+        </div>
+        <button style="top: 410px;" class="backBut" onclick="exitPlayer()" title="Exit Player">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
 
-<button style="top: 332px;" class="backBut"  onclick="resumePlay()" title="Restart Play">
-    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="currentColor" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="6 4, 20 12, 6 20, 6 4"></polygon>
-    </svg>
-</button>
-
-     </div>
-
+        <button style="top: 332px;" class="backBut" onclick="resumePlay()" title="Restart Play">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="6 4, 20 12, 6 20, 6 4"></polygon>
+            </svg>
+        </button>
     </div>
-
 </div>
 
 <div id="cover"></div>
 
 <script>
-
 function resumePlay() {
     if (!window.ytPlayerInstance) return;
-
-    // 1. Resume locally
     window.ytPlayerInstance.playVideo();
-
-    // 2. Notify other viewers via Socket
     if (typeof socket !== 'undefined') {
-        // We use the current time so it resumes exactly where it was
         const currentTime = window.ytPlayerInstance.getCurrentTime();
         socket.emit('toPlay', currentTime);
     }
-    
 }
 
 function exitPlayer() {
     const origin = "<%= origin %>";
-    // We get these from the server template variables
     const target = "<%= targetID || 'Live English News' %>"; 
     const scroll = "<%= scrollPos || 0 %>";
     const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
-    const title   = "<%= typeof title !== 'undefined' ? title : '' %>";
+    const title  = "<%= typeof title !== 'undefined' ? title : '' %>";
     
-
     sessionStorage.removeItem('yt_playlist');
     sessionStorage.removeItem('yt_playlist_index');
 
-    console.log("***********************")
-    console.log("Origin: ", origin)
-    console.log("Target: ", target)
-    console.log("Scroll: ", scroll)
-    console.log("menu: ", menu)
-    console.log("title: ", title)
-    console.log("***********************")
-
     let returnUrl = "";
-    let isChannel=false;
-    
-    if (target.startsWith("UC")) isChannel=true;
+    let isChannel = target.startsWith("UC");
     
     if (origin === 'live-tv') {
-        // IMPORTANT: We need to append the parameters here too if we want to remember the state
         returnUrl = `/live-tv?genre=${encodeURIComponent(target)}&scrollPos=${scroll}`;
-
     } else if (origin === 'link') {
         returnUrl = menu || '/youtube-menu';
-
     } else if (origin === 'music') {
-        let gridRoute = '/music-grid'; 
-        returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}`;
-    
+        returnUrl = `/music-grid?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}`;
     } else if (origin === 'movies') {
-        let gridRoute = '/movies-grid'; 
-        returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}&isChannel=${encodeURIComponent(isChannel)}`;
-    
+        returnUrl = `/movies-grid?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}&isChannel=${encodeURIComponent(isChannel)}`;
     } else if (origin === 'youtube') {
-        let gridRoute = '/youtube-grid'; 
-        returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}&isChannel=${encodeURIComponent(isChannel)}`;
+        returnUrl = `/youtube-grid?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}&isChannel=${encodeURIComponent(isChannel)}`;
     }
-
-    console.log("Exiting to:", returnUrl);
 
     if (typeof handleNav === "function") {
         window.pendingScrollRestore = parseInt(scroll) || 0;
@@ -234,10 +197,6 @@ function exitPlayer() {
     const video_id = "<%= (typeof videoId !== 'undefined') ? videoId : '' %>";
     let isRemoteCommand = false;
     let emitTimer = null;
-
-    // --- Click throttle shield ---
-    const CLICK_THROTTLE_MS = 1200;
-    let clickShieldActive = false;
 
     function purgePriorPlayer() {
         if (window.ytPlayerInstance) {
@@ -269,7 +228,7 @@ function exitPlayer() {
                 'iv_load_policy': 3,
                 'cc_load_policy': 0,
                 'loop': 1,
-                'origin': window.location.origin, // Isso diz ao YT que seu site é seguro
+                'origin': window.location.origin,
                 'enablejsapi': 1
             },
             events: {
@@ -288,6 +247,7 @@ function exitPlayer() {
                         window.syncArrivalTime = null;
                     }
 
+                    // Improvement 2: Throttled heartbeat interval (every 3 seconds instead of 1)
                     window.heartbeatInterval = setInterval(() => {
                         if (window.ytPlayerInstance && window.ytPlayerInstance.getCurrentTime) {
                             socket.emit('report_current_time', {
@@ -296,20 +256,14 @@ function exitPlayer() {
                                 videoId: video_id
                             });
                         }
-                    }, 1000);
+                    }, 3000);
                 },
 
                 'onError': (event) => {
                     console.error("YouTube Player Error:", event.data);
                     const controls = document.querySelector('.player-controls');
                     const wrapper = document.getElementById('player-wrapper');
-                    
-                    // 1. Add the class to turn on the dark overlay background
-                    if (wrapper) {
-                        wrapper.classList.add('is-paused');
-                    }
-                    
-                    // 2. Make the buttons and error messages fully visible and clickable
+                    if (wrapper) wrapper.classList.add('is-paused');
                     if (controls) {
                         controls.style.opacity = '1';
                         controls.style.pointerEvents = 'auto';
@@ -319,20 +273,18 @@ function exitPlayer() {
                 'onStateChange': (event) => {
                     const controls = document.querySelector('.player-controls');
                     const wrapper = document.getElementById('player-wrapper');
-                    // Lógica de Loop: Se o vídeo terminar, volta ao início e dá play
+
                     if (event.data === YT.PlayerState.ENDED) {
                         const playlist = JSON.parse(sessionStorage.getItem('yt_playlist') || '[]');
                         const index = parseInt(sessionStorage.getItem('yt_playlist_index') || '0');
                         const next = index + 1;
 
                         if (playlist.length > 0 && next < playlist.length) {
-                            // Advance to next video in playlist
                             sessionStorage.setItem('yt_playlist_index', String(next));
                             const nextId = playlist[next];
                             const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
                             handleNav(`/tvytube?videoId=${encodeURIComponent(nextId)}&vq=hd1080&origin=link&targetID=playlist&menu=${encodeURIComponent(menu)}&scrollPos=0`);
                         } else {
-                            // No playlist or last video — clear and loop as before
                             sessionStorage.removeItem('yt_playlist');
                             sessionStorage.removeItem('yt_playlist_index');
                             event.target.seekTo(0);
@@ -341,35 +293,31 @@ function exitPlayer() {
                         return;
                     }
 
-// 2. Determine state
-    const isPausedOrEnded = (event.data === YT.PlayerState.PAUSED || 
-                             event.data === YT.PlayerState.ENDED || 
-                             event.data === YT.PlayerState.UNSTARTED);
+                    const isPausedOrEnded = (event.data === YT.PlayerState.PAUSED || 
+                                             event.data === YT.PlayerState.ENDED || 
+                                             event.data === YT.PlayerState.UNSTARTED);
 
-    // 3. Sync Overlay and Buttons
-    if (wrapper) {
-        isPausedOrEnded ? wrapper.classList.add('is-paused') : wrapper.classList.remove('is-paused');
-    }
+                    if (wrapper) {
+                        isPausedOrEnded ? wrapper.classList.add('is-paused') : wrapper.classList.remove('is-paused');
+                    }
 
-    if (controls) {
-        // If paused/ended, show controls (opacity: 1), else hide (opacity: 0)
-        controls.style.opacity = isPausedOrEnded ? '1' : '0';
-        controls.style.pointerEvents = isPausedOrEnded ? 'auto' : 'none';
-    }
+                    if (controls) {
+                        controls.style.opacity = isPausedOrEnded ? '1' : '0';
+                        controls.style.pointerEvents = isPausedOrEnded ? 'auto' : 'none';
+                    }
 
-    // 5. Socket Logic
-    if (isRemoteCommand) return;
-    clearTimeout(emitTimer);
-    emitTimer = setTimeout(() => {
-        if (!window.ytPlayerInstance) return;
-        const currentTime = window.ytPlayerInstance.getCurrentTime();
-        if (event.data === YT.PlayerState.PLAYING) {
-            socket.emit('toPlay', currentTime);
-        } else if (event.data === YT.PlayerState.PAUSED) {
-            socket.emit('toPause', currentTime);
-        }
-    }, 200);
-}
+                    if (isRemoteCommand) return;
+                    clearTimeout(emitTimer);
+                    emitTimer = setTimeout(() => {
+                        if (!window.ytPlayerInstance) return;
+                        const currentTime = window.ytPlayerInstance.getCurrentTime();
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            socket.emit('toPlay', currentTime);
+                        } else if (event.data === YT.PlayerState.PAUSED) {
+                            socket.emit('toPause', currentTime);
+                        }
+                    }, 200);
+                }
             }
         });
     };
@@ -386,42 +334,30 @@ function exitPlayer() {
     if (typeof socket !== 'undefined') {
         socket.off('Play').off('Pause');
 
-        
-    socket.on('Play', (data) => {
-    if (!window.ytPlayerInstance) return;
-    
-    // 1. Prevent loopback
-    isRemoteCommand = true;
+        socket.on('Play', (data) => {
+            if (!window.ytPlayerInstance) return;
+            isRemoteCommand = true;
 
-    // 2. Parse the time safely (ensure it's a number)
-    const baseTime = parseFloat(data.timestamp) || 0;
-    const latency = (Date.now() - (data.lastUpdate || Date.now())) / 1000;
-    
-    // 3. Calculate actual time. 
-    // If it's a pause/play, latency is key. 
-    // If it's a fresh start, latency might be 0.
-    const actualCurrentTime = baseTime + latency;
+            const baseTime = parseFloat(data.timestamp) || 0;
+            const latency = (Date.now() - (data.lastUpdate || Date.now())) / 1000;
+            const actualCurrentTime = baseTime + latency;
 
-    console.log(`Syncing to: ${actualCurrentTime} (Base: ${baseTime}, Latency: ${latency})`);
+            // Improvement 1: Check drift threshold before forcing a seek
+            const localTime = window.ytPlayerInstance.getCurrentTime();
+            if (Math.abs(localTime - actualCurrentTime) > 1.5) {
+                window.ytPlayerInstance.seekTo(actualCurrentTime, true);
+            }
+            
+            window.ytPlayerInstance.playVideo();
+            setTimeout(() => isRemoteCommand = false, 1000);
+        });
 
-    // 4. Command the player
-    // Seek first, then play. Some players reset to 0 if play() is called before seek completes.
-    window.ytPlayerInstance.seekTo(actualCurrentTime, true);
-    
-    // Small delay can help some player APIs stabilize the seek before playing
-    setTimeout(() => {
-        window.ytPlayerInstance.playVideo();
-    }, 50);
-
-    setTimeout(() => isRemoteCommand = false, 1000);
-});
         socket.on('Pause', (time) => {
             if (!window.ytPlayerInstance) return;
             isRemoteCommand = true;
             window.ytPlayerInstance.pauseVideo();
             window.ytPlayerInstance.seekTo(time, true);
             window.ytPlayerInstance.pauseVideo();
-
             setTimeout(() => isRemoteCommand = false, 1000);
         });
     }
