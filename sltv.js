@@ -152,6 +152,38 @@ const retentionTimer = setInterval(runRetention, 24 * 60 * 60 * 1000);
 retentionTimer.unref();
 
 /////////////////////////////////////////////////
+// BLACKLIST SCHEMA & HELPER
+db.exec(`
+    CREATE TABLE IF NOT EXISTS blacklist (
+        uuid TEXT PRIMARY KEY,
+        reason TEXT,
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+`);
+
+// Optional: Fallback/Sync support for a local json file if you prefer file-based storage
+const BLACKLIST_FILE = path.join(__dirname, 'blacklist.json');
+
+function isUserBlacklisted(uuid) {
+    if (!uuid) return false;
+    // Check SQLite database
+    const row = db.prepare('SELECT 1 FROM blacklist WHERE uuid = ?').get(uuid.toLowerCase());
+    if (row) return true;
+
+    // Optional backup check: blacklist.json
+    try {
+        if (fs.existsSync(BLACKLIST_FILE)) {
+            const data = JSON.parse(fs.readFileSync(BLACKLIST_FILE, 'utf8'));
+            if (data && Array.isArray(data.blacklisted_uuids)) {
+                return data.blacklisted_uuids.some(e => e.uuid.toLowerCase() === uuid.toLowerCase());
+            }
+        }
+    } catch (e) {
+        // ignore parse errors
+    }
+    return false;
+}
+/////////////////////////////////////////////////
 // SECURITY: SL BROWSER RESTRICTION (only the Second Life viewer may use the TV pages)
 // The admin dashboard and its APIs are exempt here because routes.js protects them with login.
 // /register is called by the LSL script inside the TV (llHTTPRequest), whose user-agent is
@@ -443,6 +475,27 @@ roomSweepTimer.unref();
 // ROUTES (with session support)
 app.use(createRouter({ io, db, tvRegistry, pendingTokens, clickerSessionMap, SESSION_TTL, FIXED_ROOM }));
 
+
+/////////////////////////////////////////////////
+// BLACKLIST ENDPOINT FOR LSL TV SCRIPTS
+app.post('/api/check-blacklist', (req, res) => {
+    const { avatar_uuid } = req.body;
+
+    if (!avatar_uuid) {
+        return res.status(400).json({ error: "Missing avatar_uuid" });
+    }
+
+    if (isUserBlacklisted(avatar_uuid)) {
+        return res.json({
+            status: "blocked",
+            reason: "Access revoked by store administration."
+        });
+    }
+
+    return res.json({
+        status: "allowed"
+    });
+});
 /////////////////////////////////////////////////
 // SOCKET.IO HANDLERS
 initSocketIO(io, getRoomState, FIXED_ROOM, clickerSessionMap, tvRegistry);
