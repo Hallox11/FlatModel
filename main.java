@@ -68,43 +68,13 @@ integer gOnCounter   = 0;      // Tracks how many times it has been turned on wh
 integer turn_on_number = 3; // number of turn on before lock
 
 key last_detected_agent;
-string TV_type="DEMO";
-////////////////////////////////////////////////////////
-integer s5_authenticated = FALSE;
 
-// Função chamada quando a TV é ligada
-verify_s5_handshake()
-{
-    s5_authenticated = FALSE;
-    
-    // 1. Envia o desafio com o canal numérico de verificação
-    llMessageLinked(LINK_THIS, 999, "CHECK_S5_ALIVE", NULL_KEY);
-    
-    // 2. Lança um cronómetro de segurança de apenas 0.5 segundos
-    llSetTimerEvent(1.0);
-}
-////////////////////////////////////////////////////////
-key blacklist_request_id;
 
-check_server_blacklist()
-{
-    if(TV_type != "DEMO") return;
-    string ownerUUID = (string)llGetOwner();
-    string jsonPayload = llList2Json(JSON_OBJECT, ["avatar_uuid", ownerUUID]);
-    
-    blacklist_request_id = llHTTPRequest(BASE_URL + "/api/check-blacklist", [
-        HTTP_METHOD, "POST",
-        HTTP_MIMETYPE, "application/json",
-        HTTP_CUSTOM_HEADER, "ngrok-skip-browser-warning", "true"
-    ], jsonPayload);
-}
 ////////////////////////////////////////////////////////
 init(key user_id, string status)
 {
     if (status == "TV_ON")
     {
-        // 🔒 Check server blacklist first before proceeding
-        check_server_blacklist();
         register_tv(user_id, "TV_ON");
     }
     else
@@ -152,14 +122,14 @@ register_tv(key user_id, string trigger)
     current_trigger = trigger;
     llOwnerSay("************************");
     llOwnerSay("Welcome " + (string)username);
-    // llOwnerSay("✅ Connecting to Server...");
+    llOwnerSay("✅ Connecting to Server...");
     
     if (my_url != "")
     {
         llReleaseURL(my_url);
         my_url = "";
     }
-    
+     
     url_request = llRequestSecureURL();
 }
 ////////////////////////////////////////////////////////
@@ -168,23 +138,22 @@ generate_serial()
     string owner_name  = llKey2Name(llGetOwner());
     string obj_uuid    = (string)llGetKey();
     string unique_part = llToUpper(llGetSubString(obj_uuid, 24, 35));
-    my_serial = "DEMO - TV-" + owner_name + "-" + unique_part;
+    my_serial = "TV-" + owner_name + "-" + unique_part;
 }
-
 /////////////////////////////////////////////////////////
 set_visual_defaults()
 {
     current_model = "model1";
     toggle_stand("model1");
     
-    string carbon_uuid = "369104f6-cb0e-4920-a41a-ac2f8c42337e"; 
+    string carbon_uuid = "21d7c8a9-28c5-f436-083d-2b7d0d594dec"; 
     set_texture(carbon_uuid, <1,1,1>);
      llSetLinkAlpha(frame, 1.0, web_face);
      llSetLinkAlpha(frame, 1.0, frame_face);
 
     vector black = <0.0, 0.0, 0.0>;
     llSetLinkPrimitiveParamsFast(frame, [
-        PRIM_COLOR, back_face, black, 0.85,
+        PRIM_COLOR, back_face, black, 0.80,
         PRIM_COLOR, screen_face, black, 0.0 // Optional: makes the screen black too
     ]);
 
@@ -509,30 +478,6 @@ set_screen_texture(string uuid)
 }
 
 ////////////////////////////////////////////////////////
-set_home_url(string home_url)
-{
-    llClearLinkMedia(frame, web_face); 
-    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_WIDTH_PIXELS,   1280]);
-    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_HEIGHT_PIXELS,  720]);
-    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_HOME_URL,       home_url]);
-    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_CURRENT_URL,    home_url]);
-    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_AUTO_PLAY,      TRUE]);
-    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_PERMS_CONTROL,  PRIM_MEDIA_PERM_NONE]);
-} 
-
-////////////////////////////////////////////////////////
-update_web_screen()
-{
-    llSetLinkMedia(frame, web_face, [
-        PRIM_MEDIA_CURRENT_URL,  BASE_URL, 
-        PRIM_MEDIA_HOME_URL,     BASE_URL,
-        PRIM_MEDIA_AUTO_PLAY,    TRUE,
-        PRIM_MEDIA_WIDTH_PIXELS, 1280,
-        PRIM_MEDIA_HEIGHT_PIXELS,720
-    ]);
-}
-
-////////////////////////////////////////////////////////
 toggle_stand(string stand){
     
     if(stand=="model1")
@@ -565,7 +510,7 @@ GetLinkNum()
               for (i=0; i<primCount+1;i++)   
              {   
                 if (llGetLinkName(i)=="frame") frame=i; 
-                if (llGetLinkName(i)=="TheFrame-TV v4.1 DEMO") stand1=i; 
+                if (llGetLinkName(i)=="TheFrame-TV v4.1 Flat") stand1=i; 
                 if (llGetLinkName(i)=="stand2") stand2=i; 
                 if (llGetLinkName(i)=="stand3") stand3=i; 
 
@@ -600,7 +545,6 @@ default
 {
 state_entry()
 {
-    verify_s5_handshake();
     generate_serial();
     GetLinkNum();
     update_current_reference();    // STORE BASE POSITION (LINKSET ANCHOR)
@@ -618,21 +562,8 @@ state_entry()
 
 link_message(integer sn, integer num, string msg, key id)
 {
-   // llSay(0,msg);
-    // Resposta do s5 com o código secreto
-        if (num == 789 && msg == "S5_OK")
-        {
-            s5_authenticated = TRUE; // Autenticado com sucesso!
-            
-            // Se as tuas luzes/neon não precisarem do timer no arranque, 
-            // podes desligá-lo aqui até o utilizador mudar de modo visual:
-            // llSetTimerEvent(0.0);
-            return;
-        }
-        
         if (msg == "TV_ON")  
         {
-            verify_s5_handshake();
             // 🔒 SECURITY ACCESS LOCK CHECK
             if (gTvLocked && id != llGetOwner())
             {
@@ -1232,28 +1163,6 @@ if (cmd == "neon_speed")
 
 http_response(key request_id, integer status, list metadata, string body)
 {
-    
-//////////////
-if (request_id == blacklist_request_id)
-    {
-        if (status == 200)
-        {
-            string blockStatus = llJsonGetValue(body, ["status"]);
-            if (blockStatus == "blocked")
-            {
-                string reason = llJsonGetValue(body, ["reason"]);
-                llOwnerSay("⚠️ [WARNING] This demo has expired, please contact the creator to obtain a new one.");
-                
-                // Shut down TV functions or self-destruct if non-transferable
-                llSleep(5);
-                llDie();
-                return;
-            }
-        }
-        return;
-    }
-//////////////    
-    
     if (request_id == reg_request && status == 200)
     {
         // Extract token
@@ -1321,25 +1230,17 @@ on_rez(integer param)
 }
 ////////////////////////////////////////////////////////
 timer()
-    {
-        // Se o timer disparou e a autenticação FALHOU (script falso ou ausente):
-        if (!s5_authenticated)
+{
+        if (current_neon_status=="on" || current_light_status=="on")
         {
-           
-            llSleep(0.5);
-            llDie(); // Destrói a TV
-          // llSay(0,"DIE"); 
-            return;
-        }
-        if (current_neon_status == "on" || current_light_status == "on")
-        {
-            if (light_effect_mode == "random") {
+            if (light_effect_mode == "random")
                 colorRandomStep();
-            } else {
+            else
+            {
                 colorupdate();
                 colorchange();
             }
         }
-    }
+}
 
 } // end default

@@ -266,7 +266,7 @@
                     <button onclick="setActive('texture',this); cmd('texture','<0.176, 0.176, 0.176>',this)"  class="btn1" data-group="texture">DARK GREY</button>
                     <button onclick="setActive('texture',this); cmd('texture','21d7c8a9-28c5-f436-083d-2b7d0d594dec',this)"  class="btn1" data-group="texture">CARBON FIBER</button>
                     <button onclick="setActive('texture',this); cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">WOOD</button>
-                    <button onclick="setActive('texture',this); cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">WOOD</button>
+                    <button onclick="setActive('texture',this); cmd('texture','e6a5d90c-fc7c-9f4c-ffa1-e4ba195ae3b1',this)"  class="btn1" data-group="texture">PASSERELE</button>
                     <button onclick="setActive('texture',this); cmd('texture','cb3163a9-ea39-de5e-d475-2a2ab0bff4b8',this)"  class="btn1" data-group="texture">IVORY WHITE</button>
                     </div>
 
@@ -603,7 +603,8 @@
     const LIGHT_PRESETS = {
         active: { color: '#ff00aa', ambiMode: 'cycle', neonMode: 'cycle', ambiInt: 0.9,  rangeValue: 0.8,  fallValue: 0.4, glowValue: 0.4,  speedValue: 0.10 },
         normal: { color: '#ffffff', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.5,  rangeValue: 0.5,  fallValue: 1.0, glowValue: 0.3,  speedValue: 0.50 },
-        cozy:   { color: '#ff8800', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.25, rangeValue: 0.35, fallValue: 1.4, glowValue: 0.15, speedValue: 0.50 }
+        cozy:   { color: '#ff8800', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.25, rangeValue: 0.35, fallValue: 1.4, glowValue: 0.15, speedValue: 0.50 },
+        inactive:   {}
     };
 
     // Helper: adjust a 0.0-1.0 value by a step, using integer (0-100) arithmetic
