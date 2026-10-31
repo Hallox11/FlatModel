@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS De-obfuscation Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 20px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        textarea {
+            width: 100%;
+            height: 400px;
+            background-color: #121212;
+            color: #00FF00;
+            font-family: monospace;
+            font-size: 13px;
+            border: 1px solid #333;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Decoded JavaScript Output</h2>
+    <p>The obfuscated payload has been safely loaded and decoded below:</p>
+    
+    <button class="btn" id="copyBtn">Copy Clean Code</button>
+    
+    <textarea id="output" readonly placeholder="Decoding..."></textarea>
+
+    <script>
+    // Definir a função copyCode globalmente primeiro para garantir que existe
+    function copyCode() {
+        var textarea = document.getElementById("output");
+        textarea.select();
+        document.execCommand("copy");
+        alert("Clean JavaScript code copied to clipboard!");
+    }
+
+    document.getElementById("copyBtn").addEventListener("click", copyCode);
+
+    function interceptCode(decodedScript) {
+        document.getElementById("output").value = decodedScript;
+        console.log("Decoded successfully! Length:", decodedScript.length);
+    }
+
+    // Executor principal protegido por try-catch
+    try {
+        (function(j,o){
+            var _fix_ios6=j;
+            for(var b,a,h,m,f,k,l,n,e,g,c=0,d=[],p=[35,48,72,128];c<j.length;)
+                a=j.charCodeAt(c++)&255,a>=240&&(a=(a&15)<<4|j.charCodeAt(c++)&15),
+                a<32?a+=208:a>=208&&a<240&&(a-=208),d.push(a);
+            f=d[0];k=d[1];l=d[2];n=d[3];c=4;e=[];
+            for(g=0;c<d.length;)
+                if(b=d[c++],b!=f&&b!=k&&b!=l&&b!=n)e[g++]=b;
+                else if(a=d[c++]){
+                    b==f?(b=a&31,h=d[c++],m=d[c++],a=((a&224)<<11|h<<8|m)+2056):
+                    b==k?(b=a&31,h=d[c++],a=((a&224)<<3|h)+8):
+                    b==l?(b=(a>>6)+1,a=(a&63)+8):(b=a&31,a=(a>>5)+1);
+                    b<28?b+=2:b=p[b-28];
+                    for(i=0;i<b;i++)e[g]=e[g-a],g++
+                }else e[g++]=b;
+            for(c=0;c<e.length;++c)e[c]=String.fromCharCode(e[c]);
+            f=e.join('');
+            o(f);
+        })(
+            // String original convertida de forma segura
+            'ÐÑÒÓ//ÀÝÚ(function(j,o){var _fix_ios6=j;for(ÒLb,a,h,m,f,k,l,n,e,g,c=0,d=[],p=[35,48,72,128];c<j.length;)a=j.charCodeAt(c++)&255,a>=240&&(a=(a&15)<<4|Ñà#Òá,a<32?a+=208:Òo08&&a<ÑÕ6-ÒH),d.push(a);f=d[0];kÓÁ1];lÓÁ2];nÓÁ3];c=4;e=[]ÑÓððg=0;c<dÑ×¢if(bÒïc++],b!=f&&Ó¡kÓ£lÓ£n)e[gÒæ=b;else Ò)aÑÕ)){b==f?Ò9a&31,hÑÖ@mÑÖÑa=((a&224)<<11|h<<8|m)+2056):Ò4kÑà4ÑÚ+3|h)+8Ò¢lÒb(a>>6)+1Ò]a&63ÒùõÑÖ:ÒL>>5Òç);b<28?b+=2Ò3p[b-Ñ"ù÷ÑÒÿõi=0;i<b;i++ÑÒÎ]=Óøñ-a],g++}ÑÓðõÑ×ñóÒfcÑ##eÑ&#++cÒ-c]=String.fromCÑ%±(ÒQÑ"~e.join(ò÷ò÷);o(f)}(ò÷ðððñðòðó//ÀðýðúÑõümðòLÑ^kÑ[k4|ðññð#ðòññÑK[ðòoÑDYðñðõ6-ðòHÑRSðóÁÑBRðóÁÑBQðóÁÑIPðñðóÿðÿðÑEOðñð÷¢ÑBIðòñÿÑIHðó¡kðó£lðó£ÑCAðòñöÑF@ðò)aðñðõ)ÑE;ðò9Ñ$ÿþðñðö@mðñðöðñÑ[0ðò4kðññð4ðñðú+ÑDçðò¢lðòbÑFâðò]ÑBàðòÿùÿõðñðö:ðòL>>5ðòñ÷ÑIÖðò3ÑBÕðñ"ÿùÿ÷ðñðòÿÿÿõÑIÕðñðòÎ]=ðóÿøÿñÑFÔðñðóÿðÿõðñð÷ÿñÿóðòfcðñ##eðñ&#++cðò-Ñ-ÿôðñ%±(ÒQÑ"~Ñ%ñýÿòÿ÷ÿòÿ÷Ñ&ñÿÿòÿ÷ÿðÿðÿðÿñÿðÿòÿðÿó;ðñBFaaa=void 0,gJ=true,bÒäÿûnull,hJ=false;ðñFÿùÿð caa(a){a===ÿðÿò1ðñD(new Date).getTime());this.f=624ÿðÿòÃk=397Óññw=2567483615ÿðÿòÊn=21Òçÿÿÿøÿÿÿú48ÒØmÿðÿñÿðÿøÿðÿúÓ¡ÿõ.c=Array(Òù÷ÿõfÒLYe=ÿðÿòÇ+1;daaÒßÿùÿÿÿô,a)}Òâÿ÷§ÿðÿòMa,b){a.c[0]=b>>>0ðñ#ðûÒï41;ÿðÿó¡<a.fÿðÿóÿÿÿñÿÿÿò++)bÒ?_ÿðÿòÿðÿô-1]^ÑÓkÿóÿðÿò,30,ÒÔÿõÿðÿø]=(((b&4294901760)ÿðÿòÿñÿ÷16)*1812433253<<Ò8ÿø+Òáÿý65535Ò2ÿúÿñÿòÒØ9ÒÒÿ÷Aÿðÿò0=0}ÿðÿýÑÓÄÿ÷¥eÿðÿñ$Tÿðÿñ"ÿÿÿøÿÿÿýb,c=[ÒÞÿòlw];iÑÒððÿò¥>=ÑÒù÷ÿðÿÿÿðÿÿÿõÒØÿó§=ÿðÿòH+1&&ÒÕÿôÒÝÿû5489)ÒRÒÕÿñf=0;ðòñÿÍ-a.kðòðñÿðÿ÷Ïf]&a.n\vert{}Ñ# ÿó+1ÿðÿòEÑ"?ÿóÒFf]ÑÓMÿ÷+ÓÁÿòÿÿÿ÷ÑÒñõ"ÿñÿù1^c[b&1]Ò^GÓøñÿõD1ÿðÿñÿñÿüBÒÓÿ÷B(ðò7-ÿðÿò.ÑÒfÿýHÿðÿñ&XfÒ×®Ò8ÿÿÿÿÿû0ÿðÿò¹;ÒáÿøÿñÿòÒoÿñÿýkÑB6ÒÓÿü7Óøñÿòÿÿÿñÿÿÿþ0}ÿðÿñÑÒcÿÿÿùÿÿÿý++];b^ÿðÿñ#Ë11ÑÓùöÿò<<7&2636928640Ò\vert{}ÿðÿû15&4022730752ÒÛÿ÷)8;return ÿðÿòF0}caa.prototype.random=ÿðÿñ&ÿÿÿùÿÿÿñ(){Ò}\%Ñ"SÿùÿÿÿúÿðÿñBÿðÿñÿÿü)*(1/ÿðÿñ#ÑÒ«67296)};ðòññÿÿÿðzX=6917ÿðÿñh\%IxÒ+Èÿðÿòÿðÿÿ(zX*a+937)\%46656ÿðÿñÿðÿöuzX.toðñD©(36).replace(/[^a-z]+/g,""ÿðÿñIÇMÒ=DÆÒ)ÿõK7121+701)\%776531401ÿðÿñ#¬Ñ#Þÿøÿÿÿõc=a+b,Ò&ÿðÿõcðñeðùÒã¼Òo4cðñÿøÿúµf)+4153ÒÙÿú@Ñ"øðÑÔÂÿðÿøÓñò.sliÿðÿòÿðÿý-(zX\%3+1)ÑCñ÷ÿò{gaa=Ix(816),ÒéÄ144),kÒÑ90ÿðÿòÿñÿðlÒÒ83Ò1ÿômðòðþ35),nðòðþ69),oÑ#kÿô1ÿðÿò4pÒë228),qÒÑ6ÿðÿòtrÓññ3ðòðýsðò$ÒíÿòXtÒ×551),uðòñü8ÿðÿòÿñÿüvðòðþ9ÓñòwÒçÿùÿñÿüxðò=92);ÑdL57ÒÒÑDñõÿòÆyÓ¡ÿöÿñÿòÿðÿò*zÒBÿÿÿùÿÿÿö5),AÒDÿðÿô8),Bðò,6ÑÒACÿðÿòÄÑC0¢Dðò/70),EÑÔùö81),Fðóÿñÿñðò8,Gðòñþ1ÿðÿò(HÒ"49ÒÑiJÿðÿòC80ÑBnkÒ¥ÿó2),IÑCðüÿú304),Jðòñþ5ÿðÿòÿñÿûKÿðÿñ&`),LÿðÿòÃ42ðò3Mðòðý21),NÒÞG6),OÑÒñû43),QÒÑ79ÿðÿò4RÒÑ879),SÑÕ«ÿýÑ"5lÒÕÿóz5ðñ¢ÿðÿýTÿðÿòÏ6ÿðÿòOUÒXÑ#RVÒ+45),WÿðÿòÃ367),Xðò+Ñ#ñøÒ5YÒä2ÑBñüÿòÿÿÿ÷ZÒÔ934),abÑCÕÿô68ÒwbÑ$Ø1),cðò/Ñe6ÿõdÒ$ÿðÿñ¢q,eÑ$ÓÒP¶fðòñõ5),gðòñõÑ#÷ÿhÒë398),Ñcðý¶ÿðÿñ#ÿðÿùiÑÒùõ5ÑBÆjÒæ182),kðò«ÿÿÿÿÿÿÿñÑ"øýlÿðÿòÆÑBVÑÒZÿømÑ#mÿòDnðòÿùÿðÒHoðò=1ðñ"ÿùÿòÃ323),Ñ"ÿüÑb|ÿòÄsðñðòËÑBBÒäÿôÑbOÿðÿÿÿüÑøõMÿ÷1ÑbfÿÿÿÿÿõuÿðÿòÎÿðÿñC«vÒò÷9Ñøôðõÿðwðòñþ2ÑÔñÿxÑÔðøÿðÿò>yÒè6Ñ"]zðñ"ÿÿÿûÑÒMÑBÔÿùzBÿðÿñ&"ÑÒTÿøÿÿÿõðò§vDðñ"q5ðñ$ÿùÿð4),FÿðÿòÃ6ÿðÿògÑøòùöÿöÿðÿÿÒlHÒCWÑ"2IÑÒÿú87ðñ#{2Ò6¨KÒQcÒ[LÑ#6ÑøòÒÿøMÿðÿñ&ÿñÿÿ7ÿðÿñcE46ÿðÿñfDNÑCíÿñ1Ñc6OÒæ84),PÑ%ñõÿóÑÒOQÑ$k63),RðóÿñÿñÿðÿñbÒâÿúÑCØÿñÿü2ðñ"~Ä64ÿðÿñB|ÒIe6Ñb0ÿñ#R71ÑBfVÿðÿòÏ9ÒäÿÿÿÿÿÿÿòXðñB,"jÑ"ÿùÿñÿôÿñÿú3dÒ!ÿñÿñcÑÓ¤ÿðÿòKdÿðÿòÃÿðÿñC4eðò&1Ò(fðñB²bÒ!ÿþgðòñú47Ñ"øúÿñ$ÿÿÿñÿÿÿðÒ-ohÿðÿòÏ461ðñcñô5ÑÒSjðò&76ðñdñûÿðÿñ":lðòðþ7ÒëÑ"c34ÑBïnðñ"Zðò4oðòðþ89),pðòðøÑbñûÑbñò23ðò;rÑEUÑ# tÿðÿòÃ753ðñcñõÿðÿñCKsÑ#ðýÿùÿÿÿþ262),vðñ"/ÿðÿôwðò4ÒÞÿòJðñb 4Ñ"!yÿðÿñ& ÑÒõüAðñB*BÿðÿóBÑÒñô91),CðòGÑ¢ðýÑ¢oÑBpDÿðÿòÆÿðÿñÒÚÿó@Ñbðòÿö¬5ðñdðþÑ"ùøÿðÿÿÿõGÑÓÿ÷£9Hðòÿøÿö;Ñ"É764),uÿðÿñh/JÒdÒìÿûÑÒdKðòñòÿðÿò[LÒøûÓÑ1),Mðòðö42ÑbÃÿòÄ988ÑbÄÒä(ÑÒø÷PÒÛ339ÑbÎÒÛ46),Rðòð÷Ñ"¿ÿøÿÿÿÿSðñCDÿÿÿùÿÿÿÿTÒSp),UÿðÿòÃ92ÿðÿò3VðòMb¦Wðòñü5ÒÔXðñ"ñóBLðñBÿÿÿÿÑÓ¯ÿòÄZðñ#Â4adÑC3Ñ"zMbðòVÒQÿñÿýcðñ"ÿøÿò¢$dðñ"¤¢ÿðÿüeðñðóÑñòÿöfðòUÑÓegðñðòfÿðÿò@Ñb¢ðò*iÿðÿòÃ832),ðñ"sÿðÿñbvkðòðýC5lðñðòÿðÿõ£#ðó¡54ðñÿøÿóÿùÿó7ÿðÿñÑ¢?ÿÿÿùÿÿÿðoðòy"ÒÔÿópðñÿøÿòÿøÿýhðñ"qÑÔ»ÿþrðòðöÒÒGÑ"RsÿðÿòÆ7ðòñ÷ÿÿÿÿtðò<£ÒäÿõuÑCùþÿðÑÔ¯Ò6ÿûðñ"lÓÁÿòHwðñB¥ÑbãxðòoÒHÎyðòðÿ72),zðñcOÆAðò-BBBÑ¢êÿðÿñB¤vÿðÿñCÿñÿþðò35Cÿðÿñ&ÿðÿú9),DÑÒM1ÿðÿò&Ñ#¶Ò7ÿ÷6ðñ"ÿøÿð)RGðñ#)ÿðÿòHðò-ÃÑ¢ðôIðò»ÓÁÿýÑÒ§ÿò3ðò0ÑøòâðòðùÿðÿòhLÒÚV3ðñÿøÿóÿøÿô4ÑÔð÷²Ñ¢x¦4ðñ#zÒíÿýÑ$«Ñ$ñôÿùÒvÿúÃÑB»AÒçÂÒÛÿñÑ¤øòÿòÿÿÿ÷ÿðÿò3TÑCò÷ÑBCZUðñ#*UVÿðÿñ&Ê6ÒmÿóÄ4ÿðÿñÂÒâÿùXðòd"¦ðñBÑñò4bÿñÿøZðñ"ÿñÿñðñðòÿðÿðÿÿùeÒ`ÿò2ÑÒÿÿwÿðÿñdÑÒPÿò¶bÿðÿòÏÑøóÕWðñ"ÿøÿó05),dðñDPreðñ#ÿðÿüÑøòðýfðñðó[ÑÒðögÑB~ÑÃðóÿòjÑøôÛÿýhÑCØÿò5ÿðÿñ"<iðñc@ÿñÿÿðñ#ÿøÿûÑ£ÿñÿõÑÒñ÷ÿùÂÒÒÿølðò*cÒfmðñ#ÆÿñÿýÒêÿþbnoÑÒ¿ÿòÿÿÿ÷ÿÿÿÿpÑÄ¶ÿðÿñ¢zðñ"Ò5ÿðÒÔÿòÿðÿúðñðóS±Ñb{ÿöÿñÿü4),ÑÒEÿû"§uðñb{¢cÑ¢^ÒùÿÿðÿÿÿðÿÿÿôxÑ¢ÿðÿð8Ò8Ñ"êwÑøòáÑÒÿÿÿðÿÿÿóxðò_Ñ"ÿýCyðñðòfÒAÿðÿ÷zðòaÿðÿòÿñÿóÑñóyªÑ$øòðòðöðñB3Cðñðò`bËðñÿøÿòÿùÿñ48ÓÃ&SÑÒñöFðñðòRBÒîÿöÑ£vÒ<ÿöÿðÿò?Hðñ"-ÿðÿòªIÑ¢Pÿõ0ÑCúýÒæÿòÍKÑøó·B(Lðñ"dÑ¢rÿùMðòñúÿðÿòDNðñ"8Ò2ÿòAÑñòc36ÑÒOÑ"~ÿüÿÿÿýðò)Qðò)ÃÿÿÿñÿÿÿùRðóÁBÒ*ÿþSÒ;3ÑÃ¶TðñðóÿñÿüÿðÿôÑñóõüÍ7),ðñcðú" Ñ"uWðñ¢ÿòÿ÷Ò,ÿóÑÂÌ802ÑÓ¾ÿöÑÒ¬ÿõÑB#6Ñ$ùòÿñYÒqÿÿÿúÑBT+Ñ¢qÒ&ÿù2),afÿðÿñ\%¦1),bðñðó£ÆcÑøôÿö90ðñ#ÿøÿü9ÒÕÿò¢Ñ"{7ÑBøøÑÒððÿý¢Wgðñðôÿÿÿù¼hðñd[Ñ¢siÒìÿöLÒçÿðÑñòV8ÿðÿòhÒ2ÿô"ÿðÿòðñbñù6ÑñòøðÿòÃðñ",Çnðñ"©Òò÷ÿòLoðñBÿÿÿòÿñÿûpðó¡BÃqÒtnÑ¤brðòKÒ,ÂñöÿðÿògÒ9ÐÓÓØ7uðògÂ-ÒÖÿóÿðÿñpðñbñðÿðÿñ"UÓÁ0Ñ#(bðÿÒ5ÿòdÐÓÑ=ÂÿðÿñBÑ¢·4ÿðÿòÿÿÿõÿÿÿüBðòZb;CðñÿøÿóðþDÑ#xÑ"ã>Eðñd?VFðñ"ÿùÿñuGÒÞ1ÿðÿñ¢RHðòMbÿñÿöÑ"®tÑÒ¹JðñBÃ9),Ññò+ÿù?Lðñ$dBðñcðób¥Ñ"[ðñbðô1ðñÿñÿóÿùÿðÒ/Ñ"ñüÑcùó)5ðñ#sÑÂðòðñ#tÑCuÿóoSðñ£ñþÿñÿüÒ&"ÿðÿúÑ¢>Òøÿÿò½ðñÿøÿôÿøÿõTWÑøôøð4ðñÿñÿóÿøÿý5ÿðÿñb`YðñðóºRZðñðò]"ÿñÿöagÒçÿõoÿðÿñBdðòðÿÿýÿðÿððñ"c7ðñeÑ¢fbÿÿÿñÿÿÿþeÑÒúýÑbùÿÿûfðòðÿÒíogðñB½BÑbøõhðòsÑ¥çÿòiðòÑ"FÿùÿÿÿÿyÑøôØMÑÔøÿ(jÿðÿòÏÑcñ÷ÿÿÿÿÿñðñ#rbÊlðñðòº"Rmðòðö97Ñ"Îÿô1ÿðÿñbmoðñ#CÏpðòðö4ÑñòÖðñ£ÿõÿürðñ#ÿðÿõ«sðòp"ÿñÿötÑÒµðñ"ªÑ¢¡ÿòPvðñÿøÿòt9),wÑøôsÿñÿÿÿó¨xðóÁÑ£ÿöÿÿyÒäuÿðÿòcÑ#ùó·ÒùöÿòðñÃ#ÐÓÕð÷Bÿðÿñ&9ÿðÿò(CÑøó1ÿñ¤ÿÿÿÿÿÿÿüÿðÿòÿñÿýDÑøó.ÿñÑ$ò÷IEðñÿøÿó)Ò/ÿððñ"x"ÒëÿøGÑøòê´ÑbìÿùÑc®ÿôÑ"¬Ñøò@ÿðÿò&JÒÓi7),K
