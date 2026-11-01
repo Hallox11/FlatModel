@@ -708,11 +708,14 @@ function updateBG(url, shouldEmit = true) {
 }
 
 function changeBackground(direction) {
+console.log()
     if (!backPics.length) return;
     index = (direction === 'next')
         ? (index + 1) % backPics.length
         : (index - 1 + backPics.length) % backPics.length;
     updateBG(backPics[index], true);
+    console.log(backPics[index]);
+
     if ($('#theme-slider').is(':visible')) {
         syncSliderScroll();
         // ← ADD THIS
@@ -843,7 +846,7 @@ fetch('/api/backgrounds')
     .then(r => r.json())
     .then(data => {
         backPics = data;
-      
+      console.log(backPics)
         // 1. Primeiro, verificamos se o servidor já tem um fundo (através do socket)
         // O force_sync_arrival disparado pelo servidor no connection tratará disso.
         
