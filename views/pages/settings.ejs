@@ -188,6 +188,35 @@
         flex: 1;
         margin: 0;
     }
+
+    /* Botão Flutuante de Toggle no Canto */
+#floating-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(20, 20, 20, 0.75);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 14px;
+    border-radius: 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    transition: all 0.2s ease;
+}
+
+#floating-toggle-btn:hover {
+    background: var(--accent);
+    color: #000;
+    transform: scale(1.05);
+}
 </style>
 </head>
 <body>
@@ -547,6 +576,13 @@
     </div>
 </div>
 
+<!-- Botão Flutuante de Toggle -->
+<button id="floating-toggle-btn" onclick="toggleScreenMode()">
+    <span class="material-symbols-rounded" style="font-size: 18px;">sync_alt</span>
+    <span id="toggle-btn-label">SWITCH TO SL FACE</span>
+</button>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     const TV_ID = "<%= tvId %>";
@@ -771,40 +807,19 @@
         updateUI();
     });
 
-    let posX = 0.0; let posY = 0.0; let posZ = 0.0; let rotY = 0;
-    window.adjustPosX = function(v) {
-        posX = +(posX + v);
-        document.getElementById('pos-x').textContent = posX.toFixed(2);
-        cmd('pos_x', posX);
-    };
-    window.adjustPosY = function(v) {
-        posY = +(posY + v)
-        document.getElementById('pos-y').textContent = posY.toFixed(2);
-        cmd('pos_y', posY);
-    };
-    window.adjustPosZ = function(v) {
-        posZ = +(posZ + v)
-        document.getElementById('pos-z').textContent = posZ.toFixed(2);
-        cmd('pos_z', posZ);
-    };
-    window.adjustRotY = function(v) {
-        rotY = (rotY + v) % 360;
-        if (rotY < 0) rotY += 360;
-        document.getElementById('rot-y').textContent = rotY + '°';
-        cmd('rot_y', rotY.toString());
-    };
-    window.resetPos = function() {
-        posX = 0.0; posY = 0.0; posZ = 0.0;
-        document.getElementById('pos-x').textContent = '0.0';
-        document.getElementById('pos-y').textContent = '0.0';
-        document.getElementById('pos-z').textContent = '0.0';
-        cmd('pos_reset', '0');
-    };
-    window.resetRot = function() {
-        rotY = 0;
-        document.getElementById('rot-y').textContent = '0°';
-        cmd('rot_reset', '0');
-    };
+let currentScreenMode = 'web';
+
+function toggleScreenMode() {
+    if (currentScreenMode === 'web') {
+        currentScreenMode = 'sl';
+        document.getElementById('toggle-btn-label').textContent = 'SWITCH TO WEB VIEW';
+        cmd('screen_mode', 'sl');
+    } else {
+        currentScreenMode = 'web';
+        document.getElementById('toggle-btn-label').textContent = 'SWITCH TO SL FACE';
+        cmd('screen_mode', 'web');
+    }
+}
 </script>
 </body>
 </html>
