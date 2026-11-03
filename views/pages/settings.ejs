@@ -109,24 +109,23 @@
         font-family: 'Inter', sans-serif;
     }
     .btn1:hover { background: rgba(255,162,96,0.08); color: var(--accent); border-color: rgba(255,162,96,0.25); }
-/* Target the button itself when it has the .active class */
-.btn1.active {
-    color: white!important;        /* Changes the text color to orange */
-    border-color: rgba(255,162,96,0.25)!important;
-}
 
-/* Keeps your existing glowing dot inside the button */
-.btn1.active::before {
-    content: ''; 
-    display: inline-block; 
-    width: 6px; 
-    height: 6px;
-    border-radius: 50%; 
-    background: var(--accent); 
-    margin-right: 8px;
-    vertical-align: middle; 
-    box-shadow: 0 0 6px var(--accent);
-}
+    .btn1.active {
+        color: white!important;
+        border-color: rgba(255,162,96,0.25)!important;
+    }
+
+    .btn1.active::before {
+        content: ''; 
+        display: inline-block; 
+        width: 6px; 
+        height: 6px;
+        border-radius: 50%; 
+        background: var(--accent); 
+        margin-right: 8px;
+        vertical-align: middle; 
+        box-shadow: 0 0 6px var(--accent);
+    }
 
     .btn2 { 
         padding: 10px; font-size: 14px; font-weight: 500; color: #fff; 
@@ -137,20 +136,19 @@
 
     .sent { background: var(--success) !important; color: #000 !important; font-weight: 600; }
 
-    /* Estilos Corrigidos da Grelha de Cores */
-.color-grid-static {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
+    .color-grid-static {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
 
-.color-square {
-    width: 45px;
-    height: 45px;
-    border-radius: 6px;
-    border: 2px solid transparent;
-    cursor: pointer;
-}
+    .color-square {
+        width: 45px;
+        height: 45px;
+        border-radius: 6px;
+        border: 2px solid transparent;
+        cursor: pointer;
+    }
     .color-square:hover { transform: scale(1.08); }
     .color-square.selected { border-color: #fff; box-shadow: 0 0 8px rgba(255,255,255,0.4); }
 
@@ -165,25 +163,15 @@
         gap: 10px;
     }
 
-    .btn-split { flex: 1; padding: 9px 0; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); background: transparent; border: none; cursor: pointer; font-family: 'Inter', sans-serif; border-radius: 7px; }
-    .btn-split.active { background: rgba(255,255,255,0.07); color: var(--accent); }
-    .btn-center-label { flex: 1.2; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; }
-
-    .divider { height: 1px; background: var(--glass-border); margin: 12px 0; }
-
     .ctrl-row { display: flex; align-items: stretch; margin-bottom: 10px; background: rgba(0,0,0,0.2); border-radius: 10px; padding: 6px; border: 1px solid var(--glass-border); }
     .btn-adj { width: 36px; height: 36px; font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.02); border: none; border-radius: 6px; cursor: pointer; }
     .btn-adj:hover { background: rgba(255,162,96,0.12); color: var(--accent); }
 
     .btn-value { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .val-top { display: flex; align-items: center; gap: 6px; }
-    .swatch-mini { width: 10px; height: 10px; border-radius: 3px; }
     .val-pct { font-size: 16px; font-weight: 600; color: var(--accent); }
     .val-sub { font-size: 12px; color: rgba(255,255,255,0.75); text-transform: uppercase; }
 
     .onoff-row, .neon-state-row { display: flex; gap: 6px; }
-    .btn-half, .btn-third { flex: 1; padding: 9px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 8px; cursor: pointer; }
-    .btn-half.active, .btn-third.active { background: var(--accent); color: #000; border-color: var(--accent); }
 
     .close-menu-btn {
         width: 40px; height: 40px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
@@ -192,22 +180,21 @@
     .close-menu-btn:hover { background: #ff6b6b; border-color: #ff6b6b; }
     
     .legs-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 4px;
-}
-
-.legs-row .btn1 {
-    flex: 1;
-    margin: 0;
-}
+        display: flex;
+        gap: 10px;
+        margin-top: 4px;
+    }
+    .legs-row .btn1 {
+        flex: 1;
+        margin: 0;
+    }
 </style>
 </head>
 <body>
 <div id="settings_wrapper">
     
     <!-- Top Header Bar -->
-<div id="main_header_area">
+    <div id="main_header_area">
         <div id="connection-container" class="online-active">
             <div id="status-dot"></div>
             <div id="tv-info">
@@ -235,15 +222,13 @@
             <button class="tab-btn" onclick="switchTab('lighting', this)">
                 <span class="material-symbols-rounded">wb_incandescent</span> AMBILIGHT & NEON
             </button>
+            <button class="tab-btn" onclick="switchTab('slideshow', this)">
+                <span class="material-symbols-rounded">collections</span> SLIDESHOW & FACE
+            </button>
             <button class="tab-btn" onclick="switchTab('security', this)">
                 <span class="material-symbols-rounded">shield</span> SECURITY & ALARM
             </button>
-          <!-- 
-            <button class="tab-btn" onclick="switchTab('position', this)">
-                <span class="material-symbols-rounded">open_with</span> POSITION PANEL
-            </button>
-           -->  
-                        <button class="tab-btn" onclick="switchTab('system', this)">
+            <button class="tab-btn" onclick="switchTab('system', this)">
                 <span class="material-symbols-rounded">settings_cinematic_blur</span> SYSTEM
             </button>
         </div>
@@ -254,7 +239,6 @@
             <!-- Tab 1: Frame Design -->
             <div id="tab-frame" class="conteiner-col active">
                 <div class="sub-panel">
-
                     <p class="section-title">STAND MODEL</p>
                     <button onclick="setActive('model',this);cmd('model','model1',this)" class="btn1" data-group="model">MODEL 1</button>
                     <button onclick="setActive('model',this);cmd('model','model2',this)" class="btn1" data-group="model">MODEL 2</button>
@@ -262,36 +246,35 @@
 
                     <p class="section-title" style="margin-top: 25px;">TV Texture</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;margin-top: 0px;">
-                    <button onclick="setActive('texture',this); cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1" data-group="texture">GREY STONE</button>
-                    <button onclick="setActive('texture',this); cmd('texture','<0.176, 0.176, 0.176>',this)"  class="btn1" data-group="texture">DARK GREY</button>
-                    <button onclick="setActive('texture',this); cmd('texture','21d7c8a9-28c5-f436-083d-2b7d0d594dec',this)"  class="btn1" data-group="texture">CARBON FIBER</button>
-                    <button onclick="setActive('texture',this); cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">WOOD</button>
-                    <button onclick="setActive('texture',this); cmd('texture','e6a5d90c-fc7c-9f4c-ffa1-e4ba195ae3b1',this)"  class="btn1" data-group="texture">PASSERELE</button>
-                    <button onclick="setActive('texture',this); cmd('texture','cb3163a9-ea39-de5e-d475-2a2ab0bff4b8',this)"  class="btn1" data-group="texture">IVORY WHITE</button>
+                        <button onclick="setActive('texture',this); cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1" data-group="texture">GREY STONE</button>
+                        <button onclick="setActive('texture',this); cmd('texture','<0.176, 0.176, 0.176>',this)"  class="btn1" data-group="texture">DARK GREY</button>
+                        <button onclick="setActive('texture',this); cmd('texture','21d7c8a9-28c5-f436-083d-2b7d0d594dec',this)"  class="btn1" data-group="texture">CARBON FIBER</button>
+                        <button onclick="setActive('texture',this); cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">WOOD</button>
+                        <button onclick="setActive('texture',this); cmd('texture','e6a5d90c-fc7c-9f4c-ffa1-e4ba195ae3b1',this)"  class="btn1" data-group="texture">PASSERELE</button>
+                        <button onclick="setActive('texture',this); cmd('texture','cb3163a9-ea39-de5e-d475-2a2ab0bff4b8',this)"  class="btn1" data-group="texture">IVORY WHITE</button>
                     </div>
 
                     <p class="section-title" style="margin-top:25px;">STAND MODE</p>
                     <div class="legs-row">
-                    <button onclick="setActive('legs',this); cmd('legs','show',this)" class="btn1" data-group="legs">STAND</button>
-                    <button onclick="setActive('legs',this); cmd('legs','hide',this)" class="btn1" data-group="legs">WALL</button>
+                        <button onclick="setActive('legs',this); cmd('legs','show',this)" class="btn1" data-group="legs">STAND</button>
+                        <button onclick="setActive('legs',this); cmd('legs','hide',this)" class="btn1" data-group="legs">WALL</button>
                     </div>
                 </div>
                 <div class="sub-panel">
-                                        <!-- CONTAINER DA GRELHA DE CORES DE FUNDO DEVOLVIDO AQUI-->
                     <p class="section-title">BACK COLOR</p>
                     <div id="grid-back" class="color-grid-static" style="margin-top: 3px;">
-                    <div class="color-square" style="background:#1b1b1b;" onclick="cmd('back_color','<0.0,0.0,0.0>')"></div>
-                    <div class="color-square" style="background:#1a1a1a;" onclick="cmd('back_color','<0.10,0.10,0.10>')"></div>
-                    <div class="color-square" style="background:#2c3e50;" onclick="cmd('back_color','<0.17,0.24,0.31>')"></div>
-                    <div class="color-square" style="background:#333333;" onclick="cmd('back_color','<0.20,0.20,0.20>')"></div>
-                    <div class="color-square" style="background:#8e44ad;" onclick="cmd('back_color','<0.56,0.27,0.68>')"></div>
-                    <div class="color-square" style="background:#2980b9;" onclick="cmd('back_color','<0.16,0.50,0.73>')"></div>
-                    <div class="color-square" style="background:#c0392b;" onclick="cmd('back_color','<0.75,0.22,0.17>')"></div>
-                    <div class="color-square" style="background:#27ae60;" onclick="cmd('back_color','<0.15,0.68,0.38>')"></div>
-                    <div class="color-square" style="background:#d35400;" onclick="cmd('back_color','<0.83,0.33,0.00>')"></div>
-                    <div class="color-square" style="background:#7f8c8d;" onclick="cmd('back_color','<0.50,0.55,0.56>')"></div>
-                    <div class="color-square" style="background:#f1c40f;" onclick="cmd('back_color','<0.95,0.77,0.06>')"></div>
-                    <div class="color-square" style="background:#ffffff;" onclick="cmd('back_color','<1.0,1.0,1.0>')"></div>
+                        <div class="color-square" style="background:#1b1b1b;" onclick="cmd('back_color','<0.0,0.0,0.0>')"></div>
+                        <div class="color-square" style="background:#1a1a1a;" onclick="cmd('back_color','<0.10,0.10,0.10>')"></div>
+                        <div class="color-square" style="background:#2c3e50;" onclick="cmd('back_color','<0.17,0.24,0.31>')"></div>
+                        <div class="color-square" style="background:#333333;" onclick="cmd('back_color','<0.20,0.20,0.20>')"></div>
+                        <div class="color-square" style="background:#8e44ad;" onclick="cmd('back_color','<0.56,0.27,0.68>')"></div>
+                        <div class="color-square" style="background:#2980b9;" onclick="cmd('back_color','<0.16,0.50,0.73>')"></div>
+                        <div class="color-square" style="background:#c0392b;" onclick="cmd('back_color','<0.75,0.22,0.17>')"></div>
+                        <div class="color-square" style="background:#27ae60;" onclick="cmd('back_color','<0.15,0.68,0.38>')"></div>
+                        <div class="color-square" style="background:#d35400;" onclick="cmd('back_color','<0.83,0.33,0.00>')"></div>
+                        <div class="color-square" style="background:#7f8c8d;" onclick="cmd('back_color','<0.50,0.55,0.56>')"></div>
+                        <div class="color-square" style="background:#f1c40f;" onclick="cmd('back_color','<0.95,0.77,0.06>')"></div>
+                        <div class="color-square" style="background:#ffffff;" onclick="cmd('back_color','<1.0,1.0,1.0>')"></div>
                     </div>
 
                     <p class="section-title" style="margin-top: 25px;">Set Back Alpha</p>
@@ -322,15 +305,12 @@
 
             <!-- Tab 2: Lighting -->
             <div id="tab-lighting" class="conteiner-col">
-                                <div class="sub-panel">
-
+                <div class="sub-panel">
                     <p class="section-title">LIGHT SWITCH</p>
                     <div class="onoff-row">
-                    <button onclick="setActive('light',this);setAmbi('off',this)" class="btn1 active" data-group="light" data-mode="off">OFF</button>
-                    <button onclick="setActive('light',this);setAmbi('on',this)" class="btn1" data-group="light" data-mode="on">ON</button>
-                    <button onclick="setActive('light',this);setAmbi('cycle',this)" class="btn1" data-group="light" data-mode="cycle">CYCLE</button>
-
-
+                        <button onclick="setActive('light',this);setAmbi('off',this)" class="btn1 active" data-group="light" data-mode="off">OFF</button>
+                        <button onclick="setActive('light',this);setAmbi('on',this)" class="btn1" data-group="light" data-mode="on">ON</button>
+                        <button onclick="setActive('light',this);setAmbi('cycle',this)" class="btn1" data-group="light" data-mode="cycle">CYCLE</button>
                     </div>
 
                     <p class="section-title" style="margin-top: 25px;">NEON SWITCH</p>
@@ -338,12 +318,10 @@
                         <button onclick="setActive('neon',this);setNeon('off',this)" class="btn1 active" data-group="neon" data-mode="off">OFF</button>
                         <button onclick="setActive('neon',this);setNeon('fixed',this)" class="btn1" data-group="neon" data-mode="fixed">ON</button>
                         <button onclick="setActive('neon',this);setNeon('cycle',this)" class="btn1" data-group="neon" data-mode="cycle">CYCLE</button>
-  
-
                     </div>
  
                     <p class="section-title" style="margin-top: 25px;">CYCLE SPEED</p>
-                        <div class="ctrl-row">
+                    <div class="ctrl-row">
                         <button class="btn-adj" onclick="adjustSpeed(-0.05)">−</button>
                         <div class="btn-value">
                             <span class="val-pct" id="speed-pct">50%</span>
@@ -357,27 +335,25 @@
                         <button class="btn1 active" data-group="envlight" onclick="applyLightPreset('normal', this)">NORMAL</button>
                         <button class="btn1" data-group="envlight" onclick="applyLightPreset('cozy', this)">COZY</button>
                     </div>
-
-               </div>
+                </div>
                 <div class="sub-panel">
                     <p class="section-title">Ambilight Glow</p>
                     <span class="label-mini">Color Palette</span>
                     
-                    <!-- CONTAINER DA GRELHA DE CORES AMBILIGHT DEVOLVIDO AQUI -->
-<div id="grid-light" class="color-grid-static" style="display:grid; grid-template-columns: repeat(6, 45px);">
-    <div class="color-square" data-color="#ffffff" style="background:#ffffff;"></div>
-    <div class="color-square" data-color="#ffdd00" style="background:#ffdd00;"></div>
-    <div class="color-square" data-color="#ff8800" style="background:#ff8800;"></div>
-    <div class="color-square" data-color="#ff0000" style="background:#ff0000;"></div>
-    <div class="color-square" data-color="#ff00aa" style="background:#ff00aa;"></div>
-    <div class="color-square" data-color="#ff00ff" style="background:#ff00ff;"></div>
-    <div class="color-square" data-color="#7a00ff" style="background:#7a00ff;"></div>
-    <div class="color-square" data-color="#0000ff" style="background:#0000ff;"></div>
-    <div class="color-square" data-color="#00aaff" style="background:#00aaff;"></div>
-    <div class="color-square" data-color="#00ffff" style="background:#00ffff;"></div>
-    <div class="color-square" data-color="#00ff88" style="background:#00ff88;"></div>
-    <div class="color-square" data-color="#00ff00" style="background:#00ff00;"></div>
-</div>
+                    <div id="grid-light" class="color-grid-static" style="display:grid; grid-template-columns: repeat(6, 45px);">
+                        <div class="color-square" data-color="#ffffff" style="background:#ffffff;"></div>
+                        <div class="color-square" data-color="#ffdd00" style="background:#ffdd00;"></div>
+                        <div class="color-square" data-color="#ff8800" style="background:#ff8800;"></div>
+                        <div class="color-square" data-color="#ff0000" style="background:#ff0000;"></div>
+                        <div class="color-square" data-color="#ff00aa" style="background:#ff00aa;"></div>
+                        <div class="color-square" data-color="#ff00ff" style="background:#ff00ff;"></div>
+                        <div class="color-square" data-color="#7a00ff" style="background:#7a00ff;"></div>
+                        <div class="color-square" data-color="#0000ff" style="background:#0000ff;"></div>
+                        <div class="color-square" data-color="#00aaff" style="background:#00aaff;"></div>
+                        <div class="color-square" data-color="#00ffff" style="background:#00ffff;"></div>
+                        <div class="color-square" data-color="#00ff88" style="background:#00ff88;"></div>
+                        <div class="color-square" data-color="#00ff00" style="background:#00ff00;"></div>
+                    </div>
 
                     <p class="section-title" style="margin-top: 25px;">LIGHT CONTROLLERS</p>
                     <div class="ctrl-row">
@@ -416,11 +392,10 @@
                         <button class="btn-adj" onclick="adjustGlow(0.1)">+</button>
                     </div>
 
-                                        <div style="margin-top: auto;">
+                    <div style="margin-top: auto;">
                         <button onclick="applyLightPreset('normal', this)" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">RESET LIGHTS TO NORMAL</button>
                     </div>
                 </div>
-
             </div>
 
             <!-- Tab 3: Shape & Size -->
@@ -455,37 +430,55 @@
                     <div style="margin-top: auto;">
                         <button onclick="cmd('reset','size')" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
                     </div>
-            
-                </div>
-           </div>
-
-<!-- Tab 4: System -->
-            <div id="tab-system" class="conteiner-col" style="width: 450px; margin: auto;">
-                <div class="sub-panel">
-                    <p class="section-title">SYSTEM ACTIONS</p>
-                    
-                    <button onclick="cmd('visualSizeReset','',this)" class="btn1">DEFAULT SETTING</button>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
-                        Restores factory default visual parameters and layout configurations.
-                    </p>
-
-                    <button onclick="cmd('fullreset','',this)" class="btn1">RESET SCRIPTS</button>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
-                        Restarts all scripts to resolve state lag or communication errors.
-                    </p>
-
-                    <button onclick="cmd('kill','',this)" class="btn1" style="border-color: rgba(255,107,107,0.4); color: #ff6b6b;">DELETE TV</button>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
-                        Permanently deletes this TV object from the region.
-                    </p>
                 </div>
             </div>
-          
+
+            <!-- Tab 4: Slideshow & Face Mode (NEW) -->
+            <div id="tab-slideshow" class="conteiner-col">
+                <div class="sub-panel">
+                    <p class="section-title">Screen Face Mode</p>
+                    <span class="label-mini">Display Target</span>
+                    <div class="legs-row" style="margin-bottom: 20px;">
+                        <button onclick="setActive('screenmode',this); setScreenMode('web',this)" class="btn1 active" data-group="screenmode">WEB VIEW</button>
+                        <button onclick="setActive('screenmode',this); setScreenMode('sl',this)" class="btn1" data-group="screenmode">SL FACE</button>
+                    </div>
+
+                    <span class="label-mini">SL Face Custom Texture UUID</span>
+                    <div style="display:flex; gap:8px; margin-bottom: 10px;">
+                        <input type="text" id="sl-texture-input" placeholder="Paste texture UUID..." style="flex:1; background:rgba(0,0,0,0.3); border:1px solid var(--glass-border); color:#fff; padding:10px; border-radius:8px; font-family:'Inter'; font-size:13px;">
+                        <button onclick="saveSlTexture()" class="btn2" style="padding: 10px 16px;">Save</button>
+                    </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:11px; line-height:1.4;">
+                        When switching to SL Face, the web browser becomes transparent and this UUID texture is displayed on the back face.
+                    </p>
+                </div>
+
+                <div class="sub-panel">
+                    <p class="section-title">Slideshow Config</p>
+                    
+                    <span class="label-mini">Image Source</span>
+                    <select id="ss-source" class="btn1" style="background: rgba(0,0,0,0.4); margin-bottom: 12px; cursor: pointer;" onchange="toggleSourceInput()">
+                        <option value="notecard">Read from Prim Notecard</option>
+                        <option value="web">Send UUIDs from Web Panel</option>
+                    </select>
+
+                    <div id="ss-web-container" style="display:none; margin-bottom: 12px;">
+                        <span class="label-mini">Paste Texture UUIDs (comma separated)</span>
+                        <textarea id="ss-uuids" placeholder="uuid1, uuid2, uuid3..." style="width:100%; height:70px; background:rgba(0,0,0,0.4); color:#fff; border:1px solid var(--glass-border); border-radius:8px; padding:8px; font-family:'Inter'; font-size:12px; resize:none;"></textarea>
+                    </div>
+
+                    <span class="label-mini">Interval (Seconds)</span>
+                    <input type="number" id="ss-interval" value="8" min="2" max="60" class="btn1" style="background: rgba(0,0,0,0.4); text-align: center; margin-bottom: 20px;">
+
+                    <div style="display:flex; gap:10px; margin-top: auto;">
+                        <button onclick="applyAndStartSlideshow()" class="btn1" style="background:var(--success); color:#000; font-weight:600; border:none; margin:0; flex:1;">START SLIDESHOW</button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Tab 5: Security -->
-<!-- Tab 5: Security -->
             <div id="tab-security" class="conteiner-col">
                 <div class="sub-panel" style="max-width: 600px; margin: 0 auto;">
-                 
                     <p class="section-title">HOUSE ALARME</p>
                     <div class="btn-group">
                         <button onclick="setActive('alert',this);cmd('alert','off',this)" class="btn1" data-group="alert">DISABLE</button>
@@ -528,54 +521,33 @@
                 </div>
             </div>
 
-            <!-- Tab 6: Position & Rotation -->
-            <div id="tab-position" class="conteiner-col">
+            <!-- Tab 6: System -->
+            <div id="tab-system" class="conteiner-col" style="width: 450px; margin: auto;">
                 <div class="sub-panel">
-                    <p class="section-title">Position Control</p>
+                    <p class="section-title">SYSTEM ACTIONS</p>
                     
-                    <span class="label-mini">X Position (Left/Right)</span>
-                    <div class="ctrl-row">
-                        <button class="btn-adj" onclick="adjustPosX(-0.02)">−</button>
-                        <div class="btn-value"><span class="val-pct" id="pos-x">0.0</span><span class="val-sub">meters</span></div>
-                        <button class="btn-adj" onclick="adjustPosX(0.02)">+</button>
-                    </div>
+                    <button onclick="cmd('visualSizeReset','',this)" class="btn1">DEFAULT SETTING</button>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                        Restores factory default visual parameters and layout configurations.
+                    </p>
 
-                    <span class="label-mini">Y Position (Forward/Back)</span>
-                    <div class="ctrl-row">
-                        <button class="btn-adj" onclick="adjustPosY(-0.02)">−</button>
-                        <div class="btn-value"><span class="val-pct" id="pos-y">0.0</span><span class="val-sub">meters</span></div>
-                        <button class="btn-adj" onclick="adjustPosY(0.02)">+</button>
-                    </div>
+                    <button onclick="cmd('fullreset','',this)" class="btn1">RESET SCRIPTS</button>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                        Restarts all scripts to resolve state lag or communication errors.
+                    </p>
 
-                    <span class="label-mini">Z Position (Up/Down)</span>
-                    <div class="ctrl-row">
-                        <button class="btn-adj" onclick="adjustPosZ(-0.02)">−</button>
-                        <div class="btn-value"><span class="val-pct" id="pos-z">0.0</span><span class="val-sub">meters</span></div>
-                        <button class="btn-adj" onclick="adjustPosZ(0.02)">+</button>
-                    </div>
-                </div>
-                <div class="sub-panel">
-                    <p class="section-title">Rotation</p>
-                    <span class="label-mini">Horizontal (Y-Axis)</span>
-                    <div class="ctrl-row">
-                        <button class="btn-adj" onclick="adjustRotY(-1)">−1°</button>
-                        <div class="btn-value"><span class="val-pct" id="rot-y">0°</span><span class="val-sub">degrees</span></div>
-                        <button class="btn-adj" onclick="adjustRotY(1)">+1°</button>
-                    </div>
-
-                    <div style="margin-top: auto; display: flex; gap: 10px;">
-                        <button onclick="resetPos()" class="btn1" style="font-size:12px; border-color:var(--accent); text-align: center; margin: 0; flex: 1;">RESET POS</button>
-                        <button onclick="resetRot()" class="btn1" style="font-size:12px; border-color:var(--accent); text-align: center; margin: 0; flex: 1;">RESET ROT</button>
-                    </div>
+                    <button onclick="cmd('kill','',this)" class="btn1" style="border-color: rgba(255,107,107,0.4); color: #ff6b6b;">DELETE TV</button>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
+                        Permanently deletes this TV object from the region.
+                    </p>
                 </div>
             </div>
-            
-  </div>
+
         </div>
     </div>
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     const TV_ID = "<%= tvId %>";
 
@@ -587,19 +559,17 @@
         document.getElementById('tab-' + tabId).classList.add('active');
     }
 
-
     let selectedHex = null;
     let ambiState   = 'off';
     let ambiOn      = false;
     let ambiInt     = 0.5;
     let neonState   = 'off';
     let neonSpeed   = 0.10;
-    let fallValue  = 0.5;
-     let glowValue  = 0.5;
-    let rangeValue = 0.5;
-    let speedValue=0.5;
+    let fallValue   = 0.5;
+    let glowValue   = 0.5;
+    let rangeValue  = 0.5;
+    let speedValue  = 0.5;
 
-    // Mood presets — must match the vector/float values in apply_light_preset() on the LSL side.
     const LIGHT_PRESETS = {
         active: { color: '#ff00aa', ambiMode: 'cycle', neonMode: 'cycle', ambiInt: 0.9,  rangeValue: 0.8,  fallValue: 0.4, glowValue: 0.4,  speedValue: 0.10 },
         normal: { color: '#ffffff', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.5,  rangeValue: 0.5,  fallValue: 1.0, glowValue: 0.3,  speedValue: 0.50 },
@@ -607,9 +577,6 @@
         inactive:   {}
     };
 
-    // Helper: adjust a 0.0-1.0 value by a step, using integer (0-100) arithmetic
-    // to avoid JS floating point drift (e.g. 0.5 - 0.05 !== 0.45 in double precision,
-    // which was causing sliders to get stuck instead of decreasing).
     function stepValue(current, delta) {
         const pct  = Math.round(current * 100);
         const step = Math.round(delta * 100);
@@ -671,41 +638,31 @@
         el.classList.add('active');
     };
 
-
     window.setAmbi = function(state, el) {
         ambiState = state;
         ambiOn = (state !== 'off');
         if (state === 'off') {
             cmd('LIGHT_OFF', '', el);
-        } 
-        else if (state === 'on') {
+        } else if (state === 'on') {
             if (selectedHex) cmd('LIGHT_ON', hexToSL(selectedHex), el);
-        } 
-        else if (state === 'cycle') {
+        } else if (state === 'cycle') {
             cmd('neon_speed', speedValue.toFixed(2));
             if (selectedHex) cmd('LIGHT_CYCLE', hexToSL(selectedHex), el);
         }
     };
 
-
-
     window.setNeon = function(state, el) {
         neonState = state;
         if (state === 'off') {
             cmd('NEON_OFF', '', el);
-        } 
-        else if (state === 'fixed') {
+        } else if (state === 'fixed') {
             if (selectedHex) cmd('NEON_ON', hexToSL(selectedHex), el);
-        } 
-        else if (state === 'cycle') {
+        } else if (state === 'cycle') {
             cmd('neon_speed', speedValue.toFixed(2));
             if (selectedHex) cmd('NEON_CYCLE', hexToSL(selectedHex), el);
         }
     };
 
-    // Applies a full mood preset with a single command — the LSL side
-    // (apply_light_preset) sets color/ambilight/neon/intensity/range/
-    // falloff/glow atomically, avoiding a burst of 6-7 separate requests.
     window.applyLightPreset = function(name, el) {
         const p = LIGHT_PRESETS[name];
         if (!p) return;
@@ -730,21 +687,41 @@
         cmd('LIGHT_PRESET', name, el);
     };
 
+    let sensorRange = 15.0;
+    window.adjustSensorRange = function(v) {
+        sensorRange = Math.min(50, Math.max(1, sensorRange + v));
+        document.getElementById('sensor-range-val').textContent = sensorRange + 'm';
+        cmd('sensor_range', sensorRange.toString());
+    };
 
-let sensorRange = 15.0; // Valor predefinido inicial do sensor
+    // New handlers for Screen Face & Slideshow configuration
+    window.setScreenMode = function(mode, el) {
+        cmd('screen_mode', mode, el);
+    };
 
-window.adjustSensorRange = function(v) {
-    // Limita a distância entre 1 e 50 metros para evitar valores inválidos
-    sensorRange = Math.min(50, Math.max(1, sensorRange + v));
-    
-    // Atualiza o valor visualmente no painel
-    document.getElementById('sensor-range-val').textContent = sensorRange + 'm';
-    
-    // Envia o comando para o servidor / script LSL
-    cmd('sensor_range', sensorRange.toString());
-};
+    window.saveSlTexture = function() {
+        const uuid = document.getElementById('sl-texture-input').value.trim();
+        if (!uuid) {
+            alert('Please enter a valid texture UUID.');
+            return;
+        }
+        cmd('sl_texture', uuid);
+    };
 
-window.cmd = function(command, value, el) {
+    window.toggleSourceInput = function() {
+        const source = document.getElementById('ss-source').value;
+        document.getElementById('ss-web-container').style.display = (source === 'web') ? 'block' : 'none';
+    };
+
+    window.applyAndStartSlideshow = function() {
+        const source = document.getElementById('ss-source').value;
+        const interval = document.getElementById('ss-interval').value;
+        const uuids = document.getElementById('ss-uuids').value;
+        const payload = source + "|" + interval + "|" + uuids;
+        cmd('slideshow_config', payload);
+    };
+
+    window.cmd = function(command, value, el) {
         if (!TV_ID || TV_ID === 'undefined') return;
         if (el) { $(el).addClass('sent'); setTimeout(() => $(el).removeClass('sent'), 300); }
         $.ajax({
@@ -763,48 +740,32 @@ window.cmd = function(command, value, el) {
         });
     };
 
-
-const lContainer = document.getElementById('grid-light');
-
-if (lContainer) {
-    const squares = lContainer.querySelectorAll('.color-square');
-
-    squares.forEach(d => {
-        d.onclick = () => {
-            const hex = d.dataset.color;
-
-            selectedHex = hex;
-
-            squares.forEach(s => s.classList.remove('selected'));
-            d.classList.add('selected');
-
-            updateUI();
-
-            if (ambiState === 'cycle') {
-                cmd('LIGHT_CYCLE', hexToSL(hex));
-            } else if (ambiState === 'on') {
-                cmd('LIGHT_ON', hexToSL(hex));
-            }
-            // note: random mode intentionally ignores manual swatch picks —
-            // it keeps cycling through its own random targets.
-
-            if (neonState === 'fixed') {
-                cmd('NEON_ON', hexToSL(hex));
-            }
-        };
-    });
-
-    // Guarded together with the block above: previously this ran
-    // unconditionally outside the `if (lContainer)` check, so a missing
-    // #grid-light element would throw and silently kill every script
-    // registration below it (including $(document).ready and all the
-    // position/rotation window.* functions).
-    const first = squares[0];
-    if (first) {
-        first.classList.add('selected');
-        selectedHex = first.dataset.color;
+    const lContainer = document.getElementById('grid-light');
+    if (lContainer) {
+        const squares = lContainer.querySelectorAll('.color-square');
+        squares.forEach(d => {
+            d.onclick = () => {
+                const hex = d.dataset.color;
+                selectedHex = hex;
+                squares.forEach(s => s.classList.remove('selected'));
+                d.classList.add('selected');
+                updateUI();
+                if (ambiState === 'cycle') {
+                    cmd('LIGHT_CYCLE', hexToSL(hex));
+                } else if (ambiState === 'on') {
+                    cmd('LIGHT_ON', hexToSL(hex));
+                }
+                if (neonState === 'fixed') {
+                    cmd('NEON_ON', hexToSL(hex));
+                }
+            };
+        });
+        const first = squares[0];
+        if (first) {
+            first.classList.add('selected');
+            selectedHex = first.dataset.color;
+        }
     }
-}
 
     $(document).ready(function() {
         updateUI();

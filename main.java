@@ -129,7 +129,7 @@ register_tv(key user_id, string trigger)
         llReleaseURL(my_url);
         my_url = "";
     }
-     
+    
     url_request = llRequestSecureURL();
 }
 ////////////////////////////////////////////////////////
@@ -140,6 +140,7 @@ generate_serial()
     string unique_part = llToUpper(llGetSubString(obj_uuid, 24, 35));
     my_serial = "TV-" + owner_name + "-" + unique_part;
 }
+
 /////////////////////////////////////////////////////////
 set_visual_defaults()
 {
@@ -156,6 +157,7 @@ set_visual_defaults()
         PRIM_COLOR, back_face, black, 0.80,
         PRIM_COLOR, screen_face, black, 0.0 // Optional: makes the screen black too
     ]);
+
 
     llOwnerSay("🎨 Visuals Reset: Model 1, Carbon Fiber, Black Backing.");
 }
@@ -268,7 +270,8 @@ set_ambilight_from_neon()
 // TURN LIGHT ON WITH ARGUMENT COLOR
 set_ambilight_color(vector color)
 {
-    llSetTimerEvent(0);
+    light_effect_mode = "static"; // Define o modo como estático
+    llSetTimerEvent(0.0);         // Para o temporizador
     currentcolor = color;
     llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POINT_LIGHT, TRUE, color, intensity, radius, falloff]);
     llRegionSay(SYNC_CHANNEL, "SYNC_ON"); 
@@ -291,6 +294,7 @@ apply_light_preset(string mode)
 {
     vector color; float inten; float rad; float fall; float glowVal; float speed;
     string ambiMode; string neonMode;
+
 
     if (mode == "active")
     {
@@ -475,6 +479,30 @@ set_texture(string uuid, vector color)
 set_screen_texture(string uuid)
 {
     llSetLinkTexture(frame, uuid, screen_face);
+}
+
+////////////////////////////////////////////////////////
+set_home_url(string home_url)
+{
+    llClearLinkMedia(frame, web_face); 
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_WIDTH_PIXELS,   1280]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_HEIGHT_PIXELS,  720]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_HOME_URL,       home_url]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_CURRENT_URL,    home_url]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_AUTO_PLAY,      TRUE]);
+    llSetLinkMedia(frame, web_face, [PRIM_MEDIA_PERMS_CONTROL,  PRIM_MEDIA_PERM_NONE]);
+} 
+
+////////////////////////////////////////////////////////
+update_web_screen()
+{
+    llSetLinkMedia(frame, web_face, [
+        PRIM_MEDIA_CURRENT_URL,  BASE_URL, 
+        PRIM_MEDIA_HOME_URL,     BASE_URL,
+        PRIM_MEDIA_AUTO_PLAY,    TRUE,
+        PRIM_MEDIA_WIDTH_PIXELS, 1280,
+        PRIM_MEDIA_HEIGHT_PIXELS,720
+    ]);
 }
 
 ////////////////////////////////////////////////////////
@@ -929,69 +957,7 @@ if (cmd == "sensor_range")
                  float new_alpha= 1-(float)val;
                  llSetLinkAlpha(frame, new_alpha, web_face);
             }            
-//// POSITION CONTROLS /////////////////////////////////////////////////////////////
-if (cmd == "pos_x")
-{
-    float offset = (float)val;
-    pos_offset.x = offset;
 
-    vector new_pos = original_position + pos_offset;
-    llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, new_pos]);
-}
-
-if (cmd == "pos_y")
-{
-    float offset = (float)val;
-    pos_offset.y = offset;
-
-    vector new_pos = original_position + pos_offset;
-    llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, new_pos]);
-}
-
-if (cmd == "pos_z")
-{
-    float offset = (float)val;
-    pos_offset.z = offset;
-
-    vector new_pos = original_position + pos_offset;
-    llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, new_pos]);
-}
-
-//// ROTATION CONTROLS /////////////////////////////////////////////////////////////
-if (cmd == "rot_y")
-{
-    float angle = (float)val;
-
-    rotation new_rot = llEuler2Rot(<0, angle, 0> * DEG_TO_RAD);
-
-    llSetLinkPrimitiveParamsFast(frame, [
-        PRIM_ROT_LOCAL, new_rot
-    ]);
-
-   // llOwnerSay("Frame Rotation Y: " + (string)((integer)angle) + "°");
-}
-
-//// RESET CONTROLS /////////////////////////////////////////////////////////////
-if (cmd == "rot_reset")
-{
-    llSetLinkPrimitiveParamsFast(frame, [
-        PRIM_ROT_LOCAL, original_rotation
-    ]);
-
-    vector e = llRot2Euler(original_rotation) * RAD_TO_DEG;
-    // llOwnerSay("✓ Frame Rotation Reset: " + (string)((integer)e.y) + "°");
-}
-
-if (cmd == "pos_reset")
-{
-    pos_offset = <0.0,0.0,0.0>;
-
-    llSetLinkPrimitiveParamsFast(LINK_SET, [
-        PRIM_POS_LOCAL, original_position
-    ]);
-
-   // llOwnerSay("✓ TV Position Reset (Full Linkset)");
-}
 //////////////////////////////////////////////////////////////////////////////
           
 
@@ -1091,7 +1057,8 @@ if (cmd == "NEON_ON")
             {
                 current_neon_status="on";
                 vector color = (vector)val; // color in vector
-                llSetTimerEvent(0); // stop cycle
+                light_effect_mode   = "static"; //  Define o modo como estático
+                llSetTimerEvent(0.0);           //  Para o temporizador para poupar recursos
 
              llSetLinkPrimitiveParamsFast(frame, [
                 PRIM_COLOR, frame_face, color, 1.0, 
@@ -1106,7 +1073,7 @@ if (cmd == "NEON_ON")
 if (cmd == "NEON_OFF")
             {
                 current_neon_status="off";
-                vector color= <255,255,255>; // to restore white color
+                vector color= <1.0,1.0,1.0>; // to restore white color
                 llSetLinkPrimitiveParamsFast(frame, [
                     PRIM_COLOR, frame_face, color, 1.0,
                     PRIM_GLOW,  frame_face, 0.0,
@@ -1231,16 +1198,19 @@ on_rez(integer param)
 ////////////////////////////////////////////////////////
 timer()
 {
-        if (current_neon_status=="on" || current_light_status=="on")
-        {
-            if (light_effect_mode == "random")
-                colorRandomStep();
-            else
-            {
-                colorupdate();
-                colorchange();
-            }
-        }
+    if (light_effect_mode == "random")
+    {
+        colorRandomStep();
+    }
+    else if (light_effect_mode == "cycle")
+    {
+        colorupdate();
+        colorchange();
+    }
+    else
+    {
+        // Se estiver em modo estático ou outro qualquer, desliga o timer
+        llSetTimerEvent(0.0);
+    }
 }
-
 } // end default
