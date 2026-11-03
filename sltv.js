@@ -782,6 +782,28 @@ app.get('/proxy-stream', async (req, res) => {
     }
 });
 
+///////////////////////////////////////////////////
+
+
+// Rota para ir buscar os UUIDs do ficheiro fixo no disco do servidor
+app.get('/get-textures-json', (req, res) => {
+    const filePath = path.join(__dirname, 'textures.json'); // O teu ficheiro fixo no disco
+
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: 'Erro a ler o ficheiro do disco.' });
+        }
+        try {
+            const jsonData = JSON.parse(data);
+            let uuidList = Array.isArray(jsonData) ? jsonData : Object.values(jsonData).flat();
+            uuidList = uuidList.map(u => String(u).trim()).filter(Boolean);
+            
+            res.json({ uuids: uuidList });
+        } catch (e) {
+            res.status(400).json({ error: 'JSON mal formatado.' });
+        }
+    });
+});
 /////////////////////////////////////////////////
 // START + GRACEFUL SHUTDOWN
 server.on('error', (err) => {

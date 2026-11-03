@@ -502,6 +502,14 @@
                     <div style="display:flex; gap:10px; margin-top: auto;">
                         <button onclick="applyAndStartSlideshow()" class="btn1" style="background:var(--success); color:#000; font-weight:600; border:none; margin:0; flex:1;">START SLIDESHOW</button>
                     </div>
+
+<!-- Botão no painel de definições -->
+<div style="margin-top: 15px;">
+    <button onclick="playServerJsonSlideshow()" class="btn1" style="background: var(--accent); color: #000; font-weight: 600; border:none; width:100%; text-align:center;">
+        LOAD JSON FROM SERVER & START
+    </button>
+</div>
+
                 </div>
             </div>
 
@@ -585,7 +593,38 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+
     const TV_ID = "<%= tvId %>";
+
+
+window.playServerJsonSlideshow = function() {
+    const interval = document.getElementById('ss-interval').value;
+
+    // 1. Vai buscar os UUIDs ao servidor
+    $.ajax({
+        type: 'GET',
+        url: '/get-textures-json',
+        success: function(res) {
+            if (!res.uuids || res.uuids.length === 0) {
+                alert("O ficheiro JSON está vazio.");
+                return;
+            }
+
+            // 2. Formata os UUIDs em string separada por vírgula (ou no formato que o teu LSL espera)
+            const uuidsString = res.uuids.join(', ');
+            
+            // 3. Usa a tua função cmd() existente para enviar para a TV!
+            // Exemplo: 'web|intervalo|uuid1,uuid2,uuid3'
+            const payload = "web|" + interval + "|" + uuidsString;
+            
+            cmd('slideshow_config', payload);
+            alert(`Slideshow iniciado com ${res.uuids.length} texturas do servidor!`);
+        },
+        error: function() {
+            alert("Erro ao obter o ficheiro JSON do servidor.");
+        }
+    });
+};
 
     function switchTab(tabId, el) {
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -596,6 +635,7 @@
     }
 
     let selectedHex = null;
+    let currentScreenMode = 'web';
     let ambiState   = 'off';
     let ambiOn      = false;
     let ambiInt     = 0.5;
@@ -730,31 +770,29 @@
         cmd('sensor_range', sensorRange.toString());
     };
 
-    // New handlers for Screen Face & Slideshow configuration
-// Função chamada pelos botões das abas ou pelo botão flutuante
-window.setScreenMode = function(mode, el) {
-    currentScreenMode = mode;
-    const btn = document.getElementById('floating-toggle-btn');
-    const label = document.getElementById('toggle-btn-label');
+    window.setScreenMode = function(mode, el) {
+        currentScreenMode = mode;
+        const btn = document.getElementById('floating-toggle-btn');
+        const label = document.getElementById('toggle-btn-label');
 
-    if (mode === 'sl') {
-        if (btn) btn.style.display = 'flex'; // Mostra o botão flutuante
-        if (label) label.textContent = 'SWITCH TO WEB VIEW';
-    } else {
-        if (btn) btn.style.display = 'none'; // Esconde o botão flutuante
-        if (label) label.textContent = 'SWITCH TO SL FACE';
+        if (mode === 'sl') {
+            if (btn) btn.style.display = 'flex';
+            if (label) label.textContent = 'SWITCH TO WEB VIEW';
+        } else {
+            if (btn) btn.style.display = 'none';
+            if (label) label.textContent = 'SWITCH TO SL FACE';
+        }
+
+        cmd('screen_mode', mode, el);
+    };
+
+    function toggleScreenMode() {
+        if (currentScreenMode === 'web') {
+            setScreenMode('sl');
+        } else {
+            setScreenMode('web');
+        }
     }
-
-    cmd('screen_mode', mode, el);
-};
-
-function toggleScreenMode() {
-    if (currentScreenMode === 'web') {
-        setScreenMode('sl');
-    } else {
-        setScreenMode('web');
-    }
-}
 
     window.saveSlTexture = function() {
         const uuid = document.getElementById('sl-texture-input').value.trim();
@@ -827,9 +865,6 @@ function toggleScreenMode() {
     $(document).ready(function() {
         updateUI();
     });
-
-let currentScreenMode = 'web';
-
 
 </script>
 </body>
