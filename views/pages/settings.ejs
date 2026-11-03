@@ -204,7 +204,7 @@
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    display: flex;
+    display: none; /* COMEÇA OCULTO (só aparece no modo SL Face) */
     align-items: center;
     gap: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
@@ -731,9 +731,30 @@
     };
 
     // New handlers for Screen Face & Slideshow configuration
-    window.setScreenMode = function(mode, el) {
-        cmd('screen_mode', mode, el);
-    };
+// Função chamada pelos botões das abas ou pelo botão flutuante
+window.setScreenMode = function(mode, el) {
+    currentScreenMode = mode;
+    const btn = document.getElementById('floating-toggle-btn');
+    const label = document.getElementById('toggle-btn-label');
+
+    if (mode === 'sl') {
+        if (btn) btn.style.display = 'flex'; // Mostra o botão flutuante
+        if (label) label.textContent = 'SWITCH TO WEB VIEW';
+    } else {
+        if (btn) btn.style.display = 'none'; // Esconde o botão flutuante
+        if (label) label.textContent = 'SWITCH TO SL FACE';
+    }
+
+    cmd('screen_mode', mode, el);
+};
+
+function toggleScreenMode() {
+    if (currentScreenMode === 'web') {
+        setScreenMode('sl');
+    } else {
+        setScreenMode('web');
+    }
+}
 
     window.saveSlTexture = function() {
         const uuid = document.getElementById('sl-texture-input').value.trim();
@@ -809,17 +830,7 @@
 
 let currentScreenMode = 'web';
 
-function toggleScreenMode() {
-    if (currentScreenMode === 'web') {
-        currentScreenMode = 'sl';
-        document.getElementById('toggle-btn-label').textContent = 'SWITCH TO WEB VIEW';
-        cmd('screen_mode', 'sl');
-    } else {
-        currentScreenMode = 'web';
-        document.getElementById('toggle-btn-label').textContent = 'SWITCH TO SL FACE';
-        cmd('screen_mode', 'web');
-    }
-}
+
 </script>
 </body>
 </html>
