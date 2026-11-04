@@ -958,14 +958,33 @@ window.cmd = function(command, value, el) {
     });
 };   
 // ===============================
-// GLOBAL SLIDESHOW ENGINE
+// GLOBAL SLIDESHOW CONTROLLER
 // ===============================
 let mainSlideshowTimer = null;
 let mainSlideIndex = 0;
 let mainCachedUuids = [];
 
-window.startSlideshowFromMain = function() {
-    // Lê o intervalo guardado nas definições ou usa 8 segundos por defeito
+// Abre o overlay com as opções de escolha
+window.openSlideshowOverlay = function() {
+    $('#main-grid').fadeOut(200);
+    $('#slideshow-menu-view').show();
+    $('#slideshow-active-view').hide();
+    $('#slideshow-fullscreen-overlay').css('display', 'flex').hide().fadeIn(300);
+};
+
+// Fecha o overlay e volta ao menu principal sem iniciar
+window.closeSlideshowOverlay = function() {
+    $('#slideshow-fullscreen-overlay').fadeOut(200, function() {
+        $('#main-grid').fadeIn(200);
+    });
+};
+
+// Opção A: Iniciar a partir do JSON do Servidor
+window.startSlideshowFromJson = function() {
+    // Transita o overlay para o modo ativo (clicar em qualquer sítio para parar)
+    $('#slideshow-menu-view').hide();
+    $('#slideshow-active-view').css('display', 'flex');
+
     let intervalSeconds = parseInt(localStorage.getItem('slideshow_interval')) || 8;
 
     if (mainCachedUuids.length > 0) {
@@ -980,6 +999,7 @@ window.startSlideshowFromMain = function() {
         success: function(res) {
             if (!res.uuids || res.uuids.length === 0) {
                 alert("O ficheiro JSON está vazio.");
+                closeSlideshowOverlay();
                 return;
             }
 
@@ -990,18 +1010,29 @@ window.startSlideshowFromMain = function() {
         },
         error: function() {
             alert("Erro ao obter o ficheiro JSON do servidor.");
+            closeSlideshowOverlay();
         }
     });
+};
+
+// Opção B: Iniciar a partir da Notecard do Second Life
+window.startSlideshowFromNotecard = function() {
+    // Transita o overlay para o modo ativo (clicar em qualquer sítio para parar)
+    $('#slideshow-menu-view').hide();
+    $('#slideshow-active-view').css('display', 'flex');
+
+    let intervalSeconds = parseInt(localStorage.getItem('slideshow_interval')) || 8;
+
+    // Envia o comando para o script LSL da TV ler a notecard localmente
+    if (typeof cmd === 'function') {
+        cmd('slideshow_config', `notecard|${intervalSeconds}`);
+    }
 };
 
 function runMainSlideshowLoop(intervalSeconds) {
     if (mainSlideshowTimer) clearInterval(mainSlideshowTimer);
 
     sendNextMainSlide();
-    
-    // Esconde o menu principal e mostra o overlay de ecrã inteiro
-    $('#main-grid').fadeOut(200);
-    $('#slideshow-fullscreen-overlay').css('display', 'flex').hide().fadeIn(300);
 
     mainSlideshowTimer = setInterval(() => {
         sendNextMainSlide();
@@ -1019,19 +1050,22 @@ function sendNextMainSlide() {
     mainSlideIndex = (mainSlideIndex + 1) % mainCachedUuids.length;
 }
 
+// Parar o slideshow a partir de qualquer clique no overlay ativo
 window.stopMainSlideshow = function() {
     if (mainSlideshowTimer) {
         clearInterval(mainSlideshowTimer);
         mainSlideshowTimer = null;
     }
     
-    // Envia o comando para a TV repor o modo de ecrã/web view (ajusta o comando e valor conforme necessário)
+    // Informa a TV para repor o modo de ecrã normal
     if (typeof cmd === 'function') {
-        cmd('screen_mode', 'web'); // ou outro comando/valor pretendido para o toggle
+        cmd('screen_mode', 'web');
     }
 
-    // Esconde o overlay de ecrã inteiro e traz de volta o menu principal
+    // Esconde o overlay completo e reabre o menu principal limpo
     $('#slideshow-fullscreen-overlay').fadeOut(200, function() {
+        $('#slideshow-active-view').hide();
+        $('#slideshow-menu-view').show();
         $('#main-grid').fadeIn(200);
     });
 };
