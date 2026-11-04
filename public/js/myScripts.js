@@ -965,17 +965,8 @@ let mainSlideIndex = 0;
 let mainCachedUuids = [];
 
 window.startSlideshowFromMain = function() {
-    // 1. Obtém o intervalo: tenta ler do input da página (se estivermos nas definições) 
-    // ou do localStorage (se estivermos no menu principal), com fallback para 8 segundos.
-    let intervalSeconds = 8;
-    const $intervalInput = $('#ss-interval');
-    
-    if ($intervalInput.length > 0) {
-        intervalSeconds = parseInt($intervalInput.val()) || 8;
-        localStorage.setItem('slideshow_interval', intervalSeconds);
-    } else {
-        intervalSeconds = parseInt(localStorage.getItem('slideshow_interval')) || 8;
-    }
+    // Lê o intervalo guardado nas definições ou usa 8 segundos por defeito
+    let intervalSeconds = parseInt(localStorage.getItem('slideshow_interval')) || 8;
 
     if (mainCachedUuids.length > 0) {
         shuffleArray(mainCachedUuids);
@@ -996,7 +987,6 @@ window.startSlideshowFromMain = function() {
             shuffleArray(mainCachedUuids);
             mainSlideIndex = 0;
             runMainSlideshowLoop(intervalSeconds);
-          
         },
         error: function() {
             alert("Erro ao obter o ficheiro JSON do servidor.");
@@ -1009,23 +999,13 @@ function runMainSlideshowLoop(intervalSeconds) {
 
     sendNextMainSlide();
     
-    // Mostra o botão de parar se existir
-    $('#stop-slideshow-btn').fadeIn(200);
+    // Mostra o botão de parar de forma persistente
+    $('#stop-slideshow-btn').css('display', 'flex').fadeIn(200);
 
     mainSlideshowTimer = setInterval(() => {
         sendNextMainSlide();
     }, intervalSeconds * 1000);
 }
-
-window.stopMainSlideshow = function() {
-    if (mainSlideshowTimer) {
-        clearInterval(mainSlideshowTimer);
-        mainSlideshowTimer = null;
-    }
-    // Esconde o botão de parar
-    $('#stop-slideshow-btn').fadeOut(200);
-    alert("Slideshow parado com sucesso!");
-};
 
 function sendNextMainSlide() {
     if (mainCachedUuids.length === 0) return;
@@ -1038,13 +1018,22 @@ function sendNextMainSlide() {
     mainSlideIndex = (mainSlideIndex + 1) % mainCachedUuids.length;
 }
 
-// Algoritmo Fisher-Yates para baralhar o array aleatoriamente
+window.stopMainSlideshow = function() {
+    if (mainSlideshowTimer) {
+        clearInterval(mainSlideshowTimer);
+        mainSlideshowTimer = null;
+    }
+    // Esconde o botão de parar
+    $('#stop-slideshow-btn').fadeOut(200);
+};
+
+// Algoritmo Fisher-Yates para baralhar o array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
-} 
+}
 
 
 });
