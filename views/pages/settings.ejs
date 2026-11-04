@@ -647,9 +647,9 @@ function startLoop(seconds) {
 
 function sendNextServerSlide() {
     if (cachedUuids.length === 0) return;
-
+console.log(cachedUuids)
     const uuid = cachedUuids[currentSlideIndex];
-    
+    console.log(uuid)
     // Usa a tua função cmd() existente para enviar um UUID de cada vez
     cmd('set_slide', uuid);
 
