@@ -604,8 +604,9 @@ let cachedUuids = [];
 window.playServerJsonSlideshow = function() {
     const intervalSeconds = parseInt(document.getElementById('ss-interval').value) || 8;
 
-    // 1. Vai buscar os UUIDs ao servidor (caso ainda não estejam em cache)
     if (cachedUuids.length > 0) {
+        // Baralha os UUIDs existentes antes de iniciar
+        shuffleArray(cachedUuids);
         startLoop(intervalSeconds);
         return;
     }
@@ -619,19 +620,28 @@ window.playServerJsonSlideshow = function() {
                 return;
             }
 
-            // Guarda os UUIDs em cache para as próximas repetições
             cachedUuids = res.uuids;
-            currentSlideIndex = 0;
             
-            // Inicia o ciclo de envio
+            // Baralha a lista aleatoriamente
+            shuffleArray(cachedUuids);
+
+            currentSlideIndex = 0;
             startLoop(intervalSeconds);
-            alert(`Slideshow iniciado com ${cachedUuids.length} texturas do servidor!`);
+            alert(`Slideshow iniciado com ${cachedUuids.length} texturas (ordem aleatória)!`);
         },
         error: function() {
             alert("Erro ao obter o ficheiro JSON do servidor.");
         }
     });
 };
+
+// Função auxiliar para baralhar um Array (Algoritmo Fisher-Yates)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
 function startLoop(seconds) {
     if (slideshowTimer) clearInterval(slideshowTimer);
