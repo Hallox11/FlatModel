@@ -603,9 +603,11 @@ let cachedUuids = [];
 
 window.playServerJsonSlideshow = function() {
     const intervalSeconds = parseInt(document.getElementById('ss-interval').value) || 8;
+    
+    // Guarda no localStorage para o menu principal aceder
+    localStorage.setItem('slideshow_interval', intervalSeconds);
 
     if (cachedUuids.length > 0) {
-        // Baralha os UUIDs existentes antes de iniciar
         shuffleArray(cachedUuids);
         startLoop(intervalSeconds);
         return;
@@ -621,13 +623,10 @@ window.playServerJsonSlideshow = function() {
             }
 
             cachedUuids = res.uuids;
-            
-            // Baralha a lista aleatoriamente
             shuffleArray(cachedUuids);
-
             currentSlideIndex = 0;
             startLoop(intervalSeconds);
-            alert(`Slideshow iniciado com ${cachedUuids.length} texturas (ordem aleatória)!`);
+           
         },
         error: function() {
             alert("Erro ao obter o ficheiro JSON do servidor.");

@@ -956,7 +956,82 @@ window.cmd = function(command, value, el) {
             $('#warning-msg').show();
         }
     });
-};    
+};   
+// ===============================
+// GLOBAL SLIDESHOW ENGINE
+// ===============================
+let mainSlideshowTimer = null;
+let mainSlideIndex = 0;
+let mainCachedUuids = [];
+
+window.startSlideshowFromMain = function() {
+    // 1. Obtém o intervalo: tenta ler do input da página (se estivermos nas definições) 
+    // ou do localStorage (se estivermos no menu principal), com fallback para 8 segundos.
+    let intervalSeconds = 8;
+    const $intervalInput = $('#ss-interval');
+    
+    if ($intervalInput.length > 0) {
+        intervalSeconds = parseInt($intervalInput.val()) || 8;
+        localStorage.setItem('slideshow_interval', intervalSeconds);
+    } else {
+        intervalSeconds = parseInt(localStorage.getItem('slideshow_interval')) || 8;
+    }
+
+    if (mainCachedUuids.length > 0) {
+        shuffleArray(mainCachedUuids);
+        runMainSlideshowLoop(intervalSeconds);
+        return;
+    }
+
+    $.ajax({
+        type: 'GET',
+        url: '/get-textures-json',
+        success: function(res) {
+            if (!res.uuids || res.uuids.length === 0) {
+                alert("O ficheiro JSON está vazio.");
+                return;
+            }
+
+            mainCachedUuids = res.uuids;
+            shuffleArray(mainCachedUuids);
+            mainSlideIndex = 0;
+            runMainSlideshowLoop(intervalSeconds);
+          
+        },
+        error: function() {
+            alert("Erro ao obter o ficheiro JSON do servidor.");
+        }
+    });
+};
+
+function runMainSlideshowLoop(intervalSeconds) {
+    if (mainSlideshowTimer) clearInterval(mainSlideshowTimer);
+
+    sendNextMainSlide();
+
+    mainSlideshowTimer = setInterval(() => {
+        sendNextMainSlide();
+    }, intervalSeconds * 1000);
+}
+
+function sendNextMainSlide() {
+    if (mainCachedUuids.length === 0) return;
+    const uuid = mainCachedUuids[mainSlideIndex];
+    
+    if (typeof cmd === 'function') {
+        cmd('set_slide', uuid);
+    }
+
+    mainSlideIndex = (mainSlideIndex + 1) % mainCachedUuids.length;
+}
+
+// Algoritmo Fisher-Yates para baralhar o array aleatoriamente
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+} 
 
 
 });
