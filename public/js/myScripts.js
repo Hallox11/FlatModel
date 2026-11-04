@@ -999,8 +999,9 @@ function runMainSlideshowLoop(intervalSeconds) {
 
     sendNextMainSlide();
     
-    // Mostra o botão de parar de forma persistente
-    $('#stop-slideshow-btn').css('display', 'flex').fadeIn(200);
+    // Esconde o menu principal e mostra o overlay de ecrã inteiro
+    $('#main-grid').fadeOut(200);
+    $('#slideshow-fullscreen-overlay').css('display', 'flex').hide().fadeIn(300);
 
     mainSlideshowTimer = setInterval(() => {
         sendNextMainSlide();
@@ -1023,8 +1024,11 @@ window.stopMainSlideshow = function() {
         clearInterval(mainSlideshowTimer);
         mainSlideshowTimer = null;
     }
-    // Esconde o botão de parar
-    $('#stop-slideshow-btn').fadeOut(200);
+    
+    // Esconde o overlay de ecrã inteiro e traz de volta o menu principal
+    $('#slideshow-fullscreen-overlay').fadeOut(200, function() {
+        $('#main-grid').fadeIn(200);
+    });
 };
 
 // Algoritmo Fisher-Yates para baralhar o array
