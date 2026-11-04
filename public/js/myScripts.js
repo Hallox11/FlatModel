@@ -1008,11 +1008,24 @@ function runMainSlideshowLoop(intervalSeconds) {
     if (mainSlideshowTimer) clearInterval(mainSlideshowTimer);
 
     sendNextMainSlide();
+    
+    // Mostra o botão de parar se existir
+    $('#stop-slideshow-btn').fadeIn(200);
 
     mainSlideshowTimer = setInterval(() => {
         sendNextMainSlide();
     }, intervalSeconds * 1000);
 }
+
+window.stopMainSlideshow = function() {
+    if (mainSlideshowTimer) {
+        clearInterval(mainSlideshowTimer);
+        mainSlideshowTimer = null;
+    }
+    // Esconde o botão de parar
+    $('#stop-slideshow-btn').fadeOut(200);
+    alert("Slideshow parado com sucesso!");
+};
 
 function sendNextMainSlide() {
     if (mainCachedUuids.length === 0) return;
