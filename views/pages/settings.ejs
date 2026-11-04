@@ -597,10 +597,19 @@
     const TV_ID = "<%= tvId %>";
 
 
-window.playServerJsonSlideshow = function() {
-    const interval = document.getElementById('ss-interval').value;
+let slideshowTimer = null;
+let currentSlideIndex = 0;
+let cachedUuids = [];
 
-    // 1. Vai buscar os UUIDs ao servidor
+window.playServerJsonSlideshow = function() {
+    const intervalSeconds = parseInt(document.getElementById('ss-interval').value) || 8;
+
+    // 1. Vai buscar os UUIDs ao servidor (caso ainda não estejam em cache)
+    if (cachedUuids.length > 0) {
+        startLoop(intervalSeconds);
+        return;
+    }
+
     $.ajax({
         type: 'GET',
         url: '/get-textures-json',
@@ -610,15 +619,13 @@ window.playServerJsonSlideshow = function() {
                 return;
             }
 
-            // 2. Formata os UUIDs em string separada por vírgula (ou no formato que o teu LSL espera)
-            const uuidsString = res.uuids.join(', ');
+            // Guarda os UUIDs em cache para as próximas repetições
+            cachedUuids = res.uuids;
+            currentSlideIndex = 0;
             
-            // 3. Usa a tua função cmd() existente para enviar para a TV!
-            // Exemplo: 'web|intervalo|uuid1,uuid2,uuid3'
-            const payload = "web|" + interval + "|" + uuidsString;
-            
-            cmd('slideshow_config', payload);
-            alert(`Slideshow iniciado com ${res.uuids.length} texturas do servidor!`);
+            // Inicia o ciclo de envio
+            startLoop(intervalSeconds);
+            alert(`Slideshow iniciado com ${cachedUuids.length} texturas do servidor!`);
         },
         error: function() {
             alert("Erro ao obter o ficheiro JSON do servidor.");
@@ -626,6 +633,39 @@ window.playServerJsonSlideshow = function() {
     });
 };
 
+function startLoop(seconds) {
+    if (slideshowTimer) clearInterval(slideshowTimer);
+
+    // Envia o primeiro slide imediatamente
+    sendNextServerSlide();
+
+    // Configura o temporizador para enviar os seguintes um a um
+    slideshowTimer = setInterval(() => {
+        sendNextServerSlide();
+    }, seconds * 1000);
+}
+
+function sendNextServerSlide() {
+    if (cachedUuids.length === 0) return;
+
+    const uuid = cachedUuids[currentSlideIndex];
+    
+    // Usa a tua função cmd() existente para enviar um UUID de cada vez
+    cmd('set_slide', uuid);
+
+    // Avança para o próximo índice (faz loop automático ao chegar ao fim)
+    currentSlideIndex = (currentSlideIndex + 1) % cachedUuids.length;
+}
+
+// Opcional: Se quiseres uma função para parar o slideshow
+window.stopServerJsonSlideshow = function() {
+    if (slideshowTimer) {
+        clearInterval(slideshowTimer);
+        slideshowTimer = null;
+        alert("Slideshow parado.");
+    }
+};
+////////////////////////////////////////////////
     function switchTab(tabId, el) {
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         document.querySelectorAll('.conteiner-col').forEach(panel => panel.classList.remove('active'));
