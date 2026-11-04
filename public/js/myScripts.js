@@ -923,4 +923,40 @@ window.socket.on('UpdateRadioBack', () => {
     } else {
         console.error("Socket.io not found. Check script order in your EJS header.");
     }
+
+
+// ===============================
+// GLOBAL TV COMMAND SENDER
+// ===============================
+window.cmd = function(command, value, el) {
+    const tvId = window.__TV_ID__ || window.TV_ID;
+    if (!tvId || tvId === 'undefined') {
+        console.warn("TV_ID não está definido para este cliente.");
+        return;
+    }
+
+    if (el) { 
+        $(el).addClass('sent'); 
+        setTimeout(() => $(el).removeClass('sent'), 300); 
+    }
+
+    $.ajax({
+        type: 'POST', 
+        url: '/send-command', 
+        contentType: 'application/json',
+        data: JSON.stringify({ command, value, object_id: tvId }),
+        success: function() {
+            $('#connection-container').addClass('online-active');
+            $('#status-text').text('ONLINE').css('color', '#2ecc71');
+            $('#warning-msg').hide();
+        },
+        error: function() {
+            $('#connection-container').removeClass('online-active');
+            $('#status-text').text('OFFLINE').css('color', 'var(--error)');
+            $('#warning-msg').show();
+        }
+    });
+};    
+
+
 });

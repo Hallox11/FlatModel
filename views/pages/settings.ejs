@@ -594,7 +594,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
-    const TV_ID = "<%= tvId %>";
+
 
 
 let slideshowTimer = null;
@@ -866,24 +866,6 @@ window.stopServerJsonSlideshow = function() {
         cmd('slideshow_config', payload);
     };
 
-    window.cmd = function(command, value, el) {
-        if (!TV_ID || TV_ID === 'undefined') return;
-        if (el) { $(el).addClass('sent'); setTimeout(() => $(el).removeClass('sent'), 300); }
-        $.ajax({
-            type: 'POST', url: '/send-command', contentType: 'application/json',
-            data: JSON.stringify({ command, value, object_id: TV_ID }),
-            success: function() {
-                $('#connection-container').addClass('online-active');
-                $('#status-text').text('ONLINE').css('color','#2ecc71');
-                $('#warning-msg').hide();
-            },
-            error: function() {
-                $('#connection-container').removeClass('online-active');
-                $('#status-text').text('OFFLINE').css('color','var(--error)');
-                $('#warning-msg').show();
-            }
-        });
-    };
 
     const lContainer = document.getElementById('grid-light');
     if (lContainer) {
