@@ -965,13 +965,29 @@ let mainSlideIndex = 0;
 let mainCachedUuids = [];
 
 // Abre o overlay com as opções de escolha
+// Atualiza o openSlideshowOverlay para destacar o tempo atualmente guardado
 window.openSlideshowOverlay = function() {
     $('#main-grid').fadeOut(200);
     $('#slideshow-menu-view').show();
     $('#slideshow-active-view').hide();
+    
+    // Marca o botão correspondente ao tempo atual
+    let currentTime = parseInt(localStorage.getItem('slideshow_interval')) || 10;
+    selectSlideshowTime(currentTime);
+
     $('#slideshow-fullscreen-overlay').css('display', 'flex').hide().fadeIn(300);
 };
+let selectedSlideshowTime = parseInt(localStorage.getItem('slideshow_interval')) || 10;
 
+// Função para selecionar o tempo no overlay
+window.selectSlideshowTime = function(seconds) {
+    selectedSlideshowTime = seconds;
+    localStorage.setItem('slideshow_interval', seconds);
+    
+    // Atualiza o estado visual dos botões de tempo
+    $('.ss-time-btn').removeClass('active');
+    $(`.ss-time-btn[data-time="${seconds}"]`).addClass('active');
+};
 // Fecha o overlay e volta ao menu principal sem iniciar
 window.closeSlideshowOverlay = function() {
     $('#slideshow-fullscreen-overlay').fadeOut(200, function() {
@@ -1025,7 +1041,7 @@ window.startSlideshowFromNotecard = function() {
 
     // Envia o comando para o script LSL da TV ler a notecard localmente
     if (typeof cmd === 'function') {
-        cmd('slideshow_config', `notecard|${intervalSeconds}`);
+        cmd('notecard', selectedSlideshowTime);
     }
 };
 
