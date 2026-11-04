@@ -1025,6 +1025,11 @@ window.stopMainSlideshow = function() {
         mainSlideshowTimer = null;
     }
     
+    // Envia o comando para a TV repor o modo de ecrã/web view (ajusta o comando e valor conforme necessário)
+    if (typeof cmd === 'function') {
+        cmd('screen_mode', 'web'); // ou outro comando/valor pretendido para o toggle
+    }
+
     // Esconde o overlay de ecrã inteiro e traz de volta o menu principal
     $('#slideshow-fullscreen-overlay').fadeOut(200, function() {
         $('#main-grid').fadeIn(200);
