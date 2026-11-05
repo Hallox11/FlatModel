@@ -392,7 +392,7 @@
                     </div>
 
                     <div style="margin-top: auto;">
-                        <button onclick="applyLightPreset('normal', this)" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">RESET LIGHTS TO NORMAL</button>
+                        <button onclick="applyLightReset('normal', this)" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">RESET LIGHTS TO NORMAL</button>
                     </div>
                 </div>
             </div>
@@ -643,6 +643,11 @@
             b.classList.toggle('active', b.dataset.mode === p.neonMode));
 
         cmd('LIGHT_PRESET', name, el);
+    };
+
+        window.applyLightReset = function(name, el) {
+
+        cmd('LIGHT_RESET', "reset");
     };
 
     let sensorRange = 15.0;
