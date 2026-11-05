@@ -487,6 +487,33 @@
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+
+/* Estilos para os botões de tempo */
+.ss-time-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.ss-time-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+.ss-time-btn.active {
+    background: rgba(218, 165, 32, 0.3);
+    border-color: #daa520;
+    color: #daa520;
+    box-shadow: 0 0 12px rgba(218, 165, 32, 0.4);
+}
 </style>
 </head>
 
@@ -511,9 +538,9 @@
     <div data-type="menu" data-mode="live-tv" class="btn">Live TV</div>
     <div data-type="menu" data-mode="watch-together" class="btn">Party Share</div>
     <div data-type="menu" data-mode="browsers" class="btn">Browsers</div>
-
+<!--
     <div onclick="openSlideshowOverlay()" class="btn">Slideshow</div>
-    <!--
+    
     <div data-type="menu" data-mode="game-stream" class="btn">Game Stream</div>
     <div data-type="menu" data-mode="art-menu" class="btn">Art Gallery</div>
     <div data-type="menu" data-mode="browsers" class="btn">----</div>
@@ -545,7 +572,13 @@
 
 <!-- 3. The Sliding Control Panel (Top Layer) -->
 <div class="controls" id="controls">
-    <button style="margin-right:5px;margin-left: 170px;" class="nav-btn-glass" onclick="changeBackground('prev')">
+
+
+    <button style="margin-right:5px;margin-left: 90px;" class="nav-btn-glass" onclick="openSlideshowOverlay('prev')">
+        <span class="material-symbols-rounded">Slideshow</span>
+    </button>
+
+    <button style="margin-right:5px;margin-left: 15px;" class="nav-btn-glass" onclick="changeBackground('prev')">
         <span class="material-symbols-rounded">arrow_back</span>
     </button>
         <button style="margin-right: 5px;" class="nav-btn-glass" onclick="openSettings()">
@@ -621,18 +654,18 @@
 
 <!-- SLIDESHOW FULL-SCREEN OVERLAY -->
 <!-- SLIDESHOW FULL-SCREEN OVERLAY -->
-<div id="slideshow-fullscreen-overlay" style="display: none; position: absolute; inset: 0; width: 1280px; height: 720px; background: rgba(5, 5, 5, 0.96); backdrop-filter: blur(14px); z-index: 10000; flex-direction: column; align-items: center; justify-content: center; animation: fadeInOverlay 0.3s ease;">
+<div id="slideshow-fullscreen-overlay" style="display: none; position: absolute; inset: 0; width: 1280px; height: 720px; background: rgba(5, 5, 5, 0.1); backdrop-filter: blur(50px); z-index: 10000; flex-direction: column; align-items: center; justify-content: center; animation: fadeInOverlay 0.3s ease;">
     
     <!-- ECRÃ 1: MENU DE SELEÇÃO DE FONTE, TEMPO E GUIA -->
     <div id="slideshow-menu-view" style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; width: 100%; max-width: 500px;">
         
         <!-- Título -->
-        <div style="font-size: 1.6rem; font-weight: 600; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 2px;">
+        <div style="font-size: 1.9rem; font-weight: 600; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 2px;">
             Slideshow Options
         </div>
         
         <!-- SELETOR DE TEMPO -->
-        <div style="font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 2px; text-transform: uppercase;">
+        <div style="font-size: 1.2rem; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase;">
             Slide Interval
         </div>
         <div id="ss-time-selector" style="display: flex; gap: 8px; margin-bottom: 2px;">
@@ -642,18 +675,18 @@
             <button class="ss-time-btn" onclick="selectSlideshowTime(120)" data-time="120">120s</button>
         </div>
 
-        <div style="font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 2px; text-transform: uppercase;">
+        <div style="font-size: 1rem; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase;">
             Image Source
         </div>
         
         <!-- Botões de Arranque -->
         <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; align-items: center;">
-            <button onclick="startSlideshowFromJson()" style="background: linear-gradient(135deg, rgba(218,165,32,0.25), rgba(218,165,32,0.08)); border: 1px solid rgba(218,165,32,0.5); color: #fff; padding: 11px 24px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.5px; width: 340px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(218,165,32,0.4)'; this.style.transform='scale(1.02)';" onmouseout="this.style.background='linear-gradient(135deg, rgba(218,165,32,0.25), rgba(218,165,32,0.08))'; this.style.transform='scale(1)';">
-                ▶ Start from Server JSON
+            <button onclick="startSlideshowFromJson()" style="background: linear-gradient(135deg, rgba(218,165,32,0.25), rgba(218,165,32,0.08)); border: 1px solid rgba(218,165,32,0.5); color: #fff; padding: 11px 24px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 1.5px; width: 340px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(218,165,32,0.4)'; this.style.transform='scale(1.02)';" onmouseout="this.style.background='linear-gradient(135deg, rgba(218,165,32,0.25), rgba(218,165,32,0.08))'; this.style.transform='scale(1)';">
+                ▶ Start from OUR SELECTION
             </button>
             
-            <button onclick="startSlideshowFromNotecard()" style="background: linear-gradient(135deg, rgba(46,204,113,0.25), rgba(46,204,113,0.08)); border: 1px solid rgba(46,204,113,0.5); color: #fff; padding: 11px 24px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.5px; width: 340px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(46,204,113,0.4)'; this.style.transform='scale(1.02)';" onmouseout="this.style.background='linear-gradient(135deg, rgba(46,204,113,0.25), rgba(46,204,113,0.08))'; this.style.transform='scale(1)';">
-                ▶ Start from Notecard
+            <button onclick="startSlideshowFromNotecard()" style="background: linear-gradient(135deg, rgba(46,204,113,0.25), rgba(46,204,113,0.08)); border: 1px solid rgba(46,204,113,0.5); color: #fff; padding: 11px 24px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 1.5px; width: 340px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(46,204,113,0.4)'; this.style.transform='scale(1.02)';" onmouseout="this.style.background='linear-gradient(135deg, rgba(46,204,113,0.25), rgba(46,204,113,0.08))'; this.style.transform='scale(1)';">
+                ▶ Start from Your Notecard
             </button>
         </div>
 
