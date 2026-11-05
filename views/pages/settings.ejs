@@ -155,7 +155,7 @@
     .label-mini { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.35); text-transform: uppercase; margin: 12px 0 6px 2px; display: block; }
 
     .btn-group { 
-        display: flex; 
+        
         margin: 0px 0px; 
         background: rgba(0,0,0,0.2); 
         border-radius: 10px; 
@@ -263,14 +263,14 @@
                     <p class="section-title">BACK COLOR</p>
                     <div id="grid-back" class="color-grid-static" style="margin-top: 3px;">
                         <div class="color-square" style="background:#1b1b1b;" onclick="cmd('back_color','<0.0,0.0,0.0>')"></div>
-                        <div class="color-square" style="background:#1a1a1a;" onclick="cmd('back_color','<0.10,0.10,0.10>')"></div>
+                        <div class="color-square" style="background:#302f2f;" onclick="cmd('back_color','<0.10,0.10,0.10>')"></div>
                         <div class="color-square" style="background:#2c3e50;" onclick="cmd('back_color','<0.17,0.24,0.31>')"></div>
                         <div class="color-square" style="background:#333333;" onclick="cmd('back_color','<0.20,0.20,0.20>')"></div>
                         <div class="color-square" style="background:#8e44ad;" onclick="cmd('back_color','<0.56,0.27,0.68>')"></div>
                         <div class="color-square" style="background:#2980b9;" onclick="cmd('back_color','<0.16,0.50,0.73>')"></div>
                         <div class="color-square" style="background:#c0392b;" onclick="cmd('back_color','<0.75,0.22,0.17>')"></div>
                         <div class="color-square" style="background:#27ae60;" onclick="cmd('back_color','<0.15,0.68,0.38>')"></div>
-                        <div class="color-square" style="background:#d35400;" onclick="cmd('back_color','<0.83,0.33,0.00>')"></div>
+                        <div class="color-square" style="background:#f39f04;" onclick="cmd('back_color','<0.83,0.33,0.00>')"></div>
                         <div class="color-square" style="background:#7f8c8d;" onclick="cmd('back_color','<0.50,0.55,0.56>')"></div>
                         <div class="color-square" style="background:#f1c40f;" onclick="cmd('back_color','<0.95,0.77,0.06>')"></div>
                         <div class="color-square" style="background:#ffffff;" onclick="cmd('back_color','<1.0,1.0,1.0>')"></div>
@@ -333,6 +333,7 @@
                         <button class="btn1" data-group="envlight" onclick="applyLightPreset('active', this)">ACTIVE</button>
                         <button class="btn1 active" data-group="envlight" onclick="applyLightPreset('normal', this)">NORMAL</button>
                         <button class="btn1" data-group="envlight" onclick="applyLightPreset('cozy', this)">COZY</button>
+                        <button class="btn1" data-group="envlight" onclick="applyLightPreset('off', this)">OFF</button>
                     </div>
                 </div>
                 <div class="sub-panel">
@@ -482,7 +483,7 @@
                 <div class="sub-panel">
                     <p class="section-title">SYSTEM ACTIONS</p>
                     
-                    <button onclick="cmd('visualSizeReset','',this)" class="btn1">DEFAULT SETTING</button>
+                    <button onclick="cmd('default_settings','reset',this)" class="btn1">DEFAULT SETTING</button>
                     <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
                         Restores factory default visual parameters and layout configurations.
                     </p>
@@ -524,7 +525,7 @@
     let neonState   = 'off';
     let neonSpeed   = 0.10;
     let fallValue   = 0.5;
-    let glowValue   = 0.5;
+    let glowValue   = 0.0;
     let rangeValue  = 0.5;
     let speedValue  = 0.5;
 
@@ -532,7 +533,7 @@
         active: { color: '#ff00aa', ambiMode: 'cycle', neonMode: 'cycle', ambiInt: 0.9,  rangeValue: 0.8,  fallValue: 0.4, glowValue: 0.4,  speedValue: 0.10 },
         normal: { color: '#ffffff', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.5,  rangeValue: 0.5,  fallValue: 1.0, glowValue: 0.3,  speedValue: 0.50 },
         cozy:   { color: '#ff8800', ambiMode: 'on',    neonMode: 'off',   ambiInt: 0.25, rangeValue: 0.35, fallValue: 1.4, glowValue: 0.15, speedValue: 0.50 },
-        inactive:   {}
+        off:   {}
     };
 
     function stepValue(current, delta) {
