@@ -88,7 +88,7 @@
 
 #controls {
     position: absolute;
-    bottom: 30px;
+    bottom: 90px;
     left: 50%;
     transform: translateX(-50%) translateY(120%);
     /* Remove display: flex from here */
@@ -620,41 +620,58 @@
 </div>
 
 <!-- SLIDESHOW FULL-SCREEN OVERLAY -->
-<div id="slideshow-fullscreen-overlay" style="display: none; position: absolute; inset: 0; width: 1280px; height: 720px; background: rgba(5, 5, 5, 0.94); backdrop-filter: blur(12px); z-index: 10000; flex-direction: column; align-items: center; justify-content: center; animation: fadeInOverlay 0.3s ease;">
+<!-- SLIDESHOW FULL-SCREEN OVERLAY -->
+<div id="slideshow-fullscreen-overlay" style="display: none; position: absolute; inset: 0; width: 1280px; height: 720px; background: rgba(5, 5, 5, 0.96); backdrop-filter: blur(14px); z-index: 10000; flex-direction: column; align-items: center; justify-content: center; animation: fadeInOverlay 0.3s ease;">
     
-    <!-- ECRÃ 1: MENU DE SELEÇÃO DE FONTE E TEMPO -->
-    <div id="slideshow-menu-view" style="display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;">
-        <div style="font-size: 2rem; font-weight: 600; letter-spacing: 4px; color: var(--accent); text-transform: uppercase;">
+    <!-- ECRÃ 1: MENU DE SELEÇÃO DE FONTE, TEMPO E GUIA -->
+    <div id="slideshow-menu-view" style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; width: 100%; max-width: 500px;">
+        
+        <!-- Título -->
+        <div style="font-size: 1.6rem; font-weight: 600; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 2px;">
             Slideshow Options
         </div>
         
         <!-- SELETOR DE TEMPO -->
-        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase; margin-bottom: -5px;">
-            Select Slide Interval
+        <div style="font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 2px; text-transform: uppercase;">
+            Slide Interval
         </div>
-        <div id="ss-time-selector" style="display: flex; gap: 12px; margin-bottom: 10px;">
+        <div id="ss-time-selector" style="display: flex; gap: 8px; margin-bottom: 2px;">
             <button class="ss-time-btn" onclick="selectSlideshowTime(10)" data-time="10">10s</button>
             <button class="ss-time-btn" onclick="selectSlideshowTime(30)" data-time="30">30s</button>
             <button class="ss-time-btn" onclick="selectSlideshowTime(60)" data-time="60">60s</button>
             <button class="ss-time-btn" onclick="selectSlideshowTime(120)" data-time="120">120s</button>
         </div>
 
-        <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase; margin-bottom: -5px;">
-            Choose Image Source
+        <div style="font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 2px; text-transform: uppercase;">
+            Image Source
         </div>
         
-        <!-- Botão 1: Server JSON -->
-        <button onclick="startSlideshowFromJson()" style="background: linear-gradient(135deg, rgba(218,165,32,0.3), rgba(218,165,32,0.1)); border: 1px solid rgba(218,165,32,0.6); color: #fff; padding: 16px 36px; border-radius: 14px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; width: 380px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(218,165,32,0.5)'; this.style.transform='scale(1.03)';" onmouseout="this.style.background='linear-gradient(135deg, rgba(218,165,32,0.3), rgba(218,165,32,0.1))'; this.style.transform='scale(1)';">
-            ▶ Start from Server JSON
-        </button>
-        
-        <!-- Botão 2: Notecard -->
-        <button onclick="startSlideshowFromNotecard()" style="background: linear-gradient(135deg, rgba(46,204,113,0.3), rgba(46,204,113,0.1)); border: 1px solid rgba(46,204,113,0.6); color: #fff; padding: 16px 36px; border-radius: 14px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; width: 380px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(46,204,113,0.5)'; this.style.transform='scale(1.03)';" onmouseout="this.style.background='linear-gradient(135deg, rgba(46,204,113,0.3), rgba(46,204,113,0.1))'; this.style.transform='scale(1)';">
-            ▶ Start from Notecard
-        </button>
+        <!-- Botões de Arranque -->
+        <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; align-items: center;">
+            <button onclick="startSlideshowFromJson()" style="background: linear-gradient(135deg, rgba(218,165,32,0.25), rgba(218,165,32,0.08)); border: 1px solid rgba(218,165,32,0.5); color: #fff; padding: 11px 24px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.5px; width: 340px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(218,165,32,0.4)'; this.style.transform='scale(1.02)';" onmouseout="this.style.background='linear-gradient(135deg, rgba(218,165,32,0.25), rgba(218,165,32,0.08))'; this.style.transform='scale(1)';">
+                ▶ Start from Server JSON
+            </button>
+            
+            <button onclick="startSlideshowFromNotecard()" style="background: linear-gradient(135deg, rgba(46,204,113,0.25), rgba(46,204,113,0.08)); border: 1px solid rgba(46,204,113,0.5); color: #fff; padding: 11px 24px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.5px; width: 340px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(46,204,113,0.4)'; this.style.transform='scale(1.02)';" onmouseout="this.style.background='linear-gradient(135deg, rgba(46,204,113,0.25), rgba(46,204,113,0.08))'; this.style.transform='scale(1)';">
+                ▶ Start from Notecard
+            </button>
+        </div>
+
+        <!-- CAIXA DE INSTRUÇÕES LIMPA E MINIMALISTA -->
+        <div style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 8px 14px; width: 495px; text-align: left; font-size: 0.8rem; color: rgba(255, 255, 255, 0.9); line-height: 1.35; margin-top: 2px;">
+            <div style="color: var(--accent); font-weight: 600; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">
+                Quick Guide & Troubleshooting
+            </div>
+            <div style="margin-bottom: 5px;letter-spacing: 0.3px;">
+                • <b>Notecard:</b> Name it <span style="color: #fff; background: rgba(255,255,255,0.08); padding: 0 4px; border-radius: 3px;">TexturesList</span>, add one UUID per line, and drop it into the TV.
+            </div>
+            <div style="letter-spacing: 0.3px;">
+                • <b>Connection:</b> If commands stop responding, toggle TV power <b>Off & On</b> to reset.
+            </div>
+        </div>
 
         <!-- Botão Voltar -->
-        <button onclick="closeSlideshowOverlay()" style="margin-top: 5px; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); padding: 10px 24px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+        <button onclick="closeSlideshowOverlay()" style="background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); padding: 6px 16px; border-radius: 6px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; margin-top: 2px;" onmouseover="this.style.borderColor='rgba(255,255,255,0.3)'; this.style.color='#fff';" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)'; this.style.color='rgba(255,255,255,0.4)';">
             ← Back to Menu
         </button>
     </div>
@@ -672,35 +689,6 @@
         </button>
     </div>
 </div>
-
-<style>
-/* Estilos para os botões de tempo */
-.ss-time-btn {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.8);
-    padding: 8px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-.ss-time-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
-    color: #fff;
-}
-
-.ss-time-btn.active {
-    background: rgba(218, 165, 32, 0.3);
-    border-color: #daa520;
-    color: #daa520;
-    box-shadow: 0 0 12px rgba(218, 165, 32, 0.4);
-}
-</style>
 
 
 <div id="session-intro-toast" style="line-height: 1.5; text-align: center; width: 780px;position: absolute; bottom: 180px; left: 50%; transform: translateX(-50%) translateY(40px); background: rgba(10, 10, 10, 0.92); border: 1px solid rgba(218, 165, 32, 0.4); border-radius: 12px; padding: 12px 24px; color: #fff; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; backdrop-filter: blur(12px); box-shadow: 0 8px 32px rgba(0,0,0,0.6); z-index: 9999; opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); pointer-events: none;">
