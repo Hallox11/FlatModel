@@ -189,34 +189,6 @@
         margin: 0;
     }
 
-    /* Botão Flutuante de Toggle no Canto */
-#floating-toggle-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    background: rgba(20, 20, 20, 0.75);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 10px 14px;
-    border-radius: 30px;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    display: none; /* COMEÇA OCULTO (só aparece no modo SL Face) */
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    backdrop-filter: blur(5px);
-    transition: all 0.2s ease;
-}
-
-#floating-toggle-btn:hover {
-    background: var(--accent);
-    color: #000;
-    transform: scale(1.05);
-}
 </style>
 </head>
 <body>
@@ -251,9 +223,7 @@
             <button class="tab-btn" onclick="switchTab('lighting', this)">
                 <span class="material-symbols-rounded">wb_incandescent</span> AMBILIGHT & NEON
             </button>
-            <button class="tab-btn" onclick="switchTab('slideshow', this)">
-                <span class="material-symbols-rounded">collections</span> SLIDESHOW & FACE
-            </button>
+
             <button class="tab-btn" onclick="switchTab('security', this)">
                 <span class="material-symbols-rounded">shield</span> SECURITY & ALARM
             </button>
@@ -462,57 +432,6 @@
                 </div>
             </div>
 
-            <!-- Tab 4: Slideshow & Face Mode (NEW) -->
-            <div id="tab-slideshow" class="conteiner-col">
-                <div class="sub-panel">
-                    <p class="section-title">Screen Face Mode</p>
-                    <span class="label-mini">Display Target</span>
-                    <div class="legs-row" style="margin-bottom: 20px;">
-                        <button onclick="setActive('screenmode',this); setScreenMode('web',this)" class="btn1 active" data-group="screenmode">WEB VIEW</button>
-                        <button onclick="setActive('screenmode',this); setScreenMode('sl',this)" class="btn1" data-group="screenmode">SL FACE</button>
-                    </div>
-
-                    <span class="label-mini">SL Face Custom Texture UUID</span>
-                    <div style="display:flex; gap:8px; margin-bottom: 10px;">
-                        <input type="text" id="sl-texture-input" placeholder="Paste texture UUID..." style="flex:1; background:rgba(0,0,0,0.3); border:1px solid var(--glass-border); color:#fff; padding:10px; border-radius:8px; font-family:'Inter'; font-size:13px;">
-                        <button onclick="saveSlTexture()" class="btn2" style="padding: 10px 16px;">Save</button>
-                    </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:11px; line-height:1.4;">
-                        When switching to SL Face, the web browser becomes transparent and this UUID texture is displayed on the back face.
-                    </p>
-                </div>
-
-                <div class="sub-panel">
-                    <p class="section-title">Slideshow Config</p>
-                    
-                    <span class="label-mini">Image Source</span>
-                    <select id="ss-source" class="btn1" style="background: rgba(0,0,0,0.4); margin-bottom: 12px; cursor: pointer;" onchange="toggleSourceInput()">
-                        <option value="notecard">Read from Prim Notecard</option>
-                        <option value="web">Send UUIDs from Web Panel</option>
-                    </select>
-
-                    <div id="ss-web-container" style="display:none; margin-bottom: 12px;">
-                        <span class="label-mini">Paste Texture UUIDs (comma separated)</span>
-                        <textarea id="ss-uuids" placeholder="uuid1, uuid2, uuid3..." style="width:100%; height:70px; background:rgba(0,0,0,0.4); color:#fff; border:1px solid var(--glass-border); border-radius:8px; padding:8px; font-family:'Inter'; font-size:12px; resize:none;"></textarea>
-                    </div>
-
-                    <span class="label-mini">Interval (Seconds)</span>
-                    <input type="number" id="ss-interval" value="8" min="2" max="60" class="btn1" style="background: rgba(0,0,0,0.4); text-align: center; margin-bottom: 20px;">
-
-                    <div style="display:flex; gap:10px; margin-top: auto;">
-                        <button onclick="applyAndStartSlideshow()" class="btn1" style="background:var(--success); color:#000; font-weight:600; border:none; margin:0; flex:1;">START SLIDESHOW</button>
-                    </div>
-
-<!-- Botão no painel de definições -->
-<div style="margin-top: 15px;">
-    <button onclick="playServerJsonSlideshow()" class="btn1" style="background: var(--accent); color: #000; font-weight: 600; border:none; width:100%; text-align:center;">
-        LOAD JSON FROM SERVER & START
-    </button>
-</div>
-
-                </div>
-            </div>
-
             <!-- Tab 5: Security -->
             <div id="tab-security" class="conteiner-col">
                 <div class="sub-panel" style="max-width: 600px; margin: 0 auto;">
@@ -584,96 +503,11 @@
     </div>
 </div>
 
-<!-- Botão Flutuante de Toggle -->
-<button id="floating-toggle-btn" onclick="toggleScreenMode()">
-    <span class="material-symbols-rounded" style="font-size: 18px;">sync_alt</span>
-    <span id="toggle-btn-label">SWITCH TO SL FACE</span>
-</button>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
 
-
-
-let slideshowTimer = null;
-let currentSlideIndex = 0;
-let cachedUuids = [];
-
-window.playServerJsonSlideshow = function() {
-    const intervalSeconds = parseInt(document.getElementById('ss-interval').value) || 8;
-    
-    // Guarda no localStorage para o menu principal aceder
-    localStorage.setItem('slideshow_interval', intervalSeconds);
-
-    if (cachedUuids.length > 0) {
-        shuffleArray(cachedUuids);
-        startLoop(intervalSeconds);
-        return;
-    }
-
-    $.ajax({
-        type: 'GET',
-        url: '/get-textures-json',
-        success: function(res) {
-            if (!res.uuids || res.uuids.length === 0) {
-                alert("O ficheiro JSON está vazio.");
-                return;
-            }
-
-            cachedUuids = res.uuids;
-            shuffleArray(cachedUuids);
-            currentSlideIndex = 0;
-            startLoop(intervalSeconds);
-           
-        },
-        error: function() {
-            alert("Erro ao obter o ficheiro JSON do servidor.");
-        }
-    });
-};
-
-// Função auxiliar para baralhar um Array (Algoritmo Fisher-Yates)
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
-
-function startLoop(seconds) {
-    if (slideshowTimer) clearInterval(slideshowTimer);
-
-    // Envia o primeiro slide imediatamente
-    sendNextServerSlide();
-
-    // Configura o temporizador para enviar os seguintes um a um
-    slideshowTimer = setInterval(() => {
-        sendNextServerSlide();
-    }, seconds * 1000);
-}
-
-function sendNextServerSlide() {
-    if (cachedUuids.length === 0) return;
-console.log(cachedUuids)
-    const uuid = cachedUuids[currentSlideIndex];
-    console.log(uuid)
-    // Usa a tua função cmd() existente para enviar um UUID de cada vez
-    cmd('set_slide', uuid);
-
-    // Avança para o próximo índice (faz loop automático ao chegar ao fim)
-    currentSlideIndex = (currentSlideIndex + 1) % cachedUuids.length;
-}
-
-// Opcional: Se quiseres uma função para parar o slideshow
-window.stopServerJsonSlideshow = function() {
-    if (slideshowTimer) {
-        clearInterval(slideshowTimer);
-        slideshowTimer = null;
-        alert("Slideshow parado.");
-    }
-};
 ////////////////////////////////////////////////
     function switchTab(tabId, el) {
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -684,7 +518,6 @@ window.stopServerJsonSlideshow = function() {
     }
 
     let selectedHex = null;
-    let currentScreenMode = 'web';
     let ambiState   = 'off';
     let ambiOn      = false;
     let ambiInt     = 0.5;
@@ -819,51 +652,7 @@ window.stopServerJsonSlideshow = function() {
         cmd('sensor_range', sensorRange.toString());
     };
 
-    window.setScreenMode = function(mode, el) {
-        currentScreenMode = mode;
-        const btn = document.getElementById('floating-toggle-btn');
-        const label = document.getElementById('toggle-btn-label');
-
-        if (mode === 'sl') {
-            if (btn) btn.style.display = 'flex';
-            if (label) label.textContent = 'SWITCH TO WEB VIEW';
-        } else {
-            if (btn) btn.style.display = 'none';
-            if (label) label.textContent = 'SWITCH TO SL FACE';
-        }
-
-        cmd('screen_mode', mode, el);
-    };
-
-    function toggleScreenMode() {
-        if (currentScreenMode === 'web') {
-            setScreenMode('sl');
-        } else {
-            setScreenMode('web');
-        }
-    }
-
-    window.saveSlTexture = function() {
-        const uuid = document.getElementById('sl-texture-input').value.trim();
-        if (!uuid) {
-            alert('Please enter a valid texture UUID.');
-            return;
-        }
-        cmd('sl_texture', uuid);
-    };
-
-    window.toggleSourceInput = function() {
-        const source = document.getElementById('ss-source').value;
-        document.getElementById('ss-web-container').style.display = (source === 'web') ? 'block' : 'none';
-    };
-
-    window.applyAndStartSlideshow = function() {
-        const source = document.getElementById('ss-source').value;
-        const interval = document.getElementById('ss-interval').value;
-        const uuids = document.getElementById('ss-uuids').value;
-        const payload = source + "|" + interval + "|" + uuids;
-        cmd('slideshow_config', payload);
-    };
+    
 
 
     const lContainer = document.getElementById('grid-light');
