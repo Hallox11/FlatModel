@@ -232,11 +232,8 @@ function exitPlayer() {
 
 (function() {
     const video_id = "<%= (typeof videoId !== 'undefined') ? videoId : '' %>";
-    let isRemoteCommand = true;
+    let isRemoteCommand = false;
     let emitTimer = null;
-
-// Liberta os comandos passados os primeiros 2 segundos de estabilização
-    setTimeout(() => { isRemoteCommand = false; }, 2000);    
 
     // --- Click throttle shield ---
     const CLICK_THROTTLE_MS = 1200;
@@ -325,11 +322,7 @@ function exitPlayer() {
                     // Lógica de Loop: Se o vídeo terminar, volta ao início e dá play
 
 
-    // Ignora estados de carregamento inicial para não espalhar pânico pela sala
-    if (event.data === YT.PlayerState.BUFFERING || event.data === YT.PlayerState.UNSTARTED) {
-        return;
-
-
+                    
                     if (event.data === YT.PlayerState.ENDED) {
                         const playlist = JSON.parse(sessionStorage.getItem('yt_playlist') || '[]');
                         const index = parseInt(sessionStorage.getItem('yt_playlist_index') || '0');
