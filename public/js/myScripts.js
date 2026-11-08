@@ -604,18 +604,37 @@ socket.on('force_sync_arrival', function(state) {
             }
 
             // 3. SYNC VIDEO PLAYER (Apenas se não houver menu ou se o menu for o player)
-            if (state.videoId) {
-                const alreadyPlaying = window.ytPlayerInstance && 
-                                       window.ytPlayerInstance.getVideoData &&
-                                       window.ytPlayerInstance.getVideoData().video_id === state.videoId;
+if (state.videoId) {
+                const isPlayerReady = window.ytPlayerInstance && typeof window.ytPlayerInstance.seekTo === 'function';
+                let currentVideoId = null;
+                
+                if (isPlayerReady && window.ytPlayerInstance.getVideoData) {
+                    currentVideoId = window.ytPlayerInstance.getVideoData().video_id;
+                }
+
+                const alreadyPlaying = isPlayerReady && currentVideoId === state.videoId;
 
                 if (alreadyPlaying) {
-                    console.log("Already playing, seeking to:", state.videoTimestamp);
                     window.ytPlayerInstance.seekTo(state.videoTimestamp, true);
-                    if (!state.isPaused) window.ytPlayerInstance.playVideo();
+                    if (!state.videoPaused) {
+                        window.ytPlayerInstance.playVideo();
+                    } else {
+                        window.ytPlayerInstance.pauseVideo();
+                    }
                     return;
                 }
 
+                // Se já tem o player aberto mas quer trocar de vídeo, carrega direto sem recriar o iframe
+                if (isPlayerReady && typeof window.ytPlayerInstance.loadVideoById === 'function') {
+                    window.ytPlayerInstance.loadVideoById({
+                        videoId: state.videoId,
+                        startSeconds: state.videoTimestamp
+                    });
+                    if (state.videoPaused) window.ytPlayerInstance.pauseVideo();
+                    return;
+                }
+
+                // Fallback normal
                 const syncPath = `/tvytube?videoId=${state.videoId}`;
                 window.syncTargetTime = state.videoTimestamp;
                 window.syncIsPaused   = state.videoPaused;
