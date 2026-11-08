@@ -320,9 +320,6 @@ function exitPlayer() {
                     const controls = document.querySelector('.player-controls');
                     const wrapper = document.getElementById('player-wrapper');
                     // Lógica de Loop: Se o vídeo terminar, volta ao início e dá play
-
-
-                    
                     if (event.data === YT.PlayerState.ENDED) {
                         const playlist = JSON.parse(sessionStorage.getItem('yt_playlist') || '[]');
                         const index = parseInt(sessionStorage.getItem('yt_playlist_index') || '0');
@@ -414,11 +411,11 @@ function exitPlayer() {
     // Small delay can help some player APIs stabilize the seek before playing
     setTimeout(() => {
         window.ytPlayerInstance.playVideo();
-    }, 150);
+    }, 50);
 
     setTimeout(() => isRemoteCommand = false, 1000);
 });
-    socket.on('Pause', (time) => {
+        socket.on('Pause', (time) => {
             if (!window.ytPlayerInstance) return;
             isRemoteCommand = true;
            // window.ytPlayerInstance.pauseVideo();
