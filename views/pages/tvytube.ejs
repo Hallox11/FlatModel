@@ -414,11 +414,11 @@ function exitPlayer() {
     // Small delay can help some player APIs stabilize the seek before playing
     setTimeout(() => {
         window.ytPlayerInstance.playVideo();
-    }, 50);
+    }, 150);
 
     setTimeout(() => isRemoteCommand = false, 1000);
 });
-        socket.on('Pause', (time) => {
+    socket.on('Pause', (time) => {
             if (!window.ytPlayerInstance) return;
             isRemoteCommand = true;
            // window.ytPlayerInstance.pauseVideo();
