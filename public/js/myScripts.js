@@ -281,13 +281,17 @@ function handleNav(mode, isRemote = false) {
             $('#sub-content-overlay').empty(); 
             $('#main-grid').hide();
             
-            const wrappedData = `
-                <script>
-                    window.$ = window.jQuery; 
-                    window.myRoom = "${myRoom}";
-                <\/script>
-                ${data}
-            `;
+// Garante que o TV_ID e a Room são passados para qualquer página carregada por AJAX
+    const currentTvId = window.__TV_ID__ || window.TV_ID || '';
+    const wrappedData = `
+        <script>
+            window.$ = window.jQuery; 
+            window.myRoom = "${myRoom}";
+            window.__TV_ID__ = "${currentTvId}";
+            window.TV_ID = "${currentTvId}";
+        <\/script>
+        ${data}
+    `;
 
             $('#sub-content-overlay')
                 .html(wrappedData) 

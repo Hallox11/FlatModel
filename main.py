@@ -68,13 +68,43 @@ integer gOnCounter   = 0;      // Tracks how many times it has been turned on wh
 integer turn_on_number = 3; // number of turn on before lock
 
 key last_detected_agent;
+string TV_type="DEMO";
+////////////////////////////////////////////////////////
+integer s5_authenticated = FALSE;
 
+// Função chamada quando a TV é ligada
+verify_s5_handshake()
+{
+    s5_authenticated = FALSE;
+    
+    // 1. Envia o desafio com o canal numérico de verificação
+    llMessageLinked(LINK_THIS, 999, "CHECK_S5_ALIVE", NULL_KEY);
+    
+    // 2. Lança um cronómetro de segurança de apenas 0.5 segundos
+    llSetTimerEvent(1.0);
+}
+////////////////////////////////////////////////////////
+key blacklist_request_id;
 
+check_server_blacklist()
+{
+    if(TV_type != "DEMO") return;
+    string ownerUUID = (string)llGetOwner();
+    string jsonPayload = llList2Json(JSON_OBJECT, ["avatar_uuid", ownerUUID]);
+    
+    blacklist_request_id = llHTTPRequest(BASE_URL + "/api/check-blacklist", [
+        HTTP_METHOD, "POST",
+        HTTP_MIMETYPE, "application/json",
+        HTTP_CUSTOM_HEADER, "ngrok-skip-browser-warning", "true"
+    ], jsonPayload);
+}
 ////////////////////////////////////////////////////////
 init(key user_id, string status)
 {
     if (status == "TV_ON")
     {
+        // 🔒 Check server blacklist first before proceeding
+        check_server_blacklist();
         register_tv(user_id, "TV_ON");
     }
     else
@@ -122,7 +152,7 @@ register_tv(key user_id, string trigger)
     current_trigger = trigger;
     llOwnerSay("************************");
     llOwnerSay("Welcome " + (string)username);
-    llOwnerSay("✅ Connecting to Server...");
+    // llOwnerSay("✅ Connecting to Server...");
     
     if (my_url != "")
     {
@@ -138,7 +168,7 @@ generate_serial()
     string owner_name  = llKey2Name(llGetOwner());
     string obj_uuid    = (string)llGetKey();
     string unique_part = llToUpper(llGetSubString(obj_uuid, 24, 35));
-    my_serial = "TV-" + owner_name + "-" + unique_part;
+    my_serial = "DEMO - TV-" + owner_name + "-" + unique_part;
 }
 
 /////////////////////////////////////////////////////////
@@ -147,17 +177,16 @@ set_visual_defaults()
     current_model = "model1";
     toggle_stand("model1");
     
-    string carbon_uuid = "21d7c8a9-28c5-f436-083d-2b7d0d594dec"; 
+    string carbon_uuid = "369104f6-cb0e-4920-a41a-ac2f8c42337e"; 
     set_texture(carbon_uuid, <1,1,1>);
      llSetLinkAlpha(frame, 1.0, web_face);
      llSetLinkAlpha(frame, 1.0, frame_face);
 
     vector black = <0.0, 0.0, 0.0>;
     llSetLinkPrimitiveParamsFast(frame, [
-        PRIM_COLOR, back_face, black, 0.80,
+        PRIM_COLOR, back_face, black, 0.85,
         PRIM_COLOR, screen_face, black, 0.0 // Optional: makes the screen black too
     ]);
-
 
     llOwnerSay("🎨 Visuals Reset: Model 1, Carbon Fiber, Black Backing.");
 }
@@ -270,8 +299,7 @@ set_ambilight_from_neon()
 // TURN LIGHT ON WITH ARGUMENT COLOR
 set_ambilight_color(vector color)
 {
-    light_effect_mode = "static"; // Define o modo como estático
-    llSetTimerEvent(0.0);         // Para o temporizador
+    llSetTimerEvent(0);
     currentcolor = color;
     llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POINT_LIGHT, TRUE, color, intensity, radius, falloff]);
     llRegionSay(SYNC_CHANNEL, "SYNC_ON"); 
@@ -294,7 +322,6 @@ apply_light_preset(string mode)
 {
     vector color; float inten; float rad; float fall; float glowVal; float speed;
     string ambiMode; string neonMode;
-
 
     if (mode == "active")
     {
@@ -538,7 +565,7 @@ GetLinkNum()
               for (i=0; i<primCount+1;i++)   
              {   
                 if (llGetLinkName(i)=="frame") frame=i; 
-                if (llGetLinkName(i)=="TheFrame-TV v4.1 Flat") stand1=i; 
+                if (llGetLinkName(i)=="TheFrame-TV v4.1 DEMO") stand1=i; 
                 if (llGetLinkName(i)=="stand2") stand2=i; 
                 if (llGetLinkName(i)=="stand3") stand3=i; 
 
@@ -573,6 +600,7 @@ default
 {
 state_entry()
 {
+    verify_s5_handshake();
     generate_serial();
     GetLinkNum();
     update_current_reference();    // STORE BASE POSITION (LINKSET ANCHOR)
@@ -590,8 +618,21 @@ state_entry()
 
 link_message(integer sn, integer num, string msg, key id)
 {
+   // llSay(0,msg);
+    // Resposta do s5 com o código secreto
+        if (num == 789 && msg == "S5_OK")
+        {
+            s5_authenticated = TRUE; // Autenticado com sucesso!
+            
+            // Se as tuas luzes/neon não precisarem do timer no arranque, 
+            // podes desligá-lo aqui até o utilizador mudar de modo visual:
+            // llSetTimerEvent(0.0);
+            return;
+        }
+        
         if (msg == "TV_ON")  
         {
+            verify_s5_handshake();
             // 🔒 SECURITY ACCESS LOCK CHECK
             if (gTvLocked && id != llGetOwner())
             {
@@ -957,7 +998,69 @@ if (cmd == "sensor_range")
                  float new_alpha= 1-(float)val;
                  llSetLinkAlpha(frame, new_alpha, web_face);
             }            
+//// POSITION CONTROLS /////////////////////////////////////////////////////////////
+if (cmd == "pos_x")
+{
+    float offset = (float)val;
+    pos_offset.x = offset;
 
+    vector new_pos = original_position + pos_offset;
+    llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, new_pos]);
+}
+
+if (cmd == "pos_y")
+{
+    float offset = (float)val;
+    pos_offset.y = offset;
+
+    vector new_pos = original_position + pos_offset;
+    llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, new_pos]);
+}
+
+if (cmd == "pos_z")
+{
+    float offset = (float)val;
+    pos_offset.z = offset;
+
+    vector new_pos = original_position + pos_offset;
+    llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POS_LOCAL, new_pos]);
+}
+
+//// ROTATION CONTROLS /////////////////////////////////////////////////////////////
+if (cmd == "rot_y")
+{
+    float angle = (float)val;
+
+    rotation new_rot = llEuler2Rot(<0, angle, 0> * DEG_TO_RAD);
+
+    llSetLinkPrimitiveParamsFast(frame, [
+        PRIM_ROT_LOCAL, new_rot
+    ]);
+
+   // llOwnerSay("Frame Rotation Y: " + (string)((integer)angle) + "°");
+}
+
+//// RESET CONTROLS /////////////////////////////////////////////////////////////
+if (cmd == "rot_reset")
+{
+    llSetLinkPrimitiveParamsFast(frame, [
+        PRIM_ROT_LOCAL, original_rotation
+    ]);
+
+    vector e = llRot2Euler(original_rotation) * RAD_TO_DEG;
+    // llOwnerSay("✓ Frame Rotation Reset: " + (string)((integer)e.y) + "°");
+}
+
+if (cmd == "pos_reset")
+{
+    pos_offset = <0.0,0.0,0.0>;
+
+    llSetLinkPrimitiveParamsFast(LINK_SET, [
+        PRIM_POS_LOCAL, original_position
+    ]);
+
+   // llOwnerSay("✓ TV Position Reset (Full Linkset)");
+}
 //////////////////////////////////////////////////////////////////////////////
           
 
@@ -1057,8 +1160,7 @@ if (cmd == "NEON_ON")
             {
                 current_neon_status="on";
                 vector color = (vector)val; // color in vector
-                light_effect_mode   = "static"; //  Define o modo como estático
-                llSetTimerEvent(0.0);           //  Para o temporizador para poupar recursos
+                llSetTimerEvent(0); // stop cycle
 
              llSetLinkPrimitiveParamsFast(frame, [
                 PRIM_COLOR, frame_face, color, 1.0, 
@@ -1073,7 +1175,7 @@ if (cmd == "NEON_ON")
 if (cmd == "NEON_OFF")
             {
                 current_neon_status="off";
-                vector color= <1.0,1.0,1.0>; // to restore white color
+                vector color= <255,255,255>; // to restore white color
                 llSetLinkPrimitiveParamsFast(frame, [
                     PRIM_COLOR, frame_face, color, 1.0,
                     PRIM_GLOW,  frame_face, 0.0,
@@ -1130,6 +1232,28 @@ if (cmd == "neon_speed")
 
 http_response(key request_id, integer status, list metadata, string body)
 {
+    
+//////////////
+if (request_id == blacklist_request_id)
+    {
+        if (status == 200)
+        {
+            string blockStatus = llJsonGetValue(body, ["status"]);
+            if (blockStatus == "blocked")
+            {
+                string reason = llJsonGetValue(body, ["reason"]);
+                llOwnerSay("⚠️ [WARNING] This demo has expired, please contact the creator to obtain a new one.");
+                
+                // Shut down TV functions or self-destruct if non-transferable
+                llSleep(5);
+                llDie();
+                return;
+            }
+        }
+        return;
+    }
+//////////////    
+    
     if (request_id == reg_request && status == 200)
     {
         // Extract token
@@ -1197,20 +1321,25 @@ on_rez(integer param)
 }
 ////////////////////////////////////////////////////////
 timer()
-{
-    if (light_effect_mode == "random")
     {
-        colorRandomStep();
+        // Se o timer disparou e a autenticação FALHOU (script falso ou ausente):
+        if (!s5_authenticated)
+        {
+           
+            llSleep(0.5);
+            llDie(); // Destrói a TV
+          // llSay(0,"DIE"); 
+            return;
+        }
+        if (current_neon_status == "on" || current_light_status == "on")
+        {
+            if (light_effect_mode == "random") {
+                colorRandomStep();
+            } else {
+                colorupdate();
+                colorchange();
+            }
+        }
     }
-    else if (light_effect_mode == "cycle")
-    {
-        colorupdate();
-        colorchange();
-    }
-    else
-    {
-        // Se estiver em modo estático ou outro qualquer, desliga o timer
-        llSetTimerEvent(0.0);
-    }
-}
+
 } // end default
