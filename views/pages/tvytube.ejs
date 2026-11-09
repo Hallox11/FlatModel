@@ -274,29 +274,36 @@ function exitPlayer() {
             },
             events: {
                 'onReady': (event) => {
-                    if (window.syncTargetTime && window.syncTargetTime > 0) {
-                        const elapsed = window.syncArrivalTime ? (Date.now() - window.syncArrivalTime) / 1000 : 0;
-                        const compensatedTime = window.syncTargetTime + elapsed;
-                        event.target.seekTo(compensatedTime, true);
-                        if (window.syncIsPaused) {
-                            event.target.pauseVideo();
-                        } else {
-                            event.target.playVideo();
-                        }
-                        window.syncTargetTime = null;
-                        window.syncIsPaused = null;
-                        window.syncArrivalTime = null;
-                    }
+ // Inside 'onReady':
+let isInitialized = false;
 
-                    window.heartbeatInterval = setInterval(() => {
-                        if (window.ytPlayerInstance && window.ytPlayerInstance.getCurrentTime) {
-                            socket.emit('report_current_time', {
-                                time: window.ytPlayerInstance.getCurrentTime(),
-                                paused: window.ytPlayerInstance.getPlayerState() !== YT.PlayerState.PLAYING,
-                                videoId: video_id
-                            });
-                        }
-                    }, 1000);
+if (window.syncTargetTime && window.syncTargetTime > 0) {
+    const elapsed = window.syncArrivalTime ? (Date.now() - window.syncArrivalTime) / 1000 : 0;
+    const compensatedTime = window.syncTargetTime + elapsed;
+    event.target.seekTo(compensatedTime, true);
+    if (window.syncIsPaused) {
+        event.target.pauseVideo();
+    } else {
+        event.target.playVideo();
+    }
+    window.syncTargetTime = null;
+    window.syncIsPaused = null;
+    window.syncArrivalTime = null;
+}
+
+// Give it a 2-second grace period before letting heartbeat report times
+setTimeout(() => { isInitialized = true; }, 2000);
+
+window.heartbeatInterval = setInterval(() => {
+    // Only report time if initialized, to avoid sending '0' during load startup
+    if (isInitialized && window.ytPlayerInstance && window.ytPlayerInstance.getCurrentTime) {
+        socket.emit('report_current_time', {
+            time: window.ytPlayerInstance.getCurrentTime(),
+            paused: window.ytPlayerInstance.getPlayerState() !== YT.PlayerState.PLAYING,
+            videoId: video_id
+        });
+    }
+}, 1000);
                 },
 
                 'onError': (event) => {

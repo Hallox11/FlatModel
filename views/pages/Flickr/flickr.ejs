@@ -495,39 +495,44 @@ window.currentPhotos = [];
 window.currentIndex = 0;
 window.runFlickrSearch = function(manualQuery = null, incomingPhotos = null, isRemote = false) {
     window.resetFlickrState();
-    const tags = manualQuery || $('#flickr-search').val();
+    const query = (manualQuery || $('#flickr-search').val()).trim();
 
-    // SE as fotos já vieram prontas pelo Socket (incomingPhotos), 
-    // APENAS desenhe o grid. NÃO faça uma nova chamada de API.
     if (incomingPhotos) {
-        console.log("Sincronizando fotos via Socket (Sem nova requisição API)");
         $('#flickr-loader').hide();
         $('#flickr-results-grid').show();
         window.renderGrid(incomingPhotos);
-        return; // <--- O "Pulo do Gato" está aqui. Interrompe o loop.
+        return;
     }
 
-    // Se chegou aqui, é uma busca MANUAL do usuário
-$('#flickr-loader').css('display', 'flex').hide().fadeIn(100);
+    // 🔍 DETECT IF IT'S A USER NSID (e.g., 163505339@N02)
+    const nsidPattern = /^\d+@[Nn]\d+$/;
+    if (nsidPattern.test(query)) {
+        console.log("Detected User NSID, opening channel for:", query);
+        window.viewChannel(query); // Calls your existing channel loader function!
+        return;
+    }
 
-    $.getJSON(`/api/flickr/search?tags=${encodeURIComponent(tags)}`)
+    // Otherwise, proceed with normal tag search
+    $('#flickr-loader').css('display', 'flex').hide().fadeIn(100);
+
+    $.getJSON(`/api/flickr/search?tags=${encodeURIComponent(query)}`)
         .done(function(photos) {
             $('#flickr-loader').hide();
             $('#favorites-manager').hide();
             $('#albums-manager').hide();
             window.renderGrid(photos);
 
-            // Avisa os outros, mas envia os DADOS das fotos junto
             if (window.socket && !isRemote) {
                 window.socket.emit('state_sync', {
                     type: 'flickr_results_sync',
-                    query: tags,
-                    photos: photos, // Envia as fotos já baixadas
+                    query: query,
+                    photos: photos,
                     room: window.myRoom
                 });
             }
         });
 };
+
 // RENDER GRID
 window.renderGrid = function(photos) {
     window.currentPhotos = photos;
