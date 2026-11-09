@@ -232,8 +232,76 @@ function exitPlayer() {
 
 (function() {
     const video_id = "<%= (typeof videoId !== 'undefined') ? videoId : '' %>";
-    let isRemoteCommand = false;
+    // Bloqueio de "eco": enquanto ativo, mudanças de estado do player NÃO são enviadas à sala.
+    // Usa um prazo (em vez de um booleano) para que timers antigos não desliguem um bloqueio mais recente.
+    let remoteUntil = 0;
+    const lockRemote = (ms = 1000) => { remoteUntil = Math.max(remoteUntil, Date.now() + ms); };
+    let settling = false;   // true enquanto a entrada na sala está a ser afinada (nada é emitido à sala)
+    let joinSync = null;
+    const isRemote   = () => settling || Date.now() < remoteUntil;
     let emitTimer = null;
+    let unstartedTimer = null;
+
+    // --- Entrada na sala: afinação DEPOIS de o vídeo realmente arrancar ------------------------
+    // O seek inicial só é exato no instante em que é pedido; o vídeo só começa a avançar quando acaba o
+    // buffering (≈0,5–1,5 s). Medimos esse custo (e guardamo-lo para a próxima vez) e, no 1.º PLAYING,
+    // corrigimos o desvio restante com uma ligeira alteração de velocidade (sem novo buffering).
+    const LEAD_KEY = 'yt_join_lead';
+    const getLead  = () => { try { return Math.min(1.5, Math.max(0, parseFloat(localStorage.getItem(LEAD_KEY)) || 0)); } catch (e) { return 0; } };
+    const saveLead = (v) => { try { localStorage.setItem(LEAD_KEY, String(v)); } catch (e) {} };
+
+    function finishJoinSync() {
+        if (!joinSync && !settling) return;
+        joinSync = null;
+        settling = false;
+        lockRemote(1500);   // absorve os últimos eventos de estado antes de voltar a emitir
+    }
+
+    function startJoinSync(player, target, arrival) {
+        joinSync = { target, arrival, tries: 0, lead: getLead(), seekAt: Date.now(), measured: false,
+                     deadline: Date.now() + 10000 };
+        settling = true;
+        const expected = target + (Date.now() - arrival) / 1000;
+        player.seekTo(expected + joinSync.lead, true);
+        player.playVideo();
+        setTimeout(finishJoinSync, 10000);   // rede de segurança (ex.: autoplay bloqueado)
+    }
+
+    function checkJoinDrift() {
+        const p = window.ytPlayerInstance;
+        if (!joinSync || !p) return;
+        if (p.getPlayerState() !== YT.PlayerState.PLAYING && Date.now() < joinSync.deadline) {
+            setTimeout(checkJoinDrift, 400);   // ainda a fazer buffering
+            return;
+        }
+        const expected = joinSync.target + (Date.now() - joinSync.arrival) / 1000;
+        const drift    = expected - p.getCurrentTime();   // > 0: este cliente está atrasado
+        console.log(`[JoinSync] drift ${drift.toFixed(2)} s | lead ${joinSync.lead.toFixed(2)} s | tentativa ${joinSync.tries}`);
+
+        if (Math.abs(drift) <= 0.25) { finishJoinSync(); return; }
+
+        if (Math.abs(drift) > 2.5 && joinSync.tries < 2 && Date.now() < joinSync.deadline) {
+            joinSync.tries++;
+            joinSync.seekAt = Date.now();
+            p.seekTo(expected, true);   // sem lead: o arranque agora é mais rápido; o resto acerta-se com a velocidade
+            setTimeout(checkJoinDrift, 1500);
+            return;
+        }
+
+        const rate  = drift > 0 ? (drift > 1.2 ? 1.5 : 1.25) : 0.75;
+        const rates = p.getAvailablePlaybackRates ? p.getAvailablePlaybackRates() : [];
+        if (rates.includes(rate) && Math.abs(drift) <= 2.5) {
+            const ms = Math.min(8000, Math.abs(drift) / Math.abs(rate - 1) * 1000);
+            p.setPlaybackRate(rate);
+            setTimeout(() => {
+                const q = window.ytPlayerInstance;
+                if (q && q.setPlaybackRate) q.setPlaybackRate(1);
+            }, ms);
+        } else if (Date.now() < joinSync.deadline) {
+            p.seekTo(expected, true);   // sem velocidades alternativas: seek simples
+        }
+        finishJoinSync();
+    }
 
     // --- Click throttle shield ---
     const CLICK_THROTTLE_MS = 1200;
@@ -260,7 +328,7 @@ function exitPlayer() {
         window.ytPlayerInstance = new YT.Player('player-container', {
             videoId: video_id,
             playerVars: {
-                'autoplay': 1,
+                'autoplay': window.syncIsPaused ? 0 : 1,   // quem entra com a sala em pausa não arranca sozinho
                 'controls': 1,
                 'rel': 0,
                 'disablekb': 0,
@@ -274,36 +342,36 @@ function exitPlayer() {
             },
             events: {
                 'onReady': (event) => {
- // Inside 'onReady':
-let isInitialized = false;
+                    if (window.syncTargetTime != null) {
+                        const paused  = !!window.syncIsPaused;
+                        const target  = window.syncTargetTime;
+                        const arrival = window.syncArrivalTime || Date.now();
+                        window.syncTargetTime = null;
+                        window.syncIsPaused = null;
+                        window.syncArrivalTime = null;
 
-if (window.syncTargetTime && window.syncTargetTime > 0) {
-    const elapsed = window.syncArrivalTime ? (Date.now() - window.syncArrivalTime) / 1000 : 0;
-    const compensatedTime = window.syncTargetTime + elapsed;
-    event.target.seekTo(compensatedTime, true);
-    if (window.syncIsPaused) {
-        event.target.pauseVideo();
-    } else {
-        event.target.playVideo();
-    }
-    window.syncTargetTime = null;
-    window.syncIsPaused = null;
-    window.syncArrivalTime = null;
-}
+                        if (paused) {
+                            // Em pausa o vídeo não avançou: posição exata, sem somar tempo decorrido
+                            lockRemote(2500);
+                            event.target.seekTo(target, true);
+                            event.target.pauseVideo();
+                        } else {
+                            startJoinSync(event.target, target, arrival);
+                        }
+                    }
 
-// Give it a 2-second grace period before letting heartbeat report times
-setTimeout(() => { isInitialized = true; }, 2000);
-
-window.heartbeatInterval = setInterval(() => {
-    // Only report time if initialized, to avoid sending '0' during load startup
-    if (isInitialized && window.ytPlayerInstance && window.ytPlayerInstance.getCurrentTime) {
-        socket.emit('report_current_time', {
-            time: window.ytPlayerInstance.getCurrentTime(),
-            paused: window.ytPlayerInstance.getPlayerState() !== YT.PlayerState.PLAYING,
-            videoId: video_id
-        });
-    }
-}, 1000);
+                    window.heartbeatInterval = setInterval(() => {
+                        const p = window.ytPlayerInstance;
+                        if (!p || !p.getCurrentTime || settling) return;   // não reportar enquanto está a sincronizar
+                        const st = p.getPlayerState();
+                        // BUFFERING/UNSTARTED/CUED não são "pausa": reportá-los apagava o estado da sala
+                        if (st !== YT.PlayerState.PLAYING && st !== YT.PlayerState.PAUSED) return;
+                        socket.emit('report_current_time', {
+                            time: p.getCurrentTime(),
+                            paused: st !== YT.PlayerState.PLAYING,
+                            videoId: video_id
+                        });
+                    }, 1000);
                 },
 
                 'onError': (event) => {
@@ -326,7 +394,19 @@ window.heartbeatInterval = setInterval(() => {
                 'onStateChange': (event) => {
                     const controls = document.querySelector('.player-controls');
                     const wrapper = document.getElementById('player-wrapper');
+                    // Afinação de entrada: mede o custo de arranque no 1.º PLAYING e verifica o desvio
+                    if (joinSync && !joinSync.measured && event.data === YT.PlayerState.PLAYING) {
+                        joinSync.measured = true;
+                        const measured = Math.min(2, (Date.now() - joinSync.seekAt) / 1000);
+                        joinSync.lead = measured;
+                        saveLead((getLead() + measured) / 2);
+                        setTimeout(checkJoinDrift, 300);
+                    }
+
                     // Lógica de Loop: Se o vídeo terminar, volta ao início e dá play
+
+
+                    
                     if (event.data === YT.PlayerState.ENDED) {
                         const playlist = JSON.parse(sessionStorage.getItem('yt_playlist') || '[]');
                         const index = parseInt(sessionStorage.getItem('yt_playlist_index') || '0');
@@ -349,23 +429,31 @@ window.heartbeatInterval = setInterval(() => {
                     }
 
 // 2. Determine state
-    const isPausedOrEnded = (event.data === YT.PlayerState.PAUSED || 
-                             event.data === YT.PlayerState.ENDED || 
-                             event.data === YT.PlayerState.UNSTARTED);
+    // UNSTARTED é normal durante o arranque: só mostra o overlay se continuar parado (ex.: autoplay bloqueado)
+    const isPausedOrEnded = (event.data === YT.PlayerState.PAUSED ||
+                             event.data === YT.PlayerState.ENDED);
+    const setPausedUI = (on) => {
+        if (wrapper) { on ? wrapper.classList.add('is-paused') : wrapper.classList.remove('is-paused'); }
+        if (controls) {
+            // If paused/ended, show controls (opacity: 1), else hide (opacity: 0)
+            controls.style.opacity = on ? '1' : '0';
+            controls.style.pointerEvents = on ? 'auto' : 'none';
+        }
+    };
 
     // 3. Sync Overlay and Buttons
-    if (wrapper) {
-        isPausedOrEnded ? wrapper.classList.add('is-paused') : wrapper.classList.remove('is-paused');
-    }
-
-    if (controls) {
-        // If paused/ended, show controls (opacity: 1), else hide (opacity: 0)
-        controls.style.opacity = isPausedOrEnded ? '1' : '0';
-        controls.style.pointerEvents = isPausedOrEnded ? 'auto' : 'none';
+    clearTimeout(unstartedTimer);
+    if (event.data === YT.PlayerState.UNSTARTED) {
+        unstartedTimer = setTimeout(() => {
+            const p = window.ytPlayerInstance;
+            if (p && p.getPlayerState && p.getPlayerState() === YT.PlayerState.UNSTARTED) setPausedUI(true);
+        }, 3000);
+    } else {
+        setPausedUI(isPausedOrEnded);
     }
 
     // 5. Socket Logic
-    if (isRemoteCommand) return;
+    if (isRemote()) return;
     clearTimeout(emitTimer);
     emitTimer = setTimeout(() => {
         if (!window.ytPlayerInstance) return;
@@ -396,13 +484,18 @@ window.heartbeatInterval = setInterval(() => {
         
     socket.on('Play', (data) => {
     if (!window.ytPlayerInstance) return;
+    // O emissor já está neste estado: ignorar o próprio eco evita recuar ~RTT/2 ao dar play
+    if (data && data.senderId && data.senderId === socket.id) return;
     
     // 1. Prevent loopback
-    isRemoteCommand = true;
+    lockRemote(1000);
 
     // 2. Parse the time safely (ensure it's a number)
     const baseTime = parseFloat(data.timestamp) || 0;
-    const latency = (Date.now() - (data.lastUpdate || Date.now())) / 1000;
+    // lastUpdate é do relógio do servidor: converte "agora" para esse relógio com o desvio estimado
+    // (window.serverTimeOffset). Limitado a [0, 5] s para que uma estimativa má não cause saltos grandes.
+    const serverNow = Date.now() + (window.serverTimeOffset || 0);
+    const latency   = Math.min(5, Math.max(0, (serverNow - (data.lastUpdate || serverNow)) / 1000));
     
     // 3. Calculate actual time. 
     // If it's a pause/play, latency is key. 
@@ -417,19 +510,14 @@ window.heartbeatInterval = setInterval(() => {
     
     // Small delay can help some player APIs stabilize the seek before playing
     setTimeout(() => {
-        window.ytPlayerInstance.playVideo();
+        if (window.ytPlayerInstance) window.ytPlayerInstance.playVideo();
     }, 50);
-
-    setTimeout(() => isRemoteCommand = false, 1000);
 });
         socket.on('Pause', (time) => {
             if (!window.ytPlayerInstance) return;
-            isRemoteCommand = true;
-           // window.ytPlayerInstance.pauseVideo();
+            lockRemote(1000);
             window.ytPlayerInstance.seekTo(time, true);
             window.ytPlayerInstance.pauseVideo();
-
-            setTimeout(() => isRemoteCommand = false, 1000);
         });
     }
 })();

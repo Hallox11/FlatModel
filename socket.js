@@ -299,12 +299,7 @@ registerChessHandlers(io, socket, clientRoom);
         });
 
         // ── INITIAL SYNC ──────────────────────────────────────
-        socket.emit('force_sync_arrival', {
-            ...state,
-            timestamp: state.videoPaused
-                ? state.videoTimestamp
-                : state.videoTimestamp + (Date.now() - (state.lastUpdate || Date.now())) / 1000
-        });
+        socket.emit('force_sync_arrival', syncPayload(state));
 
         // ── NAVIGATION ────────────────────────────────────────
         socket.on('mirror_nav', (data) => {
@@ -351,6 +346,9 @@ registerChessHandlers(io, socket, clientRoom);
         });
 
         // ── VIDEO ─────────────────────────────────────────────
+        // Hora do servidor (via ack) para o cliente estimar o desvio entre relógios.
+        socket.on('time_sync', (cb) => { if (typeof cb === 'function') cb(Date.now()); });
+
         socket.on('report_current_time', (data) => {
             if (!data.videoId) {
                 state.videoId = null; state.videoTimestamp = 0; state.videoPaused = true;
@@ -376,7 +374,8 @@ registerChessHandlers(io, socket, clientRoom);
             io.to(clientRoom).emit('Play', {
                 timestamp: time,
                 lastUpdate: state.lastUpdate,
-                videoId: state.videoId
+                videoId: state.videoId,
+                senderId: socket.id   // o emissor ignora o próprio eco (evita recuar ~RTT/2 ao dar play)
             });
         });
 
@@ -388,6 +387,7 @@ registerChessHandlers(io, socket, clientRoom);
 
         socket.on('toSeek', (time) => {
             state.videoTimestamp = time;
+            state.lastUpdate     = Date.now(); // sem isto, o tempo extrapolado contava desde o último relato
             io.to(clientRoom).emit('Seek', time);
         });
 
@@ -451,7 +451,7 @@ socket.on('wt_sync', (data) => {
 
         // ── STATE REQUEST ─────────────────────────────────────
         socket.on('request_current_state', () => {
-            socket.emit('force_sync_arrival', state);
+            socket.emit('force_sync_arrival', syncPayload(state));
             socket.to(clientRoom).emit('get_sync_state', { requesterId: socket.id });
         });
 
@@ -470,12 +470,7 @@ socket.on('wt_sync', (data) => {
             // Join new room and sync state
             socket.join(newRoom);
             const newState = getRoomState(newRoom);
-            socket.emit('force_sync_arrival', {
-                ...newState,
-                timestamp: newState.videoPaused
-                    ? newState.videoTimestamp
-                    : newState.videoTimestamp + (Date.now() - (newState.lastUpdate || Date.now())) / 1000
-            });
+            socket.emit('force_sync_arrival', syncPayload(newState));
 
             console.log(`[Room Switch] ${socket.id} → ${newRoom}`);
         });
@@ -1206,6 +1201,20 @@ chessHandleDisconnect(io, socket);
 
     });
 };
+
+// ── SYNC PAYLOAD ──────────────────────────────────────────────
+// Estado da sala + `timestamp` já avançado pelo tempo decorrido desde o último relato
+// (só relógio do servidor, por isso sem desvio entre relógios). Usado por todos os emissores
+// de force_sync_arrival.
+function syncPayload(st) {
+    const now = Date.now();
+    return {
+        ...st,
+        timestamp: st.videoPaused
+            ? st.videoTimestamp
+            : st.videoTimestamp + (now - (st.lastUpdate || now)) / 1000
+    };
+}
 
 // ── GAME STREAM LEAVE HELPER ──────────────────────────────────
 function _gsLeave(socket, room) {

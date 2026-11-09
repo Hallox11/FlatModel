@@ -14,6 +14,27 @@ window.socket = io({
 });
 window.isRemoteAction = false;
 
+// Desvio entre o relógio deste cliente e o do servidor (ms): serverTime ≈ Date.now() + serverTimeOffset.
+// Estimado NTP-style (5 amostras, fica a de menor RTT). Usado para compensar a latência do evento Play.
+window.serverTimeOffset = 0;
+function syncServerClock(samples = 5) {
+    let best = null, left = samples;
+    const once = () => {
+        const t0 = Date.now();
+        window.socket.emit('time_sync', (serverT) => {
+            const t1  = Date.now();
+            const rtt = t1 - t0;
+            if (typeof serverT === 'number' && (!best || rtt < best.rtt)) {
+                best = { rtt, offset: serverT - (t0 + rtt / 2) };
+            }
+            if (--left > 0) setTimeout(once, 150);
+            else if (best) window.serverTimeOffset = best.offset;
+        });
+    };
+    once();
+}
+window.socket.on('connect', () => syncServerClock());
+
 
 
 // Função para entrar numa sala específica (ex: 'Global')
@@ -590,37 +611,41 @@ socket.on('force_sync_arrival', function(state) {
                 }
 
 
-            // 2. PRIORIDADE: SYNC AJAX OVERLAY (Menus, Grids, etc.)
-            // Se houver um menu ativo, ele deve ser a prioridade visual.
+            // 2. + 3. SYNC AJAX OVERLAY / VIDEO PLAYER
+            // Uma única navegação: o ajaxPath (com origin/targetID/menu) tem prioridade.
+            // O servidor envia `timestamp` já avançado desde o último relato; videoTimestamp pode vir ~1 s atrasado.
+            const startAt = (typeof state.timestamp === 'number') ? state.timestamp : state.videoTimestamp;
+            const setPlayerSync = () => {
+                // Têm de ser definidas ANTES do handleNav: o onReady do tvytube.ejs lê-as.
+                window.syncTargetTime  = startAt;
+                window.syncIsPaused    = state.videoPaused;
+                window.syncArrivalTime = Date.now();
+            };
+
             if (state.ajaxPath) {
                 console.log("Syncing to Menu/Overlay:", state.ajaxPath);
-                handleNav(state.ajaxPath, true);
-                
-                // IMPORTANTE: Se o menu NÃO for o player (tvytube), 
-                // paramos aqui para não forçar a abertura do vídeo por baixo.
-                if (!state.ajaxPath.includes('tvytube')) {
-                    return; 
+                let path = state.ajaxPath;
+
+                if (path.includes('tvytube') && state.videoId) {
+                    // O ajaxPath pode vir sem ?videoId (mirror_nav corta a query) ou desatualizado:
+                    // força o vídeo que está realmente a tocar, mantendo o resto dos parâmetros.
+                    try {
+                        const u = new URL(path, window.location.origin);
+                        u.searchParams.set('videoId', state.videoId);
+                        path = u.pathname + u.search;
+                    } catch (e) {
+                        path = `/tvytube?videoId=${encodeURIComponent(state.videoId)}`;
+                    }
+                    setPlayerSync();
                 }
+                handleNav(path, true);
+                return;
             }
 
-            // 3. SYNC VIDEO PLAYER (Apenas se não houver menu ou se o menu for o player)
+            // Sem overlay conhecido: abre o player com o URL mínimo
             if (state.videoId) {
-                const alreadyPlaying = window.ytPlayerInstance && 
-                                       window.ytPlayerInstance.getVideoData &&
-                                       window.ytPlayerInstance.getVideoData().video_id === state.videoId;
-
-                if (alreadyPlaying) {
-                    console.log("Already playing, seeking to:", state.videoTimestamp);
-                    window.ytPlayerInstance.seekTo(state.videoTimestamp, true);
-                    if (!state.isPaused) window.ytPlayerInstance.playVideo();
-                    return;
-                }
-
-                const syncPath = `/tvytube?videoId=${state.videoId}`;
-                window.syncTargetTime = state.videoTimestamp;
-                window.syncIsPaused   = state.videoPaused;
-                window.syncArrivalTime = Date.now();
-                handleNav(syncPath, true);
+                setPlayerSync();
+                handleNav(`/tvytube?videoId=${encodeURIComponent(state.videoId)}`, true);
                 return;
             }
 
