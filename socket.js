@@ -349,16 +349,20 @@ registerChessHandlers(io, socket, clientRoom);
         // Hora do servidor (via ack) para o cliente estimar o desvio entre relógios.
         socket.on('time_sync', (cb) => { if (typeof cb === 'function') cb(Date.now()); });
 
-        socket.on('report_current_time', (data) => {
-            if (!data.videoId) {
-                state.videoId = null; state.videoTimestamp = 0; state.videoPaused = true;
-                return;
-            }
-            state.videoTimestamp = data.time;
-            state.videoPaused    = data.paused;
-            state.videoId        = data.videoId;
-            state.lastUpdate     = Date.now();
-        });
+socket.on('report_current_time', (data) => {
+    if (!data.videoId) {
+        state.videoId = null; state.videoTimestamp = 0; state.videoPaused = true;
+        return;
+    }
+    const now = Date.now();
+    const leaderGone = !state.leaderId || (now - (state.lastUpdate || 0)) > 3000;
+    if (state.leaderId !== socket.id && !leaderGone) return;   // ignore non-leaders
+    state.leaderId       = socket.id;
+    state.videoTimestamp = data.time;
+    state.videoPaused    = data.paused;
+    state.videoId        = data.videoId;
+    state.lastUpdate     = now;
+});
 
         // Locate this in your provided file:
         socket.on('toPlay', (data) => {

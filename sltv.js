@@ -194,7 +194,7 @@ const LOCAL_ADDRS = ['127.0.0.1', '::1', '::ffff:127.0.0.1'];
 
 app.use((req, res, next) => {
     const ua = req.get('User-Agent') || '';
-    if (DEBUG_UA) console.log('[UA]', req.method, req.path, ua);
+    // if (DEBUG_UA) console.log('[UA]', req.method, req.path, ua);
 
     // Local development: a browser on this same machine, and only when not behind a proxy.
     // req.socket.remoteAddress is the real TCP peer, so headers cannot fake it.

@@ -1,8 +1,4 @@
 <style>
-    :root {
-        --accent-color: <%= (origin === 'music') ? '#00d4ff' : '#ff0000' %>;
-    }
-
     #player-wrapper {
         position: fixed;
         top: 0px; left: 0px;
@@ -13,27 +9,25 @@
     }
     #player-container { width: 100%; height: 100%; }
 
-
-
-.player-controls {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    display: flex; /* Makes the container a flex box */
-    flex-direction: column; /* Stacks items vertically */
-    justify-content: center; /* Centers vertically */
-    align-items: center; /* Centers horizontally */
-    z-index: 2100;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
+    /* Single controls layer: hidden while playing, shown (visual only) while paused/error.
+       Only the buttons receive clicks. */
+    .player-controls {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2100;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
+    #player-wrapper.is-paused .player-controls { opacity: 1; }
 
     .backBut {
         position: fixed;
-        top: 410px;
         left: 612px;
         width: 55px;
         height: 55px;
@@ -49,203 +43,128 @@
         outline: none;
         pointer-events: auto;
     }
+    .backBut:hover { background: red; color: white; transform: scale(1.2); }
+    #btn-play { top: 332px; }
+    #btn-exit { top: 410px; }
 
-    .backBut:hover {
-        background: red;
-        color: white;
-        transform: scale(1.2);
-    }
-
-    #msg {
-        position: fixed;
-        top: 160px;
-        left: 320px;
-        font-weight: 400;
-        letter-spacing: 1.0px;
-
-        border: 1px solid transparent;
+    #msgBox {
+        position: relative;
+        top: -120px;
+        background: rgba(0, 0, 0, 0.0);
+        padding: 20px;
         border-radius: 10px;
-        padding: 7px 20px;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        font-size: 18px;
+        text-align: center;
+        z-index: 2200;
+        pointer-events: none;
     }
-#msgBox {
-    position: relative; /* Remove absolute positioning */
-    top: -120px;
-    background: rgba(0, 0, 0, 0.0);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    z-index: 2200; /* Ensure it is above buttons */
-    pointer-events: none; /* Allow clicking if needed */
-}
-    #cover {
+
+    /* Dimming layer shown while paused. It stops 60px short of the bottom so the
+       YouTube control bar (gear icon, quality menu) stays clickable, as the TIP says. */
+    #pause-overlay {
         position: fixed;
-        top: 660px;
-        left: 10px;
-        width: 1250px;
-        height: 50px;
-        background: red;
+        top: 0; left: 0;
+        width: 1280px;
+        height: 660px;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 2040;
+        display: none;
     }
+    #player-wrapper.is-paused #pause-overlay { display: block; }
 
-    /* This is your full-screen overlay */
-#pause-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 1280px;
-    height: 720px;
-    background: rgba(0, 0, 0, 0.6); /* Subtle dimming effect */
-    z-index: 2040; /* Just below the buttons but above the video */
-    display: none; /* Hidden by default */
-    justify-content: center;
-    align-items: center;
-    
-}
-
-/* When paused, we show the overlay and allow interactions */
-.is-paused #pause-overlay {
-    display: flex;
-}
-#player-wrapper.is-paused .player-controls {
-    opacity: 1 !important;
-    pointer-events: none !important;
-}
-.tip { color: #00f2ff; font-size: 18px;}
-.error { color: #fff0ffe3; font-weight: 400; font-size: 18px;}
-.action { color: #ffcc00; margin-top: 20px; font-size: 18px; }
-
-
-
+    .tip    { color: #00f2ff; font-size: 18px; }
+    .error  { color: #fff0ffe3; font-weight: 400; font-size: 18px; }
+    .action { color: #ffcc00; margin-top: 20px; font-size: 18px; }
 </style>
 
 <div id="player-wrapper">
     <div id="player-container"></div>
-
     <div id="pause-overlay"></div>
-    
-    <div class="player-controls"> </div>
-
 
     <div class="player-controls">
         <div id="msgBox">
-        <p class="tip">TIP: USE THE 'GEAR ICON' TO SELECT THE HIGHEST QUALITY AVAILABLE.</p>
-        <p class="error">VIDEO WON'T PLAY, IT MIGHT BE DUE TO AGE/REGION RESTRICTIONS OR IT HAS BEEN REMOVED.</p>
-        <p class="action">RESTART VIDEO OR RETURN TO GRID</p>
-     </div>
-<button style="top: 410px;" class="backBut" onclick="exitPlayer()" title="Exit Player">
-    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-    </svg>
-</button>
+            <p class="tip">TIP: USE THE 'GEAR ICON' TO SELECT THE HIGHEST QUALITY AVAILABLE.</p>
+            <p class="error" id="yt-error-text">VIDEO WON'T PLAY, IT MIGHT BE DUE TO AGE/REGION RESTRICTIONS OR IT HAS BEEN REMOVED.</p>
+            <p class="action">RESTART VIDEO OR RETURN TO GRID</p>
+        </div>
 
-<button style="top: 332px;" class="backBut"  onclick="resumePlay()" title="Restart Play">
-    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="currentColor" stroke-linecap="round" stroke-linejoin="round">
-        <polygon points="6 4, 20 12, 6 20, 6 4"></polygon>
-    </svg>
-</button>
+        <button type="button" id="btn-exit" class="backBut" onclick="exitPlayer()" title="Exit Player" aria-label="Exit Player">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
 
-     </div>
-
+        <button type="button" id="btn-play" class="backBut" onclick="resumePlay()" title="Restart Play" aria-label="Restart Play">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="6 4, 20 12, 6 20, 6 4"></polygon>
+            </svg>
+        </button>
     </div>
-
 </div>
 
-<div id="cover"></div>
-
 <script>
-
-function resumePlay() {
-    if (!window.ytPlayerInstance) return;
-
-    // 1. Resume locally
-    window.ytPlayerInstance.playVideo();
-
-    // 2. Notify other viewers via Socket
-    if (typeof socket !== 'undefined') {
-        // We use the current time so it resumes exactly where it was
-        const currentTime = window.ytPlayerInstance.getCurrentTime();
-        socket.emit('toPlay', currentTime);
-    }
-    
-}
-
-function exitPlayer() {
-    const origin = "<%= origin %>";
-    // We get these from the server template variables
-    const target = "<%= targetID || 'Live English News' %>"; 
-    const scroll = "<%= scrollPos || 0 %>";
-    const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
-    const title   = "<%= typeof title !== 'undefined' ? title : '' %>";
-    
-
-    sessionStorage.removeItem('yt_playlist');
-    sessionStorage.removeItem('yt_playlist_index');
-
-    console.log("***********************")
-    console.log("Origin: ", origin)
-    console.log("Target: ", target)
-    console.log("Scroll: ", scroll)
-    console.log("menu: ", menu)
-    console.log("title: ", title)
-    console.log("***********************")
-
-    let returnUrl = "";
-    let isChannel=false;
-    
-    if (target.startsWith("UC")) isChannel=true;
-    
-    if (origin === 'live-tv') {
-        // IMPORTANT: We need to append the parameters here too if we want to remember the state
-        returnUrl = `/live-tv?genre=${encodeURIComponent(target)}&scrollPos=${scroll}`;
-
-    } else if (origin === 'link') {
-        returnUrl = menu || '/youtube-menu';
-
-    } else if (origin === 'music') {
-        let gridRoute = '/music-grid'; 
-        returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}`;
-    
-    } else if (origin === 'movies') {
-        let gridRoute = '/movies-grid'; 
-        returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}&isChannel=${encodeURIComponent(isChannel)}`;
-    
-    } else if (origin === 'youtube') {
-        let gridRoute = '/youtube-grid'; 
-        returnUrl = `${gridRoute}?genre=${encodeURIComponent(target)}&scrollPos=${scroll}&menu=${encodeURIComponent(menu)}&title=${encodeURIComponent(title)}&isChannel=${encodeURIComponent(isChannel)}`;
+// Everything lives inside one IIFE so re-injecting this template (handleNav) never
+// hits "Identifier already declared" errors. Only exitPlayer / resumePlay / renderYTPlayer
+// / cleanupYTPlayer are exposed on window.
+(function () {
+    // Tear down a previous instance (timers, socket handlers, player) before starting.
+    if (typeof window.cleanupYTPlayer === 'function') {
+        try { window.cleanupYTPlayer(); } catch (e) {}
     }
 
-    console.log("Exiting to:", returnUrl);
+    // Server values go through JSON (not <%= %> inside quotes): correct for & ' " \ and newlines.
+    const CFG = <%- JSON.stringify({
+        origin:  (typeof origin   !== 'undefined' && origin)   ? String(origin)   : '',
+        target:  (typeof targetID !== 'undefined' && targetID) ? String(targetID) : 'Live English News',
+        scroll:  parseInt(typeof scrollPos !== 'undefined' ? scrollPos : 0, 10) || 0,
+        menu:    (typeof menu     !== 'undefined' && menu)     ? String(menu)     : '',
+        title:   (typeof title    !== 'undefined' && title)    ? String(title)    : '',
+        videoId: (typeof videoId  !== 'undefined' && videoId)  ? String(videoId)  : ''
+    }).replace(/</g, '\\u003c') %>;
 
-    if (typeof handleNav === "function") {
-        window.pendingScrollRestore = parseInt(scroll) || 0;
-        handleNav(returnUrl);
-    } else {
-        window.location.href = returnUrl;
-    }
-}
+    const video_id = CFG.videoId;
+    const enc = encodeURIComponent;
 
-(function() {
-    const video_id = "<%= (typeof videoId !== 'undefined') ? videoId : '' %>";
-    // Bloqueio de "eco": enquanto ativo, mudanças de estado do player NÃO são enviadas à sala.
-    // Usa um prazo (em vez de um booleano) para que timers antigos não desliguem um bloqueio mais recente.
+    const hasSocket = () => typeof socket !== 'undefined' && !!socket;
+    const emit = (ev, payload) => { if (hasSocket()) socket.emit(ev, payload); };
+    const $el = (id) => document.getElementById(id);
+
+    // Only same-site absolute paths ("/x"), never "//host" or "javascript:" or "https://...".
+    const isSafePath = (u) => typeof u === 'string' && /^\/(?![\/\\])/.test(u);
+    const navigate = (url) => {
+        if (typeof handleNav === 'function') handleNav(url);
+        else window.location.href = url;
+    };
+
+    const errEl = $el('yt-error-text');
+    const DEFAULT_ERROR_TEXT = errEl ? errEl.textContent : '';
+    const setErrorText = (txt) => { if (errEl) errEl.textContent = txt || DEFAULT_ERROR_TEXT; };
+
+    // --- Timers: all tracked so cleanup() can cancel them --------------------------------------
+    const timers = new Set();
+    const later = (fn, ms) => {
+        const id = setTimeout(() => { timers.delete(id); fn(); }, ms);
+        timers.add(id);
+        return id;
+    };
+    const clearAllTimers = () => { timers.forEach(clearTimeout); timers.clear(); };
+
+    // --- Echo guard ------------------------------------------------------------------------------
+    // While active, player state changes are NOT sent to the room. Uses a deadline (not a boolean)
+    // so old timers can't switch off a newer lock.
     let remoteUntil = 0;
     const lockRemote = (ms = 1000) => { remoteUntil = Math.max(remoteUntil, Date.now() + ms); };
-    let settling = false;   // true enquanto a entrada na sala está a ser afinada (nada é emitido à sala)
+    let settling = false;      // true while the room join is being fine-tuned (nothing is emitted)
     let joinSync = null;
-    const isRemote   = () => settling || Date.now() < remoteUntil;
+    const isRemote = () => settling || Date.now() < remoteUntil;
     let emitTimer = null;
     let unstartedTimer = null;
+    let rateTimer = null;
 
-    // --- Entrada na sala: afinação DEPOIS de o vídeo realmente arrancar ------------------------
-    // O seek inicial só é exato no instante em que é pedido; o vídeo só começa a avançar quando acaba o
-    // buffering (≈0,5–1,5 s). Medimos esse custo (e guardamo-lo para a próxima vez) e, no 1.º PLAYING,
-    // corrigimos o desvio restante com uma ligeira alteração de velocidade (sem novo buffering).
+    // --- Join sync: tune AFTER the video really starts ----------------------------------------
+    // The initial seek is only exact at the instant it's requested; playback only advances once
+    // buffering ends (~0.5-1.5 s). We measure that cost (stored for next time) and on the first
+    // PLAYING fix the remaining drift with a slight playback-rate change (no new buffering).
     const LEAD_KEY = 'yt_join_lead';
     const getLead  = () => { try { return Math.min(1.5, Math.max(0, parseFloat(localStorage.getItem(LEAD_KEY)) || 0)); } catch (e) { return 0; } };
     const saveLead = (v) => { try { localStorage.setItem(LEAD_KEY, String(v)); } catch (e) {} };
@@ -254,7 +173,7 @@ function exitPlayer() {
         if (!joinSync && !settling) return;
         joinSync = null;
         settling = false;
-        lockRemote(1500);   // absorve os últimos eventos de estado antes de voltar a emitir
+        lockRemote(1500);   // absorb the last state events before emitting again
     }
 
     function startJoinSync(player, target, arrival) {
@@ -264,27 +183,29 @@ function exitPlayer() {
         const expected = target + (Date.now() - arrival) / 1000;
         player.seekTo(expected + joinSync.lead, true);
         player.playVideo();
-        setTimeout(finishJoinSync, 10000);   // rede de segurança (ex.: autoplay bloqueado)
+        later(finishJoinSync, 10000);   // safety net (e.g. autoplay blocked)
     }
 
     function checkJoinDrift() {
         const p = window.ytPlayerInstance;
         if (!joinSync || !p) return;
-        if (p.getPlayerState() !== YT.PlayerState.PLAYING && Date.now() < joinSync.deadline) {
-            setTimeout(checkJoinDrift, 400);   // ainda a fazer buffering
+        const playing = p.getPlayerState() === YT.PlayerState.PLAYING;
+        if (!playing && Date.now() < joinSync.deadline) {
+            later(checkJoinDrift, 400);   // still buffering
             return;
         }
+        if (!playing) { finishJoinSync(); return; }   // deadline hit and not playing: nothing to tune
+
         const expected = joinSync.target + (Date.now() - joinSync.arrival) / 1000;
-        const drift    = expected - p.getCurrentTime();   // > 0: este cliente está atrasado
-        console.log(`[JoinSync] drift ${drift.toFixed(2)} s | lead ${joinSync.lead.toFixed(2)} s | tentativa ${joinSync.tries}`);
+        const drift    = expected - p.getCurrentTime();   // > 0: this client is behind
+        console.log(`[JoinSync] drift ${drift.toFixed(2)} s | lead ${joinSync.lead.toFixed(2)} s | try ${joinSync.tries}`);
 
         if (Math.abs(drift) <= 0.25) { finishJoinSync(); return; }
 
-        if (Math.abs(drift) > 2.5 && joinSync.tries < 2 && Date.now() < joinSync.deadline) {
+        if (Math.abs(drift) > 2.5 && joinSync.tries < 3 && Date.now() < joinSync.deadline) {
             joinSync.tries++;
-            joinSync.seekAt = Date.now();
-            p.seekTo(expected, true);   // sem lead: o arranque agora é mais rápido; o resto acerta-se com a velocidade
-            setTimeout(checkJoinDrift, 1500);
+            p.seekTo(expected + joinSync.lead, true);   // keep the measured lead: every seek re-buffers
+            later(checkJoinDrift, 1500);
             return;
         }
 
@@ -293,26 +214,52 @@ function exitPlayer() {
         if (rates.includes(rate) && Math.abs(drift) <= 2.5) {
             const ms = Math.min(8000, Math.abs(drift) / Math.abs(rate - 1) * 1000);
             p.setPlaybackRate(rate);
-            setTimeout(() => {
+            clearTimeout(rateTimer);
+            rateTimer = later(() => {
                 const q = window.ytPlayerInstance;
                 if (q && q.setPlaybackRate) q.setPlaybackRate(1);
             }, ms);
-        } else if (Date.now() < joinSync.deadline) {
-            p.seekTo(expected, true);   // sem velocidades alternativas: seek simples
+        } else if (joinSync.tries < 3 && Date.now() < joinSync.deadline) {
+            joinSync.tries++;
+            p.seekTo(expected + joinSync.lead, true);   // no alternative rates: seek, then re-check
+            later(checkJoinDrift, 1500);
+            return;
         }
         finishJoinSync();
     }
 
-    // --- Click throttle shield ---
-    const CLICK_THROTTLE_MS = 1200;
-    let clickShieldActive = false;
+    // --- Playlist (sessionStorage) ---------------------------------------------------------------
+    function readPlaylist() {
+        try {
+            const list = JSON.parse(sessionStorage.getItem('yt_playlist') || '[]');
+            return Array.isArray(list) ? list : [];
+        } catch (e) { return []; }
+    }
+    function clearPlaylist() {
+        try { sessionStorage.removeItem('yt_playlist'); sessionStorage.removeItem('yt_playlist_index'); } catch (e) {}
+    }
+    // Returns true if it navigated to the next item.
+    function advancePlaylist() {
+        const list = readPlaylist();
+        let index = 0;
+        try { index = parseInt(sessionStorage.getItem('yt_playlist_index') || '0', 10) || 0; } catch (e) {}
+        const next = index + 1;
+        if (!list.length || next >= list.length) return false;
+        try { sessionStorage.setItem('yt_playlist_index', String(next)); } catch (e) {}
+        const menuParam = isSafePath(CFG.menu) ? CFG.menu : '';
+        const url = `/tvytube?videoId=${enc(list[next])}&vq=hd1080&origin=link&targetID=playlist&menu=${enc(menuParam)}&scrollPos=0`;
+        cleanup();
+        navigate(url);
+        return true;
+    }
 
+    // --- Player lifecycle ------------------------------------------------------------------------
     function purgePriorPlayer() {
         if (window.ytPlayerInstance) {
             try {
                 window.ytPlayerInstance.stopVideo();
                 window.ytPlayerInstance.destroy();
-            } catch (e) { console.warn("Cleanup ignored:", e); }
+            } catch (e) { console.warn('Cleanup ignored:', e); }
             window.ytPlayerInstance = null;
         }
         if (window.heartbeatInterval) {
@@ -321,23 +268,96 @@ function exitPlayer() {
         }
     }
 
-    window.renderYTPlayer = function() {
-        if (!video_id || !document.getElementById('player-container')) return;
+    function cleanup() {
+        clearAllTimers();
+        joinSync = null;
+        settling = false;
         purgePriorPlayer();
+        if (hasSocket()) socket.off('Play').off('Pause');
+        if (window.cleanupYTPlayer === cleanup) window.cleanupYTPlayer = null;
+    }
+    window.cleanupYTPlayer = cleanup;
+    window.addEventListener('pagehide', cleanup, { once: true });
+
+    // --- UI helpers ------------------------------------------------------------------------------
+    function setPausedUI(on) {
+        if (!on && window.ytPlayerError) return;   // keep the error screen up until playback really starts
+        const wrapper = $el('player-wrapper');
+        if (wrapper) wrapper.classList.toggle('is-paused', !!on);
+    }
+
+    function errorText(code) {
+        switch (code) {
+            case 2:   return 'INVALID VIDEO ID.';
+            case 100: return 'THIS VIDEO WAS REMOVED OR IS PRIVATE.';
+            case 101:
+            case 150: return 'THE OWNER DOES NOT ALLOW THIS VIDEO TO BE PLAYED OUTSIDE YOUTUBE.';
+            default:  return null;   // keeps the generic text
+        }
+    }
+
+    // --- Exposed buttons -------------------------------------------------------------------------
+    window.resumePlay = function () {
+        const p = window.ytPlayerInstance;
+        if (!p) return;
+        if (window.ytPlayerError) {
+            // A failed video can't be resumed: reload it. The PLAYING state change will tell the room.
+            window.ytPlayerError = false;
+            setErrorText(null);
+            p.loadVideoById(video_id);
+            return;
+        }
+        // No manual socket.emit here: the PLAYING state change already emits 'toPlay' (once).
+        p.playVideo();
+    };
+
+    window.exitPlayer = function () {
+        const { origin, target, scroll, menu, title } = CFG;
+        const isChannel = /^UC[\w-]{22}$/.test(target);   // YouTube channel IDs: "UC" + 22 chars
+
+        let returnUrl = '';
+        if (origin === 'live-tv') {
+            returnUrl = `/live-tv?genre=${enc(target)}&scrollPos=${scroll}`;
+        } else if (origin === 'link') {
+            returnUrl = isSafePath(menu) ? menu : '/youtube-menu';
+        } else if (origin === 'music') {
+            returnUrl = `/music-grid?genre=${enc(target)}&scrollPos=${scroll}&menu=${enc(menu)}&title=${enc(title)}`;
+        } else if (origin === 'movies') {
+            returnUrl = `/movies-grid?genre=${enc(target)}&scrollPos=${scroll}&menu=${enc(menu)}&title=${enc(title)}&isChannel=${enc(isChannel)}`;
+        } else if (origin === 'youtube') {
+            returnUrl = `/youtube-grid?genre=${enc(target)}&scrollPos=${scroll}&menu=${enc(menu)}&title=${enc(title)}&isChannel=${enc(isChannel)}`;
+        } else {
+            returnUrl = '/youtube-menu';   // unknown origin: never navigate to ""
+        }
+
+        clearPlaylist();
+        cleanup();   // stop heartbeat, timers and socket handlers before leaving
+
+        if (typeof handleNav === 'function') {
+            window.pendingScrollRestore = scroll;
+            handleNav(returnUrl);
+        } else {
+            window.location.href = returnUrl;
+        }
+    };
+
+    // --- YouTube player --------------------------------------------------------------------------
+    window.renderYTPlayer = function () {
+        if (!video_id || !$el('player-container')) return;
+        purgePriorPlayer();
+        window.ytPlayerError = false;
 
         window.ytPlayerInstance = new YT.Player('player-container', {
             videoId: video_id,
             playerVars: {
-                'autoplay': window.syncIsPaused ? 0 : 1,   // quem entra com a sala em pausa não arranca sozinho
+                'autoplay': window.syncIsPaused ? 0 : 1,   // joining a paused room must not autostart
                 'controls': 1,
                 'rel': 0,
                 'disablekb': 0,
                 'fs': 0,
-                'modestbranding': 1,
                 'iv_load_policy': 3,
                 'cc_load_policy': 0,
-                'loop': 1,
-                'origin': window.location.origin, // Isso diz ao YT que seu site é seguro
+                'origin': window.location.origin,
                 'enablejsapi': 1
             },
             events: {
@@ -351,7 +371,7 @@ function exitPlayer() {
                         window.syncArrivalTime = null;
 
                         if (paused) {
-                            // Em pausa o vídeo não avançou: posição exata, sem somar tempo decorrido
+                            // Paused video didn't advance: exact position, no elapsed time added
                             lockRemote(2500);
                             event.target.seekTo(target, true);
                             event.target.pauseVideo();
@@ -362,11 +382,12 @@ function exitPlayer() {
 
                     window.heartbeatInterval = setInterval(() => {
                         const p = window.ytPlayerInstance;
-                        if (!p || !p.getCurrentTime || settling) return;   // não reportar enquanto está a sincronizar
-                        const st = p.getPlayerState();
-                        // BUFFERING/UNSTARTED/CUED não são "pausa": reportá-los apagava o estado da sala
+                        if (!p || !p.getCurrentTime || settling || !hasSocket()) return;   // don't report while syncing
+                        let st;
+                        try { st = p.getPlayerState(); } catch (e) { return; }
+                        // BUFFERING/UNSTARTED/CUED are not "paused": reporting them would wipe the room state
                         if (st !== YT.PlayerState.PLAYING && st !== YT.PlayerState.PAUSED) return;
-                        socket.emit('report_current_time', {
+                        emit('report_current_time', {
                             time: p.getCurrentTime(),
                             paused: st !== YT.PlayerState.PLAYING,
                             videoId: video_id
@@ -375,148 +396,122 @@ function exitPlayer() {
                 },
 
                 'onError': (event) => {
-                    console.error("YouTube Player Error:", event.data);
-                    const controls = document.querySelector('.player-controls');
-                    const wrapper = document.getElementById('player-wrapper');
-                    
-                    // 1. Add the class to turn on the dark overlay background
-                    if (wrapper) {
-                        wrapper.classList.add('is-paused');
-                    }
-                    
-                    // 2. Make the buttons and error messages fully visible and clickable
-                    if (controls) {
-                        controls.style.opacity = '1';
-                        controls.style.pointerEvents = 'auto';
-                    }
+                    console.error('YouTube Player Error:', event.data);
+                    window.ytPlayerError = true;
+                    setErrorText(errorText(event.data));
+                    const wrapper = $el('player-wrapper');
+                    if (wrapper) wrapper.classList.add('is-paused');
+
+                    // In a playlist, don't get stuck on an unavailable video
+                    if (readPlaylist().length) later(advancePlaylist, 2500);
                 },
 
                 'onStateChange': (event) => {
-                    const controls = document.querySelector('.player-controls');
-                    const wrapper = document.getElementById('player-wrapper');
-                    // Afinação de entrada: mede o custo de arranque no 1.º PLAYING e verifica o desvio
-                    if (joinSync && !joinSync.measured && event.data === YT.PlayerState.PLAYING) {
+                    const S = YT.PlayerState;
+                    const state = event.data;
+
+                    if (state === S.PLAYING) {
+                        window.ytPlayerError = false;
+                        setErrorText(null);
+                    }
+
+                    // Join tuning: measure the startup cost on the first PLAYING, then check drift
+                    if (joinSync && !joinSync.measured && state === S.PLAYING) {
                         joinSync.measured = true;
                         const measured = Math.min(2, (Date.now() - joinSync.seekAt) / 1000);
                         joinSync.lead = measured;
                         saveLead((getLead() + measured) / 2);
-                        setTimeout(checkJoinDrift, 300);
+                        later(checkJoinDrift, 300);
                     }
 
-                    // Lógica de Loop: Se o vídeo terminar, volta ao início e dá play
-
-
-                    
-                    if (event.data === YT.PlayerState.ENDED) {
-                        const playlist = JSON.parse(sessionStorage.getItem('yt_playlist') || '[]');
-                        const index = parseInt(sessionStorage.getItem('yt_playlist_index') || '0');
-                        const next = index + 1;
-
-                        if (playlist.length > 0 && next < playlist.length) {
-                            // Advance to next video in playlist
-                            sessionStorage.setItem('yt_playlist_index', String(next));
-                            const nextId = playlist[next];
-                            const menu   = "<%= typeof menu !== 'undefined' ? menu : '' %>";
-                            handleNav(`/tvytube?videoId=${encodeURIComponent(nextId)}&vq=hd1080&origin=link&targetID=playlist&menu=${encodeURIComponent(menu)}&scrollPos=0`);
-                        } else {
-                            // No playlist or last video — clear and loop as before
-                            sessionStorage.removeItem('yt_playlist');
-                            sessionStorage.removeItem('yt_playlist_index');
-                            event.target.seekTo(0);
-                            event.target.playVideo();
-                        }
+                    // End of video: next in playlist, otherwise loop
+                    if (state === S.ENDED) {
+                        if (advancePlaylist()) return;
+                        clearPlaylist();
+                        event.target.seekTo(0);
+                        event.target.playVideo();
                         return;
                     }
 
-// 2. Determine state
-    // UNSTARTED é normal durante o arranque: só mostra o overlay se continuar parado (ex.: autoplay bloqueado)
-    const isPausedOrEnded = (event.data === YT.PlayerState.PAUSED ||
-                             event.data === YT.PlayerState.ENDED);
-    const setPausedUI = (on) => {
-        if (wrapper) { on ? wrapper.classList.add('is-paused') : wrapper.classList.remove('is-paused'); }
-        if (controls) {
-            // If paused/ended, show controls (opacity: 1), else hide (opacity: 0)
-            controls.style.opacity = on ? '1' : '0';
-            controls.style.pointerEvents = on ? 'auto' : 'none';
-        }
-    };
+                    // UNSTARTED is normal during startup: only show the overlay if it stays stuck
+                    // (e.g. autoplay blocked)
+                    clearTimeout(unstartedTimer);
+                    if (state === S.UNSTARTED) {
+                        unstartedTimer = later(() => {
+                            const p = window.ytPlayerInstance;
+                            if (p && p.getPlayerState && p.getPlayerState() === S.UNSTARTED) setPausedUI(true);
+                        }, 3000);
+                    } else {
+                        setPausedUI(state === S.PAUSED);
+                    }
 
-    // 3. Sync Overlay and Buttons
-    clearTimeout(unstartedTimer);
-    if (event.data === YT.PlayerState.UNSTARTED) {
-        unstartedTimer = setTimeout(() => {
-            const p = window.ytPlayerInstance;
-            if (p && p.getPlayerState && p.getPlayerState() === YT.PlayerState.UNSTARTED) setPausedUI(true);
-        }, 3000);
-    } else {
-        setPausedUI(isPausedOrEnded);
-    }
-
-    // 5. Socket Logic
-    if (isRemote()) return;
-    clearTimeout(emitTimer);
-    emitTimer = setTimeout(() => {
-        if (!window.ytPlayerInstance) return;
-        const currentTime = window.ytPlayerInstance.getCurrentTime();
-        if (event.data === YT.PlayerState.PLAYING) {
-            socket.emit('toPlay', currentTime);
-        } else if (event.data === YT.PlayerState.PAUSED) {
-            socket.emit('toPause', currentTime);
-        }
-    }, 200);
-}
+                    // Socket: only PLAYING / PAUSED are sent. Other states (BUFFERING...) must not
+                    // reset the debounce, or a real pause right before a seek would be lost.
+                    if (isRemote()) return;
+                    if (state !== S.PLAYING && state !== S.PAUSED) return;
+                    clearTimeout(emitTimer);
+                    emitTimer = later(() => {
+                        const p = window.ytPlayerInstance;
+                        if (!p) return;
+                        const currentTime = p.getCurrentTime();
+                        emit(state === S.PLAYING ? 'toPlay' : 'toPause', currentTime);
+                    }, 200);
+                }
             }
         });
     };
 
-    if (window.YT && window.YT.Player) {
-        setTimeout(window.renderYTPlayer, 50);
+    if (!video_id) {
+        // Nothing to play: say so instead of failing silently
+        window.ytPlayerError = true;
+        setErrorText('NO VIDEO SELECTED.');
+        const wrapper = $el('player-wrapper');
+        if (wrapper) wrapper.classList.add('is-paused');
+    } else if (window.YT && window.YT.Player) {
+        later(window.renderYTPlayer, 50);
     } else {
         window.onYouTubeIframeAPIReady = window.renderYTPlayer;
-        if (!$('script[src*="youtube.com/iframe_api"]').length) {
-            $.getScript("https://www.youtube.com/iframe_api");
+        if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+            const s = document.createElement('script');
+            s.src = 'https://www.youtube.com/iframe_api';
+            s.onerror = () => { window.ytPlayerError = true; setErrorText('COULD NOT LOAD THE YOUTUBE PLAYER.'); setPausedUI(true); };
+            document.head.appendChild(s);
         }
     }
 
-    if (typeof socket !== 'undefined') {
+    // --- Room sync: remote commands --------------------------------------------------------------
+    if (hasSocket()) {
         socket.off('Play').off('Pause');
 
-        
-    socket.on('Play', (data) => {
-    if (!window.ytPlayerInstance) return;
-    // O emissor já está neste estado: ignorar o próprio eco evita recuar ~RTT/2 ao dar play
-    if (data && data.senderId && data.senderId === socket.id) return;
-    
-    // 1. Prevent loopback
-    lockRemote(1000);
+        socket.on('Play', (data) => {
+            if (!window.ytPlayerInstance || !data) return;
+            // The sender is already in this state: ignoring our own echo avoids stepping back ~RTT/2
+            if (data.senderId && data.senderId === socket.id) return;
 
-    // 2. Parse the time safely (ensure it's a number)
-    const baseTime = parseFloat(data.timestamp) || 0;
-    // lastUpdate é do relógio do servidor: converte "agora" para esse relógio com o desvio estimado
-    // (window.serverTimeOffset). Limitado a [0, 5] s para que uma estimativa má não cause saltos grandes.
-    const serverNow = Date.now() + (window.serverTimeOffset || 0);
-    const latency   = Math.min(5, Math.max(0, (serverNow - (data.lastUpdate || serverNow)) / 1000));
-    
-    // 3. Calculate actual time. 
-    // If it's a pause/play, latency is key. 
-    // If it's a fresh start, latency might be 0.
-    const actualCurrentTime = baseTime + latency;
+            const baseTime = parseFloat(data.timestamp);
+            if (!isFinite(baseTime)) return;   // malformed payload: never jump to 0 by accident
 
-    console.log(`Syncing to: ${actualCurrentTime} (Base: ${baseTime}, Latency: ${latency})`);
+            lockRemote(1000);
 
-    // 4. Command the player
-    // Seek first, then play. Some players reset to 0 if play() is called before seek completes.
-    window.ytPlayerInstance.seekTo(actualCurrentTime, true);
-    
-    // Small delay can help some player APIs stabilize the seek before playing
-    setTimeout(() => {
-        if (window.ytPlayerInstance) window.ytPlayerInstance.playVideo();
-    }, 50);
-});
+            // lastUpdate is server-clock: convert "now" with the estimated offset
+            // (window.serverTimeOffset), clamped to [0, 5] s so a bad estimate can't cause big jumps.
+            const serverNow = Date.now() + (window.serverTimeOffset || 0);
+            const latency   = Math.min(5, Math.max(0, (serverNow - (data.lastUpdate || serverNow)) / 1000));
+            const actual    = baseTime + latency;
+
+            console.log(`Syncing to: ${actual} (Base: ${baseTime}, Latency: ${latency})`);
+
+            // Seek first, then play (some players reset to 0 if play() runs before the seek settles)
+            window.ytPlayerInstance.seekTo(actual, true);
+            later(() => { if (window.ytPlayerInstance) window.ytPlayerInstance.playVideo(); }, 50);
+        });
+
         socket.on('Pause', (time) => {
             if (!window.ytPlayerInstance) return;
+            const t = parseFloat(time);
+            if (!isFinite(t)) return;
             lockRemote(1000);
-            window.ytPlayerInstance.seekTo(time, true);
+            window.ytPlayerInstance.seekTo(t, true);
             window.ytPlayerInstance.pauseVideo();
         });
     }
