@@ -158,6 +158,11 @@
     let joinSync = null;
     const isRemote = () => settling || Date.now() < remoteUntil;
     let emitTimer = null;
+    // How long a PLAYING/PAUSED state must hold before it is sent to the room. The delay filters out
+    // the short PAUSED blips YouTube fires while starting or seeking; a pause is sent sooner because
+    // viewers notice a late pause more than a late play.
+    const PAUSE_EMIT_MS = 120;
+    const PLAY_EMIT_MS  = 200;
     let unstartedTimer = null;
     let pauseUiTimer = null;
     let rateTimer = null;
@@ -275,6 +280,10 @@
             clearInterval(window.heartbeatInterval);
             window.heartbeatInterval = null;
         }
+        if (window.seekWatchInterval) {
+            clearInterval(window.seekWatchInterval);
+            window.seekWatchInterval = null;
+        }
     }
 
     function cleanup() {
@@ -357,6 +366,55 @@
         }
     };
 
+    // --- Early seek propagation ------------------------------------------------------------------
+    // Same two-stage idea as resume. YouTube has no "seek" event, so a jump (progress bar, arrow
+    // keys) is detected by comparing the playhead with where it should be (previous position +
+    // elapsed time). The moment it happens the new position is sent to the room, so everyone starts
+    // buffering it in parallel with this client; the PLAYING state change ~200 ms later then sends
+    // the refined position (stage 2). Set SEEK_EARLY to false to turn this off.
+    const SEEK_EARLY = true;
+    const SEEK_JUMP  = 1.0;   // seconds: smaller differences count as normal playback/buffering
+
+    function startSeekWatch() {
+        if (!SEEK_EARLY) return;
+        let lastT = null, lastState = null, lastWall = 0, lastEmit = 0;
+        let pausedSeek = null;   // a seek made while paused: sent once the position stops moving
+
+        window.seekWatchInterval = setInterval(() => {
+            const p = window.ytPlayerInstance;
+            if (!p || !p.getCurrentTime || !p.getPlayerState) return;
+            const S = YT.PlayerState;
+            let st, t;
+            try { st = p.getPlayerState(); t = p.getCurrentTime(); } catch (e) { return; }
+            const now = Date.now();
+
+            // Seek made while paused (or while dragging the bar): send it once the position is stable
+            if (pausedSeek) {
+                if (st !== S.PAUSED || isRemote()) pausedSeek = null;
+                else if (Math.abs(t - pausedSeek.t) < 0.05) {
+                    if (++pausedSeek.stable >= 2) { emit('toPause', t); pausedSeek = null; }
+                } else { pausedSeek.t = t; pausedSeek.stable = 0; }
+            }
+
+            if (lastT !== null && !window.ytPlayerError && !isRemote()) {
+                const rate     = (p.getPlaybackRate && p.getPlaybackRate()) || 1;
+                const expected = lastT + (lastState === S.PLAYING ? (now - lastWall) / 1000 * rate : 0);
+                // The second condition ignores stalls: a frozen player has not jumped anywhere
+                if (Math.abs(t - expected) > SEEK_JUMP && Math.abs(t - lastT) > 0.5) {
+                    if (st === S.PAUSED) {
+                        pausedSeek = { t, stable: 0 };
+                    } else if ((st === S.PLAYING || st === S.BUFFERING) && now - lastEmit > 300) {
+                        lastEmit = now;
+                        pausedSeek = null;
+                        emit('toPlay', { time: t, videoId: video_id });
+                    }
+                }
+            }
+
+            lastT = t; lastState = st; lastWall = now;
+        }, 250);
+    }
+
     // --- YouTube player --------------------------------------------------------------------------
     window.renderYTPlayer = function () {
         if (!video_id || !$el('player-container')) return;
@@ -409,6 +467,8 @@
                             videoId: video_id
                         });
                     }, 1000);
+
+                    startSeekWatch();
                 },
 
                 'onError': (event) => {
@@ -484,7 +544,7 @@
                         if (p.getPlayerState() !== state) return;
                         const currentTime = p.getCurrentTime();
                         emit(state === S.PLAYING ? 'toPlay' : 'toPause', currentTime);
-                    }, 200);
+                    }, state === S.PAUSED ? PAUSE_EMIT_MS : PLAY_EMIT_MS);
                 }
             }
         });
@@ -542,8 +602,11 @@
             if (!isFinite(t)) return;
             cancelJoinSync();
             lockRemote(1000);
-            window.ytPlayerInstance.seekTo(t, true);
-            window.ytPlayerInstance.pauseVideo();
+            // Freeze FIRST (this is what the viewer notices), then align the frame. Seeking first
+            // made the video keep running until the seek finished buffering.
+            const p = window.ytPlayerInstance;
+            p.pauseVideo();
+            if (Math.abs(p.getCurrentTime() - t) > 0.1) p.seekTo(t, true);
         });
     }
 })();
