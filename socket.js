@@ -349,20 +349,32 @@ registerChessHandlers(io, socket, clientRoom);
         // Hora do servidor (via ack) para o cliente estimar o desvio entre relógios.
         socket.on('time_sync', (cb) => { if (typeof cb === 'function') cb(Date.now()); });
 
-socket.on('report_current_time', (data) => {
-    if (!data.videoId) {
-        state.videoId = null; state.videoTimestamp = 0; state.videoPaused = true;
-        return;
-    }
-    const now = Date.now();
-    const leaderGone = !state.leaderId || (now - (state.lastUpdate || 0)) > 3000;
-    if (state.leaderId !== socket.id && !leaderGone) return;   // ignore non-leaders
-    state.leaderId       = socket.id;
-    state.videoTimestamp = data.time;
-    state.videoPaused    = data.paused;
-    state.videoId        = data.videoId;
-    state.lastUpdate     = now;
-});
+        // Só o "líder" (quem fez play/pause/seek por último, ou o primeiro a reportar) atualiza a
+        // hora de referência da sala. Antes, o último a escrever ganhava: com vários espectadores
+        // em posições diferentes a referência saltava de um para outro e quem entrava herdava
+        // um desvio de vários segundos. Se o líder sair ou ficar mudo >3 s, o próximo reporter assume.
+        socket.on('report_current_time', (data) => {
+            if (!data || !data.videoId) {
+                // só o líder (ou ninguém) pode limpar o estado da sala
+                if (!state.leaderId || state.leaderId === socket.id) {
+                    state.videoId = null; state.videoTimestamp = 0; state.videoPaused = true;
+                    state.leaderId = null;
+                }
+                return;
+            }
+            const time = parseFloat(data.time);
+            if (!isFinite(time)) return;
+
+            const now        = Date.now();
+            const leaderGone = !state.leaderId || (now - (state.lastUpdate || 0)) > 3000;
+            if (state.leaderId !== socket.id && !leaderGone) return;   // ignora não-líderes
+
+            state.leaderId       = socket.id;
+            state.videoTimestamp = time;
+            state.videoPaused    = !!data.paused;
+            state.videoId        = data.videoId;
+            state.lastUpdate     = now;
+        });
 
         // Locate this in your provided file:
         socket.on('toPlay', (data) => {
@@ -372,10 +384,11 @@ socket.on('report_current_time', (data) => {
             state.videoTimestamp = time;
             state.videoPaused    = false;
             state.lastUpdate     = Date.now(); // <--- CRITICAL: Store the sync time
+            state.leaderId       = socket.id;  // quem carrega em play passa a ser a referência da sala
             if (vId) state.videoId = vId;
 
             // Send an OBJECT instead of just a number
-            io.to(clientRoom).emit('Play', {
+            socket.to(clientRoom).emit('Play', {   // socket.to = everyone except the sender (no echo)
                 timestamp: time,
                 lastUpdate: state.lastUpdate,
                 videoId: state.videoId,
@@ -386,12 +399,15 @@ socket.on('report_current_time', (data) => {
         socket.on('toPause', (time) => {
             state.videoTimestamp = time;
             state.videoPaused    = true;
-            io.to(clientRoom).emit('Pause', time);
+            state.lastUpdate     = Date.now();   // mantém o líder "vivo" enquanto está em pausa
+            state.leaderId       = socket.id;
+            socket.to(clientRoom).emit('Pause', time);   // everyone except the sender (no echo)
         });
 
         socket.on('toSeek', (time) => {
             state.videoTimestamp = time;
             state.lastUpdate     = Date.now(); // sem isto, o tempo extrapolado contava desde o último relato
+            state.leaderId       = socket.id;
             io.to(clientRoom).emit('Seek', time);
         });
 
@@ -1176,6 +1192,8 @@ chessHandleDisconnect(io, socket);
     });
 
     // ── ROOM STATE CLEANUP ──
+    const stLeader = getRoomState(clientRoom);
+    if (stLeader && stLeader.leaderId === socket.id) stLeader.leaderId = null;   // próximo reporter assume
     const room = io.sockets.adapter.rooms.get(clientRoom);
     if (!room || room.size === 0) {
        // delete roomStates[clientRoom];
@@ -1192,6 +1210,7 @@ chessHandleDisconnect(io, socket);
             radioDialIndex: null,
             currentBg:      null,
             lastUpdate:     Date.now(),
+            leaderId:       null,
             movieQuery:     null,
             liveChannel:    null,
             gameStreamUrl:  null,

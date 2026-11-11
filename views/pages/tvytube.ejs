@@ -156,9 +156,18 @@
     const lockRemote = (ms = 1000) => { remoteUntil = Math.max(remoteUntil, Date.now() + ms); };
     let settling = false;      // true while the room join is being fine-tuned (nothing is emitted)
     let joinSync = null;
-    const isRemote = () => settling || Date.now() < remoteUntil;
+    // A remote Play/Pause is "in progress" until the player actually reaches the matching state
+    // (a seek can take longer than any fixed timeout). Until then our own state events are not
+    // sent back, which would otherwise bounce between clients and make the video jump back.
+    let remotePending = null;  // 'play' | 'pause' | null
+    const markRemote = (kind, fallbackMs) => {
+        remotePending = kind;
+        later(() => { if (remotePending === kind) remotePending = null; }, fallbackMs);
+    };
+    const isRemote = () => settling || !!remotePending || Date.now() < remoteUntil;
     let emitTimer = null;
     let unstartedTimer = null;
+    let pauseUiTimer = null;
     let rateTimer = null;
 
     // --- Join sync: tune AFTER the video really starts ----------------------------------------
@@ -184,6 +193,14 @@
         player.seekTo(expected + joinSync.lead, true);
         player.playVideo();
         later(finishJoinSync, 10000);   // safety net (e.g. autoplay blocked)
+    }
+
+    // A command from the room overrides any join tuning in progress. Otherwise a Pause/Play that
+    // arrives while joining leaves `settling` on (up to 10 s), which blocks this client's own
+    // emits and heartbeat, so pressing play on a paused room would not reach the others.
+    function cancelJoinSync() {
+        joinSync = null;
+        settling = false;
     }
 
     function checkJoinDrift() {
@@ -308,6 +325,8 @@
             return;
         }
         // No manual socket.emit here: the PLAYING state change already emits 'toPlay' (once).
+        remotePending = null;   // the user's own action always wins
+        remoteUntil = 0;
         p.playVideo();
     };
 
@@ -415,6 +434,13 @@
                         setErrorText(null);
                     }
 
+                    // The remote command has landed: absorb the trailing events, then go back to normal
+                    if ((remotePending === 'play' && state === S.PLAYING) ||
+                        (remotePending === 'pause' && state === S.PAUSED)) {
+                        remotePending = null;
+                        lockRemote(600);
+                    }
+
                     // Join tuning: measure the startup cost on the first PLAYING, then check drift
                     if (joinSync && !joinSync.measured && state === S.PLAYING) {
                         joinSync.measured = true;
@@ -442,7 +468,17 @@
                             if (p && p.getPlayerState && p.getPlayerState() === S.UNSTARTED) setPausedUI(true);
                         }, 3000);
                     } else {
-                        setPausedUI(state === S.PAUSED);
+                        // YouTube fires short PAUSED events while starting, seeking or syncing.
+                        // Only show the pause overlay if the player is still paused a moment later.
+                        clearTimeout(pauseUiTimer);
+                        if (state === S.PAUSED) {
+                            pauseUiTimer = later(() => {
+                                const p = window.ytPlayerInstance;
+                                if (p && p.getPlayerState && p.getPlayerState() === S.PAUSED) setPausedUI(true);
+                            }, 350);
+                        } else {
+                            setPausedUI(false);
+                        }
                     }
 
                     // Socket: only PLAYING / PAUSED are sent. Other states (BUFFERING...) must not
@@ -453,9 +489,11 @@
                     emitTimer = later(() => {
                         const p = window.ytPlayerInstance;
                         if (!p) return;
+                        // Send only what is still true: a PAUSED blip during startup/seek is dropped
+                        if (p.getPlayerState() !== state) return;
                         const currentTime = p.getCurrentTime();
                         emit(state === S.PLAYING ? 'toPlay' : 'toPause', currentTime);
-                    }, 200);
+                    }, 250);
                 }
             }
         });
@@ -491,7 +529,9 @@
             const baseTime = parseFloat(data.timestamp);
             if (!isFinite(baseTime)) return;   // malformed payload: never jump to 0 by accident
 
+            cancelJoinSync();
             lockRemote(1000);
+            markRemote('play', 4000);
 
             // lastUpdate is server-clock: convert "now" with the estimated offset
             // (window.serverTimeOffset), clamped to [0, 5] s so a bad estimate can't cause big jumps.
@@ -499,7 +539,7 @@
             const latency   = Math.min(5, Math.max(0, (serverNow - (data.lastUpdate || serverNow)) / 1000));
             const actual    = baseTime + latency;
 
-            console.log(`Syncing to: ${actual} (Base: ${baseTime}, Latency: ${latency})`);
+            console.log(`[Sync] remote Play from ${data.senderId || '?'} -> ${actual.toFixed(2)} s (local ${window.ytPlayerInstance.getCurrentTime().toFixed(2)} s, latency ${latency.toFixed(2)} s)`);
 
             // Seek first, then play (some players reset to 0 if play() runs before the seek settles)
             window.ytPlayerInstance.seekTo(actual, true);
@@ -510,7 +550,10 @@
             if (!window.ytPlayerInstance) return;
             const t = parseFloat(time);
             if (!isFinite(t)) return;
+            cancelJoinSync();
             lockRemote(1000);
+            markRemote('pause', 1200);   // short fallback: an already-paused player may not report a state change
+            console.log(`[Sync] remote Pause -> ${t.toFixed(2)} s`);
             window.ytPlayerInstance.seekTo(t, true);
             window.ytPlayerInstance.pauseVideo();
         });
