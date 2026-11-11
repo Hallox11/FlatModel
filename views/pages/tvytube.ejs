@@ -156,15 +156,7 @@
     const lockRemote = (ms = 1000) => { remoteUntil = Math.max(remoteUntil, Date.now() + ms); };
     let settling = false;      // true while the room join is being fine-tuned (nothing is emitted)
     let joinSync = null;
-    // A remote Play/Pause is "in progress" until the player actually reaches the matching state
-    // (a seek can take longer than any fixed timeout). Until then our own state events are not
-    // sent back, which would otherwise bounce between clients and make the video jump back.
-    let remotePending = null;  // 'play' | 'pause' | null
-    const markRemote = (kind, fallbackMs) => {
-        remotePending = kind;
-        later(() => { if (remotePending === kind) remotePending = null; }, fallbackMs);
-    };
-    const isRemote = () => settling || !!remotePending || Date.now() < remoteUntil;
+    const isRemote = () => settling || Date.now() < remoteUntil;
     let emitTimer = null;
     let unstartedTimer = null;
     let pauseUiTimer = null;
@@ -324,10 +316,15 @@
             p.loadVideoById(video_id);
             return;
         }
-        // No manual socket.emit here: the PLAYING state change already emits 'toPlay' (once).
-        remotePending = null;   // the user's own action always wins
-        remoteUntil = 0;
+        // Two-stage resume (same as the original behaviour):
+        // 1) right now: tell the room to start from the exact paused frame, so every viewer starts
+        //    its player at the same moment as this one (their start-up lag cancels this client's);
+        // 2) ~200 ms later the PLAYING state change sends a refined position.
+        // Without stage 1 the others only start after this client is already playing and stay a
+        // few hundred ms behind.
+        const pausedAt = p.getCurrentTime();
         p.playVideo();
+        emit('toPlay', { time: pausedAt, videoId: video_id });
     };
 
     window.exitPlayer = function () {
@@ -434,12 +431,6 @@
                         setErrorText(null);
                     }
 
-                    // The remote command has landed: absorb the trailing events, then go back to normal
-                    if ((remotePending === 'play' && state === S.PLAYING) ||
-                        (remotePending === 'pause' && state === S.PAUSED)) {
-                        remotePending = null;
-                        lockRemote(600);
-                    }
 
                     // Join tuning: measure the startup cost on the first PLAYING, then check drift
                     if (joinSync && !joinSync.measured && state === S.PLAYING) {
@@ -493,7 +484,7 @@
                         if (p.getPlayerState() !== state) return;
                         const currentTime = p.getCurrentTime();
                         emit(state === S.PLAYING ? 'toPlay' : 'toPause', currentTime);
-                    }, 250);
+                    }, 200);
                 }
             }
         });
@@ -531,7 +522,6 @@
 
             cancelJoinSync();
             lockRemote(1000);
-            markRemote('play', 4000);
 
             // lastUpdate is server-clock: convert "now" with the estimated offset
             // (window.serverTimeOffset), clamped to [0, 5] s so a bad estimate can't cause big jumps.
@@ -539,7 +529,7 @@
             const latency   = Math.min(5, Math.max(0, (serverNow - (data.lastUpdate || serverNow)) / 1000));
             const actual    = baseTime + latency;
 
-            console.log(`[Sync] remote Play from ${data.senderId || '?'} -> ${actual.toFixed(2)} s (local ${window.ytPlayerInstance.getCurrentTime().toFixed(2)} s, latency ${latency.toFixed(2)} s)`);
+            console.log(`Syncing to: ${actual} (Base: ${baseTime}, Latency: ${latency})`);
 
             // Seek first, then play (some players reset to 0 if play() runs before the seek settles)
             window.ytPlayerInstance.seekTo(actual, true);
@@ -552,8 +542,6 @@
             if (!isFinite(t)) return;
             cancelJoinSync();
             lockRemote(1000);
-            markRemote('pause', 1200);   // short fallback: an already-paused player may not report a state change
-            console.log(`[Sync] remote Pause -> ${t.toFixed(2)} s`);
             window.ytPlayerInstance.seekTo(t, true);
             window.ytPlayerInstance.pauseVideo();
         });
