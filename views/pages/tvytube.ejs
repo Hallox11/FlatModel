@@ -158,11 +158,6 @@
     let joinSync = null;
     const isRemote = () => settling || Date.now() < remoteUntil;
     let emitTimer = null;
-    // How long a PLAYING/PAUSED state must hold before it is sent to the room. The delay filters out
-    // the short PAUSED blips YouTube fires while starting or seeking; a pause is sent sooner because
-    // viewers notice a late pause more than a late play.
-    const PAUSE_EMIT_MS = 120;
-    const PLAY_EMIT_MS  = 200;
     let unstartedTimer = null;
     let pauseUiTimer = null;
     let rateTimer = null;
@@ -544,7 +539,7 @@
                         if (p.getPlayerState() !== state) return;
                         const currentTime = p.getCurrentTime();
                         emit(state === S.PLAYING ? 'toPlay' : 'toPause', currentTime);
-                    }, state === S.PAUSED ? PAUSE_EMIT_MS : PLAY_EMIT_MS);
+                    }, 200);
                 }
             }
         });
@@ -602,11 +597,8 @@
             if (!isFinite(t)) return;
             cancelJoinSync();
             lockRemote(1000);
-            // Freeze FIRST (this is what the viewer notices), then align the frame. Seeking first
-            // made the video keep running until the seek finished buffering.
-            const p = window.ytPlayerInstance;
-            p.pauseVideo();
-            if (Math.abs(p.getCurrentTime() - t) > 0.1) p.seekTo(t, true);
+            window.ytPlayerInstance.seekTo(t, true);
+            window.ytPlayerInstance.pauseVideo();
         });
     }
 })();
