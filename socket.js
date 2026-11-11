@@ -388,7 +388,7 @@ registerChessHandlers(io, socket, clientRoom);
             if (vId) state.videoId = vId;
 
             // Send an OBJECT instead of just a number
-            socket.to(clientRoom).emit('Play', {   // socket.to = everyone except the sender (no echo)
+            io.to(clientRoom).emit('Play', {
                 timestamp: time,
                 lastUpdate: state.lastUpdate,
                 videoId: state.videoId,
@@ -401,7 +401,7 @@ registerChessHandlers(io, socket, clientRoom);
             state.videoPaused    = true;
             state.lastUpdate     = Date.now();   // mantém o líder "vivo" enquanto está em pausa
             state.leaderId       = socket.id;
-            socket.to(clientRoom).emit('Pause', time);   // everyone except the sender (no echo)
+            io.to(clientRoom).emit('Pause', time);
         });
 
         socket.on('toSeek', (time) => {
