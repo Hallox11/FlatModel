@@ -985,6 +985,13 @@ fetch('/api/backgrounds')
 
 
 function openSettings() {
+    // Se o dono estiver definido e o utilizador atual não for o dono, bloqueia
+    if (window.tvOwner && window.myName && window.tvOwner !== window.myName) {
+        alert("🚫 Acesso Negado: Apenas o proprietário pode aceder às definições.");
+        return; // Impede que a navegação avance
+    }
+    
+    // Se for o dono, prossegue normalmente
     handleNav('settings');
 }
 

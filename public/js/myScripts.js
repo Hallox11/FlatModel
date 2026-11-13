@@ -302,14 +302,18 @@ function handleNav(mode, isRemote = false) {
             $('#sub-content-overlay').empty(); 
             $('#main-grid').hide();
             
-// Garante que o TV_ID e a Room são passados para qualquer página carregada por AJAX
+// Garante que o TV_ID, a Room, o Owner e o Clicker são passados para qualquer página carregada por AJAX
     const currentTvId = window.__TV_ID__ || window.TV_ID || '';
+    const currentOwner = window.tvOwner || '';
+    const currentClicker = window.myName || '';
     const wrappedData = `
         <script>
             window.$ = window.jQuery; 
-            window.myRoom = "${myRoom}";
-            window.__TV_ID__ = "${currentTvId}";
-            window.TV_ID = "${currentTvId}";
+            window.myRoom = ${JSON.stringify(myRoom)};
+            window.__TV_ID__ = ${JSON.stringify(currentTvId)};
+            window.TV_ID = ${JSON.stringify(currentTvId)};
+            window.tvOwner = ${JSON.stringify(currentOwner)};
+            window.myName = ${JSON.stringify(currentClicker)};
         <\/script>
         ${data}
     `;
@@ -501,18 +505,26 @@ const syncSelectors =
   '.sub-btn-group, ' +
   '.tag-card, ' +
   '.action-btn, ' +
+  '.back-button, ' +
   '.fav-item';
 
 $(document).on('mouseenter mouseleave', syncSelectors, function(e) {
     if (window.isRemoteAction) return;
 
     const isEnter = e.type === 'mouseenter';
-    const primaryClass = $(this).attr('class').split(' ')[0];
-    const index = $(`.${primaryClass}`).index(this);
+    
+    // Find which specific selector from syncSelectors matched this element
+    const selectors = syncSelectors.split(',').map(s => s.trim());
+    let matchedSelector = selectors.find(s => $(this).is(s));
+    
+    if (!matchedSelector) return;
+
+    // Index strictly within elements matching that exact selector
+    const index = $(matchedSelector).index(this);
 
     socket.emit('state_sync', {
         type: 'global_hover',
-        selector: `.${primaryClass}`,
+        selector: matchedSelector,
         index: index,
         state: isEnter ? 'enter' : 'leave',
         room: window.myRoom
@@ -669,19 +681,19 @@ socket.on('state_sync', function(data) {
             switch (data.type) {
 
 
-                case 'global_hover':
-                // 1. Clear previous highlights
-                    $('.remote-hover').removeClass('remote-hover');
-                    
-                // 2. Only add the class if it is explicitly an 'enter' event
-                    if (data.state === 'enter') {
-                        const $target = $(data.selector).eq(data.index);
-                        if ($target.length > 0) {
-                            $target.addClass('remote-hover');
-                        }
-                    }
-
+case 'global_hover':
+    // 1. Clear previous highlights
+    $('.remote-hover').removeClass('remote-hover');
     
+    // 2. Only add the class if it is explicitly an 'enter' event
+    if (data.state === 'enter') {
+        const $target = $(data.selector).eq(data.index);
+        if ($target.length > 0) {
+            $target.addClass('remote-hover');
+            // Se for um sub-botão, mantém a caixa principal iluminada também
+            $target.closest('.btn-group').addClass('remote-hover');
+        }
+    }
     break;
                 case 'new_results':
                 document.getElementById('category-modal').style.display = 'none';
