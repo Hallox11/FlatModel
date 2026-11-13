@@ -619,56 +619,51 @@ state_entry()
     update_current_reference();    // STORE BASE POSITION (LINKSET ANCHOR)
 
     llSensorRepeat("", NULL_KEY, AGENT, gAlertRange, TWO_PI, 10.0);
-
+   
+    gTvLocked = TRUE; // Ensure the main script knows it's locked
+    llMessageLinked(LINK_SET, 0, "LOCK", NULL_KEY); // sync lock status
 
 }
 
 link_message(integer sn, integer num, string msg, key id)
 {
-        if (msg == "TV_ON")  
-        {
-            // 🔒 SECURITY ACCESS LOCK CHECK
-            if (gTvLocked && id != llGetOwner())
-            {
-                llRegionSayTo(id, PUBLIC_CHANNEL, "⚠️ Access Denied: Access is restricted to the Owner.");
-                return; // Aborts registration and cuts off the login sequence for guests
-            }
-            
-            // 🔄 TURN-ON AUTOLOCK LOGIC
-            // Only count if the TV is unlocked AND the person turning it on is a GUEST (not the owner)
-            if (!gTvLocked && id != llGetOwner())
-            {
-                gOnCounter++;
-               // llOwnerSay("ℹ️ Guest turned on the TV while unlocked. Auto-lock counter: " + (string)gOnCounter + "/10");
-                
-                if (gOnCounter >= turn_on_number)
-                {
-                    gTvLocked = TRUE;
-                    gOnCounter = 0; // Reset counter for next time
-                   // llOwnerSay("🔒 Auto-Lock Triggered: TV configuration has been automatically locked after 10 guest uses.");
-                }
-            }
-            // If the owner turned it on, notify them but don't touch the counter
-            else if (!gTvLocked && id == llGetOwner())
-            {
-               // llOwnerSay("ℹ️ Owner turned on the TV. Counter unchanged (" + (string)gOnCounter + "/10).");
-            }
-            
-            init(id, "TV_ON");
-        }
-        else if (msg == "TV_OFF") 
-        {
-             llSetTimerEvent(0);
-             llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POINT_LIGHT, FALSE, <0,0,0>, 0, 0, 0]);
-             llRegionSay(SYNC_CHANNEL, "STROBE_OFF|<0,0,0>");
-             llRegionSay(SYNC_CHANNEL, "SYNC_OFF"); 
-    
-            init(id, "TV_OFF");
-        }
-        if (msg == "RESET") 
-        {
-            llResetScript();
-        }
+if (msg == "TV_ON")  
+{
+    // 🔒 SECURITY ACCESS LOCK CHECK
+    if (gTvLocked && id != llGetOwner())
+    {
+        llRegionSayTo(id, PUBLIC_CHANNEL, "🚫️ [SECURITY SYSTEM]: Access is restricted to the Owner.");
+        return;
+    }
+
+    init(id, "TV_ON");
+}
+else if (msg == "TV_OFF")  
+{
+    // 🔒 SECURITY ACCESS LOCK CHECK - Block unauthorized guests from turning off the TV
+    if (gTvLocked && id != llGetOwner())
+    {
+        llRegionSayTo(id, PUBLIC_CHANNEL, "🚫️ [SECURITY SYSTEM]: Access is restricted to the Owner.");
+        return; // Aborts shutdown completely
+    }
+
+    // Power down logic only runs if authorized
+    llSetTimerEvent(0);
+    llSetLinkPrimitiveParamsFast(LINK_SET, [PRIM_POINT_LIGHT, FALSE, <0,0,0>, 0, 0, 0]);
+
+    init(id, "TV_OFF");
+}
+else if (msg == "RESET")  
+{
+    // 🔒 SECURITY ACCESS LOCK CHECK
+    if (gTvLocked && id != llGetOwner())
+    {
+        llRegionSayTo(id, PUBLIC_CHANNEL, "🚫️ [SECURITY SYSTEM]: Access is restricted to the Owner.");
+        return;
+    }
+
+    llResetScript();
+}
 }
 
 touch_start(integer total_number)
@@ -707,7 +702,7 @@ sensor(integer num)
         
         if (gAlertEnabled)
         {
-            llInstantMessage(owner, "🔔 [TV Alert] " + detected_name + " is on your House!!!");
+            llInstantMessage(owner, "🔔🔔 [ALARME SYSTEM] " + detected_name + " is on your House!!!");
         }
     }
     
@@ -942,8 +937,10 @@ if (cmd == "set_slide")
     if (!g_slideStartedNotified)
     {
         g_slideStartedNotified = TRUE;
-        llOwnerSay("✅ Slideshow Started, with a delay of " + (string)g_fInterval_int + "s...");
-        llOwnerSay("💡 CLICK THE IMAGE TO GET BACK TO THE TV MENU");
+        llOwnerSay("✅ Slideshow Started");
+        llOwnerSay("✨ Let yourself be Surprised and Enjoy our current selection");
+        llOwnerSay("🔄 CLICK THE IMAGE TO GET BACK TO THE TV MENU");
+
     }
 
     llHTTPResponse(id, 200, "OK");
@@ -957,12 +954,12 @@ if (cmd == "alert")
                     if (val == "on")
                     {
                         gAlertEnabled = TRUE;
-                        llOwnerSay("🔒 Security System: Proximity notification alerts are ENABLED.");
+                        llOwnerSay("🔒 [SECURITY SYSTEM]: Proximity notification alerts are ENABLED.");
                     }
                     else if (val == "off")
                     {
                         gAlertEnabled = FALSE;
-                        llOwnerSay("🔓 Security System: Proximity notification alerts are DISABLED.");
+                        llOwnerSay("🔓 [SECURITY SYSTEM]: Proximity notification alerts are DISABLED.");
                     }
                 }
                 else
@@ -978,13 +975,15 @@ if (cmd == "lock")
                     {
                         gTvLocked = TRUE;
                         gOnCounter = 0; // Clear the counter since it's manually locked now
-                        llOwnerSay("🔒 Security System: TV Access Lock is now ACTIVE. Power ON restricted to owner.");
+                        llMessageLinked(LINK_SET, 0, "LOCK", NULL_KEY);
+                        llOwnerSay("🔒 [SECURITY SYSTEM]: TV Access Lock is now ACTIVE. Power ON restricted to owner.");
                     }
                     else if (val == "off")
                     {
                         gTvLocked = FALSE;
                         gOnCounter = 0; // Reset counter to 0 to start tracking fresh turn-ons
-                        llOwnerSay("🔓 Security System: TV Access Lock is now INACTIVE. Public control access restored.");
+                        llMessageLinked(LINK_SET, 0, "OPEN", NULL_KEY);
+                        llOwnerSay("🔓 [SECURITY SYSTEM]: TV Access Lock is now INACTIVE. Public control access restored.");
                     }
                 }
                 else
@@ -1287,7 +1286,10 @@ http_response(key request_id, integer status, list metadata, string body)
         {
             app_url = BASE_URL + "/?token=" + token + "&room=" + room;
             //llOwnerSay("Starting: token=" + token + " room=" + room);
-            llOwnerSay("✅ TV is Starting...");
+llOwnerSay("✅ TV is Starting...");
+llOwnerSay("🟡 If TV won't start in 20 seconds, something is wrong.");
+llOwnerSay("💡 Check Media settings on your Viewer, make sure Autoplay Media is enabled.");
+llOwnerSay("✉️ Still not working? Send us a notecard.");
         }
         else if (token != "")
         {
@@ -1325,9 +1327,10 @@ on_rez(integer param)
     current_trigger = "rezz";
     //register_tv(llGetOwner(), "rezz");
 
-
     llSensorRepeat("", NULL_KEY, AGENT, gAlertRange, TWO_PI, 10.0);
     set_visual_defaults();
+    llMessageLinked(LINK_SET, 0, "LOCK", NULL_KEY);
+
 }
 ////////////////////////////////////////////////////////
 timer()
@@ -1367,7 +1370,7 @@ dataserver(key query_id, string data) {
                 {
                     g_slideStartedNotified = TRUE;
                     llOwnerSay("✅ Notecard read done! Upload Photos: " + (string)total);
-                    llOwnerSay("✅ Slideshow Started, with a delay of " + (string)g_fInterval_int + "s...");
+                    llOwnerSay("✨ Slideshow Started, with a Show time of " + (string)g_fInterval_int + "s...");
                     llOwnerSay("🔄 CLICK THE IMAGE TO GET BACK TO THE TV MENU");
                 }
                 

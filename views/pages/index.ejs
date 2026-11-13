@@ -18,6 +18,7 @@
     window.__ROOM__   = '<%= room %>';
     window.__TV_ID__  = '<%= tvId || "" %>';
     window.myName     = '<%= clicker || "" %>';  // avatar name of whoever clicked this TV
+    window.tvOwner    = '<%= owner || "" %>';  // 👈 Adiciona esta linha para vir do servidor
 </script>
 
 
@@ -985,6 +986,8 @@ fetch('/api/backgrounds')
 
 
 function openSettings() {
+    console.log("SETTINGS");
+    console.log(window.tvOwner);
     // Se o dono estiver definido e o utilizador atual não for o dono, bloqueia
     if (window.tvOwner && window.myName && window.tvOwner !== window.myName) {
         alert("🚫 Acesso Negado: Apenas o proprietário pode aceder às definições.");

@@ -693,6 +693,13 @@ router.get('/', (req, res) => {
     const defaultRoom = req.session.activeTvId || 'Lobby';
     const room        = req.query.room || defaultRoom;
 
+// Encontrar o nome do owner associado a esta TV ativa no tvRegistry
+    let tvOwnerName = '';
+    const activeTvId = req.session.activeTvId;
+    if (activeTvId && tvRegistry[activeTvId]) {
+        tvOwnerName = tvRegistry[activeTvId].owner || '';
+    }
+
     // Find clicker name for this session
     let clickerName = '';
     if (req.session.activeTvId) {
@@ -707,7 +714,8 @@ router.get('/', (req, res) => {
     res.render('pages/index', {
         tvId:    req.session.activeTvId,
         room:    room,
-        clicker: clickerName
+        clicker: clickerName,
+        owner:   tvOwnerName
     });
 });
 
