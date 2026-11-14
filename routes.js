@@ -664,91 +664,17 @@ router.get('/check-status/:id', (req, res) => {
     // MAIN PAGE
 // ── MAIN PAGE ────────────────────────────────────────────────
 router.get('/', (req, res) => {
-    // ── SECURITY CHECK: ENFORCE SL IN-WORLD BROWSER ──
-const userAgent = req.headers['user-agent'] || '';
-const isSLBrowser = userAgent.includes('SecondLife') || userAgent.includes('Dullard');
-    if (!isSLBrowser) {
-        console.warn(`[Security Alert] Blocked non-SL browser access attempt. User-Agent: ${userAgent}`);
-        return res.status(403).send(`
-            <div style="font-family: Arial, sans-serif; text-align: center; margin-top: 100px; color: #333;">
-                <h1 style="color: #d32f2f;">Access Denied</h1>
-                <p style="font-size: 1.2rem;">This application can only be viewed inside the Second Life in-world browser panel.</p>
-            </div>
-        `);
-    }
-    const tvId = req.query.id || req.query.token || 'local-test-tv';
+    const tvId = req.query.id || req.query.token;
 
     if (tvId) {
-        if (pendingTokens[tvId]) {
-            req.session.activeTvId = pendingTokens[tvId].object_id;
-        } else {
-            req.session.activeTvId = tvId;
-        }
+        req.session.activeTvId = pendingTokens[tvId] ? pendingTokens[tvId].object_id : tvId;
         console.log(`[Session] TV vinculada: ${req.session.activeTvId}`);
     }
 
     const activeTvId = req.session.activeTvId;
-/*
-// 🛠️ MOCK AUTOMÁTICO PARA LOCALHOST (Cria na memória E grava na BD SQLite)
-    if (activeTvId && !tvRegistry[activeTvId]) {
-        const mockOwner = req.query.owner || "O_Teu_Nome_No_SL";
-        
-        const mockData = {
-            url: "http://localhost-mock",
-            status: "TV_ON",
-            serial: "TV-Mock-Local",
-            owner: mockOwner,
-            land: "Localhost Test Sandbox",
-            room: "room_local",
-            ip: "127.0.0.1"
-        };
+    const room = req.query.room || activeTvId || 'Lobby';
 
-        // 1. Guarda na memória
-        tvRegistry[activeTvId] = mockData;
-
-        // 2. Grava na Base de Dados SQLite (para aparecer no Dashboard!)
-        _upsertTv(db, {
-            object_id: activeTvId,
-            status: mockData.status,
-            serial: mockData.serial,
-            url: mockData.url,
-            owner: mockData.owner,
-            land_name: mockData.land,
-            land_id: "local_land",
-            ip: mockData.ip
-        });
-
-        console.log(`[Localhost Mock] TV simulada criada e gravada na BD para "${activeTvId}" com o owner: "${mockOwner}"`);
-    }
-*/
-    // O room por defeito é o object_id da TV ou 'Lobby'
-    const defaultRoom = activeTvId || 'Lobby';
-    const room        = req.query.room || defaultRoom;
-
-    // 1. Encontrar o nome do owner (com fallback para a BD SQLite)
-    let tvOwnerName = '';
-    if (activeTvId) {
-        if (tvRegistry[activeTvId]) {
-            let tvData = tvRegistry[activeTvId];
-            if (tvData.object_id_ref && tvRegistry[tvData.object_id_ref]) {
-                tvData = tvRegistry[tvData.object_id_ref];
-            }
-            tvOwnerName = tvData.owner || '';
-        }
-
-        if (!tvOwnerName) {
-            try {
-                const row = db.prepare(`SELECT owner FROM tv_registry WHERE object_id = ? OR room = ?`).get(activeTvId, activeTvId);
-                if (row && row.owner) {
-                    tvOwnerName = row.owner;
-                }
-            } catch (err) {
-                console.error("[Route] Erro ao procurar owner na BD:", err.message);
-            }
-        }
-    }
-
-    // 2. Encontrar o nome de quem clicou (clickerName) para esta sessão
+    // Encontrar o nome de quem clicou (Sessão ou Query string)
     let clickerName = '';
     if (activeTvId) {
         for (const [name, sess] of clickerSessionMap.entries()) {
@@ -758,18 +684,15 @@ const isSLBrowser = userAgent.includes('SecondLife') || userAgent.includes('Dull
             }
         }
     }
-    
-    // Fallback útil para testes locais se o clicker não estiver mapeado ainda
     if (!clickerName && req.query.clicker) {
         clickerName = req.query.clicker;
     }
 
-    // 3. Renderizar a página passando todas as variáveis corretamente
+    // Renderizar a página
     res.render('pages/index', {
-        tvId:    activeTvId,
-        room:    room,
-        clicker: clickerName,
-        owner:   tvOwnerName
+        tvId: activeTvId,
+        room,
+        clicker: clickerName
     });
 });
 
