@@ -688,34 +688,51 @@ router.get('/', (req, res) => {
         console.log(`[Session] TV vinculada: ${req.session.activeTvId}`);
     }
 
-    // The room defaults to the TV's object_id — each TV has its own room
-    // If no TV is linked, falls back to 'Lobby'
+// O room por defeito é o object_id da TV ou 'Lobby'
     const defaultRoom = req.session.activeTvId || 'Lobby';
     const room        = req.query.room || defaultRoom;
+    const activeTvId  = req.session.activeTvId;
 
-// Encontrar o nome do owner associado a esta TV ativa no tvRegistry
+    // 1. Encontrar o nome do owner (com fallback para a BD SQLite)
     let tvOwnerName = '';
-    const activeTvId = req.session.activeTvId;
-    if (activeTvId && tvRegistry[activeTvId]) {
-        tvOwnerName = tvRegistry[activeTvId].owner || '';
+    if (activeTvId) {
+        if (tvRegistry[activeTvId]) {
+            let tvData = tvRegistry[activeTvId];
+            if (tvData.object_id_ref && tvRegistry[tvData.object_id_ref]) {
+                tvData = tvRegistry[tvData.object_id_ref];
+            }
+            tvOwnerName = tvData.owner || '';
+        }
+
+        if (!tvOwnerName) {
+            try {
+                const row = db.prepare(`SELECT owner FROM tv_registry WHERE object_id = ? OR room = ?`).get(activeTvId, activeTvId);
+                if (row && row.owner) {
+                    tvOwnerName = row.owner;
+                }
+            } catch (err) {
+                console.error("[Route] Erro ao procurar owner na BD:", err.message);
+            }
+        }
     }
 
-    // Find clicker name for this session
+    // 2. Encontrar o nome de quem clicou (clickerName) para esta sessão
     let clickerName = '';
-    if (req.session.activeTvId) {
+    if (activeTvId) {
         for (const [name, sess] of clickerSessionMap.entries()) {
-            if (sess.object_id === req.session.activeTvId) {
+            if (sess.object_id === activeTvId) {
                 clickerName = name;
                 break;
             }
         }
     }
 
+    // 3. Renderizar a página passando todas as variáveis corretamente
     res.render('pages/index', {
-        tvId:    req.session.activeTvId,
+        tvId:    activeTvId,
         room:    room,
         clicker: clickerName,
-        owner:   tvOwnerName
+        owner:   "tvOwnerName"
     });
 });
 
