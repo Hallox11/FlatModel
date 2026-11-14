@@ -732,7 +732,7 @@ router.get('/', (req, res) => {
         tvId:    activeTvId,
         room:    room,
         clicker: clickerName,
-        owner:   "tvOwnerName"
+        owner:   tvOwnerName
     });
 });
 
