@@ -695,7 +695,7 @@ router.get('/', (req, res) => {
     }
 
     // Renderizar a página passando também o owner
-    res.render('pages/pages/index', {
+    res.render('pages/index', {
         tvId: activeTvId,
         room,
         clicker: clickerName,
