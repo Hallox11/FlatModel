@@ -501,30 +501,31 @@
                 <div class="sub-panel">
                     <p class="section-title">HOUSE ALARME</p>
                     <div style="display: flex; gap: 10px; margin-bottom: 4px;">
-                        <button onclick="selectButton(this); cmd('alarm','disable',this)" class="btn1" style="flex: 1;">DISABLE</button>
-                        <button onclick="selectButton(this); cmd('alarm','enable',this)" class="btn1 active" style="flex: 1;">ENABLE</button>
+                        <button onclick="selectButton(this); cmd('alert','on',this)" class="btn1" style="flex: 1;">DISABLE</button>
+                        <button onclick="selectButton(this); cmd('alert','off',this)" class="btn1 active" style="flex: 1;">ENABLE</button>
                     </div>
                     <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
                         Enables or disables real-time proximity alerts when someone approach your property.
                     </p>
 
-                    <p class="section-title" style="margin-top: 10px;">SENSOR RANGE (METERS)</p>
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 10px 0 6px 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px;">
-                        <button onclick="cmd('range','dec',this)" class="ss-time-btn" style="padding: 6px 16px; font-size: 1.2rem;">-</button>
-                        <div style="text-align: center; min-width: 80px;">
-                            <span id="range-display" style="font-size: 1.2rem; font-weight: 600; color: #daa520;">15m</span>
-                            <div style="font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px;">Distance</div>
+                    <p class="section-title" style="margin-top: 20px;">SENSOR RANGE (METERS)</p>
+                    <div class="ctrl-row">
+                        <button class="btn-adj" onclick="adjustSensorRange(-1)">−</button>
+                        <div class="btn-value">
+                            <span class="val-pct" id="sensor-range-val">15m</span>
+                            <span class="val-sub">distance</span>
                         </div>
-                        <button onclick="cmd('range','inc',this)" class="ss-time-btn" style="padding: 6px 16px; font-size: 1.2rem;">+</button>
+                        <button class="btn-adj" onclick="adjustSensorRange(1)">+</button>
                     </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
+                        
                         Adjusts the maximum radius in meters used to detect nearby avatars.
                     </p>
 
                     <p class="section-title">LOCK TV</p>
                     <div style="display: flex; gap: 10px; margin-bottom: 4px;">
-                        <button onclick="selectButton(this); cmd('lock','unlock',this)" class="btn1" style="flex: 1;">UNLOCK</button>
-                        <button onclick="selectButton(this); cmd('lock','lock',this)" class="btn1 active" style="flex: 1;">LOCK</button>
+                        <button onclick="selectButton(this); cmd('lock','on',this)" class="btn1" style="flex: 1;">UNLOCK</button>
+                        <button onclick="selectButton(this); cmd('lock','off',this)" class="btn1 active" style="flex: 1;">LOCK</button>
                     </div>
                     <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
                         Restricts the use of the power button to the owner only or to everyone.
@@ -532,8 +533,8 @@
 
                     <p class="section-title">NAV BAR</p>
                     <div style="display: flex; gap: 10px; margin-bottom: 4px;">
-                        <button onclick="selectButton(this); cmd('navbar','hide',this)" class="btn1 active" style="flex: 1;">HIDE</button>
-                        <button onclick="selectButton(this); cmd('navbar','show',this)" class="btn1" style="flex: 1;">SHOW</button>
+                        <button onclick="selectButton(this); cmd('browser','hide',this)" class="btn1 active" style="flex: 1;">HIDE</button>
+                        <button onclick="selectButton(this); cmd('browser','show',this)" class="btn1" style="flex: 1;">SHOW</button>
                     </div>
                     <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
                         Hides or shows the SL Browser navigation bar, useful to navigate external sites.
