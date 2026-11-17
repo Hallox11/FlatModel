@@ -1361,7 +1361,7 @@ dataserver(key query_id, string data) {
             integer total = llGetListLength(g_lUuids);
             
             if (total > 0) {
-                // NOW hide the web screen and show the slideshow images
+                // hide the web screen and show the slideshow images
                 llSetLinkAlpha(frame, 1.0, screen_face);
                 llSetLinkAlpha(frame, 0.01, web_face);
                 

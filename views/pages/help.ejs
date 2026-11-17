@@ -1,268 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analisa TV - Help & Instructions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The-Frame TV - Help &amp; Instructions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Orbitron:wght@600;700;900&amp;display=swap" rel="stylesheet"/>
     <style>
         /* =====================================================
-           Everything is scoped under .help-page so the styles
-           never leak into the host page this is injected into.
+           Scoped under .help-page so styles never leak into
+           the host page when injected into #sub-content-overlay.
            ===================================================== */
-
         .help-page {
+            --accent: #ffa260;
+            --accent-bright: #ffbe8e;
             --gold: #daa520;
             --gold-light: #ffd700;
-            --gold-dark: #b8860b;
-            --bg-dark: #0a0a0f;
-            --panel: rgba(28, 28, 38, 0.9);
-            --text: #f0f0f0;
-            --text-muted: #ccc;
-            --text-dim: #aaa;
-            --danger: #ff5555;
+            --bg-dark: #07070a;
+            --panel: rgba(18, 18, 24, 0.88);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-subtle: rgba(255, 255, 255, 0.12);
+            --border-accent: rgba(255, 162, 96, 0.35);
+            --text: #f5f5f7;
+            --text-muted: #c8c8d0;
+            --text-dim: #9494a0;
+            --danger: #ff6b6b;
+            --success: #2ecc71;
             --font-display: 'Orbitron', sans-serif;
-            --font-body: 'Space Mono', monospace;
+            --font-body: 'Inter', sans-serif;
 
-            /* Own full-screen scroll container: immune to the host's
-               flex centering, so the top of the page is always reachable. */
             position: fixed;
             inset: 0;
             overflow-x: hidden;
-            overflow-y: scroll;
+            overflow-y: auto;
             color: var(--text);
             font-family: var(--font-body);
-            line-height: 1.6;
-            background: rgba(10, 10, 15, 0.35);
+            line-height: 1.65;
+            background: radial-gradient(circle at top right, rgba(45, 30, 20, 0.65), rgba(5, 5, 8, 0.96));
+            backdrop-filter: blur(10px);
             scrollbar-width: thin;
-            scrollbar-color: var(--gold) var(--bg-dark);
-            width: 1100px;
-            margin-left:100px;
-            margin-top: 60px;
+            scrollbar-color: var(--accent) var(--bg-dark);
+            width: min(1100px, calc(100% - 2rem));
+            margin: 2rem auto 0;
+            border-radius: 16px 16px 0 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
         }
 
-        .help-page * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        /* ---------- Custom scrollbar ---------- */
-        .help-page::-webkit-scrollbar { width: 14px; height: 14px; }
-
-        .help-page::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-            border-left: 1px solid rgba(218, 165, 32, 0.2);
+        .help-page * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        /* ---------- Custom Scrollbar ---------- */
+        .help-page::-webkit-scrollbar { width: 10px; }
+        .help-page::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.4); }
         .help-page::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
-            border: 3px solid var(--bg-dark);
+            background: linear-gradient(180deg, var(--accent) 0%, var(--gold) 100%);
             border-radius: 999px;
+            border: 2px solid var(--bg-dark);
         }
-
-        .help-page::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #fff2a8 0%, var(--gold-light) 50%, var(--gold) 100%);
-            box-shadow: 0 0 10px rgba(218, 165, 32, 0.6);
-        }
-
-        .help-page::-webkit-scrollbar-corner { background: var(--bg-dark); }
+        .help-page::-webkit-scrollbar-thumb:hover { background: var(--accent-bright); }
 
         .help-page .container {
-            max-width: 1200px;
+            max-width: 1020px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2rem 2.5rem 3rem;
         }
 
-        /* ---------- Back button ---------- */
-        .help-page .back-btn {
-            position: fixed;
-            top: 1rem;
-            left: 66rem;
+        /* ---------- Floating Top Bar & Back Button ---------- */
+        .help-page .top-nav {
+            position: sticky;
+            top: 0;
             z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            background: rgba(10, 10, 14, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .help-page .nav-brand {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--text);
+        }
+        .help-page .nav-brand span { color: var(--accent); }
+
+        .help-page .back-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.4rem 1.1rem;
-            background: rgba(10, 10, 15, 0.85);
-            color: var(--gold);
-            border: 1px solid rgba(218, 165, 32, 0.5);
+            padding: 0.45rem 1.2rem;
+            background: rgba(255, 162, 96, 0.12);
+            color: var(--accent);
+            border: 1px solid var(--border-accent);
             border-radius: 999px;
             font-family: var(--font-display);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-decoration: none;
             cursor: pointer;
-            backdrop-filter: blur(6px);
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
+        }
+
+        .help-page a:focus-visible,
+        .help-page button:focus-visible {
+            outline: 2px solid var(--accent-bright);
+            outline-offset: 3px;
         }
 
         .help-page .back-btn:hover,
         .help-page .back-btn:focus-visible {
-            background: var(--gold);
-            color: var(--bg-dark);
-            box-shadow: 0 0 18px rgba(218, 165, 32, 0.45);
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 18px rgba(255, 162, 96, 0.45);
             outline: none;
         }
 
-        /* ---------- Header ---------- */
+        /* ---------- Hero Header ---------- */
         .help-page .header {
             text-align: center;
-            margin: 3.5rem 0 3rem;
-            padding-bottom: 2rem;
-            background: rgba(0, 0, 0, 0.5);
-            border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(145deg, rgba(255, 162, 96, 0.08) 0%, rgba(15, 15, 20, 0.7) 100%);
+            border: 1px solid var(--border-accent);
+            border-radius: 16px;
+        }
+
+        .help-page .version-pill {
+            display: inline-block;
+            padding: 0.25rem 0.9rem;
+            margin-bottom: 0.85rem;
+            background: rgba(46, 204, 113, 0.15);
+            color: var(--success);
+            border: 1px solid rgba(46, 204, 113, 0.35);
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .help-page h1 {
             font-family: var(--font-display);
-            font-size: 3rem;
+            font-size: 2.6rem;
             font-weight: 900;
             letter-spacing: 2px;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent) 60%, var(--gold-light) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .help-page .subtitle {
-            color: #dad9d9;
+            color: var(--text-muted);
             font-size: 1rem;
-            letter-spacing: 1px;
-            margin: 0;
+            font-weight: 400;
         }
 
         /* ---------- Sections ---------- */
         .help-page .section {
+            scroll-margin-top: 6rem;
             background: var(--panel);
-            border: 1px solid rgba(218, 165, 32, 0.2);
-            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
             padding: 2rem;
-            margin-bottom: 2rem;
-            transition: border-color 0.3s ease;
+            margin-bottom: 1.75rem;
+            transition: border-color 0.25s ease;
         }
 
-        .help-page .section:hover { border-color: rgba(218, 165, 32, 0.4); }
+        .help-page .section:hover {
+            border-color: var(--border-accent);
+        }
 
         .help-page h2 {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--accent);
+            padding-bottom: 0.85rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255, 162, 96, 0.25);
+            text-transform: uppercase;
         }
-
-        .help-page h2 .icon { font-size: 2rem; }
 
         .help-page h3 {
             font-family: var(--font-display);
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             color: var(--gold-light);
-            margin: 1.5rem 0 0.75rem;
+            margin: 1.4rem 0 0.65rem;
+            letter-spacing: 0.5px;
+        }
+
+        .help-page h4 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--accent-bright);
+            margin: 1rem 0 0.35rem;
+            letter-spacing: 0.4px;
         }
 
         .help-page p {
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            margin-bottom: 0.9rem;
         }
 
-        /* ---------- Feature grid ---------- */
-        .help-page .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        .help-page ul {
+            list-style: none;
+            margin: 0.6rem 0 1rem 0.5rem;
         }
 
-        .help-page .feature-card {
-            background: rgba(10, 10, 15, 0.6);
-            border: 1px solid rgba(218, 165, 32, 0.2);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .help-page .feature-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(218, 165, 32, 0.2);
-        }
-
-        .help-page .feature-card h4 {
-            font-family: var(--font-display);
-            font-size: 1rem;
-            color: var(--gold);
+        .help-page ul li {
+            position: relative;
+            padding-left: 1.25rem;
             margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.92rem;
         }
 
-        .help-page .feature-card p {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            margin: 0;
+        .help-page ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
         }
 
-        /* ---------- Tip & warning boxes ---------- */
-        .help-page .tip-box {
-            background: rgba(218, 165, 32, 0.1);
-            border-left: 4px solid var(--gold);
-            border-radius: 4px;
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .help-page .tip-box strong { color: var(--gold-light); }
-
-        .help-page .warning {
-            background: rgba(255, 85, 85, 0.1);
-            border-left: 4px solid var(--danger);
-            border-radius: 4px;
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            color: #ffaaaa;
-        }
-
-        /* ---------- Numbered steps ---------- */
+        /* ---------- Step Lists ---------- */
         .help-page .step-list {
             list-style: none;
             counter-reset: step-counter;
-            margin: 1.5rem 0;
+            margin: 1.25rem 0;
         }
 
         .help-page .step-list li {
             counter-increment: step-counter;
             position: relative;
-            margin-bottom: 1.5rem;
-            padding-left: 3rem;
+            margin-bottom: 1.1rem;
+            padding: 0.9rem 1.1rem 0.9rem 3.4rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
             color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
 
         .help-page .step-list li::before {
             content: counter(step-counter);
             position: absolute;
-            left: 0;
-            top: 0;
+            left: 1rem;
+            top: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2rem;
-            height: 2rem;
+            width: 1.75rem;
+            height: 1.75rem;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-            color: var(--bg-dark);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--gold) 100%);
+            color: #000;
             font-family: var(--font-display);
-            font-weight: 700;
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+
+        .help-page .step-list li > strong:first-child {
+            display: block;
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 0.35rem;
         }
 
         .help-page .step-list li strong {
-            display: block;
-            color: var(--text);
+            display: inline;
+            color: var(--accent-bright);
+            font-weight: 600;
         }
 
-        /* ---------- FAQ ---------- */
+        .help-page .step-list li ul {
+            margin: 0.45rem 0 0 0;
+        }
+
+        .help-page .step-list li ul li {
+            counter-increment: none;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0 0 0 1.15rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .help-page .step-list li ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: auto;
+            height: auto;
+            background: none;
+            color: var(--accent);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        /* ---------- Feature Grid ---------- */
+        .help-page .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.15rem;
+            margin-top: 1.25rem;
+        }
+
+        .help-page .feature-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.25rem;
+            min-width: 0;
+            transition: all 0.25s ease;
+        }
+
+        .help-page .feature-card:hover {
+            border-color: var(--accent);
+            background: rgba(255, 162, 96, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .help-page .feature-card h4 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--accent-bright);
+            margin: 0 0 0.45rem 0;
+            letter-spacing: 0.5px;
+        }
+
+        .help-page .feature-card p {
+            font-size: 0.86rem;
+            color: var(--text-dim);
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        /* ---------- Callout Boxes ---------- */
+        .help-page .tip-box {
+            background: rgba(255, 162, 96, 0.08);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.35rem;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .help-page .tip-box strong { color: var(--accent-bright); }
+
+        .help-page .warning-box {
+            background: rgba(255, 107, 107, 0.09);
+            border-left: 4px solid var(--danger);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.35rem;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+            color: #ffcccc;
+        }
+
+        .help-page .warning-box strong { color: #ff8787; }
+
+        /* ---------- Code / Notecard Block ---------- */
+        .help-page .code-block {
+            background: rgba(0, 0, 0, 0.55);
+            border: 1px solid rgba(255, 162, 96, 0.25);
+            border-radius: 8px;
+            padding: 0.9rem 1.15rem;
+            margin: 0.85rem 0;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        /* ---------- FAQ / Troubleshooting ---------- */
         .help-page .faq-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.15rem;
+            padding-bottom: 1.15rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .help-page .faq-item:last-child {
@@ -272,359 +408,501 @@
         }
 
         .help-page .faq-question {
-            color: var(--gold-light);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            color: var(--accent-bright);
+            font-weight: 600;
+            font-size: 0.96rem;
+            margin-bottom: 0.35rem;
         }
 
         .help-page .faq-answer {
             color: var(--text-dim);
-            padding-left: 1.5rem;
-        }
-
-        .help-page .faq-answer ul {
-            list-style: none;
-            margin-top: 0.5rem;
-        }
-
-        .help-page .faq-answer li::before {
-            content: "• ";
-            color: var(--gold);
+            font-size: 0.9rem;
+            padding-left: 1.1rem;
         }
 
         /* ---------- Badges ---------- */
+        .help-page .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.75rem 0 1.25rem;
+        }
+
         .help-page .badge {
-            display: inline-block;
-            margin: 0.25rem;
-            padding: 0.25rem 0.75rem;
-            background: rgba(218, 165, 32, 0.2);
-            color: var(--gold);
-            border: 1px solid rgba(218, 165, 32, 0.3);
-            border-radius: 20px;
-            font-size: 0.75rem;
+            padding: 0.35rem 0.85rem;
+            background: rgba(255, 162, 96, 0.1);
+            color: var(--accent-bright);
+            border: 1px solid rgba(255, 162, 96, 0.3);
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 500;
         }
 
         /* ---------- Footer ---------- */
         .help-page .footer {
             text-align: center;
-            padding: 1rem 0 2rem;
+            padding: 1.75rem 1rem;
+            margin-top: 1rem;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
         }
 
         .help-page .footer p {
-            color: #dedada;
+            color: var(--text-dim);
             font-size: 0.85rem;
-            margin: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 0.35rem;
         }
 
-        /* ---------- Responsive ---------- */
-        @media (max-width: 768px) {
-            .help-page h1 { font-size: 2rem; }
-            .help-page h2 { font-size: 1.4rem; }
-            .help-page .container { padding: 1rem; }
-            .help-page .section { padding: 1.5rem; }
-            .help-page .header { margin-top: 4rem; }
+        .help-page .footer .creator {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- Responsive layout & accessibility ---------- */
+        .help-page .toc {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 0.65rem;
+            margin: 0 0 1.75rem;
+            padding: 1.25rem;
+            background: var(--panel);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+        }
+        .help-page .toc-title {
+            grid-column: 1 / -1;
+            color: var(--accent-bright);
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .help-page .toc a {
+            display: block;
+            padding: 0.65rem 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.86rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.025);
+            transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+        .help-page .toc a:hover {
+            color: var(--accent-bright);
+            border-color: var(--border-accent);
+            background: rgba(255, 162, 96, 0.06);
+        }
+        .help-page .section p:last-child { margin-bottom: 0; }
+
+        @media (max-width: 700px) {
+            .help-page {
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+                border-left: 0;
+                border-right: 0;
+            }
+            .help-page .top-nav {
+                padding: 0.85rem 1rem;
+                gap: 0.75rem;
+            }
+            .help-page .nav-brand {
+                font-size: 0.72rem;
+                letter-spacing: 0.8px;
+            }
+            .help-page .back-btn {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.68rem;
+                white-space: nowrap;
+            }
+            .help-page .container {
+                padding: 1rem 1rem 2rem;
+            }
+            .help-page .header {
+                padding: 1.75rem 1rem;
+                margin-bottom: 1.25rem;
+            }
+            .help-page h1 { font-size: clamp(1.65rem, 8vw, 2.3rem); }
+            .help-page .subtitle { font-size: 0.9rem; }
+            .help-page .section {
+                padding: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            .help-page h2 {
+                font-size: 1rem;
+                line-height: 1.45;
+            }
+            .help-page .step-list li {
+                padding: 0.85rem 0.85rem 0.85rem 3rem;
+            }
+            .help-page .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .help-page .toc {
+                grid-template-columns: 1fr 1fr;
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 380px) {
+            .help-page .toc { grid-template-columns: 1fr; }
+            .help-page .nav-brand { max-width: 55%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .help-page *,
+            .help-page *::before,
+            .help-page *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 <body>
 <div class="help-page">
-    <a href="#" id="backBtn" class="back-btn" aria-label="Go back">&larr; Back</a>
+    <!-- Sticky Navigation Bar -->
+    <div class="top-nav">
+        <div class="nav-brand">THE-FRAME TV <span>// USER GUIDE</span></div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <a aria-label="Back to top" class="back-btn" href="#" id="topBtn">TOP &uarr;</a>
+            <a aria-label="Go back" class="back-btn" href="#" id="backBtn">&larr; BACK TO MENU</a>
+        </div>
+    </div>
 
     <div class="container">
-
+        <!-- Hero Header -->
         <header class="header">
+            <div class="version-pill">Premium Edition V4.1 &bull; Full Access</div>
             <h1>📺 THE-FRAME TV</h1>
-            <p class="subtitle">Your Interactive Multi-Room Entertainment Hub</p>
+            <p class="subtitle">Looks, Feels, and Works Like a Real TV — Complete Setup &amp; User Manual</p>
         </header>
 
-        <!-- WELCOME -->
-        <section class="section">
-            <h2><span class="icon">👋</span> Welcome!</h2>
-            <p>Welcome to TheFrame TV - your all-in-one interactive media and entertainment center for Second Life! Stream YouTube videos, listen to drop-free proxy radio stations, share live gameplay via WebRTC, display Flickr galleries, and play real-time socket multiplayer games with friends in your parcel.</p>
-            <div class="tip-box">
-                <strong>💡 First Time Here?</strong> Simply click the TV screen in Second Life to establish an LSL Handshake and launch the UI! The menu is simple and intuitive - everything you need is one click away.
-            </div>
-        </section>
+        <!-- Quick Navigation -->
+        <nav aria-label="Manual contents" class="toc">
+            <div class="toc-title">Quick Navigation</div>
+            <a href="#viewer-preferences">1. Viewer Preferences</a>
+            <a href="#power-navigation">2. Power &amp; Controls</a>
+            <a href="#main-menu">3. Main Menu &amp; Apps</a>
+            <a href="#shared-sync">4. Shared Sync, Kosmi &amp; CyTube</a>
+            <a href="#slideshows">5. Picture Slideshows</a>
+            <a href="#setup-workflow">6. TV Setup &amp; Settings</a>
+            <a href="#troubleshooting">7. Troubleshooting</a>
+            <a href="#tech-specs">8. Tech Specs</a>
+            <a href="#disclaimer">9. Disclaimer</a>
+        </nav>
 
-        <!-- HOW TO USE -->
-        <section class="section">
-            <h2><span class="icon">🎮</span> How to Use</h2>
+        <div class="tip-box" role="note">
+            <strong>How to use this guide:</strong> Start with Viewer Media Preferences, then follow the sections in order. If you need help with a specific feature, use Quick Navigation to jump directly to that section.
+        </div>
 
-            <h3>Getting Started</h3>
+        <!-- 1. VIEWER PREFERENCES -->
+        <section class="section" id="viewer-preferences">
+            <h2><span>⚠️</span> 1. Viewer Media Preferences</h2>
+            <p>Before powering on your TV, ensure your Second Life viewer is configured to play shared media properly. In <strong>Firestorm</strong> (or your preferred viewer), navigate to <strong>Preferences &rarr; Sound &amp; Media &rarr; Media</strong> and verify:</p>
             <ol class="step-list">
-                <li><strong>Click the TV Prim</strong>Initiates the secure LSL Handshake and loads the main system menu.</li>
-                <li><strong>Select Media or Game Mode</strong>Pick from YouTube, Music, Radio, WebRTC Streaming, Flickr, or Multiplayer Games.</li>
-                <li><strong>Enjoy Synchronized Playback</strong>Content streams seamlessly and synchronizes in real time for everyone in the room.</li>
+                <li><strong>Toggle Media Auto-Play to ENABLE</strong>Ensures streams and menus launch automatically when powered on.</li>
+                <li><strong>Check "Allow Inworld Scripts to Play Media"</strong>Required for the TV's LSL handshake and screen synchronization.</li>
+                <li><strong>Check "Play Media Attached to Other Avatars"</strong>Ensures full compatibility across shared media surfaces and rooms.</li>
             </ol>
+        </section>
 
-            <h3>Multi-Room State Synchronization</h3>
-            <p>Powered by Socket.IO, when someone changes a song, video, or starts a multiplayer game round, <strong>everyone connected to that room sees the exact same state in real time</strong>. It's like watching TV together!</p>
+        <!-- 2. POWERING ON & NAVIGATION -->
+        <section class="section" id="power-navigation">
+            <h2><span>📺</span> 2. Powering On &amp; Basic Controls</h2>
+            <p>Click the <strong>TV Power button</strong> to establish a secure connection with the server. Within a few seconds, the Main Menu featuring all 12 entertainment apps will appear on screen.</p>
 
             <div class="tip-box">
-                <strong>💡 Pro Tip:</strong> Neighboring parcels are isolated into separate channels so your playback won't interfere with adjacent land! Some venues may also restrict control to specific users or staff. If you can't change channels, enjoy the content being shared!
+                <strong>💡 Quick Navigation Tips:</strong><br/>
+                &bull; <strong>Back Button:</strong> When watching a video, click anywhere on the screen or top edge to reveal a Back/Sync button.<br/>
+                &bull; <strong>Close Pages:</strong> Look for the <strong>&times;</strong> icon in the top corners to exit apps or settings.<br/>
+                &bull; <strong>Top Bar:</strong> On several views, check the top row for extra search, room, or wallpaper options.
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Menu Fails to Load in 30 Seconds?</strong><br/>
+                Double-check your viewer media preferences above, verify you can play media on other devices, or try rezzing the TV on another parcel/sandbox. For personal assistance, send an in-world notecard to <strong>pedrosilva2014</strong>.
             </div>
         </section>
 
-        <!-- FEATURES -->
-        <section class="section">
-            <h2><span class="icon">✨</span> What's Available</h2>
+        <!-- 3. SURFING THE MAIN MENU -->
+        <section class="section" id="main-menu">
+            <h2><span>✨</span> 3. Main Menu &amp; Entertainment Apps</h2>
+            <p>Powered by real-time Socket.IO synchronization, everyone connected to your TV room experiences the exact same playback and game states simultaneously.</p>
 
             <div class="feature-grid">
                 <div class="feature-card">
                     <h4>📺 YouTube</h4>
-                    <p>Watch any YouTube video. Search keyword tags, paste a link, or enter a Channel ID!</p>
+                    <p>Ad-free video player. Search any keyword, paste direct links, enter a Channel ID, or browse our curated playlists.</p>
                 </div>
                 <div class="feature-card">
                     <h4>🎵 Music</h4>
-                    <p>Stream music from various sources. Perfect for parties and events!</p>
+                    <p>Curated selection of YouTube music channels and mixes—ideal for background ambiance, parties, and venues.</p>
                 </div>
                 <div class="feature-card">
                     <h4>🎬 Movies</h4>
-                    <p>Browse and watch movies together. Great for movie nights!</p>
+                    <p>Browse selected YouTube movie channels for synchronized movie nights. (We do not host or stream copyrighted movies).</p>
                 </div>
                 <div class="feature-card">
-                    <h4>📻 Radio</h4>
-                    <p>Listen to live Shoutcast & Icecast stations from around the world, proxied to avoid HTTPS drops.</p>
+                    <h4>📻 Radios</h4>
+                    <p>Live global Shoutcast &amp; Icecast radio streams, proxied through our server to prevent HTTPS mixed-content drops.</p>
                 </div>
                 <div class="feature-card">
-                    <h4>📸 Flickr</h4>
-                    <p>Photo slideshows and explorer: search tags, inspect User/Group IDs, and set photos as TV wallpaper.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>📡 Live TV</h4>
-                    <p>Watch live television channels and streams.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>🎮 Games</h4>
-                    <p>Multiplayer games with others: Quiz Trivia, True/Myth, Who Am I?, This or That, and Chess!</p>
-                </div>
-                <div class="feature-card">
-                    <h4>🌐 Browser</h4>
-                    <p>Browse websites directly on the TV screen.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>🎥 Game Streaming</h4>
-                    <p>Watch live game streams and esports, or share your own screen with low-latency WebRTC.</p>
+                    <h4>🔒 XXX (Protected)</h4>
+                    <p>Adult content section protected by password. The default access password is <strong>slxxx</strong>.</p>
                 </div>
                 <div class="feature-card">
                     <h4>🗺️ Second Life</h4>
-                    <p>Explore destination guides and landmarks, and receive direct teleport SLURLs in chat.</p>
+                    <p>Explore the SL Destination Guide with photo previews and direct teleport SLURL buttons to visit featured lands.</p>
                 </div>
                 <div class="feature-card">
-                    <h4>📺 Watch Together</h4>
-                    <p>Synchronized viewing with Kosmi and CyTube platforms.</p>
+                    <h4>🎮 Games</h4>
+                    <p>Ad-free casual clip games and real-time socket multiplayer games (Quiz Trivia, True/Myth, Chess, and more) to play with friends.</p>
                 </div>
                 <div class="feature-card">
                     <h4>🎁 Freebies</h4>
-                    <p>Discover free items, hunts and content in Second Life.</p>
+                    <p>Up-to-date directory of Second Life freebies, hunts, and active store gifts.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📸 Flickr &amp; Slideshows</h4>
+                    <p>Explore Flickr tags/groups, set photos as TV background wallpapers, or launch photo slideshows.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🤝 Party Share</h4>
+                    <p>Create and share synchronized rooms with friends, duplicate TV screens, or launch Kosmi &amp; CyTube watch parties.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🌐 Browsers</h4>
+                    <p>Curated links to popular web pages. <em>Tip: Enable the Nav Bar in Security settings first to get a browser Back button.</em></p>
+                </div>
+                <div class="feature-card">
+                    <h4>🎥 Live TV &amp; WebRTC</h4>
+                    <p>Watch live streams or share your own screen/gameplay with ultra-low latency WebRTC peer-to-peer streaming.</p>
                 </div>
             </div>
 
             <div class="tip-box">
-                <strong>🔒 Protected Access:</strong> Adult and restricted content is password-protected. Ask the venue owner for the password.
+                <strong>💡 Party Share Tip:</strong> Explore the Party Share app in the main menu to connect with friends and host collaborative watch sessions!
             </div>
         </section>
 
-        <!-- WATCH TOGETHER -->
-        <section class="section">
-            <h2><span class="icon">🤝</span> Watch Together</h2>
-            <p>The Watch Together feature gives you synchronized viewing options:</p>
+        <!-- 4. SHARED SYNC VIEW, KOSMI & CYTUBE -->
+        <section class="section" id="shared-sync">
+            <h2><span>🤝</span> 4. Shared Sync View, Kosmi &amp; CyTube</h2>
+            <p>The-Frame TV is built for social environments and group entertainment. Through Party Share and real-time Socket.IO synchronization, you can effortlessly host watch parties.</p>
 
-            <h3>Built-in Sync System</h3>
-            <p>Our native streaming system with real-time synchronization. Perfect for live events and performances.</p>
-
-            <h3>Kosmi Integration</h3>
-            <p>Watch YouTube, Netflix, Prime Video together, plus screen sharing and built-in games. Great for movie nights!</p>
-
-            <h3>CyTube</h3>
-            <p>Join a CyTube channel for synchronized playback with other viewers.</p>
+            <h3>Built-in Real-Time Synchronization</h3>
+            <p>Party Share provides options for watching with other people. The built-in system synchronizes playback for viewers connected to the same TV room, ensuring everyone sees identical video and game states simultaneously.</p>
 
             <div class="tip-box">
-                <strong>💡 How it works:</strong> One person creates or joins a room, and everyone watches the same content at exactly the same time. It's like being in the same room watching the same screen!
+                <strong>💡 Shared Viewing Etiquette:</strong> When using a shared room, playback and game-state changes are visible to all connected viewers. Use a separate private room when you want an uninterrupted session.
+            </div>
+
+            <h3>External Watch Parties (Kosmi &amp; CyTube)</h3>
+            <p>In addition to the built-in sync engine, you can launch external watch parties directly from Party Share:</p>
+            <ul>
+                <li><strong>Kosmi Integration:</strong> Host virtual rooms with synchronized video playback, voice chat, and web browsing.</li>
+                <li><strong>CyTube Rooms:</strong> Queue media playlists and enjoy synchronized multi-user chat and broadcasting.</li>
+            </ul>
+
+            <h3>Sharing the TV with Others in Venues</h3>
+            <ul>
+                <li>Always ask before changing videos or channels if other guests are actively watching.</li>
+                <li>Choose media appropriate for the parcel's theme and audience.</li>
+                <li>If control is restricted, the parcel owner may have limited playback toggles exclusively to staff or owners.</li>
+            </ul>
+        </section>
+
+        <!-- 5. SL PICTURES SLIDESHOW (NATIVE & CUSTOM NOTECARD) -->
+        <section class="section" id="slideshows">
+            <h2><span>🖼️</span> 5. Picture Slideshows (Native &amp; Custom Notecard)</h2>
+            <p>In addition to Flickr browsing, your TV includes a dedicated Picture Slideshow mode supporting both built-in galleries and your own personal Second Life textures.</p>
+
+            <h3>A. Native TV Slideshow</h3>
+            <p>Open the Slideshow view from the menu to play a curated gallery of high-resolution visuals automatically. Use the on-screen controls to pause, skip forward/backward, or adjust the transition interval between slides.</p>
+
+            <h3>B. Custom Notecard Slideshow</h3>
+            <p>Display your own Second Life snapshots, store banners, or artwork by creating a custom slideshow notecard:</p>
+            <ol class="step-list">
+                <li><strong>Create a New Notecard</strong>In your Second Life inventory, create a new notecard (e.g., <em>My Slideshow</em>).</li>
+                <li><strong>Paste Your Texture UUIDs</strong>Right-click your full-perm textures in inventory, select <em>Copy Asset UUID</em>, and paste one UUID per line inside the notecard, then click <strong>Save</strong>.</li>
+                <li><strong>Drop Into the TV Contents</strong>Right-click the TV in-world &rarr; <strong>Edit</strong> &rarr; open the <strong>Contents</strong> tab, and drag your saved notecard inside. Select your notecard in the TV Slideshow menu to start displaying your custom album!</li>
+            </ol>
+            <div class="code-block">
+                Example Notecard Format (one UUID per line):<br/>
+                369104f6-cb0e-4920-a41a-ac2f8c42337e<br/>
+                21d7c8a9-28c5-f436-083d-2b7d0d594dec<br/>
+                704acfcc-dade-771a-c943-c295b464e2d9
             </div>
         </section>
 
-        <!-- SETTINGS -->
-        <section class="section">
-            <h2><span class="icon">🛠️</span> On-Screen Settings</h2>
-            <p>Customize how your TV looks and behaves from the On Screen Settings panel. Each tab has its own controls, and most tabs include a reset button (Factory Default or Reset Lights to Normal).</p>
+        <!-- 6. ON-SCREEN SETTINGS & SETUP WORKFLOW -->
+        <section class="section" id="setup-workflow">
+            <h2><span>🛠️</span> 6. Step-by-Step TV Setup &amp; Settings Flow</h2>
+            <p>Click the <strong>Settings / Gear button</strong> at the bottom of the Main Menu to open the configuration panel. Follow the steps in order to tailor your TV to your space:</p>
 
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4>🎨 Design & Style</h4>
-                    <p>Pick a stand model, TV texture and back color. Set stand or wall mode, adjust back and webscreen transparency, and show or hide the frame.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>📐 Shape & Size</h4>
-                    <p>Scale the TV in 1% to 20% steps or use the House, Outside and Cinema presets. Choose an aspect ratio from 1:1 up to 32:9 ultrawide.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>💡 Ambilight & Neon</h4>
-                    <p>Switch the light and neon on, off or cycle them. Set the mood (Active, Normal, Cozy), glow color, intensity, range, fall and glow.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>🔒 Security & Alarm</h4>
-                    <p>Enable the house alarm, lock the TV to the owner, and show or hide the navigation bar.</p>
-                </div>
-            </div>
-
-            <div class="tip-box">
-                <strong>💡 Lock TV:</strong> Locking the TV restricts browser access and playback controls exclusively to the device owner.
-            </div>
-        </section>
-
-        <!-- TIPS -->
-        <section class="section">
-            <h2><span class="icon">💡</span> Tips & Tricks</h2>
-
-            <div class="faq-item">
-                <div class="faq-question">🎯 Best Viewing Experience</div>
-                <div class="faq-answer">Position your camera to face the TV screen directly. Use Alt+Click to zoom in for a better view!</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">🎛️ Viewer Setup & Sound Preferences</div>
-                <div class="faq-answer">
-                    In Firestorm, go to <strong>Preferences → Sound & Media → Media</strong> and enable:
+            <ol class="step-list">
+                <li>
+                    <strong>Unlock Settings (If Protected)</strong>
+                    If password protection is active, enter the server settings password listed in your info notecard. <em>(If entered incorrectly, an Access Denied prompt will remind you to check your notecard).</em>
+                </li>
+                <li>
+                    <strong>Step 1 — Design &amp; Style (Hardware Look)</strong>
                     <ul>
-                        <li>Media Auto-Play</li>
-                        <li>Allow Inworld Scripts to Play Media</li>
-                        <li>Play Media Attached to Other Avatars</li>
+                        <li><strong>Stand Model:</strong> Choose between Model 1, Model 2, or Model 3.</li>
+                        <li><strong>TV Texture:</strong> Apply Carbon Fiber, Wood, Grey Stone, Dark Grey, Passerele, or Ivory White.</li>
+                        <li><strong>Mount Mode:</strong> Switch between Stand or Wall mount.</li>
+                        <li><strong>Back Color &amp; Alpha:</strong> Pick a back panel color and fine-tune Back / Webscreen transparency (0%&ndash;20%).</li>
+                        <li><strong>Frame Mode:</strong> Toggle the outer bezel frame (Show / Hide).</li>
                     </ul>
-                    In other viewers, enable "Play media attached to primitives" under Preferences → Sound & Media.
-                </div>
-            </div>
+                </li>
+                <li>
+                    <strong>Step 2 — Shape &amp; Size (Dimensions &amp; Ratio)</strong>
+                    <ul>
+                        <li><strong>Manual Scale:</strong> Resize the TV in precise steps from <strong>&minus;20% to +20%</strong>.</li>
+                        <li><strong>Environment Presets:</strong> Apply one-click sizing for <strong>House</strong>, <strong>Outside</strong>, or <strong>Cinema</strong>.</li>
+                        <li><strong>Aspect Ratios:</strong> Switch from 1:1 Square up to 16:9 Full HD, 21:9 Cinema Scope, or 32:9 Dual Ultrawide.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Step 3 — Ambilight &amp; Neon (Lighting &amp; Mood)</strong>
+                    <ul>
+                        <li><strong>Light &amp; Neon Mode:</strong> Set backlights and neon accents to <strong>Off</strong>, <strong>On</strong>, or <strong>Color Cycle</strong>.</li>
+                        <li><strong>Mood Presets:</strong> Apply quick lighting profiles (<strong>Active</strong>, <strong>Normal</strong>, or <strong>Cozy</strong>).</li>
+                        <li><strong>Fine Tuning:</strong> Customize glow color, cycle speed, intensity, range, falloff, and glow level.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Step 4 — Security &amp; Alarm (Access &amp; Protection)</strong>
+                    <ul>
+                        <li><strong>House Alarm:</strong> Enable or disable the proximity security alarm.</li>
+                        <li><strong>Sensor Range:</strong> Set detection radius in meters (<strong>1m&ndash;50m</strong>).</li>
+                        <li><strong>Lock TV:</strong> Restrict power and playback controls exclusively to the owner.</li>
+                        <li><strong>Navigation Bar:</strong> Show or hide the Second Life browser navigation bar.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Step 5 — System Maintenance &amp; Resets</strong>
+                    <ul>
+                        <li><strong>Default Settings / Factory Default:</strong> Restore original parameters (protected by a confirmation modal).</li>
+                        <li><strong>Reset Scripts:</strong> Restart internal scripts to clear lag or refresh state.</li>
+                        <li><strong>Password Protection:</strong> Toggle the settings access password on or off.</li>
+                        <li><strong>Delete TV:</strong> Safely remove the TV object from your parcel (with confirmation prompt).</li>
+                    </ul>
+                </li>
+            </ol>
 
-            <div class="faq-item">
-                <div class="faq-question">🔊 No Sound or Stream Interrupted?</div>
-                <div class="faq-answer">Ensure media is unmuted in your viewer top toolbar and check your system volume. If audio drops, our Node.js server automatically proxies audio streams to prevent HTTPS mixed-content blockages.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">⚡ Laggy Video?</div>
-                <div class="faq-answer">Lower your graphics settings or move closer to the TV. The TV streams at 1280x720 resolution for optimal performance.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">🌐 Browser Not Loading?</div>
-                <div class="faq-answer">Some viewers have stricter security settings. Try allowing the TV's URL in your viewer preferences under "Whitelist".</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">⚡ Out of Sync with Room Viewers?</div>
-                <div class="faq-answer">Hover at the top edge of the TV screen and click the 'Back' or 'Sync' button to realign your Socket.IO connection.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">👥 Multiple Viewers</div>
-                <div class="faq-answer">Everyone in the same "room" sees the same content. If you want a private viewing experience, make sure you're in a unique room ID.</div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">📱 Control from Anywhere</div>
-                <div class="faq-answer">Once you've opened the TV menu in your browser, you can control it even if you walk away from the TV object!</div>
-            </div>
-        </section>
-
-        <!-- TROUBLESHOOTING -->
-        <section class="section">
-            <h2><span class="icon">🔧</span> Troubleshooting</h2>
-
-            <h3>TV Screen is Black</h3>
-            <p><strong>Solution:</strong> Make sure "Play media attached to primitives" is enabled in your viewer settings. Right-click the TV and select "Play".</p>
-
-            <h3>Can't Click the TV</h3>
-            <p><strong>Solution:</strong> The TV might be locked to specific users. Contact the venue owner or staff.</p>
-
-            <h3>Menu Not Opening</h3>
-            <p><strong>Solution:</strong> Check if popups are blocked in your browser. Allow popups from this domain.</p>
-
-            <h3>Video Playing But No Picture</h3>
-            <p><strong>Solution:</strong> Refresh the TV by clicking it again. The source might have been removed or is unavailable.</p>
-
-            <h3>Out of Sync with Others</h3>
-            <p><strong>Solution:</strong> Refresh your browser or re-click the TV. You might be in a different room than other viewers.</p>
-
-            <div class="warning">
-                <strong>⚠️ Still Having Issues?</strong><br>
-                Contact the venue owner or staff. They can reset the TV system or help with specific configuration issues.
+            <div class="warning-box">
+                <strong>⚠️ Active Connection Required:</strong> On-screen settings require an active connection between the TV and the server. If controls become unresponsive, turn the TV <strong>Off and On again</strong> to reconnect.
             </div>
         </section>
 
-        <!-- TECHNICAL -->
-        <section class="section">
-            <h2><span class="icon">⚙️</span> Technical Information</h2>
+        <!-- 7. TROUBLESHOOTING & FAQ -->
+        <section class="section" id="troubleshooting">
+            <h2><span>🔧</span> 7. Troubleshooting &amp; FAQ</h2>
 
-            <h3>System Specs</h3>
-            <p>
-                <span class="badge">Resolution: 1280×720</span>
-                <span class="badge">Real-time Socket.IO Sync</span>
-                <span class="badge">Multi-room Support</span>
-                <span class="badge">Node.js Engine</span>
-                <span class="badge">WebRTC P2P</span>
-                <span class="badge">Anti-Hibernation System</span>
-            </p>
+            <div class="faq-item">
+                <div class="faq-question">⬛ TV Screen is Black or Menu Won't Load</div>
+                <div class="faq-answer">Ensure <strong>"Allow Inworld Scripts to Play Media"</strong> is checked in Viewer Preferences and that pop-ups are not blocked for the TV's page. Right-click the TV prim and select <strong>Play</strong>, or toggle the TV power button off and on.</div>
+            </div>
 
-            <h3>Supported Browsers</h3>
-            <p>The TV works best with modern browsers: Chrome, Firefox, Edge, Safari. Make sure your browser is up to date!</p>
+            <div class="faq-item">
+                <div class="faq-question">🔊 No Sound or Audio Drops</div>
+                <div class="faq-answer">Unmute media in the top-right corner of your viewer toolbar and verify your system volume. Our Node.js server automatically proxies streams to prevent HTTPS mixed-content drops.</div>
+            </div>
 
-            <h3>Second Life Viewers</h3>
-            <p>Fully compatible with Firestorm, Official Second Life Viewer, and all modern CEF/Chromium-based viewers supporting Media on a Prim (MOAP).</p>
+            <div class="faq-item">
+                <div class="faq-question">⚡ Out of Sync with Other Viewers</div>
+                <div class="faq-answer">Click the top edge of the TV screen and hit <strong>Back</strong> or <strong>Sync</strong> to realign your Socket.IO room session. Also verify that everyone is connected to the same TV room.</div>
+            </div>
 
-            <h3>Bandwidth Requirements</h3>
-            <p>For smooth streaming, we recommend at least 5 Mbps download speed. HD content may require more.</p>
+            <div class="faq-item">
+                <div class="faq-question">🌐 Browser Page Does Not Load</div>
+                <div class="faq-answer">Some viewers enforce stricter media security rules. If your viewer uses a media or URL whitelist, ensure the TV's page is allowed.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">🎬 Audio Plays, But Video Picture is Missing</div>
+                <div class="faq-answer">Reopen the app or toggle the TV Power button off and on to refresh the stream. If the issue persists, the original third-party source may have been removed or is temporarily offline.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">🐢 Video Playback is Laggy</div>
+                <div class="faq-answer">Lower your viewer's graphics settings or move closer to the TV. While the TV interface runs at <strong>1280&times;720</strong>, external HD streams may require additional bandwidth or GPU resources.</div>
+            </div>
         </section>
 
-        <!-- ETIQUETTE -->
-        <section class="section">
-            <h2><span class="icon">🤝</span> Viewing Etiquette</h2>
+        <!-- 8. SYSTEM TECHNICAL SPECIFICATIONS -->
+        <section class="section" id="tech-specs">
+            <h2><span>⚙️</span> 8. System Technical Specifications</h2>
+            <p>The-Frame TV is powered by an advanced architecture engineered specifically for Second Life performance and real-time multiplayer synchronization:</p>
+            
+            <div class="badge-group">
+                <span class="badge">1280&times;720 HD Interface</span>
+                <span class="badge">Real-Time Socket.IO Sync</span>
+                <span class="badge">Multi-Parcel Channel Isolation</span>
+                <span class="badge">Node.js Proxy Engine</span>
+                <span class="badge">WebRTC P2P Streaming</span>
+                <span class="badge">MOAP / CEF Compatible</span>
+            </div>
 
-            <p><strong>Be Respectful:</strong> Remember that what you play affects everyone watching! Choose content appropriate for the venue and audience.</p>
-            <p><strong>Ask Before Changing:</strong> If others are watching, it's polite to ask before changing the channel or video.</p>
-            <p><strong>Volume Awareness:</strong> Your system volume affects only you, but consider that others might have different volume preferences.</p>
-            <p><strong>Report Issues:</strong> If you encounter inappropriate content or technical problems, notify the venue staff.</p>
+            <div class="tip-box">
+                <strong>💡 Architecture Note:</strong> Our custom Node.js proxy engine and WebSocket handshake guarantee zero-lag state synchronization across viewers while preventing HTTPS mixed-content blocks.
+            </div>
+        </section>
+
+        <!-- 9. IMPORTANT DISCLAIMER -->
+        <section class="section" id="disclaimer">
+            <h2><span>📜</span> 9. Important Disclaimer</h2>
+            <p><strong>Media Streaming Notice:</strong> The-Frame TV does not store or host any media files on its servers; all audio and video content is streamed directly from the original third-party providers.</p>
+            <p>Because internet content providers frequently update or remove streams, available channels and links may change over time. We actively maintain and update the platform—feel free to send suggestions or feedback in-world!</p>
         </section>
 
         <!-- FOOTER -->
         <footer class="footer">
-            <p>
-                The-Frame TV Ecosystem<br>
-                Powered by Simpletech • Built for Second Life<br>
-                <span style="font-size: 16px;color: #daa520;"> For support, contact pedrosilva2014 in-world!</span><br>
-                Enjoy your entertainment experience!
-            </p>
+            <p><strong>THE-FRAME TV PREMIUM EDITION V4.1</strong> &bull; Built for Second Life</p>
+            <p class="creator">Questions or Personal Assistance? Send an in-world notecard to pedrosilva2014</p>
         </footer>
     </div>
 
     <script>
     (function () {
-        // Used only if the page is opened on its own (not inside the overlay).
         var FALLBACK_URL = '/';
-
         var btn = document.getElementById('backBtn');
-        if (!btn) return;
+        if (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
 
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
+                var overlay = document.getElementById('sub-content-overlay');
+                if (overlay) {
+                    overlay.innerHTML = '';
+                    overlay.style.display = 'none';
+                    var grid = document.getElementById('main-grid');
+                    if (grid) grid.style.display = '';
+                    return;
+                }
 
-            // Opened inside the main page: close the overlay and show the menu again.
-            var overlay = document.getElementById('sub-content-overlay');
-            if (overlay) {
-                overlay.innerHTML = '';
-                overlay.style.display = 'none';
-                var grid = document.getElementById('main-grid');
-                if (grid) grid.style.display = '';
-                return;
-            }
+                if (window.history.length > 1) {
+                    window.history.back();
+                } else {
+                    window.location.href = FALLBACK_URL;
+                }
+            });
+        }
 
-            // Opened standalone.
-            if (window.history.length > 1) {
-                window.history.back();
-            } else {
-                window.location.href = FALLBACK_URL;
-            }
-        });
+        var topBtn = document.getElementById('topBtn');
+        var helpPage = document.querySelector('.help-page');
+        if (topBtn && helpPage) {
+            topBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                helpPage.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     })();
     </script>
 </div>

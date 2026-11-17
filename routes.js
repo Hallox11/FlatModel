@@ -688,11 +688,18 @@ router.get('/', (req, res) => {
         clickerName = req.query.clicker;
     }
 
-    // Renderizar a página
-    res.render('pages/index', {
+    // 🔍 Obter o owner a partir do registo da TV em memória
+    let ownerName = '';
+    if (activeTvId && tvRegistry[activeTvId]) {
+        ownerName = tvRegistry[activeTvId].owner || '';
+    }
+
+    // Renderizar a página passando também o owner
+    res.render('pages/pages/index', {
         tvId: activeTvId,
         room,
-        clicker: clickerName
+        clicker: clickerName,
+        owner: ownerName
     });
 });
 
@@ -705,7 +712,36 @@ router.get('/', (req, res) => {
     router.get('/radios/inter-radio',   (req, res) => res.render('pages/radios/inter-radio'));
     router.get('/radios/pt',            (req, res) => res.render('pages/radios/pt'));
 
+/////////////////////////////////////////////////////////////////////////////
+// Define aqui a tua password dos settings fixa para todas as TVs
+// A password fixa para todas as TVs
+const SETTINGS_PASSWORD = "sltv"; 
 
+// Estado global para saber se a proteção está ligada (true por defeito)
+let isSettingsProtected = false; 
+
+// 1. Verificar se a proteção está ativa
+router.get('/api/settings-security-status', (req, res) => {
+    res.json({ enabled: isSettingsProtected });
+});
+
+// 2. Ligar ou Desligar a proteção através dos botões
+router.post('/api/toggle-settings-security', (req, res) => {
+    const { enabled } = req.body;
+    isSettingsProtected = !!enabled;
+    console.log(`[Security] Proteção por password nos settings: ${isSettingsProtected ? 'ATIVADA' : 'DESATIVADA'}`);
+    res.json({ success: true, enabled: isSettingsProtected });
+});
+
+// 3. Validar a password introduzida no modal
+router.post('/api/verify-settings-password', (req, res) => {
+    const { password } = req.body;
+    if (!isSettingsProtected || password === SETTINGS_PASSWORD) {
+        res.json({ success: true });
+    } else {
+        res.json({ success: false });
+    }
+});
     //////////////////////////////////////////////////////////////////////////
     // MUSIC
     router.get('/music-menu', (req, res) => res.render('pages/music/music-menu'));
@@ -860,6 +896,7 @@ router.get('/', (req, res) => {
 router.get('/settings', (req, res) => {
     // 1. Busca o ID gravado na sessão do navegador
     const tvId = req.session.activeTvId;
+    console.log(req.session.activeTvId)
 
     console.log(`[Settings] Sessão ID: ${req.sessionID} | TV Vinculada: ${tvId}`);
 

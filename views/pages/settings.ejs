@@ -188,7 +188,12 @@
         flex: 1;
         margin: 0;
     }
-
+/* Estilo para botões ativos/selecionados: mantém o fundo, foca na borda luminosa e no ponto */
+.btn1.active {
+    background: transparent !important; /* Mantém o fundo transparente/original */
+   
+    box-shadow: 0 0 10px rgba(218, 165, 32, 1); /* Brilho suave na borda */
+}
 </style>
 </head>
 <body>
@@ -239,7 +244,7 @@
             <div id="tab-frame" class="conteiner-col active">
                 <div class="sub-panel">
                     <p class="section-title">STAND MODEL</p>
-                    <button onclick="setActive('model',this);cmd('model','model1',this)" class="btn1" data-group="model">MODEL 1</button>
+                    <button onclick="setActive('model',this);cmd('model','model1',this)" class="btn1 active" data-group="model">MODEL 1</button>
                     <button onclick="setActive('model',this);cmd('model','model2',this)" class="btn1" data-group="model">MODEL 2</button>
                     <button onclick="setActive('model',this);cmd('model','model3',this)" class="btn1" data-group="model">MODEL 3</button>
 
@@ -247,7 +252,7 @@
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;margin-top: 0px;">
                         <button onclick="setActive('texture',this); cmd('texture','369104f6-cb0e-4920-a41a-ac2f8c42337e',this)" class="btn1" data-group="texture">GREY STONE</button>
                         <button onclick="setActive('texture',this); cmd('texture','<0.176, 0.176, 0.176>',this)"  class="btn1" data-group="texture">DARK GREY</button>
-                        <button onclick="setActive('texture',this); cmd('texture','21d7c8a9-28c5-f436-083d-2b7d0d594dec',this)"  class="btn1" data-group="texture">CARBON FIBER</button>
+                        <button onclick="setActive('texture',this); cmd('texture','21d7c8a9-28c5-f436-083d-2b7d0d594dec',this)"  class="btn1 active" data-group="texture">CARBON FIBER</button>
                         <button onclick="setActive('texture',this); cmd('texture','704acfcc-dade-771a-c943-c295b464e2d9',this)"  class="btn1" data-group="texture">WOOD</button>
                         <button onclick="setActive('texture',this); cmd('texture','e6a5d90c-fc7c-9f4c-ffa1-e4ba195ae3b1',this)"  class="btn1" data-group="texture">PASSERELE</button>
                         <button onclick="setActive('texture',this); cmd('texture','cb3163a9-ea39-de5e-d475-2a2ab0bff4b8',this)"  class="btn1" data-group="texture">IVORY WHITE</button>
@@ -255,14 +260,15 @@
 
                     <p class="section-title" style="margin-top:25px;">STAND MODE</p>
                     <div class="legs-row">
-                        <button onclick="setActive('legs',this); cmd('legs','show',this)" class="btn1" data-group="legs">STAND</button>
+                        <button onclick="setActive('legs',this); cmd('legs','show',this)" class="btn1 active" data-group="legs">STAND</button>
                         <button onclick="setActive('legs',this); cmd('legs','hide',this)" class="btn1" data-group="legs">WALL</button>
                     </div>
                 </div>
                 <div class="sub-panel">
                     <p class="section-title">BACK COLOR</p>
                     <div id="grid-back" class="color-grid-static" style="margin-top: 3px;">
-                        <div class="color-square" style="background:#1b1b1b;" onclick="cmd('back_color','<0.0,0.0,0.0>')"></div>
+                        <!-- O primeiro quadrado (Black) começa selecionado por defeito -->
+                        <div class="color-square selected" style="background:#1b1b1b;" onclick="cmd('back_color','<0.0,0.0,0.0>')"></div>
                         <div class="color-square" style="background:#302f2f;" onclick="cmd('back_color','<0.10,0.10,0.10>')"></div>
                         <div class="color-square" style="background:#2c3e50;" onclick="cmd('back_color','<0.17,0.24,0.31>')"></div>
                         <div class="color-square" style="background:#333333;" onclick="cmd('back_color','<0.20,0.20,0.20>')"></div>
@@ -278,26 +284,26 @@
 
                     <p class="section-title" style="margin-top: 25px;">Set Back Alpha</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px;margin-top: 4px;">
-                        <button onclick="cmd('back_alpha','0.0',this)" class="btn2">0%</button>
-                        <button onclick="cmd('back_alpha','0.1',this)" class="btn2">10%</button>
-                        <button onclick="cmd('back_alpha','0.2',this)" class="btn2">20%</button>
+                        <button onclick="setActive('back_alpha',this);cmd('back_alpha','0.0',this)" class="btn1 active" data-group="back_alpha">0%</button>
+                        <button onclick="setActive('back_alpha',this);cmd('back_alpha','0.1',this)" class="btn1" data-group="back_alpha">10%</button>
+                        <button onclick="setActive('back_alpha',this);cmd('back_alpha','0.2',this)" class="btn1" data-group="back_alpha">20%</button>
                     </div>
 
                     <p style="margin-top: 25px;" class="section-title">Webscreen Alpha</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px;margin-top: 4px;">
-                        <button onclick="cmd('web_alpha','0.0',this)" class="btn2">0%</button>
-                        <button onclick="cmd('web_alpha','0.1',this)" class="btn2">10%</button>
-                        <button onclick="cmd('web_alpha','0.2',this)" class="btn2">20%</button>
+                        <button onclick="setActive('web_alpha',this);cmd('web_alpha','0.0',this)" class="btn1" data-group="web_alpha">0%</button>
+                        <button onclick="setActive('web_alpha',this);cmd('web_alpha','0.1',this)" class="btn1" data-group="web_alpha">10%</button>
+                        <button onclick="setActive('web_alpha',this);cmd('web_alpha','0.2',this)" class="btn1 active" data-group="web_alpha">20%</button>
                     </div>
 
                     <p class="section-title" style="margin-top: 25px;">FRAME MODE</p>
                     <div class="legs-row">
-                        <button onclick="setActive('frame',this); cmd('frame','show',this)" class="btn1" data-group="frame">SHOW</button>
+                        <button onclick="setActive('frame',this); cmd('frame','show',this)" class="btn1 active" data-group="frame">SHOW</button>
                         <button onclick="setActive('frame',this); cmd('frame','hide',this)" class="btn1" data-group="frame">HIDE</button>
                     </div>
 
                     <div style="margin-top: auto;">
-                        <button onclick="cmd('reset','visual')" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
+                        <button onclick="askConfirm('Factory Default', 'Are you sure you want to restore factory default visual parameters?', () => cmd('reset','visual'))" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
                     </div>
                 </div>
             </div>
@@ -434,89 +440,183 @@
             </div>
 
             <!-- Tab 5: Security -->
-            <div id="tab-security" class="conteiner-col">
-                <div class="sub-panel" style="max-width: 600px; margin: 0 auto;">
-                    <p class="section-title">HOUSE ALARME</p>
-                    <div class="btn-group">
-                        <button onclick="setActive('alert',this);cmd('alert','off',this)" class="btn1" data-group="alert">DISABLE</button>
-                        <button onclick="setActive('alert',this);cmd('alert','on',this)" class="btn1 active" data-group="alert">ENABLE</button>
-                    </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
-                        Enables or disables real-time proximity alerts when someone approach your property.
-                    </p>
+<!-- Tab 5: Security -->
+<div id="tab-security" class="conteiner-col" style="width: 450px; margin: auto;">
+    <div class="sub-panel">
+        <p class="section-title">HOUSE ALARME</p>
+        
+        <div style="display: flex; gap: 10px; margin-bottom: 4px;">
+            <button onclick="selectButton(this); askConfirm('Disable House Alarm', 'Are you sure you want to disable the proximity alert?', () => cmd('alarm','disable',this))" class="btn1" style="flex: 1;">DISABLE</button>
+            <button onclick="selectButton(this); askConfirm('Enable House Alarm', 'Are you sure you want to enable the proximity alert?', () => cmd('alarm','enable',this))" class="btn1 active" style="flex: 1;">ENABLE</button>
+        </div>
+        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+            Enables or disables real-time proximity alerts when someone approach your property.
+        </p>
 
-                    <p class="section-title" style="margin-top: 20px;">SENSOR RANGE (METERS)</p>
-                    <div class="ctrl-row">
-                        <button class="btn-adj" onclick="adjustSensorRange(-1)">−</button>
-                        <div class="btn-value">
-                            <span class="val-pct" id="sensor-range-val">15m</span>
-                            <span class="val-sub">distance</span>
-                        </div>
-                        <button class="btn-adj" onclick="adjustSensorRange(1)">+</button>
-                    </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
-                        Adjusts the maximum radius in meters used to detect nearby avatars.
-                    </p>
-
-                    <p class="section-title" style="margin-top: 20px;">LOCK TV</p>
-                    <div class="btn-group">
-                        <button onclick="setActive('lock',this);cmd('lock','off',this)" class="btn1" data-group="lock">UNLOCK</button>
-                        <button onclick="setActive('lock',this);cmd('lock','on',this)" class="btn1 active" data-group="lock">LOCK</button>
-                    </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
-                        Restricts the use of the power button to the owner only or to everyone
-                    </p>
-
-                    <p class="section-title" style="margin-top: 20px;">NAV BAR</p>
-                    <div class="btn-group">
-                        <button onclick="setActive('nav',this);cmd('browser','hide',this)" class="btn1 active" data-group="nav">HIDE</button>
-                        <button onclick="setActive('nav',this);cmd('browser','show',this)" class="btn1" data-group="nav">SHOW</button>
-                    </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
-                        Hides or shows the SL Browser navigation bar, useful to navigate external sites.
-                    </p>
-                </div>
+        <p class="section-title" style="margin-top: 10px;">SENSOR RANGE (METERS)</p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 10px 0 6px 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px;">
+            <button onclick="cmd('range','dec',this)" class="ss-time-btn" style="padding: 6px 16px; font-size: 1.2rem;">-</button>
+            <div style="text-align: center; min-width: 80px;">
+                <span id="range-display" style="font-size: 1.2rem; font-weight: 600; color: #daa520;">15m</span>
+                <div style="font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px;">Distance</div>
             </div>
+            <button onclick="cmd('range','inc',this)" class="ss-time-btn" style="padding: 6px 16px; font-size: 1.2rem;">+</button>
+        </div>
+        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+            Adjusts the maximum radius in meters used to detect nearby avatars.
+        </p>
+
+        <p class="section-title">LOCK TV</p>
+        <div style="display: flex; gap: 10px; margin-bottom: 4px;">
+            <button onclick="selectButton(this); askConfirm('Unlock TV', 'Allow everyone to use the power button?', () => cmd('lock','unlock',this))" class="btn1" style="flex: 1;">UNLOCK</button>
+            <button onclick="selectButton(this); askConfirm('Lock TV', 'Restrict the use of the power button to the owner only?', () => cmd('lock','lock',this))" class="btn1 active" style="flex: 1;">LOCK</button>
+        </div>
+        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+            Restricts the use of the power button to the owner only or to everyone.
+        </p>
+
+        <p class="section-title">NAV BAR</p>
+        <div style="display: flex; gap: 10px; margin-bottom: 4px;">
+            <button onclick="selectButton(this); askConfirm('Hide Navigation Bar', 'Hide the SL Browser navigation bar?', () => cmd('navbar','hide',this))" class="btn1 active" style="flex: 1;">HIDE</button>
+            <button onclick="selectButton(this); askConfirm('Show Navigation Bar', 'Show the SL Browser navigation bar?', () => cmd('navbar','show',this))" class="btn1" style="flex: 1;">SHOW</button>
+        </div>
+        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
+            Hides or shows the SL Browser navigation bar, useful to navigate external sites.
+        </p>
+    </div>
+</div>
 
             <!-- Tab 6: System -->
-            <div id="tab-system" class="conteiner-col" style="width: 450px; margin: auto;">
-                <div class="sub-panel">
-                    <p class="section-title">SYSTEM ACTIONS</p>
-                    
-                    <button onclick="cmd('default_settings','reset',this)" class="btn1">DEFAULT SETTING</button>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
-                        Restores factory default visual parameters and layout configurations.
-                    </p>
+<div id="tab-system" class="conteiner-col" style="width: 450px; margin: auto;">
+    <div class="sub-panel">
+        <p class="section-title">SYSTEM ACTIONS</p>
+        
+        <button onclick="askConfirm('Default Settings', 'Restore factory default visual parameters and layout configurations?', () => cmd('default_settings','reset',this))" class="btn1">DEFAULT SETTING</button>
+        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+            Restores factory default visual parameters and layout configurations.
+        </p>
 
-                    <button onclick="cmd('fullreset','',this)" class="btn1">RESET SCRIPTS</button>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
-                        Restarts all scripts to resolve state lag or communication errors.
-                    </p>
+        <button onclick="askConfirm('Reset Scripts', 'Restart all scripts to resolve state lag or communication errors?', () => cmd('fullreset','',this))" class="btn1">RESET SCRIPTS</button>
+        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+            Restarts all scripts to resolve state lag or communication errors.
+        </p>
 
-                    <button onclick="cmd('kill','',this)" class="btn1" style="border-color: rgba(255,107,107,0.4); color: #ff6b6b;">DELETE TV</button>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
-                        Permanently deletes this TV object from the region.
-                    </p>
-                </div>
-            </div>
+        <button onclick="askConfirm('Enable Password Protection', 'Require the hardcoded password to access settings?', setSettingsProtection(true))" class="btn1" style="border-color: rgba(78,205,196,0.4); color: #4ecdc4;">ENABLE PASSWORD</button>
+        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+            Requires the hardcoded password to access settings.
+        </p>
+
+        <button onclick="askConfirm('Disable Password Protection', 'Remove password check when opening settings?', setSettingsProtection(false))" class="btn1" style="border-color: rgba(255,179,71,0.4); color: #ffb347;">DISABLE PASSWORD</button>
+        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+            Removes password check when opening settings.
+        </p>
+
+        <button onclick="askConfirm('Delete TV', 'Permanently delete this TV object from the region?', () => cmd('kill','',this))" class="btn1" style="border-color: rgba(255,107,107,0.4); color: #ff6b6b;">DELETE TV</button>
+        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
+            Permanently deletes this TV object from the region.
+        </p>
+    </div>
+</div>
 
         </div>
     </div>
 </div>
 
+<!-- Modal Genérico de Confirmação para System Actions -->
+<div id="systemConfirmModal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 9999;">
+    <div class="modal-content" style="background: #1a1a1a; padding: 25px; border-radius: 8px; text-align: center; width: 340px; border: 1px solid #444;">
+        <h3 id="confirmModalTitle" style="color: #fff; margin-bottom: 10px;">⚠️ Confirm Action</h3>
+        <p id="confirmModalText" style="color: #aaa; font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
+            Are you sure you want to perform this action?
+        </p>
+        <div style="display: flex; justify-content: center; gap: 10px;">
+            <button id="confirmModalYesBtn" style="padding: 8px 16px; background: #c0392b; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; text-transform: uppercase;">Yes</button>
+            <button onclick="closeSystemConfirmModal()" style="padding: 8px 16px; background: #555; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; text-transform: uppercase;">Cancel</button>
+        </div>
+    </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+(function() {
+    let pendingAction = null;
 
+    window.askConfirm = function(title, text, actionCallback) {
+        const modal = document.getElementById('systemConfirmModal');
+        const titleEl = document.getElementById('confirmModalTitle');
+        const textEl = document.getElementById('confirmModalText');
+        const yesBtn = document.getElementById('confirmModalYesBtn');
 
-////////////////////////////////////////////////
-    function switchTab(tabId, el) {
+        if (titleEl) titleEl.textContent = title;
+        if (textEl) textEl.textContent = text;
+        
+        pendingAction = actionCallback;
+console.log("Action: ", actionCallback);
+
+        if (modal) modal.style.display = 'flex';
+
+        if (yesBtn) {
+            yesBtn.onclick = () => {
+                window.closeSystemConfirmModal();
+                if (typeof pendingAction === 'function') {
+                    pendingAction();
+                }
+            };
+        }
+    };
+
+    window.closeSystemConfirmModal = function() {
+        const modal = document.getElementById('systemConfirmModal');
+        if (modal) modal.style.display = 'none';
+        pendingAction = null;
+    };
+
+    window.selectButton = function(buttonElement) {
+        if (!buttonElement) return;
+        const parentGroup = buttonElement.parentElement;
+        parentGroup.querySelectorAll('.btn1').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        buttonElement.classList.add('active');
+    };
+
+    const bContainer = document.getElementById('grid-back');
+    if (bContainer) {
+        const bSquares = bContainer.querySelectorAll('.color-square');
+        bSquares.forEach(d => {
+            d.onclick = () => {
+                bSquares.forEach(s => s.classList.remove('selected'));
+                d.classList.add('selected');
+            };
+        });
+    }
+////////////////////////////////////////////////////////////////////////////////
+// 4. Ligar ou Desligar a proteção através dos novos botões
+window.setSettingsProtection = async function(enable) {    try {
+    console.log("INSIDE")
+        // Se for para ativar, podes opcionalmente pedir a password por confirmação ou simplesmente ligar
+        const res = await fetch('/api/toggle-settings-security', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ enabled: enable })
+        });
+        const result = await res.json();
+
+        if (result.success) {
+            alert(enable ? "🔒 Password protection ENABLED for settings." : "🔓 Password protection DISABLED for settings.");
+        }
+    } catch (err) {
+        console.error("Erro ao alterar estado da proteção:", err);
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+    window.switchTab = function(tabId, el) {
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         document.querySelectorAll('.conteiner-col').forEach(panel => panel.classList.remove('active'));
         
         el.classList.add('active');
         document.getElementById('tab-' + tabId).classList.add('active');
-    }
+    };
 
     let selectedHex = null;
     let ambiState   = 'off';
@@ -646,8 +746,7 @@
         cmd('LIGHT_PRESET', name, el);
     };
 
-        window.applyLightReset = function(name, el) {
-
+    window.applyLightReset = function(name, el) {
         cmd('LIGHT_RESET', "reset");
     };
 
@@ -657,9 +756,6 @@
         document.getElementById('sensor-range-val').textContent = sensorRange + 'm';
         cmd('sensor_range', sensorRange.toString());
     };
-
-    
-
 
     const lContainer = document.getElementById('grid-light');
     if (lContainer) {
@@ -691,7 +787,7 @@
     $(document).ready(function() {
         updateUI();
     });
-
+})();
 </script>
 </body>
 </html>
