@@ -585,7 +585,7 @@
     </button>
     </button>
 
-<button style="margin-right: 5px;" class="nav-btn-glass" onclick="openSettingsWithPassword()">
+<button style="margin-right: 5px;" class="nav-btn-glass" onclick="openSettings()">
     <span class="material-symbols-rounded">settings</span>
 </button>
     
@@ -728,30 +728,7 @@
 </div>
 
 
-<!-- Modal de Password para Definições -->
-<div id="settingsPasswordModal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 9999;">
-    <div class="modal-content" style="background: #1a1a1a; padding: 20px; border-radius: 8px; text-align: center; width: 300px; border: 1px solid #333;">
-        <h3 style="color: #fff; margin-bottom: 10px;">🔒 Protected Settings</h3>
-        <p style="color: #aaa; font-size: 13px; margin-bottom: 15px;">Enter the password:</p>
-        <input type="password" id="settingsPasswordInput" placeholder="Password..." style="width: 80%; padding: 8px; margin-bottom: 15px; background: #222; border: 1px solid #444; color: #fff; border-radius: 4px;" />
-        <div>
-            <!-- Alterado para usar onclick direto -->
-            <button onclick="submitSettingsPassword()" style="padding: 6px 12px; background: #4ecdc4; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Unlock</button>
-            <button onclick="closeSettingsPasswordModal()" style="padding: 6px 12px; background: #555; color: #fff; border: none; border-radius: 4px; cursor: pointer; margin-left: 5px;">Cancel</button>
-        </div>
-    </div>
-</div>
 
-<!-- Modal de Acesso Negado -->
-<div id="settingsDeniedModal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 9999;">
-    <div class="modal-content" style="background: #1a1a1a; padding: 25px; border-radius: 8px; text-align: center; width: 340px; border: 1px solid #c0392b;">
-        <h3 style="color: #ff6b6b; margin-bottom: 10px;">🚫 Access Denied</h3>
-        <p style="color: #aaa; font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
-            Incorrect password. Please check the TV info notecard for the password.
-        </p>
-        <button onclick="closeDeniedModal()" style="padding: 8px 16px; background: #c0392b; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">OK</button>
-    </div>
-</div>
 <script>
 
 
@@ -762,97 +739,7 @@ let sliderOffset = 0;
 
 let isMenuOpen = false; // Renamed for clarity
 
-////////////////////////////////7
-// 1. Chamada ao clicar no botão de settings (abre o modal)
-// 1. Ao clicar no botão principal de settings do menu
-async function openSettingsWithPassword() {
-    try {
-        // Pergunta ao servidor se a proteção está ativa
-        const res = await fetch('/api/settings-security-status');
-        const data = await res.json();
 
-        if (data.enabled) {
-            // Se estiver ativa, abre o modal de password
-            const modal = document.getElementById('settingsPasswordModal');
-            const input = document.getElementById('settingsPasswordInput');
-            if (modal) {
-                modal.style.display = 'flex';
-                if (input) {
-                    input.value = '';
-                    input.focus();
-                }
-            }
-        } else {
-            // Se estiver desativada, abre os settings diretamente sem pedir password!
-            handleNav('settings');
-        }
-    } catch (err) {
-        console.error("Erro ao verificar estado de segurança:", err);
-        handleNav('settings'); // Fallback para abrir caso haja erro de rede
-    }
-}
-
-// 2. Fechar o modal de password
-function closeSettingsPasswordModal() {
-    const modal = document.getElementById('settingsPasswordModal');
-    const input = document.getElementById('settingsPasswordInput');
-    if (modal) modal.style.display = 'none';
-    if (input) input.value = '';
-}
-
-// 3. Submeter e verificar a password introduzida
-// Submeter e verificar a password introduzida
-async function submitSettingsPassword() {
-    const input = document.getElementById('settingsPasswordInput');
-    const pwd = input ? input.value : '';
-    
-    try {
-        const res = await fetch('/api/verify-settings-password', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ password: pwd })
-        });
-        const result = await res.json();
-
-        if (result.success) {
-            closeSettingsPasswordModal();
-            handleNav('settings'); // Abre os settings com sucesso
-        } else {
-            // Fecha o modal da password
-            closeSettingsPasswordModal();
-            
-            // Abre o modal de Acesso Negado
-            const deniedModal = document.getElementById('settingsDeniedModal');
-            if (deniedModal) {
-                deniedModal.style.display = 'flex';
-            }
-        }
-    } catch (err) {
-        console.error("Erro ao verificar password:", err);
-    }
-}
-
-// Função para fechar o modal de acesso negado
-function closeDeniedModal() {
-    const deniedModal = document.getElementById('settingsDeniedModal');
-    if (deniedModal) {
-        deniedModal.style.display = 'none';
-    }
-}
-
-
-// Suporte para premir "Enter" no campo de password do modal
-document.addEventListener('DOMContentLoaded', () => {
-    const input = document.getElementById('settingsPasswordInput');
-    if (input) {
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                submitSettingsPassword();
-            }
-        });
-    }
-});
-///////////////////////////////////
 
 function shareRoom() {
     navigator.clipboard.writeText(window.location.href).then(() => {
@@ -1103,8 +990,9 @@ function openSettings() {
     console.log("SETTINGS");
     console.log(window.tvOwner);
     // Se o dono estiver definido e o utilizador atual não for o dono, bloqueia
+  
     if (window.tvOwner && window.myName && window.tvOwner !== window.myName) {
-        alert("🚫 Acesso Negado: Apenas o proprietário pode aceder às definições.");
+       // alert("🚫 Acesso Negado: Apenas o proprietário pode aceder às definições.");
         return; // Impede que a navegação avance
     }
     
@@ -1239,62 +1127,6 @@ $(document).on('click', '.theme-thumb', function() {
         window.gsToastDismiss();
     };
 
-document.addEventListener('DOMContentLoaded', () => {
-    const openBtn = document.getElementById('openSettingsBtn');
-    const modal = document.getElementById('settingsPasswordModal');
-    const input = document.getElementById('settingsPasswordInput');
-    const submitBtn = document.getElementById('submitSettingsPassword');
-    const closeBtn = document.getElementById('closeSettingsPassword');
-
-    // 1. Quando clica no botão de settings, abre o modal em vez de abrir os settings diretamente
-    if (openBtn) {
-        openBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (modal) {
-                modal.style.display = 'flex';
-                if (input) input.focus();
-            }
-        });
-    }
-
-    // 2. Fechar o modal ao carregar em "Cancel"
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            if (modal) modal.style.display = 'none';
-            if (input) input.value = '';
-        });
-    }
-
-    // 3. Enviar a password para o servidor ao carregar em "Unlock"
-    if (submitBtn) {
-        submitBtn.addEventListener('click', async () => {
-            const pwd = input ? input.value : '';
-            
-            try {
-                const res = await fetch('/api/verify-settings-password', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ password: pwd })
-                });
-                const result = await res.json();
-
-                if (result.success) {
-                    // Password certa: fecha o modal, limpa o input e CHAMA A TUA FUNÇÃO ORIGINAL!
-                    if (modal) modal.style.display = 'none';
-                    if (input) input.value = '';
-                    
-                    if (typeof openSettings === 'function') {
-                        openSettings(); // <--- Abre finalmente os settings originais!
-                    }
-                } else {
-                    alert('Incorrect password!');
-                }
-            } catch (err) {
-                console.error("Erro ao verificar password:", err);
-            }
-        });
-    }
-});
 })();
 </script>
 </body>
