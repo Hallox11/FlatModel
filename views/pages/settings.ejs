@@ -188,12 +188,11 @@
         flex: 1;
         margin: 0;
     }
-/* Estilo para botões ativos/selecionados: mantém o fundo, foca na borda luminosa e no ponto */
-.btn1.active {
-    background: transparent !important; /* Mantém o fundo transparente/original */
-   
-    box-shadow: 0 0 10px rgba(218, 165, 32, 0.6); /* Brilho suave na borda */
-}
+
+    .btn1.active {
+        background: transparent !important;
+        box-shadow: 0 0 10px rgba(218, 165, 32, 0.6);
+    }
 </style>
 </head>
 <body>
@@ -228,7 +227,6 @@
             <button class="tab-btn" onclick="switchTab('lighting', this)">
                 <span class="material-symbols-rounded">wb_incandescent</span> AMBILIGHT & NEON
             </button>
-
             <button class="tab-btn" onclick="switchTab('security', this)">
                 <span class="material-symbols-rounded">shield</span> SECURITY & ALARM
             </button>
@@ -240,14 +238,14 @@
         <!-- Right Content Panels Area -->
         <div id="content_area">
 
-<!-- Tab 1: Frame Design -->
+            <!-- Tab 1: Frame Design -->
             <div id="tab-frame" class="conteiner-col active">
                 <div class="sub-panel">
                     <p class="section-title">STAND MODEL</p>
                     <button onclick="setActive('model',this);cmd('model','model1',this)" class="btn1 active" data-group="model">MODEL 1</button>
                     <button onclick="setActive('model',this);cmd('model','model2',this)" class="btn1" data-group="model">MODEL 2</button>
                     <button onclick="setActive('model',this);cmd('model','model3',this)" class="btn1" data-group="model">MODEL 3</button>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 16px 0; text-align:center;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
                         Selects feet type for stand model.
                     </p>
 
@@ -260,7 +258,7 @@
                         <button onclick="setActive('texture',this); cmd('texture','e6a5d90c-fc7c-9f4c-ffa1-e4ba195ae3b1',this)"  class="btn1" data-group="texture">PASSERELE</button>
                         <button onclick="setActive('texture',this); cmd('texture','cb3163a9-ea39-de5e-d475-2a2ab0bff4b8',this)"  class="btn1" data-group="texture">IVORY WHITE</button>
                     </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 16px 0; text-align:center;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
                         Change TV textures.
                     </p>
 
@@ -269,8 +267,8 @@
                         <button onclick="setActive('legs',this); cmd('legs','show',this)" class="btn1 active" data-group="legs">STAND</button>
                         <button onclick="setActive('legs',this); cmd('legs','hide',this)" class="btn1" data-group="legs">WALL</button>
                     </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 0 0; text-align:center;">
-                        Toggles stand or wall mount (hide feet).
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 0 0; text-align:center;">
+                        Toggles stand or wall mount.
                     </p>
                 </div>
 
@@ -290,7 +288,7 @@
                         <div class="color-square" style="background:#f1c40f;" onclick="cmd('back_color','<0.95,0.77,0.06>')"></div>
                         <div class="color-square" style="background:#ffffff;" onclick="cmd('back_color','<1.0,1.0,1.0>')"></div>
                     </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 16px 0; text-align:center;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
                         Sets rear color tint.
                     </p>
 
@@ -300,7 +298,7 @@
                         <button onclick="setActive('back_alpha',this);cmd('back_alpha','0.1',this)" class="btn1" data-group="back_alpha">10%</button>
                         <button onclick="setActive('back_alpha',this);cmd('back_alpha','0.2',this)" class="btn1" data-group="back_alpha">20%</button>
                     </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 16px 0; text-align:center;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
                         Rear casing transparency.
                     </p>
 
@@ -310,7 +308,7 @@
                         <button onclick="setActive('web_alpha',this);cmd('web_alpha','0.1',this)" class="btn1" data-group="web_alpha">10%</button>
                         <button onclick="setActive('web_alpha',this);cmd('web_alpha','0.2',this)" class="btn1 active" data-group="web_alpha">20%</button>
                     </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 16px 0; text-align:center;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
                         Display screen transparency.
                     </p>
 
@@ -319,13 +317,13 @@
                         <button onclick="setActive('frame',this); cmd('frame','show',this)" class="btn1 active" data-group="frame">SHOW</button>
                         <button onclick="setActive('frame',this); cmd('frame','hide',this)" class="btn1" data-group="frame">HIDE</button>
                     </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 16px 0; text-align:center;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
                         Shows or hides the outer frame.
                     </p>
 
                     <div style="margin-top: auto;">
-                        <button onclick="askConfirm('Factory Default', 'Are you sure you want to restore factory default visual parameters?', cmd('reset','visual'))" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
-                        <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 0 0; text-align:center;">
+                        <button onclick="cmd('reset','visual',this)" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
+                        <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 0 0; text-align:center;">
                             Resets visual parameters.
                         </p>
                     </div>
@@ -341,6 +339,9 @@
                         <button onclick="setActive('light',this);setAmbi('on',this)" class="btn1" data-group="light" data-mode="on">ON</button>
                         <button onclick="setActive('light',this);setAmbi('cycle',this)" class="btn1" data-group="light" data-mode="cycle">CYCLE</button>
                     </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
+                        Toggles Ambilight power.
+                    </p>
 
                     <p class="section-title" style="margin-top: 25px;">NEON SWITCH</p>
                     <div class="neon-state-row">
@@ -348,6 +349,9 @@
                         <button onclick="setActive('neon',this);setNeon('fixed',this)" class="btn1" data-group="neon" data-mode="fixed">ON</button>
                         <button onclick="setActive('neon',this);setNeon('cycle',this)" class="btn1" data-group="neon" data-mode="cycle">CYCLE</button>
                     </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
+                        Toggles neon accent lines.
+                    </p>
  
                     <p class="section-title" style="margin-top: 25px;">CYCLE SPEED</p>
                     <div class="ctrl-row">
@@ -358,13 +362,20 @@
                         </div>
                         <button class="btn-adj" onclick="adjustSpeed(0.05)">+</button>
                     </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
+                        Color transition speed.
+                    </p>
+
                     <p class="section-title">MOOD PRESET</p>
-                    <div class="btn-group" style="margin-bottom:20px;">
+                    <div class="btn-group" style="margin-bottom:6px;">
                         <button class="btn1" data-group="envlight" onclick="applyLightPreset('active', this)">ACTIVE</button>
                         <button class="btn1 active" data-group="envlight" onclick="applyLightPreset('normal', this)">NORMAL</button>
                         <button class="btn1" data-group="envlight" onclick="applyLightPreset('cozy', this)">COZY</button>
                         <button class="btn1" data-group="envlight" onclick="applyLightPreset('off', this)">OFF</button>
                     </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 0 0; text-align:center;">
+                        Applies lighting presets.
+                    </p>
                 </div>
                 <div class="sub-panel">
                     <p class="section-title">Ambilight Glow</p>
@@ -384,6 +395,9 @@
                         <div class="color-square" data-color="#00ff88" style="background:#00ff88;"></div>
                         <div class="color-square" data-color="#00ff00" style="background:#00ff00;"></div>
                     </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
+                        Selects base light color.
+                    </p>
 
                     <p class="section-title" style="margin-top: 25px;">LIGHT CONTROLLERS</p>
                     <div class="ctrl-row">
@@ -421,14 +435,20 @@
                         </div>
                         <button class="btn-adj" onclick="adjustGlow(0.1)">+</button>
                     </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
+                        Adjusts light beam parameters.
+                    </p>
 
                     <div style="margin-top: auto;">
                         <button onclick="applyLightReset('normal', this)" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">RESET LIGHTS TO NORMAL</button>
+                        <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 0 0; text-align:center;">
+                            Restores default lighting levels.
+                        </p>
                     </div>
                 </div>
             </div>
 
-<!-- Tab 3: Shape & Size -->
+            <!-- Tab 3: Shape & Size -->
             <div id="tab-size" class="conteiner-col">
                 <div class="sub-panel">
                     <p class="section-title">Scale Control</p>
@@ -442,7 +462,7 @@
                         <button onclick="cmd('SCALE','-0.20',this)" class="btn2">−20%</button>
                         <button onclick="cmd('SCALE','0.20',this)"  class="btn2">+20%</button>
                     </div>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 16px 0; text-align:center;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
                         Scales the TV size up or down.
                     </p>
 
@@ -450,7 +470,7 @@
                     <button onclick="setActive('env',this);cmd('PRESET','house',this)"   class="btn1" data-group="env">HOUSE SCALE</button>
                     <button onclick="setActive('env',this);cmd('PRESET','outside',this)" class="btn1" data-group="env">OUTSIDE SCALE</button>
                     <button onclick="setActive('env',this);cmd('PRESET','cinema',this)"  class="btn1" data-group="env">CINEMA SCALE</button>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 0 0; text-align:center;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 0 0; text-align:center;">
                         Applies environment size presets.
                     </p>
                 </div>
@@ -463,13 +483,13 @@
                     <button onclick="setActive('ratio',this);cmd('ratio','16/9',this)" class="btn1" data-group="ratio">16:9 - FULL HD</button>
                     <button onclick="setActive('ratio',this);cmd('ratio','21/9',this)" class="btn1" data-group="ratio">21:9 - CINEMA SCOPE</button>
                     <button onclick="setActive('ratio',this);cmd('ratio','32/9',this)"  class="btn1" data-group="ratio">32:9 - DUAL ULTRAWIDE</button>
-                    <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 16px 0; text-align:center;">
+                    <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 16px 0; text-align:center;">
                         Changes the screen aspect ratio.
                     </p>
              
                     <div style="margin-top: auto;">
-                        <button onclick="cmd('reset','size')" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
-                        <p class="hint-text" style="color: rgba(255,255,255,0.6); font-size:12px; margin: 4px 0 0 0; text-align:center;">
+                        <button onclick="cmd('reset','size',this)" class="btn1" style="font-size:14px; border-color:var(--accent); text-align: center; margin:0;">FACTORY DEFAULT</button>
+                        <p class="hint-text" style="color: rgba(255,255,255,0.5); font-size:11px; margin: 4px 0 0 0; text-align:center;">
                             Resets scale and dimensions.
                         </p>
                     </div>
@@ -477,88 +497,72 @@
             </div>
 
             <!-- Tab 5: Security -->
-<!-- Tab 5: Security -->
-<div id="tab-security" class="conteiner-col" style="width: 450px; margin: auto;">
-    <div class="sub-panel">
-        <p class="section-title">HOUSE ALARME</p>
-        
-        <div style="display: flex; gap: 10px; margin-bottom: 4px;">
-            <button onclick="selectButton(this); askConfirm('Disable House Alarm', 'Are you sure you want to disable the proximity alert?', cmd('alarm','disable',this))" class="btn1" style="flex: 1;">DISABLE</button>
-            <button onclick="selectButton(this); askConfirm('Enable House Alarm', 'Are you sure you want to enable the proximity alert?', cmd('alarm','enable',this))" class="btn1 active" style="flex: 1;">ENABLE</button>
-        </div>
-        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
-            Enables or disables real-time proximity alerts when someone approach your property.
-        </p>
+            <div id="tab-security" class="conteiner-col" style="width: 450px; margin: auto;">
+                <div class="sub-panel">
+                    <p class="section-title">HOUSE ALARME</p>
+                    <div style="display: flex; gap: 10px; margin-bottom: 4px;">
+                        <button onclick="selectButton(this); cmd('alarm','disable',this)" class="btn1" style="flex: 1;">DISABLE</button>
+                        <button onclick="selectButton(this); cmd('alarm','enable',this)" class="btn1 active" style="flex: 1;">ENABLE</button>
+                    </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                        Enables or disables real-time proximity alerts when someone approach your property.
+                    </p>
 
-        <p class="section-title" style="margin-top: 10px;">SENSOR RANGE (METERS)</p>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 10px 0 6px 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px;">
-            <button onclick="cmd('range','dec',this)" class="ss-time-btn" style="padding: 6px 16px; font-size: 1.2rem;">-</button>
-            <div style="text-align: center; min-width: 80px;">
-                <span id="range-display" style="font-size: 1.2rem; font-weight: 600; color: #daa520;">15m</span>
-                <div style="font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px;">Distance</div>
+                    <p class="section-title" style="margin-top: 10px;">SENSOR RANGE (METERS)</p>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 10px 0 6px 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px;">
+                        <button onclick="cmd('range','dec',this)" class="ss-time-btn" style="padding: 6px 16px; font-size: 1.2rem;">-</button>
+                        <div style="text-align: center; min-width: 80px;">
+                            <span id="range-display" style="font-size: 1.2rem; font-weight: 600; color: #daa520;">15m</span>
+                            <div style="font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px;">Distance</div>
+                        </div>
+                        <button onclick="cmd('range','inc',this)" class="ss-time-btn" style="padding: 6px 16px; font-size: 1.2rem;">+</button>
+                    </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                        Adjusts the maximum radius in meters used to detect nearby avatars.
+                    </p>
+
+                    <p class="section-title">LOCK TV</p>
+                    <div style="display: flex; gap: 10px; margin-bottom: 4px;">
+                        <button onclick="selectButton(this); cmd('lock','unlock',this)" class="btn1" style="flex: 1;">UNLOCK</button>
+                        <button onclick="selectButton(this); cmd('lock','lock',this)" class="btn1 active" style="flex: 1;">LOCK</button>
+                    </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                        Restricts the use of the power button to the owner only or to everyone.
+                    </p>
+
+                    <p class="section-title">NAV BAR</p>
+                    <div style="display: flex; gap: 10px; margin-bottom: 4px;">
+                        <button onclick="selectButton(this); cmd('navbar','hide',this)" class="btn1 active" style="flex: 1;">HIDE</button>
+                        <button onclick="selectButton(this); cmd('navbar','show',this)" class="btn1" style="flex: 1;">SHOW</button>
+                    </div>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
+                        Hides or shows the SL Browser navigation bar, useful to navigate external sites.
+                    </p>
+                </div>
             </div>
-            <button onclick="cmd('range','inc',this)" class="ss-time-btn" style="padding: 6px 16px; font-size: 1.2rem;">+</button>
-        </div>
-        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
-            Adjusts the maximum radius in meters used to detect nearby avatars.
-        </p>
-
-        <p class="section-title">LOCK TV</p>
-        <div style="display: flex; gap: 10px; margin-bottom: 4px;">
-            <button onclick="selectButton(this); askConfirm('Unlock TV', 'Allow everyone to use the power button?', cmd('lock','unlock',this))" class="btn1" style="flex: 1;">UNLOCK</button>
-            <button onclick="selectButton(this); askConfirm('Lock TV', 'Restrict the use of the power button to the owner only?', cmd('lock','lock',this))" class="btn1 active" style="flex: 1;">LOCK</button>
-        </div>
-        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
-            Restricts the use of the power button to the owner only or to everyone.
-        </p>
-
-        <p class="section-title">NAV BAR</p>
-        <div style="display: flex; gap: 10px; margin-bottom: 4px;">
-            <button onclick="selectButton(this); askConfirm('Hide Navigation Bar', 'Hide the SL Browser navigation bar?', cmd('navbar','hide',this))" class="btn1 active" style="flex: 1;">HIDE</button>
-            <button onclick="selectButton(this); askConfirm('Show Navigation Bar', 'Show the SL Browser navigation bar?', cmd('navbar','show',this))" class="btn1" style="flex: 1;">SHOW</button>
-        </div>
-        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
-            Hides or shows the SL Browser navigation bar, useful to navigate external sites.
-        </p>
-    </div>
-</div>
 
             <!-- Tab 6: System -->
-<div id="tab-system" class="conteiner-col" style="width: 450px; margin: auto;">
-    <div class="sub-panel">
-        <p class="section-title">SYSTEM ACTIONS</p>
-        
-        <button onclick="askConfirm('Default Settings', 'Restore factory default visual parameters and layout configurations?', cmd('default_settings','reset',this))" class="btn1">DEFAULT SETTING</button>
-        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
-            Restores factory default visual parameters and layout configurations.
-        </p>
+            <div id="tab-system" class="conteiner-col" style="width: 450px; margin: auto;">
+                <div class="sub-panel">
+                    <p class="section-title">SYSTEM ACTIONS</p>
+                    
+                    <button onclick="cmd('default_settings','reset',this)" class="btn1">DEFAULT SETTING</button>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                        Restores factory default visual parameters and layout configurations.
+                    </p>
 
-        <button onclick="askConfirm('Reset Scripts', 'Restart all scripts to resolve state lag or communication errors?', cmd('fullreset','',this))" class="btn1">RESET SCRIPTS</button>
-        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
-            Restarts all scripts to resolve state lag or communication errors.
-        </p>
+                    <button onclick="cmd('fullreset','',this)" class="btn1">RESET SCRIPTS</button>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
+                        Restarts all scripts to resolve state lag or communication errors.
+                    </p>
 
-        <button onclick="askConfirm('Delete TV', 'Permanently delete this TV object from the region?', cmd('kill','',this))" class="btn1" style="border-color: rgba(255,107,107,0.4); color: #ff6b6b;">DELETE TV</button>
-        <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
-            Permanently deletes this TV object from the region.
-        </p>
-    </div>
-</div>
+                    <button onclick="cmd('kill','',this)" class="btn1" style="border-color: rgba(255,107,107,0.4); color: #ff6b6b;">DELETE TV</button>
+                    <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 0 0; text-align:center; line-height:1.4;">
+                        Permanently deletes this TV object from the region.
+                    </p>
+                </div>
+            </div>
 
-        </div>
-    </div>
-</div>
-
-<!-- Modal Genérico de Confirmação para System Actions -->
-<div id="systemConfirmModal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 9999;">
-    <div class="modal-content" style="background: #1a1a1a; padding: 25px; border-radius: 8px; text-align: center; width: 340px; border: 1px solid #444;">
-        <h3 id="confirmModalTitle" style="color: #fff; margin-bottom: 10px;">⚠️ Confirm Action</h3>
-        <p id="confirmModalText" style="color: #aaa; font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
-            Are you sure you want to perform this action?
-        </p>
-        <div style="display: flex; justify-content: center; gap: 10px;">
-            <button id="confirmModalYesBtn" style="padding: 8px 16px; background: #c0392b; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; text-transform: uppercase;">Yes</button>
-            <button onclick="closeSystemConfirmModal()" style="padding: 8px 16px; background: #555; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; text-transform: uppercase;">Cancel</button>
         </div>
     </div>
 </div>
@@ -566,38 +570,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 (function() {
-    let pendingAction = null;
-
-    window.askConfirm = function(title, text, actionCallback) {
-        const modal = document.getElementById('systemConfirmModal');
-        const titleEl = document.getElementById('confirmModalTitle');
-        const textEl = document.getElementById('confirmModalText');
-        const yesBtn = document.getElementById('confirmModalYesBtn');
-
-        if (titleEl) titleEl.textContent = title;
-        if (textEl) textEl.textContent = text;
-        
-        pendingAction = actionCallback;
-console.log("Action: ", actionCallback);
-
-        if (modal) modal.style.display = 'flex';
-
-        if (yesBtn) {
-            yesBtn.onclick = () => {
-                window.closeSystemConfirmModal();
-                if (typeof pendingAction === 'function') {
-                    pendingAction();
-                }
-            };
-        }
-    };
-
-    window.closeSystemConfirmModal = function() {
-        const modal = document.getElementById('systemConfirmModal');
-        if (modal) modal.style.display = 'none';
-        pendingAction = null;
-    };
-
     window.selectButton = function(buttonElement) {
         if (!buttonElement) return;
         const parentGroup = buttonElement.parentElement;
@@ -618,7 +590,6 @@ console.log("Action: ", actionCallback);
         });
     }
 
-///////////////////////////////////////////////////////////////////////////////
     window.switchTab = function(tabId, el) {
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         document.querySelectorAll('.conteiner-col').forEach(panel => panel.classList.remove('active'));
