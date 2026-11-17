@@ -501,8 +501,8 @@
                 <div class="sub-panel">
                     <p class="section-title">HOUSE ALARME</p>
                     <div style="display: flex; gap: 10px; margin-bottom: 4px;">
-                        <button onclick="selectButton(this); cmd('alert','on',this)" class="btn1" style="flex: 1;">DISABLE</button>
-                        <button onclick="selectButton(this); cmd('alert','off',this)" class="btn1 active" style="flex: 1;">ENABLE</button>
+                        <button onclick="selectButton(this); cmd('alert','off',this)" class="btn1" style="flex: 1;">DISABLE</button>
+                        <button onclick="selectButton(this); cmd('alert','on',this)" class="btn1 active" style="flex: 1;">ENABLE</button>
                     </div>
                     <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
                         Enables or disables real-time proximity alerts when someone approach your property.
@@ -518,14 +518,14 @@
                         <button class="btn-adj" onclick="adjustSensorRange(1)">+</button>
                     </div>
                     <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin-top:6px; text-align:center; line-height:1.4;">
-                        
+
                         Adjusts the maximum radius in meters used to detect nearby avatars.
                     </p>
 
                     <p class="section-title">LOCK TV</p>
                     <div style="display: flex; gap: 10px; margin-bottom: 4px;">
-                        <button onclick="selectButton(this); cmd('lock','on',this)" class="btn1" style="flex: 1;">UNLOCK</button>
-                        <button onclick="selectButton(this); cmd('lock','off',this)" class="btn1 active" style="flex: 1;">LOCK</button>
+                        <button onclick="selectButton(this); cmd('lock','off',this)" class="btn1" style="flex: 1;">UNLOCK</button>
+                        <button onclick="selectButton(this); cmd('lock','on',this)" class="btn1 active" style="flex: 1;">LOCK</button>
                     </div>
                     <p class="hint-text" style="color: rgba(255,255,255,0.7); font-size:12px; margin: 4px 0 16px 0; text-align:center; line-height:1.4;">
                         Restricts the use of the power button to the owner only or to everyone.
