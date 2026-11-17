@@ -657,6 +657,7 @@
 </div>
 
 <!-- SLIDESHOW FULL-SCREEN OVERLAY -->
+<!-- SLIDESHOW FULL-SCREEN OVERLAY -->
 <div id="slideshow-fullscreen-overlay" style="display: none; position: absolute; inset: 0; width: 1280px; height: 720px; background: rgba(5, 5, 5, 0.1); backdrop-filter: blur(50px); z-index: 10000; flex-direction: column; align-items: center; justify-content: center; animation: fadeInOverlay 0.3s ease;">
     
     <!-- ECRÃ 1: MENU DE SELEÇÃO DE FONTE, TEMPO E GUIA -->
@@ -693,7 +694,7 @@
             </button>
         </div>
 
-        <!-- CAIXA DE INSTRUÇÕES -->
+        <!-- CAIXA DE INSTRUÇÕES LIMPA E MINIMALISTA -->
         <div style="background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 8px 14px; width: 495px; text-align: left; font-size: 0.8rem; color: rgba(255, 255, 255, 0.9); line-height: 1.35; margin-top: 2px;">
             <div style="color: var(--accent); font-weight: 600; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">
                 Quick Guide & Troubleshooting
@@ -712,40 +713,19 @@
         </button>
     </div>
 
-    <!-- ECRÃ 2: MODO ATIVO COM O MODAL INTEGRADO -->
-    <div id="slideshow-active-view" style="display: none; position: absolute; inset: 0; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; gap: 25px; cursor: pointer;">
+    <!-- ECRÃ 2: MODO ATIVO -->
+    <div id="slideshow-active-view" onclick="stopMainSlideshow()" style="display: none; position: absolute; inset: 0; width: 100%; height: 100%; flex-direction: column; align-items: center; justify-content: center; gap: 25px; cursor: pointer;">
         <div style="font-size: 2rem; font-weight: 600; letter-spacing: 4px; color: var(--accent); text-transform: uppercase;">
             Slideshow Active
         </div>
         <div style="font-size: 1rem; color: rgba(255,255,255,0.6); letter-spacing: 2px; text-transform: uppercase;">
-            Click anywhere on the screen to open options
+            Click anywhere on the screen to stop & return
         </div>
-        
-        <!-- MODAL DE OPÇÕES DO SLIDESHOW -->
-        <div id="slideshow-options-modal" onclick="event.stopPropagation()" style="display: none; flex-direction: column; gap: 12px; background: rgba(15,15,18,0.92); border: 1px solid rgba(218,165,32,0.4); border-radius: 16px; padding: 24px; width: 320px; backdrop-filter: blur(20px); box-shadow: 0 16px 48px rgba(0,0,0,0.8); z-index: 10001;">
-            <div style="font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; color: #fff; text-transform: uppercase; text-align: center; margin-bottom: 4px;">
-                Slideshow Options
-            </div>
-            
-            <button onclick="restartSlideshow()" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 12px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.2s;">
-                🔄 Restart Slideshow
-            </button>
-            
-            <button onclick="stopCyclingAndKeepImage()" style="background: rgba(218,165,32,0.2); border: 1px solid rgba(218,165,32,0.5); color: #fff; padding: 12px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.2s;">
-                ⏸ Stop Cycling (Keep Image)
-            </button>
-
-            <button onclick="stopMainSlideshow()" style="background: rgba(220,50,50,0.2); border: 1px solid rgba(220,50,50,0.5); color: #fff; padding: 12px; border-radius: 10px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.2s;">
-                ✕ Exit Slideshow
-            </button>
-            
-            <button onclick="closeSlideshowModal()" style="background: transparent; border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); padding: 8px; border-radius: 8px; cursor: pointer; font-family: 'Fira Sans', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s;">
-                Resume Slideshow
-            </button>
-        </div>
+        <button style="margin-top: 20px; background: linear-gradient(135deg, rgba(220,50,50,0.3), rgba(220,50,50,0.1)); border: 1px solid rgba(220,50,50,0.6); color: #fff; padding: 16px 36px; border-radius: 14px; pointer-events: none; font-family: 'Fira Sans', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+            ✕ Stop Slideshow
+        </button>
     </div>
 </div>
-
 
 
 
@@ -1146,58 +1126,7 @@ $(document).on('click', '.theme-thumb', function() {
         window.open(url, '_blank');
         window.gsToastDismiss();
     };
-let currentSlideshowImage = ""; // Guarda o URL da imagem atual do slideshow
 
-// Altera o evento de clique do ecrã ativo para abrir o modal apenas se clicar no fundo
-document.getElementById('slideshow-active-view').onclick = function(e) {
-    // Se clicar diretamente dentro do modal de opções, não faz nada
-    if (e.target.closest('#slideshow-options-modal')) return;
-
-    const modal = document.getElementById('slideshow-options-modal');
-    if (modal) {
-        modal.style.display = 'flex';
-    }
-};
-
-// Função para fechar o modal e continuar a apresentação
-window.closeSlideshowModal = function() {
-    const modal = document.getElementById('slideshow-options-modal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// Função para parar o ciclo (slideshow), mantendo a imagem atual visível no fundo
-window.stopCyclingAndKeepImage = function() {
-    closeSlideshowModal();
-    
-    // 1. Limpa o intervalo do slideshow para parar de avançar as imagens
-    if (window._slideshowInterval) {
-        clearInterval(window._slideshowInterval);
-        window._slideshowInterval = null;
-    }
-
-    // 2. Esconde o ecrã ativo do slideshow, permitindo ver a imagem fixa de fundo
-    const activeView = document.getElementById('slideshow-active-view');
-    if (activeView) {
-        activeView.style.display = 'none';
-    }
-
-    // 3. Garante que o fundo da página mantém a última imagem ativa
-    if (currentSlideshowImage) {
-        document.body.style.backgroundImage = `url(${currentSlideshowImage})`;
-    }
-}
-
-// Função para reiniciar o slideshow do início
-window.restartSlideshow = function() {
-    closeSlideshowModal();
-    if (window._currentSlideshowSource === 'notecard') {
-        startSlideshowFromNotecard();
-    } else {
-        startSlideshowFromJson();
-    }
-}
 })();
 </script>
 </body>
