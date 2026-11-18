@@ -100,7 +100,7 @@
         cursor: pointer;
         transition: 0.2s;
     }
-    .cat-map-btn:hover { background: #f00; color: #fff; border-color: #f00; transform: scale(1.05); }
+    .cat-map-btn:hover, .cat-map-btn.remote-hover { background: #f00; color: #fff; border-color: #f00; transform: scale(1.05); }
 
     /* 4. SCROLL VERMELHO */
     #xxx-scroll-content {
@@ -122,16 +122,16 @@
     /* 5. GRID E CARDS (4 COLUNAS) */
     .video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 10px 20px; }
     
-    .video-card {
+    .xxxvideo-card {
         background: #111;
         border: 1px solid #222;
         transition: transform 0.2s;
         cursor: pointer;
     }
-    .video-card:hover { border: 2px solid yellow; transform: scale(1.02); }
+    .xxxvideo-card:hover, .xxxvideo-card.remote-hover{ border: 2px solid yellow; transform: scale(1.00); }
 
-    .thumb-wrap { width: 100%; aspect-ratio: 4 / 2.7; background: #000; overflow: hidden; }
-    .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .xxxthumb-wrap { width: 100%; aspect-ratio: 4 / 2.7; background: #000; overflow: hidden; }
+    .xxxthumb-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
     .video-title { 
         font-size: 10.5px; 
@@ -209,8 +209,8 @@
     <div id="xxx-scroll-content">
         <div class="video-grid">
             <% videos.forEach(v => { %>
-                <div class="video-card" data-url="<%= v.pageUrl %>" data-title="<%= v.title %>" onclick="playXXX(this)">
-                    <div class="thumb-wrap">
+                <div class="xxxvideo-card" data-url="<%= v.pageUrl %>" data-title="<%= v.title %>" onclick="playXXX(this)">
+                    <div class="xxxthumb-wrap">
                         <img src="<%= v.thumbnail %>" loading="lazy">
                     </div>
                     <p class="video-title"><%= v.title %></p>
@@ -284,6 +284,20 @@ if(window.socket) {
             window.isRemoteAction = true;
             $('#xxx-cat-modal').css('display', data.show ? 'flex' : 'none');
             setTimeout(() => { window.isRemoteAction = false; }, 100);
+        }
+
+        // --- ADICIONE ESTE BLOCO PARA O HOVER REMOTO FUNCIONAR ---
+        if (data.type === 'global_hover') {
+            // Remove o hover remoto anterior de todos os elementos
+            $('.remote-hover').removeClass('remote-hover');
+            
+            // Se o evento for de entrada (enter), aplica a classe ao elemento correto pelo índice
+            if (data.state === 'enter') {
+                const $target = $(data.selector).eq(data.index);
+                if ($target.length > 0) {
+                    $target.addClass('remote-hover');
+                }
+            }
         }
     });
 }

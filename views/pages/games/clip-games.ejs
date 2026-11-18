@@ -13,11 +13,9 @@
     padding: 0 35px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0) 100%);
     z-index: 100; flex-shrink: 0; box-sizing: border-box;
-    
 }
 
 .nav-group { display: flex; gap: 15px; align-items: center; }
-
 
 /* ── GRID ── */
 #clips-grid {
@@ -35,12 +33,12 @@
 
 .game-card {
     position: relative;
-    background:rgba(0, 0, 0, 0.4); border: 2px solid rgba(255,255,255,0.08);
+    background: rgba(0, 0, 0, 0.4); border: 2px solid rgba(255,255,255,0.08);
     border-radius: 0px; padding: 1px; cursor: pointer;
     display: flex; flex-direction: column; align-items: center;
     transition: transform 0.2s;
 }
-.game-card:hover { 
+.game-card:hover, .game-card.remote-hover { 
     transform: translateY(-2px) scale(1.01);
     border: 2px solid rgb(249, 184, 20);
     box-shadow:
@@ -48,23 +46,10 @@
         0 20px 48px rgba(0,0,0,0.7),
         0 0 24px var(--card-glow, rgba(255,255,255,0.05)); 
 }
-        
-.game-card.remote-hover { 
-     transform: translateY(-2px) scale(1.01);
-    border: 2px solid rgb(249, 184, 20);
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.15),
-        0 20px 48px rgba(0,0,0,0.7),
-        0 0 24px var(--card-glow, rgba(255,255,255,0.05)); 
-}
-/* Overlay to darken images */
-
 
 .game-media { width: 100%; height: 120px; background: #111; border-radius: 0px; overflow: hidden; }
 .game-thumbnail { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
 .game-name { font-size: 0.8rem; text-transform: uppercase; color: #fff; margin: 10px 0; }
-
-
 
 /* ── CENTERING THE TITLE ── */
 .active-label {
@@ -74,79 +59,101 @@
     font-size: 1.0rem;
     letter-spacing: 3px;
     opacity: 0.6;
-    pointer-events: none; /* Allows clicking through if needed */
+    pointer-events: none;
 }
-/* ── UPDATED MODAL LAYOUT ── */
+
+/* ── MODAL ESTILO SECOND LIFE ── */
 #category-modal {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(10, 10, 10, 0.95); display: none;
+    background: rgba(0, 0, 0, 0.85); display: none;
     justify-content: center; align-items: center; z-index: 2000;
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background: rgba(20, 20, 20, 0.9); border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px; padding: 40px; width: 800px; /* Wider for 4 columns */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    background: #111; 
+    width: 900px; 
+    border: 2px solid #ffcc00; 
+    border-radius: 15px; 
+    padding: 30px; 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    box-sizing: border-box;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
 }
 
 .modal-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4-column structure */
-    gap: 12px;
-    margin-top: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
 .modal-btn {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ccc; padding: 12px 15px; border-radius: 8px;
-    cursor: pointer; text-align: left; font-size: 0.85rem;
-    transition: all 0.2s;
-    display: flex; justify-content: space-between; align-items: center;
+    background: #222;
+    border: 1px solid #444;
+    color: #ccc; 
+    padding: 15px; 
+    border-radius: 8px;
+    cursor: pointer; 
+    text-align: center; 
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
 }
 
 .modal-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-    color: #fff;
+    border-color: #ffcc00; 
+    color: #fff; 
+    background: #2a2a2a;
 }
 
-/* Icon placeholder mimicking your reference */
 .modal-btn::after {
-    content: "📷"; font-size: 0.7rem; opacity: 0.4;
+    content: "🎮"; font-size: 0.8rem; opacity: 0.5;
 }
 </style>
 
 <div id="clips-wrapper">
-<nav id="clips-nav">
+    <nav id="clips-nav">
+        <div id="active-label" class="active-label">PUZZLE</div>
 
-                   <div id="active-label">PUZZLE</div>
-
-            <div style="margin-right: 24px!important;margin-top:2px;">
-                <button class="ltv-nav-btn" onclick="openCategoryModal()">
+        <div style="margin-right: 24px!important;margin-top:2px;">
+            <button class="ltv-nav-btn" onclick="openCategoryModal()">
                 <span class="material-symbols-rounded" style="font-size:25px!important; vertical-align:middle;">menu</span>
-                </button>
-            </div>
+            </button>
+        </div>
 
-
-            <div style="margin-right: 24px!important;margin-top:2px;">
-                <button class="ltv-back-btn" onclick="closeSubMenu()">
-                <span class="material-symbols-rounded" style="font-size:25px!important; vertical-align:middle;">close</span>
-               </button>
-            </div>
-
-
-
-
-</nav>
+        <div style="margin-right: 24px!important;margin-top:2px;">
+            <button class="ltv-back-btn" onclick="closeSubMenu()">
+                <span class="material-symbols-rounded" style="font-size:23px!important; vertical-align:middle;">close</span>
+            </button>
+        </div>
+    </nav>
     <div id="clips-grid"></div>
 </div>
 
 <div id="category-modal">
     <div class="modal-content">
-        <h3 style="text-align: left; margin: 0; color: #fff; letter-spacing: 2px;">SELECT CATEGORY</h3>
-        <div class="modal-grid">
+        <!-- Cabeçalho idêntico ao SL com título dourado e botão X -->
+        <div class="modal-header">
+            <h3 style="margin: 0; color: #ffcc00; font-size: 24px; font-weight: 500; letter-spacing: 2px;">SELECT CATEGORY</h3>
+            <button onclick="closeModal()" style="background: none; border: none; color: white; font-size: 30px; cursor: pointer; line-height: 1;">&times;</button>
+        </div>
 
+        <div class="modal-grid">
             <button class="modal-btn" onclick="loadCategory('rand')">Mix Selection</button>
             <button class="modal-btn" onclick="loadCategory('puzzle')">Puzzle</button>
             <button class="modal-btn" onclick="loadCategory('strategy')">Strategy</button>
@@ -157,14 +164,11 @@
             <button class="modal-btn" onclick="loadCategory('math')">Math</button>
             <button class="modal-btn" onclick="loadCategory('arcade')">Arcade</button>
 
-
             <button class="modal-btn" onclick="loadCategory('sports')">Sports</button>
             <button class="modal-btn" onclick="loadCategory('avoider')">Avoider</button>
             <button class="modal-btn" onclick="loadCategory('war')">War</button>
             <button class="modal-btn" onclick="loadCategory('clicker')">Clicker</button>
-
         </div>
-        <button class="cancel-btn" onclick="closeModal()" style="margin-top: 30px;">Close</button>
     </div>
 </div>
 
@@ -192,7 +196,6 @@ window.loadCategory = function(fileName, isSync = false) {
     closeModal();
     if (window.isFetching) return;
     
-    // If this is a sync call from another user, don't re-emit
     if (!isSync && window.socket && window.myRoom) {
         window.socket.emit('state_sync', { type: 'load_category', category: fileName, room: window.myRoom });
     }
@@ -223,35 +226,30 @@ function renderGrid(games, categoryName) {
     grid.html(html).scrollTop(0);
 }
 
-// ── SOCKET LISTENER (Put this in your main app script) ──
+// ── SOCKET LISTENER ──
 if (window.socket) {
     window.socket.on('state_sync', (data) => {
-        // Sync Modal
         if (data.type === 'modal_toggle') {
             document.getElementById('category-modal').style.display = data.open ? 'flex' : 'none';
         }
         
-        // Sync Category Loading
         if (data.type === 'load_category') {
-            window.loadCategory(data.category, true); // true = don't emit back
+            window.loadCategory(data.category, true);
         }
 
-        // NEW: Sync Scroll
         if (data.type === 'scroll') {
-            window.isSyncing = true; // Flag to tell the listener above not to re-emit
+            window.isSyncing = true;
             const grid = $('#clips-grid');
             if (grid) {
                 grid.scrollTop(data.position);
             }
-            // Reset the flag shortly after
             setTimeout(() => { window.isSyncing = false; }, 100);
         }
     });
 }
-//// SCROOL LISTENER
+
 // ── SYNC SCROLL POSITION ──
 $('#clips-grid').on('scroll', function() {
-    // Prevent sync loop (if this scroll was caused by a socket update, ignore it)
     if (window.isSyncing) return;
     
     if (window.socket && window.myRoom) {
@@ -262,7 +260,6 @@ $('#clips-grid').on('scroll', function() {
         });
     }
 });
-
 
 window.sendToPlayer = (url) => { handleNav(`tv-clip-games?videoId=${encodeURIComponent(url)}`); };
 

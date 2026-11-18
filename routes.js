@@ -620,7 +620,7 @@ router.post('/send-command', (req, res) => {
 
     axios.post(tvUrl, `${command}|${value}`, {
         headers: { 'Content-Type': 'text/plain' },
-        timeout: 5000
+        timeout: 15000
     })
     .then(() => res.json({ success: "ok" }))
     .catch(err => {

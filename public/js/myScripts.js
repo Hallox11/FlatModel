@@ -491,7 +491,10 @@ const syncSelectors =
      '.search-btn, ' + // youtube search buttons
      '.nav-btn-glass, ' +
      '.burger-menu-btn, '+
+     '.xxx-category-card, '+
   '.btn, ' +
+ '.xxxvideo-card, ' + // <-- ADICIONADO AQUI
+  '.cat-map-btn, ' +   // <-- ADICIONADO AQUI (para as categorias do modal também brilharem)
   '.video-card, ' +
   '.nav-btn-glass, ' +
   '.theme-thumb, ' +
@@ -558,29 +561,33 @@ function aplicarBackground(url) {
 // ===============================
 // SCROLL SYNC (VERSÃO CORRIGIDA)
 // ===============================
+// ===============================
+// SCROLL SYNC (VERSÃO BLINDADA CONTRA LOOP)
+// ===============================
 let scrollTimeout;
+let lastScrollEmitTime = 0;
 
-// Todos os seletores dentro de UMA única string
 const globalScrollTargets = '#sl-main-scroll-area, #conteiner, .conteiner, #xxx-module, #grid-content, #yt-content-scroll,#flickr-results-grid,#content-wrapper';
 
 $(document).on('scroll', globalScrollTargets, function() {
-    // 1. Só envia se o socket existir e se não for um scroll vindo de fora (remote)
-    if (window.socket && window.socket.connected && !window.isSyncing) { 
-        
+    // Se o scroll foi gerado remotamente há menos de 100ms, ignoramos para não criar loop
+    if (window.isSyncing || (Date.now() - (window.lastRemoteScrollTime || 0) < 50)) return;
+
+    if (window.socket && window.socket.connected) {
         const $el = $(this);
-        // Descobrir qual o ID ou Classe do elemento que disparou o scroll
         const activeSelector = $el.attr('id') ? '#' + $el.attr('id') : '.conteiner';
+        const currentScrollTop = $el.scrollTop();
 
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
-            // Enviamos a posição em pixels (scrollTop)
+            lastScrollEmitTime = Date.now();
             socket.emit('state_sync', {
                 type: 'scroll',
-                selector: activeSelector, // <-- Adicionamos isto para o outro saber ONDE rolar
-                position: $el.scrollTop(),
+                selector: activeSelector,
+                position: currentScrollTop,
                 room: window.myRoom
             });
-        }, 150); 
+        }, 50); 
     }
 });
 // ===============================

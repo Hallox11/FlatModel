@@ -327,7 +327,7 @@ if (data.type === 'scroll' && data.selector === '#sl-main-scroll-area') {
         
         // Reset the flag after the browser has finished moving the scrollbar
         // Using a slight delay ensures smooth sync
-        setTimeout(() => { window.isSyncing = false; }, 100);
+        setTimeout(() => { window.isSyncing = false; }, 5);
     }
 }
         });
@@ -345,21 +345,29 @@ if (data.type === 'scroll' && data.selector === '#sl-main-scroll-area') {
     }
 
 // --- SCROLL BROADCASTER ---
+// --- SCROLL BROADCASTER OTIMIZADO ---
 const scrollArea = document.getElementById('sl-main-scroll-area');
 
 if (scrollArea) {
+    let scrollTimeout;
+
     scrollArea.addEventListener('scroll', function() {
-        // Prevent emitting if the scroll was triggered by a remote sync command
         if (window.isSyncing) return;
-        
-        if (window.socket && window.myRoom) {
-            window.socket.emit('state_sync', { 
-                type: 'scroll', 
-                position: this.scrollTop, 
-                selector: '#sl-main-scroll-area',
-                room: window.myRoom 
-            });
-        }
+
+        // Limpa o timeout anterior para evitar envios excessivos
+        clearTimeout(scrollTimeout);
+
+        // Envia a posição do scroll apenas a cada 50ms (ou quando parar um pouco)
+        scrollTimeout = setTimeout(() => {
+            if (window.socket && window.myRoom) {
+                window.socket.emit('state_sync', { 
+                    type: 'scroll', 
+                    position: this.scrollTop, 
+                    selector: '#sl-main-scroll-area',
+                    room: window.myRoom 
+                });
+            }
+        }, 100); // 50ms garante fluidez sem sobrecarregar o socket
     });
 }
 
